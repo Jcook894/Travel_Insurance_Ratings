@@ -1,0 +1,40 @@
+#eblog-wrapper .btn-eb-navbar {
+  height: 30px;
+  width: 44px;
+}
+#eblog-wrapper #eblog-search .search-input input {
+  height: 30px !important;
+}
+.ezb-mod.mod_easyblogcategories .mod-item {
+  padding-top: 20px !important;
+}
+div#fd.eb .eb-post + .eb-post {
+  border-top: 1px solid #eeeeee;
+  padding-top: 40px;
+}
+.mod-es-recent-blogs .es-nav-blogs {
+  margin: 0;
+  padding: 0;
+}
+.mod-es-recent-blogs .es-nav-blogs li {
+  list-style-type: none;
+}
+.mod-es-recent-blogs .es-nav-blogs li .media-object {
+  margin-bottom: 20px;
+}
+.t3-sidebar #fd.mod-es-recent-blogs .media {
+  padding: 0 !important;
+}
+.t3-sidebar #fd.mod-es-recent-blogs .media .media-object {
+  float: none !important;
+  padding: 0;
+  margin: 0 0 20px;
+}
+.t3-sidebar #fd.mod-es-recent-blogs .media .media-object img {
+  max-width: 100%;
+}
+.mod-easyblogtagcloud .tag-cloud {
+  margin: 0 0 5px 10px;
+  display: inline-block;
+  line-height: normal !important;
+}

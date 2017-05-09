@@ -1,0 +1,72 @@
+@import "../vars.less";
+
+// ---------------------------------------------------------
+// EASYDISCUSS COMPATIBLITY
+// ---------------------------------------------------------
+
+#eblog-wrapper {
+  // Toolbar
+  .btn-eb-navbar {
+    height: 30px;
+    width: 44px;
+  }
+
+  // Search blog
+  #eblog-search .search-input input {
+    height: 30px !important;
+  }
+}
+
+.ezb-mod.mod_easyblogcategories {
+  .mod-item {
+    padding-top: 20px !important;
+  }
+}
+
+div#fd.eb {
+	.eb-post + .eb-post {
+		border-top: 1px solid @t3-border-color;
+		padding-top: @t3-global-padding*2;
+	}
+}
+
+// Recent Blogs Module
+.mod-es-recent-blogs {
+  .es-nav-blogs {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style-type: none;
+      .media-object {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.t3-sidebar {
+	#fd.mod-es-recent-blogs {
+		.media {
+			padding: 0 !important;
+			
+			.media-object {
+				float: none !important;
+				padding: 0;
+				margin: 0 0 @t3-global-margin;
+				
+				img {
+					max-width: 100%;
+				}
+			}
+		}
+	}
+}
+
+// Tag Blogs Module
+.mod-easyblogtagcloud {
+	.tag-cloud {
+		margin: 0 10px 5px 0;
+		display: inline-block;
+		line-height: normal !important;
+	}
+}

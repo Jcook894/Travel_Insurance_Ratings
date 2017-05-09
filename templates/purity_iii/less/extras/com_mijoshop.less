@@ -1,0 +1,353 @@
+
+@import "vars.less"; // Modify this for custom colors, font-sizes, etc
+
+
+// 
+// COMPATIBLE WITH MIJOSHOP
+// ---------------------------------------------------------
+.com_mijoshop {
+	
+	// Product Detail
+	// -------------------
+	.common-home {
+		#content_oc h1,
+		#content_oc h2 {
+			font-size: @font-size-h3;
+		}
+	}
+
+  // All categories
+  // --------------
+  .box_oc {
+    .box-product {
+      margin-left: 0;
+      padding: 20px;
+      & > div {
+        float: left;
+        margin: 0;
+				margin-right: 20px;
+				width: 100%;
+				
+        .image {
+          display: inline-block;
+          border: 1px solid @t3-border-color;
+          padding: 5px;
+          text-align: left;
+
+          a {
+            display: inline-block;
+          }
+
+          img {
+            border: 0;
+            padding: 0;
+          }
+        }
+
+        .name {
+          padding: (@t3-global-padding / 2) 0;
+          text-align: left;
+        }
+        .price {
+          margin: 10px 0;
+        }
+      }
+    }
+		#tab-related {
+			.box-product {
+				& > div {
+					width: auto;
+				}
+			}
+		}
+    .box-content {
+      .content_oc {
+        p {
+          * {
+            margin: 10px 10px 10px 0;
+          }
+        }
+      }
+    }
+  }
+
+
+	// Category page ( Product list )
+	// ------------------------------
+
+	// Header
+	#header_oc {
+    margin: 0 0 @t3-global-margin;
+    padding: 0;
+
+    #currency {
+      top: 0;
+
+      a {
+        margin-top: 5px;
+      }
+    }
+
+    #cart {
+      border-left: 1px solid @t3-border-color;
+      margin-left: @t3-global-margin;
+      top: 5px;
+
+      .heading {
+        margin-top: 0;
+      }
+    }
+
+    #search_oc {
+      top: 10px;
+      width: 120px;
+
+      input[type="text"] {
+        border-radius: 0;
+        height: 25px;
+        .box-sizing(border-box);
+      }
+    }
+
+    .links {
+      bottom: 0;
+      top: auto;
+    }
+  }
+
+  #currency,
+  #top-links {
+    .dropdown-menu > li {
+      border-color: @t3-border-color;
+
+      a:hover, a:focus {
+        color: @white;
+      }
+    }
+
+    .open a {
+      color: @text-color
+    }
+  } 
+
+  // Content
+	// ---------------------
+	
+	.mijoshop {
+		// Product Thumbnail
+		.product-thumb {
+		
+			.image img {
+					max-width: 100%;
+					width: 100%;
+			}
+			
+			.caption {
+				padding: 15px !important;
+				
+				h4 {
+					margin: 0 0 @t3-global-margin/2;
+					font-size: @t3-font-size-big;
+					
+					a {
+						color: @gray-dark;
+						
+						&:hover, &:focus {
+							color: @brand-primary;
+						}
+					}
+				}
+				
+				.price {
+					font-weight: @font-weight-bold;
+					color: @brand-primary;
+					margin-top: @t3-global-margin/2 !important;
+					
+					.price-tax {
+						color: @gray-light;
+						font-weight: @font-weight-normal;
+					}
+				}
+			}
+		}
+	}
+	
+	#content_oc {
+    > h2 {
+      margin-bottom: @t3-global-margin*1.5;
+			font-size: @font-size-h3;
+    }
+		
+		// Product compare
+		> p {
+			padding: @t3-global-padding/2 @t3-global-padding;
+			border: 1px solid @t3-border-color;
+      margin-bottom: @t3-global-margin !important;
+      margin-top: @t3-global-margin / 2!important;
+		}
+
+    // Product filter
+		.product-filter {
+      padding-bottom: @t3-global-padding / 2;
+
+      .display {
+        padding-top: 15px;
+      }  
+    }
+		
+		// Product Grid
+		.product-grid {
+			.product-thumb {
+				
+				.caption {
+					min-height: 200px !important;
+				}
+			}
+		}
+		
+		// Product List
+		.product-list {
+			.product-thumb {
+			
+				.image {
+					padding: 0 @t3-global-padding 0 0;
+					height: 200px;
+					
+					> a {
+						height: 100%;
+					}
+					
+					img {
+						max-width: 100%;
+						max-height: 100%;
+					}
+				}
+				
+				.caption {
+					overflow: hidden;
+					margin: 0;
+					padding: @t3-global-padding @t3-global-padding @t3-global-padding 0 !important;
+					min-height: 161px !important;
+				}
+			}
+		}
+  }
+
+
+
+  // Product detail
+	// --------------
+	.product-info {
+    .left {
+      width: 30% !important;
+    }
+
+    .right {
+      min-height: 352px;
+      width: 65% !important;
+
+      .description {
+        border-top: 0;
+        padding: 0 0 (@t3-global-padding / 2);
+      }
+
+      .cart div {
+        input[type="text"],
+        input[type="button"] {
+          display: inline-block;
+        }
+
+        input[type="text"] {
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+
+        span {
+          color: @gray-light;
+        }
+      }
+
+    }
+  }
+
+  #tab-description,
+  #tab-review {
+    padding: @t3-global-padding;
+  }
+
+
+  // My Account page
+	// ---------------
+	.content_oc {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+
+  // Checkout page
+	// -------------
+	.cart-info {
+    .quantity input[type='text'] {
+      .box-sizing(content-box);
+      height: 28px;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  .cart-module {
+    #coupon input,
+    #voucher input {
+      display: inline-block;
+    }
+
+    #shipping table {
+      border-bottom: 1px solid @t3-border-color;
+      margin-bottom: @t3-global-margin;
+    }
+
+    #shipping table td {
+      padding: (@t3-global-padding / 2) @t3-global-padding;
+    }
+  }
+
+
+  // Mijoshop modules
+	// ----------------
+	.box-category {
+    ul {
+      li {
+        padding: 10px 10px 10px 0;
+      }
+    }
+  }
+
+  // Mijoshop colorbox
+	// ----------------
+	#colorbox {
+    box-sizing: unset !important;
+  }
+	
+	// Sidebar
+	// ---------------
+	
+	#column-right {
+		
+		.row > div {
+			width: 100%;
+			float: none;
+		}
+	}
+	
+	.t3-sidebar {
+		.mijoshop .container_oc {
+			.row > div {
+				width: 100%;
+				float: none;
+			}
+		}
+	}
+}
