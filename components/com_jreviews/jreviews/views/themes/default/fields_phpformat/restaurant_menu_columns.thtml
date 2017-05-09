@@ -1,0 +1,47 @@
+<?php
+
+$menu = json_decode($text, true);
+
+$priceDecimals = 0;
+
+foreach ($menu AS $section):?>
+
+   <div style="text-align: center;">
+
+      <h3 style="text-transform: uppercase;"><?php echo $section['heading']['title'];?></h3>
+
+      <p><?php echo $section['heading']['description'];?></p>
+
+   </div>
+
+   <?php
+   $dishRows = array_chunk($section['dishes'], 2);
+   ?>
+
+   <div class="jrGrid">
+
+      <?php foreach ($dishRows AS $row):?>
+
+         <div class="jrGrid">
+
+            <?php foreach ($row AS $dish):?>
+
+                  <div class="jrCol6">
+
+                     <p class="jrDishName">
+                        <?php echo $dish['name'];?>
+                        <sub style="font-size: 1em;"><?php echo number_format($dish['price'], $priceDecimals);?></sub>
+                     </p>
+                     <p class="jrDishDescription"><?php echo $dish['description'];?></p>
+
+                  </div>
+
+            <?php endforeach;?>
+
+         </div>
+
+      <?php endforeach;?>
+
+   </div>
+
+<?php endforeach;?>

@@ -1,0 +1,388 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<div class="admin_header"><?php __a("Configuration Settings");?></div>
+			
+<form id="adminForm" name="adminForm">
+
+	<div class="admin_toolbar">
+		<input type="button" class="button" value="Save" onclick="xajax.request({xjxfun:'xajaxDispatch'},{URI:'<?php displayXajaxUri('jrexpress');?>',parameters:['admin/configuration','_save','jrexpress',xajax.getFormValues('adminForm')]});" />
+	</div>
+	
+	<div id="status">&nbsp;</div>
+
+	<div id="jtabs">
+	    <ul>
+	        <li><a href="#general"><span><?php __a("General");?></span></a></li>
+	        <li><a href="#items-list"><span><?php __a("List page");?></span></a></li>
+	        <li><a href="#reviews"><span><?php __a("Reviews");?></span></a></li>
+	        <li><a href="#images"><span><?php __a("Images");?></span></a></li>
+	        <li><a href="#notifications"><span><?php __a("Notifications");?></span></a></li>  
+	        <li><a href="#cache"><span><?php __a("Cache");?></span></a></li> 
+	    </ul>
+	    <div id="general">
+			<table class="admin_list">
+				<tr><th colspan="3">General settings</th></tr>
+				<tr>
+					<td width="250">Community Integration:</td>
+					<td>
+						<?php echo $Form->select(
+								'community',
+								array(''=>__t("Select",true),'community_builder'=>'CommunityBuilder','jom_social'=>'JomSocial','joomunity'=>'Joomunity'),
+								$this->Config->community,
+								array('size'=>'1','class'=>'inputbox')
+							);
+						?>
+					</td>
+					<td></td>
+				</tr>			
+				<tr>
+					<td width="250">Use username or realname:</td>
+					<td>
+						<?php echo $Form->select(
+								'name_choice',
+								array('realname'=>'Real Name','alias'=>'Username'),
+								$this->Config->name_choice,
+								array('size'=>'1','class'=>'inputbox')
+							);
+						?>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Vote summarize period</td>
+					<td>
+						<?php
+							echo $Form->select(
+								'vote_summarize_period',
+								array(
+									'1'=>'1 hour',
+									'6'=>'6 hours',
+									'12'=>'12 hours',
+									'24'=>'24 hours',
+									'48'=>'48 hours',
+									'0'=>'Instant for testing'
+									),
+								$this->Config->vote_summarize_period,
+								array('size'=>'1','class'=>'inputbox')
+							);			
+						?>
+					</td>
+					<td>The review votes are first stored in a temporary table and later summarized and transfered to a final table. This setting determines the time perior after which each vote will appear on the site. It helps prevent multiple voting by one person.</td>
+				</tr>
+				<tr>
+					<td>Rating scale:</td>
+					<td><input id="rating_scale" name="rating_scale" type="text" size="3" value="<?php echo $this->Config->rating_scale;?>" /></td>
+					<td>Enter a number higher than zero. <strong>Once you have reviews on your site you cannot change this setting!</strong></td>
+				</tr>
+				<tr>
+					<td>Rating selector in review form:</td>
+					<td>
+						<?php echo $Form->select(
+								'rating_selector',
+								array('select'=>'Select List','stars'=>'Star Images'),
+								$this->Config->rating_selector,
+								array('size'=>'1','class'=>'inputbox')
+							);
+						?>
+					</td>
+					<td>Star images provides a graphic interface for choosing the rating values.</td>
+				</tr>				
+				<tr>
+					<td>Rating graph type:</td><td><?php echo $Form->radioYesNo( "rating_graph", "", $this->Config->rating_graph, 'Stars', 'Bars');?></td>
+					<td>Display stars or bars to graphically represent the ratings.</td>
+				</tr>
+				<tr><th colspan="3">Theme Settings</th></tr>
+				<tr>
+					<td>Theme:</td>
+					<td>
+						<?php
+							echo $Form->select(
+								'template',
+								$themes,
+								$this->Config->template,
+								array('size'=>'1','class'=>'inputbox')
+							);
+						?>
+					</td>
+					<td>Choose the Theme to use for the JReviews Express frontend.</td>
+				</tr>
+
+				<tr><th colspan="3">Url Settings</th></tr>
+				<tr>
+					<td>Transliterate urls:</td>
+					<td>
+						<?php
+							echo $Form->select(
+								'transliterate_urls',
+								array(0=>'No',1=>'Simple',2=>'Advanced (more memory intensive)'),
+								$this->Config->transliterate_urls,
+								array('size'=>'1','class'=>'inputbox')
+							);
+						?>
+					</td>
+					<td>Replaces accented and special characters with their alphanumeric equivalents. Advanced mode works with more languages, but it is also more memory intensive. Some sef components can do character replacements and this feature can be disabled for better performance.</td>
+				</tr>	
+								
+			</table>    
+	    </div>
+			
+		<div id="items-list">
+			<table class="admin_list" style="margin-bottom: 5px;">
+				<tr><th colspan="3">Global View Selection</th></tr>
+				<tr>
+					<td width="250">Display Type</td>
+					<td>
+						<?php echo $Form->select(
+								'list_display_type',
+								array(
+									'0'=>'Tableview',
+									'1'=>'Blogview',
+									'2'=>'Thumbview',							
+									),
+								$this->Config->list_display_type,	
+								array('size'=>'1','class'=>'inputbox')
+							);					
+						?>
+					</td>
+					<td></td>
+				</tr>
+				<tr><th colspan="3">General settings for listings</th></tr>
+				<tr>
+					<td width="250">Number of listings per page?</td>
+					<td>
+						<?php
+							echo $Form->selectNumbers('list_limit',5,50,5,$this->Config->list_limit,array('class'=>'inputbox','size'=>'1'));				
+						?>
+					</td>
+					<td>Used for pagination.</td>
+				</tr>
+			</table>
+	
+			<table class="admin_list" style="margin-bottom: 5px;">
+				<tr><th colspan="2">Info box</th></tr>
+				<tr>
+					<td width="250">Show date</td>
+					<td><?php echo $Form->radioYesNo('list_show_date',"", $this->Config->list_show_date);?></td>
+				</tr>
+				<tr>
+					<td width="250">Show listing author</td>
+					<td><?php echo $Form->radioYesNo('list_show_author',"", $this->Config->list_show_author);?></td>
+				</tr>
+				<tr>
+					<td width="250">Show average user rating</td>
+					<td><?php echo $Form->radioYesNo( "list_show_user_rating", "", $this->Config->list_show_user_rating);?></td>
+				</tr>
+				<tr>
+					<td width="250">Show hits</td>
+					<td><?php echo $Form->radioYesNo( "list_show_hits", "", $this->Config->list_show_hits);?></td>
+				</tr>
+			</table>
+			<table class="admin_list" style="margin-bottom: 5px;">
+				<tr><th colspan="3">Listings</th></tr>
+				<tr>
+					<td width="250">Show summary</td>
+					<td width="300"><?php echo $Form->radioYesNo( "list_show_abstract", "", $this->Config->list_show_abstract);?></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Trim summary (words)</td>
+					<td><input class="inputbox" type="text" name= "list_abstract_trim" value="<?php echo $this->Config->list_abstract_trim; ?>" size="3" maxlength="3" /></td>
+					<td>If zero or blank it will display all the text.
+					<br /><strong>Limiting the number of words will strip all html formatting.</strong></td>
+				</tr>
+			</table>
+		
+			<table class="admin_list" style="margin-bottom: 5px;">
+				<tr><th colspan="2">Action box</th></tr>
+				<tr>
+					<td width="250">Show read more link</td>
+					<td><?php echo $Form->radioYesNo( "list_show_readmore", "", $this->Config->list_show_readmore);?></td>
+				</tr>
+				<tr>
+					<td width="250">Show read reviews link</td>
+					<td><?php echo $Form->radioYesNo( "list_show_readreviews", "", $this->Config->list_show_readreviews);?></td>
+				</tr>
+				<tr>
+					<td width="250">Show write review link</td>
+					<td><?php echo $Form->radioYesNo( "list_show_newreview", "", $this->Config->list_show_newreview);?></td>
+				</tr>
+			</table>
+		</div>
+		
+		<div id="reviews">
+			<table class="admin_list">
+				<tr><th colspan="3">Main settings</th></tr>
+				<tr>
+					<td width="250">Enable User Reviews</td>
+					<td width="120"><?php echo $Form->radioYesNo( "user_reviews", "", $this->Config->user_reviews );?></td>
+					<td></td>
+				</tr>						
+				<tr>
+					<td width="250">Number of user reviews per page?</td>
+					<td>
+						<?php
+							echo $Form->selectNumbers('user_limit',5,50,5,$this->Config->user_limit,array('class'=>'inputbox','size'=>'1'));
+						?>
+					</td>
+					<td>Used for pagination.</td>
+				</tr>
+                <tr><th colspan="3">Form fields</th></tr>
+                <tr>
+                    <td width="250">Enable TITLE field in reviews? </td>
+                    <td width="100"><?php echo $Form->radioYesNo( "reviewform_title", "", $this->Config->reviewform_title );?></td>
+                    <td>Affects review form in listings and new listing submissions.</td>
+                </tr>
+                <tr>
+                    <td width="250">Enable EMAIL field in reviews? </td>
+                    <td><?php echo $Form->radioYesNo( "reviewform_email", "", $this->Config->reviewform_email );?></td>
+                    <td>Affects review form and no contact info will be gathered from guests. Email field is not shown to registered users.</td>
+                </tr>
+                <tr>
+                    <td width="250">Enable COMMENT field in reviews? </td>
+                    <td><?php echo $Form->radioYesNo( "reviewform_comment", "", $this->Config->reviewform_comment );?></td>
+                    <td>Affects review form in listings and new listing submissions.</td>
+                </tr>                
+				<tr><th colspan="3">Miscellaneous</th></tr>
+				<tr>
+					<td>Enable voting</td>
+					<td><?php echo $Form->radioYesNo( "user_vote", "", $this->Config->user_vote );?></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Enable report to moderator</td>
+					<td><?php echo $Form->radioYesNo( "user_report", "", $this->Config->user_report );?></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Show detailed ratings box</td>
+					<td><?php echo $Form->radioYesNo( "user_ratings", "", $this->Config->user_ratings );?></td>
+					<td>Shows the individual criteria ratings when enabled, otherwise only the overall rating is displayed.</td>
+				</tr>
+				<tr>
+					<td>Show user review rank link</td>
+					<td><?php echo $Form->radioYesNo( "user_rank_link", "", $this->Config->user_rank_link );?></td>
+					<td>The link will show only in reviews submitted by registered users.</td>
+				</tr>
+				<tr>
+					<td>Show <u>see all reviews</u> link</td>
+					<td><?php echo $Form->radioYesNo( "user_myreviews_link", "", $this->Config->user_myreviews_link );?></td>
+					<td>The link will show only in reviews submitted by registered users.</td>
+				</tr>
+			</table>
+		</div>
+			
+		<div id="images">
+			<table class="admin_list">
+				<tr><th colspan="3">Display settings for list pages</th></tr>
+				<tr>
+					<td width="250">Show image</td>
+					<td width="120"><?php echo $Form->radioYesNo( "list_show_image", "", $this->Config->list_show_image);?></td>
+					<td>Make sure upload directory exists and is writeable: <b>/images/stories/jreviews/tn</b></td>
+				</tr>
+				<tr>
+					<td>Thumbnail width (pixels)</td>
+					<td><input class="inputbox" type="text" name= "list_image_resize" value="<?php echo $this->Config->list_image_resize; ?>" size="3" maxlength="3" /></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td width="250">Use category image</td>
+					<td width="120"><?php echo $Form->radioYesNo( "list_category_image", "", $this->Config->list_category_image);?></td>
+					<td>If there isn't a listing image it will use the category image if available.'</td>
+				</tr>
+				<tr>
+					<td width="250">Use "no image" image</td>
+					<td width="120"><?php echo $Form->radioYesNo( "list_noimage_image", "", $this->Config->list_noimage_image);?></td>
+					<td>If there ins't a listing image, nor category image, it will use the replacement image. Place it in the template's images folder.').</td>
+				</tr>
+				<tr>
+					<td width="250">No image file name</td>
+					<td width="120"><input type="text" name="list_noimage_filename" value="<?php echo $this->Config->list_noimage_filename; ?>"></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+		
+		<div id="notifications">
+            <p>To customize the text of the emails you need to edit the email templates in: <br />
+            /components/com_jrexpress/jrexpress/views/themes/default/email_templates/<br /><br /></p>
+			<table class="admin_list">
+				<tr><th>Admin e-mails</th><th></th><th>Admin e-mail Addresses (one per line)</th></tr>
+                 <tr>
+					<td width="250" valign="top"><?php __a("Send on new/edited review");?></td>
+					<td width="120" valign="top"><?php echo $Form->radioYesNo( "notify_review", "", $this->Config->notify_review );?></td>
+					<td><textarea id="notify_review_emails" name="notify_review_emails" rows="5" cols="50"><?php echo ($this->Config->notify_review_emails != '' ? $this->Config->notify_review_emails : cmsFramework::getConfig('mailfrom'))?></textarea></td>
+				</tr>
+				<tr>
+					<td valign="top"><?php __a("Send on reported reviews");?></td>
+					<td valign="top"><?php echo $Form->radioYesNo( "notify_report", "", $this->Config->notify_report );?></td>
+					<td><textarea id="notify_report_emails" name="notify_report_emails" rows="5" cols="50"><?php echo ($this->Config->notify_report_emails != '' ? $this->Config->notify_report_emails : cmsFramework::getConfig('mailfrom'))?></textarea></td>
+				</tr>
+                <tr><th>User e-mails</th><th></th><th>BCC to other e-mail Addresses (one per line)</th></tr>
+                <tr>
+                    <td valign="top"><?php __a("Send on new/edited review to listing owner");?></td>
+                    <td valign="top"><?php echo $Form->radioYesNo( "notify_owner_review", "", $this->Config->notify_owner_review );?></td>
+                    <td><textarea id="notify_owner_review_emails" name="notify_owner_review_emails" rows="5" cols="50"><?php echo $this->Config->notify_owner_review_emails;?></textarea></td>
+                </tr>
+                <tr>
+                    <td valign="top"><?php __a("Send on new/edited review to submitter");?></td>
+                    <td valign="top"><?php echo $Form->radioYesNo( "notify_user_review", "", $this->Config->notify_user_review );?></td>
+                    <td><textarea id="notify_user_review_emails" name="notify_user_review_emails" rows="5" cols="50"><?php echo $this->Config->notify_user_review_emails;?></textarea></td>
+                </tr>
+			</table>
+		</div>
+			
+		<div id="cache">
+			<table class="admin_list">
+                <tr><th colspan="3">File Registry</th></tr>
+                <tr style="vertical-align:top;">
+                    <td colspan="3">Provides a significant boost in performance by mapping the whole framework and JReviews Express filesystem and caching it. You should clear the file registry often using the link on the left column if you are creating custom theme files with suffixes or adding new files to the jrexpress_overrides folder. Otherwise JReviews Express is not able to find the new files.</td>
+                </tr>
+			</table>	
+			
+			<br />
+
+			<table class="admin_list">
+				<tr><th colspan="3">Cache Settings</th></tr>
+				<tr style="vertical-align:top;">
+					<td width="250">Disable Cache</td>
+					<td width="120"><?php echo $Form->radioYesNo('cache_disable','',$this->Config->cache_disable)?></td>
+					<td>Global cache setting. If disabled it stops both query and view cache functionality.</td>
+				</tr>
+			</table>	
+			<br />
+			<table class="admin_list">
+				<tr style="vertical-align:top;">
+					<td width="250">Cache duration (seconds)</td>
+					<td width="120"><input id="cache_expires" name="cache_expires" type="text" value="<?php echo $this->Config->cache_expires?>" size="10" maxsize="10" /></td>
+					<td>Cached files will be re-created if they have expired.</td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td width="250">Enable Query Cache</td>
+					<td><?php echo $Form->radioYesNo('cache_query','',$this->Config->cache_query)?></td>
+					<td>Reduces the number of queries per page. The cache is cleared after the cache duration has passed or everytime the JReviews Express setup, configuration, a listing or review is submitted or updated.</td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td width="250">Enable View Cache (Guests Only)</td>
+					<td><?php echo $Form->radioYesNo('cache_view','',$this->Config->cache_view)?></td>
+					<td>Caches whole views for guest users only. The cache is cleared after the cache duration has passed or everytime the JReviews Express setup, configuration, a listing or review is submitted or updated.</td>
+				</tr>
+			</table>	
+			<br />
+						
+		</div>
+				
+	</div> <!-- end jtabs-->	
+	<input type="hidden" name="act" value="config" />
+	<input type="hidden" name="option" value="<?php echo @$option; ?>" />
+	<input type="hidden" name="task" value="" />
+</form>

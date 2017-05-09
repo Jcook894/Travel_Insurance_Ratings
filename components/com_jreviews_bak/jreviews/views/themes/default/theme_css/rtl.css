@@ -1,0 +1,60 @@
+/* JReviews */
+div.jr_pgContainer{text-align:right;}
+#jr_dirview .jr_column {float:right;margin:0 0 0 3%;}
+#jr_dirview ul li div.contentThumbnail {float: right; margin: 0 0 10px 10px;}
+#jr_dirview ul li div.contentDiv {float: right;}
+#jr_dirview ul li.cat_level1 {float: right;}
+#jr_dirview.formatComma ul li.cat_level2 {float: right;}
+#jr_dirview .jr_rss {float: left;}
+.jr_itemList_new{float:left;background-position:right center;}
+.jr_itemDetail table.floatRight{float:left;}
+.jr_itemDetail div.contentInfo{float:none;}
+div.jr_pgHeader .contentheading {clear: right;}
+td.rating_label{padding:2px 0 2px 5px;text-align:right;}
+td.rating_value{padding:2px 5px 2px 15px;text-align:right;}
+.jr_itemDetail div.contentInfo img.jr_avatar{float:right;margin:0 0 0 10px;}
+div.jr_pgContainer .jr_listingManager a, div.jr_pgContainer .jr_postManager a{margin-right:0;margin-left:8px;}
+a.jr_edit, a.jr_published, a.jr_unpublished, a.jr_delete{padding:0 18px 0 0;background-position:right center;}
+div.jr_pgContainer div.jr_pathway {float: right; padding: 0 0 0 15px;}
+div.jr_pgContainer div.overall_ratings {float: left;}
+div.jr_pgContainer div.itemMainImage {float: left; margin: 0 10px 30px 0;}
+div.jr_itemDetail div.jr_customFields {clear: right;}
+div.jrListingWidgets {float:right; margin: 0 0 15px;}
+div.jr_customFields div.fieldGroup div.fieldLabel {float: right; text-align: right;}
+div.jr_customFields div.fieldGroup div.fieldValue { margin: 0 120px 0 0;}
+ul.fieldValueList li {margin: 0 0 0 5px !important; float: right; display: block;}
+ul.fieldValueList li:after{content:'\2022'; padding: 0 5px 0 0;}
+ul.fieldValueList li:last-child:after{content:'';}
+ul.fieldValueList li:last-child:after{content:'';}
+#jr_reviewUserSummaryMainTitle{background-position:right top;padding-left:0;padding-right:18px;}
+div.jr_reviewContainer .jr_addReview{float:right;}
+div.itemImages{float:left;margin:0 10px 30px 0;}
+div.jr_reviewContainerSidebar{float:left;margin:0 15px 15px 20px;}
+.jr_form{text-align:right;}
+.jr_form .jr_fieldDiv{clear:right;}
+.jr_form .jr_fieldDiv .jr_fieldOption{float:right;margin:0 0 0 20px;}
+.jr_form input, .jr_form select option{padding-right:0;}
+.ui-helper-hidden-accessible{right:-1e+8px;left:auto;}
+.jr_form fieldset{padding:10px 12px 3px 10px;}
+div.jr_thumbview .listItem{float:right; margin: 0 0 10px 2%;}
+div.jr_blogview table.rating_table{float:left;}
+div.jr_pgContainer a.jr_readon,div.jr_pgContainer a.jr_rateit{background-position:right center;padding-right:15px;padding-left:0;}
+div.reviewInfo img{float:right;margin-right:0;margin-left:10px;}
+div.jr_pgContainer div.ratingInfo {float: left;}
+.jr_itemDetail .jr_customFields{clear:none;}
+.jr_rss{top:0;left:0;}
+.jr_rss li{background:none;}
+div.jr_blogview .contentColumn{float:left;margin-right:20px;margin-left:0;}
+div.jr_blogview div.contentThumbnail{clear:right;float:right;}
+div.rating_star_editor div {-moz-transform: scaleX(-1);-webkit-transform: scaleX(-1);transform: scaleX(-1);filter: fliph;}
+div.rating_star_user div {-moz-transform: scaleX(-1);-webkit-transform: scaleX(-1);transform: scaleX(-1);filter: fliph;}
+table.jr_ratingsTable .ui-stars-star, table.jr_ratingsTable .ui-stars-cancel {text-indent: 999em;}
+.jrFavoriteButton {display: inline;}
+.jrFavoriteWidget {display: inline-block;}
+div.jr_pgContainer .jrManager .jrIcon {right: 0;}
+div.jr_pgContainer .jrManager a {margin: 0 22px 0 2px;}
+#jr_compareTabs div.ui-tabs-panel .jr_compareScroll {direction: ltr;}
+/* Geomaps */
+div#gm_mapColumn { left:0; right: auto; float:left;}
+div#gm_listingColumn { float: right; }
+#gm_map_results_above { text-align: left; }

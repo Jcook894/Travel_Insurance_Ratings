@@ -1,0 +1,36 @@
+/*
+* standard comment
+*/
+table.commentTable {
+	width: 100%;
+	margin-bottom: 5px;
+	padding: 0px;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+
+div.commentTable {
+	padding: 0;
+	margin-bottom: 2px;
+}
+
+table.commentTable th, div.commentTable h3 {
+	background: url(images/subhead_bg.png) repeat-x;
+	color: #666666;
+	text-align: left;
+	padding-left: 4px;
+	height: 21px;
+	line-height: 21px;
+	font-weight: bold;
+	font-size: 10px;
+	text-transform: uppercase;
+	margin: 0 0 2px 0;
+}
+
+table.commentTable td {
+	font-size: 11px;
+	padding: 0px;
+	margin: 0px;
+	font-weight: normal;
+}
+/* standard comment end */

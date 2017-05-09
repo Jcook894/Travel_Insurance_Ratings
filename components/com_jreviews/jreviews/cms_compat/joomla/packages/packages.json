@@ -1,0 +1,100 @@
+{
+	"modules": [
+		{
+			"name": "mod_jreviews_advsearch",
+			"title":"Advanced Search Module"
+		},
+		{
+			"name": "mod_jreviews_calendar",
+			"title": "Calendar Module"
+		},
+		{
+			"name": "mod_jreviews_directories",
+			"title": "Directories Module"
+		},
+		{
+			"name": "mod_jreviews_favorite_users",
+			"title": "Favorite Users Module"
+		},
+		{
+			"name": "mod_jreviews_fields",
+			"title": "Fields Module"
+		},
+		{
+			"name": "mod_jreviews_filters",
+			"title": "Filters Module"
+		},
+		{
+			"name": "mod_jreviews_listings",
+			"title": "Listings Module"
+		},
+		{
+			"name": "mod_jreviews_media",
+			"title": "Media Module"
+		},
+		{
+			"name": "mod_jreviews_range",
+			"title": "Field Range Modules"
+		},
+		{
+			"name": "mod_jreviews_reviews",
+			"title": "Reviews Module"
+		},
+		{
+			"name": "mod_jreviews_totals",
+			"title":"Totals Module"
+		},
+		{
+			"name": "mod_jreviews_reviewer_rank",
+			"title":"Reviewer Rank Module"
+		}
+	],
+	"plugins": [
+		{
+			"name":"jreviews",
+			"title":"JReviews Content Plugin",
+			"type":"content",
+			"state":1
+		},
+		{
+			"name": "jreviews_sef",
+			"title":"JReviews System SEF Plugin",
+			"type":"system"
+		},
+		{
+			"name": "jreviews_modparams",
+			"title":"JReviews Module Parameters Plugin",
+			"type":"system",
+			"state":1
+		},
+		{
+			"name":"jreviews_articleoverrides",
+			"title":"JReviews Article Overrides Plugin",
+			"type":"system",
+			"state":1
+		},
+		{
+			"name":"jreviews_addonmenus",
+			"title":"JReviews Addon Menus Plugin",
+			"type":"system",
+			"state":1
+		},
+		{
+			"name":"jreviews_shortcodes",
+			"title":"JReviews ShortCodes Plugin",
+			"type":"system",
+			"state":1
+		},
+		{
+			"name":"jreviews",
+			"title":"JReviews Activity Stream Plugin for JomSocial",
+			"type":"community"
+		}
+	],
+	"easysocialapps": [
+		{
+			"name":"jreviews",
+			"title":"JReviews Activity Stream App for EasySocial"
+		}
+	]
+}

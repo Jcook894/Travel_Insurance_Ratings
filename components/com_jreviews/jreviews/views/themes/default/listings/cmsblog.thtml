@@ -1,0 +1,62 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**
+ * Core blog pages, includes frontpage and blogcategory pages
+ */
+
+$tn_size = $this->Config->getOverride('media_list_thumbnail_size',$listing['ListingType']['config']);
+
+$tn_mode = $this->Config->getOverride('media_list_thumbnail_mode',$listing['ListingType']['config']);
+
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/?>
+
+<div class="jr-page jrPage jrCMSBlog">
+
+	<div class="jrListItem">
+
+		<div class="jrListingInfo">
+
+			<?php if($this->Config->getOverride('list_show_author',$listing['ListingType']['config'])):?><?php echo sprintf(__t("by %s",true), $Community->screenName($listing));?>&nbsp;&nbsp;&nbsp;&nbsp;<?php endif;?>
+
+			<?php if($this->Config->getOverride('list_show_date',$listing['ListingType']['config'])):?><?php echo $Time->nice($listing['Listing']['created']);?>&nbsp;&nbsp;&nbsp;&nbsp;<?php endif;?>
+
+			<?php $Jreviews->listingInfoIcons($listing);?>
+
+		</div>
+
+		<?php echo $Rating->overallRatings($listing, 'list'); ?>
+
+		<div class="jrClear"></div>
+
+		<div class="jrListingSummary">
+
+			<?php if($this->Config->media_list_thumbnail && $mainMediaThumb = $Media->thumb(Sanitize::getVar($listing,'MainMedia'),array('listing'=>$listing,'size'=>$tn_size,'mode'=>$tn_mode,'css_size'=>true))):?>
+
+			<div class="jrListingThumbnail">
+				<?php echo $Routes->content($mainMediaThumb,$listing);?>
+			</div>
+
+			<?php endif;?>
+
+			 <?php echo $listing['Listing']['summary'];?>
+
+		</div>
+
+		<?php echo $CustomFields->displayAll($listing,'list');?>
+
+   </div>
+
+</div>
+
+<div class="jrClear"></div>

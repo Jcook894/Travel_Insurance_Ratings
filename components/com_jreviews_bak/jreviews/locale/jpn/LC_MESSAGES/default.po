@@ -1,0 +1,2330 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: jReviews 2.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:45-0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: ClickFWD <support@reviewsforjoomla.com>\n"
+"Language-Team: ClickFWD\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Japanese\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: f:\\components\\\n"
+"X-Poedit-KeywordsList: __t\n"
+"X-Poedit-Country: JAPAN\n"
+"X-Poedit-SearchPath-0: com_jreviews\\jreviews\\views\n"
+"X-Poedit-SearchPath-1: com_jreviews\\jreviews\\controllers\n"
+"X-Poedit-SearchPath-2: com_jreviews\\jreviews\\models\n"
+"X-Poedit-SearchPath-3: com_s2framework\\s2framework\\libs\\view\n"
+"X-Poedit-SearchPath-4: com_jreviews\\jreviews\\plugins\n"
+"X-Poedit-SearchPath-5: com_jreviews_addons\\geomaps\\views\n"
+"X-Poedit-SearchPath-6: com_jreviews_addons\\geomaps\\controllers\n"
+"X-Poedit-SearchPath-7: com_jreviews_addons\\geomaps\\plugins\n"
+"X-Poedit-SearchPath-8: com_jreviews_addons\\paidlistings\\views\n"
+"X-Poedit-SearchPath-9: com_jreviews_addons\\paidlistings\\plugins\n"
+"X-Poedit-SearchPath-10: com_jreviews_addons\\paidlistings\\controllers\n"
+
+#: com_jreviews\jreviews\views/helpers/assets.php:240
+#: com_jreviews\jreviews\views/helpers/assets.php:386
+#: com_jreviews\jreviews\views/helpers/assets.php:434
+msgid "Publish to Facebook"
+msgstr "Facebookに公開"
+
+#: com_jreviews\jreviews\views/helpers/community.php:50
+msgid "Guest"
+msgstr "ゲスト"
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:686
+msgid "*"
+msgstr "*"
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:709
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:948
+#: com_jreviews\jreviews\views/helpers/widgets.php:69
+#: com_jreviews\jreviews\views/helpers/widgets.php:72
+msgid "Add"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:717
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:956
+msgid "Submit"
+msgstr "投稿"
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:748
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:995
+msgid "between"
+msgstr "between"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:29
+#: com_jreviews\jreviews\views/helpers/jreviews.php:316
+msgid "Featured"
+msgstr "特集"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:30
+msgid "Title"
+msgstr "タイトル"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:33
+#: com_jreviews\jreviews\views/helpers/jreviews.php:94
+#: com_jreviews\jreviews\views/helpers/jreviews.php:120
+msgid "Most recent"
+msgstr "最新"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:34
+#: com_jreviews\jreviews\views/helpers/jreviews.php:96
+msgid "Last updated"
+msgstr "最後にアップデートされたのは"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:36
+msgid "Most popular"
+msgstr "人気1位"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:38
+#: com_jreviews\jreviews\views/helpers/jreviews.php:97
+msgid "Highest user rating"
+msgstr "ユーザー最高評価"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:39
+#: com_jreviews\jreviews\views/helpers/jreviews.php:98
+msgid "Lowest user rating"
+msgstr "ユーザー最低評価"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:40
+msgid "Highest editor rating"
+msgstr "編集者最高評価"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:41
+msgid "Lowest editor rating"
+msgstr "編集者最低評価"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:42
+msgid "Most reviews"
+msgstr "もっとも多くの評価"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:43
+msgid "Author"
+msgstr "作成者"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:53
+msgid "Distance"
+msgstr "距離"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:73
+msgid "ASC"
+msgstr "昇順"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:74
+msgid "DESC"
+msgstr "降順"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:95
+#: com_jreviews\jreviews\views/helpers/jreviews.php:119
+msgid "Oldest"
+msgstr "最初"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:99
+msgid "Most helpful"
+msgstr "大変役に立つ"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:100
+msgid "Least helpful"
+msgstr "ぜんぜん役に立たない"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:101
+msgid "Most discussed"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:202
+msgid "Compare"
+msgstr "比較"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:221
+#: com_jreviews\jreviews\views/helpers/jreviews.php:265
+msgid "Manage"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:230
+#: com_jreviews\jreviews\views/helpers/jreviews.php:302
+msgid "Edit"
+msgstr "編集"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:237
+#: com_jreviews\jreviews\views/helpers/jreviews.php:327
+#: com_jreviews\jreviews\views/helpers/jreviews.php:328
+msgid "Delete"
+msgstr "削除"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:237
+msgid "Are you sure you want to delete this comment?"
+msgstr "このコメントを本当に削除しますか？"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:309
+msgid "Unpublished"
+msgstr "未掲載"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:309
+msgid "Published"
+msgstr "掲載"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:316
+msgid "Not featured"
+msgstr "特集（無し）"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:321
+msgid "Not frontpaged"
+msgstr "フロントページ（無し）"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:321
+msgid "Frontpaged"
+msgstr "フロントページ（在り）"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:327
+msgid "Are you sure you want to delete this listing?"
+msgstr "本当にこのリスティングを削除しますか？"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:343
+msgid "#1 Reviewer"
+msgstr "レビュー投稿者1位"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:344
+msgid "Top 10 Reviewer"
+msgstr "レビュー投稿者トップ10"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:345
+msgid "Top 50 Reviewer"
+msgstr "レビュー投稿者トップ50"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:346
+msgid "Top 100 Reviewer"
+msgstr "レビュー投稿者トップ100"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:347
+msgid "Top 500 Reviewer"
+msgstr "レビュー投稿者トップ500"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:348
+msgid "Top 1000 Reviewer"
+msgstr "レビュー投稿者トップ1000"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:153
+#: com_jreviews\jreviews\views/helpers/paginator.php:158
+msgid "&laquo;"
+msgstr "次 &raquo;"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:198
+#: com_jreviews\jreviews\views/helpers/paginator.php:206
+#, php-format
+msgid "Go to page %s"
+msgstr "%sページへ"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:199
+#: com_jreviews\jreviews\views/helpers/paginator.php:207
+#, php-format
+msgid "Go to page %s of %s"
+msgstr "%sページへ（全%sページ）"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:229
+#: com_jreviews\jreviews\views/helpers/paginator.php:236
+msgid "&raquo;"
+msgstr "次 &raquo;"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:229
+msgid "Next &raquo;"
+msgstr "次 &raquo;"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:317
+#: com_jreviews\jreviews\views/helpers/paginator.php:358
+msgid "Results per page"
+msgstr "1ページあたりの検索結果表示数"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:32
+msgid "No rating"
+msgstr "評価なし"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:72
+#: com_jreviews\jreviews\views/helpers/rating.php:73
+msgid "Editor rating"
+msgstr "編集者による評価"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:86
+#: com_jreviews\jreviews\views/helpers/rating.php:87
+#: com_jreviews\jreviews\views/helpers/rating.php:98
+#: com_jreviews\jreviews\views/helpers/rating.php:99
+msgid "User rating"
+msgstr "ユーザーによる評価"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:181
+#: com_jreviews\jreviews\views/helpers/rating.php:287
+#: com_jreviews\jreviews\views/helpers/rating.php:299
+msgid "Overall rating"
+msgstr "総合評価"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:309
+msgid "Not rated"
+msgstr "評価なし"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:309
+msgid "N/A"
+msgstr "N/A"
+
+#: com_jreviews\jreviews\views/helpers/routes.php:86
+#: com_jreviews\jreviews\views/helpers/routes.php:138
+#: com_jreviews\jreviews\views/helpers/routes.php:140
+#: com_jreviews\jreviews\views/helpers/routes.php:171
+#: com_jreviews\jreviews\views/helpers/routes.php:185
+#: com_jreviews\jreviews\views/helpers/routes.php:230
+#: com_jreviews\jreviews\views/helpers/routes.php:295
+#: com_jreviews\jreviews\views/helpers/routes.php:397
+#: com_jreviews\jreviews\views/helpers/routes.php:398
+#: com_jreviews\jreviews\views/helpers/routes.php:550
+#: com_jreviews\jreviews\views/helpers/routes.php:561
+#: com_jreviews\jreviews\views/helpers/routes.php:578
+#: com_jreviews\jreviews\views/helpers/routes.php:580
+msgid "and"
+msgstr "と"
+
+#: com_jreviews\jreviews\views/helpers/routes.php:356
+#: com_jreviews\jreviews\views/helpers/routes.php:370
+#, php-format
+msgid "%s listing feeds"
+msgstr "%s のリスティングフィード"
+
+#: com_jreviews\jreviews\views/helpers/routes.php:429
+msgid "Edit review"
+msgstr "レビューを編集"
+
+#: com_jreviews\jreviews\views/helpers/routes.php:542
+#: com_jreviews\jreviews\views/helpers/routes.php:553
+#: com_jreviews\jreviews\views/helpers/routes.php:564
+#: com_jreviews\jreviews\views/helpers/routes.php:592
+#, php-format
+msgid "%s review feeds"
+msgstr "%s のレビューフィード"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:24
+#: com_jreviews\jreviews\views/helpers/widgets.php:28
+msgid "Claim This Business"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:28
+msgid "Please register to claim this business"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:60
+msgid "Favorites"
+msgstr "お気に入り"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:66
+msgid "Remove from favorites"
+msgstr "お気に入りから削除"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:66
+msgid "Remove"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:69
+#: com_jreviews\jreviews\views/helpers/widgets.php:72
+msgid "Add to favorites"
+msgstr "お気に入りに追加"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:72
+msgid "Register to add this entry to your favorites"
+msgstr "このエントリーをお気に入りに追加するにはメンバー登録して下さい。"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:85
+msgid "Was this review helpful to you?"
+msgstr "このレビューは役に立ちましたか?"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:92
+#: com_jreviews\jreviews\views/helpers/widgets.php:102
+msgid "You are not allowed to vote"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:94
+#: com_jreviews\jreviews\views/helpers/widgets.php:104
+msgid "Login or register to vote"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/categories_controller.php:512
+#, php-format
+msgid "Listings by %s"
+msgstr "%s のリスティング"
+
+#: com_jreviews\jreviews\controllers/categories_controller.php:530
+#, php-format
+msgid "Favorites by %s"
+msgstr "%s　のお気に入り"
+
+#: com_jreviews\jreviews\controllers/categories_controller.php:582
+#: com_jreviews\jreviews\controllers/categories_controller.php:592
+#, php-format
+msgid "ordered by %s"
+msgstr "%s 順"
+
+#: com_jreviews\jreviews\controllers/categories_controller.php:588
+#, php-format
+msgid "ordered by %s desc"
+msgstr "%s 降順"
+
+#: com_jreviews\jreviews\controllers/categories_controller.php:672
+msgid "No listings selected for comparison."
+msgstr "比較対象となるリスティングが選択されていません。"
+
+#: com_jreviews\jreviews\controllers/claims_controller.php:95
+msgid "Your claim was submitted, thank you."
+msgstr "所有権の申し立ては受理されました。ありがとうございます。"
+
+#: com_jreviews\jreviews\controllers/claims_controller.php:103
+#: com_jreviews\jreviews\controllers/reports_controller.php:104
+msgid "The message is empty."
+msgstr "メッセージはありません。"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:67
+msgid "The comment has been removed."
+msgstr "コメントが削除されました。"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:71
+msgid "There was a problem removing the comment."
+msgstr "コメントを削除中にエラーが発生しました。"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:98
+msgid "The comment was not found"
+msgstr "コメントはありません。"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:141
+msgid "Your comment has been updated."
+msgstr "コメントが更新されました。"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:148
+msgid "There was an error saving the comment."
+msgstr "コメントを保存中にエラーが発生しました。"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:171
+msgid "You are not allowed to submit comments."
+msgstr "コメントを投稿するにはメンバー登録して下さい。"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:175
+#: com_jreviews\jreviews\controllers/listings_controller.php:1294
+msgid "You must fill in your name."
+msgstr "名前を入力して下さい。"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:177
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:68
+#: com_jreviews\jreviews\controllers/listings_controller.php:1295
+msgid "You must fill in a valid email address."
+msgstr "有効なメールアドレスを入力して下さい。"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:179
+#: com_jreviews\jreviews\controllers/listings_controller.php:1357
+msgid "You must fill in your comment."
+msgstr "コメントを入力して下さい。"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:186
+#: com_jreviews\jreviews\controllers/discussions_controller.php:196
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:75
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:85
+#: com_jreviews\jreviews\controllers/listings_controller.php:1370
+#: com_jreviews\jreviews\controllers/listings_controller.php:1381
+msgid "The security code you entered was invalid."
+msgstr "あなたが入力したセキュリティーコードは無効です。"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:190
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:79
+#: com_jreviews\jreviews\controllers/listings_controller.php:1375
+msgid "You must fill in the security code."
+msgstr "セキュリティーコードを入力して下さい。"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:233
+#: com_jreviews\jreviews\controllers/listings_controller.php:1572
+msgid "Thank you for your submission. It will be published once it is verified."
+msgstr "ご投稿ありがとうございます。承認後に掲載されます。"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:251
+#: com_jreviews\jreviews\controllers/listings_controller.php:1559
+msgid "Thank you for your submission."
+msgstr "ご投稿ありがとうございます。"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:308
+msgid "Latest comments"
+msgstr "最新コメント"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:34
+#, php-format
+msgid "submitted a new listing titled %s"
+msgstr "さんがリスティング『%s』を投稿しました。"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:35
+#, php-format
+msgid "wrote a review for %s"
+msgstr "さんが%sへのレビューを投稿しました。"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:36
+msgid "posted a new comment"
+msgstr "さんがコメントを追加しました。"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:37
+#, php-format
+msgid "liked this review for %s"
+msgstr "さんが%sへのレビューに共感しています。"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:133
+#: com_jreviews\jreviews\controllers/facebook_controller.php:244
+#: com_jreviews\jreviews\controllers/facebook_controller.php:356
+msgid "Website"
+msgstr "ウェブサイト"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:147
+msgid "Read more"
+msgstr "もっと読む"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:245
+#: com_jreviews\jreviews\controllers/facebook_controller.php:358
+msgid "Rating"
+msgstr "評価"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:245
+#: com_jreviews\jreviews\controllers/facebook_controller.php:358
+#, php-format
+msgid "%s stars"
+msgstr "%sつ星"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:259
+#: com_jreviews\jreviews\controllers/facebook_controller.php:372
+msgid "Read review"
+msgstr "レビューを読む"
+
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:185
+#, php-format
+msgid "New inquiry for: %s"
+msgstr "新規のお問い合わせ: %s"
+
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:186
+#, php-format
+msgid "From: %s"
+msgstr "送信元: %s"
+
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:187
+#, php-format
+msgid "Email: %s"
+msgstr "メール: %s"
+
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:189
+#, php-format
+msgid "Listing: %s"
+msgstr "リスティング: %s"
+
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:190
+#, php-format
+msgid "Listing link: %s"
+msgstr "リスティングリンク: %s"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:668
+msgid "The main image was successfully changed."
+msgstr "メインの画像が更新されました。"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:705
+msgid "The listing has been removed."
+msgstr "リスティングは削除されました。"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:968
+msgid "Select Category"
+msgstr "カテゴリを選択"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:982
+#: com_jreviews\jreviews\controllers/listings_controller.php:1144
+msgid "You are not allowed to submit listings in this category."
+msgstr "このカテゴリにリスティングを投稿することはできません。"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1129
+msgid "The category selected is invalid."
+msgstr "選択したカテゴリは無効です。"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1256
+msgid "A listing with that title already exists."
+msgstr "他のリスティングがそのタイトルを既に使用しています。他のタイトルを入力して下さい。"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1282
+msgid "You need to select both a section and a category."
+msgstr "セクションとカテゴリの両方を選択して下さい。"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1287
+msgid "You need to select a category."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1304
+msgid "You must fill in a title for the new listing."
+msgstr "（新規リスティングの）タイトルを入力して下さい。"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1309
+msgid "You must fill in a summary for the new listing."
+msgstr "（新規リスティングの）概要を入力して下さい。"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1310
+msgid "You must fill in a description for the new listing."
+msgstr "（新規リスティングの）詳細を入力して下さい。"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1325
+msgid "You must fill in a title for the review."
+msgstr "（レビューの）タイトルを入力して下さい。"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1350
+#, php-format
+msgid "You are missing a rating in %s criteria."
+msgstr "%s 基準での評価が抜けています。"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1456
+#, php-format
+msgid "The total number of images is limited to %s"
+msgstr "最大画像数は%sです。　"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1492
+msgid "The was a problem saving the listing"
+msgstr "リスティングを保存中にエラーが発生しました。"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1559
+msgid "The listing was successfully saved."
+msgstr "リスティングは保存されました。"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1560
+msgid "Click here to view the listing"
+msgstr "リスティングを表示するにはここをクリックして下さい。"
+
+#: com_jreviews\jreviews\controllers/my_controller.php:157
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: com_jreviews\jreviews\controllers/my_controller.php:159
+msgid "Clear"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:160
+msgid "-- Select --"
+msgstr "-- 選択 --"
+
+#: com_jreviews\jreviews\controllers/my_controller.php:161
+#, php-format
+msgid "-- Select %s --"
+msgstr "-- 選択 %s --"
+
+#: com_jreviews\jreviews\controllers/my_controller.php:162
+msgid "No results found, try a different spelling."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:163
+msgid "Start typing for suggestions"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:166
+msgid "Compare All"
+msgstr "全て比較"
+
+#: com_jreviews\jreviews\controllers/my_controller.php:167
+msgid "Remove All"
+msgstr "全て削除"
+
+#: com_jreviews\jreviews\controllers/my_controller.php:168
+msgid "You need to select more than one listing for comparison."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:169
+msgid "You selected maximum number of listings for comparison."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:170
+msgid "Street view not available for this address."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:171
+msgid "Address could not be geocoded. Modify the address and click on the Geocode Address button to try again."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:172
+msgid "Drag the marker to fine-tune the geographic location on the map."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:173
+msgid "No corresponding geographic location could be found for one of the specified addresses. This may be due to the fact that the address is relatively new, or it may be incorrect."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:174
+msgid "The was an error processing the request."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:175
+msgid "Enter a location"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/owner_replies_controller.php:122
+msgid "A reply for this review already exists."
+msgstr "このレビューに対する返信コメントはすでに投稿されています。"
+
+#: com_jreviews\jreviews\controllers/owner_replies_controller.php:139
+msgid "Your reply was submitted and has been approved."
+msgstr "返信コメントは承認されました。"
+
+#: com_jreviews\jreviews\controllers/owner_replies_controller.php:141
+msgid "Your reply was submitted and will be published once it is verified."
+msgstr "返信コメントは承認後に掲載されます。"
+
+#: com_jreviews\jreviews\controllers/owner_replies_controller.php:152
+msgid "The reply is empty."
+msgstr "返信コメントはありません。"
+
+#: com_jreviews\jreviews\controllers/reports_controller.php:95
+msgid "Your report was submitted, thank you."
+msgstr "あなたのリポートは投稿されました。どうもありがとうございます。"
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:180
+msgid "You are not allowed to review your own listing."
+msgstr "自分のリスティングを評価する事はできません。"
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:219
+#: com_jreviews\jreviews\controllers/reviews_controller.php:277
+msgid "You already submitted a review."
+msgstr "レビューは投稿済みです。"
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:446
+msgid "Your changes were saved."
+msgstr "変更内容は保存されました。"
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:456
+msgid "Thank you for your submission. Refresh the page to see your review."
+msgstr "ご投稿ありがとうございます。投稿したレビューを確認するにはページを更新して下さい。"
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:456
+msgid "Thank you for your submission. Refresh the page to see your comment."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:472
+msgid "Your changes were saved, refresh the page to see them."
+msgstr "変更内容は保存されました。確認するにはページを更新して下さい。"
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:565
+msgid "Latest user reviews"
+msgstr "最新ユーザーレビュー"
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:569
+msgid "Latest editor reviews"
+msgstr "最新編集者レビュー"
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:572
+msgid "Latest reviews"
+msgstr "最新レビュー"
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:582
+#: com_jreviews\jreviews\controllers/reviews_controller.php:659
+msgid "No reviews were found."
+msgstr "レビューはありません。"
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:672
+#, php-format
+msgid "Reviews written by %s"
+msgstr "%sさんによるレビュー"
+
+#: com_jreviews\jreviews\controllers/votes_controller.php:98
+msgid "You already voted."
+msgstr "既に投票済みです。"
+
+#: com_jreviews\jreviews\controllers/votes_controller.php:107
+msgid "Thank you for your vote."
+msgstr "ご投票ありがとうございます。"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:138
+msgid "New listing"
+msgstr "新規のリスティング"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:138
+msgid "Edited listing"
+msgstr "編集されたリスティング"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:182
+#, php-format
+msgid "New listing: %s"
+msgstr "新規のリスティング: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:182
+#, php-format
+msgid "Edited listing: %s"
+msgstr "編集されたリスティング: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:256
+#: com_jreviews\jreviews\controllers/components/notifications.php:304
+#: com_jreviews\jreviews\controllers/components/notifications.php:349
+#, php-format
+msgid "New review: %s"
+msgstr "新着レビュー: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:256
+#: com_jreviews\jreviews\controllers/components/notifications.php:304
+#: com_jreviews\jreviews\controllers/components/notifications.php:349
+#, php-format
+msgid "Edited review: %s"
+msgstr "編集されたレビュー: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:405
+#, php-format
+msgid "Owner review reply submitted for listing %s"
+msgstr "リスティング『%s』に対するオーナーの返信コメント"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:471
+msgid "A new report has been submitted"
+msgstr "新たに1件の報告があります。"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:537
+#, php-format
+msgid "New comment for review: %s"
+msgstr "レビューに対する新着コメント: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:539
+#, php-format
+msgid "Edited comment for review: %s"
+msgstr "レビューに対する編集済コメント: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:596
+#, php-format
+msgid "Listing claim submitted for %s"
+msgstr "リスティング『%s』に対する所有権の申し立て"
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:89
+#, php-format
+msgid "is %s Kb."
+msgstr "は %s Kb."
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:90
+msgid "Some files exceed the allowed size, please correct this and resubmit the form:"
+msgstr "ファイルのサイズが大きすぎます。サイズを小さくして、再度、フォームを提出し直して下さい。"
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:98
+#, fuzzy, php-format
+msgid "%s is not a supported image file."
+msgstr "%s は画像ファイルではありません。"
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:99
+msgid "Some files are not images, please correct this and resubmit the form:"
+msgstr "ファイルが画像ではありません。見直してから、再度送信して下さい。"
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:109
+msgid "Could not upload file."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/modules/module_advanced_search_controller.php:227
+msgid "Select"
+msgstr "選択"
+
+#: com_jreviews\jreviews\models/field.php:1465
+#, php-format
+msgid "You must fill in a valid value for %s."
+msgstr "%sの有効な情報を入力して下さい。"
+
+#: com_jreviews\jreviews\models/everywhere/_everywhere_com_seyret.php:69
+msgid "SEYRET_TAG"
+msgstr "ビデオ"
+
+#: com_jreviews\jreviews\models/everywhere/_everywhere_com_zoo.php:85
+msgid "ZOO_TAG"
+msgstr "Zoo"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_bookmarks.php:80
+msgid "BOOKMARKS_TAG"
+msgstr "ウェブサイト"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_catalog.php:84
+msgid "JXCATALOG_TAG"
+msgstr "Catalog"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_community_access.php:143
+msgid "JOMSOCIAL_TAG"
+msgstr "メンバー"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_comprofiler.php:174
+msgid "COMMUNITY_BUILDER_TAG"
+msgstr "メンバー"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_content.php:137
+msgid "Listing"
+msgstr "リスティング"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_eventlist_event.php:90
+msgid "EVENTLIST_EVENT_TAG"
+msgstr "イベント"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_eventlist_venue.php:80
+msgid "EVENTLIST_VENUE_TAG"
+msgstr "開催地"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_ezrealty_profile.php:111
+msgid "EZREALTY_PROFILE_TAG"
+msgstr "Profile"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_ezrealty_property.php:104
+msgid "EZREALTY_PROPERTY_TAG"
+msgstr "Property"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_hotproperty.php:97
+msgid "HOTPROPERTY_TAG"
+msgstr "不動産"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_jomres.php:75
+msgid "JOMRES_TAG"
+msgstr "ホテル"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_joomgallery.php:80
+msgid "JOOMGALLERY_TAG"
+msgstr "ギャラリー"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_k2.php:87
+msgid "K2_TAG"
+msgstr "k2"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_mtree.php:90
+msgid "MTREE_TAG"
+msgstr "リスティング"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_myblog.php:89
+msgid "MYBLOG_TAG"
+msgstr "ブログ"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_resman.php:78
+msgid "RESMAN_TAG"
+msgstr "Property"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_resource.php:93
+msgid "RESOURCE_TAG"
+msgstr "リスティング"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_sobi2.php:96
+msgid "SOBI2_TAG"
+msgstr "ビジネス"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_virtuemart.php:87
+msgid "VIRTUEMART_TAG"
+msgstr "製品"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:79
+msgid "%B %d, %Y"
+msgstr "%Y年 %B %d日"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:105
+msgid "%b %d, %Y"
+msgstr "%Y年 %b %d日"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:429
+#, php-format
+msgid "on %s"
+msgstr "on %s"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:463
+#, php-format
+msgid "%s ago"
+msgstr "%s ago"
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:37
+#, php-format
+msgid "{actor} added new listing %1$s in %2$s."
+msgstr "{actor} added new listing %1$s in %2$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:38
+#, php-format
+msgid "{actor} updated listing %1$s."
+msgstr "{actor} updated listing %1$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:39
+#, php-format
+msgid "{actor} reviewed %1$s."
+msgstr "{actor} reviewed %1$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:40
+#, php-format
+msgid "{actor} updated review for %1$s."
+msgstr "{actor} updated review for %1$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:41
+#, php-format
+msgid "{actor} added %1$s to favorites."
+msgstr "{actor} added %1$s to favorites."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:42
+#, php-format
+msgid "{actor} removed %1$s from favorites."
+msgstr "{actor} removed %1$s from favorites."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:43
+#, php-format
+msgid "{actor} voted as helpful a review, %1$s, written by %2$s."
+msgstr "{actor} voted as helpful a review, %1$s, written by %2$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:44
+#, php-format
+msgid "{actor} voted as not helpful a review, %1$s, written by %2$s."
+msgstr "{actor} voted as not helpful a review, %1$s, written by %2$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:45
+#, php-format
+msgid "{actor} commented on a %1$s for %2$s."
+msgstr "{actor} commented on a %1$s for %2$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:46
+#, php-format
+msgid "{actor} updated comment on a %1$s for %2$s."
+msgstr "{actor} updated comment on a %1$s for %2$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:84
+msgid "A guest"
+msgstr "A guest"
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:174
+#: com_jreviews\jreviews\plugins/twitter.php:168
+msgid "review"
+msgstr "review"
+
+#: com_jreviews\jreviews\plugins/twitter.php:60
+#, fuzzy, php-format
+msgid "Listing: %1$s. %2$s"
+msgstr "リスティング: %s"
+
+#: com_jreviews\jreviews\plugins/twitter.php:61
+#, fuzzy, php-format
+msgid "Review for: %1$s. %2$s"
+msgstr "%sへのレビュー：%s "
+
+#: com_jreviews\jreviews\plugins/twitter.php:62
+#, php-format
+msgid "Discussion on: %1$s. %2$s"
+msgstr ""
+
+#: com_jreviews_addons\geomaps\controllers/modules/module_geomaps_controller.php:92
+msgid "You selected the Custom Center mode, but did not specify the coordinates."
+msgstr "You selected the Custom Center mode, but did not specify the coordintes."
+
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:129
+msgid "Miles"
+msgstr "マイル"
+
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:129
+msgid "Km"
+msgstr "キロ"
+
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:224
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:240
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:336
+msgid "Map it"
+msgstr "決定"
+
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:225
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:240
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:336
+msgid "Clear LatLng"
+msgstr "座標を取り消し"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:18
+#, fuzzy
+msgid "Day(s)"
+msgstr "日"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:19
+#, fuzzy
+msgid "Week(s)"
+msgstr "週"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:20
+#, fuzzy
+msgid "Month(s)"
+msgstr "月"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:21
+#, fuzzy
+msgid "Year(s)"
+msgstr "年"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:22
+msgid "Never Expires"
+msgstr "無期限"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:29
+msgid "Incomplete"
+msgstr "不完全"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:30
+msgid "Pending"
+msgstr "確認中"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:31
+msgid "Processing"
+msgstr "処理中"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:32
+msgid "Complete"
+msgstr "完了"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:33
+msgid "Cancelled"
+msgstr "削除"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:34
+msgid "Fraud"
+msgstr "不正"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:35
+msgid "Failed"
+msgstr "失敗"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:42
+msgid "One Time Payment"
+msgstr "一括払い"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:43
+msgid "Subscription"
+msgstr "購読"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:44
+msgid "Free or Trial"
+msgstr "無料又はお試し版"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:51
+msgid "New Listing"
+msgstr "新規のリスティング"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:52
+msgid "Upgrade Listing"
+msgstr "リスティングのアップグレード"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid_routes.php:176
+#: com_jreviews_addons\paidlistings\views/helpers/paid_routes.php:182
+msgid "Order Upgrade"
+msgstr "プランのアップグレード"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid_routes.php:199
+msgid "Order Plan"
+msgstr "プラン"
+
+#: com_jreviews_addons\paidlistings\plugins/paid_listings.php:643
+msgid "Order renewal set."
+msgstr "プランの更新"
+
+#: com_jreviews_addons\paidlistings\plugins/paid_listings.php:656
+msgid "Order processing error."
+msgstr "注文処理エラー"
+
+#: com_jreviews_addons\paidlistings\plugins/paid_listings.php:734
+#, php-format
+msgid "Listing expiration: %s"
+msgstr "リスティング有効期限: %s"
+
+#: com_jreviews_addons\paidlistings\plugins/paid_listings.php:735
+#: com_jreviews_addons\paidlistings\plugins/paid_listings.php:778
+#, php-format
+msgid "Listing state: %s"
+msgstr "リスティング状況：%s"
+
+#: com_jreviews_addons\paidlistings\controllers/paidlistings_plans_controller.php:51
+#, php-format
+msgid "Plans for %s"
+msgstr "%sのプラン"
+
+#: com_jreviews_addons\paidlistings\controllers/components/handler_authorize_net.php:133
+msgid "Transaction invalid"
+msgstr "無効なトランザクション"
+
+#: com_jreviews_addons\paidlistings\controllers/components/handler_authorize_net.php:134
+msgid "We have detected an invalid attempt to bypass the payment system. If you feel this is mistake please contact us."
+msgstr "支払い処理が出来ませんでした。お間違いがございましたら、その旨ご連絡下さい。"
+
+#: com_jreviews_addons\paidlistings\controllers/components/handler_paypal.php:305
+msgid "New subscription"
+msgstr "新規購読"
+
+#: com_jreviews_addons\paidlistings\controllers/components/paidlistings_notifications.php:245
+msgid "Never"
+msgstr ""
+
+#: com_jreviews\jreviews\views/admin/themes/default/categories/index.thtml:95
+#: com_jreviews\jreviews\views/admin/themes/default/categories/j15.index.thtml:97
+#, php-format
+msgid "%1$s results - showing %2$s - %3$s"
+msgstr "%1$s件中 %2$s - %3$s件を表示"
+
+#: com_jreviews\jreviews\views/admin/themes/default/listings/create_form.thtml:33
+msgid "Title Alias"
+msgstr "仮タイトル"
+
+#: com_jreviews\jreviews\views/admin/themes/default/listings/create_form.thtml:111
+msgid "Are you sure you want to delete this image?"
+msgstr "この画像を本当に削除しますか?"
+
+#: com_jreviews\jreviews\views/admin/themes/default/reviews/create.thtml:21
+msgid "Reviewer"
+msgstr "レビュー投稿者"
+
+#: com_jreviews\jreviews\views/admin/themes/default/reviews/create.thtml:23
+msgid "You can change the author of this review. Start typing the reviewer's name to see a list of suggestions."
+msgstr "このレビューの投稿者の名前を変更できます。文字を入力して候補名リストを参照して下さい。"
+
+#: com_jreviews\jreviews\views/admin/themes/default/reviews/create.thtml:60
+msgid "Rate it"
+msgstr "評価する"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:65
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:77
+#, php-format
+msgid "User Reviews: %s"
+msgstr "ユーザーレビュー： %s"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:66
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:78
+#, php-format
+msgid "Editor Reviews: %s"
+msgstr "編集者レビュー： %s "
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:67
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:79
+#, php-format
+msgid "%s - Page %s"
+msgstr "%s - ページ %s"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:151
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:160
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_blogview.thtml:95
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_tableview.thtml:93
+msgid "New"
+msgstr "新しい"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:154
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:163
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_blogview.thtml:98
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_tableview.thtml:96
+msgid "Hot"
+msgstr "人気"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:166
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:175
+msgid "Written by"
+msgstr "投稿者："
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:172
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:181
+msgid "Views"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:202
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:211
+msgid "Send Inquiry"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:231
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:241
+msgid "Image Gallery"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:245
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:245
+msgid "Map"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:238
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_tableview.thtml:68
+msgid "Details"
+msgstr "詳細"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:249
+msgid "Reviews"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:253
+msgid "Related Listings"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_blogview.thtml:57
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_tableview.thtml:52
+msgid "Ordering"
+msgstr "表示順"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_blogview.thtml:139
+msgid "Read reviews"
+msgstr "レビューを読む"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_blogview.thtml:142
+msgid "Write review"
+msgstr "レビューを書く"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_tableview.thtml:70
+msgid "Ratings"
+msgstr "評価"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:44
+msgid "Reviewed by"
+msgstr "レビュー投稿者："
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:44
+msgid "Commented by"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:69
+msgid "Owner's reply"
+msgstr "オーナーの返信コメント"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:81
+#, php-format
+msgid "Comments (%s)"
+msgstr "コメント  (%s)"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:88
+msgid "Reply to this review"
+msgstr "このレビューに返信"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:90
+msgid "Reply to this comment"
+msgstr "このコメントに返信"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:106
+msgid "Report this review"
+msgstr "このレビューを報告"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:108
+msgid "Report this comment"
+msgstr "このコメントを報告"
+
+#: com_jreviews\jreviews\views/themes/default/claims/create.thtml:3
+msgid "Please provide some information that will allow us to verify your ownership claim"
+msgstr "所有権の申し立てが正当なものであると確認できる情報をご提示下さい。"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:22
+msgid "No entries were found"
+msgstr "エントリーがありません"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:73
+msgid "Category"
+msgstr "カテゴリ"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:108
+msgid "View all my favorites"
+msgstr "全てのお気に入りを表示"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_mylistings.thtml:108
+msgid "View all my listings"
+msgstr "全てのリスティングを表示"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myreviews.thtml:156
+msgid "View all my reviews"
+msgstr "全てのレビューを表示"
+
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:48
+#: com_jreviews\jreviews\views/themes/default/directories/j15.directory.thtml:58
+msgid "The directory is empty."
+msgstr "そのディレクトリは空です。"
+
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:76
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:77
+#: com_jreviews\jreviews\views/themes/default/directories/j15.directory.thtml:89
+#: com_jreviews\jreviews\views/themes/default/directories/j15.directory.thtml:90
+msgid "Search"
+msgstr "検索"
+
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:78
+#: com_jreviews\jreviews\views/themes/default/directories/j15.directory.thtml:91
+msgid "Advanced search"
+msgstr "検索オプション"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:10
+#, php-format
+msgid "Reply to %s's comment"
+msgstr "%sさんのコメントへ返信する"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:15
+msgid "Name"
+msgstr "名前"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:22
+msgid "Email"
+msgstr "メール"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:33
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:30
+msgid "Please enter the security code."
+msgstr "セキュリティーコードを入力して下さい。"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/parent_popover.thtml:11
+msgid "Comment not found"
+msgstr "コメントはありません。"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/post.thtml:24
+#, php-format
+msgid "In reply to an %searlier comment%s"
+msgstr "%s以前のコメント%sに対する返事"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:55
+#, php-format
+msgid "Review for %s, %s"
+msgstr "%sへのレビュー：%s "
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:72
+msgid "Review Detail"
+msgstr "レビュー詳細"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:106
+msgid "Hits"
+msgstr "ヒット数"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:119
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:22
+msgid "Comments"
+msgstr "コメント"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:148
+msgid "Add new comment"
+msgstr "コメントを追加"
+
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:8
+msgid "Your name"
+msgstr "お名前"
+
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:9
+msgid "Please fill in your name"
+msgstr "お名前を入力して下さい。"
+
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:15
+msgid "Your email"
+msgstr "メールアドレス"
+
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:16
+msgid "Please fill in your email"
+msgstr "メールアドレスを入力して下さい。"
+
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:23
+msgid "Please fill in your comments"
+msgstr "あなたのコメントを入力して下さい。"
+
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:40
+msgid "Your inquiry has been submitted."
+msgstr "お問い合わせを承りました。"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:25
+#, php-format
+msgid "To submit a listing please %sregister%s or log in."
+msgstr "リスティングを投稿するには、%sメンバー登録%sするかログインして下さい。"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:27
+#, php-format
+msgid "To write a review please %sregister%s or log in."
+msgstr "レビューを投稿するには、%sメンバー登録%sするかログインして下さい。"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:29
+#, php-format
+msgid "To write a comment please %sregister%s or log in."
+msgstr "コメントを追加するには、%sメンバー登録%sするか、ログインして下さい。"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:31
+#, php-format
+msgid "Access restricted to members. To continue %sregister%s or log in."
+msgstr "アクセスするには、%sメンバー登録%sするかログインして下さい。"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:47
+msgid "LOGIN"
+msgstr "ログイン"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:51
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:53
+msgid "Username"
+msgstr "ユーザー名"
+
+#: com_jreviews\jreviews\views/themes/default/elements/submission_instructions.thtml:1
+msgid "Submission instructions"
+msgstr "投稿方法"
+
+#: com_jreviews\jreviews\views/themes/default/elements/submission_instructions.thtml:3
+msgid "Select the category where you want to submit the new item."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/elements/submission_instructions.thtml:4
+msgid "All fields marked with asterisks are required."
+msgstr "＊は必須項目です。"
+
+#: com_jreviews\jreviews\views/themes/default/elements/submission_instructions.thtml:5
+msgid "Make sure any image files conform to the required specifications (.jpg,.gif,.png)"
+msgstr "画像ファイルが必要なスペック (.jpg,.gif,.png)に適合しているか確認して下さい。"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:14
+msgid "You will find this claim in Claims Moderation."
+msgstr "You will find this claim in Claims Moderation."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:18
+msgid "Claimed by"
+msgstr "Claimed by"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:22
+msgid "Claimant's email"
+msgstr "Claimant's email"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:26
+msgid "Claim text"
+msgstr "Claim text"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:30
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:31
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_notification.thtml:28
+msgid "IP address"
+msgstr "IP アドレス"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:34
+msgid "Current owner"
+msgstr "オーナー"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:38
+msgid "Owner email"
+msgstr "オーナーのメールアドレス"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:47
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:40
+msgid "Section"
+msgstr "セクション"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:55
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:48
+msgid "Summary"
+msgstr "概要"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:61
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:54
+msgid "Description"
+msgstr "詳細"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:16
+msgid "The listing is not published and you will find it in the moderation queue."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:18
+msgid "The listing is published and you will find it in the listing browse admin menu."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:13
+msgid "You will find this owner reply in the owner reply moderation list."
+msgstr "このオーナー返信コメントは承認待ちリスト内にあります。"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:17
+msgid "Owner's name"
+msgstr "オーナーのお名前"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:25
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:25
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:25
+msgid "IP Address"
+msgstr "IP アドレス"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:29
+msgid "Owner's reply text"
+msgstr "オーナーの返信文書"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:37
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:37
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:37
+msgid "Listing title"
+msgstr "リスティング・タイトル"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:41
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:41
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:41
+msgid "Review title"
+msgstr "レビュー・タイトル"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:45
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:45
+msgid "Review Comments"
+msgstr "レビューに対するコメント"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:13
+msgid "You will find this report in the reports moderation list."
+msgstr "この報告は承認待ちリスト内にあります。"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:17
+msgid "Reporter"
+msgstr "報告者"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:29
+msgid "Report text"
+msgstr "報告文書"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:17
+msgid "User name"
+msgstr "ユーザー名"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:29
+msgid "Comment"
+msgstr "コメント"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:45
+msgid "Review"
+msgstr "レビュー"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_notification.thtml:32
+msgid "Entry"
+msgstr "エントリー"
+
+#: com_jreviews\jreviews\views/themes/default/errors/error404.thtml:15
+#: com_jreviews\jreviews\views/themes/default/errors/error404.thtml:18
+msgid "404 Not Found"
+msgstr "エラー404：ページが見付かりません"
+
+#: com_jreviews\jreviews\views/themes/default/errors/error404.thtml:19
+msgid "The page you requested was not found."
+msgstr "リクエストされたページは見付かりません。"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:22
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:92
+msgid "View all user reviews"
+msgstr "全てのユーザーレビューを表示"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:39
+#, php-format
+msgid "Average user rating from: %s user(s)"
+msgstr "平均ユーザー評価（総数：%s件）"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:45
+msgid "There are no user reviews for this listing."
+msgstr "このリスティングへのユーザーレビューはありません。"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:54
+msgid "Add new review"
+msgstr "レビューを追加"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create.thtml:86
+msgid "Select Section"
+msgstr "セクションを選択"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:39
+#, fuzzy
+msgid "You have reached the maximum number of free listings for this category."
+msgstr "このカテゴリにリスティングを投稿することはできません。"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:109
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:149
+msgid "Images"
+msgstr "画像"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:116
+msgid "Image Manager - Use the radio buttons to set the main image shown in lists."
+msgstr "画像マネージャー - リストに載るメインの画像を設定するのにラジオボタンを使って下さい。"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:149
+#, php-format
+msgid "Max. size %s Kb"
+msgstr "最大サイズ %s Kb"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:166
+msgid "Meta Data"
+msgstr "メタデータ"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:169
+msgid "Meta Description"
+msgstr "メタディスクリプション"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:174
+msgid "Meta Keywords"
+msgstr "メタキーワード"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:195
+msgid "I will submit my review later on"
+msgstr "後でレビューを投稿する"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:212
+msgid "Ratings (the higher the better)"
+msgstr "評価 (数字が大きいほどよい評価となります)"
+
+#: com_jreviews\jreviews\views/themes/default/listings/j15.listings_header.thtml:147
+#: com_jreviews\jreviews\views/themes/default/listings/listings_header.thtml:142
+msgid "Add new listing"
+msgstr "リスティングを追加"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:40
+#, php-format
+msgid "%s Comparison"
+msgstr "%sの比較"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:42
+msgid "Go back to previous page"
+msgstr "前のページへ"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:58
+msgid "Editor Ratings"
+msgstr "編集者による評価"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:68
+msgid "User Ratings"
+msgstr "ユーザーによる評価"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:115
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:178
+msgid "Remove item"
+msgstr "削除"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_noresults.thtml:3
+msgid "Your search did not return any results. Try adjusting your search values.<br /><br /><a href=\"javascript:window.history.go(-1)\">Click here to go back.</a>"
+msgstr "検索結果は0件です。検索条件を変えて、再検索して下さい。<br /><br /><a href=\"javascript:window.history.go(-1)\">戻るにはここをクリックして下さい。</a>"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_noresults.thtml:7
+msgid "Your favorites list is empty."
+msgstr "お気に入りリストは空です。"
+
+#: com_jreviews\jreviews\views/themes/default/modules/advanced_search.thtml:53
+#: com_jreviews\jreviews\views/themes/default/modules/advanced_search_map.thtml:54
+msgid "Keywords"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/modules/favorite_users.thtml:30
+#, php-format
+msgid "Other users interested in %s"
+msgstr "%sに興味があるユーザー"
+
+#: com_jreviews\jreviews\views/themes/default/modules/totals.thtml:1
+#, php-format
+msgid "There are %s listings and %s reviews."
+msgstr "%s リスティング と %s レビューがあります。"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:41
+msgid "Editor reviews"
+msgstr "編集者レビュー"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:41
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:78
+msgid "Editor review"
+msgstr "編集者レビュー"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:43
+msgid "Editor comments"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:43
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:80
+msgid "Editor comment"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:53
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:127
+msgid "View all editor reviews"
+msgstr "全ての編集者レビューを表示"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:53
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:127
+msgid "View all editor comments"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:57
+msgid "Back to Listing"
+msgstr "リスティングへ戻る"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:67
+#, php-format
+msgid "Average editor rating from: %s user(s)"
+msgstr "平均編集者評価　（総数：%s件）"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:80
+msgid "You already submitted a comment."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:28
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:40
+msgid "Reviewers"
+msgstr "レビュー投稿者"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:56
+msgid "Rank"
+msgstr "ランク"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:67
+msgid "Number of reviews written:"
+msgstr "レビュー数:"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:73
+msgid "Percentage helpful votes"
+msgstr "全投票のうち、何％が役に立ったか"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:73
+msgid "votes"
+msgstr "投票"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:40
+msgid "User reviews"
+msgstr "ユーザーレビュー"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:40
+msgid "User comments"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:47
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:113
+msgid "View all user comments"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:64
+msgid "There are no user comments for this listing."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:32
+msgid "Listing summary"
+msgstr "リスティング概要"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:38
+msgid "Listing description"
+msgstr "リスティング詳細"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:44
+msgid "Review comments"
+msgstr "レビューに対するコメント"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:55
+msgid "Any"
+msgstr "どれか"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:59
+msgid "All"
+msgstr "全て"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:63
+msgid "Exact"
+msgstr "ぴったり"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:69
+msgid "Listing author"
+msgstr "リスティング作成者"
+
+#: com_jreviews\jreviews\views/themes/mobile/geomaps/map_detail.thtml:68
+msgid "Swap Start/End"
+msgstr "逆のルートを検索"
+
+#: com_jreviews\jreviews\views/themes/mobile/geomaps/map_detail.thtml:69
+msgid "Start Address"
+msgstr "出発"
+
+#: com_jreviews\jreviews\views/themes/mobile/geomaps/map_detail.thtml:73
+msgid "Driving"
+msgstr "車で"
+
+#: com_jreviews\jreviews\views/themes/mobile/geomaps/map_detail.thtml:73
+msgid "Walking"
+msgstr "徒歩で"
+
+#: com_jreviews\jreviews\views/themes/mobile/geomaps/map_detail.thtml:78
+msgid "End"
+msgstr "到着"
+
+#: com_jreviews\jreviews\views/themes/mobile/geomaps/map_detail.thtml:82
+msgid "Get Directions"
+msgstr "ルート検索"
+
+#: com_jreviews_addons\geomaps\views/themes/geomaps/geomaps/map_results.thtml:100
+msgid "&#171; Large Map"
+msgstr "&#171; 地図（大）"
+
+#: com_jreviews_addons\geomaps\views/themes/geomaps/geomaps/map_results.thtml:101
+msgid "Small Map &#187;"
+msgstr "地図（小） &#187;"
+
+#: com_jreviews_addons\geomaps\views/themes/geomaps/geomaps/map_results.thtml:105
+msgid "Enable and click on a marker to see the streetview"
+msgstr "ストリートビューを表示するには、マーカーを有効にしてクリックして下さい。"
+
+#: com_jreviews_addons\geomaps\views/themes/geomaps/geomaps/map_results.thtml:105
+msgid "Streetview"
+msgstr "ストリートビュー"
+
+#: com_jreviews_addons\geomaps\views/themes/geomaps/geomaps/map_results.thtml:111
+#, fuzzy
+msgid "Click on a marker to show its street view."
+msgstr "マーカーをクリックするとストリートビューが表示されます。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:28
+msgid "Available plans in this category:"
+msgstr "このカテゴリのプランリスト"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:36
+msgid "Free and Trial Plans"
+msgstr "無料又はお試しプラン"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:45
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:66
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:87
+msgid "more..."
+msgstr "もっと…"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:57
+msgid "Single Payment Plans"
+msgstr "一括払いプラン"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:78
+msgid "Subscription Plans"
+msgstr "購読プラン"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:22
+msgid "Orders Expiring Soon"
+msgstr "まもなく期限切れとなるご注文"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:37
+msgid "Listings Pending Payment"
+msgstr "支払い処理中のリスティング"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:85
+msgid "Incomplete Orders"
+msgstr "ご注文内容に不備があります。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:100
+msgid "Listings"
+msgstr "リスティング"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:101
+msgid "Orders"
+msgstr "ご注文"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:102
+msgid "Invoices"
+msgstr "請求書"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:103
+msgid "Account Details"
+msgstr "アカウント詳細"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:26
+msgid "Your account information was saved."
+msgstr "アカウント情報が保存されました。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:30
+msgid "There was a problem saving your account information."
+msgstr "アカウント情報を保存中にエラーが発生しました。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:45
+msgid "Business"
+msgstr "会社名"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:50
+msgid "Address"
+msgstr "住所"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:55
+msgid "Country"
+msgstr "国"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:60
+msgid "Tax ID"
+msgstr "Tax ID"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:64
+msgid "Save"
+msgstr "保存"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:151
+msgid "Invoice"
+msgstr "請求書"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:173
+msgid "Invoice #"
+msgstr "ご請求番号"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:178
+msgid "UNPAID"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:183
+msgid "Order #"
+msgstr "ご注文番号"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:187
+msgid "Date"
+msgstr "日付"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:196
+msgid "Item"
+msgstr "項目"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:198
+msgid "Amount"
+msgstr "金額"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:204
+msgid "Expires"
+msgstr "有効期限"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:221
+msgid "Subtotal"
+msgstr "小計"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:227
+#, php-format
+msgid "Tax (%s%%)"
+msgstr "消費税 (%s%%)"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:235
+msgid "Total"
+msgstr "合計"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:243
+msgid "Thank you for your business!"
+msgstr "ご注文ありがとうございました。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoices.thtml:36
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:37
+msgid "Created"
+msgstr "作成日"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoices.thtml:37
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:159
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:39
+msgid "Plan"
+msgstr "プラン"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoices.thtml:55
+msgid "Print"
+msgstr "印刷"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_listings.thtml:44
+msgid "Plan Info"
+msgstr "プラン情報"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_listings.thtml:79
+msgid "Base Plan"
+msgstr "基本プラン"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_listings.thtml:81
+msgid "Upgrade Plans"
+msgstr "アップグレードプラン"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:16
+msgid "Your order is complete"
+msgstr "ご注文を承りました。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:17
+#, php-format
+msgid "%s, we have received your payment and you may now check the status of your listing in your <a href=\"%s\">account</a>."
+msgstr "%s様、ご入金いただきありがとうございました。リスティング状況は<a href=\"%s\">こちらで</a>ご確認をお願い致します。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:21
+msgid "Your order is pending"
+msgstr "ご注文を確認中です。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:22
+#, php-format
+msgid "%s, your order is under review at the payment processor and will be processed once payment is confirmed."
+msgstr "%s様、現在ご注文内容を決済処理会社にて確認中です。入金が確認でき次第、ご注文を処理させていただきます。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:25
+msgid "Your order failed"
+msgstr "ご注文は取り消されました。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:26
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:33
+#, php-format
+msgid "%s, your order failed to pass out security validations. If you feel this is an error, please contact us with your order number."
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:29
+msgid "Your order is incomplete"
+msgstr "ご注文内容に不備があります。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:37
+msgid "Your order is being processed"
+msgstr "ご注文を処理中です。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:38
+#, php-format
+msgid "%s, you will receive an email in a few minutes when your order is finalized and your listing is updated. You can also check the account page for the status of your listings."
+msgstr "%s様、ご注文完了後、リスティングがアップデートされますと、メールにてその旨ご連絡いたします。%s様のリスティング状況をアカウントページで確認することもできます。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:44
+msgid "Order details"
+msgstr "ご注文詳細"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:46
+msgid "Go to my account"
+msgstr "アカウントページへ移動"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:49
+msgid "Order status"
+msgstr "ご注文状況"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:54
+msgid "Expiration"
+msgstr "有効期限"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:20
+msgid "There are no plans available for this listing."
+msgstr "このリスティングでご利用いただけるプランはありません。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:40
+msgid "Step 1: Select a Plan"
+msgstr "Step 1:プランを選択する"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:54
+#, php-format
+msgid "You have %s free submission(s) left out of %s"
+msgstr "あと%s回、無料で投稿していただけます。（全%s回中）"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:72
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:142
+msgid "Continue"
+msgstr "次へ"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:76
+msgid "Please select a plan to continue."
+msgstr "プランを選択して下さい。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:81
+msgid "Step 2: Select Payment Method"
+msgstr "Step 2:支払方法を選択する"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:99
+#, php-format
+msgid "You have a balance of %s points, equivalent to %s"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:100
+#, fuzzy
+msgid "You don't have enough points to pay for the selected plan"
+msgstr "選択されたプランでは、リスティングの制限数をオーバーします。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:135
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:226
+msgid "Back"
+msgstr "前へ"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:146
+msgid "Please select a payment method to continue."
+msgstr "支払方法を選択して下さい。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:151
+msgid "Step 3: Confirm order"
+msgstr "Step 3:ご注文を確認する"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:166
+msgid "Plan Price"
+msgstr "プラン価格"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:170
+msgid "Discount"
+msgstr "割引"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:193
+msgid "Coupon"
+msgstr "クーポン"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:194
+msgid "Apply"
+msgstr "適用"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:195
+msgid "Coupon invalid or expired."
+msgstr "クーポンが無効又は期限切れです。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:196
+msgid "The coupon was applied to your order."
+msgstr "ご注文の際にクーポンのご利用がありました。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:202
+msgid "Terms of Service"
+msgstr "ご利用規約"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:214
+msgid "Click the submit button to finalize your order. You will be taken to the payment processor site to make your payment."
+msgstr "「注文」ボタンを押してご注文手続きを完了して下さい。決済処理ページが表示されるので、お支払い手続きを行って下さい。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:216
+#, php-format
+msgid "By clicking on %sSubmit Order%s you are agreeing to the %sTerms of Service%s above."
+msgstr "%s「注文」%sボタンをクリックすると、上記の%sご利用規約%sに同意されたものとみなします。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:219
+#, php-format
+msgid "I have read and agree to the %sTerms of Service%s above."
+msgstr "上記の%s利用規約%sを確認の上、同意しました。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:233
+msgid "Submit Order"
+msgstr "注文する"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:236
+msgid "There is already an unpaid order for this listing."
+msgstr "このリスティングのご注文代金は未納となっております。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:237
+msgid "The plan selected for this listing is not valid."
+msgstr "このリスティングに対して選択されたプランは有効ではありません。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:238
+msgid "You have exceeded your quota of listings for the selected plan."
+msgstr "選択されたプランでは、リスティングの制限数をオーバーします。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:243
+msgid "You need to agree to the Terms of Service."
+msgstr "本利用規約にご同意下さい。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:36
+msgid "Order"
+msgstr "注文"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:40
+msgid "Payment"
+msgstr "支払い"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:52
+msgid "Expiring Soon!"
+msgstr "まもなく期限切れとなります"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:54
+msgid "Expired"
+msgstr "期限切れ"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:73
+msgid "Renew Order"
+msgstr "ご注文を更新する"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:19
+msgid "The selected category doesn't have any plans."
+msgstr "選択されたカテゴリに合うプランがありません。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:25
+msgid "Select a category to see the available plans."
+msgstr "カテゴリを選択して、ご利用可能なプランをご覧下さい。"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:33
+msgid "One time payment plans"
+msgstr "一括払いプラン"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:42
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:65
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:88
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:103
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:118
+msgid "Free"
+msgstr "無料"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:43
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:67
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:89
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:104
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:119
+msgid "Never expires"
+msgstr "無期限"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:57
+msgid "Subscription plans"
+msgstr "購読プラン"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:80
+msgid "Upgrades"
+msgstr "アップグレード"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:83
+msgid "Free or trial"
+msgstr "無料又はお試しプラン"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:98
+msgid "One time payment"
+msgstr "一括払い"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:113
+msgid "Subscriptions"
+msgstr "購読"
+
+#~ msgid "Detail"
+#~ msgstr "詳細"
+
+#~ msgid "Type an address to move the map"
+#~ msgstr "地図を移動させるには、住所を入力して下さい。"
+
+#~ msgid "Go!"
+#~ msgstr "検索"
+
+#~ msgid "You will find this entry in the content moderation list."
+#~ msgstr "このエントリーは承認待ちリスト内にあります。"
+
+#~ msgid "Stop following"
+#~ msgstr "フォローを停止"
+
+#~ msgid "Follow me"
+#~ msgstr "フォローして下さい。"
+
+#~ msgid "&laquo; Previous"
+#~ msgstr "&laquo; 戻る"
+
+#~ msgid "%s of %s people found the following review helpful"
+#~ msgstr ""
+#~ "%s （次の数の中で： %s　）人が次のレビューが役に立つと言っています。"
+
+#~ msgid "Yes"
+#~ msgstr "はい"
+
+#~ msgid "No"
+#~ msgstr "いいえ"
+
+#~ msgid "Claim listing"
+#~ msgstr "リスティングの所有権を申し立てる"
+
+#~ msgid "The field is empty."
+#~ msgstr "フィールドが空です。"
+
+#~ msgid "%s already exists"
+#~ msgstr "%sは既に存在します。"
+
+#~ msgid "Possible file upload attack."
+#~ msgstr "ファイルアップロードアタックの可能性あり"
+
+#~ msgid "Listings for comparison"
+#~ msgstr "比較するリスティング"
+
+#~ msgid "There was a problem updating the listing's images"
+#~ msgstr ""
+#~ "リスティング画像をアップロード中にエラーが発生しました。もう1度アップロー"
+#~ "ドしてみて下さい。"
+
+#~ msgid "Select category"
+#~ msgstr "カテゴリを選択"
+
+#~ msgid "Invalid request."
+#~ msgstr "無効なリクエストです。"
+
+#~ msgid ""
+#~ "Access denied due to insufficient rights or the user session expired."
+#~ msgstr ""
+#~ "アクセス権がないか、セッションが期限切れとなったため、アクセスが拒否されま"
+#~ "した。"
+
+#~ msgid ""
+#~ "There was a problem removing the listing. Please contact the site "
+#~ "administrator."
+#~ msgstr ""
+#~ "リスティングを削除中にエラーが発生しました。サイト管理人にご連絡下さい。"
+
+#~ msgid "Thank you for your vote, it will be processed soon."
+#~ msgstr "ご投票ありがとうございます。すぐに処理いたします。"
+
+#~ msgid "To write a review please register or login."
+#~ msgstr "レビューを書くには、メンバー登録するか、ログインして下さい。"
+
+#~ msgid "index.php?option=com_user&view=register"
+#~ msgstr "index.php?option=com_user&view=register"
+
+#~ msgid "index.php"
+#~ msgstr "index.php"
+
+#~ msgid "JOOMUNITY_TAG"
+#~ msgstr "メンバー"
+
+#~ msgid "Item successfully saved."
+#~ msgstr "保存されました。"
+
+#~ msgid ""
+#~ "You already submitted a review, thank you. We don't allow duplicates."
+#~ msgstr "レビューは投稿済みです。重複投稿は出来ません。"
+
+#~ msgid "Duplicates not allowed."
+#~ msgstr "重複投稿は出来ません。"
+
+#~ msgid "View all favorites"
+#~ msgstr "全てのお気に入りを表示"
+
+#~ msgid "View all reviews"
+#~ msgstr "全てのレビューを表示"
+
+#~ msgid ""
+#~ "This action cannnot be undone, are you sure you want to delete this "
+#~ "listing?"
+#~ msgstr ""
+#~ "削除されたリスティングは元に戻すことは出来ません。このリスティングを本当に"
+#~ "削除しますか？"

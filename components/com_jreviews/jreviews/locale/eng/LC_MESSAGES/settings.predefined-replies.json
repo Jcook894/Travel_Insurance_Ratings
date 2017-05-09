@@ -1,0 +1,50 @@
+[
+    {
+        "menu": "Predefined Replies",
+        "url": "admin_predefined_replies/index",
+        "settings": [
+            {
+                "title": "Pre-defined replies for moderated listings",
+                "keywords": "listings, pre-defined, emails, e-mails, mail, notifications, moderation, moderated, approval, hold, held, rejected",
+                "description": "Approved, rejected, on hold, etc.",
+                "name": "listing",
+                "tags": ["Moderation", "Listings"]
+            },
+            {
+                "title": "Pre-defined replies for moderated reviews",
+                "keywords": "reviews, pre-defined, emails, e-mails, mail, notifications, moderation, moderated, approval, hold, held, rejected",
+                "description": "Approved, rejected, on hold, etc.",
+                "name": "review",
+                "tags": ["Moderation", "Reviews"]
+            },
+            {
+                "title": "Pre-defined replies for moderated media",
+                "keywords": "media, photos, videos, attachments, audio, music, pre-defined, emails, e-mails, mail, notifications, moderation, moderated, approval, hold, held, rejected",
+                "description": "Approved, rejected, on hold, etc.",
+                "name": "media",
+                "tags": ["Moderation", "Media"]
+            },
+            {
+                "title": "Pre-defined replies for moderated owner replies",
+                "keywords": "owner replies, reply, pre-defined, emails, e-mails, mail, notifications, moderation, moderated, approval, hold, held, rejected",
+                "description": "Approved, rejected, on hold, etc.",
+                "name": "owner_reply",
+                "tags": ["Moderation", "Owner Replies"]
+            },
+            {
+                "title": "Pre-defined replies for moderated review comments",
+                "keywords": "discussions, comments, pre-defined, emails, e-mails, mail, notifications, moderation, moderated, approval, hold, held, rejected",
+                "description": "Approved, rejected, on hold, etc.",
+                "name": "discussion_post",
+                "tags": ["Moderation", "Discussion Comments"]
+            },
+            {
+                "title": "Pre-defined replies for moderated claims",
+                "keywords": "claims, pre-defined, emails, e-mails, mail, notifications, moderation, moderated, approval, hold, held, rejected",
+                "description": "Approved, rejected, on hold, etc.",
+                "name": "claim",
+                "tags": ["Moderation", "Claims"]
+            }
+        ]
+    }
+]

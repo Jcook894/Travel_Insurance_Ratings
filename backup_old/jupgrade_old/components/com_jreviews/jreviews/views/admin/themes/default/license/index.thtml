@@ -1,0 +1,64 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$errors =array();
+$errors['nolicense'] = "Please enter your license number";
+$errors['invalid'] = "
+    <p>Your license is invalid. This happens if:</p> 
+    <ol>
+    <li>There's a typo in the license number. Make sure the license number includes everything to the left of the hyphen and starts with \"jReviews\".</li>
+    <li>You moved the installation of JReviews to a different server or a different domain. Read the <a target=\"_blank\" href=\"http://docs.reviewsforjoomla.com/Can_I_move_the_JReviews_license_to_a_different_domain\">instructions for moving your license to a different domain</a>.</li>
+    <li>You are trying to use JReviews without a valid license.</li>
+    </ol> 
+    ";
+$errors['suspended'] = "
+    <p>Your license is suspended.</p>
+";    
+$errors['expired'] = "
+    <p>The allotted valid license period has expired.</p>
+";
+$errors['pending'] = "
+    <p>Your license is pending release. This means your payment is pending verification or if you paid with an eCheck it has not been cleared.</p> 
+";
+$msg = Sanitize::getString($this->params,'msg');
+$msg = isset($errors[$msg]) ? $errors[$msg] : $msg;
+?>
+<style type="text/css">
+.error-msg li {line-height: 1.8em;}
+</style>
+
+<div class="admin_header">JReviews License</div>
+
+<?php if($msg!=''):?>
+<div class="error-msg ui-widget" style="width:650px;">
+    <div style="color: #000; padding: 10px 5px 0 5px;" class="ui-state-error ui-corner-all"> 
+        <?php echo $msg;?>
+        <p>If you feel that this error is invalid submit a support ticket. Please don't use the forums for license issues.</p>
+    </div>
+</div>           
+<?php endif;?>
+
+<div class="jr_form" style="width:600px;padding:15px;margin-top:10px">
+    <form name="LicenseForm" id="LicenseForm" method="post" action="index.php?option=<?php echo S2Paths::get('jreviews','S2_CMSCOMP');?>">
+        <fieldset>
+            <legend>License number</legend>
+            <input name="data[license]" id="license" type="text" value="<?php echo $license;?>" size="50" />
+        </fieldset>
+        <fieldset>
+            <legend>Local Key</legend>
+            <p>If the local key cannot be automatically created after submitting the license number, paste the content of the key.php file from the client area here:</p>
+            <textarea name="data[local_key]" id="local_key" rows="10" cols="75" style="width:100%;height:200px;"><?php echo $local_key;?></textarea>
+        </fieldset>
+        <button class="ui-button ui-corner-all" onclick="validateSubmitLicense();return false;">Submit</button>
+	    <input name="data[controller]" type="hidden" value="admin/license" />
+	    <input name="data[action]" type="hidden" value="_save" />
+    </form>
+</div>    

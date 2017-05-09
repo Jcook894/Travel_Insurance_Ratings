@@ -1,0 +1,36 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$goToListingButton = isset($listing) && $listing['Listing']['state'] ? $Html->sefLink(__t("Go to listing",true),$listing['Listing']['url'], array('class'=>'jrButton')) : '';
+
+$myMediaButton = $Routes->myMedia(__t("My Media",true),$User->id,array('class'=>'jrButton'));
+
+$myListingsButton = $Routes->myListings(__t("My Listings",true),$User->id,array('class'=>'jrButton'));
+
+$myReviewsButton = $Routes->myReviews(__t("My Reviews",true),$User->id,array('class'=>'jrButton'));
+?>
+
+<div class="<?php echo $uploadTabClass;?> jrHidden jrSuccess">
+
+	<span class="jrMediaUploadSuccess"><?php __t("Upload Successful. Continue with uploads or leave this page.");?></span>
+
+	<br />
+
+	<?php if((isset($review) && isset($review['Review']) && $review['Review']['published']) || !isset($review)):?>
+
+		<?php echo $goToListingButton;?>
+
+	<?php endif;?>
+
+	<?php echo $myMediaButton;?>
+
+	<?php echo $review_id ? $myReviewsButton : $myListingsButton;?>
+
+</div>

@@ -1,0 +1,149 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2009 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php if($this->offset==0):?>
+
+<div class="admin_header">Moderation of User Reports</div>
+           
+<div class="jr_pgContainer">
+
+<?php endif;?>    
+
+    <?php foreach($reports AS $report): extract($report['Report']);?>
+    <form id="jr_moderateForm<?php echo $report_id;?>" name="jr_moderateForm<?php echo $report_id;?>" action="" method="">
+        <div class="roundedPanelLt">
+            <div class="box_upperOuter">
+                <div class="box_upperInner">
+                    <!-- ROUND PANEL INNER -->    
+                        <table class="jr_moderation" cellpadding="4" cellspacing="0" border="0" width="100%">
+                            <tr>
+                                <th class="jr_column1" style="padding-left:5px;">
+
+                                    <button type="button" title="<?php __a("Delete");?>" class="ui-button-small ui-state-default ui-corner-right" style="float:right;" 
+                                        onclick="jreviews_admin.dialog.remove('admin_reports','_deleteModeration','<?php __a("This report will be permanently deleted and cannot be recovered. Are you sure?");?>',{'data[entry_id]':<?php echo $report_id;?>});">
+                                        <span class="ui-icon ui-icon-trash"></span>
+                                    </button>    
+                                                                                                            
+                                    <button type="button" title="View frontend url" class="ui-button-small ui-state-default ui-corner-center" style="float:right;"
+                                        onclick="window.open('<?php echo $report['Review']['url'];?>');">
+                                        <span class="ui-icon ui-icon-extlink"></span>
+                                    </button>
+                                    
+                                    <button type="button" class="ui-button-small ui-state-default ui-corner-left" style="float:right;" 
+                                        onclick="jreviews_admin.dialog.preview('jr_textArea<?php echo $report_id;?>',{title:'<?php __a("Report");?>'});">
+                                    <span class="ui-icon ui-icon-newwin"></span>
+                                    </button>                                    
+                                    
+                                    #<?php echo $report_id;?> <span style="text-decoration:underline;"><?php if($post_id>0):?>Comment<?php else:?>Review<?php endif;?></span> reported <?php echo $Time->timeAgoInWords($created);?> by <?php echo $AdminRoutes->user($name,$user_id,array('target'=>"_blank"));?>
+                                    
+                                </th>
+                                <th class="jr_column2">Admin Note</th>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <div id="jr_textArea<?php echo $report_id;?>" class="jr_textArea">
+                                        <p><?php echo $report_text;?></p>
+                                        <hr />
+                                        
+                                        <?php if($post_id>0):?>
+                                        
+                                            <p id="post<?php echo $post_id;?>" style="font-style:italic;">"<?php echo $reported_target;?>"</p>                                        
+                                        
+                                        <?php elseif($review_id>0):?>
+                                        
+                                             <!-- BEGIN RATINGS -->
+                                            <table border="0" cellpadding="0" cellspacing="0" class="rating_table">
+                                                <tr>
+                                                <?php if($report['Review']['editor']==1):?>
+                                                  <td align="left" class="rating_label"><?php echo $Html->image($this->viewImages.'review_editor.png',array('title'=>__t("Editor rating",true),'alt'=>__t("Editor rating",true)));?></td>
+                                                  <td align="left" class="rating_stars" style="cursor:help;" title="<?php __t("Editor rating");?>"><?php echo $Rating->drawStars($report['Rating']['average_rating'], $this->Config->rating_scale, $this->Config->rating_graph, 'editor');?></td>
+                                                  <?php else:?>                        
+                                                  <td align="left" class="rating_label"><?php echo $Html->image($this->viewImages.'review_user.png',array('title'=>__t("User rating",true),'alt'=>__t("User rating",true)));?></td>
+                                                  <td align="left" class="rating_stars" style="cursor:help;" title="<?php __t("User rating");?>"><?php echo $Rating->drawStars($report['Rating']['average_rating'], $this->Config->rating_scale, $this->Config->rating_graph, 'user');?></td>
+                                                  <?php endif;?>
+                                                  <td><span class="jr_title"><?php echo $report['Review']['title'];?></span></td>
+                                                </tr>                                        
+                                            </table>
+                                            <!-- END RATINGS--> 
+                                            <br />
+                                            <div>                                   
+                                                <?php if(isset($report['Field']['groups'])):?>
+                                                    <?php echo $this->element('custom_fields',array('entry'=>$report,'page'=>'content'))?>
+                                                <?php endif;?>
+                                                <?php echo $report['Review']['comments'];?>    
+                                            </div>                                                                            
+                                        <?php endif;?>
+                                    </div>
+                                </td>
+                                <td>
+                                    <textarea name="data[Report][report_note]" style="width:100%;height:7em;" cols="150" rows="5"><?php echo $report_note;?></textarea>
+                                </td>
+                            </tr>                                                                                            
+                            <tr>
+                                <td colspan="2">
+                                    <div class="jr_fieldDiv">
+                                        <label for="approvedArchivejr_moderateForm<?php echo $report_id;?>">
+                                            <input name="data[Report][approved]" id="approvedArchivejr_moderateForm<?php echo $report_id;?>" checked="checked" type="radio" value="-1">&nbsp;<?php __a("Archive");?>
+                                        </label>
+                                        &nbsp;
+                                        <label for="approvedDeletejr_moderateForm<?php echo $report_id;?>">
+                                            <input name="data[Report][approved]" id="approvedDeletejr_moderateForm<?php echo $report_id;?>" type="radio" value="-2">&nbsp;<?php __a("Delete");?>
+                                        </label>
+                                        &nbsp;
+                                        <label for="approvedHoldjr_moderateForm<?php echo $report_id;?>">
+                                            <input name="data[Report][approved]" id="approvedHoldjr_moderateForm<?php echo $report_id;?>" type="radio" value="0">&nbsp;<?php __a("Hold");?>
+                                        </label>
+                                    </div>                     
+                                 </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <button class="ui-button ui-corner-all" onclick="jreviews_admin.report.moderate('jr_moderateForm<?php echo $report_id;?>');return false;"><?php __a("Submit");?></button>
+                                </td>
+                            </tr>    
+                        </table>
+                        <input name="data[Report][report_id]" type="hidden" value="<?php echo $report_id;?>" />    
+                    <!-- ROUND PANEL INNER -->
+                </div>
+            </div>
+            <div class="box_lowerOuter">
+                <div class="box_lowerInner">&nbsp;</div>
+            </div>
+        </div>
+        <div>&nbsp;</div>
+    </form>    
+    <?php endforeach;?>
+
+<?php if($this->offset==0):?>    
+
+        <?php if($total>0 && $total > $this->limit):?>
+        
+        <div id="jr_loadMore" style="border:1px solid #000;background-color:#FBFBFB;width:100%;padding:5px;line-height:30px;text-align:center;">                                 
+        
+            <a href="#load-more" style="font-weight:bold;font-size:14px;" onclick="jreviews_admin.tools.moderateLoadMore('admin_reports','index');return false;">Load more...</a>
+        
+            <span style="display: none;" id="jr_loadMoreSpinner">
+                <img src="<?php echo $this->viewImages;?>loading.gif" alt="loading" />
+            </span>    
+
+        </div>
+        
+        <form id="jr_pageScroll" name="jr_pageScroll" method="" action="">
+            <input type="hidden" id="jr_page" name="data[page]" value="1" />
+            <input type="hidden" id="jr_limit" name="data[limit]" value="<?php echo $this->limit;?>" />
+            <input type="hidden" id="jr_num_pages" name="data[num_pages]" value="<?php echo $num_pages;?>" />        
+        </form>   
+
+        <?php endif;?>
+ </div>    
+ <?php endif;?>    
+    

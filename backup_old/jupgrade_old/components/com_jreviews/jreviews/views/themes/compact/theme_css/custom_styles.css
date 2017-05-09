@@ -1,0 +1,178 @@
+/*************************************
+Add your custom styles here
+*************************************/
+
+/* listing detail page overrides */
+div.jr_itemDetail div.jr_pathway {
+	margin-bottom: 15px;
+}
+
+div.jr_itemDetail h1.contentheading {
+	border: 0 !important;
+	font-size: 22px !important;
+}
+
+div.jr_itemDetail  div.overall_ratings {
+	clear: left;
+	float: none;
+	overflow: hidden;
+}
+
+div.jr_itemDetail  div.overall_editor {
+	float: left;
+	margin-right: 10px;
+}
+
+div.jr_pgContainer div.contentInfo {
+	margin: 10px 0;
+}
+
+div.jr_itemDetail div.contentInfoButtons {
+	margin: 10px 0;
+}
+
+div.jr_itemDetail span.compareListing.jrButton {
+	padding: 2px 6px 3px !important;
+	margin: 5px 5px 0 0;
+	font-size: 12px;
+}
+
+div.contentInfoButtons span.jrManagement.jrButton {
+	padding: 3px 20px 4px 6px !important;
+	font-size: 12px;
+    margin: 5px 5px 0 0;
+    vertical-align: top;
+}
+
+div.jr_itemDetail div.jr_customFields {
+	width: 45%;
+	clear: right;
+	float: right;
+	background: #f0f0f0;
+	padding: 10px;
+	margin: 10px 0 10px 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+div.jr_itemDetail div.jr_reviewContainer div.jr_customFields,
+div.jr_itemDetail div.jr_tabs div.jr_customFields  {
+	width: auto;
+	clear: both;
+	float: none;
+	background: #f0f0f0;
+	padding: 10px;
+	margin: 10px 0;
+}
+
+/* review layout */
+
+div.reviewInfo img  {
+	width: 20px;
+	height: auto;
+}
+
+
+/* blogview overrides */
+div.jr_blogview div.contentThumbnail {
+    float: right;
+	margin: 0 0 10px 10px;
+}
+
+div.jr_blogview span.compareListing.jrButton {
+	clear: right;
+	float: right;
+}
+
+div.jr_blogview div.contentInfoContainer {
+    background: none;
+	border: 0;
+}
+
+div.jr_blogview  div.contentIntrotext {
+	clear: left;
+	margin-bottom: 35px;
+}
+
+div.jr_blogview  div.overall_ratings {
+	clear: left;
+	float: none;
+	overflow: hidden;
+}
+
+div.jr_blogview  div.overall_ratings span.rating_value {
+	display: none;
+}
+
+div.jr_blogview  div.overall_editor {
+	float: left;
+	margin-right: 10px;
+}
+
+div.jr_blogview  div.overall_user {
+	float: left;
+}
+
+div.jr_blogview div.listItem {
+	margin: 0 !important;
+	padding: 2px;
+	overflow: visible;
+}
+
+div.jr_blogview div.listItem.row2 {
+    background: #fff;
+}
+
+div.jr_blogview div.listItem.row2 {
+    background: #f5f5f5;
+}
+
+
+/* tableview overrides */
+div.jr_tableview th {
+    padding: 5px !important;
+}
+
+div.jr_tableview th.columnMain {
+	padding: 5px 5px 5px 0 !important;
+}
+
+div.jr_tableview td.columnFirst {
+	padding: 10px 5px 0 5px;
+}
+
+div.jr_tableview td.columnFirst .contentThumbnail img {
+    height: 25px !important;
+    width: 25px !important;
+}
+
+div.jr_tableview td, div.jr_tableview td.columnFirst div.jr_tableview td.columnMain, div.jr_tableview td.columnLast, div.jr_tableview td.columnCompare {
+    border-top: 1px solid #ccc;
+    padding: 5px;
+    vertical-align: middle;
+}
+
+div.jr_tableview  div.overall_ratings {
+	clear: left;
+	float: none;
+	overflow: hidden;
+	width: 215px;
+}
+
+div.jr_tableview  div.overall_ratings span.rating_value {
+	display: none;
+}
+
+div.jr_tableview  div.overall_editor {
+	float: left;
+	margin-right: 10px;
+}
+
+div.jr_tableview  div.overall_user {
+	float: left;
+}
+
+div.jr_tableview span.compareListing.jrButton {
+	margin: 0;
+}

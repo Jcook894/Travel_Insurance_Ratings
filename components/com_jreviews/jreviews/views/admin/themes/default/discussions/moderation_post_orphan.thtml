@@ -1,0 +1,45 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+extract($post['Discussion']);
+
+$langDel = json_encode(array(
+        'del_confirm'=>__a("This action will delete the review comment(s). Are you sure you want to continue?",true,true),
+        'del_error'=>__a('There was a problem deleting the comment.',true,true)
+    ));
+
+?>
+
+<div class="jr-layout-outer jrRoundedPanel">
+
+    <form id="jr-form-discussion-<?php echo $discussion_id;?>" action="index.php" method="post" data-object-type="discussion">
+
+        <div class="jrGrid">
+
+            <div class="jrCol12">
+
+                <span class="jrStatusLabel">#<?php echo $discussion_id;?></span>
+
+                &#149;
+
+                <span class="jrError"><?php __a("This comment no longer has an associated listing.");?></span>
+
+                <br />
+
+            </div>
+
+            <div class="jrCol4">&nbsp;</div>
+
+        </div>
+
+    </form>
+
+</div>

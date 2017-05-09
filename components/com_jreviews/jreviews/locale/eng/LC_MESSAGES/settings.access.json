@@ -1,0 +1,392 @@
+[
+    {
+        "menu": "Access Settings",
+        "url": "access/index",
+        "settings": [
+            {
+                "title": "Submit New Listing",
+                "keywords": "access, permissions, groups, roles, submit, new, listings",
+                "description": "Select all groups allowed to submit new listings.",
+                "name": "addnewaccess",
+                "tags": ["Listings"],
+                "override": true
+            },
+            {
+                "title": "Moderate new listing",
+                "keywords": "access, permissions, groups, roles, moderation, moderate, hold, approve, listings, unpublished, unpublish",
+                "description": "Each group has to be selected separately. Admin must approve and publish new items for the selected groups.",
+                "name": "moderation_item",
+                "tags": ["Listings"],
+                "override": true
+            },
+            {
+                "title": "Moderate edited listing",
+                "keywords": "access, permissions, groups, roles, moderation, moderate, hold, approve, listings, edit, unpublished, unpublish",
+                "description": "Listings will be unpublished and held for approval when edited via the frontend.",
+                "name": "moderation_item_edit",
+                "tags": ["Listings"],
+                "override": true
+            },
+            {
+                "title": "Edit listing",
+                "keywords": "access, permissions, groups, roles, listings, edit",
+                "description": "Registered and Author can only edit their own listings. Editor and above can edit all listings, but only see custom fields for which they have access.",
+                "name": "editaccess",
+                "tags": ["Listings"],
+                "override": true
+            },
+            {
+                "title": "Publish/unpublish listing",
+                "keywords": "access, permissions, groups, roles, listings, publish, unpublish",
+                "description": "Registered and Author can only publish/unpublish their own listings.",
+                "name": "listing_publish_access",
+                "tags": ["Listings"],
+                "override": true
+            },
+            {
+                "title": "Delete listing",
+                "keywords": "access, permissions, groups, roles, listings, delete",
+                "description": "Registered and Author can only delete their own listings.",
+                "name": "listing_delete_access",
+                "tags": ["Listings"],
+                "override": true
+            },
+            {
+                "title": "WYSIWYG editor",
+                "keywords": "access, permissions, groups, roles, listings, editor, wysiwyg",
+                "description": "Used in standard fields summary and description.",
+                "name": "addnewwysiwyg",
+                "tags": ["Listings"],
+                "override": true
+            },
+            {
+                "title": "Meta data fields",
+                "keywords": "access, permissions, groups, roles, listings, editor, meta, keywords, description",
+                "description": "Listing description and keywords meta data.",
+                "name": "addnewmeta",
+                "tags": ["Listings"],
+                "override": true
+            },
+            {
+                "title": "Submit new review",
+                "keywords": "access, permissions, groups, roles, review, submit, new",
+                "description": "Select all groups allowed to submit new reviews.",
+                "name": "addnewaccess_reviews",
+                "tags": ["Reviews"],
+                "override": true
+            },
+            {
+                "title": "Moderate new user reviews",
+                "keywords": "access, permissions, groups, roles, moderation, moderate, hold, approve, user, review, unpublished, unpublish",
+                "description": "Each group has to be selected separately. Admin must approve and publish new items for the selected groups.",
+                "name": "moderation_reviews",
+                "tags": ["Reviews"],
+                "override": true
+            },
+            {
+                "title": "Moderate new editor reviews",
+                "keywords": "access, permissions, groups, roles, moderation, moderate, hold, approve, user, review, unpublished, unpublish",
+                "description": "Define JReviews editors in Configuration => Reviews tab.",
+                "name": "moderation_editor_reviews",
+                "tags": ["Reviews"],
+                "override": true
+            },
+            {
+                "title": "Moderate edited user reviews",
+                "keywords": "access, permissions, groups, roles, moderation, moderate, hold, approve, user, review, edit",
+                "description": "User reviews will be unpublished and held for approval when edited via the frontend.",
+                "name": "moderation_review_edit",
+                "tags": ["Reviews"],
+                "override": true
+            },
+            {
+                "title": "Moderate edited user reviews",
+                "keywords": "access, permissions, groups, roles, moderation, moderate, hold, approve, editor, review, edit",
+                "description": "Editor reviews will be unpublished and held for approval when edited via the frontend.",
+                "name": "moderation_editor_review_edit",
+                "tags": ["Reviews"],
+                "override": true
+            },
+            {
+                "title": "Enable voting",
+                "keywords": "access, permissions, groups, roles, review, votes, voting, likes, helpful",
+                "description": "",
+                "name": "user_vote_public",
+                "tags": ["Reviews"],
+                "override": true
+            },
+            {
+                "title": "Edit review",
+                "keywords": "access, permissions, groups, roles, review, edit",
+                "description": "Registered and Author can only edit their own reviews.",
+                "name": "editaccess_reviews",
+                "tags": ["Reviews"],
+                "override": true
+            },
+            {
+                "title": "Default Access Level for Listing Photos",
+                "keywords": "access, permissions, groups, roles, listings, media, photos, view",
+                "description": "Only the selected access level will be able to view photos.",
+                "name": "media_access_view_photo_listing",
+                "tags": ["Media", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Default Access Level for Listing Videos",
+                "keywords": "access, permissions, groups, roles, listings, media, videos, view, play",
+                "description": "Only the selected access level will be able to view videos.",
+                "name": "media_access_view_video_listing",
+                "tags": ["Media", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Default Access Level for Listing Attachments",
+                "keywords": "access, permissions, groups, roles, listings, media, attachments, download",
+                "description": "Only the selected access level will be able to download attachments.",
+                "name": "media_access_view_attachment_listing",
+                "tags": ["Media", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Default Access Level for Listing Audio",
+                "keywords": "access, permissions, groups, roles, listings, media, audio, music, play",
+                "description": "Only the selected access level will be able to play audio.",
+                "name": "media_access_view_audio_listing",
+                "tags": ["Media", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Default Access Level for Review Photos",
+                "keywords": "access, permissions, groups, roles, reviews, media, photos, view",
+                "description": "Only the selected access level will be able to view photos.",
+                "name": "media_access_view_photo_review",
+                "tags": ["Media", "Reviews"],
+                "override": true
+            },
+            {
+                "title": "Default Access Level for Review Videos",
+                "keywords": "access, permissions, groups, roles, reviews, media, videos, view, play",
+                "description": "Only the selected access level will be able to view videos.",
+                "name": "media_access_view_video_review",
+                "tags": ["Media", "Reviews"],
+                "override": true
+            },
+            {
+                "title": "Default Access Level for Review Attachments",
+                "keywords": "access, permissions, groups, roles, reviews, media, attachments, download",
+                "description": "Only the selected access level will be able to download attachments.",
+                "name": "media_access_view_attachment_review",
+                "tags": ["Media", "Reviews"],
+                "override": true
+            },
+            {
+                "title": "Default Access Level for Review Audio",
+                "keywords": "access, permissions, groups, roles, reviews, media, audio, music, play",
+                "description": "Only the selected access level will be able to play audio.",
+                "name": "media_access_view_audio_review",
+                "tags": ["Media", "Reviews"],
+                "override": true
+            },
+            {
+                "title": "Allow Uploads from URL",
+                "keywords": "access, permissions, groups, roles, listings, upload",
+                "description": "",
+                "name": "media_access_upload_url_listing",
+                "tags": ["Media", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Listing Photos Upload",
+                "keywords": "access, permissions, groups, roles, listings, photos, upload",
+                "description": "",
+                "name": "media_access_submit_photo_listing",
+                "tags": ["Media", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Listing Videos Upload",
+                "keywords": "access, permissions, groups, roles, listings, videos, upload",
+                "description": "",
+                "name": "media_access_submit_video_listing",
+                "tags": ["Media", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Listing Attachments Upload",
+                "keywords": "access, permissions, groups, roles, listings, attachments, upload",
+                "description": "",
+                "name": "media_access_submit_attachment_listing",
+                "tags": ["Media", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Listing Audio Upload",
+                "keywords": "access, permissions, groups, roles, listings, audio, upload",
+                "description": "",
+                "name": "media_access_submit_audio_listing",
+                "tags": ["Media", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Allow Uploads from URL",
+                "keywords": "access, permissions, groups, roles, reviews, upload",
+                "description": "",
+                "name": "media_access_upload_url_review",
+                "tags": ["Media", "Reviews"],
+                "override": true
+            },
+            {
+                "title": "Review Photos Upload",
+                "keywords": "access, permissions, groups, roles, reviews, photos, upload",
+                "description": "",
+                "name": "media_access_submit_photo_review",
+                "tags": ["Media", "Reviews"],
+                "override": true
+            },
+            {
+                "title": "Review Videos Upload",
+                "keywords": "access, permissions, groups, roles, reviews, videos, upload",
+                "description": "",
+                "name": "media_access_submit_video_review",
+                "tags": ["Media", "Reviews"],
+                "override": true
+            },
+            {
+                "title": "Review Attachments Upload",
+                "keywords": "access, permissions, groups, roles, reviews, attachments, upload",
+                "description": "",
+                "name": "media_access_submit_attachment_review",
+                "tags": ["Media", "Reviews"],
+                "override": true
+            },
+            {
+                "title": "Review Audio Upload",
+                "keywords": "access, permissions, groups, roles, reviews, audio, upload",
+                "description": "",
+                "name": "media_access_submit_audio_review",
+                "tags": ["Media", "Reviews"],
+                "override": true
+            },
+            {
+                "title": "Moderate New Photos",
+                "keywords": "access, permissions, groups, roles, moderate, moderation, hold, approve, photos",
+                "description": "",
+                "name": "media_access_moderate_photo",
+                "tags": ["Media"],
+                "override": true
+            },
+            {
+                "title": "Moderate New Videos",
+                "keywords": "access, permissions, groups, roles, moderate, moderation, hold, approve, videos",
+                "description": "",
+                "name": "media_access_moderate_video",
+                "tags": ["Media"],
+                "override": true
+            },
+            {
+                "title": "Moderate New Videos",
+                "keywords": "access, permissions, groups, roles, moderate, moderation, hold, approve, attachments",
+                "description": "",
+                "name": "media_access_moderate_attachment",
+                "tags": ["Media"],
+                "override": true
+            },
+            {
+                "title": "Moderate New Audio",
+                "keywords": "access, permissions, groups, roles, moderate, moderation, hold, approve, audio",
+                "description": "",
+                "name": "media_access_moderate_audio",
+                "tags": ["Media"],
+                "override": true
+            },
+            {
+                "title": "Moderate Edited Media",
+                "keywords": "access, permissions, groups, roles, moderate, moderation, hold, approve, edit, media",
+                "description": "",
+                "name": "media_access_moderate_edit",
+                "tags": ["Media"],
+                "override": true
+            },
+            {
+                "title": "Likes for Photos",
+                "keywords": "access, permissions, groups, roles, photos, likes",
+                "description": "",
+                "name": "media_access_like_photo",
+                "tags": ["Media"]
+            },
+            {
+                "title": "Likes for Videos",
+                "keywords": "access, permissions, groups, roles, videos, likes",
+                "description": "",
+                "name": "media_access_like_video",
+                "tags": ["Media"]
+            },
+            {
+                "title": "Edit Media",
+                "keywords": "access, permissions, groups, roles, media, edit, photos, videos, attachments, audio",
+                "description": "Registered and Author can only edit their own Media. Editor and above can edit all media.",
+                "name": "media_access_edit",
+                "tags": ["Media"]
+            },
+            {
+                "title": "Delete Media",
+                "keywords": "access, permissions, groups, roles, media, delete, photos, videos, attachments, audio",
+                "description": "Registered and Author can only delete their own Media. Editor and above can delete all media.",
+                "name": "media_access_delete",
+                "tags": ["Media"]
+            },
+            {
+                "title": "Publish Media",
+                "keywords": "access, permissions, groups, roles, media, publish, photos, videos, attachments, audio",
+                "description": "Registered and Author can only publish their own Media. Editor and above can publish all media.",
+                "name": "media_access_publish",
+                "tags": ["Media"]
+            },
+            {
+                "title": "Submit New Comment/Discussion",
+                "keywords": "access, permissions, groups, roles, comment, discussion, new, submit",
+                "description": "",
+                "name": "addnewaccess_posts",
+                "tags": ["Discussions"],
+                "override": true
+            },
+            {
+                "title": "Moderate New Discussion Comment",
+                "keywords": "access, permissions, groups, roles, comment, discussion, moderate, moderation, hold",
+                "description": "",
+                "name": "moderation_posts",
+                "tags": ["Discussions"]
+            },
+            {
+                "title": "Edit Discussion Comment",
+                "keywords": "access, permissions, groups, roles, comment, discussion, edit",
+                "description": "Registered and Author can only edit their own comments. Editor and above can edit all comments.",
+                "name": "post_edit_access",
+                "tags": ["Discussions"],
+                "override": true
+            },
+            {
+                "title": "Delete Discussion Comment",
+                "keywords": "access, permissions, groups, roles, comment, discussion, delete",
+                "description": "Registered and Author can only delete their own comments. Editor and above can delete all comments.",
+                "name": "post_edit_access",
+                "tags": ["Discussions"]
+            },
+            {
+                "title": "Delete Discussion Comment",
+                "keywords": "access, permissions, groups, roles, comment, discussion, delete",
+                "description": "Registered and Author can only delete their own comments. Editor and above can delete all comments.",
+                "name": "post_delete_access",
+                "tags": ["Discussions"],
+                "override": true
+            },
+            {
+                "title": "Moderate listing owner replies to reviews",
+                "keywords": "access, permissions, groups, roles, owner replies, reviews, moderate, moderation, hold, approve",
+                "description": "",
+                "name": "moderation_owner_replies",
+                "tags": ["Discussions"]
+            }
+        ]
+    }
+]

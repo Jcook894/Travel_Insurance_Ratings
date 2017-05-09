@@ -1,0 +1,221 @@
+<?php
+$criteria_id = Sanitize::getInt($listingType['Criteria'],'criteria_id');
+
+$edit = $criteria_id > 0;
+
+$currListingType = Sanitize::getVar($listingType['ListingType']['config']['relatedreviews'],$i,array());
+
+$relatedWidget = array(
+
+    __a("Widget Settings",true) => array(
+
+        array(
+            'label'=>__a("Enable",true),
+            'type'=>'radioYesNo',
+            'name'=>'enable',
+            'default'=>$edit ? Sanitize::getVar($currListingType,'enable', 0) : 0,
+            'after'=>''
+        ),
+        array(
+            'label'=>__a("Title",true),
+            'type'=>'text',
+            'name'=>'title',
+            'default'=>$edit ? Sanitize::getVar($currListingType,'title') : '',
+            'help'=>__a("Use the {title} tag to add the current listing title",true)
+        ),
+        array(
+            'label'=>__a("Target Element ID",true),
+            'type'=>'text',
+            'name'=>'target_id',
+            'default'=>$edit ? Sanitize::getVar($currListingType,'target_id','jrRelatedListings') : 'jrRelatedListings',
+            'help'=>__a("Output rendered in html element with this id. Default is \"jrRelatedListings\"",true)
+        ),
+        array(
+            'label'=>__a("Target Element Class",true),
+            'type'=>'text',
+            'name'=>'target_class',
+            'default'=>$edit ? Sanitize::getVar($currListingType,'target_class') : '',
+            'help'=>__a("Output rendered in html element with this class. Used instead of target id.",true)
+        )
+    ),
+
+     __a("Main Setup",true) => array(
+
+
+        // array(
+        //     'label'=>__a("Find Reviews Where",true),
+        //     'type'=>'select',
+        //     'name'=>'match',
+        //     'options'=>array(
+        //         'owner'=>'The reviewer matches the current listing owner'
+        //     ),
+        //     'attributes'=>array('class'=>'jr-field-matches'),
+        //     'default'=>$edit ? Sanitize::getVar($currListingType,'match') : '',
+        // ),
+        array(
+            'label'=>__a("Listing Types Filter",true),
+            'type'=>'selectmultiple',
+            'name'=>'criteria',
+            'options'=>$listingTypesList,
+            'attributes'=>array('class'=>'jr-multiselect'),
+            'default'=>$edit ? Sanitize::getVar($currListingType,'criteria') : '',
+        ),
+        array(
+            'label'=>__a("Reviews Ordering",true),
+            'type'=>'select',
+            'name'=>'reviews_order',
+            'options'=>array(
+                            'latest'=>__a("Most Recent",true),
+                            'helpful'=>__a("Most Helpful",true),
+                            'random'=>__a("Random",true)
+                        ),
+            'default'=>$edit ? Sanitize::getVar($currListingType,'reviews_order','latest') : 'latest'
+        ),
+        array(
+            'label'=>__a("Theme Suffix",true),
+            'type'=>'text',
+            'name'=>'tmpl_suffix',
+            'default'=>$edit ? Sanitize::getVar($currListingType,'tmpl_suffix') : ''
+        ),
+        array(
+            'label'=>__a("Max. Number of Results",true),
+            'type'=>'text',
+            'name'=>'module_total',
+            'default'=>$edit ? Sanitize::getVar($currListingType,'module_total','12') : 12
+        ),
+        array(
+            'label'=>__a("Results per Page",true),
+            'type'=>'text',
+            'name'=>'module_limit',
+            'default'=>$edit ? Sanitize::getVar($currListingType,'module_limit','6') : 6
+        ),
+         array(
+            'label'=>__a("Columns",true),
+            'type'=>'text',
+            'name'=>'columns',
+            'default'=>$edit ? Sanitize::getVar($currListingType,'columns','3') : 3
+        )
+    ),
+
+    __a("Advanced Filters",true) => array(
+
+        array(
+            'label'=>__a("Custom WHERE",true),
+            'type'=>'textarea',
+            'name'=>'custom_where',
+            'default'=>$edit ? Sanitize::getVar($currListingType,'custom_where', '') : '',
+            'attributes'=>array('style'=>'width:100%;height:5em;')
+        ),
+         array(
+            'label'=>__a("Custom ORDER BY",true),
+            'type'=>'textarea',
+            'name'=>'custom_order',
+            'default'=>$edit ? Sanitize::getVar($currListingType,'custom_order','') : '',
+            'attributes'=>array('style'=>'width:100%;height:2em;')
+        )
+    ),
+
+    __a("Review Settings",true) => array(
+
+         array(
+            'label'=>__a("Title Format",true),
+            'type'=>'text',
+            'name'=>'link_title',
+            'default'=>$edit ? Sanitize::getVar($currListingType,'link_title','{listing_title}') : '{listing_title}',
+            'help' => __a("You can use the {listing_title} and {review_title} tags to build your link title output. You can also specify the total number of characters to show (including the ... at the end), by adding the number inside the tag like this {listing_title 10} - {review_title 15}", true)
+        ),
+        array(
+            'label'=>__a("Links to Review Pages",true),
+            'type'=>'radioYesNo',
+            'name'=>'review_link',
+            'default'=>$edit ? Sanitize::getVar($currListingType,'review_link', 0) : 0,
+            'after'=>''
+        ),
+        array(
+            'label'=>__a("Show Review Comment",true),
+            'type'=>'radioYesNo',
+            'name'=>'show_comments',
+            'default'=>$edit ? Sanitize::getVar($currListingType,'show_comments', 0) : 0,
+            'after'=>''
+        ),
+         array(
+            'label'=>__a("Trim Comments (# words)",true),
+            'type'=>'text',
+            'name'=>'comments_words',
+            'default'=>$edit ? Sanitize::getVar($currListingType,'comments_words','10') : '10'
+        )
+    ),
+
+    __a("Thumbnail Settings",true) => array(
+
+        array(
+            'label'=>__a("Show Thumbnail",true),
+            'type'=>'radioYesNo',
+            'name'=>'tn_show',
+            'default'=>$edit ? Sanitize::getVar($currListingType,'tn_show', 1) : 1,
+            'after'=>''
+        ),
+        array(
+            'label'=>__a("Thumbnail Position",true),
+            'type'=>'select',
+            'name'=>'tn_position',
+            'options'=>array(
+                            'left'=>__a("Left",true),
+                            'right'=>__a("Right",true),
+                            'top'=>__a("Top",true),
+                            'bottom'=>__a("Bottom",true)
+                        ),
+            'default'=>$edit ? Sanitize::getVar($currListingType,'tn_position','rdate') : 'rdate'
+        ),
+        array(
+            'label'=>__a("Thumbnail Type",true),
+            'type'=>'radio',
+            'name'=>'tn_mode',
+            'options'=>array('crop'=>'Crop','scale'=>'Scale'),
+            'default'=>$edit ? Sanitize::getVar($currListingType,'tn_mode','crop') : 'crop',
+            'after'=>''
+        ),
+         array(
+            'label'=>__a("Thumbnail Dimensions (px)",true),
+            'type'=>'text',
+            'name'=>'tn_size',
+            'default'=>$edit ? Sanitize::getVar($currListingType,'tn_size','100x100') : '100x100'
+        )
+    ),
+
+    __a("Pagination & Slideshow",true) => array(
+
+        array(
+            'label'=>__a("Pagination Position",true),
+            'type'=>'radio',
+            'name'=>'nav_position',
+            'options'=>array('bottom'=>__a("Bottom",true),'side'=>__a("Sides",true)),
+            'default'=>$edit ? Sanitize::getVar($currListingType,'nav_position','side') : 'side',
+            'after'=>''
+        ),
+        array(
+            'label'=>__a("Module Orientation",true),
+            'type'=>'radio',
+            'name'=>'orientation',
+            'options'=>array('horizontal'=>__a("Horizontal",true),'vertical'=>__a("Vertical",true),'fade'=>__a("Fade",true)),
+            'default'=>$edit ? Sanitize::getVar($currListingType,'orientation','horizontal') : 'horizontal',
+            'after'=>''
+        ),
+        array(
+            'label'=>__a("Enable Slideshow",true),
+            'type'=>'radioYesNo',
+            'name'=>'slideshow',
+            'default'=>$edit ? Sanitize::getVar($currListingType,'slideshow', 0) : 0,
+            'after'=>''
+        ),
+         array(
+            'label'=>__a("Slideshow Interval",true),
+            'type'=>'text',
+            'name'=>'slideshow_interval',
+            'default'=>$edit ? Sanitize::getVar($currListingType,'slideshow_interval','6') : 6
+        )
+    )
+ );
+
+$AdminSettings->displayTab('listing-type-relatedreviews'.$i,$relatedWidget,'[Criteria][config][relatedreviews]['.$i.']',$listingType['ListingType']['config']);
+

@@ -1,0 +1,668 @@
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This stylesheet file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+/* ################### NOTES ABOUT CSS IN JREVIEWS ############### 
+theme.css is used to define the default styles for COMMON page elements used for your jReviews content, such as item title, created date, author name, etc. The assumption is that in all your templates, you want these elements to look more or less the same, so the DEFAULT styles for these elements are defined in this file. 
+
+Note that the classes defined in this file are frequently OVERRIDDEN in other JReviews CSS files in order to tune them to particular uses. For example, the title of a content item might be defined in THEME.CSS as:
+
+   div.jr_pgContainer .contentTitle {color: red}
+
+But, in LIST.CSS, the .contentTitle class might be overridden with this:
+
+   div.jr_thumbview .contentTitle	{color: blue}
+
+
+Classes for specific page types, including any overrides of THEME.CSS are handled in the dedicated CSS files:
+
+- list.css: for blog-style lists, table lists, and thumbnail-style lists
+- directory.css: for directory style views
+- detail.css: for content detail views
+- form.css: for the content creation and edit forms
+- paginator.css: for pagination controls
+- module_listings.css: jReviews listings module
+- module_reviews.css: jReviews reviews module
+
+### About LIST AND DIRECTORY TEMPLATE STRUCTURE
+All list and directory templates are structured in a "nested" fashion to allow for consistency and ease of styling. :
+- .jr_container: this outermost div contains ALL JReviews elements.
+  - .jr_pageHeader: contains the page title, breadcrumb, RSS.   
+     - .jr_breadcrumb: contains breadcrumb, RSS
+	  - .jr_listScope: contains the area that lets user scope list by category/section/alphabet
+	  - .jr_listOptions: contains the category box, list controls, and search.
+	  
+  - .jr_blogview / .jr_tableview / .jr_thumbview / .jr_dirview = containers for the list items or directory 
+  - .jr_pagination (not applicable to directory views): pagination controls
+  - .jr_credit: Jreviews credit area
+  
+ ### About ITEM/CONTENT DETAIL TEMPLATE STRUCTURE 
+All list and directory templates are structured in a "nested" fashion to allow for consistency and ease of styling. :
+- .jr_container .jr_itemDetail (NOTE doubling up of class in template: <div class="jr_container jr_itemDetail">) outermost div contains ALL JReviews elements.
+  - .jr_pageHeader: contains the page title, breadcrumb, RSS.   
+     - .jr_breadcrumb: contains breadcrumb, RSS
+  - VARIOUS divs specific to detail view and reviews: see content.css
+  - .jr_credit: Jreviews credit area
+
+*/
+
+table.contentpaneopen, table.contentpane {margin:0; padding: 0; width:100% !important;}
+.jr_pointer {cursor:pointer;}
+
+/*************************************
+PAGE CONTAINER AND SHARED ELEMENTS 
+*************************************/
+div.jr_pgContainer	{
+	text-align:left; }
+
+div.jr_pgContainer	li{
+	margin-left:15px; }
+		
+div.jr_pgHeader	{}
+
+div.jr_pgHeader .contentheading {
+	clear: left; 
+	margin-bottom: 10px; 
+	}
+	
+div.jr_pgHeader .contentheading a {
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 14px; 
+	font-weight:bold; 
+	}
+	
+div.jr_pgHeader .contentheading span.contentIndicators {
+	font-size: 10px; 
+	margin-left: 10px; 
+	vertical-align:top; 
+	}
+	
+div.jr_pgHeader .contentheading span.contentIndicators img {
+	margin-left: 3px; 
+	}
+
+/*************************************
+content pathway: section >> category 
+*************************************/
+.jr_pathway {
+	float: left; 
+	width: 80%; 
+	margin-bottom: .5em; 
+	padding-right: 15px; 
+	/*adjust bullet image padding*/
+	font-size: 90%; 
+	}
+	
+.jr_pathway a {
+	background: url(images/breadcrumb.gif) no-repeat center right; 
+	text-decoration: none; 
+	padding-right: 18px; 
+	/*adjust bullet image padding*/}
+	
+/*************************************
+Tooltip image
+*************************************/
+.jr_tooltip {
+	font-size: 90%; 
+	background:url(images/information.png) center left no-repeat; 
+	padding:0 0 0 15px; 
+	line-height:16px; 
+	height:16px; 
+	margin: 0 8px 0 0; 
+	display:inline; 
+	float:none; 
+	}
+	
+/*************************************
+RSS Link
+*************************************/
+.jr_rss	{
+	float: right; 
+	width: 15px; 
+	text-align:right; 
+	}
+	
+.jr_rss img	{
+	border: 0; 
+	}
+	
+
+/*************************************
+Page Title: align to div.contentheading; 
+	however, use <h1> for W3C compliance/web best practices
+*************************************/
+h1.contentheading,
+.contentheading		{
+	margin-bottom: .5em
+	}
+
+/*************************************
+Page Description: uses description defined for the section or category
+*************************************/	
+.jr_pgDescription	{
+	clear: both; 
+	line-height: 1.4em; 
+	}
+	
+.jr_pgDescription img	{
+	float: left; 
+	margin: 0 10px 10px 0; 
+	border:0; 
+	}	
+ 
+ 
+/*************************************
+"List Scope": Container for categories or alphabet controls - filters/scopes list
+*************************************/
+.jr_listScope	{
+	margin: 0 0 15px 0; 
+	}
+	
+.jr_listScope h2 { /*used for "categories in section" title */
+	margin: 0 0 10px 0; 
+	font-weight: bold; 
+	} 
+	
+.jr_listScope table td	{
+	padding: 0 2em .5em 0; 
+	}
+
+
+/*************************************
+Search controls
+*************************************/
+.jr_listSearch	{
+	text-align:center !important; 
+	font-size: 110%; 
+	margin: 15px 0 0 5px; 
+	}
+	
+.jr_listSearch input,
+.jr_listSearch select	{ 
+	font-size:110%; 
+	font-weight:bold; 
+	}
+	
+	
+/*************************************
+List Sorting controls
+*************************************/
+.jr_listOptions	{
+	text-align:right; 
+	font-size: 90%; 
+	}
+	
+.jr_listOptions input,
+.jr_listOptions select	{ 
+	font-size:11px;}
+	
+.jr_listOptions select option { 
+	padding-right:10px;}
+	
+/*************************************
+Button link
+*************************************/
+a.jr_buttonLink:link,
+a.jr_buttonLink:active,
+a.jr_buttonLink:visited,
+a.jr_buttonLink:hover   {
+	font-size: 12px;
+    background-color: #EFEFEF;
+    border: solid 1px #9F9F9F;
+    padding: 2px 5px;
+	}
+
+a.jr_buttonLink:hover   {
+    color:#000;
+    text-decoration:none;}
+	
+a.jr_buttonLink .floatRight	{
+	display:block;
+	float:right;
+	text-align:right;
+	margin-top:-5px;
+	}
+	
+/*************************************
+GENERIC TABLE STYLE
+TIP: for visual consistency throughout your site, try to align these styles with the Joomla default table styles, as defined in template.css:
+td.sectiontableheader, tr.sectiontableentry0 td, tr.sectiontableentry1 td, tr.sectiontableentry2 td
+*************************************/
+.jr_dataTable 	{ /* similar to td.sectiontableheader; 
+	*/
+  border-bottom: 0px solid #ccc; 
+	margin-bottom: 15px}
+
+.jr_dataTable th { /* similar to td.sectiontableheader */
+  padding: .2em 2em .2em 5px; 
+	border-top: 1px solid #ccc; 
+	background-color: #efefef; 
+	color: #333; 
+	font-weight: bold; 
+	text-align:left; 
+	}
+
+.jr_dataTable td	{
+	padding: .3em 2em .3em 5px; 
+	border-top: 1px solid #ccc; 
+	text-align:left; 
+	vertical-align:top; 
+	}
+
+	
+/*************************************
+ALPHABET INDEX - creates alphabet search widget
+*************************************/
+#jr_alphaindex { 
+	text-align: center; 
+	}
+	
+#jr_alphaindex table { 
+	text-align: center; 
+	vertical-align: middle; 
+	margin: 15px auto 0 auto; 
+	}
+	
+#jr_alphaindex a:link, #jr_alphaindex a:visited, #jr_alphaindex a:hover {
+	font-size: 11px; 
+	text-transform:uppercase; 
+	font-weight:bold; 
+	color:#333; 
+	border: solid 1px #999; 
+	margin: 0 1px 0 1px; 
+	line-height:1.4em !important; 
+	height:1.4em; 
+	padding: 0 3px; 
+	text-align:center; 
+	text-decoration: none; 
+	}
+	
+#jr_alphaindex a:hover {
+	background-color: #999; 
+	color: #fff; 
+	}
+
+	
+/*************************************
+COMMON CONTENT ITEM ELEMENTS - used throughout jReviews
+*************************************/
+div.jr_pgContainer .contentThumbnail {
+	clear: both; 
+	text-align:center; 
+	}
+	
+div.jr_pgContainer .contentThumbnail img {
+	width: auto; 
+	}
+
+div.jr_pgContainer .contentTitle   {
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 14px; 
+	font-weight:bold; 
+	margin-bottom: .2em; 
+	}
+	
+div.jr_pgContainer .contentTitle a {
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 14px; 
+	font-weight:bold; 
+	}
+	
+div.jr_pgContainer .contentTitle span.contentIndicators {
+	font-size: 10px; 
+	margin-left: 10px; 
+	vertical-align:top; 
+	}
+	
+div.jr_pgContainer .contentTitle span.contentIndicators img {
+	margin-left: 3px; 
+	}
+
+div.jr_pgContainer .contentSubtitle {
+	font-size: 12px; 
+	font-weight:normal; 
+	line-height:1.4em; 
+	margin-bottom: .7em; 
+	} 
+
+div.jr_pgContainer .contentInfo { /* contains author, date, date modifies */
+	font-size: .9em; 
+	padding: 0 0 1em 0; 
+	line-height: 1.5em; 
+	color:#9ea391; 
+	}  
+	
+div.jr_pgContainer .contentInfo img 	{
+	vertical-align:middle; 
+	}
+	
+div.jr_pgContainer span.contentAuthor {}
+div.jr_pgContainer span.contentCreated {}
+div.jr_pgContainer span.contentModified {}
+
+
+/*************************************
+Content text elements and containers
+*************************************/
+div.jr_pgContainer .contentDiv {} /* container for all content parts */
+
+div.jr_pgContainer .contentIntrotext {
+	margin-bottom: 1em; 
+	}
+	
+div.jr_pgContainer .contentFulltext {
+	margin-bottom: 1em; 
+	}
+
+
+/*************************************
+Content actions box: div that contains the readon, rate it, and write review links
+*************************************/
+div.jr_pgContainer .contentActions {
+	border: solid 1px #ccc; 
+	padding: 3px; 
+	margin: 15px 0 0 0; 
+	}
+	
+div.jr_pgContainer .contentActions a { /*space the readon and rateit links*/
+	margin-right: 8px; 
+	} 
+
+div.jr_pgContainer a.jr_readon  { /* overrides Joomla template.css */
+	font-size: 90%; 
+	background:url(images/mono_content.gif) center left no-repeat; 
+	padding:0 0 0 15px; 
+	line-height:14px; 
+	height:14px; 
+	margin: 0 8px 0 0; 
+	display:inline; 
+	float:none; 
+	}
+	
+div.jr_pgContainer a.jr_rateit  {
+	font-size: 90%; 
+	background:url(images/rateit.png) center left no-repeat; 
+	padding-left:15px; 
+	line-height:14px; 
+	}
+
+/*************************************
+Admin edit options (jr_listingManager: div that contains the admin's edit, delete, and publish/unpublish links)
+*************************************/
+div.jr_pgContainer .jr_listingManager {
+	margin: 5px 0 4px 0;  
+	}
+	
+div.jr_pgContainer .jr_listingManager a {
+	margin-right: 8px; 
+	}
+
+a.jr_edit, 
+a.jr_published, 
+a.jr_unpublished, 
+a.jr_delete  {
+	font-size: 90%; 
+	padding:0 0 0 18px; 
+	line-height:14px; 
+	height:14px; 
+	display:inline; 
+	float:none; 
+	}
+	
+a.jr_edit {
+	background:url(images/jr_edit.gif) center left no-repeat; 
+	}
+	
+a.jr_published  {
+	background:url(images/jr_published.gif) center left no-repeat; 
+	}
+	
+a.jr_unpublished  {
+	background:url(images/jr_unpublished.gif) center left no-repeat; 
+	}
+	
+a.jr_delete  {
+	background:url(images/jr_delete.gif) center left no-repeat; 
+	}
+
+
+/*************************************
+Content Stats: Alternative method for showing overall content rating and favorites
+*************************************/
+div.jr_pgContainer div.contentStats { 
+	float: right; 
+	width: 175px; 
+	height: 40px; 
+	margin-bottom: 20px; 
+	}
+	
+div.jr_pgContainer div.contentStats .statDiv {
+	float: right; 
+	height: 40px; 
+	width: 58px; 
+	padding: 0 0 0 20px; 
+	}
+
+
+/*************************************
+Favorite-ing Parts
+*************************************/
+div.jr_pgContainer img.imgFavoriteAdd	{
+	margin: 0 0 0 5px;
+	cursor:pointer;
+	}
+	
+div.jr_pgContainer a.jr_favoriteit  {
+	font-size: 90%; 
+	background:url(images/favoriteit.gif) center left no-repeat; 
+	padding-left:12px; 
+	line-height:14px; 
+	}
+
+
+/*************************************
+.clr: overrides "clr" class in Joomla template.css to reduce whitespace
+*************************************/
+div.jr_pgContainer div.clr	{ 
+	clear:both;
+	font-size: 1px; 
+	line-height:1px !important; 
+	}
+
+
+
+/*************************************
+RATING STARS AND BARS
+*************************************/
+/****** rating STARS  ******/
+.rating_star_user {
+	width: 60px; 
+	background: url(images/rating_star_empty.png) 0 0 repeat-x !important; 
+	margin-top: 3px; 
+	font-size: 1px;}
+	
+.rating_star_user div { 
+	height: 12px; 
+	background: url(images/rating_star_green.png) 0 0 repeat-x !important; 
+	font-size: 1px; 
+	}
+
+.rating_star_editor { 
+	width: 60px; 
+	background: url(images/rating_star_empty.png) 0 0 repeat-x !important; 
+	margin-top: 3px; 
+	font-size: 1px; 
+	}
+
+.rating_star_editor div { 
+	height: 12px; 
+	background: url(images/rating_star_orange.png) 0 0 repeat-x !important; 
+	font-size: 1px; 
+	}
+
+/****** rating BARS ******/
+.rating_bar_user { 
+	width: 55px; 
+	background: url(images/rating_bar_empty.gif) left center repeat-x  !important; 
+	margin-top: 3px; 
+	border: solid 1px #ddd; 
+	}
+
+.rating_bar_user div { 
+	height: 10px; 
+	background: url(images/rating_bar_green.gif) left center repeat-x  !important; 
+	}
+
+.rating_bar_editor {
+	width: 55px; 
+	background: url(images/rating_bar_empty.gif) left center repeat-x  !important; 
+	margin-top: 3px; 
+	border: solid 1px #ddd; 
+	}
+
+.rating_bar_editor div { 
+	height: 10px; 
+	background: url(images/rating_bar_orange.gif) left center repeat-x  !important; 
+	}
+
+/*************************************
+RATING STARS/BARS LAYOUT TABLE
+*************************************/
+table.rating_table td	{
+	font-size:90%; 
+	}
+	
+td.rating_label	{
+	font-weight:bold; 
+	white-space:nowrap; 
+	text-align:left; 
+	padding: 2px 5px 2px 0; 
+	}
+
+td.rating_value	{
+	font-weight:normal; 
+	white-space:nowrap; 
+	text-align:left; 
+	padding: 2px 15px 2px 5px; 
+	}
+	
+/****** used in review form ******/
+table.jr_ratingsTable td {
+	line-height: 2em; 
+	text-align:left; 
+	padding-right: 4px; 
+	}
+
+table.jr_ratingsTable td select {
+	width: auto !important; 
+	}
+
+
+/*************************************
+CUSTOM FIELDS PRESENTATION
+It is recommended that you attempt to align these styles with other form/field displays in your site
+*************************************/
+div.jr_customFields {} /*container for all custom field groups that appear with use of the {CUSTOMFIELDS} tag */
+
+div.fieldGroup { /* container div for individual field group */
+	padding-bottom: 1em; 
+	}
+	
+.fieldGroupTitle, h3.fieldGroupTitle {
+	text-transform: uppercase; 
+	font-size: 11px; 
+	padding: 0 0 2px 0; 
+	margin-top: 0 !important;
+	margin-bottom: .3em; 
+	}
+	
+/****** table that contains custom fields values and labels ******/
+div.fieldGroup table.fieldGroupTable	{}
+
+div.fieldGroup table.fieldGroupTable td	{
+	padding: 2px .5em 2px 0; 
+	vertical-align: top; 
+	}
+
+table.fieldGroupTable td.fieldLabel { /*set width so that columns align even in different field groups */
+	padding-right: .5em; 
+	width: 7em; 
+	font-size: 11px; 
+	font-weight: bold; 
+	text-align:left;
+	white-space:nowrap;		
+	}
+	
+div.fieldGroup table.fieldGroupTable td.fieldValue {}
+
+
+/*************************************
+ROUNDED CORNER BOX (OPTIONAL - USED FOR DEFAULT TEMPLATE ONLY)
+Tip: For visual consistency, you can use this in other areas of your site. These classes are purely for visual styling, and do not affect JReviews functionality.
+*************************************/
+.roundedPanel	{} 
+
+.roundedPanel .box_upperOuter	{
+	background: url(images/box_upperOuter.gif) top right no-repeat; 
+	}
+	
+.roundedPanel .box_upperInner	{
+	background: url(images/box_upperInner.gif) top left no-repeat; 
+	padding: 7px 10px; 
+	}
+	
+.roundedPanel .box_lowerOuter	{
+	background: url(images/box_lowerOuter.gif) bottom right no-repeat; 
+	}
+
+.roundedPanel .box_lowerInner	{
+	background: url(images/box_lowerInner.gif) bottom left no-repeat; 
+	height: 10px; 
+	line-height: 10px; 
+	font-size: 1px; 
+	overflow:hidden}
+
+.roundedPanel h2 {
+	margin-bottom: 10px;
+	font-weight: bold !important; 
+	}
+
+.roundedPanel h2 a {
+	font-weight: bold !important; 
+	}
+
+/*************************************
+ROUNDED CORNER BOX, LIGHT GRAY (OPTIONAL - USED FOR DEFAULT TEMPLATE ONLY)
+Tip: For visual consistency, you can use this in other areas of your site. These classes are purely for visual styling, and do not affect JReviews functionality.
+*************************************/
+.roundedPanelLt	{
+	margin: 0 0 10px 0; 
+	} 
+	
+.roundedPanelLt .box_upperOuter	{
+	background: url(images/boxLt_upperOuter.gif) top right no-repeat; 
+	}
+
+.roundedPanelLt .box_upperInner	{
+	background: url(images/boxLt_upperInner.gif) top left no-repeat; 
+	padding: 7px 10px; 
+	}
+
+.roundedPanelLt .box_lowerOuter	{
+	background: url(images/boxLt_lowerOuter.gif) bottom right no-repeat; 
+	}
+
+.roundedPanelLt .box_lowerInner	{
+	background: url(images/boxLt_lowerInner.gif) bottom left no-repeat; 
+	height: 10px; 
+	line-height: 10px; 
+	font-size: 1px; 
+	overflow:hidden}
+
+.roundedPanelLt	h2 {
+	margin-bottom: 10px; 
+	}

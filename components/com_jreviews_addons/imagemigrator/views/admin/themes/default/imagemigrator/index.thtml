@@ -1,0 +1,117 @@
+<?php
+# Perform access checks to make sure photos will be uploaded and published/approved
+$canUpload = $this->Access->canAddlistingMedia('photo',$User->id);
+$isModerated = $this->Access->moderateMedia('photo');
+$offline = cmsFramework::getConfig('offline');
+?>
+
+<style type="text/css">
+div#migrationHelper div.action {
+    margin-bottom: 20px; padding: 10px;}
+div#migrationHelper div button {line-height: 1.2em; height: 4em; float:left; margin-right: 15px; width: 25%;}
+div#migrationHelper div p {float: left; width: 69%; margin-top: 3px !important;}
+div#migrationHelper p {margin-top: 10px; font-size: 1.2em;}
+</style>
+
+<div class="jrPageHeading"><?php __a("Image Migrator for JReviews 2.3 images to JReviews 2.5 photos");?></div>
+
+
+<div class="jr-image-migrator">
+
+    <?php if($offline == 1):?>
+
+        <div class="jrWarning">
+        Your site is currently offline. In order to run the migrator you need to put the site online and remove .htaccess passwords protection if you have any. Otherwise the migrator is not able to make CURL calls to the front-end of the site.
+        </div>
+
+    <?php else:?>
+
+        <p>Up till JReviews 2.3, uploads for listings were limited to images and were stored in the Joomla /images folder. Starting with JReviews 2.4, uploads include videos, photos and other types of files. The Image Migrator add-on will help convert your old 2.3 images into 2.5 photos and transfer them to the new storage path.</a>.</p>
+
+        <div class="jrWarning">
+        It is important that you have already setup the storage settings for photos under Media Settings in JReviews 2.5. The migrator will not work if you have an htaccess password protection on your site or if your site is offline. It needs to make CURL calls to a front-end file to simulate the uploads and this is blocked if your site is not publicly accesible.
+        <br /><br />
+        <span class="jrIconWarning"></span> If you get an INVALID_TOKEN error, head over to the JReviews configuration and save it once without making changes. Then try the migration again.
+        </div>
+
+        <div class="jrInfo">
+
+        	<ul>
+        		<li>Once you are done here you may remove the add-on from the Installer/Updater screen. You can also remove the old jreviews folder from Joomla root /images.</li>
+        	</ul>
+
+        </div>
+
+        <div class="jrGrid">
+
+        	<div class="jrCol3">
+
+    			<?php if($canUpload && !$isModerated):?>
+
+    	        	<button class="jr-imagemigrator-popup jrButton">Migrate images to photos</button>
+
+    			<?php else:?>
+
+    				<button style="background:#eab3b3;" class="jrButton" disabled="disabled">Migrate images to photos</button>
+
+    			<?php endif;?>
+
+    	    </div>
+
+        	<div class="jrCol9">
+
+    			<?php if($canUpload && !$isModerated):?>
+
+    	 			<p>This will move and rename your images for compatibility with JReviews 2.5. Please don't interrupt execution once you start.</p>
+
+    			<?php else:?>
+
+    				<p>To perform the migration you first need to enable photo submissions and disable moderation for photos for the Administrator group and above. You will find these settings under Access Settings, Media, in the main JReviews admin page.</p>
+
+    			<?php endif;?>
+
+        	</div>
+
+        </div>
+
+        <br />
+
+        <div class="jrGrid">
+
+        	<div class="jrCol3">
+
+    			<button class="jrButton" onclick="window.open('index.php?option=com_jreviews&amp;url=admin_imagemigrator/errors&amp;tmpl=component');">Migration errors report</button>
+
+    		</div>
+
+        	<div class="jrCol9">
+
+    			<p>Each image converted is tracked and stored in the jreviews_image_migrator database table. This report lets you quickly see which images failed and why.</p>
+
+        	</div>
+
+        </div>
+
+        <br />
+
+        <div class="jrGrid">
+
+            <div class="jrCol3">
+
+                <button class="jr-imagemigrator-reset jrButton">Reset errors</button>
+
+            </div>
+
+            <div class="jrCol9">
+
+                <p>Removes errors from log to allow running the migrator only for the images that could not be converted.</p>
+
+            </div>
+
+        </div>
+
+    <?php endif;?>
+
+</div>
+
+<div id="jr-imagemigrator-debug" class="jrHidden"></div>

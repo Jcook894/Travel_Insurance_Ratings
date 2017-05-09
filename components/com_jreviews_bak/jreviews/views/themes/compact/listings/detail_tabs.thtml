@@ -1,0 +1,300 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2009 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+                      
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+// Listing detail page: used in core articles and in "view all reviews" page for a listing
+?>
+
+<?php
+/**********************************************************************************
+ * 								CONFIGURATION AND SETUP
+ **********************************************************************************/
+// Image settings
+$enableIntroImage = $this->Config->content_intro_img;
+$enableGallery = $this->Config->content_gallery;
+$introThumbnailSize = $this->Config->content_intro_img_size;
+$galleryThumbnailSize = $this->Config->content_thumb_size;
+$introThumbnailMode = 'scale';
+$galleryThumbnailMode = 'crop';
+$imageCount = count($listing['Listing']['images']);
+
+// Create a thumbnail for intro image
+$introImage = $Thumbnail->lightbox($listing,0,array('tn_mode'=>$introThumbnailMode,'dimensions'=>array($introThumbnailSize),'id'=>'thumb'.$listing['Listing']['listing_id'],'class'=>'photo'));
+
+// Create a thumbnail for rich snippets
+$snippetsImage = $Thumbnail->thumb($listing,0,array('tn_mode'=>$introThumbnailMode,'dimensions'=>array($introThumbnailSize),'class'=>'photo'));
+
+// Review conditionals 
+$editorReviewSubmit = $Access->canAddReview() && $Access->isJreviewsEditor($User->id);    
+$editorReviewSubmitMultiple = $editorReviewSubmit && $this->Config->author_review == 2;
+$editorReviewSubmitSingle = $editorReviewSubmit && $this->Config->author_review == 1 && $listing['Review']['editor_rating_count'] == 0;                
+$editorReviewShow = $listing['Criteria']['state'] && ($this->Config->author_review == 2 || $this->Config->author_review == 1) && (!empty($editor_review) || $editorReviewSubmit);                    
+$editorReviewForm = !$User->duplicate_review && ($editorReviewSubmitSingle || $editorReviewSubmitMultiple);                                   
+$userReviewSubmit = (!$editorReviewSubmitMultiple && !$editorReviewSubmitSingle) && $Access->canAddReview($listing['User']['user_id']) && (!$Access->isJReviewsEditor($User->id) || $this->Config->author_review < 2);                    
+$userReviewShow = $listing['Criteria']['state'] && $this->Config->user_reviews;
+$userReviewForm = !$User->duplicate_review && !$editorReviewForm && $userReviewSubmit;
+
+// Show related listings tab
+$related_listings = Sanitize::getVar($this->viewVars['listing']['ListingType']['config'],'relatedlistings',array()); 
+$userfavorites = Sanitize::getVar($this->viewVars['listing']['ListingType']['config'],'userfavorites',array());
+foreach ($related_listings AS $related_listing) {
+	if(Sanitize::getInt($related_listing,'enable',0)) {
+		$related_listings_enabled = 1;
+	} 
+	elseif (Sanitize::getInt($userfavorites,'enable',0)) {
+		$related_listings_enabled = 1;
+	}
+}
+
+// Listing widgets
+$show_claim_button = Sanitize::getBool($this->Config,'claims_enable',false);
+$show_inquiry_button = $Widgets->inquiry($listing);
+
+// Map
+$show_map = Sanitize::getBool($this->Config,'geomaps.enable_map_detail',true);
+
+// Show Social Bookmarks
+$social_bookmarks = Sanitize::getBool($this->Config,'social_sharing_detail');
+?>    
+
+<s2:nocache>
+<?php         
+/**********************************************************************************
+ * 								META DATA
+ **********************************************************************************/
+if($this->action == 'detail' || $this->action == 'view') 
+{                    
+    $page_meta['title'] = $listing['Listing']['title'];
+    $page_meta['metakey'] = $listing['Listing']['metakey'];
+    $page_meta['metadesc'] = $listing['Listing']['metadesc'];
+    $review_type = Sanitize::getString($this->params,'reviewtype','user');
+    $this->action == 'detail' and $review_type == 'user' and $page_meta['title'] = sprintf(__t("User Reviews: %s",true),$page_meta['title']);
+    $this->action == 'detail' and $review_type == 'editor' and $page_meta['title'] = sprintf(__t("Editor Reviews: %s",true),$page_meta['title']);
+    if($this->page > 1) $page_meta['title'] = sprintf(__t("%s - Page %s",true),$page_meta['title'],$this->page);
+    if(Configure::read('Cache.enable') && Configure::read('Cache.view')){
+        if($cachedMeta = S2Cache::read('meta_'.md5($this->here))) {
+            $page_meta = $cachedMeta;
+        } else {
+            S2Cache::write('meta_'.md5($this->here),$page_meta,Configure::read('Cache.expires'));
+        }
+    }    
+    cmsFramework::meta('title',$page_meta['title']);
+    cmsFramework::meta('keywords',$page_meta['metakey']);
+    cmsFramework::meta('description',$page_meta['metadesc']);
+}
+?>
+</s2:nocache>
+
+<?php 
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+//prx($listing); // Listing array
+//prx($editor_review); // Editor review array
+//prx($reviews); // User reviews array
+?>
+
+<?php $featured = ($listing['Listing']['featured']) ? ' jrFeatured' : ''; ?>
+<div class="jr_pgContainer jr_itemDetail hReview-aggregate<?php echo $featured; ?>">
+
+<?php if($extension != 'com_content'): // Show this only for EVERYWHERE extensions ?>
+
+	<h1 class="contentheading"><?php echo $listing['Listing']['title']?></h1>
+	<!-- BEGIN PATHWAY -->
+	<div class="jr_pathway"><?php echo $listing['Category']['title'];?></div>
+	<div class="clr">&nbsp;</div>
+	<!-- END PATHWAY -->	
+	
+<?php else: // Show this for COM_CONTENT extension ?>	
+
+    <?php if ($listing['Criteria']['state'] && $this->Config->rss_enable):?>
+    <!-- BEGIN RSS FEED -->
+    <div class="jr_rss">
+        <ul id="jr_feeds"> 
+            <li><?php echo $Routes->rssListing($listing);?></li>
+        </ul>
+    </div> 
+	<div class="clr">&nbsp;</div>	
+    <!-- END RSS FEED -->
+    <?php endif;?>    
+
+	<?php if($this->Config->dir_show_breadcrumb && !empty($crumbs)):?>
+	<!-- BEGIN PATHWAY -->
+	<div class="jr_pathway">
+        <?php foreach($crumbs AS $crumb):?>
+            <?php if($crumb['link']!=''):?>
+                <a href="<?php echo $crumb['link'];?>"><?php echo $crumb['name'];?></a>
+            <?php else:?>
+                <?php echo $crumb['name'];?>
+            <?php endif;?>
+        <?php endforeach;?>
+    </div>
+	<div class="clr">&nbsp;</div>
+	<!-- END PATHWAY -->
+	<?php endif;?>
+
+	<?php if($this->name != 'listings'): ?>
+
+		<?php if((!empty($listing['Listing']['images']) || $this->Config->content_default_image) && $enableIntroImage && $introImage):?>
+			<!-- MAIN IMAGE -->
+			<div class="itemMainImage" style="width:<?php echo $introThumbnailSize;?>px;"><?php echo $introImage;?></div>
+		<?php endif;?>
+	
+	<?php endif;?>
+		
+    <h1 class="contentheading item">
+		<!-- BEGIN TITLE AND ICONS -->
+        <span class="fn"><?php echo $this->action == 'detail' ? $Routes->content($listing['Listing']['title'],$listing) : $listing['Listing']['title'];?></span> 
+		<span class="jr_hidden"><?php echo $snippetsImage;?></span>
+		<span class="contentIndicators">
+		<?php if($this->Config->list_featured && $listing['Listing']['featured']):?>
+			<span class="featuredListing"><?php __t("Featured");?></span>
+		<?php endif;?>						
+		<?php if($this->Config->list_new && $Jreviews->newIndicator($this->Config->list_new_days,$listing['Listing']['created'])):?>
+			<span class="newListing"><?php __t("New");?></span>
+		<?php endif;?>
+		<?php if($this->Config->list_hot && $this->Config->list_hot_hits <= $listing['Listing']['hits']):?>
+			<span class="hotListing"><?php __t("Hot");?></span>
+		<?php endif;?>
+		</span>
+		<!-- END TITLE AND ICONS -->		
+	</h1>
+	
+	<!-- OVERALL RATINGS -->
+	<?php echo $Rating->overallRatings($listing, 'content'); ?>
+	
+	<div class="contentInfo">
+		
+		<?php if($this->Config->list_show_author):?>
+			<?php __t("Written by");?> <?php echo $Community->screenName($listing);?>&nbsp;&nbsp;&nbsp;&nbsp;
+		<?php endif;?>
+		
+		<?php if($this->Config->list_show_date):?><?php echo $Time->nice($listing['Listing']['created']);?>&nbsp;&nbsp;&nbsp;&nbsp;<?php endif;?>
+
+		<?php if($this->Config->list_show_hits):?>
+		<span class="jrHitsWidget" title="<?php __t("Views");?>">
+			<span class="jrIcon jrIconGraph"></span>
+			<span class="jrButtonText"><?php echo $listing['Listing']['hits']?></span> 
+		</span>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<?php endif;?>
+
+		<!-- FAVORITES -->
+		<?php if($this->Config->favorites_enable):?><?php echo $Widgets->favorite($listing);?><?php endif;?>
+		
+		<span class="jr_loadingSmall jr_hidden"></span>
+		
+	</div>
+
+<?php endif;?>
+
+	<?php if($this->name != 'listings'): // Only show when in com_content page?>
+	
+		<div class="contentInfoButtons">
+
+			<!-- COMPARE -->
+			<?php if ($this->Config->getOverride('list_compare',$listing['ListingType']['config'])):?>
+				<?php echo $Jreviews->compareCheckbox($listing); ?>
+			<?php endif;?>			
+
+			<!-- LISTING MANAGER -->		
+			<?php $Jreviews->listingManager($listing);?>                            
+
+			<?php if($show_inquiry_button):?>
+				<!-- INQUIRY WIDGET -->
+				<a href="#jr_inquiryFormOuter" id="jrInquiryForm" class="jrButton"><?php __t("Send Inquiry");?></a>
+				<div style="display: none;"><?php echo $this->element('inquiry_widget');?></div>
+			<?php endif;?>        
+		
+			<?php if($show_claim_button):?>
+				<!-- CLAIM WIDGET -->
+				<?php echo $Widgets->claim($listing); ?>
+			<?php endif;?>        
+
+		</div>	
+
+	<!-- BEGIN LISTING DETAILS -->
+
+		<!-- SUMMARY/DESCRIPTION -->
+		<div class="contentFulltext">
+			<?php echo $listing['Listing']['text'] !== strip_tags($listing['Listing']['text']) ? $listing['Listing']['text'] : nl2br($listing['Listing']['text']);?>
+		</div>
+		
+		<?php if($social_bookmarks == true): ?>
+		<span class="socialBookmarks">
+			<?php echo $Community->socialBookmarks($listing); ?>		
+		</span>
+		<?php endif;?>
+
+		<div class="clr"></div>
+		<div id="jr_tabs" class="jr_tabs">
+			<ul>				
+				<li><a href="#fieldsTab"><?php __t("Details");?></a></li>
+				
+				<?php if(($enableGallery && (($enableIntroImage && $imageCount > 1) || (!$enableIntroImage && $imageCount >= 1)))):?>
+				<li><a href="#galleryTab"><?php __t("Image Gallery");?></a></li>
+				<?php endif;?>
+				
+				<?php if($show_map && isset($listing['Geomaps']) && abs($listing['Geomaps']['lat']) > 0 && abs($listing['Geomaps']['lon']) > 0):?>
+				<li><a href="#mapTab"><?php __t("Map");?></a></li>
+				<?php endif;?>
+				
+				<?php if($listing['Criteria']['state'] != 0):?>
+				<li><a href="#reviewsTab"><?php __t("Reviews");?></a></li>
+				<?php endif;?>
+
+				<?php if($related_listings_enabled):?>
+				<li><a href="#jrRelatedListings"><?php __t("Related Listings");?></a></li>
+				<?php endif;?>
+			</ul>
+
+			<div id="fieldsTab">
+                <!-- CUSTOM FIELDS -->
+                <?php echo $CustomFields->displayAll($listing,'content');?>
+			</div>	
+			
+			<?php if(($enableGallery && (($enableIntroImage && $imageCount > 1) || (!$enableIntroImage && $imageCount >= 1)))):?>
+			<div id="galleryTab">
+				<div class="itemThumbnails clearfix">
+				<?php for($i=(int)$enableIntroImage;$i<$imageCount;$i++):?>
+                    <div><?php echo $Thumbnail->lightbox($listing,$i,array('tn_mode'=>$galleryThumbnailMode,'dimensions'=>array($galleryThumbnailSize)));?></div>
+				<?php endfor;?>    
+				</div>
+			</div>
+			<?php endif;?>
+			
+			<?php if($show_map && isset($listing['Geomaps']) && abs($listing['Geomaps']['lat']) > 0 && abs($listing['Geomaps']['lon']) > 0):?>
+			<div id="mapTab">
+				<?php echo $this->renderControllerView('geomaps','map_detail',array('width'=>'100%','height'=>'300'));?>
+				<div class="clr"></div>
+			</div>
+			<?php endif;?>
+			
+			<?php if($listing['Criteria']['state'] != 0):?>
+			<div id="reviewsTab">
+				<!-- BEGIN EDITOR REVIEWS -->
+				<?php echo $this->renderControllerView('reviews','editor_reviews',array('listing'=>$listing))?>  
+
+				<!-- BEGIN USER REVIEWS -->
+				<?php echo $this->renderControllerView('reviews','user_reviews',array('listing'=>$listing))?>
+			</div>
+			<?php endif;?>
+
+			<?php if($related_listings_enabled):?>
+			<div class="jr_hidden" id="jrRelatedListings"></div>
+			<?php endif;?>
+		</div>				
+
+		<div class="clr"></div>
+	<!-- END LISTING DETAILS -->
+	<?php endif;?>
+
+</div>
+
+<?php $Widgets->relatedListingsJS($listing);?>

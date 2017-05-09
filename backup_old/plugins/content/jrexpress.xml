@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="content">
+	<name>JReviews Express</name>
+	<creationDate>June 2009</creationDate>
+	<author>Alejandro Schmeichler</author>
+    <copyright>Copyright (C) 2009. Alejandro Schmeichler</copyright>
+    <license>GPL</license>
+	<authorEmail>support@reviewsforjoomla.com</authorEmail>
+	<authorUrl>www.reviewsforjoomla.com</authorUrl>
+	<description>JReviews Express - user reviews for Joomla</description>
+	<version>2.0</version>
+	<files>
+		<filename plugin="jrexpress">jrexpress.php</filename>
+	</files>
+	<params>
+		<param name="frontpage" type="radio" default="0" label="Disable in frontpage" description="Will not run jReviews on content items on the frontpage and will not load any libraries or css files.">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="blog" type="radio" default="0" label="Disable in core blogcategory/blogsection lists" description="Will not run jReviews on content items on the Joomla blogcategory/blogsection content lists and will not load any libraries or css files.">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+	</params>
+</install>

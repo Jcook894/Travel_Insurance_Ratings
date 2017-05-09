@@ -1,0 +1,65 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<form name="categoryForm" id="categoryForm">
+
+	<table cellpadding="4" cellspacing="0" border="0" width="100%" class="adminlist">
+		<tr>
+			<td colspan="2" style="color:red;"><?php __a("Once you assign a criteria set to a category you cannot change it and you cannot change the number of rating criteria. First you have to remove all the reviews for items in that category.");?></td>
+		</tr>
+		<tr>
+			<td valign="top"><strong><?php __a("Select criteria (required)");?></strong></td>
+			<td>
+				<?php
+					echo $Form->select(
+						'data[Category][criteriaid]',
+						array_merge(array(array('value'=>0,'text'=>__a("Select criteria",true))),$criterias),
+						null,
+						array('class'=>"inputbox",'size'=>"1")									
+					);							
+				?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" valign="top"><strong><?php __a("Select one or multiple categories (hold CTRL key)");?></strong><br/><br/>
+				<?php
+					if(count($categories)>0)
+					{
+						echo $Form->select(
+							'data[Category][id]',
+							$categories,
+							null,
+							array(
+								'multiple'=>'multiple',
+								'size'=>"18",
+								'class'=>"inputbox",
+								'style'=>"min-width:300px;"
+							)
+						);
+					} else {
+						?><strong><?php __a("All categories have already been set up");?></strong><?php
+					}
+				?>
+			</td>
+		</tr>
+	</table>
+				
+	<br />
+	
+	<input type="button" value="submit" onclick="xajax.request({xjxfun:'xajaxDispatch'},{URI:'<?php displayXajaxUri('jrexpress');?>',parameters:['admin/categories','_save','jrexpress',xajax.getFormValues('categoryForm')]});" />
+
+	<input type="hidden" name="data[limitstart]" value="<?php echo $limitstart;?>" />
+	<input type="hidden" name="data[limit]" value="<?php echo $limit;?>" />
+	<input type="hidden" name="data[sectionid]" value="<?php echo $sectionid; ?>" />
+
+</form>
+	

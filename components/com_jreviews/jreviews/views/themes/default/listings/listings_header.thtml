@@ -1,0 +1,247 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**
+ * This view is used in the list pages blogview,tableview and thumbview
+ * It shows the page header with pathway, title, image description and the
+ * scope area containing category box, alphaindex and search widgets
+ * You can copy/cut anything from this page directly into the list pages
+ */
+$index = Sanitize::getString($this->params,'index');
+
+$dir_id = isset($directory) && !empty($directory) ? (int)$directory['Directory']['dir_id'] : null;
+
+if(!isset($page['top_description'])) $page['top_description'] = Sanitize::getString($page,'description');
+
+$page_description = Sanitize::getString($page,'top_description');
+
+$page_title = Sanitize::getString($page,'title');
+
+$page_image = Sanitize::getString($page,'image');
+
+$show_description = $page_description && Sanitize::getBool($page,'show_description');
+
+$show_title = $page_title && Sanitize::getBool($page,'show_title');
+
+$show_page_cat_image = $page_image && Sanitize::getInt($this->Config,'list_show_page_catimage');
+
+$show_cat_images = Sanitize::getInt($this->Config,'list_show_catimages');
+
+$click2search = $this->action == 'search' && isset($this->params['tag']);
+
+$advsearch = !isset($advsearch) ? true : $advsearch;
+
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+?>
+
+<?php if(($this->Config->dir_show_breadcrumb && in_array($this->action,array('alphaindex','category')))
+		|| $click2search
+		|| ($this->Config->rss_enable)
+		|| $show_title
+		|| ($page_image || $show_description)):?>
+
+	<div class="jrPageHeader">
+
+		<?php echo $this->element('breadcrumbs',array('index'=>$index,'click2search'=>$click2search));?>
+
+		<?php /* BEGIN RSS FEED */ ?>
+
+		<?php if($this->Config->rss_enable && !in_array($this->action,array('alphaindex'))):?>
+
+		<div class="jrRSS">
+
+			<ul class="jrFeeds">
+
+				<li><?php echo $Routes->listingsFeed($page_title);?></li>
+
+				<?php if($this->action == 'category'):?>
+
+				<li><?php echo $Routes->rssCategory($category);?></li>
+
+				<?php endif;?>
+
+			</ul>
+
+		</div>
+
+		<?php endif;?>
+
+		<?php /* PAGE TITLE & DESCRIPTION */ ?>
+
+		<?php if($show_title):?>
+
+			<h1 class="contentheading"><?php echo $page_title;?></h1>
+
+		<?php endif;?>
+
+		<?php if($show_page_cat_image || $show_description):?>
+
+			<div class="jrPageDescription">
+
+				<?php if($show_page_cat_image && $page_image):?>
+
+					<?php echo $Html->image(WWW_ROOT . $page_image,array('class'=>'jrLeft'))?>
+
+				<?php endif;?>
+
+				<?php echo $page_description;?>
+
+			</div>
+
+		<?php endif;?>
+
+		<?php /* CUSTOM MODULE POSITION - jr-listpage-below-pagetitle */ ?>
+
+		<?php $Jreviews->loadModulePosition('jr-listpage-below-pagetitle'); ?>
+
+	</div>
+
+<div class="jrClear"></div>
+
+<?php endif;?>
+
+<?php if(($this->Config->dir_show_alphaindex && $this->action == 'alphaindex') ||
+			$this->Config->list_show_searchbox ||
+			($this->action=='category' && $this->Config->list_show_categories && count($categories) > 1)):?>
+
+	<?php $categoryList = array_merge(array(),$categories);// Reset array keys so it starts from 0?>
+
+	<div class="jrListScope jrRoundedPanelLt">
+
+		<?php /* ALPHA INDEX */ ?>
+
+		<?php if($this->Config->dir_show_alphaindex && $this->action == 'alphaindex'):?>
+
+			<?php echo $this->element('alphaindex')?>
+
+		<?php endif;?>
+
+
+		<?php /* CATEGORY BOX */ ?>
+
+		<?php if($this->action=='category' && $this->Config->list_show_categories && count($categories) > 1): array_shift($categories);?>
+
+		<div class="jrListColumn<?php echo $this->Config->cat_columns; ?> jrCategoryList">
+
+			<?php foreach ($categories as $category): ?>
+
+				<?php if($show_cat_images):
+
+					$params = json_decode($category['Category']['params'],true);
+
+					$cat_image = $params['image'];
+
+				endif;?>
+
+				<div class="jrListItem">
+
+					<a href="<?php echo $Routes->category($category, array('return_url'=>'true'));?>">
+
+						<?php if($show_cat_images && $cat_image): ?>
+
+							<?php echo $Html->image(WWW_ROOT . $cat_image,array('alt'=>$category['Category']['title']))?>
+
+						<?php endif;?>
+
+						<div class="jrCategoryTitle">
+
+							<?php echo $category['Category']['title'];?><?php if($this->Config->dir_cat_num_entries):?>&nbsp;(<?php echo $category['Category']['listing_count'];?>)<?php endif;?>
+
+						</div>
+
+					</a>
+
+				</div>
+
+			<?php endforeach; ?>
+		</div>
+
+		<?php endif;?>
+
+		<?php /* SIMPLE SEARCH */ ?>
+
+		<?php if($this->Config->list_show_searchbox):?>
+
+			<div class="jrListSearch">
+
+				<form class="jr-simple-search" action="<?php echo cmsFramework::getCurrentUrl();?>" method="post">
+
+					<input class="jrText" type="text" name="data[keywords]" placeholder="<?php __t("Search")?>" />
+
+					<button class="jr-search jrButton"><span class="jrIconSearch"></span><?php __t("Search");?></button>
+
+					<?php if($advsearch):?>
+
+						&nbsp;<?php echo $Routes->search(__t("Advanced search",true));?>
+
+					<?php endif;?>
+
+					<?php if($lang = Sanitize::getString($this->params,'lang','',true)):?>
+						<input type="hidden" name="lang" value="<?php echo $lang;?>" />
+					<?php endif;?>
+
+					<input type="hidden" name="data[simple_search]" value="1" />
+
+					<input type="hidden" name="data[dir]" value="<?php echo Sanitize::getString($this->params,'dir',$dir_id,true);?>" />
+
+					<input type="hidden" name="data[controller]" value="search" />
+
+					<input type="hidden" name="data[action]" value="_process" />
+
+					<input type="hidden" name="data[menu_id]" value="<?php echo $search_itemid;?>" />
+
+					<?php if($this->Config->search_cat_filter):?>
+
+						<?php if($cat_id):?>
+
+						<input type="hidden" name="data[cat]" value="<?php echo $cat_id;?>" />
+
+						<?php endif;?>
+
+						<?php if($this->viewSuffix != ''):?>
+
+						<input type="hidden" name="data[tmpl_suffix]" value="<?php echo Sanitize::getString($this, 'viewSuffix', '', true);?>" />
+
+						<?php endif;?>
+
+					<?php endif;?>
+
+				</form>
+
+			</div>
+
+		<?php endif;?>
+
+	</div>
+
+<?php endif;?>
+
+<?php if($this->Config->list_show_addnew && $this->Access->canAddListing() && $this->action == 'category'):?>
+
+<?php /* ADD NEW LISTING */ ?>
+
+<?php echo $Routes->listingNew('<span class="jrIconAddListing"></span>' . JreviewsLocale::getConstant(Sanitize::getString($this->Config, 'lang_listing_create'), true),array('class'=>'jrButton jrAddListing'));?>
+
+<div class="jrClear"></div>
+
+<?php endif;?>
+
+<?php if(Sanitize::getInt($pagination, 'total') > 0):?>
+
+	<a href="#" onclick="javascript:;" class="jr-list-show-filters jrButton jrListFiltersButton"><?php echo sprintf(__t("%s Filters",true), '<span class="jrIconFilters"></span>');?></a>
+
+	<?php echo $Routes->listLayoutOptions();?>
+
+<?php endif;?>
+
+<div class="jrClear"></div>

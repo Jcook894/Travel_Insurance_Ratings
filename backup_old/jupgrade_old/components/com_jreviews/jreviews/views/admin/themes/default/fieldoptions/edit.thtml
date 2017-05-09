@@ -1,0 +1,114 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+<style>
+#jr_editFieldOptionsForm label {
+    float:left; padding:0; margin: 0 10px 0 0; text-align:right; width:100px;    
+}
+#jr_editFieldOptionsForm fieldset input, #adminForm fieldset select { float:none; margin: 0 0 0 5px; padding:2px;}
+#jr_editFieldOptionsForm .jr_fieldDiv { margin: 10px; padding-bottom: 0px; white-space: nowrap;}
+#jr_editFieldOptionsForm .width50percent {width: 45%; margin-right: 10px; float: left;}
+#jr_editFieldOptionsForm .control_value_search {float:left; margin-right: 5px;}
+#jr_editFieldOptionsForm .control-value-cb-div {float: left; padding: 2px;}
+</style>
+
+<form name="jr_editFieldOptionsForm" id="jr_editFieldOptionsForm" class="adminForm">
+	
+    <div class="jr_form">
+    
+        <fieldset class="width50percent">
+            <legend>Basic Setup</legend>              
+                <div class="jr_fieldDiv">
+                    <label for="option_text">Text<span class="required">*</span></label>
+                    <div>
+                        <?php echo $Form->text('data[FieldOption][text]',array('id'=>'option_text','value'=>$row['FieldOption']['text'],'max_size'=>'50','class'=>'mediumField'));?>
+                    </div>
+                </div>                    
+                <div class="jr_fieldDiv">
+                    <label for="option_value">Value<span class="required">*</span></label>
+                    <div>
+                        <?php echo $Form->text('data[FieldOption][value]',array('id'=>'option_value','value'=>$row['FieldOption']['value'],'max_size'=>'50','class'=>'mediumField'));?>
+                    </div>
+                </div>                    
+                <div class="jr_fieldDiv">
+                    <label for="option_image">Image<span class="required">&nbsp;</span></label>
+                    <div>
+                        <?php echo $Form->text('data[FieldOption][image]',array('id'=>'option_image','value'=>$row['FieldOption']['image'],'max_size'=>'50','class'=>'mediumField'));?>
+                    </div>
+                </div>                    
+        </fieldset>
+        <?php if(!in_array($field['type'],array('radiobuttons','checkboxes'))):?>
+        <fieldset class="width50percent">
+            <legend>Controlled By</legend>  
+            
+                <div id="control-field-check-edit" style="color: #000; display:none; padding: 5px; margin-bottom: 5px;" class="ui-state-error ui-corner-all"> 
+                    This field is already Controlled By a Field Option. You should not use the Controlled By setup for Field Options in this page until you remove the relationship in the <a href="javascript:void(0)" onclick="jreviews_admin.dialog.close();jreviews_admin.dispatch({'controller':'fields','action':'_edit','form_id':'adminForm','type':'json','onComplete':function(res){jreviews_admin.field.edit(res);}});return false;">Field Edit</a> page. It is only possible to use one of the two setups, FieldOption to FieldOption or FieldOption to Field, at a time.
+                </div>   
+                             
+                <div class="jr_fieldDiv">
+                    <label for="control_field">Control Field<span class="required">&nbsp;</span></label>
+                    <div>
+                        <?php echo $Form->text('data[FieldOption][control_field]',array('id'=>'control_field_edit','class'=>'control_field','value'=>$row['FieldOption']['control_field'],'max_size'=>'200'));?>
+                    </div>
+                </div>                    
+                <div class="jr_fieldDiv">
+                    <label for="control_value">Control Value<span class="required">&nbsp;</span></label>
+                    <div style="float: left;">
+                        <?php 
+                        $attributes = array('data-defaultValue'=>__a("Select a field",true),'class'=>'control_value_search','max_size'=>'200');
+                        $row['FieldOption']['control_value'] == '' and $attributes['disabled']= 'disabled';
+                        ?>                     
+                        <?php echo $Form->text('control_value_search',$attributes);?>
+                        <div class="control-value-cb-div">
+                            <?php if(!empty($row['ControlValues'])):?>
+                            <?php $checked = array(); foreach($row['ControlValues'] AS $key=>$option): $checked[] = $option['value']; endforeach;?>
+                            
+                        
+                                <?php echo $Form->checkbox('data[FieldOption][control_value]',$row['ControlValues'],array('value'=>$checked,'label'=>array('style'=>'text-align:left;')));?>
+                            <?php endif;?>                        
+                        </div>
+                    </div>
+                </div>                    
+        </fieldset>
+        <?php endif;?>
+    </div>     
+	<input type="hidden" name="data[FieldOption][fieldid]" value="<?php echo $row['FieldOption']['fieldid'];?>" />
+	<input type="hidden" name="data[FieldOption][optionid]" value="<?php echo $row['FieldOption']['optionid'];?>" />
+	<input type="hidden" name="data[FieldOption][ordering]" value="<?php echo $row['FieldOption']['ordering'];?>" />
+	<input type="hidden" id="page_number" name="data[page]" value="<?php echo $this->page;?>" />
+	<input type="hidden" id="limit" name="data[limit]" value="<?php echo $this->limit;?>" />
+	<input type="hidden" id="limitstart" name="data[offset]" value="<?php echo $this->offset;?>" />	
+    <input type="hidden" name="data[controller]" value="admin/fieldoptions" />
+    <input type="hidden" name="data[action]" value="_save" />
+    <input type="hidden" class="field_location" name="data[Field][location]" value="<?php echo $location;?>" />
+    <input type="hidden" name="option" value="com_jreviews" />                        
+    <input type="hidden" name="format" value="raw" />      
+</form>
+
+<script type="text/javascript">
+    jreviews_admin.dispatch({
+        'controller':'fields',
+        'action':'_controlledByCheck',
+        'type':'json',
+        'data':{'data[fieldid]':<?php echo $row['FieldOption']['fieldid'];?>},
+        'onComplete':function(res){ 
+            if(parseInt(res.result) > 0) {
+                jQuery('#control-field-check-edit').fadeIn('slow');
+                jQuery('#control_field_edit').one('keydown',function(){
+                   s2Alert("You need to remove the Field relation first");
+                }); 
+            }
+            else {
+                jreviews_admin.field.control_setup('jr_editFieldOptionsForm',{ctrlFieldId:'<?php echo $row['ControlValues'][0]['fieldid'];?>'});
+            }
+        }
+    });
+</script>

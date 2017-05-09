@@ -1,0 +1,29 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2016 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$url = cmsFramework::makeAbsUrl($listing['Listing']['url'],array('sef'=>true));
+
+$link = '<a href="'.$url.'">'.$listing['Listing']['title'].'</a>';
+
+$phone = Sanitize::getString($this->data['Inquiry'],'phone');
+?>
+
+<p><?php echo sprintf(JreviewsLocale::getPHP('INQUIRY_FROM'),$fromName);?></p>
+
+<p><?php echo sprintf(JreviewsLocale::getPHP('INQUIRY_EMAIL'),$fromEmail);?></p>
+
+<?php if ($phone):?>
+<p><?php echo sprintf(JreviewsLocale::getPHP('INQUIRY_PHONE'), $phone);?></p>
+<?php endif;?>
+
+<p><?php echo sprintf(JreviewsLocale::getPHP('INQUIRY_LISTING'),$link);?></p>
+
+<p><?php echo nl2br($message);?></p>

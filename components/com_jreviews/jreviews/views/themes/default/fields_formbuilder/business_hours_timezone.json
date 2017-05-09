@@ -1,0 +1,295 @@
+{
+	"name": "Business Hours with Timezone",
+	"theme": "business_hours",
+	"schema":
+	{
+	    "type": "object",
+	    "properties": {
+	        "timezone": {
+	            "id": "user-timezone",
+	            "title": "Your timezone",
+	            "type": "string",
+	            "$ref": "DEFINITIONS_PATH\/timezones.php"
+	        },
+	        "periods": {
+	            "type": "array",
+	            "format": "table",
+	            "title": "Periods",
+	            "items": {
+	                "title": "Period",
+	                "type": "object",
+	                "properties": {
+	                    "day": {
+	                        "title": "Day",
+	                        "type": "string",
+	                        "$ref": "#\/definitions\/weekeday",
+	                        "options": {
+	                            "input_width": "15em"
+	                        }
+	                    },
+	                    "hours-start": {
+	                        "title": "Start",
+	                        "type": "string",
+	                        "$ref": "#\/definitions\/hours",
+	                        "options": {
+	                            "input_width": "15em"
+	                        }
+	                    },
+	                    "hours-end": {
+	                        "title": "End",
+	                        "type": "string",
+	                        "$ref": "#\/definitions\/hours",
+	                        "options": {
+	                            "input_width": "15em"
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	    },
+	    "definitions": {
+	        "weekeday": {
+	            "type": "string",
+	            "enumSource": [
+	                {
+	                    "source": [
+	                        {
+	                            "value": "1",
+	                            "title": "Monday"
+	                        },
+	                        {
+	                            "value": "2",
+	                            "title": "Tuesday"
+	                        },
+	                        {
+	                            "value": "3",
+	                            "title": "Wednesday"
+	                        },
+	                        {
+	                            "value": "4",
+	                            "title": "Thursday"
+	                        },
+	                        {
+	                            "value": "5",
+	                            "title": "Friday"
+	                        },
+	                        {
+	                            "value": "6",
+	                            "title": "Saturday"
+	                        },
+	                        {
+	                            "value": "7",
+	                            "title": "Sunday"
+	                        }
+	                    ],
+	                    "title": "{{item.title}}",
+	                    "value": "{{item.value}}"
+	                }
+	            ]
+	        },
+	        "hours": {
+	            "type": "string",
+	            "enumSource": [
+	                {
+	                    "source": [
+	                        {
+	                            "value": "0.0",
+	                            "title": "12:00 am (midnight)"
+	                        },
+	                        {
+	                            "value": "0.5",
+	                            "title": "12:30 am"
+	                        },
+	                        {
+	                            "value": "1.0",
+	                            "title": "1:00 am"
+	                        },
+	                        {
+	                            "value": "1.5",
+	                            "title": "1:30 am"
+	                        },
+	                        {
+	                            "value": "2.0",
+	                            "title": "2:00 am"
+	                        },
+	                        {
+	                            "value": "2.5",
+	                            "title": "2:30 am"
+	                        },
+	                        {
+	                            "value": "3.0",
+	                            "title": "3:00 am"
+	                        },
+	                        {
+	                            "value": "3.5",
+	                            "title": "3:30 am"
+	                        },
+	                        {
+	                            "value": "4.0",
+	                            "title": "4:00 am"
+	                        },
+	                        {
+	                            "value": "4.5",
+	                            "title": "4:30 am"
+	                        },
+	                        {
+	                            "value": "5.0",
+	                            "title": "5:00 am"
+	                        },
+	                        {
+	                            "value": "5.5",
+	                            "title": "5:30 am"
+	                        },
+	                        {
+	                            "value": "6.0",
+	                            "title": "6:00 am"
+	                        },
+	                        {
+	                            "value": "6.5",
+	                            "title": "6:30 am"
+	                        },
+	                        {
+	                            "value": "7.0",
+	                            "title": "7:00 am"
+	                        },
+	                        {
+	                            "value": "7.5",
+	                            "title": "7:30 am"
+	                        },
+	                        {
+	                            "value": "8.0",
+	                            "title": "8:00 am"
+	                        },
+	                        {
+	                            "value": "8.5",
+	                            "title": "8:30 am"
+	                        },
+	                        {
+	                            "value": "9.0",
+	                            "title": "9:00 am"
+	                        },
+	                        {
+	                            "value": "9.5",
+	                            "title": "9:30 am"
+	                        },
+	                        {
+	                            "value": "10.0",
+	                            "title": "10:00 am"
+	                        },
+	                        {
+	                            "value": "10.5",
+	                            "title": "10:30 am"
+	                        },
+	                        {
+	                            "value": "11.0",
+	                            "title": "11:00 am"
+	                        },
+	                        {
+	                            "value": "11.5",
+	                            "title": "11:30 am"
+	                        },
+	                        {
+	                            "value": "12.0",
+	                            "title": "12:00 pm (noon)"
+	                        },
+	                        {
+	                            "value": "12.5",
+	                            "title": "12:30 pm"
+	                        },
+	                        {
+	                            "value": "13.0",
+	                            "title": "1:00 pm"
+	                        },
+	                        {
+	                            "value": "13.5",
+	                            "title": "1:30 pm"
+	                        },
+	                        {
+	                            "value": "14.0",
+	                            "title": "2:00 pm"
+	                        },
+	                        {
+	                            "value": "14.5",
+	                            "title": "2:30 pm"
+	                        },
+	                        {
+	                            "value": "15.0",
+	                            "title": "3:00 pm"
+	                        },
+	                        {
+	                            "value": "15.5",
+	                            "title": "3:30 pm"
+	                        },
+	                        {
+	                            "value": "16.0",
+	                            "title": "4:00 pm"
+	                        },
+	                        {
+	                            "value": "16.5",
+	                            "title": "4:30 pm"
+	                        },
+	                        {
+	                            "value": "17.0",
+	                            "title": "5:00 pm"
+	                        },
+	                        {
+	                            "value": "17.5",
+	                            "title": "5:30 pm"
+	                        },
+	                        {
+	                            "value": "18.0",
+	                            "title": "6:00 pm"
+	                        },
+	                        {
+	                            "value": "18.5",
+	                            "title": "6:30 pm"
+	                        },
+	                        {
+	                            "value": "19.0",
+	                            "title": "7:00 pm"
+	                        },
+	                        {
+	                            "value": "19.5",
+	                            "title": "7:30 pm"
+	                        },
+	                        {
+	                            "value": "20.0",
+	                            "title": "8:00 pm"
+	                        },
+	                        {
+	                            "value": "20.5",
+	                            "title": "8:30 pm"
+	                        },
+	                        {
+	                            "value": "21.0",
+	                            "title": "9:00 pm"
+	                        },
+	                        {
+	                            "value": "21.5",
+	                            "title": "9:30 pm"
+	                        },
+	                        {
+	                            "value": "22.0",
+	                            "title": "10:00 pm"
+	                        },
+	                        {
+	                            "value": "22.5",
+	                            "title": "10:30 pm"
+	                        },
+	                        {
+	                            "value": "23.0",
+	                            "title": "11:00 pm"
+	                        },
+	                        {
+	                            "value": "23.5",
+	                            "title": "11:30 pm"
+	                        }
+	                    ],
+	                    "title": "{{item.title}}",
+	                    "value": "{{item.value}}"
+	                }
+	            ]
+	        }
+	    }
+	}
+}

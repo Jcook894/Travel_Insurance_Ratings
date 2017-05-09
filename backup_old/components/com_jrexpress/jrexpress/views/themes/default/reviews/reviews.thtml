@@ -1,0 +1,249 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**
+ * View used in for user reviews
+ */
+?>
+
+<s2:nocache>
+<?php if(!$this->xajaxRequest): // If it's not an ajax request?>
+	<?php
+	/**********************************************************************************
+	 * 								JAVASCRIPT & CSS
+	 **********************************************************************************/				
+	if($this->action == 'myreviews') {
+		// need to load jQuery for review edit/report thickbox and voting
+		$headScripts = array(
+			'js'=>array('jrexpress','jquery','jq.dimensions','jq.thickbox','jq.jrexpress.plugins','jq.onload'),
+			'css'=>array('theme','theme.detail','theme.form','jq.thickbox','paginator')
+		);
+
+		# Load javascript libraries
+		$Html->js(arrayFilter($headScripts['js'], $Libraries->js()));
+		
+		# Set noConflict mode for jQuery
+		if(in_array('jquery',$headScripts['js'])) {
+			cmsFramework::addScript(sprintf($Html->tags['javascriptcode'],'jQuery.noConflict();'));
+		}
+	
+		# Load CSS stylesheets
+		$Html->css(arrayFilter($headScripts['css'], $Libraries->css()));
+	}
+	?>
+<?php endif;?>
+</s2:nocache>
+
+<?php if(!$this->xajaxRequest): // If it's not an ajax request?>
+	<?php
+	/**********************************************************************************
+	 * 								PAGINATION HELPER
+	 **********************************************************************************/	
+	if(in_array($this->action,array('myreviews','detail')))
+	{
+		$Paginator->paginate(
+			array(
+				'current_page'=>$this->page,
+				'items_per_page'=>$this->limit,
+				'items_total'=>$pagination['total']
+			)
+		);
+	}
+	?>
+	
+	<s2:nocache>
+	<?php
+	/**********************************************************************************
+	 * 								META DATA
+	 **********************************************************************************/
+	if(in_array($this->action,array('myreviews'))){
+		if(Configure::read('Cache.enable') && Configure::read('Cache.view')){
+			if($cachedMeta = S2Cache::read('meta_'.md5($this->here))) {
+				$pageTitle = $cachedMeta;
+			} 
+		} else {
+			$review = current($reviews);
+			$pageTitle = sprintf(__t("Reviews written by %s",true),$Community->screenName($review,$this->Config));
+			S2Cache::write('meta_'.md5($this->here),$pageTitle,Configure::read('Cache.expires'));
+		}
+		cmsFramework::meta('title', strip_tags($pageTitle)); // Set page title
+	}
+	?>
+	</s2:nocache>
+
+<?php endif;?>	
+
+<?php 
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+//prx($reviews);
+?>	
+
+<?php if(!$this->xajaxRequest): // If it's not an ajax request?>
+	
+	<?php if(in_array($this->action,array('myreviews','detail'))):?>
+	<!-- BEGIN REVIEWS -->
+	<div id="jr_itemReviews" class="jr_pgContainer jr_itemDetail">
+	
+		<?php if(in_array($this->action,array('myreviews'))):?>
+		<h1 class="contentheading"><?php echo strip_tags($pageTitle);?></h1>
+		<?php endif;?>
+	
+		<!-- PAGINATION BEGINS HERE -->
+		<table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+		 <tr>
+			<td class="jr_pagenav_results"><?php echo sprintf(__t("%1\$s results - showing %2\$s - %3\$s",true), $pagination['total'], ($this->page-1)*$this->limit+1, min($pagination['total'],$this->page*$this->limit));?></td>
+		    <?php if($pagination['total'] > $this->limit):?>
+		    <td class="jr_pagenav_pages"><?php echo $Paginator->display_pages();?></td>
+			<?php else:?>
+			<td class="jr_pagenav_pages"></td>
+			<?php endif;?>
+			<td class="jr_pagenav_limitbox">
+				<?php if($this->action == 'myreviews'):?><?php echo $Paginator->display_items_per_page();?>
+				<?php else:?>	
+					<div class="jr_listOptions">
+					<?php __t("Ordering");?>&nbsp;<?php echo $Jreviews->orderingListReviews(Sanitize::getString($this->passedArgs,'order'));?>
+					</div>
+				<?php endif;?>
+			</td>			
+		 </tr>
+		</table>
+		<!-- PAGINATION ENDS HERE --> 
+	<?php endif;?>
+		
+	<div class="clr">&nbsp;</div>
+
+<?php endif;?>
+
+<?php foreach($reviews AS $review):?>
+
+	<?php if($this->action=='myreviews'): // Add listing info ?>
+	<!-- BEGIN LISTING DETAIL -->
+	<div class="contentTitle"><?php echo $Html->sefLink($review['Listing']['title'],$review['Listing']['url']);?> <?php echo Sanitize::getString($review['Listing'],'tag') ? '(' .Sanitize::getString($review['Listing'],'tag') . ')' : '';?></div>								
+	<div class="jr_pathway"><?php echo $review['Category']['title'];?></div>
+	<div class="clr">&nbsp;</div>
+	<!-- END LISTING DETAIL -->
+	<?php endif;?>
+
+	<?php if($this->action!='_edit'): // Don't add the outer div if updating review on screen after edit?>
+	<div class="roundedPanelLt jr_review">
+		<div class="box_upperOuter">
+			<div class="box_upperInner">
+				<!-- BEGIN REVIEW INNER -->			
+				<div id="jr_review_<?php echo $review['Review']['review_id']?>">
+	<?php endif;?>
+				<h4 class="jr_reviewTitle"><?php echo $review['Review']['title'];?>
+				<?php if($Access->canEditReview($review['User']['user_id'])): // Edit icon?>
+					<?php echo $Routes->reviewEdit($Html->image($this->viewImages.'edit.png',array('border'=>0,'alt'=>'Edit')),$review,array('class'=>'thickbox'));?>
+				<?php endif;?></h4>
+				<table border="0" cellpadding="0" cellspacing="0" class="jr_reviewContainer">
+					<tr>
+						<td class="jr_reviewColumn1">
+							<?php if($this->Config->user_vote):?>
+							<!-- BEGIN VOTING SUMMARY -->
+	                    	<div class="jr_helpfulSummary"><?php echo sprintf(__t("%s of %s people found the following review helpful",true),(int)$review['Vote']['yes'],$review['Vote']['yes']+$review['Vote']['no']);?></div>
+							<!-- END VOTING SUMMARY -->
+							<?php endif;?>
+
+							<?php echo nl2br($review['Review']['comments']);?>
+							
+							<?php if(isset($review['Field']['groups'])):?>
+								<?php echo $this->element('custom_fields',array('entry'=>$review,'page'=>'content'), false)?>
+							<?php endif;?>
+						</td>
+						<td class="jr_reviewColumn2">
+							<!-- BEGIN DETAILED USER RATINGS -->
+							<?php echo $this->element('detailed_ratings',array('review'=>$review,'reviewType'=>'user'));?>
+							<!-- END DETAILED USER RATINGS -->
+							
+							<?php if($this->Config->user_vote):?>
+							<!-- BEGIN VOTING BUTTONS -->
+							<div class="reviewHelpful"><?php __t("Was this review helpful to you?");?><br />				
+								<span id="jr_reviewVote<?php echo $review['Review']['review_id'];?>">								
+									<span class="jr_pointer" onclick="xajax.call('xajaxDispatch',{URI:'<?php displayXajaxUri('jrexpress');?>',context:{votebtns:xajax.$('jr_reviewVote<?php echo $review['Review']['review_id'];?>')},parameters:['reviews','_vote','jrexpress',{data:{review_id:<?php echo $review['Review']['review_id'];?>,action:1}}]});">
+									<?php echo $Html->image($this->viewImages.'yes.png',array('alt'=>'Yes'));?></span>
+									<span class="jr_pointer" onclick="xajax.call('xajaxDispatch',{URI:'<?php displayXajaxUri('jrexpress');?>',context:{votebtns:xajax.$('jr_reviewVote<?php echo $review['Review']['review_id'];?>')},parameters:['reviews','_vote','jrexpress',{data:{review_id:<?php echo $review['Review']['review_id'];?>,action:0}}]});">
+									<?php echo $Html->image($this->viewImages.'no.png',array('alt'=>'No'));?></span>
+								</span>															
+							</div>
+							<!-- BEGIN VOTING BUTTONS -->
+							<?php endif;?>							
+						
+							<div class="reviewInfo">
+								<?php echo $Community->avatar($review);?>
+								
+								<?php __t("Reviewed by");?> <?php echo $Community->screenName($review,$this->Config);?><br />
+								<?php echo $Time->nice($review['Review']['created']);?><br />
+
+								<?php if($this->Config->user_rank_link && $review['User']['user_id']>0):?><?php echo $Routes->reviewers($review['User']['review_rank'],$review['User']['user_id'])?><br /><?php endif;?>
+
+								<div class="clr"></div>
+						
+								<?php if($this->Config->user_myreviews_link && $this->action!='myreviews' && $review['User']['user_id'] > 0):?>	
+								<!-- BEGIN VIEW MY REVIEWS -->	
+								<?php echo $Routes->myReviews(__t("View all my reviews",true), $review['User'],array('class'=>'jr_myReviews'));?><br />
+								<!-- END VIEW MY REVIEWS -->
+								<?php endif;?>
+																							
+								<?php if($this->Config->user_report):?>
+								<?php echo $Routes->reviewReport(__t("Report this review",true),$review,array('id'=>'jr_reportLink'.$review['Review']['review_id'],'class'=>'thickbox jr_reviewReport','rel'=>'nofollow','title'=>__t("Report this review",true)));?>
+								<?php endif;?>
+								
+								<div class="clr">&nbsp;</div>
+								
+								<?php if($review['Review']['modified'] != '' && NULL_DATE != $review['Review']['modified']):?>
+									<?php __t("Last updated");?>: <?php echo $Time->nice($review['Review']['modified']);?><br />
+								<?php endif;?>								
+								
+								<?php if($Access->gid == 25):?>
+								<!-- BEGIN EXTRA INFO FOR ADMINS -->
+								<?php echo $review['User']['ipaddress'];?><br />
+								<?php echo $review['User']['email'];?><br />
+								<!-- END EXTRA INFO FOR ADMINS -->
+								<?php endif;?>
+								
+							</div>
+							
+						</td>
+					</tr>
+				</table>
+	<?php if($this->action!='_edit'):?>
+				</div>
+				<!-- END REVIEW INNER -->
+			</div>
+		</div>
+		<div class="box_lowerOuter">
+			<div class="box_lowerInner">&nbsp;</div>
+		</div>
+	</div>
+	<?php endif;?>
+<?php endforeach;?>
+
+<?php if(!$this->xajaxRequest):?>
+
+	<?php if(in_array($this->action,array('myreviews','detail'))):?>
+		<!-- PAGINATION BEGINS HERE -->
+		<table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+		 <tr>
+			<td class="jr_pagenav_results"><?php echo sprintf(__t("%1\$s results - showing %2\$s - %3\$s",true), $pagination['total'], ($this->page-1)*$this->limit+1, min($pagination['total'],$this->page*$this->limit));?></td>
+		    <?php if($pagination['total'] > $this->limit):?>
+		    <td class="jr_pagenav_pages"><?php echo $Paginator->display_pages();?></td>
+		    <td class="jr_pagenav_limitbox"><?php echo $Paginator->display_items_per_page();?></td>
+			<?php endif;?>
+		 </tr>
+		</table>
+		<!-- PAGINATION ENDS HERE -->
+	</div> 
+	<!-- END REVIEWS -->
+	<?php endif;?>
+	
+<?php endif;?>

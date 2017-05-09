@@ -1,0 +1,33 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php
+/**
+ * Used in listings create/edit actions
+ * This view element is used to refresh the category list via ajax
+ */
+?>
+
+<?php
+$attributes = array('id'=>'catid','class'=>'inputbox','size'=>'1','onchange'=>'jreviews.listing.submitCategory(this);');
+
+if(!$listing['Listing']['section_id']) {
+	$attributes = array_merge($attributes,array('disabled'=>'disabled'));
+}
+
+echo $Form->select(
+	'data[Listing][catid]',
+	array_merge(array(array('value'=>null,'text'=>__t("Select Category",true))),$categories),
+	$listing['Listing']['cat_id'],
+	$attributes
+);
+?>

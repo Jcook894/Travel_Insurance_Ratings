@@ -1,0 +1,258 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$extension = $listing['Listing']['extension'];
+
+/**********************************************************************************
+ *                                 EDIT HTML BELOW THIS LINE
+ **********************************************************************************/?>
+
+<br />
+
+<div class="jr-page jrPage jrReviews jrReviewsPlugin">
+
+	<div id="userReviews">
+
+		<?php /* RICH SNIPPETS */ ?>
+
+		<?php if($listing['Review']['user_rating_count'] > 0): ?>
+
+			<div class="jrHidden" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+
+				<meta itemprop="itemReviewed" content="<?php echo $listing['Listing']['title'];?>">
+				<meta itemprop="ratingValue" content="<?php echo $Rating->round($listing['Review']['user_rating'],$this->Config->rating_scale);?>">
+				<meta itemprop="reviewCount" content="<?php echo $listing['Review']['user_rating_count'];?>">
+				<meta itemprop="bestRating" content="<?php echo $this->Config->rating_scale; ?>">
+
+			</div>
+
+		<?php endif; ?>
+
+		<h3 class="jrUserReviewsTitle jrHeading">
+
+			<span class="jrIconUsers"></span>
+
+			<span class="jrHeadingText"><?php (Sanitize::getInt($listing['Criteria'],'state') != 2) ? __t("User reviews") : __t("User comments");?></span>
+
+		</h3>
+
+		<?php /* REVIEW SEARCH */?>
+
+		<?php if(is_numeric($this->Config->review_search) && $listing['Review']['review_count'] > $this->Config->review_search):?>
+
+			<div class="jrReviewSearchLayout">
+
+				<form action="<?php echo $Routes->listing('',$listing,'user',array('return_url'=>true));?>" class="jrReviewSearch jrForm jrRight">
+
+					<?php echo $Form->text('keywords',array('class'=>'jrKeywords','placeholder'=>(Sanitize::getInt($listing['Criteria'],'state')!=2) ? __t("Search reviews",true) : __t("Search comments",true)));?>
+
+					<?php if($extension !== 'com_content'):?>
+
+						<?php echo $Form->hidden('extension',array('value'=>$extension));?>
+
+					<?php endif;?>
+
+					<button type="submit" class="jr-search jrButton"><span class="jrIconSearch"></span></button>
+
+				</form>
+
+			</div>
+
+			<div class="jrClear"></div>
+
+		<?php endif;?>
+
+		<?php /* REVIEW SUMMARY */ ?>
+
+		<div class="jrRoundedPanel jrReview jrUserReviewsSummary">
+
+			<div class="jrReviewSummary">
+
+				<?php /* RSS FEED */ ?>
+
+				<?php if($listing['Review']['review_count'] > 0 && $listing['Criteria']['state'] && $this->Config->rss_enable):?>
+
+					<div class="jrRSS">
+
+						<ul class="jrFeeds"><li><?php echo $Routes->rssListing($listing);?></li></ul>
+
+					</div>
+
+				<?php endif;?>
+
+				<?php /* # OF REVIEWS HEADER */ ?>
+
+				<?php if($listing['Review']['user_rating_count'] > 0 && $listing['Criteria']['state'] == 1): ?>
+
+					<h4 class="jrUserReviewsSummaryTitle"><?php echo sprintf(__t("%d reviews",true),$listing['Review']['user_rating_count']);?></h4>
+
+				<?php elseif($listing['Review']['review_count'] > 0 && $listing['Criteria']['state'] == 2): ?>
+
+					<h4 class="jrUserReviewsSummaryTitle"><?php echo sprintf(__t("%d comments",true),$listing['Review']['review_count']);?></h4>
+
+				<?php elseif($listing['Review']['review_count'] == 0):?>
+
+					<div class="jrReviewSummaryInfo"><?php (Sanitize::getInt($listing['Criteria'],'state') != 2) ? JreviewsLocale::getConstant(Sanitize::getString($this->Config, 'lang_review_user_reviews_not_found')) : JreviewsLocale::getConstant(Sanitize::getString($this->Config, 'lang_review_user_comments_not_found'));?></div>
+
+				<?php endif;?>
+
+				<?php /* DETAILED USER RATINGS SUMMARY */?>
+
+				<?php if($listing['Review']['user_rating_count'] > 0):?>
+
+					<div class="jrGrid">
+
+						<?php /* DETAILED USER RATINGS SUMMARY */?>
+
+						<?php if(is_numeric($this->Config->rating_histogram) && $listing['Review']['user_rating_count'] > $this->Config->rating_histogram):?>
+
+						<div class="jrCol4">
+
+							<div class="jrReviewSummarySidebar">
+
+								<?php echo $Rating->histogram($listing,'user');?>
+
+							</div>
+
+						</div>
+
+						<?php endif;?>
+
+						<div class="jrCol4">
+
+							<div class="jrReviewSummarySidebar">
+
+								<?php echo $Rating->detailedRatings($listing,'user',array('show_rating_count'=>true, 'aggregate_rating'=>true));?>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				<?php endif;?>
+
+				<?php if (!$this->Access->canAddReview() && empty($User->id) ):?>
+
+					<div class="jrLoginBox"><?php echo $this->element('login');?></div>
+
+				<?php endif;?>
+
+				<div class="jrClear"></div>
+
+				<?php if($this->Access->canAddReview($listing['User']['user_id'])):?>
+
+						<button class="jr-review-add jrButton jrBlue"
+
+							<?php echo $listing['User']['duplicate_review'] ? 'disabled="disabled" ' : '';?> >
+
+							<span class="jrIconAddReview"></span>
+
+							<?php
+								if (Sanitize::getInt($listing['Criteria'],'state') != 2)
+								{
+									echo !$listing['User']['duplicate_review'] ? JreviewsLocale::getConstant(Sanitize::getString($this->Config, 'lang_review_add_detail',true)) : __t("You already submitted a review.",true);
+								}
+								else {
+									echo !$listing['User']['duplicate_review'] ? JreviewsLocale::getConstant(Sanitize::getString($this->Config, 'lang_review_comment_add_detail',true)) : __t("You already submitted a comment.",true);
+								}
+							?>
+
+						</button>
+
+				<?php endif;?>
+
+				<?php // View all reviews
+
+				if($listing['Review']['review_count'] > $this->limit):?>
+
+					<?php if($this->action == 'index' || ($this->action == 'detail' && Sanitize::getInt($this->params,'user') > 0)):?>
+
+						<?php echo (Sanitize::getInt($listing['Criteria'],'state') != 2)
+								?
+								$Routes->listing(__t("View all reviews",true),$listing,'user',array('class'=>'jrButton'))
+								:
+								$Routes->listing(__t("View all comments",true),$listing,'user',array('class'=>'jrButton'));?>
+
+					<?php endif;?>
+
+				<?php endif;?>
+
+				<?php if($listing['Review']['review_count'] > $search_limit):?>
+
+					<?php if($this->action == 'index' && $this->Config->user_vote):?>
+
+						<?php echo $Routes->listing(__t("View most helpful",true),$listing,'user',array('order'=>'helpful','class'=>'jrButton'));?>
+
+					<?php endif;?>
+
+					<?php /* MY REVIEWS */
+
+					if($listing['User']['user_review_count'] && Sanitize::getInt($this->params,'user') != $User->id):?>
+
+						<?php echo $Routes->listing(sprintf(__n('View my review','View my reviews (%d)',$listing['User']['user_review_count'],true),$listing['User']['user_review_count']),$listing,'user',array('user'=>$User->id,'class'=>'jrButton jrGreen'));?>
+
+					<?php endif;?>
+
+				<?php endif;?>
+
+				<?php /* BACK TO LISTING */
+
+				if($this->name == 'listings'):?>
+
+					<?php echo $Html->sefLink(__t("Back to Listing",true),$listing['Listing']['url'],array('class'=>'jrButton jrBackButton'));?>
+
+				<?php endif;?>
+
+				<div class="jrClear"></div>
+
+			</div>
+
+		</div>
+
+		<div class="jrClear"></div>
+
+		<?php /* REVIEW FORM */ ?>
+
+		<?php if($this->Access->canAddReview()):?>
+
+			<?php echo $this->renderControllerView('reviews','create',array('criteria'=>$listing['Criteria']))?>
+
+		<?php endif;?>
+
+		<?php /* USER REVIEWS */?>
+
+		<div class="jr-user-reviews jrUserReviewsContainer"><?php /* this div is required to display post save messages */ ?>
+
+			<?php if($listing['Review']['review_count'] > 0 && $this->limit > 0):?>
+
+				<?php echo $this->renderControllerView('reviews','reviews',array('listing'=>$listing,'reviews'=>$reviews))?>
+
+			<?php endif;?>
+
+		</div>
+
+		<div class="jrClear"></div>
+
+		<?php if($this->limit > 0 && $listing['Review']['review_count'] > $this->limit):?>
+
+			<?php echo (Sanitize::getInt($listing['Criteria'],'state') != 2)
+						?
+						$Routes->listing(__t("View all user reviews",true),$listing,'user',array('class'=>'jrButton jrViewAllButton'))
+						:
+						$Routes->listing(__t("View all user comments",true),$listing,'user',array('class'=>'jrButton jrViewAllButton'));?>
+
+			<div class="jrClear"></div>
+
+		<?php endif;?>
+
+	</div>
+
+</div>

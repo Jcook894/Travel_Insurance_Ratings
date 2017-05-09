@@ -1,0 +1,336 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+$accessGroupsGuest = $this->cmsVersion == CMS_JOOMLA15 ? array_merge(array(array('value'=>0,'text'=>'Public')),$accessGroups) : $accessGroups;
+$accessGroupsNoGuest = $this->cmsVersion == CMS_JOOMLA15 ? $accessGroups : array_slice($accessGroups,1);
+?>
+
+<div class="admin_header"><?php __a("Access settings");?></div>
+
+<form id="adminForm" name="adminForm">
+
+	<div class="admin_toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
+        <span id="status" class="jr_floatLeft">&nbsp;</span>            
+		<button class="ui-button ui-corner-all" onclick="jreviews_admin.dispatch({'form_id':'adminForm','onComplete':function(){jreviews_admin.tools.statusUpdate('The new settings have been saved.');}});return false;">Save</button>
+	</div>	
+			      
+	<div id="jr_tabs" class="jr_tabs"><!-- BEGIN TABS SECTION -->
+	    <ul>
+	        <li><a href="#listings"><span><?php __a("Listings");?></span></a></li>
+	        <li><a href="#reviews"><span><?php __a("Reviews");?></span></a></li> 
+            <li><a href="#discussions"><span><?php __a("Discussions");?></span></a></li>
+            <li><a href="#owner-replies"><span><?php __a("Owner Replies");?></span></a></li>
+	    </ul>	
+
+	    <!-- BEGIN LISTINGS TAB -->
+	    <div id="listings"> 
+            <table class="admin_list">
+                <tr valign="top"><th colspan="3">Submit</th></tr>
+                <tr valign="top">
+                    <td width="200"><?php __a("Submit new listing");?></td>
+                    <td>
+                        <?php echo $Form->select(
+                                'addnewaccess',
+                                $accessGroupsGuest,
+                                ($this->Config->addnewaccess!='none' ? explode(',',$this->Config->addnewaccess) : 'none'),
+                                array('multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')                            
+                            );
+                        ?>                                        
+                    </td>
+                    <td><?php __a("Select all groups allowed to submit new listings.");?>
+                    </td>
+                </tr>
+                <tr valign="top"><th colspan="3">Moderate (Hold for approval)</th></tr>
+                <tr valign="top">
+                    <td width="200"><?php __a("Moderate new listing");?></td>
+                    <td>
+                        <?php echo $Form->select(
+                                'moderation_item',
+                                $accessGroupsGuest,
+                                ($this->Config->moderation_item!='none' ? explode(',',$this->Config->moderation_item) : 'none'),
+                                array('id'=>'moderation_item','multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')                            
+                            );
+                        ?>
+                    </td>
+                    <td><?php __a("Each group has to be selected separately.<br />Admin must approve and publish new items for the selected groups.");?>
+                    </td>
+                </tr>  
+                <tr valign="top">
+                    <td><?php __a("Moderate edited listing");?></td>
+                    <td><?php echo $Form->radioYesNo( "moderation_item_edit", "", $this->Config->moderation_item_edit );?></td>
+                    <td><?php __a("Listings will be unpublished and held for approval when edited via the frontend.");?></td>
+                </tr>                               
+                <tr valign="top"><th colspan="3">Frontend Listing Management</th></tr> 
+                <tr valign="top">
+                    <td width="200"><?php __a("Edit listing");?></td>
+                    <td>
+                        <?php echo $Form->select(
+                                'editaccess',
+                                $accessGroupsNoGuest,
+                                ($this->Config->editaccess!='none' ? explode(',',$this->Config->editaccess) : 'none'),
+                                array('multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')                            
+                            );
+                        ?>                            
+                    </td>
+                    <td><?php __a("Registered and Author can only edit their own listings.");?>
+                    <br />
+                    <?php __a("Editor and above can edit all listings, but only see custom fields for which they have access.");?>
+                    </td>
+                </tr> 
+                <tr valign="top">
+                    <td width="200"><?php __a("Publish/unpublish listing");?></td>
+                    <td>
+                        <?php echo $Form->select(
+                                'listing_publish_access',
+                                $accessGroupsNoGuest,
+                                ($this->Config->listing_publish_access!='none' ? explode(',',$this->Config->listing_publish_access) : 'none'),
+                                array('multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')                            
+                            );
+                        ?>                            
+                    </td>
+                    <td><?php __a("Registered and Author can only publish/unpublish their own listings.");?>
+                    </td>
+                </tr> 
+                <tr valign="top">
+                    <td width="200"><?php __a("Delete listing");?></td>
+                    <td>
+                        <?php echo $Form->select(
+                                'listing_delete_access',
+                                $accessGroupsNoGuest,
+                                ($this->Config->listing_delete_access!='none' ? explode(',',$this->Config->listing_delete_access) : 'none'),
+                                array('multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')                            
+                            );
+                        ?>                            
+                    </td>
+                    <td><?php __a("Registered and Author can only delete their own listings.");?>
+                    </td>
+                </tr> 
+                <tr valign="top"><th colspan="3">Miscellaneous</th></tr> 
+                <tr valign="top">
+                    <td width="200"><?php __a("WYSIWYG editor");?></td>
+                    <td>
+                        <?php echo $Form->select(
+                                'addnewwysiwyg',
+                                $accessGroupsGuest,
+                                ($this->Config->addnewwysiwyg!='none' ? explode(',',$this->Config->addnewwysiwyg) : 'none'),
+                                array('id'=>'addnewwysiwyg','multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')                            
+                            );
+                        ?>
+                    </td>
+                    <td><?php __a("Used in standard fields summary and description");?>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td width="200"><?php __a("Meta data fields");?></td>
+                    <td>
+                        <?php 
+                            echo $Form->select(
+                                'addnewmeta',
+                                $accessGroupsGuest,
+                                ($this->Config->addnewmeta!='none' ? explode(',',$this->Config->addnewmeta) : 'none'),
+                                array('id'=>'addnewmeta','multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')                            
+                            );
+                        ?>                    
+                    </td>
+                    <td><?php __a("Listing description and keywords meta data");?>
+                    </td>
+                </tr>                                                              
+            </table>
+		</div>              
+	    <!-- END LISTINGS TAB -->
+
+	    <!-- BEGIN REVIEWS TAB -->
+		<div id="reviews">       
+			<table class="admin_list">
+                <tr valign="top"><th colspan="3">Submit</th></tr>
+                <tr valign="top">
+                    <td width="200"><?php __a("Submit new review");?></td>
+                    <td>
+                        <?php 
+                            echo $Form->select(
+                                'addnewaccess_reviews',
+                                $accessGroupsGuest,
+                                ($this->Config->addnewaccess_reviews!='none' ? explode(',',$this->Config->addnewaccess_reviews) : 'none'),
+                                array('id'=>'addnewaccess_reviews','multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')                            
+                            );
+                        ?>                    
+                    </td>
+                    <td></td>
+                </tr>                
+                <tr valign="top"><th colspan="3">Moderate (Hold for approval)</th></tr>
+                <tr valign="top">
+                    <td width="200"><?php __a("Moderate new user reviews");?></td>
+                    <td>
+                        <?php 
+                            echo $Form->select(
+                                'moderation_reviews',
+                                $accessGroupsGuest,
+                                ($this->Config->moderation_reviews!='none' ? explode(',',$this->Config->moderation_reviews) : 'none'),
+                                array('id'=>'moderation_reviews','multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')                            
+                            );
+                        ?>                    
+                    </td>
+                    <td></td>
+                </tr>                
+                <tr valign="top">
+                    <td><?php __a("Moderate new editor reviews");?></td>
+                    <td><?php echo $Form->radioYesNo( "moderation_editor_reviews", "", $this->Config->moderation_editor_reviews );?></td>
+                    <td><?php __a("Define JReviews editors in Configuration => Reviews tab. These are not Joomla editors.");?></td>
+                </tr>            
+                <tr valign="top">
+                    <td><?php __a("Moderate edited user reviews");?></td>
+                    <td><?php echo $Form->radioYesNo( "moderation_review_edit", "", $this->Config->moderation_review_edit );?></td>
+                    <td><?php __a("User reviews will be unpublished and held for approval when edited via the frontend.");?></td>
+                </tr>
+                <tr valign="top">
+                    <td><?php __a("Moderate edited editor reviews");?></td>
+                    <td><?php echo $Form->radioYesNo( "moderation_editor_review_edit", "", $this->Config->moderation_editor_review_edit );?></td>
+                    <td><?php __a("Editor reviews will be unpublished and held for approval when edited via the frontend.");?></td>
+                </tr>            
+                <tr valign="top"><th colspan="3">Helpful Voting</th></tr>
+                <tr valign="top">
+                    <td><?php __a("Enable voting");?></td>
+                    <td>
+                        <?php 
+                            echo $Form->select(
+                                'user_vote_public',
+                                $accessGroupsGuest,
+                                ($this->Config->user_vote_public!='none' ? explode(',',$this->Config->user_vote_public) : 'none'),
+                                array('id'=>'user_vote_public','multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')                            
+                            );
+                        ?>                    
+                    </td>
+                    <td></td>
+                </tr>
+                <tr valign="top"><th colspan="3">Frontend Review Management</th></tr> 
+                <tr valign="top">
+                    <td width="200"><?php __a("Edit review");?></td>
+                    <td>
+                        <?php 
+                            echo $Form->select(
+                                'editaccess_reviews',
+                                $accessGroupsNoGuest,
+                                ($this->Config->editaccess_reviews!='none' ? explode(',',$this->Config->editaccess_reviews) : 'none'),
+                                array('id'=>'editaccess_reviews','multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')                            
+                            );
+                        ?>                        
+                    </td>
+                    <td><?php __a("Registered and Author can only edit their own listings.");?>
+                    <br />
+                    <?php __a("Editor and above can edit all listings, but only see custom fields for which they have access.");?>
+                    </td>
+                </tr>
+            </table>            
+		</div>
+	    <!-- END REVIEWS TAB -->
+        
+        <!-- BEGIN DISCUSSIONS TAB -->
+        <div id="discussions">
+            <table class="admin_list">
+               <tr valign="top"><th colspan="3">Submit</th></tr>
+                <tr valign="top">
+                    <td width="200"><?php __a("Submit new comment");?></td>
+                    <td width="190">
+                        <?php 
+                            echo $Form->select(
+                                'addnewaccess_posts',
+                                $accessGroupsGuest,
+                                ($this->Config->addnewaccess_posts!='none' ? explode(',',$this->Config->addnewaccess_posts) : 'none'),
+                                array('id'=>'addnewaccess_posts','multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')                            
+                            );
+                        ?>                    
+                    </td>
+                    <td></td>
+                </tr>                
+                <tr valign="top"><th colspan="3">Moderate (Hold for approval)</th></tr>
+                <tr valign="top">
+                    <td width="200"><?php __a("Moderate new comment");?></td>
+                    <td>
+                        <?php 
+                            echo $Form->select(
+                                'moderation_posts',
+                                $accessGroupsGuest,
+                                ($this->Config->moderation_posts!='none' ? explode(',',$this->Config->moderation_posts) : 'none'),
+                                array('id'=>'moderation_posts','multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')                            
+                            );
+                        ?>                    
+                    </td>
+                    <td></td>
+                </tr>
+                <tr valign="top"><th colspan="3">Frontend Discussion Management</th></tr> 
+                <tr valign="top">
+                    <td width="200"><?php __a("Edit comment");?></td>
+                    <td>
+                        <?php echo $Form->select(
+                                'post_edit_access',
+                                $accessGroupsNoGuest,
+                                ($this->Config->post_edit_access!='none' ? explode(',',$this->Config->post_edit_access) : 'none'),
+                                array('multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')                            
+                            );
+                        ?>                            
+                    </td>
+                    <td><?php __a("Registered and Author can only edit their own comments.");?>
+                        <br />
+                        <?php __a("Editor and above can edit all comments.");?>
+                    </td>                    
+                </tr>                    
+                <tr valign="top">
+                    <td width="200"><?php __a("Delete comment");?></td>
+                    <td>
+                        <?php echo $Form->select(
+                                'post_delete_access',
+                                $accessGroupsNoGuest,
+                                ($this->Config->post_delete_access!='none' ? explode(',',$this->Config->post_delete_access) : 'none'),
+                                array('multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')                            
+                            );
+                        ?>                            
+                    </td>
+                    <td>
+                    <?php __a("Registered and Author can only delete their own comments.");?>
+                    <br />
+                    <?php __a("Editor and above can delete all comments.");?>
+                    <br />                    
+                    </td>                    
+                </tr>                                    
+            </table>
+         </div>                        
+        <!-- END DISCUSSIONS TAB -->
+        
+       <!-- BEGIN OWNER REPLIES TAB -->
+        <div id="owner-replies">
+            <table class="admin_list">
+                <tr valign="top">
+                    <td width="200"><?php __a("Moderate listing owner replies to reviews");?></td>
+                    <td>
+                        <?php 
+                            echo $Form->select(
+                                'moderation_owner_replies',
+                                $accessGroupsNoGuest,
+                                ($this->Config->moderation_owner_replies!='none' ? explode(',',$this->Config->moderation_owner_replies) : 'none'),
+                                array('id'=>'moderation_owner_replies','multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')                            
+                            );
+                        ?>                    
+                    </td>
+                    <td></td>
+                </tr>        
+            </table>                
+        </div>
+         
+	</div>
+	
+    <input type="hidden" name="task" value="access" />
+    <input type="hidden" name="data[controller]" value="admin/configuration" />
+    <input type="hidden" name="data[action]" value="_save" />
+</form>	
+
+<script type="text/javascript">
+jQuery(".jr_tabs").tabs();
+jQuery("select").multiselect({'minWidth':200,'height':'auto','selectedList':3});
+</script>

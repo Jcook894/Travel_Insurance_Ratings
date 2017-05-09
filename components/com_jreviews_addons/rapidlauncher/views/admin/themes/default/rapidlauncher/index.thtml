@@ -1,0 +1,348 @@
+<?php
+/**
+ * RapidLauncher Addon for JReviews
+ * Copyright (C) 2010-2016 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die;
+?>
+<style>
+.jrRoundedPanel {
+    border-radius: 0;
+}
+#rapidlauncherStepsUpload,
+#rapidlauncherStepsDownload {
+    list-style: none;
+}
+#rapidlauncherStepsUpload li,
+#rapidlauncherStepsDownload li {
+  margin-bottom: 5px;
+}
+#jrQuickStartLoading {
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+}
+section {
+    margin-top: 20px;
+}
+hr {
+    border: 1px solid #9E9E9E;
+}
+</style>
+
+<div>
+
+    <div class="jrPageHeading"><?php __a("HEADING_RAPIDLAUNCHER_ADDON");?></div>
+
+    <p class="jrInfo">The purpose of the Add-on is to allow you quickly generate a sample setup on your site so you can use it to see how things work or build upon it. It is not meant to be used as a backup tool because not every setting can be imported/exported.</p>
+
+    <h2>Import</h2>
+
+    <div class="jrRoundedPanel">
+
+        <div class="jrGrid">
+
+            <div class="jrCol6">
+
+                <section>
+
+                    <h3>One-click</h3>
+
+                    <?php if(_CMS_NAME == 'joomla'):?>
+
+                        <p>When using the one-click method to import a directory you will find two new menus in the Joomla Manager: "Required Joomla Menus" and "JReviews Menus". You can create menu aliases from your site's visible menus to links in these new menus or move them to a new location.</p>
+
+                    <?php endif;?>
+
+                    <?php if(_CMS_NAME == 'wordpress'):?>
+
+                        <p>After installing a directory you will find new pages in WordPress that have been setup as JReviews menus. These include the chosen directory's menu, an Advanced Search menu and a few more. </p>
+
+                    <?php endif;?>
+
+                    <?php if($packages):?>
+
+                        <?php
+                        $packageList = [];
+                        foreach ($packages AS $package): extract($package);
+                            $packageList[] = ['value' => $file, 'text' => $name];
+                        endforeach;
+                        ?>
+
+                        <div style="margin: 20px 0;">
+
+                            <?php
+                                echo $Form->select(
+                                    'package',
+                                    array_merge(array(array('value'=>'','text'=>__a("Select directory",true))),$packageList),
+                                    null,
+                                    array('id' => 'jr-rapidlauncher-packages', 'class' => 'jr-select-widget')
+                                );
+                            ?>
+
+                            <button class="jrButton jrBlue jr-rapidlauncher-oneclick">Install</button>
+
+                        </div>
+
+                    <?php else:?>
+
+                        <p class="jrError">It was not possible to retrieve the list of directories available for RapidLauncher. This could happen if there's a connection error with the jreviews.com site.</p>
+
+                    <?php endif;?>
+
+                </section>
+
+                <hr>
+
+                <section class="jrGrid">
+
+                    <h3>Upload</h3>
+
+                    <div id="jr-rapidlauncher-upload"></div>
+
+                </section>
+
+            </div>
+
+            <div class="jrCol1">&nbsp;</div>
+
+            <div class="jrCol5">
+
+                <section>
+
+                    <ul id="rapidlauncherStepsDownload" class="jrHidden">
+                        <li data-action="downloadPackage">Downloading rapidlauncher package</li>
+                        <li data-action="createFieldGroups">Creating field groups</li>
+                        <li data-action="createFields">Creating fields</li>
+                        <li data-action="createListingTypes">Creating listing types</li>
+                        <li data-action="createDirectories">Creating directories</li>
+                        <li data-action="createCategories">Creating categories</li>
+                        <li data-action="createListings">Creating listings</li>
+                        <li data-action="createMenus" data-last="1">Creating menus</li>
+                    </ul>
+
+                    <ul id="rapidlauncherStepsUpload" class="jrHidden">
+                        <li data-action="createFieldGroups">Creating field groups</li>
+                        <li data-action="createFields">Creating fields</li>
+                        <li data-action="createListingTypes">Creating listing types</li>
+                        <li data-action="createDirectories">Creating directories</li>
+                        <li data-action="createCategories" data-last="1">Creating categories</li>
+                    </ul>
+
+                    <div class="jr-rapidlauncher-end jrSuccess jrHidden">The selected Rapidlauncher package was successfully installed.</div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h2>Export</h2>
+
+    <div class="jrRoundedPanel">
+
+        <p>Only the directory, field groups, fields (not field options) and listing types will be exported. Not all settings will be included. To export and import listings with field options please use the Import Add-on.</p>
+
+        <div style="margin: 20px 0;">
+
+            <?php
+                echo $Form->select(
+                    'directory',
+                    array_merge(array(array('value'=>'','text'=>__a("Select directory",true))),$directories),
+                    null,
+                    array('id' => 'jr-rapidlauncher-dir', 'class' => 'jr-select-widget')
+                );
+            ?>
+
+            <button class="jrButton jrBlue jr-rapidlauncher-export">Export</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<img id="jrQuickStartLoading" src="<?php echo ThemingComponent::getImageUrl('loading.gif', true);?>">
+
+<?php echo $this->renderControllerView('rapidlauncher', 'upload');?>
+
+<script>
+(function($) {
+    var jrPage = $('.jr-page'),
+        loadingIcon = jrPage.find('#jrQuickStartLoading').removeClass('jrHidden').detach(),
+        rapidlauncherActions = [];
+
+    upload();
+
+    jrPage.find('.jr-rapidlauncher-oneclick').on('click', function(e) {
+        e.preventDefault();
+        var package = $('#jr-rapidlauncher-packages').val();
+        if(package == '') {
+            $.jrAlert('Please select an option from the list');
+            return;
+        }
+        $(this).attr('disabled', true);
+        jrPage.find('#rapidlauncherStepsDownload').removeClass('jrHidden');
+        jrPage.find('.jr-rapidlauncher-end').addClass('jrHidden');
+
+        rapidlauncherActions = getRapidlauncherActions('rapidlauncherStepsDownload');
+
+        rapidlauncher(package);
+    });
+
+    jrPage.find('.jr-rapidlauncher-export').on('click', function(e) {
+        e.preventDefault();
+        var el = $(this).attr('disabled', true);
+        var dir = jrPage.find('#jr-rapidlauncher-dir').val();
+        var title = jrPage.find('#jr-rapidlauncher-dir :selected').text();
+        if (dir == '') {
+            $.jrAlert('Please select an option from the list');
+            return;
+        }
+
+        var exporting = jreviews.dispatch({method: 'post', type: 'json', controller: 'admin/admin_rapidlauncher_export', action: 'export', data: {'data[dir]': dir, 'data[title]': title}});
+        exporting.done(function(res) {
+            if(res.success) {
+                download(res.url);
+                el.attr('disabled', false);
+            }
+        });
+    });
+
+    function getRapidlauncherActions(id) {
+        var rapidlauncherActions = [];
+
+        var steps = jrPage.find('#'+id+' li').each(function(index, el) {
+            rapidlauncherActions.push( $(el) );
+        });
+
+        return rapidlauncherActions;
+    }
+
+    function download(url) {
+        $('body').find('#jr-rapidlauncher-export').remove();
+        $('<iframe id="jr-rapidlauncher-export">').css('visibility','hidden').attr('src', url).appendTo('body');
+    }
+
+    function upload() {
+
+        var options = {
+            element: document.getElementById('jr-rapidlauncher-upload'),
+            action: s2AjaxUri,
+            template: $.trim($('#jr-uploader-template').html()),
+            fileTemplate: $.trim($('#jr-progress-template').html()),
+            disableCancelForFormUploads: true,
+            allowedExtensions: ['zip'],
+            classes: {
+                multiple: false,
+                button: 'jr-upload-button',
+                drop: 'jr-upload-drop-area',
+                dropActive: 'jr-upload-drop-area-active',
+                list: 'jr-file-list',
+                file: 'jr-upload-file',
+                spinner: 'jr-upload-spinner',
+                size: 'jr-upload-size',
+                cancel: 'jr-upload-cancel',
+                progress: 'jr-upload-progress',
+                success: 'jr-upload-success',
+                fail: 'jr-upload-fail',
+            },
+            onSubmit: function(id, fileName) {
+
+                $('.jr-file-list').html('');
+
+                $('.jr-upload-button input').trigger('beginUpload');
+
+                this.params = {'data[controller]': 'admin/admin_rapidlauncher_import', 'data[action]': 'upload'};
+            },
+            onComplete: function(id, filename, res) {
+
+                if(res.success) {
+                    $('.jr-upload-success').hide();
+                    jrPage.find('#rapidlauncherStepsUpload').removeClass('jrHidden');
+                    jrPage.find('.jr-rapidlauncher-end').addClass('jrHidden');
+                    rapidlauncherActions = getRapidlauncherActions('rapidlauncherStepsUpload');
+                    rapidlauncher(res.package);
+                }
+                else {
+
+                    $('.jr-file-list').html('');
+
+                    $.jrAlert('UPLOAD ERROR');
+                }
+            }
+        };
+
+        // Override the built-in methods
+        qq.extend(qq.FileUploader.prototype, {
+
+            _onProgress: function(id, fileName, loaded, total) {
+                // Use $ UI progress indicator plugin
+                qq.FileUploaderBasic.prototype._onProgress.apply(this, arguments);
+
+                var item = this._getItemByFileId(id);
+                var size = this._find(item, 'size');
+                size.style.display = 'inline';
+
+                var progress = this._find(item, 'progress');
+
+                var text;
+
+                if (loaded != total) {
+                    // Update the progress bar with the current progress value
+                    var current = Math.round(loaded / total * 100);
+                    $(progress).progressbar({ value: current });
+                    text = current + '% of ' + this._formatSize(total);
+                }
+                else {
+                    // Set the progress bar to completely full
+                    $(progress).progressbar({ value: 100 });
+                    text = this._formatSize(total);
+                }
+
+                qq.setText(size, text);
+            }
+        });
+
+        // Give it some time to load the tab and keep checking until the upload element is completely loaded
+
+        var uploader = new qq.FileUploader(options);
+    }
+
+    function rapidlauncher(package) {
+
+        var el = rapidlauncherActions.shift(),
+            action = el.data('action');
+
+        el.find('span').remove();
+        el.prepend(loadingIcon);
+
+        var running = jreviews.dispatch({method: 'get', type: 'json', controller: 'admin/admin_rapidlauncher_import', action: action, data: {package: package}});
+
+        running.done(function(res) {
+            rapidlauncherUpdate(el, package, res.success)
+        });
+
+    }
+
+    function rapidlauncherUpdate(el, package, success) {
+        if(success === true && el.data('last') == undefined) {
+            loadingIcon.detach();
+            el.prepend($('<span class="jrIconYes"></span>&nbsp;'));
+            rapidlauncher(package);
+        }
+        else if(success == true) {
+            loadingIcon.detach();
+            el.prepend($('<span class="jrIconYes"></span>&nbsp;'));
+            jrPage.find('.jr-rapidlauncher-end').removeClass('jrHidden');
+            jrPage.find('.jr-rapidlauncher-oneclick').attr('disabled', false);
+        }
+    }
+})(jQuery)
+</script>

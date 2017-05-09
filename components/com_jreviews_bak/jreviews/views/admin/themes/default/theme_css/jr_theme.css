@@ -1,0 +1,414 @@
+input,  select  {
+    font-size:13px!important;}
+
+/* float clearing for IE6 */
+* html .clearfix{
+  height: 1%;
+  overflow: visible;
+}
+
+/* float clearing for IE7 */
+*+html .clearfix{
+  min-height: 1%;
+}
+
+/* float clearing for everyone else */
+.clearfix:after{
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  font-size: 0;
+}
+
+/*******************************
+* Icons
+********************************/
+.jrIcon {
+	display: inline-block;
+	overflow: hidden;
+	text-indent: -9999px;
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+	vertical-align: middle;
+	background-image: url(images/icons.png);
+	background-repeat: no-repeat;
+	*display: none; /* ie7 */	
+}
+
+.jrIconEditorReview {
+	background-position: 0 -64px;
+}
+
+.jrIconUserReviews {
+	background-position: -16px -64px;
+}
+
+#icon-legend {margin-bottom:10px;}
+#icon-legend span {float:left;}
+.jr-validation {color:red; text-indent: 10px;}
+.jr-icon {
+    height:16px;
+    width:16px;    
+    margin: 0 auto;
+    display:block;
+}
+.jr-icon-tick {
+    background-image:url(images/tick.png);
+}
+.jr-icon-cross {
+    background-image:url(images/cross.png);
+}
+.jr-icon-lock{
+    background-image:url(images/lock.png);
+}
+.jr-icon-wrench{
+    background-image:url(images/wrench.png);
+}
+.jr-icon-clock-play{
+    background-image:url(images/clock_play.png);
+}
+.jr-icon-clock-pause{
+    background-image:url(images/clock_pause.png);
+}
+.jr-icon-clock-stop{
+    background-image:url(images/clock_stop.png);
+}
+.jr-icon-clock-red{
+    background-image:url(images/clock_red.png);
+}
+
+
+
+/*************************************
+TOOLTIP ICON
+*************************************/
+.jr_infoTip {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-image: url(images/icons.png);
+	background-repeat: no-repeat;
+	background-position: -32px -16px;
+    margin: 0 5px; 
+}
+
+
+/*************************************
+Tooltip Container
+*************************************/
+.jr_tooltipBox {
+	display: none;
+	position: relative;
+	z-index: 2500;	
+	width: 200px;	
+	padding: 10px 15px;	
+	color: #fff;
+	text-align: left;
+	font-size: 12px;
+	font-weight: normal;
+	white-space: normal;
+	background: #222;
+	background-image: -moz-linear-gradient(top, #656565, #222);
+	background-image: -o-linear-gradient(top, #656565, #222);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #656565), color-stop(1, #222));
+	background-image: -webkit-linear-gradient(#656565, #222);
+	background-image: linear-gradient(top, #656565, #222);		
+	border: 1px solid #fff;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-moz-box-shadow: 0 0 10px #000;
+	-webkit-box-shadow :0 0 10px #000;
+	box-shadow: 0 0 10px #000;
+}
+
+.jr_tooltipBoxLight {
+	display: none;
+	position: relative;
+	z-index: 2500;	
+	width: 200px;
+	padding: 10px 15px;	
+	color: #333;
+	text-align: left;
+	font-size: 12px;
+	font-weight: normal;
+	white-space: normal;
+	background: #f7f7f7;
+	background-image: -moz-linear-gradient(top, #fff, #ddd);
+	background-image: -o-linear-gradient(top, #fff, #ddd);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #fff), color-stop(1, #ddd));
+	background-image: -webkit-linear-gradient(#fff, #ddd);
+	background-image: linear-gradient(top, #fff, #ddd);	
+	border: 1px solid #fff;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-moz-box-shadow: 0 0 10px #000;
+	-webkit-box-shadow :0 0 10px #000;
+	box-shadow: 0 0 10px #000;
+}
+
+.jr_tooltipBox h3, .jr_tooltipBoxLight h3 {
+	margin: 0;
+	font-size: 1.25em;
+	white-space: normal;
+}
+
+
+/*******************************
+* UI Overrides
+********************************/
+.ui-button { 
+    outline: 0; 
+    padding: .4em 1em .5em; 
+    text-decoration:none!important; 
+    cursor:pointer;     
+    text-align: center; }
+.ui-button-small { 
+    outline: 0; 
+    margin:0 -1px 0 0; 
+    padding: 0; 
+    text-decoration:none!important; 
+    cursor:pointer;  
+    text-align: center; 
+}
+.ui-widget {font-size:1em!important;}
+.ui-widget-header {
+    padding: 0.5em;    
+}
+
+.ui-widget p {margin: 10px 0;}
+
+.ui-autocomplete-loading {
+    background: white url('images/loading_s.gif') right center no-repeat !important; 
+}
+
+.jr_pointer {cursor:pointer;}
+
+table#jr_adminPage {}
+
+table#jr_adminPage a { font-size: 1em;}
+
+div.jr_pgContainer div.clear    { 
+    clear:both;
+    font-size: 1px; 
+    line-height:1px !important; 
+    }      
+div.jr_pgContainer a {font-size: 11px!important;}
+
+table.jr_moderation .button {
+    padding:2px;
+    font-size:12px;}
+    
+table.jr_moderation th, 
+table.jr_moderation td {
+    text-align:left;}    
+    
+table.jr_moderation th.jr_column1 {
+    width: 65%;}
+table.jr_moderation th.jr_column2 {
+    width: 35%;
+}
+
+div.jr_textArea {
+    border: 1px solid silver;
+    padding: 4px;
+    margin: 0px;
+    height: 70px;
+    background-color: #F5F5F5;
+    overflow:auto;
+    color: #2F2F2F;}
+
+div.jr_textAreaAutoHeight {
+    border: 1px solid silver;
+    padding: 4px;
+    margin: 0px;
+    background-color: #F5F5F5;
+    overflow:auto;
+    color: #2F2F2F;}
+ 
+span.jr_title {
+    margin-left:5px;
+    font-weight:bold;
+    font-size: 1.2em;
+}    
+    
+/*************************************
+RATING STARS
+*************************************/
+/****** rating STARS  ******/
+.rating_star_user, 
+.rating_star_editor , 
+.rating_star_user div, 
+.rating_star_editor div { 
+	background: url(images/rating_stars.png) 0 0 repeat-x; 
+	height: 16px; 
+	font-size: 1px; 
+}
+
+.rating_star_user, 
+.rating_star_editor {
+	width: 80px; 
+	margin-top: 3px; 
+    text-align: left;
+	cursor: help;
+}
+
+.rating_star_user div {
+	background-position: 0 -16px; 
+}
+	
+.rating_star_editor div { 
+	background-position: 0 -32px;  
+}
+
+/*************************************
+RATING STARS CONTAINER
+*************************************/
+div.overall_ratings {
+	float: left;
+}
+
+div.overall_ratings div.overall_editor,
+div.overall_ratings div.overall_user{
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+	
+div.overall_ratings span.rating_label {
+	display: inline;
+	float: left;
+	width: 16px;
+	margin: 2px 5px 0 0;
+	text-indent: -9999px;
+}	
+	
+div.overall_ratings div.rating_stars {
+	display: inline;
+	float: left;
+}
+
+div.overall_ratings span.rating_value {
+	display: inline;
+	float: left;
+	margin-top: 2px;
+	font-weight: normal; 
+	white-space: nowrap; 
+	text-align: left; 
+	padding: 2px; 
+}
+
+
+
+
+
+/*************************************
+CUSTOM FIELDS PRESENTATION
+It is recommended that you attempt to align these styles with other form/field displays in your site
+*************************************/
+div.jr_customFields {margin-top:5px;} /*container for all custom field groups that appear with use of the {CUSTOMFIELDS} tag */
+
+div.fieldGroup { /* container div for individual field group */
+    padding-bottom: 0.5em; 
+    }
+    
+.fieldGroupTitle, h3.fieldGroupTitle {
+    display:none;
+    text-transform: uppercase; 
+    font-size: 9.5px; 
+    padding: 0 0 3px 0; 
+    margin-top: 0 !important;
+    margin-bottom: .3em; 
+    }
+    
+/****** table that contains custom fields values and labels ******/
+div.fieldGroup table.fieldGroupTable    {}
+
+div.fieldGroup table.fieldGroupTable td    {
+    padding: 0px .5em 2px 0; 
+    vertical-align: top; 
+    }
+
+table.fieldGroupTable td.fieldLabel { /*set width so that columns align even in different field groups */
+    padding-right: .5em; 
+    width: 9em; 
+    font-size: 10px; 
+    font-weight: bold; 
+    text-align:left;
+    white-space:nowrap;        
+    }
+    
+div.fieldGroup table.fieldGroupTable td.fieldValue {
+    font-size: 9.5px;}
+
+
+/*************************************
+ROUNDED CORNER BOX (OPTIONAL - USED FOR DEFAULT TEMPLATE ONLY)
+Tip: For visual consistency, you can use this in other areas of your site. These classes are purely for visual styling, and do not affect JReviews functionality.
+*************************************/
+.roundedPanel {} 
+
+.roundedPanel .box_upperOuter    {
+    background: url(images/box_upperOuter.gif) top right no-repeat; 
+    }
+    
+.roundedPanel .box_upperInner    {
+    background: url(images/box_upperInner.gif) top left no-repeat; 
+    padding: 5px 10px; 
+    }
+    
+.roundedPanel .box_lowerOuter    {
+    background: url(images/box_lowerOuter.gif) bottom right no-repeat; 
+    }
+
+.roundedPanel .box_lowerInner    {
+    background: url(images/box_lowerInner.gif) bottom left no-repeat; 
+    height: 6px; 
+    line-height: 10px; 
+    font-size: 1px; 
+    overflow:hidden}
+
+.roundedPanel h2 {
+    margin-bottom: 10px;
+    font-weight: bold !important; 
+    }
+
+.roundedPanel h2 a {
+    font-weight: bold !important; 
+    }
+
+/*************************************
+ROUNDED CORNER BOX, LIGHT GRAY (OPTIONAL - USED FOR DEFAULT TEMPLATE ONLY)
+Tip: For visual consistency, you can use this in other areas of your site. These classes are purely for visual styling, and do not affect JReviews functionality.
+*************************************/
+.roundedPanelLt    {
+    margin: 0 0 10px 0; 
+    } 
+    
+.roundedPanelLt .box_upperOuter    {
+    background: url(images/boxLt_upperOuter.gif) top right no-repeat; 
+    }
+
+.roundedPanelLt .box_upperInner    {
+    background: url(images/boxLt_upperInner.gif) top left no-repeat; 
+    padding: 5px 10px; 
+    }
+
+.roundedPanelLt .box_lowerOuter    {
+    background: url(images/boxLt_lowerOuter.gif) bottom right no-repeat; 
+    }
+
+.roundedPanelLt .box_lowerInner    {
+    background: url(images/boxLt_lowerInner.gif) bottom left no-repeat; 
+    height: 6px; 
+    line-height: 10px; 
+    font-size: 1px; 
+    overflow:hidden}
+
+.roundedPanelLt    h2 {
+    margin-bottom: 10px; 
+    }

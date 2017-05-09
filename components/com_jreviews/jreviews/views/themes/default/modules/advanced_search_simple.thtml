@@ -1,0 +1,121 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**********************************************************************************
+ * 								CONFIGURATION & SETUP
+ * Read instructions towards the bottom of the file to limit results to certain
+ * categories when the select list is not shown in the form
+ **********************************************************************************/
+$module_id = Sanitize::getString($this->params,'module_id','',true);
+
+$dir_id = Sanitize::getString($this->params['module'],'dir_id','',true);
+
+$criteria_id = Sanitize::getString($this->params['module'],'criteria_id','',true);
+
+$tmpl_suffix = Sanitize::getString($this->params['module'],'results_suffix','',true);
+
+$query_type = 'all'; // all|exact|any
+
+$search_review_comments = false;
+
+$live_search = Sanitize::getInt($this->params['module'],'live_search',0);
+
+$live_search_auto_hide = Sanitize::getInt($this->params['module'],'live_search_auto_hide',1);
+
+/**********************************************************************************
+* 						EDIT HTML BELOW THIS LINE
+**********************************************************************************/?>
+
+<div class="jr-page jrPage jrAdvSearchModule jrForm">
+
+	<form class="jr-form-adv-search-module" action="<?php echo cmsFramework::getCurrentUrl();?>" method="post" data-live-search="<?php echo $live_search;?>" data-live-search-hide="<?php echo $live_search_auto_hide;?>" data-module-id="<?php echo $module_id;?>">
+
+		<moduletheme>
+
+		<div class="jrFieldDiv jrLeft">
+
+			<input type="text" class="jrKeywords" name="data[keywords]" placeholder="<?php __t('Keywords');?>" value="<?php echo Sanitize::getString($this->params,'keywords','',true);?>" />
+
+		</div>
+
+		<div class="jrFieldDiv jrLeft">
+
+			<button class="jr-search jrButton" style="margin:0;">
+
+				<span class="jrIconSearch"></span><span><?php __t("Search");?></span>
+
+			</button>
+
+		</div>
+
+		</moduletheme>
+
+		<div class="jrClear"></div>
+
+		<?php
+		/**********************************************************************************
+		 * 						EDIT HTML ABOVE THIS LINE
+		 **********************************************************************************/?>
+
+		<input name="data[contentoptions][]" type="hidden" value="title" />
+
+		<input name="data[contentoptions][]" type="hidden" value="introtext" />
+
+		<input name="data[contentoptions][]" type="hidden" value="fulltext" />
+
+		<?php if($search_review_comments):?>
+
+			<input name="data[contentoptions][]" type="hidden" value="reviews" />
+
+		<?php endif;?>
+
+		<input name="data[search_query_type]" type="hidden" value="<?php echo $query_type;?>" />
+
+		<?php if(isset($this->params['lang'])):?>
+
+			<input type="hidden" name="lang" value="<?php echo $this->params['lang'];?>" />
+
+		<?php endif;?>
+
+		<input type="hidden" name="data[controller]" value="search" />
+
+		<input type="hidden" name="data[action]" value="_process" />
+
+		<input type="hidden" name="data[menu_id]" value="<?php echo $search_itemid;?>" />
+
+		<input type="hidden" name="data[dir]" value="<?php echo $dir_id;?>" />
+
+		<input type="hidden" name="data[Search][criteria_id]" value="<?php echo $criteria_id;?>" />
+
+		<input type="hidden" name="data[form_id]" value="JreviewsAdvSearch_<?php echo $module_id;?>" />
+
+		<input type="hidden" name="data[module_id]" value="<?php echo $module_id;?>" />
+
+		<?php if($tmpl_suffix != ''):?>
+
+			<input type="hidden" name="data[tmpl_suffix]" value="<?php echo $tmpl_suffix;?>" />
+
+		<?php endif;?>
+
+		<?php
+		/*****************************************************************************************************
+		* Example html code for limiting results to certain categories only if you decide to remove
+		* the {categories} tag for the select list.
+		*****************************************************************************************************/
+		//<input type="hidden" name="data[categories][]" value="29" />
+		//<input type="hidden" name="data[categories][]" value="34" />
+		?>
+
+		<?php /* Change the default search result ordering */
+		// <input type="hidden" name="data[order]" value="rdate" />
+		?>
+	</form>
+
+</div>

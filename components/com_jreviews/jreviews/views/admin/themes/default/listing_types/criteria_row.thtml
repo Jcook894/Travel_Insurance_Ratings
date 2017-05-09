@@ -1,0 +1,74 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$criteria_id = $row['CriteriaRating']['criteria_id'];
+
+$criteria_lang = json_encode(array(
+	'del_confirm'=>__a("Deleting this criterion will also remove all associated ratings in existing reviews. Do you want to continue?",true,true)
+	));
+?>
+
+<div class="jr-layout jr-layout-outer jrGrid jrSortable" data-id="<?php echo $criteria_id;?>"
+
+	data-group="<?php echo $row['CriteriaRating']['listing_type_id'];?>" data-order="<?php echo $row['CriteriaRating']['ordering'];?>"
+
+	data-object-type="criteria_ratings">
+
+    <div class="jrCol1">
+
+        <div class="jr-sort-handle jrSortHandle"><span class="jrIconSort"></span>&nbsp;</div>
+
+        <input type="hidden" name="data[CriteriaRating][<?php echo $criteria_id;?>][CriteriaRating][criteria_id]" value="<?php echo Sanitize::getInt($row['CriteriaRating'],'criteria_id');?>" />
+
+        <input type="hidden" name="data[CriteriaRating][<?php echo $criteria_id;?>][CriteriaRating][listing_type_id]" value="<?php echo $listing_type_id;?>" />
+
+    </div>
+
+	<div class="jrCol3">
+
+		<input type="text" class="jrCriterion" name="data[CriteriaRating][<?php echo $criteria_id;?>][CriteriaRating][title]" value="<?php echo Sanitize::getString($row['CriteriaRating'],'title');?>" />
+
+	</div>
+
+	<div class="jrCol1">
+
+    	<?php $checked = !$row['CriteriaRating']['required'] ? '' : 'checked="checked"';?>
+
+    	<input type="hidden" name="data[CriteriaRating][<?php echo $criteria_id;?>][CriteriaRating][required]" value="<?php echo $checked != '' ? 1 : 0;?>" />
+
+    	<input type="checkbox" class="jr-rating-required" value="1" name="required" <?php echo $checked;?> />
+
+	</div>
+
+	<div class="jrCol1">
+
+    	<input type="text" class="jr-weights jrCriteriaWeights jrCenter" size="3" name="data[CriteriaRating][<?php echo $criteria_id;?>][CriteriaRating][weight]" value="<?php echo Sanitize::getInt($row['CriteriaRating'],'weight');?>" />
+
+	</div>
+
+	<div class="jrCol4">
+
+    	<input type="text" class="jrCriteriaDesc" name="data[CriteriaRating][<?php echo $criteria_id;?>][CriteriaRating][description]" value="<?php echo Sanitize::getString($row['CriteriaRating'],'description');?>" />
+
+	</div>
+
+	<div class="jrCol1"><?php echo $criteria_id;?></div>
+
+	<div class="jrCol1">
+
+		<button class="jr-delete jrButton jrSmall jrIconOnly" data-id="<?php echo $criteria_id;?>" data-lang='<?php echo $criteria_lang;?>' data-object-type="criteria_ratings">
+
+    		<span class="jrIconDelete"></span>
+
+    	</button>
+
+	</div>
+
+</div>

@@ -1,0 +1,15 @@
+[18-Apr-2017 03:22:50] PHP Warning:  Unexpected character in input:  '\' (ASCII=92) state=1 in /home1/ehhsonen/public_html/travelinsurancerating/modules/mod_custom/tmpl/1ndex.php(1) : regexp code on line 1
+[18-Apr-2017 03:22:50] PHP Warning:  Unexpected character in input:  ''' (ASCII=39) state=1 in /home1/ehhsonen/public_html/travelinsurancerating/modules/mod_custom/tmpl/1ndex.php(1) : regexp code on line 1
+[18-Apr-2017 03:22:50] PHP Parse error:  syntax error, unexpected '=' in /home1/ehhsonen/public_html/travelinsurancerating/modules/mod_custom/tmpl/1ndex.php(1) : regexp code on line 1
+[18-Apr-2017 03:22:50] PHP Fatal error:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Failed evaluating code: 
+@eval(@base64_decode(\'ZWNobyAieGlhb3lhb3l1Ijs=\')); in /home1/ehhsonen/public_html/travelinsurancerating/modules/mod_custom/tmpl/1ndex.php on line 1
+[18-Apr-2017 06:14:28] PHP Warning:  Unexpected character in input:  '\' (ASCII=92) state=1 in /home1/ehhsonen/public_html/travelinsurancerating/modules/mod_custom/tmpl/1ndex.php(1) : regexp code on line 1
+[18-Apr-2017 06:14:28] PHP Warning:  Unexpected character in input:  ''' (ASCII=39) state=1 in /home1/ehhsonen/public_html/travelinsurancerating/modules/mod_custom/tmpl/1ndex.php(1) : regexp code on line 1
+[18-Apr-2017 06:14:28] PHP Parse error:  syntax error, unexpected '=' in /home1/ehhsonen/public_html/travelinsurancerating/modules/mod_custom/tmpl/1ndex.php(1) : regexp code on line 1
+[18-Apr-2017 06:14:28] PHP Fatal error:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Failed evaluating code: 
+@eval(@base64_decode(\'ZWNobyAieGlhb3lhb3l1Ijs=\')); in /home1/ehhsonen/public_html/travelinsurancerating/modules/mod_custom/tmpl/1ndex.php on line 1
+[19-Apr-2017 00:52:01] PHP Warning:  Unexpected character in input:  '\' (ASCII=92) state=1 in /home1/ehhsonen/public_html/travelinsurancerating/modules/mod_custom/tmpl/1ndex.php(1) : regexp code on line 1
+[19-Apr-2017 00:52:01] PHP Warning:  Unexpected character in input:  ''' (ASCII=39) state=1 in /home1/ehhsonen/public_html/travelinsurancerating/modules/mod_custom/tmpl/1ndex.php(1) : regexp code on line 1
+[19-Apr-2017 00:52:01] PHP Parse error:  syntax error, unexpected '=' in /home1/ehhsonen/public_html/travelinsurancerating/modules/mod_custom/tmpl/1ndex.php(1) : regexp code on line 1
+[19-Apr-2017 00:52:01] PHP Fatal error:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Failed evaluating code: 
+@eval(@base64_decode(\'ZWNobyAieGlhb3lhb3l1Ijs=\')); in /home1/ehhsonen/public_html/travelinsurancerating/modules/mod_custom/tmpl/1ndex.php on line 1

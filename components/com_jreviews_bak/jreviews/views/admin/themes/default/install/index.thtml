@@ -1,0 +1,34 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$message['plugin'] = "There was a problem installing the JReviews Content Plugin. Make sure the /plugins/content folder is writable and click on the Fix It! button in the component.";
+$message['images'] = "Could not create folder the image folders. Manually create <strong>"._JR_PATH_IMAGES."jreviews".DS."</strong> and <strong>"._JR_PATH_IMAGES."jreviews".DS."tn".DS."</strong>.";
+$message['db'] = "There was a problem updating the database for this version. Submit a ticket so we can further assist you.";
+?>
+
+<center>
+	<table width="100%" border="0" style="border:1px solid #CCC; padding:10px;font-size:120%;background-color:#EFEFEF;">
+	   <tr>
+			<td width="10%"><img src="<?php echo S2_VIEWS_URL;?>admin/themes/default/theme_images/jr_logo.gif" alt="jReviews" /></td>
+			<td width="90%" valign="top">
+				Copyright &copy; 2010-<?php echo date('Y');?> ClickFWD LLC. All rights reserved.<br />
+				This is commercial software, do not distribute it.
+            </td>
+	   </tr>
+		<tr><td colspan="3">Component: <font color="green">Succesful</font></td></tr>
+<!--		<tr><td colspan="3">Database:<?php echo @!$action['db_install'] ? "<font color=\"red\">{$message['db']}</font>" : "<font color=\"green\">Succesful</font>"; ?></td></tr>-->
+		<tr><td colspan="3">JReviews Comment Plugin: <?php echo @!$action['plugin_install'] ? "<font color=\"red\">{$message['plugin']}</font>" : "<font color=\"green\">Succesful</font>"; ?></td></tr>
+		<tr><td colspan="3">Image folders: <?php echo @!$action['thumbnail_dir'] ? "<font color=\"red\">{$message['images']}</font>" : "<font color=\"green\">Succesful</font>"; ?></td></tr>
+		<tr><td colspan="3"><div style="font-size: 120%; margin-top:15px; font-weight:bold;"><a href="<?php echo WWW_ROOT;?>administrator/index.php?option=<?php echo S2Paths::get('jreviews','S2_CMSCOMP');?>&amp;act=license">Click here to go to the component page.</a></div></td></tr>
+	</table>
+	
+	
+</center>

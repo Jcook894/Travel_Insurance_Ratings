@@ -1,0 +1,60 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2009 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+<form name="jr_everywhereCategoriesForm" id="jr_everywhereCategoriesForm" action="" type="post" class="adminForm">
+	
+	<table class="adminheading">
+		<tr>
+			<th class="categories">Add Categories</th>
+		</tr>
+		<tr>
+			<td>Once you assign a criteria set to a category you cannot change it and you cannot change the number of criteria in the set. First you have to remove all the reviews for items in that category.</td>
+		</tr>
+	</table>
+				
+	
+	<table cellpadding="4" cellspacing="0" border="0" width="100%" class="adminlist">
+		<tr>
+			<td valign="top">Select listing type (criteria)*</td>
+			<td>
+			<?php echo $Form->select(
+				'data[JreviewsCategory][criteriaid]',
+				array_merge(array(array('value'=>null,'text'=>__a("Select",true))),$criteria),
+				null
+			);?>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">Select one or multiple categories (hold CTRL key)<br/><br/></td>
+			<td>
+			<?php echo $Form->select(
+				'data[JreviewsCategory][cat_id]',
+				$categories,
+				null,
+				array(
+					'id'=>'categories',
+					'size'=>20,
+					'multiple'=>'multiple',
+					'style'=>'padding:3px 3px 3px 3px;'
+				)				
+			);								
+			?></td>
+		</tr>
+	</table>
+	<input type="hidden" name="data[JreviewsCategory][option]" value="<?php echo $extension;?>" />
+	<input type="hidden" name="data[Everywhere][extension]" value="<?php echo $extension;?>" />
+	<input type="hidden" name="data[limit]" value="<?php echo $this->limit;?>" />
+    <input type="hidden" name="data[controller]" value="admin/admin_everywhere" />
+    <input type="hidden" name="data[action]" value="_saveCategories" />
+    <input type="hidden" name="option" value="com_jreviews" />                        
+    <input type="hidden" name="format" value="raw" />     
+    
+</form>

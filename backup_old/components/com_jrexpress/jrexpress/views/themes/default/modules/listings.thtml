@@ -1,0 +1,121 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**********************************************************************************
+ * 								CONFIGURATION AND SETUP
+ **********************************************************************************/
+$columns = Sanitize::getInt($this->params['module'],'columns',1);
+$tn_width = Sanitize::getInt($this->params['module'],'tn_width',50);
+$tn_show = Sanitize::getInt($this->params['module'],'tn_show',1);
+$tn_mode = Sanitize::getString($this->params['module'],'tn_mode','scale');
+$width = (100/$columns - $columns*2); // In percentage
+$module_id = Sanitize::getVar($this->params,'module_id','');
+$ajax_nav = Sanitize::getInt($this->params['module'],'ajax_nav',1);
+?>
+
+
+<?php
+/**********************************************************************************
+ * 								JAVASCRIPT & CSS
+ **********************************************************************************/
+$inline = in_array(getCmsVersion(),array(CMS_JOOMLA10,CMS_MAMBO46));
+if($ajax_nav) {
+	$headScripts = array('js'=>array('jquery','module'));
+	$Html->js(arrayFilter($headScripts['js'], $Libraries->js()),$inline);
+	# Set noConflict mode for jQuery
+	if(in_array('jquery',$headScripts['js'])) {
+		cmsFramework::addScript(sprintf($Html->tags['javascriptcode'],'jQuery.noConflict();'),$inline);
+	}
+}
+$Html->css(array('theme','module_listings','paginator'),$inline);
+?>
+
+
+<?php
+/**********************************************************************************
+ * 								AJAX PAGINATION HELPER
+ **********************************************************************************/
+if($ajax_nav) {
+	$Paginator->paginate(array(
+		'current_page'=>$this->module_page,
+		'items_per_page'=>$this->module_limit,
+		'items_total'=>$total,
+		'module_id'=>$module_id
+	));
+    if(!$this->xajaxRequest && count($listings)<$this->module_limit) $ajax_nav = false;     
+}
+?>
+
+<?php 
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+?>
+
+<?php if(!$this->xajaxRequest):?>
+<div id="jr_modContainer<?php echo $module_id;?>" class="jr_modContainer jr_listings_mod">
+<?php endif;?>
+
+   <!--  LISTINGS MODULE BEGINS HERE -->
+   <?php if(empty($listings)):?>
+   <?php __t("No entries were found");?><br /><br />
+   <?php else:?>
+	   <?php $i=0;foreach($listings AS $listing):$i++;?>
+	   <div class="listItem" style="width:<?php echo $width;?>%;">
+	      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+	         <tr>
+	         	<?php $thumb = $Thumbnail->thumb($listing, 0, $tn_mode, 'module'.$module_id, array($tn_width),array('border'=>0,'alt'=>$listing['Listing']['title']));?>
+				<?php if($tn_show && $thumb):?>
+	            <td class="column1" valign="top" style="width:<?php echo $tn_width+10;?>px;">
+					<div class="contentThumbnail"> <?php echo $Html->sefLink($thumb,$listing['Listing']['url']);?>
+	            </td>
+				<?php endif;?>
+	            <td class="column2" valign="top">
+	            	<div class="contentTitle" style="white-space:normal;"><?php echo $Html->sefLink($listing['Listing']['title'],$listing['Listing']['url']);?> <span class="contentIndicators">
+	            	<?php if(Sanitize::getInt($listing['Listing'],'featured')):?>
+	                  <?php echo $Html->image($this->viewImages.'featured.png', array('title'=>__t("Featured",true),'alt'=>__t("Featured",true),'border'=>0));?>
+	                  <?php endif;?>
+	                  <?php if($this->Config->list_new && $Jreviews->newIndicator($this->Config->list_new_days,Sanitize::getVar($listing['Listing'],'created'))):?>
+	                  <?php echo $Html->image($this->viewImages.'new.png', array('title'=>__t("New",true),'alt'=>__t("New",true),'border'=>0));?>
+	                  <?php endif;?>
+	                  <?php if($this->Config->list_hot && $this->Config->list_hot_hits <= Sanitize::getInt($listing['Listing'],'hits')):?>
+	                  <?php echo $Html->image($this->viewImages.'hot.png', array('title'=>__t("Hot",true),'alt'=>__t("Hot",true),'border'=>0));?>
+	                  <?php endif;?>
+	                  </span> 
+                    </div>
+
+                    <!-- BEGIN RATINGS -->
+                    <table border="0" cellpadding="0" cellspacing="0" class="rating_table">
+                        <tr>
+                          <td align="left" class="rating_label"><?php echo $Html->image($this->viewImages.'review_user.png',array('title'=>__t("User rating",true),'alt'=>__t("User rating",true)));?></td>
+                          <td align="left" class="rating_stars" style="cursor:help;" title="<?php __t("User rating");?>"><?php echo $Rating->drawStars($listing['Review']['user_rating'], $this->Config->rating_scale, $this->Config->rating_graph, 'user');?></td>
+                          <td align="left" class="rating_value"><?php echo $Rating->round($listing['Review']['user_rating'],$this->Config->rating_scale);?> (<span style="cursor:help;" title="<?php __t("User reviews");?>"><?php echo (int) $listing['Review']['review_count'];?></span>)</td>
+                        </tr>
+                    </table>
+                    <!-- END RATINGS-->
+
+                </td>
+	         </tr>
+	      </table>
+	   </div>
+	   <?php if($i==$columns):?><div class="jr_divider"></div><?php $i=0;endif;?>	   
+	   <?php endforeach;?>
+	<?php endif;?>
+	<!--  LISTINGS MODULE ENDS HERE -->
+	<div class="clr"></div>	
+
+	<?php if($ajax_nav && $total > count($listings)):?>
+	<div class="jr_pagination"><?php echo $Paginator->display_pages_module();?></div>
+	<?php endif;?>
+		
+<?php if(!$this->xajaxRequest):?>	
+</div>
+<?php endif;?>

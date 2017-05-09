@@ -1,0 +1,102 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die;
+
+$toggleStates = array(0=>'jrIconNo',1=>'jrIconYes');
+
+$langDel = json_encode(array(
+    'del_confirm'=>__a("Are you sure you want to uninstall this add-on?",true,true),
+    'del_error'=>__a('There was a problem uninstalling the add-on.',true,true)
+    ));
+
+?>
+
+<div id="manage">
+
+	<form id="jr-page-form" class="jrForm" action="index.php" method="post" data-object-type="addons">
+
+		<div class="jrDataList">
+
+			<div class="jrGrid24 jrDataListHeader">
+
+				<div class="jrCol8" style="text-align:left;"><?php __a("Title");?></div>
+
+				<div class="jrCol4" style="text-align:left;"><?php __a("Name");?></div>
+
+				<div class="jrCol3" style="text-align:left;"><?php __a("Version");?></div>
+
+				<div class="jrCol3" style="text-align:left;"><?php __a("Created");?></div>
+
+				<div class="jrCol4" style="text-align:left;"><?php __a("Author");?></div>
+
+	            <div class="jrCol1"><?php /* PUBLIHSED */?>
+
+        			<span class="jrIconPublished jr-more-info"></span>
+        			<div class="jrPopup"><?php __a("Published");?></div>
+
+	            </div>
+
+	            <div class="jrCol1">&nbsp;</div>
+
+			</div>
+
+			<?php foreach($addons AS $addon): extract($addon['Addon']); ?>
+
+		    <div class="jr-layout-outer jrGrid24" data-id="<?php echo $name;?>">
+
+				<div class="jrCol8">
+
+					<input type="checkbox" class="jr-row-cb jrHidden" name="cid[]" value="<?php echo $id;?>" />
+
+					<?php echo $title;?>
+
+				</div>
+
+				<div class="jrCol4" style="text-align:left;"><?php echo $name;?></div>
+
+				<div class="jrCol3" style="text-align:left;"><?php echo $manifest['version'];?></div>
+
+				<div class="jrCol3" style="text-align:left;"><?php echo $manifest['created'];?>&nbsp;</div>
+
+				<div class="jrCol4" style="text-align:left;"><?php echo $manifest['author'];?>&nbsp;</div>
+
+	            <div class="jrCol1"><?php /* PUBLISHED */?>
+
+                    <button class="jr-toggle jrButton jrSmall jrIconOnly" data-id="<?php echo $id;?>"
+                    	data-state="<?php echo $state;?>" data-columns='{"key":"id","state":"state"}'
+                    	data-states='<?php echo json_encode($toggleStates);?>'
+                    	data-key="Addon.state" data-key-type='class'
+                    	data-clear-registry="1">
+
+                        <span class="<?php echo $toggleStates[$state];?>"></span>
+
+                    </button>
+
+	            </div>
+
+	            <div class="jrCol1"><?php /* DELETE */?>
+
+                    <button class="jr-delete jrButton jrSmall jrIconOnly" data-id="<?php echo $id;?>" data-lang='<?php echo $langDel;?>'>
+
+                            <span class="jrIconDelete"></span><span class="jrHidden"><?php __a("Delete");?></span>
+
+                    </button>
+
+	            </div>
+
+			</div>
+
+			<?php endforeach;?>
+
+		</div>
+
+	</form>
+
+</div>

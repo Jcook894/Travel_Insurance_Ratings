@@ -1,0 +1,65 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+//error_reporting(E_ALL);ini_set('display_errors','On');
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+$num_pages = ceil($total/$this->limit);
+?>
+<?php if(Configure::read('PaidListings.enabled')):?>
+<script type="text/javascript">
+if(null==jQuery('body').data('admin_paidlistings')){
+    jQuery.getScript('<?php echo $this->locateScript('admin_paidlistings',true);?>',function(){jQuery('body').data('admin_paidlistings',1)});
+}
+</script>
+<?php endif;?>
+
+<?php if($this->offset==0):?>
+
+    <div id="jr_editContainer" style="display:none;"></div>
+
+    <div id="jr_pgContainer" class="jr_pgContainer">
+
+        <?php if(!empty($predefined_replies)):?>
+            <?php foreach($predefined_replies AS $predefined_reply):extract($predefined_reply['PredefinedReply']);?>
+                <span id="jr_cannedResponse<?php echo $reply_id;?>" style="display:none;"><?php echo $reply_body;?></span>
+            <?php endforeach;?>
+        <?php endif;?>        
+                
+        <div class="admin_header">Moderation of Listings</div>
+        
+<?php endif;?>    
+    
+        <?php foreach($listings AS $listing):?>
+            <?php echo $this->renderControllerView('listings','moderation_listing',array('listing'=>$listing));?>
+        <?php endforeach;?>
+
+<?php if($this->offset==0):?>    
+
+        <?php if($total>0 && $total > $this->limit):?>
+        
+        <div id="jr_loadMore" style="border:1px solid #000;background-color:#FBFBFB;width:100%;padding:5px;line-height:30px;text-align:center;">                                 
+        
+            <a href="#load-more" style="font-weight:bold;font-size:14px;" onclick="jreviews_admin.listing.moderateLoadMore();return false;">Load more...</a>
+        
+            <span style="display: none;" id="jr_loadMoreSpinner">
+                <img src="<?php echo $this->viewImages;?>loading.gif" alt="loading" />
+            </span>    
+
+        </div>
+        
+        <form id="jr_pageScroll" name="jr_pageScroll" method="" action="">
+            <input type="hidden" id="jr_page" name="data[page]" value="1" />
+            <input type="hidden" id="jr_limit" name="data[limit]" value="<?php echo $this->limit;?>" />
+            <input type="hidden" id="jr_num_pages" name="data[num_pages]" value="<?php echo $num_pages;?>" />        
+        </form>   
+
+        <?php endif;?>
+        
+    </div>    
+     
+ <?php endif;?>

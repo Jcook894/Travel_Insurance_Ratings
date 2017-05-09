@@ -1,0 +1,141 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php    
+# Initialize paginator helper
+$Paginator->paginate(
+    array(
+        'current_page'=>$this->page,
+        'items_per_page'=>$this->limit,
+        'items_total'=>$pagination['total']
+    )
+);
+?>
+    
+<div id="fieldlist">
+
+    <div class="admin_header">SEO Manager for Click2Search Custom Fields</div>
+
+    <div id="status">&nbsp;</div>
+
+    <form id="adminForm2" name="adminForm2">
+    
+    <table class="admin_list">
+        <tr>
+            <th colspan="3" style="text-align:left;">SEO Manager Settings</th>
+        </tr>
+        <tr>
+            <td>Show page title at the top of the list:&nbsp;
+                <?php echo $Form->radioYesNo( "seo_title", "", $this->Config->seo_title);?>
+            </td>
+            
+            <td>Show meta description at the top of the list:&nbsp;
+                <?php echo $Form->radioYesNo( "seo_description", "", $this->Config->seo_description);?>
+            </td>
+            
+            <td><button class="ui-button ui-corner-all" onclick="jreviews_admin.dispatch({controller:'configuration',action:'_save',form_id:'adminForm2',onComplete:function(){jreviews_admin.tools.statusUpdate('The new settings have been saved.');}});return false;">Save</button></td>
+        </tr>
+    </table>
+    </form>
+    
+    <br />
+    <form id="adminForm" name="adminForm">
+        
+            <div class="admin_filter">
+                <strong>Group:</strong>&nbsp;
+                <?php
+                    echo $Form->select(
+                        'data[groupid]',
+                        array_merge(array(array('value'=>0,'text'=>'All')),$groups),
+                        $group_id,
+                        array(
+                            'onchange'=>"jQuery.post(s2AjaxUri,jQuery('#adminForm').serialize(),function(s2Out){jQuery('#page').html(s2Out);},'html');"
+                        )
+                    );                    
+                ?>
+                
+                <strong>Field Type:</strong>
+                <?php        
+                    $fieldTypes = array(
+                        'checkboxes'=>'Checkboxes',
+                        'code'=>'Code',
+                        'date'=>'Date',
+                        'decimal'=>'Decimal',
+                        'integer'=>'Integer',
+                        'radiobuttons'=>'Radiobuttons',
+                        'select'=>'Select',
+                        'selectmultiple'=>'Select Multiple',
+                        'text'=>'Text',
+                        'textarea'=>'Textarea',
+                    );
+
+                    echo $Form->select(
+                        'data[Field][type]',
+                        array_merge(array(array('value'=>0,'text'=>'All')),$fieldTypes),
+                        $type,
+                        array(
+                            'onchange'=>"jQuery.post(s2AjaxUri,jQuery('#adminForm').serialize(),function(s2Out){jQuery('#page').html(s2Out);},'html');"
+                        )                
+                    );
+                ?>                
+            </div>
+            
+            <div style="text-align:left;">You can use the {FIELDVALUE} tag in the title, keywords and description fields if you want the value of the field to be shown in the text in the front end.</div>
+
+            <br />        
+            <table class="admin_list" width="100%">
+                <tr>
+                    <th width="5">#</th>
+                    <th width="100">Field Title</th>
+                    <th width="100">Meta Title</th>
+                    <th width="300">Meta Keywords</th>
+                    <th width="300">Meta Description</th>
+                </tr>
+                <?php 
+                $i = $this->page*$this->limit - ($this->limit - 1); 
+                foreach($rows AS $key=>$row):
+                ?>
+                <tr id="fields<?php echo $row->fieldid?>" >
+                    <td><?php echo $i++;?></td>
+                    <td align="left"><?php echo $row->title?></td>
+                    <td id="tdmetatitle<?php echo $row->fieldid?>" style="white-space: nowrap;">
+                        <a href="#" onclick="return false;" class="eip" data-type="text" data-fieldid="<?php echo $row->fieldid?>" data-column="metatitle"><?php echo !empty($row->metatitle) ? $row->metatitle : '[edit]';?></a>
+                    </td>
+                    <td id="tdmetakey<?php echo $row->fieldid?>" style="white-space: nowrap;">
+                        <a href="#" onclick="return false;" class="eip" data-type="textarea" data-fieldid="<?php echo $row->fieldid?>" data-column="metakey"><?php echo !empty($row->metakey) ? $row->metakey : '[edit]';?></a>                          
+                    </td>
+                    <td id="tdmetadesc<?php echo $row->fieldid?>" style="white-space: nowrap;">
+                        <a href="#" onclick="return false;" class="eip" data-type="textarea" data-fieldid="<?php echo $row->fieldid?>" data-column="metadesc"><?php echo !empty($row->metadesc) ? $row->metadesc : '[edit]';?></a>                       
+                    </td>
+                </tr>    
+                <?php endforeach;?>
+            </table>
+            
+        
+            <!-- PAGINATION BEGINS HERE -->
+            <table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                <td class="jr_pagenav_results"><?php echo $pagination['total']?> results - Showing <?php echo ($this->page-1)*$this->limit+1;?> - <?php echo min($pagination['total'],$this->page*$this->limit);?></td>
+                <td class="jr_pagenav_pages"><?php echo ($pagination['total'] > $this->limit) ? $Paginator->display_pages() : '';?></td>
+                <td class="jr_pagenav_limitbox"><?php echo $Paginator->display_items_per_page();?></td>
+             </tr>
+            </table>
+            <input type="hidden" id="page_number" name="data[page]" value="<?php echo $this->page;?>" />
+            <input type="hidden" id="limit" name="data[limit]" value="<?php echo $this->limit;?>" />
+            <input type="hidden" id="controller" name="data[controller]" value="admin/seo" />
+            <input type="hidden" id="action" name="data[action]" value="index" />
+            <!-- PAGINATION ENDS HERE -->
+            
+    </form>
+</div>
+
+<script type="text/javascript">jQuery('a.eip').makeEIP();</script>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="content" method="upgrade">
+	<name>plg_content_cdglossary</name>
+	<author>Daniel Rataj</author>
+	<creationDate>February 26th, 2012</creationDate>
+	<copyright>(C) 2007 - 2012 Great Joomla! All rights reserved.
+	</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL 3</license>
+	<authorEmail>info@greatjoomla.com</authorEmail>
+	<authorUrl>www.greatjoomla.com</authorUrl>
+	<version>2.5.x.1.0.2</version>
+	<description>PLG_CONTENT_CDGLOSSARY_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="cdglossary">cdglossary.php</filename>
+		<folder>extension</folder>
+		<folder>fields</folder>
+		<folder>language</folder>
+		<folder>models</folder>
+		<folder>tmpl</folder>
+		<filename>index.html</filename>
+		<filename>license-gpl.txt</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.plg_content_cdglossary.ini
+		</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_content_cdglossary.sys.ini
+		</language>
+	</languages>
+	<config>
+		<fields name="params" addfieldpath="/plugins/system/cdscriptegrator/fields">
+			<fieldset name="layout" label="PLG_CONTENT_CDGLOSSARY_FIELDSET_LAYOUT">
+				<field
+					type="checkscriptegrator"
+					title="PLG_CONTENT_CDGLOSSARY_ERROR_ENABLE_SCRIPTEGRATOR"
+				/>
+				<field
+					name="uitheme"
+					type="uithemecombobox"
+					default="ui-lightness"
+					label="PLG_CONTENT_CDGLOSSARY_PARAMS_LABEL_UITHEME"
+					description="PLG_CONTENT_CDGLOSSARY_PARAMS_DESCRIPTION_UITHEME"
+				/>
+				<field
+					name="term_corners"
+					type="list"
+					default="1"
+					label="PLG_CONTENT_CDGLOSSARY_PARAMS_LABEL_TERM_CORNERS"
+					description="PLG_CONTENT_CDGLOSSARY_PARAMS_DESCRIPTION_TERM_CORNERS"
+				>
+					<option value="0">PLG_CONTENT_CDGLOSSARY_PARAMS_OPTION_TERM_CORNERS_0</option>
+					<option value="1">PLG_CONTENT_CDGLOSSARY_PARAMS_OPTION_TERM_CORNERS_1</option>
+				</field>
+				<field
+					name="tooltip_sticky"
+					type="list"
+					default="0"
+					label="PLG_CONTENT_CDGLOSSARY_PARAMS_LABEL_TOOLTIP_STICKY"
+					description="PLG_CONTENT_CDGLOSSARY_PARAMS_DESCRIPTION_TOOLTIP_STICKY"
+				>
+					<option value="0">PLG_CONTENT_CDGLOSSARY_PARAMS_OPTION_TOOLTIP_STICKY_0</option>
+					<option value="1">PLG_CONTENT_CDGLOSSARY_PARAMS_OPTION_TOOLTIP_STICKY_1</option>
+				</field>
+				<field
+					name="tooltip_trackMouse"
+					type="list"
+					default="1"
+					label="PLG_CONTENT_CDGLOSSARY_PARAMS_LABEL_TOOLTIP_TRACK_MOUSE"
+					description="PLG_CONTENT_CDGLOSSARY_PARAMS_DESCRIPTION_TOOLTIP_TRACK_MOUSE"
+				>
+					<option value="0">PLG_CONTENT_CDGLOSSARY_PARAMS_OPTION_TOOLTIP_TRACK_MOUSE_0</option>
+					<option value="1">PLG_CONTENT_CDGLOSSARY_PARAMS_OPTION_TOOLTIP_TRACK_MOUSE_1</option>
+				</field>
+				<field
+					name="tooltip_animationOpen"
+					type="list"
+					default="show"
+					label="PLG_CONTENT_CDGLOSSARY_PARAMS_LABEL_TOOLTIP_ANIMATIONOPEN"
+					description="PLG_CONTENT_CDGLOSSARY_PARAMS_DESCRIPTION_TOOLTIP_ANIMATIONOPEN"
+				>
+					
+					<option value="show">PLG_CONTENT_CDGLOSSARY_PARAMS_OPTION_TOOLTIP_ANIMATIONOPEN_SHOW</option>
+					<option value="fadeIn">PLG_CONTENT_CDGLOSSARY_PARAMS_OPTION_TOOLTIP_ANIMATIONOPEN_FADEIN</option>
+					<option value="slideDown">PLG_CONTENT_CDGLOSSARY_PARAMS_OPTION_TOOLTIP_ANIMATIONOPEN_SLIDEDOWN</option>
+				</field>
+				<field
+					name="tooltip_animationClose"
+					type="list"
+					default="hide"
+					label="PLG_CONTENT_CDGLOSSARY_PARAMS_LABEL_TOOLTIP_ANIMATIONCLOSE"
+					description="PLG_CONTENT_CDGLOSSARY_PARAMS_DESCRIPTION_TOOLTIP_ANIMATIONCLOSE"
+				>
+					<option value="hide">PLG_CONTENT_CDGLOSSARY_PARAMS_OPTION_TOOLTIP_ANIMATIONCLOSE_HIDE</option>
+					<option value="fadeOut">PLG_CONTENT_CDGLOSSARY_PARAMS_OPTION_TOOLTIP_ANIMATIONCLOSE_FADEOUT</option>
+					<option value="slideUp">PLG_CONTENT_CDGLOSSARY_PARAMS_OPTION_TOOLTIP_ANIMATIONCLOSE_SLIDEUP</option>
+				</field>
+			</fieldset>
+			<fieldset name="searching" label="PLG_CONTENT_CDGLOSSARY_FIELDSET_SEARCH">
+				<field
+					name="search_only_first"
+					type="list"
+					default="0"
+					label="PLG_CONTENT_CDGLOSSARY_PARAMS_LABEL_SEARCH_ONLY_FIRST"
+					description="PLG_CONTENT_CDGLOSSARY_PARAMS_DESCRIPTION_SEARCH_ONLY_FIRST"
+				>
+					<option value="0">PLG_CONTENT_CDGLOSSARY_PARAMS_OPTION_SEARCH_ONLY_FIRST_0</option>
+					<option value="1">PLG_CONTENT_CDGLOSSARY_PARAMS_OPTION_SEARCH_ONLY_FIRST_1</option>
+				</field>
+				<field
+					name="search_case_sensitive"
+					type="list"
+					default="0"
+					label="PLG_CONTENT_CDGLOSSARY_PARAMS_LABEL_SEARCH_CASE_SENSITIVE"
+					description="PLG_CONTENT_CDGLOSSARY_PARAMS_DESCRIPTION_SEARCH_CASE_SENSITIVE"
+				>
+					<option value="0">PLG_CONTENT_CDGLOSSARY_PARAMS_OPTION_SEARCH_CASE_SENSITIVE_0</option>
+					<option value="1">PLG_CONTENT_CDGLOSSARY_PARAMS_OPTION_SEARCH_CASE_SENSITIVE_1</option>
+				</field>
+			</fieldset>
+			<fieldset name="extension_com_content" label="PLG_CONTENT_CDGLOSSARY_FIELDSET_EXTENSION_COM_CONTENT" addfieldpath="/plugins/content/cdglossary/fields">
+				<field
+					name="categories"
+					type="multiplecategories"
+					extension="com_content"
+					action="1"
+					default=""
+					multiple="true"
+					size="8"
+					label="PLG_CONTENT_CDGLOSSARY_PARAMS_LABEL_CATEGORIES"
+					description="PLG_CONTENT_CDGLOSSARY_PARAMS_DESCRIPTION_CATEGORIES"
+				/>
+				<field
+					name="enable_in_categories"
+					type="multiplecategories"
+					extension="com_content"
+					action="1"
+					default=""
+					multiple="true"
+					size="8"
+					label="PLG_CONTENT_CDGLOSSARY_PARAMS_LABEL_ENABLE_IN_CATEGORIES"
+					description="PLG_CONTENT_CDGLOSSARY_PARAMS_DESCRIPTION_ENABLE_IN_CATEGORIES"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

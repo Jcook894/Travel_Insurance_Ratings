@@ -1,0 +1,91 @@
+#srAdminContainer
+{
+	width:80%;
+}
+
+span.row1Editlinktip {
+	text-decoration:  none;
+	border-bottom: 1px dashed #aaa;
+}
+
+fieldset label {
+	clear: both;
+	float: left;
+	width: 120px;
+	text-align: right;
+	text-decoration: underline;
+}
+
+legend {
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+fieldset {
+	border: 1px solid #3E3535;
+	margin-bottom: 2ex;
+	min-width:770px;
+}
+
+fieldset label, input, select, textarea, div.titleOption, img.expand
+{
+	margin: 0.5ex 0.5em 1.5ex 0px;  
+} 
+
+input.big
+{
+	width:400px;
+}
+
+.altEven{
+	background:#F1F3F5;  
+}
+
+.altOdd{
+	background:#CFCFCF;  
+}
+
+.srConfigTab
+{
+}
+
+.titleOption
+{
+	vertical-align:top;
+}
+
+img.expand
+{
+	vertical-align: top;
+}
+
+div.titleOption, div.titleText
+{
+	float:left;
+}
+
+div.titleOption input, div.titleOption select, div.titleOption textarea 
+{
+	margin: 0px;  
+} 
+
+input.titleOption
+{
+	margin-left: 4px;
+}
+
+input.titleHidden
+{
+	clear:both;
+}
+
+label.titleOption
+{
+	clear: none;;
+	float: none;
+	text-align: right;
+	text-decoration: underline;
+	width: auto;;	
+}
+
+

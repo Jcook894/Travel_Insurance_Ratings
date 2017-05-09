@@ -1,0 +1,161 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2009 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+//error_reporting(E_ALL);ini_set('display_errors','On');
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+extract($listing['Listing']);
+?>
+
+<?php if(!isset($refresh)):?>
+<form id="jr_moderateForm<?php echo $listing_id;?>" name="jr_moderateForm<?php echo $listing_id;?>" action="" method="">                            
+<?php endif;?>    
+    <div class="roundedPanelLt">
+        <div class="box_upperOuter">
+            <div class="box_upperInner">
+                <!-- ROUND PANEL INNER -->    
+                <table class="jr_moderation" cellpadding="4" cellspacing="0" border="0" width="100%">                        
+                    <tr>                                
+                        <th class="jr_column1" style="padding-left:5px;">
+                            
+                            <button type="button" title="delete" class="ui-button-small ui-state-default ui-corner-right" style="float:right;" 
+                                onclick="jreviews_admin.dialog.remove('admin_listings','_deleteModeration','<?php __a("This listing will be permanently deleted and cannot be recovered. Are you sure?");?>',{'data[entry_id]':<?php echo $listing_id;?>});">
+                                <span class="ui-icon ui-icon-trash"></span>
+                            </button>
+                            
+                            <button title="Edit" class="ui-button-small ui-state-default" style="float:right" onclick="jreviews_admin.listing.edit(<?php echo $listing_id;?>,'moderation');return false;">
+                            <span class="ui-icon ui-icon-pencil"></span>
+                            </button>        
+                            
+                            <?php if(isset($listing['PaidOrder'])):?>
+                            <button onclick="admin_paidlistings.Orders.viewTxnLog({'listing_id':<?php echo $listing_id;?>});" style="float:right;" class="ui-button-small ui-state-default" title="Transaction log" type="button">
+                            <span class="ui-icon ui-icon-cart"></span>
+                            </button>                            
+                            <?php endif;?>
+
+                            <button type="button" title="preview" class="jr-button ui-button-small ui-state-default ui-corner-left" style="float:right;" 
+                                onclick="jreviews_admin.dialog.preview('jr_textArea<?php echo $listing_id;?>',{title:'<?php echo htmlspecialchars($title);?>',width:'640px',height:'480'});">
+                                <span class="ui-icon ui-icon-newwin"></span>
+                            </button>
+                                                            
+                            #<?php echo $listing_id;?> 
+                            Submitted <?php echo $Time->timeAgoInWords($created);?> by <?php echo $AdminRoutes->user($listing['User']['name'],$listing['User']['user_id'],array('target'=>"_blank"));?>:
+                            
+                            <?php if(isset($listing['PaidPlanCategory']) && $listing['PaidPlanCategory']['cat_id']):?>
+                                <span class="ui-corner-all" style="cursor:default;color:#000;font-weight:bold;font-size:9px;padding:1px;text-align:center;width:80px;border: 1px solid #003F09; background-color:#B6EF77;">
+                                Paid Listing
+                                </span>                               
+                                &nbsp;
+                                <?php if(isset($listing['PaidOrder'])): $last_order = array_shift($listing['PaidOrder']);?>
+                                <span class="ui-corner-all" title="Most recent order status" style="cursor:default;color:#000;font-weight:bold;font-size:9px;padding:1px;text-align:center;width:80px;border: 1px solid #DFB700; background-color:#FFEB8F;">
+                                <?php echo $last_order['order_status'];?>
+                                </span>                               
+                                <?php else:?>
+                                <span class="ui-corner-all ui-state-default" title="Most recent order status" style="cursor:default;color:#000;font-weight:bold;font-size:9px;padding:1px;text-align:center;width:80px;">
+                                Without Order
+                                </span>                               
+                                <?php endif;?>                                
+                            <?php endif;?>
+                            <?php //prx($listing);?>
+                            <br /><span class="jr_title"><?php echo $Html->link($listing['Listing']['title'],$listing['Listing']['url'],array('sef'=>false,'target'=>'_blank'));?></span> &#149; <span class="jr_category"><?php echo $listing['Category']['title'];?></span>
+                        </th>
+                        <th class="jr_column2">Admin Note</th>   
+                    </tr>                             
+                    <tr>
+                        <td>
+                            <div id="jr_textArea<?php echo $listing_id;?>" class="jr_textArea">
+                                <?php if(isset($listing['PaidPlanCategory']) 
+                                    && !empty($listing['PaidPlanCategory']['cat_id'])
+                                    && (
+                                        !isset($listing['PaidOrder'])
+                                        || $last_order['order_status'] != 'Complete'
+                                    )
+                                ):?>
+                                <div style="font-style: italic; margin-bottom: 5px;">For incomplete orders or listings without orders you need to go to the edit screen to view current field values.</div>
+                                <?php else:?>
+                                    <?php if(isset($listing['Field']['groups'])):?>
+                                        <?php echo $this->element('custom_fields',array('entry'=>$listing,'page'=>'content'))?>
+                                    <?php endif;?>
+                                <?php endif;?>
+                                <div class="jr_textBlock"><?php echo $summary;?></div>
+                                <div class="jr_textBlock"><?php echo $description;?></div>
+                            </div>
+                        </td>
+                        <td>
+                            <textarea name="data[JreviewsContent][listing_note]" style="width:100%;height:7em;" cols="150" rows="5"><?php echo $listing['Field']['listing_note'];?></textarea>
+                        </td>                                
+                    </tr>    
+                    <tr>
+                        <td colspan="2">
+                            <div class="jr_fieldDiv">
+                                <label for="approvedAcceptjr_moderateForm<?php echo $listing_id;?>">
+                                    <input name="data[Listing][state]" id="approvedAcceptjr_moderateForm<?php echo $listing_id;?>" checked="checked" type="radio" value="1">&nbsp;<?php __a("Accept");?>
+                                </label>
+                                &nbsp;
+                                <label for="approvedRejectjr_moderateForm<?php echo $listing_id;?>">
+                                    <input name="data[Listing][state]" id="approvedRejectjr_moderateForm<?php echo $listing_id;?>" type="radio" value="-2">&nbsp;<?php __a("Reject");?>
+                                </label>
+                                &nbsp;
+                                <label for="approvedHoldjr_moderateForm<?php echo $listing_id;?>">
+                                    <input name="data[Listing][state]" id="approvedHoldjr_moderateForm<?php echo $listing_id;?>" type="radio" value="0">&nbsp;<?php __a("Hold");?>
+                                </label> 
+                                &nbsp;
+                                <?php if($listing['User']['email']!=''):?>                                
+                                <label for="sendEmail<?php echo $listing_id;?>">
+                                    <input name="data[Email][send]" id="sendEmail<?php echo $listing_id;?>" type="checkbox" value="1" onclick="if(jQuery(this).attr('checked')){jQuery('#jr_submitterEmail<?php echo $listing_id;?>').slideDown('medium');}else{jQuery('#jr_submitterEmail<?php echo $listing_id;?>').slideUp('medium');}">
+                                    &nbsp;<?php __a("Send e-mail to submitter upon approval/rejection");?>
+                                </label>
+                                <?php else:?>
+                                    <?php __a("Email feature disabled because user's email is not available.");?>
+                                <?php endif;?>                                
+                            </div>
+                                  
+                            <?php if($listing['User']['email']!=''):?>                                  
+                            <div id="jr_submitterEmail<?php echo $listing_id;?>" style="display:none;clear:left;margin-top:5px;">
+                                <div class="jr_fieldDiv" style="margin:10px 0 10px 0;">
+                                    <select id="jr_cannedResponseSelect<?php echo $listing_id;?>" onchange="showCannedResponse(<?php echo $listing_id;?>,this.value,'');">
+                                        <option value=""><?php __a("--- Select a pre-defined reply ---");?></option>
+                                        <?php foreach($predefined_replies AS $predefined_reply):extract($predefined_reply['PredefinedReply']);?>                            
+                                            <?php if(trim($reply_body)!=''):?>                                                
+                                            <option value="<?php echo $reply_id;?>"><?php echo $reply_subject;?></option>                                         
+                                            <?php endif;?>
+                                        <?php endforeach;?>
+                                    </select> (<?php echo $listing['User']['email'];?>)                           
+                                </div>
+                                <div class="jr_fieldDiv">
+                                    <textarea name="data[Email][body]" id="jr_emailBody<?php echo $listing_id;?>" style="width:100%;height:8em;" cols="150" rows="5"></textarea>            
+                                </div>
+                                <div><br />Valid tags: {name} = user's name; {url} = frontend url; {listing_title} = listing title</div>
+                            </div>
+                            <?php endif;?>                                                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="ui-button ui-corner-all" onclick="jreviews_admin.listing.moderate('jr_moderateForm<?php echo $listing_id;?>');return false;"><?php __a("Submit");?></button>                        
+                        </td>
+                    </tr>    
+                </table>   
+
+                <input name="data[Email][email]" type="hidden" value="<?php echo $listing['User']['email'];?>" />   
+                <input name="data[Email][name]" type="hidden" value="<?php echo $listing['User']['name'];?>" />
+                <input name="data[Email][subject]" id="jr_emailSubject<?php echo $listing_id;?>" type="hidden" value="" />
+                <input name="data[Email][listing_title]" type="hidden" value="<?php echo $listing['Listing']['title'];?>" />
+                <input name="data[Listing][id]" type="hidden" value="<?php echo $listing_id;?>" />
+                <input name="data[JreviewsContent][contentid]" type="hidden" value="<?php echo $listing_id;?>" />
+                <input name="data[moderation]" type="hidden" value="1" />
+               <!-- ROUND PANEL INNER -->
+            </div>
+            <div class="box_lowerOuter">
+                <div class="box_lowerInner">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <div>&nbsp;</div>
+<?php if(!isset($refresh)):?>
+</form>     
+<?php endif;?>

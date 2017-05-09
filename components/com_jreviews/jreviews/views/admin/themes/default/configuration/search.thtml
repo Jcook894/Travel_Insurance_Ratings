@@ -1,0 +1,193 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php $searchTab = array(
+	/*** NEW HEADER ***/
+	__a("General",true) => array(
+		 array(
+			'label'=>__a("Use current page Itemid for search results",true),
+			'type'=>'radioYesNo',
+			'name'=>'search_itemid',
+			'help'=>__a("Works only for JReviews pages, not detail pages which are com_content. In that case the JReviews search menu id will be used or one you specify below.",true)
+		),
+		 array(
+			'label'=>__a("Specify a menu id for search results",true),
+			'type'=>'text',
+			'name'=>'search_itemid_hc',
+			'attributes'=>array('style'=>'width:4em;'),
+			'help'=>__a("Used in detail pages; and other JReviews pages if the setting above is disabled.",true)
+		),
+		 array(
+			'label'=>__a("If one result found, redirect to detail page",true),
+			'type'=>'radioYesNo',
+			'name'=>'search_one_result'
+		),
+		 array(
+			'label'=>__a("Allow all listings to be returned with empty search queries",true),
+			'type'=>'radioYesNo',
+			'name'=>'search_return_all'
+		),
+		 array(
+			'label'=>__a("Theme Layout",true),
+			'type'=>'select',
+			'name'=>'search_display_type',
+			'options'=>array(
+							'0'=>__a("Tableview",true),
+							'1'=>__a("Blogview",true),
+							'2'=>__a("Thumbview",true),
+							'3'=>__a("Masonry",true)
+							),
+			'help'=>__a("For better results with the Masonry layout, choose the 'scale' thumbnail mode for list pages in Media Settings",true)
+		),
+		 array(
+			'label'=>__a("View Suffix",true),
+			'type'=>'text',
+			'name'=>'search_tmpl_suffix',
+			'attributes'=>array('style'=>'width:15em;')
+		)
+	),
+	__a("Simple search",true) => array(
+		array(
+			'label'=>__a("Default query type",true),
+			'type'=>'radio',
+			'name'=>'search_simple_query_type',
+			'options'=>array('any'=>__a("Any",true),'all'=>__a("All",true)/*,'none'=>'None'*/),
+			'help'=>__a("'Any' will look for listings which contain any of the words. 'All' will look for listings that contain all the words.",true)
+		),
+		 array(
+			'label'=>__a("Show search box in list and directory pages",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_searchbox'
+		),
+		 array(
+			'label'=>__a("Use current page category id as filters for simple search",true),
+			'type'=>'radioYesNo',
+			'name'=>'search_cat_filter'
+		)
+	),
+	__a("Advanced search",true) => array(
+		 array(
+			'label'=>__a("Allow searching by listing owner",true),
+			'type'=>'radioYesNo',
+			'name'=>'search_item_author'
+		),
+		 array(
+			'label'=>__a("Allow searches on more than one option for single select and radiobutton fields",true),
+			'type'=>'radioYesNo',
+			'name'=>'search_field_conversion',
+			'help'=>'<div class="jrWarning">'.__a("This feature will not work if you use control fields in your setup.",true) . '</div>' . __a("Allows searches that match several options for single select and radiobuttons. For example: if you have a multiple select field with all the states in the US, the user will be able to choose several of the states instead of just one if this setting is disabled.",true)
+		)
+	),
+	__a("Review Search",true) => array(
+		array(
+			'label'=>__a("Enable User Review Search",true),
+			'type'=>'text',
+			'name'=>'review_search',
+			'before'=>__a("When listing has more than",true),
+			'after'=>__a("user reviews",true),
+			'attributes'=>array('style'=>'width: 3em;'),
+			'help'=>__a("This limit will also be used to decide when to display the links in: the rating histogram, the rating criteria in the review summary and the 'view all reviews' button. When left blank, the review limit setting will be used instead.",true)
+		)
+	),
+	__a("Listing Form",true) => array(
+		 array(
+			'label'=>__a("Enable Title Live Search",true),
+			'type'=>'radioYesNo',
+			'default' => 0,
+			'name'=>'submit_listing_livesearch[live_search]',
+			'help'=>__a("Displays other listings that match the current title below the title input. This setting can be toggled individually at the listing type level.",true)
+		),
+		array(
+			'label'=>__a("Use popup for results",true),
+			'type'=>'radioYesNo',
+			'default' => 0,
+			'name'=>'submit_listing_livesearch[popup]'
+		),
+		array(
+			'label'=>__a("Autohide results with outside click",true),
+			'type'=>'radioYesNo',
+			'default' => 1,
+			'name'=>'submit_listing_livesearch[auto_hide]'
+		),
+		array(
+			'label'=>__a("Display Event",true),
+			'type'=>'radio',
+			'options'=>array('blur'=>__a("After leaving the input",true),'keyup'=>__a("While typing",true)),
+			'default' => 'blur',
+			'name'=>'submit_listing_livesearch[display_event]'
+		),
+		array(
+			'label'=>__a("Number of Live Results",true),
+			'type'=>'text',
+			'default' => 5,
+			'name'=>'submit_listing_livesearch[results_limit]',
+			'attributes'=>array('style'=>'width:4em;')
+		),
+		array(
+			'label'=>__a("Columns",true),
+			'type'=>'text',
+			'default' => 1,
+			'name'=>'submit_listing_livesearch[results_columns]',
+			'attributes'=>array('style'=>'width:4em;')
+		),
+		 array(
+			'label'=>__a("Show Thumbnail",true),
+			'type'=>'radioYesNo',
+			'default' => 1,
+			'name'=>'submit_listing_livesearch[tn_show]'
+		),
+		 array(
+			'label'=>__a("Show Summary",true),
+			'type'=>'radioYesNo',
+			'default' => 0,
+			'name'=>'submit_listing_livesearch[summary]'
+		),
+		 array(
+			'label'=>__a("Summary Words",true),
+			'type'=>'text',
+			'default' => 10,
+			'name'=>'submit_listing_livesearch[summary_words]'
+		),
+		 array(
+			'label'=>__a("Show Listing Category",true),
+			'type'=>'radioYesNo',
+			'default' => 1,
+			'name'=>'submit_listing_livesearch[show_category]'
+		),
+		 array(
+			'label'=>__a("Show Fields",true),
+			'type'=>'textarea',
+			'name'=>'submit_listing_livesearch[fields]',
+			'help' => __a("Comma separated list of custom fields to show (i.e. jr_state,jr_city)",true)
+		),
+		 array(
+			'label'=>__a("Show Editor Rating",true),
+			'type'=>'radioYesNo',
+			'default' => 0,
+			'name'=>'submit_listing_livesearch[editor_rating]',
+		),
+		 array(
+			'label'=>__a("Show User Rating",true),
+			'type'=>'radioYesNo',
+			'default' => 0,
+			'name'=>'submit_listing_livesearch[user_rating]',
+		),
+		 array(
+			'label'=>__a("Results Theme Suffix",true),
+			'type'=>'text',
+			'default' => '',
+			'name'=>'submit_listing_livesearch[results_tmpl_suffix]'
+		)
+	)
+);?>
+
+<?php $AdminSettings->columns = array(5,8,11); $AdminSettings->displayTab('search',$searchTab);?>

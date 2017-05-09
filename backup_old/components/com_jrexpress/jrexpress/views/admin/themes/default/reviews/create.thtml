@@ -1,0 +1,101 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php
+# Load javascript libraries
+$Html->js(arrayFilter(array('jq.onload'), $Libraries->js()),true);
+?>
+
+<div id="jr_reviewform" class="jr_pgContainer" style="display:<?php echo $review['Review']['review_id'] ? '' : 'none';?>;">
+	<div class="jr_form">
+	
+		<div id="msg"></div>
+				
+		<form id="reviewFormEdit" name="reviewFormEdit" action="javascript:void(0);" onsubmit="submitReviewEdit();">
+					
+			<?php if(!$User->id):?>
+				<div class="jr_fieldDiv">
+					<label><?php __a("Name");?><span class="required">*</span></label>
+					<?php echo $Form->text('data[Review][name]',array('id'=>'name','value'=>$User->name,'class'=>'mediumField','size'=>50,'maxlength'=>100)); // {READONLY}?>
+				</div>			
+				
+				<?php if($this->Config->reviewform_email || $isNew):?>
+				<div class="jr_fieldDiv">
+					<label><?php __a("E-mail");?><span class="required">*</span></label>
+					<?php echo $Form->text('data[Review][email]',array('id'=>'email','value'=>$User->email,'class'=>'mediumField','size'=>50,'maxlength'=>100)); // {READONLY}?>
+				</div>
+				<?php endif;?>
+					
+			<?php endif;?>
+			
+			<?php if($this->Config->reviewform_title):?>
+			<fieldset>
+			<legend><?php __a("Review title");?></legend>
+			<div class="jr_fieldDiv">
+				<?php echo $Form->text('data[Review][title]',array(
+						'id'=>'title',
+						'value'=>$review['Review']['title'],
+						'class'=>'longField',
+						'size'=>50,
+						'maxlength'=>100
+				));?>
+			</div>
+			</fieldset>
+			<?php endif;?>
+			
+			<fieldset>
+			<legend><?php __a("Ratings (the higher the better)");?></legend>
+			<table class="jr_ratingsTable" border="0" cellpadding="0" cellspacing="0">
+				<?php foreach($review['Criteria']['criteria'] AS $key=>$value):?>				
+					<tr>
+						<td><?php echo $value;?>&nbsp;</td> 
+						<td><?php echo $Form->select(
+								'data[Rating][ratings][]',
+								$Rating->options($this->Config->rating_scale,__a("Rate it",true)),
+								$review['Rating']['ratings'][$key],
+								array('id'=>'ratings'.$key.$value)
+						);?></td>
+						<td><?php if(isset($review['Criteria']['tooltips'][$key])):?>
+							<?php echo $Html->image($this->viewImages . 'information.png',array('title'=>$value. ": " . htmlspecialchars($review['Criteria']['tooltips'][$key],ENT_QUOTES,cmsFramework::getCharset())));?>
+						<?php endif;?></td>
+					</tr>
+				<?php endforeach;?>	
+			</table>
+			</fieldset>
+
+			<?php if($this->Config->reviewform_comment):?>
+			<fieldset>
+			<legend><?php __a("Comments");?></legend>
+			<div class="jr_fieldDiv">
+				<?php echo $Form->textarea('data[Review][comments]',array(
+						'id'=>'comments',
+						'value'=>$review['Review']['comments'],
+						'rows'=>5,
+						'cols'=>45,
+						'class'=>'largeArea'
+				));?>	
+			</div>
+			</fieldset>			
+			<?php endif;?>
+		
+			<input type="button" id="submitButton" value="<?php __a("Submit");?>" onclick="xajax.request({xjxfun:'xajaxDispatch'},{URI:'<?php displayXajaxUri('jrexpress');?>',parameters:['admin/reviews','_save','jrexpress',xajax.getFormValues('reviewFormEdit')]});" class="button" />
+			<input type="button" id="cancel" value="<?php __a("Cancel")?>" onclick="tb_remove();return false;" class="button" />
+		
+			<?php echo $Form->token('jr_ReviewToken'.($review['Review']['review_id'] > 0 ? 'Edit' : ''));?>		
+			<input type="hidden" name="data[Review][id]" id="review_id" value="<?php echo $review['Review']['review_id'];?>" />
+			<input type="hidden" name="data[Review][pid]" id="pid" value="<?php echo isset($listing['Listing']['listing_id']) ? $listing['Listing']['listing_id'] : $review['Review']['listing_id'];?>" />
+			<input type="hidden" name="data[Review][mode]" id="mode" value="<?php echo $review['Review']['extension'];?>" />
+			<input type="hidden" name="data[page]" id="page" value="<?php echo $review['Review']['extension'];?>" />
+			<input type="hidden" name="data[Criteria][id]" id="criteriaid" value="<?php echo $review['Criteria']['criteria_id'];?>" />
+		</form>
+	</div>	
+</div>

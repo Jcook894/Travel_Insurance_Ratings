@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="system" method="upgrade">
+	<name>System - JReviews SEF</name>
+	<author>ClickFWD LLC</author>
+	<creationDate>October 2013</creationDate>
+	<copyright>(C) 2010 - 2013 ClickFWD LLC. All rights reserved.</copyright>
+	<license>Proprietary</license>
+	<authorEmail>support@jreviews.com</authorEmail>
+	<authorUrl>https://www.jreviews.com</authorUrl>
+	<version>1.1.1</version>
+	<description>Improve JReviews SEF Urls</description>
+	<files>
+		<filename plugin="jreviews_sef">jreviews_sef.php</filename>
+		<filename>index.html</filename>
+		<filename>jreviews_router.php</filename>
+		<filename>modulehelper.php</filename>
+		<filename>modulehelper_old.php</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+
+				<field name="parse_first" type="radio" default="0" label="Parse before Joomla router" description="Only enable this if you are seeing 404 errors on JReviews pages without associated menu ids. When using the language filter plugin, this should be disabled.">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+
+				<field name="page_assignment" type="list" default="1" label="JReviews Page Assignment"
+					description="If another extension implements the JModuleHelper class disable it here.">
+					<option value="0">Disabled</option>
+					<option value="1">Enabled with JModuleHelper</option>
+					<option value="2">Enabled without JModuleHelper</option>
+				</field>
+
+				<field name="remove_article_id" type="radio" default="1" label="Remove Article ID from URL">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+
+				<field name="use_core_cat_menus" type="radio" default="1" label="Use core Category menus" description="The plugin will render core Joomla category menus as JReviews pages, removing the need of creating a separate menu structure for JReviews category menus.">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+
+				<field name="use_jreviews_cat_menu_id" type="radio" default="1" label="Use JReviews Category Menu ID" description="If your site already has JReviews category menus which are visible to site visitors, enabling this will allow those menus to appear as active menus when clicked">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+
+				<field name="replacement_com_jreviews" type="text" size="30" default="jreviews" label="Replacement for URLs without Itemid" description="Will appear instead of /component/jreviews" />
+
+				<field name="replacement_newlisting" type="text" size="30" default="new" label="New listing submission segment" description="Appended to category URLs for new listing submissions" />
+
+				<field name="replacement_viewallreviews" type="text" size="30" default="reviews" label="View all reviews segment" description="Appended to view all reviews URL when not using a catch-all menu" />
+
+				<field name="replacement_reviewdiscussions" type="text" size="30" default="discussions/review" label="Review discussion segment" description="Appended to categgory URL" />
+
+				<field name="replacement_photos" type="text" size="30" default="photos" label="View all photos segment" description="Appended to view all photos URL when not using a catch-all menu" />
+
+				<field name="replacement_videos" type="text" size="30" default="videos" label="View all videos segment" description="Appended to view all videos URL when not using a catch-all menu" />
+
+				<field name="replacement_searchresults" type="text" size="30" default="search-results" label="Search results segment" description="Appended to search URL" />
+
+				<field name="exceptions" type="textarea" rows="5" cols="20" default="com_quick2cart" label="Exceptions" description="Comma list of extensions the plugin should ignore">com_quick2cart</field>
+
+			</fieldset>
+
+		</fields>
+	</config>
+</extension>

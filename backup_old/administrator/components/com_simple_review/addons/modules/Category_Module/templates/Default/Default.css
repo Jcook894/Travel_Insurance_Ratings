@@ -1,0 +1,143 @@
+/**
+ *  $Id: Default.css 108 2009-06-14 08:14:41Z rowan $
+ *
+ * 	Copyright (C) 2005-2009  Rowan Youngson
+ * 
+ *	This file is part of Simple Review.
+ *
+ *	Simple Review is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+
+ *  Simple Review is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+
+ *  You should have received a copy of the GNU General Public License
+ *  along with Simple Review.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+dl.srCategoryListing dd, dl.srCategoryListing dt
+{
+	margin-left: 0px;
+}
+
+dl.srCategoryListing dt
+{
+	font-style:italic;
+	font-weight:bolder;	
+}
+
+dl.srCategoryListing dd
+{
+	clear:both;
+	height:50px;
+}
+
+dl.srCategoryListing dd.odd
+{
+	background-color: #EFEFEF;
+}
+
+dl.srCategoryListing dd.even
+{
+	
+}		
+
+img.catImage
+{
+	float: left;
+}
+
+span.catName
+{
+	display: block;
+}
+
+span.catDesc
+{
+	display: block;
+	font-size: smaller;
+	font-variant: small-caps;
+}
+		
+div.prefixFilter
+{
+	width:100%;
+	text-align:center;
+	margin:5px;
+}
+
+.prefixFilterOther,.prefixFilterLetter, .prefixFilterAll
+{
+	display:inline-block;
+	border:1px solid #cccccc;	
+	margin-left:1px;
+	margin-right:1px;
+}
+
+.prefixFilterOther:hover,.prefixFilterLetter:hover, .prefixFilterAll:hover
+{
+	background-color: #cccccc;
+	color:black;
+}
+
+
+.prefixFilterOther, .prefixFilterLetter, .prefixFilterAll
+{
+	padding:0px 2px 0px 2px;
+}
+
+#srCatNavigation
+{
+	margin:10px 0px 10px 0px;
+}
+
+
+#reviewListingTable 
+{
+	width: 100%;
+	margin-bottom: 5px;
+	padding: 0px;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	margin-bottom: 2px;
+}
+
+#reviewListingTable th
+{
+	background: url(subhead_bg.png) repeat-x;
+	color: #666666;
+	text-align: left;
+	padding-left: 0px;
+	height: 21px;
+	line-height: 21px;
+	font-weight: bold;
+	font-size: 10px;
+	text-transform: uppercase;
+	margin: 0 0 2px 0;
+}
+
+#reviewListingTable td
+{
+	font-size: 11px;
+	padding: 0px;
+	margin: 0px;
+	font-weight: normal;
+	text-align: left;
+	padding-left: 0px;
+}
+
+#reviewListingTable tr.odd
+{
+	background-color: #EFEFEF;	
+}
+
+#reviewListingTable tr.even
+{
+	background-color: #FFFFFF;	
+}	
+
+	

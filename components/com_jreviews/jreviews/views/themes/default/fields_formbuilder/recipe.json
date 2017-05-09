@@ -1,0 +1,56 @@
+{
+    "name": "Recipe",
+    "theme": "recipe",
+    "schema":
+    {
+        "title": "Recipe",
+        "type": "object",
+        "properties": {
+            "ingredients": {
+                "type": "array",
+                "format": "table",
+                "title": "Ingredients",
+                "items": {
+                    "type": "object",
+                    "title": "Ingredient",
+                    "properties": {
+                        "quantity": {
+                            "title": "Qty",
+                            "type": "string",
+                            "options": {
+                                "input_width": "5em"
+                            }
+                        },
+                        "unit": {
+                            "title": "Unit",
+                            "type": "string",
+                            "options": {
+                                "input_width": "10em"
+                            }
+                        },
+                        "description": {
+                            "title": "Description",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "preparation": {
+                "type": "array",
+                "format": "table",
+                "title": "Preparation",
+                "items": {
+                    "type": "object",
+                    "title": "Step",
+                    "properties": {
+                        "step": {
+                            "title": "Step",
+                            "type": "string",
+                            "format": "textarea"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

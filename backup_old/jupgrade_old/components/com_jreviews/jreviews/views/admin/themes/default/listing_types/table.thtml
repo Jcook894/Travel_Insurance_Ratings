@@ -1,0 +1,46 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<table class="admin_list">
+	<tr>
+		<th></th>
+		<th width="5">#</th>
+		<th align="center" width="100">Listing Type</th>
+		<th width="180">Rating Criteria</th>
+		<th align="center" width="150">Field Groups</th>
+		<th align="center" width="80">Type ID</th>
+		<th align="center" width="10">Delete</th>
+	</tr>
+	<?php foreach($rows AS $key=>$row):?>
+	<tr id="criteria<?php echo $row->id?>">
+		<td width="5"><input type="radio" name="criteriaid" id="criteriaid<?php echo $row->id?>" value="<?php echo $row->id?>" /></td>
+		<td><?php echo $key+1?></td>
+		<td align="left">
+			<a href="#" onclick="jreviews_admin.dispatch({'controller':'listing_types','action':'edit','data':{'data[criteria_id]':<?php echo $row->id?>},'onComplete':function(res){jQuery('#page').html(res);}});return false;">
+				<div id="title_<?php echo $row->id?>"><?php echo $row->title?></div>
+			</a>
+		</td>
+
+		<td align="left" style="vertical-align:top;"><?php echo $AdminCriterias->createListFromString($row->criteria)?></td>
+<!--		<td align="left" style="vertical-align:top;"><?php echo $AdminCriterias->createListFromString($row->weights, 'sum')?></td>
+		<td align="left" style="vertical-align:top;"><?php echo $AdminCriterias->createListFromString($row->tooltips)?></td>-->
+		<td align="left" style="vertical-align:top;"><?php echo (isset($row->field_groups) ? $row->field_groups : '');?></td>
+		<td style="text-align:center;"><?php echo $row->id?></td>
+		<td style="text-align:center;">
+            <button type="button" class="ui-button-small ui-state-default ui-corner-all" onclick="jreviews_admin.listing_type.del(<?php echo $row->id?>);">
+            <span class="ui-icon ui-icon-trash"></span>
+            </button>         
+		</td>
+	</tr>
+	<?php endforeach;?>
+</table>
+

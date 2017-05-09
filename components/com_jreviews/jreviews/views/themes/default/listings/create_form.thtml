@@ -1,0 +1,485 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+/**
+ * This view is called after category have been selected in the create.thtml view
+ */
+
+/**********************************************************************************
+ *                                 CONFIGURATION AND SETUP
+ **********************************************************************************/
+$isNew = $listing['Listing']['listing_id'] == 0;
+
+/* $alias_field controls access to listing's title alias editing
+* admin: only shows up for admin and superadmin,
+* config: shows up for any groups with listing edit rights as configured in the Access Settings
+*/
+$alias_field = 'admin'; // admin|config
+
+!isset($paid_plans) and $paid_plans = array();
+
+$used_trials = Sanitize::getBool($paid_plans,'used_trials') && count($paid_plans) == 1; // If count is > 1, then there are other plans available
+
+$register_guests = isset($register_guests) ? $register_guests : false;
+
+$user_session = !empty($user_session) ? $user_session : array();
+
+$user_name = Sanitize::getString($user_session,'name');
+
+$user_username = Sanitize::getString($user_session,'username');
+
+$user_email = Sanitize::getString($user_session,'email');
+
+$user_disabled = !empty($user_session) && $register_guests ? ' disabled="disabled" ' : '';
+
+// If the trix editor is enabled, then we ignore settings for the Joomla editor
+
+$wysiwyg_editor = $this->Access->loadWysiwygEditor();
+
+$liveSearchOverride = Sanitize::getInt($this->Config, 'listing_title_livesearch_enable', -1);
+
+$titleSearchSettings = json_encode(array(
+	'enabled' => $liveSearchOverride == -1 ? Sanitize::getInt($this->Config->submit_listing_livesearch, 'live_search', 1) : $liveSearchOverride,
+	'popup' => Sanitize::getInt($this->Config->submit_listing_livesearch, 'popup', 0),
+	'auto_hide' => Sanitize::getInt($this->Config->submit_listing_livesearch, 'auto_hide', 1),
+	'display_event' => Sanitize::getString($this->Config->submit_listing_livesearch, 'display_event', 'blur'),
+	'show_loading' => false
+));
+
+$reviewType = $this->Access->isJreviewsEditor($User->id) == 'editor' ? 'editor' : 'user';
+
+$ratingStyle = 'style'.Sanitize::getInt($this->Config,$reviewType.'_rating_style',1);
+
+$ratingColor = Sanitize::getString($this->Config,$reviewType.'_rating_color','orange');
+
+/**********************************************************************************
+ *                                 EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+?>
+
+<?php /* BEGIN PRICING PLANS FOR SELECTED CATEGORY */ ?>
+
+<?php if($used_trials > 0):?>
+
+	<?php __t("You have reached the maximum number of free listings for this category.");?>
+
+<?php elseif(!empty($paid_plans)):?>
+
+	<?php echo $this->element('paidlistings_listing_plans',array('plans'=>$paid_plans));?>
+
+<?php endif;?>
+
+<?php if(!$used_trials):?>
+
+
+<?php if($this->Access->isGuest() && ($register_guests || in_array($this->Config->content_name,array('required','optional')))):?>
+
+	<fieldset>
+
+		<?php if(isset($user_session) && !empty($user_session)):?>
+
+			<div class="jrFieldDiv jrClearfix">
+
+				<span class="jrAccountClearUser"><?php echo sprintf(__t("Not you? %sClear user information.%s", true), '<a class="jr-user-forget" href="#">', '</a>');?></span>
+
+			</div>
+
+		<?php endif;?>
+
+		<div class="jrFieldDiv jrLeft">
+
+			<label class="jrLabel"><?php __t("Name");?><?php if($this->Config->content_name == 'required'):?><span class="jrIconRequired"></span><?php endif;?></label>
+
+			<input type="text" class="jr-user-name jrName" name="data[name]" value="<?php echo $user_name;?>" <?php echo $user_disabled;?> maxlength="50" />
+
+		</div>
+
+		<?php endif;?>
+
+		<?php if($register_guests):?>
+
+		<div class="jrFieldDiv jrLeft">
+
+			<label class="jrLabel">
+
+				<?php __t("Username");?><span class="jrIconInfo jr-more-info"></span>
+
+				<div class="jrPopup jrHidden"><?php __t("Create an account to be able to manage all of your submissions. After you submit the form we'll email you an activation link with a temporary password.");?></div>
+
+				<?php if(Sanitize::getInt($this->Config,'content_username')):?><span class="jrIconRequired"></span><?php endif;?>
+
+			</label>
+
+			<input type="text" class="jr-user-username jrName" name="data[username]" value="<?php echo $user_username;?>" <?php echo $user_username != '' ? $user_disabled : '';?> maxlength="25" placeholder="<?php __t("Fill in to create an account");?>" />
+
+		</div>
+
+		<?php endif;?>
+
+		<div class="jrClear"></div>
+
+		<?php if($this->Access->isGuest() && ($register_guests || in_array($this->Config->content_email,array('required','optional')))):?>
+
+		<div class="jrFieldDiv">
+
+			<label class="jrLabel"><?php __t("Email");?><?php if($this->Config->content_email == 'required'):?><span class="jrIconRequired"></span><?php endif;?></label>
+
+			<input type="email" class="jr-user-email <?php if($register_guests):?>jr-email-check<?php endif;?> jrEmail" name="data[email]" value="<?php echo $user_email;?>" <?php echo $user_disabled;?> size="50" maxlength="100" />
+
+		</div>
+
+	</fieldset>
+
+<?php endif;?>
+
+<?php if($this->Config->listing_title || Sanitize::getBool($this->Config,'listing_publication_date') || Sanitize::getBool($this->Config,'listing_expiration_date')):?>
+
+	<fieldset>
+
+		<?php if($this->Config->listing_title):?>
+
+			<div class="jrListingTitle jrFieldDiv">
+
+				<label class="jrLabel">
+
+					<?php JreviewsLocale::getConstant(Sanitize::getString($this->Config, 'lang_listing_form_title'));?>
+
+					<span class="jrIconRequired"></span>
+
+				</label>
+
+				<input type="text" class="jr-listing-title jrTitle" name="data[Listing][title]" value="<?php echo htmlspecialchars($listing['Listing']['title'],ENT_QUOTES,cmsFramework::getCharset());?>" maxlength="255" data-search-settings='<?php echo $titleSearchSettings;?>' />
+			</div>
+
+			<?php if(($alias_field == 'admin' && $this->Access->isAdmin()) || ($alias_field == 'config' && $this->Access->canAddListing($this->User->id))): // Only admins and super admins see the alias field.?>
+
+				<div class="jrListingTitleAlias jrFieldDiv">
+
+					<label class="jrLabel">
+
+						<?php JreviewsLocale::getConstant(Sanitize::getString($this->Config, 'lang_listing_form_title_alias'));?>
+
+					</label>
+
+					<input type="text" class="jrTitle" name="data[Listing][alias]" value="<?php echo Sanitize::getString($listing['Listing'],'slug');?>" maxlength="255" />
+
+				</div>
+
+			<?php endif;?>
+
+		<?php endif;?>
+
+		<?php if(Sanitize::getBool($this->Config,'listing_publication_date')):?>
+
+			<div class="jrFieldDiv jrLeft" style="margin-right:20px;">
+
+				<label class="jrLabel"><?php __t("Publication Date");?></label>
+
+				<input type="text" class="jr-date jrDate" name="data[Listing][publish_up]" value="<?php echo Sanitize::getString($listing['Listing'],'publish_up');?>" />
+
+			</div>
+
+		<?php endif;?>
+
+		<?php if(Sanitize::getBool($this->Config,'listing_expiration_date')):?>
+
+			<div class="jrFieldDiv jrClearfix">
+
+				<label class="jrLabel"><?php __t("Expiration Date");?></label>
+
+				<input type="text" class="jr-date jrDate" name="data[Listing][publish_down]" value="<?php echo Sanitize::getString($listing['Listing'],'publish_down');?>" />
+
+			</div>
+
+		<?php endif;?>
+
+	</fieldset>
+
+<?php endif;?>
+
+<?php echo $CustomFields->createOrEdit($isNew)->makeFormFields($listing_fields,'listing',null,__t("Select",true));?>
+
+<?php if($this->Config->content_summary == 'required' || $this->Config->content_summary == 'optional' || $this->Config->content_description == 'required' || $this->Config->content_description == 'optional'):?>
+
+<fieldset>
+
+	<?php if($this->Config->content_summary == 'required' || $this->Config->content_summary == 'optional'):?>
+
+		<div class="jrFieldDiv">
+
+		   	<label class="jrLabel"><?php JreviewsLocale::getConstant(Sanitize::getString($this->Config, 'lang_listing_form_summary'));?><?php if($this->Config->content_summary == 'required'):?><span class="jrIconRequired"></span><?php endif;?></label>
+
+			<div id="wp-introtext-wrap" class="wp-core-ui wp-editor-wrap html-active tmce-active">
+
+				<?php /* Add WordPress Media Upload, Quicktag buttons and the Swith Editor tabs */?>
+
+   				<?php  if(_CMS_NAME == 'wordpress' && $wysiwyg_editor && !$this->Config->listing_wysiwyg):?>
+
+				<div id="wp-introtext-editor-tools" class="wp-editor-tools hide-if-no-js">
+
+					<div id="wp-introtext-media-buttons" class="wp-media-buttons">
+						<a href="#" class="button insert-media add_media" data-editor="introtext" title="Add Media"><span class="wp-media-buttons-icon"></span> <?php echo __('Add Media');?></a>
+					</div>
+
+				</div>
+
+				<div class="wp-editor-tabs">
+					<a id="introtext-html" class="wp-switch-editor switch-html" data-wp-editor-id="introtext"><?php echo __('Text');?></a>
+					<a id="introtext-tmce" class="wp-switch-editor switch-tmce" data-wp-editor-id="introtext"><?php echo __('Visual');?></a>
+				</div>
+
+	   			<?php endif;?>
+
+			   	<div id="wp-introtext-editor-container" class="wp-editor-container">
+
+			   		<textarea id="introtext" name="data[Listing][introtext]" cols="45" rows="20"  autocomplete="off" class="wp-editor-container jr-wysiwyg-editor jrTextArea <?php if($wysiwyg_editor && $this->Config->listing_wysiwyg):?>jrHidden<?php endif;?>"><?php echo $listing['Listing']['summary'];?></textarea>
+
+	                <?php if($wysiwyg_editor && $this->Config->listing_wysiwyg):?>
+
+	                    <trix-editor input="introtext"></trix-editor>
+
+	                <?php endif;?>
+
+			   	</div>
+
+			</div>
+
+		</div>
+
+	<?php endif;?>
+
+	<?php if($this->Config->content_description == 'required' || $this->Config->content_description == 'optional'):?>
+
+		<div class="jrFieldDiv">
+
+		   	<label class="jrLabel"><?php JreviewsLocale::getConstant(Sanitize::getString($this->Config, 'lang_listing_form_description'));?><?php if($this->Config->content_description == 'required'):?><span class="jrIconRequired"></span><?php endif;?></label>
+
+			<div id="wp-fulltext-wrap" class="wp-core-ui wp-editor-wrap html-active tmce-active">
+
+				<?php /* Add WordPress Media Upload, Quicktag buttons and the Swith Editor tabs */?>
+
+   				<?php if(_CMS_NAME == 'wordpress' && $wysiwyg_editor && !$this->Config->listing_wysiwyg):?>
+
+					<div id="wp-fulltext-editor-tools" class="wp-editor-tools hide-if-no-js">
+
+						<div id="wp-fulltext-media-buttons" class="wp-media-buttons">
+							<a href="#" class="button insert-media add_media" data-editor="fulltext" title="Add Media"><span class="wp-media-buttons-icon"></span> <?php echo __('Add Media');?></a>
+						</div>
+
+					</div>
+
+					<div class="wp-editor-tabs">
+						<a id="fulltext-html" class="wp-switch-editor switch-html" data-wp-editor-id="fulltext"><?php echo __('Text');?></a>
+						<a id="fulltext-tmce" class="wp-switch-editor switch-tmce" data-wp-editor-id="fulltext"><?php echo __('Visual');?></a>
+					</div>
+
+	   			<?php endif;?>
+
+			   	<div id="wp-fulltext-editor-container" class="wp-editor-container">
+
+			   		<textarea id="fulltext" name="data[Listing][fulltext]" cols="45" rows="20"  autocomplete="off" class="wp-editor-container jr-wysiwyg-editor jrTextArea <?php if($wysiwyg_editor && $this->Config->listing_wysiwyg):?>jrHidden<?php endif;?>"><?php echo $listing['Listing']['description'];?></textarea>
+
+	                <?php if($wysiwyg_editor && $this->Config->listing_wysiwyg):?>
+
+	                    <trix-editor input="fulltext"></trix-editor>
+
+	                <?php endif;?>
+
+			   	</div>
+
+			</div>
+
+		</div>
+
+	<?php endif;?>
+
+</fieldset>
+
+<?php endif;?>
+
+<?php if($this->Access->canAddMeta()):?>
+
+<fieldset class="jrMetaData jrFieldsetMargin">
+
+<legend><?php __t("Meta Data");?></legend>
+
+	<div class="jrFieldDiv">
+
+	   <label class="jrLabel"><?php __t("Meta Description");?></label>
+
+		<textarea id="metadesc" class="jrTextArea" name="data[Listing][metadesc]" cols="45" rows="5"><?php echo htmlspecialchars($listing['Listing']['metadesc'],ENT_QUOTES,cmsFramework::getCharset());?></textarea>
+
+	</div>
+
+	<div class="jrFieldDiv">
+
+		<label class="jrLabel"><?php __t("Meta Keywords");?></label>
+
+		<textarea id="metakey" class="jrTextArea" name="data[Listing][metakey]" cols="45" rows="5"><?php echo htmlspecialchars($listing['Listing']['metakey'],ENT_QUOTES,cmsFramework::getCharset());?></textarea>
+
+	</div>
+
+</fieldset>
+
+<?php endif;?>
+
+<?php // Check if review form should be shown when submitting a new listing
+if($this->Access->canAddReview() && $isNew && $criteria['state']
+		&& $this->Config->content_show_reviewform != "none"
+		&& ( ($this->Config->content_show_reviewform=="all" && ($this->Config->user_reviews || $this->Config->author_review))
+			|| ($this->Config->content_show_reviewform=="authors" && in_array($User->id,explode(',',$this->Config->authorids)) && $this->Config->author_review)
+			|| ($this->Config->content_show_reviewform=="noteditors" && $this->Config->user_reviews && !$this->Access->isJreviewsEditor($User->id))
+			)
+		):?>
+
+	<?php if($this->Config->reviewform_optional):?>
+
+	<fieldset class="jrReviewFormOption jrFieldsetMargin">
+
+		<legend><?php ($criteria['state']!=2) ? __t("Review") : __t("Comment");?></legend>
+
+		<div class="jrFieldDiv">
+
+			<input id="jr-review-optional" type="checkbox" name="data[review_optional]" value="1" />
+
+			&nbsp;<label for="jr-review-optional" style="display:inline;"><?php ($criteria['state']!=2) ? __t("I will submit my review later on") : __t("I will submit my comment later on");?></label>
+
+		</div>
+
+	</fieldset>
+
+	<?php endif;?>
+
+	<fieldset class="jr-form-review jrReviewForm">
+
+		<?php if(in_array($this->Config->reviewform_title,array('required','optional'))):?>
+			<div class="jrFieldDiv">
+			   <label class="jrLabel jrReviewTitleLabel"><?php ($criteria['state']!=2) ? __t("Review Title") : __t("Title");?><?php if($this->Config->reviewform_title=='required'):?><span class="jrIconRequired"></span><?php endif;?></label>
+			   <?php echo $Form->text('data[Review][title]',array('id'=>'title','value'=>'','class'=>'jrReviewTitle','size'=>50,'maxlength'=>100));?>
+			</div>
+		<?php endif;?>
+
+		<?php if ( $criteria['state'] == 1 ): // if ratings enabled ?>
+
+		<fieldset class="jrFieldsetMargin">
+
+			<legend><?php __t("Ratings (the higher the better)");?></legend>
+
+			<div class="jrTableGrid jrRatingsSubmission<?php echo $reviewType == 'editor' ? ' jrEditorRatings' : '';?>">
+
+			<?php foreach($criteria['criteria'] AS $key=>$value):?>
+
+				<div class="jrRow">
+
+					<div class="jrCol jrRatingCriteria">
+
+						<?php echo $value;?><?php if($criteria['required'][$key]):?><span class="jrIconRequired"></span><?php endif;?>
+						<?php if(isset($criteria['tooltips'][$key]) && trim($criteria['tooltips'][$key]) != ''):?>
+							<span class="jrIconInfo jr-more-info"></span><div class="jrPopup"><?php echo $criteria['tooltips'][$key];?></div>
+						<?php endif;?>
+
+					</div>
+
+					<div class="jrCol jrRatingStars">
+
+						<div class="jr-rating-stars" data-selector="<?php echo $this->Config->rating_selector;?>" data-inc="<?php echo $this->Config->rating_increment;?>">
+
+							<?php echo $Form->select(
+								'data[Rating][ratings]['.$key.']',
+								$Rating->options($this->Config->rating_scale,__t("Rate it",true), $criteria['required'][$key]),
+								($this->Config->rating_default_na && !$criteria['required'][$key] ? 'na' : ''),
+								array('data-style'=>$ratingStyle, 'data-color'=>$ratingColor)
+							);?>
+
+						</div>
+
+					</div>
+
+					<div class="jrCol jrRatingCaption"></div>
+
+				</div>
+
+			<?php endforeach;?>
+
+			</div>
+
+		</fieldset>
+
+		<?php endif;?>
+
+		<?php echo $CustomFields->makeFormFields($review_fields,'review',null,__t("Select",true));?>
+
+		<?php if(in_array($this->Config->reviewform_comment,array('required','optional'))):?>
+
+		<fieldset class="jrReviewFormComments jrFieldsetMargin">
+
+			<legend><?php __t("Comments");?><?php if($this->Config->reviewform_comment=='required'):?><span class="jrIconRequired"></span><?php endif;?></legend>
+
+			<div class="jrFieldDiv">
+
+				<?php echo $Form->textarea('data[Review][comments]',array(
+							'class'=>'jrReviewComments',
+							'value'=>'',
+							'rows'=>5,
+							'cols'=>45,
+							'class'=>'jrTextArea' . ($this->Config->review_comment_wysiwyg ? ' jrHidden' : ''),
+							'id' => 'comment-editor'
+				));?>
+
+				<?php if($this->Config->review_comment_wysiwyg):?>
+					<trix-editor input="comment-editor"></trix-editor>
+				<?php endif;?>
+
+			</div>
+
+		</fieldset>
+
+		<?php endif;?>
+
+	</fieldset>
+
+<?php endif;?>
+
+<?php if($isNew && $this->Access->canAddAnyListingMedia($User->id)):?>
+
+	<div class="jrInfo">
+
+		<span class="jr-media-paid jrHidden">
+
+			<?php __t("You will be able to upload media right after checkout.");?>
+
+		</span>
+
+		<span class="jr-media">
+
+			<?php JreviewsLocale::getConstant(Sanitize::getString($this->Config, 'lang_listing_form_upload_media_info'));?></span>
+
+		</span>
+
+	</div>
+
+<?php endif;?>
+
+<?php if($this->Access->showCaptcha() && $isNew):?>
+
+	<div class="jr-captcha jrCaptcha"><?php echo $captcha;?></div>
+
+<?php endif;?>
+
+<div class="jr-validation jrError jrHidden"></div>
+
+<div class="jr-buttons jrButtons">
+
+	<button class="jr-submit-listing jrButton jrLarge jrGreen"><?php __t("Submit");?></button>
+
+	<button class="jr-cancel-listing jrButton jrLarge"><?php __t("Cancel");?></button>
+
+</div>
+
+<?php endif;?>

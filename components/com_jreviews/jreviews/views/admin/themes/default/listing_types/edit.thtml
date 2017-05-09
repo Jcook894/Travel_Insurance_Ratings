@@ -1,0 +1,332 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$accessGroupsGuest = $accessGroups;
+
+$accessGroupsNoGuest = array_slice($accessGroups,1);
+
+$relatedListingsTabs = 10;
+
+$relatedReviewsTabs = 5;
+
+$listing_type_id = Sanitize::getInt($listingType['Criteria'],'criteria_id');
+
+$criteriaRating = Sanitize::getVar($listingType, 'CriteriaRating', array());
+?>
+
+<div class="jr-listing-types-edit">
+
+	<div class="jrPageHeading"><?php __a("Listing Type");?></div>
+
+    <form id="jr-page-form" action="index.php" method="post" class="jrForm" data-object-type="listing_type">
+
+		<div class="jr-toolbar jrPageToolbar jrRoundedPanel">
+
+		    <span id="jr-status" class="jrStatus jrLeft jrHidden"></span>
+
+		    <button <?php if(_JR_DEMO):?>disabled<?php endif?> class="jr-save jrButton jrGreen" data-id="<?php echo $listing_type_id;?>">
+
+		    	<span class="jrIconSave"></span><?php __a("Save");?>
+
+		    </button>
+
+		    <?php if($listing_type_id):?>
+
+		    <button <?php if(_JR_DEMO):?>disabled<?php endif?> class="jr-apply jrButton" data-id="<?php echo $listing_type_id;?>">
+
+		    	<span class="jrIconApply"></span><?php __a("Apply");?>
+
+		    </button>
+
+		    <?php endif;?>
+
+		    <button class="jr-cancel jrButton">
+
+		    	<span class="jrIconCancel"></span><?php __a("Cancel");?>
+
+		    </button>
+
+		</div>
+
+	    <div class="jr-validation jrError jrHidden" style="margin-bottom: 15px;"></div>
+
+		<fieldset class="jrFieldsetMargin">
+
+			<legend><?php __a("Main Settings");?></legend>
+
+			<div class="jrGrid">
+
+				<div class="jrCol6">
+
+					    <div class="jrFieldDiv">
+
+					        <label for="title">Title<span class="jrIconRequired"></span></label>
+
+					        <div>
+					            <?php echo $Form->text('data[Criteria][title]',array('class'=>'jrText','max_size'=>'30','value'=>$listingType['Criteria']['title']));?>
+					        </div>
+
+					    </div>
+
+				</div>
+
+				<div class="jrCol6">
+
+				    <div clas="jrFieldDiv">
+
+					<label><?php __a("Select all the field groups you want to associate to this listing type");?></label>
+
+						<?php
+						echo $Form->select(
+						    'data[Criteria][groupid]',
+						    $groups,
+						    explode(',',$listingType['Criteria']['group_id']),
+						    array('size'=>'20','multiple'=>'multiple','style'=>'width:350px;font-size:110%;line-height:1.5em;','class'=>'multiselectGroup')
+						);
+						?>
+				    </div>
+
+				</div>
+
+			</div>
+
+
+			<div class="jrGrid">
+
+				<div class="jrCol6">
+
+				    <div class="jrFieldDiv">
+
+				        <label for="criteria_state"><?php __a("Comments & Ratings");?><span class="jrIconRequired">&nbsp;</span></label>
+
+				        <div>
+
+				             <select id="criteria_state" name="data[Criteria][state]">
+
+				                <option value=1 <?php echo $listingType['Criteria']['state'] == 1 ? 'selected' : '';?>><?php __a("Allow comments and ratings");?></option>
+
+				                <option value=2 <?php echo $listingType['Criteria']['state'] == 2 ? 'selected' : '';?>><?php __a("Allow comments without ratings");?></option>
+
+				                <option value=0 <?php echo $listingType['Criteria']['state'] == 0 ? 'selected' : '';?>><?php __a("Disable comments and ratings");?></option>
+
+				            </select>
+
+				        </div>
+
+				    </div>
+
+				</div>
+
+				<div class="jrCol6">
+
+				    <div clas="jrFieldDiv">
+
+				    	<label><?php __a("Display in Advanced Search Page");?></label>
+
+						<?php echo $Form->radioYesNo( "data[Criteria][search]", "", Sanitize::getVar($listingType['Criteria'],'search',1)); ?>
+				    </div>
+
+				</div>
+
+			</div>
+
+		</fieldset>
+
+		<fieldset class="jrFieldsetMargin">
+
+		     <legend><?php __a("Rating Criteria");?></legend>
+
+	        <?php if($listingType['Criteria']['criteria_id']):?>
+
+	            <div class="jrWarning" style="margin-bottom:10px;">
+	                <?php __a("If you delete a criterion all existing ratings using the criterion will be deleted and the changes are <strong>IRREVERSIBLE</strong>. Also keep in mind that adding and deleting rating criteria requires a complete update of all rating averages at the review and listing levels so it may take some time for the action to complete if there are thousands of reviews.");?>
+	            </div>
+
+	        <?php endif;?>
+
+	    	<div class="jr-ratings jr-sortable jrDataList">
+
+	    		<div class="jrGrid jrDataListHeader">
+
+	            	<div class="jrCol1"><span class="jrIconSort"></span>&nbsp;</div>
+
+	    			<div class="jrCol3"><?php __a("Rating Criterion");?></div>
+
+	    			<div class="jrCol1"><?php __a("Required");?></div>
+
+	    			<div class="jrCol1"><?php __a("Weight");?></div>
+
+	    			<div class="jrCol4"><?php __a("Tooltip");?></div>
+
+	    			<div class="jrCol1">ID</div>
+
+	    			<div class="jrCol1">&nbsp;</div>
+
+	    		</div>
+
+	            <?php foreach($criteriaRating AS $criteria_id=>$row):?>
+
+	            	<?php echo $this->renderControllerView('listing_types','criteria_row', array('listing_type_id'=>$listing_type_id,'row'=>$row));?>
+
+				<?php endforeach;?>
+
+	    	</div>
+
+			<div class="jrGrid" style="padding-top:5px;">
+
+					<div class="jrCol3">
+
+					    <button class="jr-add-rating jrButton jrBlue jrSmall" <?php if(!$listing_type_id):?>disabled<?php endif;?> data-listing-type-id="<?php echo $listing_type_id;?>"><span class="jrIconNew"></span><?php __a("Add New Criterion");?></button>
+
+					</div>
+
+					<div class="jrCol1">&nbsp;</div>
+
+					<div class="jrCol1 jrCenter" style="padding-top:5px;">
+
+						<div class="jr-sum-weights"></div>
+
+					</div>
+
+					<div class="jrCol7">&nbsp;</div>
+
+			</div>
+
+			<?php if(!$listing_type_id):?>
+
+	    		<div class="jr-save-warning jrInfo">Save the new Listing Type so you can begin adding new rating criteria.</div>
+
+	    	<?php endif;?>
+
+		</fieldset>
+
+		<div class="jrClear"></div>
+
+	    <fieldset class="jrFieldsetMargin">
+
+	        <legend>Advanced Setup &amp; Overrides</legend>
+
+	        <table width="100%"border="0" cellpadding="0" cellspacing="0">
+	            <tr>
+
+	                <td valign="top" style="width:320px;padding: 0 0 0 5px;">
+
+	                    <div id="jr-tabs" class="jr-tabs jrTabs">
+
+	                        <ul>
+
+								<li><a href="#listing-type-config"><span><?php __a("Configuration");?></span></a></li>
+
+								<li><a href="#listing-type-forms"><span><?php __a("Standard Fields");?></span></a></li>
+
+								<li><a href="#listing-type-search"><span><?php __a("Search");?></span></a></li>
+
+								<li><a href="#listing-type-language"><span><?php __a("Language");?></span></a></li>
+
+	                            <li><a href="#listing-type-access"><span><?php __a("Access");?></span></a></li>
+
+	                            <li><a href="#listing-type-media"><span><?php __a("Media");?></span></a></li>
+
+								<li><a href="#listing-type-seo"><span><?php __a("SEO Manager");?></span></a></li>
+
+	                            <li><a href="#detail-page-widgets"><span><?php __a("Detail Page Widgets");?></span></a></li>
+
+	                         </ul>
+
+							<!-- CONFIGURATION OVERRIDES -->
+
+							<?php echo $this->renderControllerView('listing_types', 'edit_configuration_tab', array('accessGroupsGuest' => $accessGroupsGuest, 'accessGroupsNoGuest' => $accessGroupsNoGuest));?>
+
+							<!-- STANDARD FIELDS OVERRIDES -->
+
+							<?php echo $this->renderControllerView('listing_types', 'edit_standard_fields_tab', array('accessGroupsGuest' => $accessGroupsGuest, 'accessGroupsNoGuest' => $accessGroupsNoGuest));?>
+
+							<!-- SEARCH OVERRIDES -->
+
+							<?php echo $this->renderControllerView('listing_types', 'edit_search_tab');?>
+
+							<!-- LANGUAGE OVERRIDES -->
+
+							<?php echo $this->renderControllerView('listing_types', 'edit_language_tab', array('accessGroupsGuest' => $accessGroupsGuest, 'accessGroupsNoGuest' => $accessGroupsNoGuest));?>
+
+	                        <!-- ACCESS OVERRIDES -->
+
+							<?php echo $this->renderControllerView('listing_types', 'edit_access_tab', array('accessGroupsGuest' => $accessGroupsGuest, 'accessGroupsNoGuest' => $accessGroupsNoGuest));?>
+
+							<!-- MEDIA OVERRRIDES -->
+
+							<div id="listing-type-media" class="jr-tabs jrTabs jrTabPanel">
+
+								<?php echo $this->renderControllerView('listing_types','edit_media_tab', array('accessGroupsGuest' => $accessGroupsGuest, 'accessGroupsNoGuest' => $accessGroupsNoGuest));?>
+
+							</div>
+
+	                        <!-- SEO FOR LISTING TYPES -->
+
+							<?php echo $this->renderControllerView('listing_types', 'edit_seo_tab', array('accessGroupsGuest' => $accessGroupsGuest, 'accessGroupsNoGuest' => $accessGroupsNoGuest));?>
+
+	                        <div id="detail-page-widgets" class="jrTabPanel">
+
+	                        	<span data-setting-name="related_listings_widget"></span>
+
+	                            <div id="detail-page-widgets-tabs" class="jr-tabs jrTabs jrTabPanel">
+
+	                                <ul>
+
+	                                    <?php for($i=0;$i<$relatedListingsTabs;$i++):?>
+
+	                                    <li><a href="#listing-type-relatedlistings<?php echo $i;?>"><span><?php echo sprintf(__a("Related Listings %s",true),$i+1);?></span></a></li>
+
+	                                    <?php endfor;?>
+
+	                                    <?php for($i=0;$i<$relatedReviewsTabs;$i++):?>
+
+	                                    <li><a href="#listing-type-relatedreviews<?php echo $i;?>"><span><?php echo sprintf(__a("Related Reviews %s",true),$i+1);?></span></a></li>
+
+	                                    <?php endfor;?>
+
+	                                    <li><a href="#listing-type-user-favorites"><span><?php __a("Favorite Users");?></span></a></li>
+
+	                                </ul>
+
+	                                <?php for($i=0;$i<$relatedListingsTabs;$i++):?>
+
+	                                    <?php echo $this->renderControllerView('listing_types','edit_relatedlistings_tab',array('i'=>$i));?>
+
+	                                <?php endfor;?>
+
+	                                <?php for($i=0;$i<$relatedReviewsTabs;$i++):?>
+
+	                                	<?php echo $this->renderControllerView('listing_types','edit_relatedreviews_tab',array('i'=>$i));?>
+
+	                                <?php endfor;?>
+
+	                                <?php echo $this->renderControllerView('listing_types','edit_favorites_tab');?>
+
+	                            </div>
+
+	                        </div><!-- end detail page widgets -->
+	                     </div><!-- end tabs-->
+	                </td>
+	            </tr>
+	        </table>
+
+	    </fieldset>
+
+
+	    <input type="hidden" name="data[Criteria][id]" value="<?php echo $listing_type_id;?>" />
+
+	    <input type="hidden" name="data[controller]" value="admin/listing_types" />
+
+	    <input type="hidden" name="data[action]" value="_save" />
+
+	 </form>
+
+</div>

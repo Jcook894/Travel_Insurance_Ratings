@@ -1,0 +1,30 @@
+<?php
+/**********************************************************************************
+ *                                 CONFIGURATION AND SETUP
+ **********************************************************************************/
+$entry_url = cmsFramework::makeAbsUrl($review['Listing']['url'],array('sef'=>true));
+$entry_title = Sanitize::getString($review['Listing'],'title');
+$published = $review['Review']['published'];
+?>
+
+<?php
+/**********************************************************************************
+ *                                 EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+?>
+
+<p>
+
+	You're receiving this e-mail because you have a review for listing '<?php echo $entry_title;?>', which has received a reply from the listing owner. To read the reply please visit the following page:
+
+	<br /><br />
+
+	<?php echo $Routes->reviewDiscuss($entry_title,$review);?>
+
+</p>
+
+<?php if(!$published):?>
+
+	<p>We typically moderate owner replies and publish them only after they've been verified by our staff. Please check your review later on to find the new reply.</p>
+
+<?php endif;?>

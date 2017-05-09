@@ -1,0 +1,239 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+error_reporting(E_ALL);
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+$status_msg = array(
+    'update'=>__a("Update",true),
+    'uptodate'=>__a("Already Installed",true),
+    'min_s2version'=>__a("Must upgrade S2 Framework",true),
+    'min_version'=>__a("Must upgrade JReviews",true),
+    'install'=>__a("Install",true),
+    'trial'=>__a("Blocked for trial",true),
+    'not_active'=>__a("Addon not active for this license",true)
+);
+$uninstall_status = array('update','uptodate');
+?>
+
+<script type="text/javascript">
+function updaterDialog(element,package_type,name,version)
+{
+    var backup = jQuery('#backup_confirm').is(':checked') ? 1 : 0;
+    if(!jQuery('#update_overwrite').is(':checked'))
+    {
+       var settings = {
+            'modal': true,
+            'autoOpen': true,
+            'buttons': {'Close':function() { jQuery(this).dialog('close'); }},
+            'width': '500px',
+            'height': 'auto',
+            'title':'',
+        };        
+        
+        jQuery('.dialog').dialog('destroy').remove(); 
+        jQuery("body").append('<div id="install_dialog" class="dialog">You need to check the "Updates" checkbox to confirm you understand that updating will overwrite existing addon files.</div>');
+        jQuery('#install_dialog').dialog(settings);  
+    } 
+    else 
+    {
+        var settings = {
+            'modal': true,
+            'autoOpen': true,
+            'buttons': {'Close':function() { jQuery(this).dialog('close'); }},
+            'width': '500px',
+            'height': 'auto',
+            'title':'',
+            'open': function() {
+                jQuery.get(s2AjaxUri+'&url=admin_updater/_installPackage/type:'+package_type+'/name:'+name+'/version:'+version+'/backup:'+backup,'',function(res)
+                    {                                             
+                        jQuery('#install_dialog').append('<p>'+res.html+'</p>');
+                        if(res.status == true)
+                        {
+                            if(package_type=='addon')
+                            {
+                                jQuery(element).val('Installed').css('color','red').attr('disabled','disabled');
+                            } 
+                            else if(package_type=='component')
+                            {
+                                var update_url = '<?php echo WWW_ROOT;?>administrator/index.php?option=com_'+name+'&format=raw&update=1';
+                                jQuery("#spinner").show();
+                                jQuery.get(update_url,'',function(update_res)
+                                {
+                                    jQuery("#spinner").fadeOut();
+                                    if(update_res.error==false)
+                                    {    
+                                        if(name=='s2framework')
+                                        {
+                                            jQuery('#install_dialog').append('<p><span style="color:green;">Component upgraded successfully.</span></p>');
+                                            jQuery('#install_dialog').append('<p style="font-weight:bold;font-size:13px;text-decoration:underline;">Reload the page for all changes to take effect.</p>');
+                                            jQuery(element).val('Installed').css('color','red').attr('disabled','disabled');                                            
+                                        } else {
+                                            jQuery('#install_dialog').append('<p>'+update_res.html+'</p>');
+                                            var install_url = '<?php echo WWW_ROOT;?>administrator/index.php?option=com_'+name+'&url=install/index/task:upgrade&format=raw';
+                                            jQuery("#spinner").show();
+                                            jQuery.get(install_url,'',function(install_res)
+                                            {
+                                                jQuery("#spinner").fadeOut();
+                                                if(install_res.error==false)
+                                                {
+                                                    jQuery('#install_dialog').append('<p><span style="color:green;">Component upgraded successfully.</span></p>');
+                                                    jQuery('#install_dialog').append('<p style="font-weight:bold;font-size:13px;text-decoration:underline;">Reload the page for all changes to take effect.</p>');
+                                                    jQuery(element).val('Installed').css('color','red').attr('disabled','disabled');
+                                                } else {
+                                                    jQuery('#install_dialog').append('<p>'+install_res.html+'</p>');                                            
+                                                }
+                                            },'json');                                            
+                                        }                                       
+                                    } else {
+                                        jQuery('#install_dialog').append('<p style="color:red;">There was a problem extracting the new package.</p>');
+                                    }
+                                },'json');
+                            }
+                        }     
+                    },'json');
+            }
+        };        
+        
+        jQuery('#install_dialog').dialog('destroy').remove(); 
+        jQuery("body").append('<div id="install_dialog" class="dialog">'+jQuery('#install_dialog_orig').html()+'</div>');
+        jQuery('#install_dialog').dialog(settings);  
+    }
+}
+
+function removeAddon(element,name)
+{
+       var settings = {
+            'modal': true,
+            'autoOpen': true,
+            'buttons': {
+                    'Yes':function() { 
+                        jQuery.get(s2AjaxUri+'&url=admin_updater/_removeAddon/name:'+name,'',function(res)
+                            {                                             
+                                if(res.status == true)
+                                {
+                                    jQuery('#remove_dialog').html(res.html);
+                                    jQuery('.ui-dialog-buttonpane').slideUp();
+                                    jQuery(element).val('Removed').css('color','red').attr('disabled','disabled');
+                                } else {
+                                    jQuery('#remove_dialog').html(res.html);
+                                    jQuery('.ui-dialog-buttonpane').slideUp();
+                                }    
+                            },'json');
+                    },
+                    'No':function() { jQuery(this).dialog('close'); }
+            },
+            'width': '500px',
+            'height': 'auto',
+            'title':'Confirm addon removal',
+        };        
+        
+        jQuery('#remove_dialog').dialog('destroy').remove(); 
+        jQuery("body").append('<div id="remove_dialog" class="dialog">Are you sure you want to remove this addon ('+name+')? If this addon has any modules they will also be removed.</div>');
+        jQuery('#remove_dialog').dialog(settings);     
+}
+
+jQuery('#beta_versions').bind('change', function() {
+    jreviews_admin.dispatch({'controller':'admin_updater','action':'betas','data':{'data[updater_betas]':jQuery(this).is(':checked') ? '1' : '0'} ,'onComplete':function(){jQuery('#page').fadeOut();jreviews_admin.menu.load('admin_updater','index');}})
+});
+</script>
+        
+<div class="admin_header">Installer/Updater</div>
+
+<div class="jr_form" style="padding: 0 10px 10px 10px;">
+    <div class="jr_fieldDiv">
+    <label for="update_overwrite">Updates:</label>   
+    <input type="checkbox" id="update_overwrite" value="1"><u>I understand that the updates process will overwrite all previous files for the component or addon and I should have backups in case I've made any changes.</u>
+    
+    <label for="backup_confirm">Backups:</label>   
+    <input type="checkbox" id="backup_confirm" checked="checked" value="1">I want the updater to create a backup of my addon folder before the update. The folder will be renamed with the _bak suffix.
+    
+    <label for="beta_versions">Use Betas:</label>    
+    <input type="checkbox" id="beta_versions" <?php if($this->Config->updater_betas):?>checked="checked"<?php endif;?> name=="data[updater_betas]" value="1">I understand betas are not meant to be used for production sites, but I want to be alerted of new betas and have the ability to upgrade.
+    </div>
+</div>
+
+<h2>Components</h2>
+
+<form id="appForm" name="appForm">
+    <div id="AppTable">
+    
+        <table class="admin_list">
+            <tr>
+                <th width="150">Name</th>
+                <th width="">Description</th>
+                <th style="text-align:center;" width="150">Version</th>
+                <th style="text-align:center;" width="200">Actions</th>
+            </tr>
+            <?php foreach($remote_components AS $key=>$package):?>  
+            <tr id="package<?php echo $key;?>">
+                <td align="left"><?php echo $package['name'];?></td>
+                <td align="left"><?php echo $package['description'];?></td>
+                <td style="text-align:center;">
+                    <?php echo $package['version'];?><?php if(Sanitize::getInt($package,'is_beta')):?> <span class="jr_beta">beta!</span><?php endif;?>
+                    <?php if(isset($package['installed_version'])):?>
+                        <br />(installed <?php echo $package['installed_version'];?> <?php if(Sanitize::getInt($package,'installed_beta')):?> <span class="jr_beta">beta!</span><?php endif;?>)
+                    <?php endif;?>
+                </td>
+                <td style="text-align:center;">
+                    <?php if($package['status']==false):?>
+                    <button style="font-weight:bold;color:red;" class="ui-button ui-corner-all" onclick="return false;"><?php echo $status_msg[$package['status_msg']];?></button>
+                    <?php elseif($package['status']==true):?>
+                    <button style="font-weight:bold;color:green;" class="ui-button ui-corner-all" onclick="updaterDialog(this,'component','<?php echo $key;?>','<?php echo $package['version'];?>');return false;"><?php echo $status_msg[$package['status_msg']];?></button>
+                    <?php endif;?>
+                </td>
+            </tr>
+            <?php endforeach;?>
+        </table>                     
+    </div>
+</form>  
+
+<h2>Add-ons</h2>
+
+<form id="addonForm" name="addonForm">
+
+    <div id="AddonsTable">
+    
+        <table class="admin_list">
+            <tr>
+                <th width="150">Name</th>
+                <th width="">Description</th>
+                <th style="text-align:center;" width="150">Version</th>
+                <th style="text-align:center;" width="100">Required JReviews version</th>
+                <th style="text-align:center;" width="100">Type</th>
+                <th style="text-align:center;" width="200">Actions</th>
+            </tr>
+            <?php foreach($remote_addons AS $key=>$addon):?>    
+                <tr id="addon<?php echo $key;?>" >
+                    <td align="left"><?php echo $addon['name'];?></td>
+                    <td align="left"><?php echo $addon['description'];?></td>
+                    <td style="text-align:center;">
+                        <?php echo $addon['version'];?><?php if(Sanitize::getInt($addon,'is_beta')):?> <span class="jr_beta">beta!</span><?php endif;?> 
+                        <?php if(isset($addon['installed_version'])):?>
+                            <br />(installed <?php echo $addon['installed_version'];?> <?php if(Sanitize::getInt($addon,'installed_beta')):?> <span class="jr_beta">beta!</span><?php endif;?>)
+                        <?php endif;?></td>
+                    <td style="text-align:center;"><?php echo $addon['min_app_version_required'];?><br />(installed <?php echo $this->Config->version;?>)</td>
+                    <td style="text-align:center;"><?php echo $addon['type'];?></td>
+                    <td style="text-align:center;">
+                        <?php if($addon['status']==false && !in_array($addon['status_msg'],$uninstall_status)):?>
+                        <button style="font-weight:bold;color:red;" class="ui-button ui-corner-all" onclick="return false;"><?php echo $status_msg[$addon['status_msg']];?></button>
+                        <?php elseif($addon['status']==true):?>
+                        <button style="font-weight:bold;color:green;" class="ui-button ui-corner-all" onclick="updaterDialog(this,'addon','<?php echo $key;?>','<?php echo $addon['version'];?>');return false;"><?php echo $status_msg[$addon['status_msg']];?></button>
+                        <?php endif;?>
+                        <?php if(in_array($addon['status_msg'],$uninstall_status)):?>
+                        <button style="font-weight:bold;color:darkorange;" class="ui-button ui-corner-all" onclick="removeAddon(this,'<?php echo $key;?>');return false;"><?php __a("Remove");?></button>
+                        <?php endif;?>
+                    </td>
+                </tr>
+            <?php endforeach;?>
+        </table>                     
+    </div>
+</form>    
+
+<div id="install_dialog_orig" style="display:none;">
+    <p>Please wait ... connecting to the file server to retrieve the requested package ...</p>
+</div>

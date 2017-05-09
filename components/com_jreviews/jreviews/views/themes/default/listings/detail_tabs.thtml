@@ -1,0 +1,241 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**********************************************************************************
+ * 								CONFIGURATION AND SETUP
+ **********************************************************************************/
+
+// Media Setup
+$mainMedia = Sanitize::getVar($listing,'MainMedia');
+
+$photo_layout = Sanitize::getString($this->Config,'media_detail_photo_layout');
+
+$video_layout = Sanitize::getString($this->Config,'media_detail_video_layout');
+
+// Related listings tab setup
+$related_listings_enabled = 0;
+
+$related_listings = Sanitize::getVar($this->viewVars['listing']['ListingType']['config'],'relatedlistings',array());
+
+$userfavorites = Sanitize::getVar($this->viewVars['listing']['ListingType']['config'],'userfavorites',array());
+
+foreach ($related_listings AS $related_listing) {
+
+	if(Sanitize::getInt($related_listing,'enable',0)) {
+		$related_listings_enabled = 1;
+	}
+
+	elseif (Sanitize::getInt($userfavorites,'enable',0)) {
+		$related_listings_enabled = 1;
+	}
+}
+
+// Change to 1 if you want each field group to output inside its own tab
+$separate_field_groups = 0;
+
+// Prepare field groups to output in separate tabs
+if ($separate_field_groups) {
+	$groups = array();
+	foreach($listing['Field']['groups'] AS $group=>$fields){
+	    $groups[$group] = array($group=>$fields);
+	}
+}
+
+// Map
+$show_map = Sanitize::getBool($this->Config,'geomaps.enable_map_detail',true);
+
+$featured = Sanitize::getInt($listing['Listing'],'featured') ? ' jrFeatured' : '';
+
+// Schema.org
+$schema_itemtype = Sanitize::getString($this->Config,'schema_org_type','Article');
+
+// Summary/Description characters limit
+$char_limit = Sanitize::getInt($this->Config,'summary_desc_char_limit');
+
+$user_reviews = $this->Config->getOverride('user_reviews',$listing['ListingType']['config']);
+
+$editor_reviews = $this->Config->getOverride('author_review',$listing['ListingType']['config']);
+
+/**********************************************************************************
+ * 								META DATA
+ **********************************************************************************/
+if($this->action == 'detail') $this->element('page_meta');
+
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/?>
+
+<div class="jr-page jr-layout-outer jr-listing-detail jrPage jrListingDetail<?php echo $featured; ?>" itemscope itemtype="http://schema.org/<?php echo $schema_itemtype; ?>">
+
+	<?php
+		echo $this->renderControllerView('listings', 'detail_header', array(
+				'mainMedia' => $mainMedia,
+				'showEmptyCover' => $this->Config->listing_detail_header_empty_cover,
+				'showEmptyLogo' => $this->Config->listing_detail_header_empty_logo,
+				'showAvatarinHeader' => $this->Config->listing_detail_header_avatar,
+				'showAuthor' => $this->Config->list_show_author
+		));
+	?>
+
+	<?php if($this->name != 'listings'): // Only show when in com_content page?>
+
+		<?php /* MEDIA TOP - MAIN MEDIA AND COMPACT LAYOUT */ ?>
+
+		<?php echo $this->element('listing_detail_media',array('position'=>'top','mainMedia'=>$mainMedia));?>
+
+		<?php /* SUMMARY - DESCRIPTION */ ?>
+
+		<div class="jrListingFulltext <?php echo $char_limit > 0 ? 'jr-show-more' : ''; ?>" <?php echo $char_limit > 0 ? 'data-characters="'. $char_limit .'"' : ''; ?> itemprop="description">
+
+			<?php echo $listing['Listing']['text'] !== strip_tags($listing['Listing']['text']) ? $listing['Listing']['text'] : nl2br($listing['Listing']['text']);?>
+
+		</div>
+
+		<?php $Jreviews->loadPosition('below-description', $addonPosition); ?>
+
+		<?php /* SOCIAL BOOKMARKS */ ?>
+
+		<?php $Community->socialBookmarks($listing);?>
+
+		<?php $Jreviews->loadPosition('below-socialbookmarks', $addonPosition); ?>
+
+		<?php /* CUSTOM MODULE POSITION - jr-detail-below-socialbookmarks */ ?>
+
+		<?php $Jreviews->loadModulePosition('jr-detail-below-socialbookmarks'); ?>
+
+		<div class="jrClear"></div>
+
+		<div class="jr-tabs jrTabs">
+
+			<ul>
+
+				<?php if ($separate_field_groups): ?>
+
+			    <?php $i=0;foreach($groups AS $group_name=>$fieldGroup):$i++;?>
+			    <li><a href="#field_group<?php echo $i;?>"><span><?php echo $fieldGroup[$group_name]['Group']['title'];?></span></a></li>
+			    <?php endforeach;?>
+
+				<?php else:?>
+				<li><a href="#fieldsTab"><?php __t("Details");?></a></li>
+				<?php endif;?>
+
+				<?php if(isset($listing['Media']['photo']) && in_array($photo_layout, array('gallery_large','film_lightbox','film_linked'))):?>
+					<li><a href="#photoTab"><span class="jrIconPhoto"></span><?php __t("Photos");?></a></li>
+				<?php endif;?>
+
+				<?php if((isset($listing['Media']['video']) || (isset($listing['MainMedia']) && $listing['MainMedia']['media_type'] == 'video')) && in_array($video_layout, array('video_player','film_lightbox','film_linked'))):?>
+					<li><a href="#videoTab"><span class="jrIconVideo"></span><?php __t("Videos");?></a></li>
+				<?php endif;?>
+
+				<?php if($listing['Listing']['attachment_count'] && !empty($listing['Media']['attachment'])):?>
+					<li><a href="#attachmentTab"><span class="jrIconAttachment"></span><?php __t("Attachments");?></a></li>
+				<?php endif;?>
+
+				<?php if($listing['Listing']['audio_count'] && !empty($listing['Media']['audio'])):?>
+					<li><a href="#audioTab"><span class="jrIconAudio"></span><?php __t("Audio");?></a></li>
+				<?php endif;?>
+
+				<?php if($show_map && isset($listing['Geomaps']) && abs($listing['Geomaps']['lat']) > 0 && abs($listing['Geomaps']['lon']) > 0):?>
+					<li><a href="#mapTab"><span class="jrIconMap"></span><?php __t("Map");?></a></li>
+				<?php endif;?>
+
+				<?php if(($user_reviews || $editor_reviews) && $listing['Criteria']['state'] == 1):?>
+					<li><a href="#reviewsTab"><span class="jrIconUsers"></span><?php __t("Reviews");?></a></li>
+				<?php elseif(($user_reviews || $editor_reviews) && $listing['Criteria']['state'] == 2):?>
+					<li><a href="#reviewsTab"><span class="jrIconComments"></span><?php __t("Comments");?></a></li>
+				<?php endif;?>
+
+				<?php if($related_listings_enabled):?>
+					<li class="jrHidden"><a href="#jrRelatedListings"><?php __t("Related Listings");?></a></li>
+				<?php endif;?>
+
+			</ul>
+
+			<?php echo $this->element('listing_detail_media',array('position'=>'bottom-tabs','mainMedia'=>$mainMedia));?>
+
+			<?php if ($separate_field_groups): ?>
+
+		    <?php $i=0;foreach($groups AS $group_name=>$fieldGroup):$i++;?>
+		    <div id="field_group<?php echo $i;?>"><?php echo $CustomFields->displayAll($listing,'content',$group_name);?></div>
+		    <?php endforeach;?>
+
+    		<?php else:?>
+			<div id="fieldsTab">
+
+				<?php /* CUSTOM FIELDS */ ?>
+
+				<?php echo $CustomFields->displayAll($listing,'content');?>
+
+				<?php /* CUSTOM MODULE POSITION - jr-detail-below-fields */ ?>
+
+				<?php $Jreviews->loadModulePosition('jr-detail-below-fields'); ?>
+
+				<?php $Jreviews->loadPosition('below-fields', $addonPosition); ?>
+
+			</div>
+			<?php endif;?>
+
+			<?php if($show_map && isset($listing['Geomaps']) && abs($listing['Geomaps']['lat']) > 0 && abs($listing['Geomaps']['lon']) > 0):?>
+
+			<div id="mapTab">
+
+				<?php echo $this->renderControllerView('geomaps','map_detail');?>
+
+				<div class="jrClear"></div>
+
+			</div>
+
+			<?php endif;?>
+
+			<?php if(($user_reviews || $editor_reviews) && $listing['Criteria']['state'] != 0):?>
+
+			<div id="reviewsTab">
+
+				<?php /* EDITOR REVIEWS */ ?>
+
+				<?php echo $this->renderControllerView('reviews','editor_reviews',array('reviews'=>$editor_review,'listing'=>$listing));?>
+
+				<?php /* CUSTOM MODULE POSITION - jr-detail-below-editorreviews */ ?>
+
+				<?php $Jreviews->loadModulePosition('jr-detail-below-editorreviews'); ?>
+
+				<?php $Jreviews->loadPosition('below-editorreviews', $addonPosition); ?>
+
+				<?php /* USER REVIEWS */ ?>
+
+				<?php echo $this->renderControllerView('reviews','user_reviews',array('reviews'=>$reviews,'listing'=>$listing));?>
+
+				<?php $Jreviews->loadPosition('below-userreviews', $addonPosition); ?>
+
+			</div>
+
+			<?php endif;?>
+
+			<?php if($related_listings_enabled):?><div id="jrRelatedListings"></div><?php endif;?>
+
+		</div>
+
+	<?php else: ?>
+
+		<?php /* EDITOR REVIEWS */ ?>
+
+		<?php echo $this->renderControllerView('reviews','editor_reviews',array('reviews'=>$editor_review,'listing'=>$listing));?>
+
+		<?php /* USER REVIEWS */ ?>
+
+		<?php echo $this->renderControllerView('reviews','user_reviews',array('reviews'=>$reviews,'listing'=>$listing));?>
+
+	<?php endif;?>
+
+</div>
+
+<?php if($related_listings_enabled && $this->name != 'listings'):?>
+	<?php $Widgets->relatedListingsJS($listing); /* Creates an javascript object with data for widget calls */ ?>
+<?php endif;?>

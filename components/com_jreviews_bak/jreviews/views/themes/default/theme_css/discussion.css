@@ -1,0 +1,75 @@
+/*************************************
+DISCUSSION 
+*************************************/
+div.jr_discussion {}
+    
+/* Container <div> for individual list items  */
+div.jr_discussion div.listItem {
+    clear: both; 
+    border-top: solid 1px #ddd; 
+    margin: 0 0 10px 0 !important; 
+    padding-top: 10px; 
+}
+
+div.jr_discussion div.contentTitle, 
+div.jr_discussion div.contentTitle a {
+    font-size: 20px; 
+    font-weight: normal; 
+    line-height: 1.3em;
+}
+
+div.jr_discussion div.contentActions {
+    border: 0; 
+    padding: 0;
+}
+
+div.jr_discussion div.contentSubtitle {
+    margin-bottom: .7em; 
+}
+
+/***** container for the thumbnail and content ratings *****/
+div.jr_discussion .contentColumn {
+    float: right; 
+    margin: 0 0 20px 20px;  
+    text-align: center;
+    width: 150px;
+}
+
+div.jr_discussion div.contentThumbnail {
+    float: right;
+    clear: left;
+    border: solid 1px #ccc;
+    padding: 1px;
+    margin-right: 5px;
+}
+
+div.jr_discussion  .reviewColumn {
+	clear: both;
+}
+    
+div.jr_discussion #jr_postNewComment {
+    margin: 15px 0 15px 0;
+}
+
+div.jr_discussion .jr_postReplyLink {
+    margin-top: 5px;
+    font-size: 1.05em;
+}
+
+div.jr_discussion .jr_postCommentHeader {
+    display: none;
+    font-size: 1.15em;
+}  
+
+div.jr_discussion .jr_postSubmitMessage {
+    display: none;
+    background-color: #FEFF9F;
+    margin: 10px;
+    padding: 4px;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-weight: bold; 
+}
+div.jr_discussion .jr_discussionReply {
+	margin-left: 15px;
+}	

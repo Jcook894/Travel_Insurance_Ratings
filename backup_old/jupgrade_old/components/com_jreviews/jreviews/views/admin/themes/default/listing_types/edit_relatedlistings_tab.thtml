@@ -1,0 +1,286 @@
+<div id="listing-type-relatedlistings<?php echo $i;?>">
+    <fieldset>
+
+        <legend>Module Settings</legend>
+        
+        <div class="jr_fieldDiv">
+            <label>Enable Module</label>
+            <div>
+                <?php 
+                echo $Form->radioYesNo(
+                    'data[Criteria][config][relatedlistings]['.$i.'][enable]',
+                    '',
+                    array('value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'enable', 0))
+                );
+                ?>
+            </div>
+        </div>
+                                            
+        <div class="jr_fieldDiv">   
+            <label>Module Title</label>
+            <div>       
+                    <?php echo $Form->text(
+                        'data[Criteria][config][relatedlistings]['.$i.'][title]',
+                        array('style'=>'width:300px;','value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'title'))
+                    );?> Use the {title} tag to add the current listing title
+            </div>
+        </div>
+
+        <div class="jr_fieldDiv">
+            <label>Target Element ID</label>
+            <div>
+                    <?php echo $Form->text(
+                        'data[Criteria][config][relatedlistings]['.$i.'][target_id]',
+                        array('value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'target_id','jrRelatedListings'))
+                    );?> Output rendered in html element with this id. Default is "jrRelatedListings" 
+            </div>
+        </div>
+
+        <div class="jr_fieldDiv">
+            <label>Target Element Class</label>
+            <div>
+                    <?php echo $Form->text(
+                        'data[Criteria][config][relatedlistings]['.$i.'][target_class]',
+                        array('value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'target_class'))
+                    );?> Output rendered in html element with this class. Used instead of target id.
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Main Setup</legend>
+        
+        <div class="jr_fieldDiv">
+            <label>Field Name</label>
+            <div>
+                    <?php echo $Form->text(
+                        'data[Criteria][config][relatedlistings]['.$i.'][curr_fname]',
+                        array('value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'curr_fname'))
+                    );?>
+            </div>
+        </div>
+        
+        <div class="jr_fieldDiv">
+            <label>Find Listings Where</label>
+            <div>
+                    <?php echo $Form->select(
+                        'data[Criteria][config][relatedlistings]['.$i.'][match]',
+                        array(
+                            'id'=>'The specified field matches current listing id (Related Listing Field)',
+                            'about'=>'The listing id matches the value of the specifeid field (About Related Listing)',
+                            'field'=>'The specified field matches the current listing field of the same name',
+                            'title'=>'The specified field matches the current listing title',
+                            'diff_field'=>'The specified field (above) matches the current listing field (below)',
+                            'owner'=>'The listing owner matches the current listing owner'
+                        ),
+                        Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'match'),
+                        array('class'=>'match')
+                    );?>
+            </div>
+        </div>    
+        
+        <div class="jr_fieldDiv">
+            <label>Match Field Name</label>
+            <div>
+                    <?php echo $Form->text(
+                        'data[Criteria][config][relatedlistings]['.$i.'][match_fname]',
+                        array('value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'match_fname'))
+                    );?>
+            </div>
+        </div>  
+        
+        <div class="jr_fieldDiv">
+            <label>Listing Types Filter</label>
+            <div>
+                    <?php echo $Form->select(
+                        'data[Criteria][config][relatedlistings]['.$i.'][criteria]', // criteria is the same param name used in modules
+                        $listingTypes,
+                        Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'criteria'),
+                        array('multiple'=>'multiple','class'=>'multiselect')
+                    );?>
+            </div>
+        </div>                                
+
+        <div class="jr_fieldDiv">
+            <label>Listings Ordering</label>
+            <div>
+                    <?php echo $Form->select(
+                        'data[Criteria][config][relatedlistings]['.$i.'][listing_order]',
+                        array(
+                            'rdate'=>'Most Recent',
+                            'rating'=>'Top User Rated',
+                            'rrating'=>'Worst User Rated',
+                            'topratededitor'=>'Top Editor Rated',
+                            'reviews'=>'Most Reviewed',
+                            'featured'=>'Featured',
+                            'rhits'=>'Popular',
+                        ),
+                        Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'listing_order','rdate')                                            );?>
+            </div>
+        </div>
+        
+        <div class="jr_fieldDiv">
+            <label>Custom Order</label>
+            <div>
+                    <?php echo $Form->text(
+                        'data[Criteria][config][relatedlistings]['.$i.'][custom_order]',
+                        array('class'=>'tooltipUp','title'=>'Order by custom field, for example Field.jr_eventdate DESC','value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'custom_order',''))
+                    );?>
+            </div>
+        </div>
+
+        <div class="jr_fieldDiv">
+            <label>Theme Suffix</label>
+            <div>
+                    <?php echo $Form->text(
+                        'data[Criteria][config][relatedlistings]['.$i.'][tmpl_suffix]',
+                        array('value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'tmpl_suffix'))
+                    );?>
+            </div>
+        </div>  
+        
+        <div class="jr_fieldDiv">
+            <label>Max. Number of Results</label>
+            <div>
+                    <?php echo $Form->text(
+                        'data[Criteria][config][relatedlistings]['.$i.'][module_total]',
+                        array('class'=>'shortField','value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'module_total','12'))
+                    );?>
+            </div>
+        </div>   
+
+        <div class="jr_fieldDiv">
+            <label>Results per Page</label>
+            <div>
+                    <?php echo $Form->text(
+                        'data[Criteria][config][relatedlistings]['.$i.'][module_limit]',
+                        array('class'=>'shortField','value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'module_limit','6'))
+                    );?>
+            </div>
+        </div>   
+                                    
+        <div class="jr_fieldDiv">
+            <label>Columns</label>
+            <div>
+                    <?php echo $Form->text(
+                        'data[Criteria][config][relatedlistings]['.$i.'][columns]',
+                        array('class'=>'shortField','value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'columns','3'))
+                    );?>
+            </div>
+        </div>                                                                
+    </fieldset>
+
+    <fieldset>
+        <legend>Thumbnail Settings</legend>
+    
+            <div class="jr_fieldDiv">
+                <label>Show Thumbnail</label>
+                <div>
+                    <?php 
+                    echo $Form->radioYesNo(
+                        'data[Criteria][config][relatedlistings]['.$i.'][tn_show]',
+                        '',
+                        array('value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'tn_show', 1))
+                    );
+                    ?>
+                </div>
+            </div>
+            
+            <div class="jr_fieldDiv">
+                <label>Thumbnail Type</label>
+                <div>
+                    <?php 
+                    echo $Form->radio(
+                        'data[Criteria][config][relatedlistings]['.$i.'][tn_mode]',
+                        array('crop'=>'Crop','scale'=>'Scale'),
+                        array('div'=>false,'value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'tn_mode','crop'))
+                    );
+                    ?>
+                </div>
+            </div>
+          
+            <div class="jr_fieldDiv">
+                <label>Thumbnail Width</label>
+                <div>
+                        <?php echo $Form->text(
+                            'data[Criteria][config][relatedlistings]['.$i.'][tn_width]',
+                            array('class'=>'shortField','value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'tn_width','100'))
+                        );?>px
+                </div>
+            </div>   
+               
+    </fieldset>
+    
+    <?php /*
+    <fieldset>
+        <legend>Comparison</legend>
+                                 
+        <div class="jr_fieldDiv">
+            <label>Show Compare Button</label>
+            <div>
+                <?php 
+                echo $Form->radioYesNo(
+                    'data[Criteria][config][relatedlistings]['.$i.'][compare]',
+                    '',
+                    array('value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'compare', 0))
+                );
+                ?>
+            </div>
+        </div>
+    </fieldset>
+    */ ?>
+                    
+    <fieldset>
+        <legend>Pagination &amp; Slideshow</legend>
+
+        <div class="jr_fieldDiv">
+            <label>Pagination Position</label>
+            <div>
+                <?php 
+                echo $Form->radio(
+                    'data[Criteria][config][relatedlistings]['.$i.'][nav_position]',
+                    array('bottom'=>'Bottom','side'=>'Sides'),
+                    array('div'=>false,'value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'nav_position','side'))
+                );
+                ?>
+            </div>
+        </div>
+
+        <div class="jr_fieldDiv">
+            <label>Module Orientation</label>
+            <div>
+                <?php 
+                echo $Form->radio(
+                    'data[Criteria][config][relatedlistings]['.$i.'][orientation]',
+                    array('horizontal'=>'Horizontal','vertical'=>'Vertical'),
+                    array('div'=>false,'value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'orientation','horizontal'))
+                );
+                ?>
+            </div>
+        </div>
+
+        <div class="jr_fieldDiv">
+            <label>Enable Slideshow</label>
+            <div>
+                <?php 
+                echo $Form->radioYesNo(
+                    'data[Criteria][config][relatedlistings]['.$i.'][slideshow]',
+                    '',
+                    array('value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'slideshow', 0))
+                );
+                ?>
+            </div>
+        </div>
+
+        <div class="jr_fieldDiv">
+            <label>Slideshow Interval</label>
+            <div>
+                    <?php echo $Form->text(
+                        'data[Criteria][config][relatedlistings]['.$i.'][slideshow_interval]',
+                        array('class'=>'shortField','value'=>Sanitize::getVar($criteria['ListingType']['config']['relatedlistings'][$i],'slideshow_interval','6'))
+                    );?>secs
+            </div>
+        </div>   
+    </fieldset>                            
+
+</div><!-- end relatedlistings -->

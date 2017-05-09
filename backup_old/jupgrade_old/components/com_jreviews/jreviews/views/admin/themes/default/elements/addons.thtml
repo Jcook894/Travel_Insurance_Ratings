@@ -1,0 +1,52 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php if(!empty($JreviewsAddons)):?>
+
+<script type="text/javascript">    
+jQuery(document).ready(function() {    
+    <?php foreach($JreviewsAddons AS $addon):?>
+        <?php if($addon!='paidlistings'):?>
+            jQuery('#<?php echo $addon;?>').bind('click',function() 
+            {
+                <?php $addon_menu = Sanitize::stripWhitespace($this->renderControllerView($addon,'menu'));?>
+                jQuery('#jr_adminPage').scrollTo({'duration':250})
+                jQuery('#main_modules').slideUp('slow',function(){
+                    jQuery('#addon_module').html('<?php echo $addon_menu;?>').slideDown('slow',function(){  
+                        jreviews_admin.menu.load('admin_<?php echo $addon;?>','index');                                
+                    });
+                });          
+                return false;           
+            });
+        <?php endif;?>
+    <?php endforeach;?>
+});
+</script>
+                  
+<table width="165" class="sidemenu-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+<tr>
+    <td>
+    <div class="title-menu">Addons</div>
+    <div style="display:block; margin:0px; padding:0px;">
+        <ul class="title-submenu">
+        <?php foreach($JreviewsAddons AS $addon):?>
+            <?php if($addon!='paidlistings'):?>
+            <li><a id="<?php echo $addon;?>" href="#<?php echo Inflector::slug($addon,'-');?>"><?php echo Inflector::camelize($addon);?></a></li>
+            <?php else:?>
+            <li><a id="<?php echo $addon;?>" href="index.php?option=com_jreviews&url=admin_<?php echo Inflector::slug($addon,'-');?>/index"><?php echo Inflector::camelize($addon);?></a></li>
+            <?php endif;?>
+        <?php endforeach;?>
+        </ul>
+    </div>
+    </td>
+</tr>
+</table>
+<?php endif;?>

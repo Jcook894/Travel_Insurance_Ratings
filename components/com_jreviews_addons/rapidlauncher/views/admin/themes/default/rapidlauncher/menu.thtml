@@ -1,0 +1,37 @@
+<?php
+/**
+ * RapidLauncher Addon for JReviews
+ * Copyright (C) 2010-2016 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die;
+?>
+
+<div class="jrMenuModule">
+
+    <button class="jr-main-menu jrButton"><span class="jrIconPrev"></span><?php __a("Back to JReviews");?></button>
+
+    <div class="jrMenuModuleHeader"><?php __a("HEADING_RAPIDLAUNCHER_ADDON");?></div>
+
+    <div class="jrMenuModuleContent">
+
+        <ul>
+
+            <li>
+
+                <a href="javascript:void(0)" class="jr-menu" data-controller="admin_rapidlauncher" data-action="index">
+
+                    <?php __a("HEADING_RAPIDLAUNCHER_ADDON");?>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>

@@ -1,0 +1,54 @@
+<script type="text/javascript">
+jQuery(document).ready(function() { jreviews.common.initForm('jr_postCommentForm<?php echo $discussion_id;?>'); });
+</script>
+
+<div id="jr_postCommentFormOuter<?php echo $discussion_id;?>" style="display:none;">
+
+    <form id="jr_postCommentForm<?php echo $discussion_id;?>" class="jr_form jr_formContainer" name="jr_postCommentForm<?php echo $discussion_id;?>" action="">
+
+        <?php if($discussion_id>0):?>
+            <div id="jr_postCommentHeader<?php echo $discussion_id;?>" style="display:none;"><?php echo sprintf(__t("Reply to %s's comment",true),$Community->screenName($post,false));?></div>
+        <?php endif;?>
+        
+        <?php if(!$User->id && in_array($this->Config->discussform_name,array('required','optional'))):?>
+            <div class="jr_fieldDiv">
+                <label><?php __t("Name");?><?php if($this->Config->discussform_name=='required'):?><span class="required">*</span><?php endif;?></label>
+                <?php echo $Form->text('data[Discussion][name]',array('id'=>'jr_postCommentName'.$discussion_id,'value'=>'','class'=>'jrName','size'=>50,'maxlength'=>100)); // {READONLY}?>
+            </div>            
+        <?php endif;?>
+
+        <?php if(!$User->id && in_array($this->Config->discussform_email,array('required','optional'))):?>                
+            <div class="jr_fieldDiv">
+                <label><?php __t("Email");?><?php if($this->Config->discussform_email=='required'):?><span class="required">*</span><?php endif;?></label>
+                <?php echo $Form->text('data[Discussion][email]',array('id'=>'jr_postCommentEmail'.$discussion_id,'value'=>'','class'=>'jrEmail','size'=>50,'maxlength'=>100)); // {READONLY}?>
+            </div>
+        <?php endif;?>            
+        
+        <div class="jr_fieldDiv"> 
+            <textarea id="jr_postCommentText<?php echo $discussion_id;?>" name="data[Discussion][text]" rows="8" cols="200" class="jrTextArea"></textarea>               
+        </div>
+        
+        <?php if($Access->showCaptcha()):?>
+            <div class="jr_fieldDiv">
+                <div class="jr_captcha" style="float: left;"></div><div>&nbsp;&nbsp;<input name="data[Captcha][code]" type="text" class="jr_captcha_code" size="5" maxlength="5" />&nbsp;&nbsp;<?php __t("Please enter the security code.");?></div>
+                <div class="clr">&nbsp;</div>
+            </div>    
+        <?php endif;?>
+                
+        <div class="jr_fieldDiv"> 
+            <button type="button" class="jrButton" onclick="jreviews.discussion.submit(this);"><?php __t("Submit");?></button>
+            <button type="button" class="jrButton" onclick="jreviews.discussion.cancel(this,{discussion_id:<?php echo $discussion_id;?>});"><?php __t("Cancel");?></button>
+            <span class="jr_loadingSmall jr_hidden"></span>
+        </div>
+       
+        <input name="data[Discussion][parent_post_id]" type="hidden" value="<?php echo $discussion_id;?>" />
+        <input name="data[Discussion][review_id]" type="hidden" value="<?php echo $review['Review']['review_id'];?>" />
+        <input name="data[Discussion][type]" type="hidden" value="review" />  
+        <input name="data[controller]" type="hidden" value="discussions" />                                                              
+        <input name="data[action]" type="hidden" value="_save" />                                                              
+        <input type="hidden" name="format" value="raw" />     
+        <input type="hidden" name="Itemid" value="<?php echo $public_menu_id;?>" />         
+        <?php echo cmsFramework::getTokenInput();?>
+    </form>    
+    
+</div>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/component-install.dtd">
+<install type="component" version="1.5.0">
+	<name>JEPUMExtension</name>
+	<author>Web Responsive</author>
+	<creationDate>January 2011</creationDate>
+	<authorEmail>kh@web-responsive.com</authorEmail>
+	<authorUrl>http://www.web-responsive.com</authorUrl>
+	<copyright>(c) 2011 Web Responsive</copyright>
+	<version>3.0.0</version>
+	<description>JEPUM - Joomla Easy Picture Uploader and Manager Extension is a Joomla extension that makes it really easy to manage pictures on a Joomla site with the JEPUM Flex application.</description>
+
+    <!-- Custom install/uninstall files -->
+	<installfile>install.JEPUMExtension.php</installfile>
+	<uninstallfile>uninstall.JEPUMExtension.php</uninstallfile>
+
+    <!-- DB -->
+	<install>
+		<sql />
+	</install>
+	<uninstall>
+		<sql />
+	</uninstall>
+
+	<!-- File Copy Section -->
+	<files>
+		<filename>services/Authentication.php</filename>
+		<filename>services/FileManager.php</filename>
+
+		<!-- These files are used to create the J-AMFPHP entry point -->
+		<filename>amfphp/includes/application.php</filename>
+		<filename>amfphp/includes/defines.php</filename>
+		<filename>amfphp/includes/framework.php</filename>
+		<filename>amfphp/includes/index.html</filename>
+		<filename>amfphp/index.php</filename>
+		<filename>amfphp/gateway.php</filename>
+
+		<filename>libraries/amfphp/json.php</filename>
+		<filename>libraries/amfphp/phpinfo.php</filename>
+		<filename>libraries/amfphp/xmlrpc.php</filename>
+		<filename>libraries/amfphp/.htaccess</filename>
+
+		<!-- AMFPHP core Folder -->
+		<filename>libraries/amfphp/core/amf/readme.txt</filename>
+		<filename>libraries/amfphp/core/amf/app/Actions.php</filename>
+		<filename>libraries/amfphp/core/amf/app/Filters.php</filename>
+		<filename>libraries/amfphp/core/amf/app/Gateway.php</filename>
+		<filename>libraries/amfphp/core/amf/io/AMFBaseDeserializer.php</filename>
+		<filename>libraries/amfphp/core/amf/io/AMFBaseSerializer.php</filename>
+		<filename>libraries/amfphp/core/amf/io/AMFDeserializer.php</filename>
+		<filename>libraries/amfphp/core/amf/io/AMFSerializer.php</filename>
+		<filename>libraries/amfphp/core/amf/util/AMFObject.php</filename>
+		<filename>libraries/amfphp/core/amf/util/DateWrapper.php</filename>
+		<filename>libraries/amfphp/core/amf/util/DescribeService.php</filename>
+		<filename>libraries/amfphp/core/amf/util/PageAbleResult.php</filename>
+		<filename>libraries/amfphp/core/amf/util/TraceHeader.php</filename>
+		<filename>libraries/amfphp/core/amf/util/WrapperClasses.php</filename>
+		<filename>libraries/amfphp/core/json/app/Actions.php</filename>
+		<filename>libraries/amfphp/core/json/app/Gateway.php</filename>
+		<filename>libraries/amfphp/core/xmlrpc/app/Actions.php</filename>
+		<filename>libraries/amfphp/core/xmlrpc/app/Gateway.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/adodbAdapter.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/doctrineAdapter.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/fbsqlAdapter.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/informixAdapter.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/mssqlAdapter.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/mysqlAdapter.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/mysqliAdapter.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/mysqliobjectAdapter.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/oci8Adapter.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/odbcAdapter.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/pdoAdapter.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/peardbAdapter.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/pgsqlAdapter.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/plainrecordsetAdapter.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/RecordSetAdapter.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/sqliteAdapter.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/sqliteobjectAdapter.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/zendrowAdapter.php</filename>
+		<filename>libraries/amfphp/core/shared/adapters/zendrowsetAdapter.php</filename>
+		<filename>libraries/amfphp/core/shared/app/BasicActions.php</filename>
+		<filename>libraries/amfphp/core/shared/app/BasicGateway.php</filename>
+		<filename>libraries/amfphp/core/shared/app/Constants.php</filename>
+		<filename>libraries/amfphp/core/shared/app/Globals.php</filename>
+		<filename>libraries/amfphp/core/shared/app/php4Executive.php</filename>
+		<filename>libraries/amfphp/core/shared/app/php5Executive.php</filename>
+		<filename>libraries/amfphp/core/shared/exception/MessageException.php</filename>
+		<filename>libraries/amfphp/core/shared/exception/php4Exception.php</filename>
+		<filename>libraries/amfphp/core/shared/exception/php5Exception.php</filename>
+		<filename>libraries/amfphp/core/shared/util/Authenticate.php</filename>
+		<filename>libraries/amfphp/core/shared/util/CharsetHandler.php</filename>
+		<filename>libraries/amfphp/core/shared/util/CompatPhp4.php</filename>
+		<filename>libraries/amfphp/core/shared/util/CompatPhp5.php</filename>
+		<filename>libraries/amfphp/core/shared/util/functions.php</filename>
+		<filename>libraries/amfphp/core/shared/util/Headers.php</filename>
+		<filename>libraries/amfphp/core/shared/util/JSON.php</filename>
+		<filename>libraries/amfphp/core/shared/util/MessageBody.php</filename>
+		<filename>libraries/amfphp/core/shared/util/MessageHeader.php</filename>
+		<filename>libraries/amfphp/core/shared/util/MethodTable.php</filename>
+		<filename>libraries/amfphp/core/shared/util/NetDebug.php</filename>
+	</files>
+
+	<administration />
+</install>

@@ -1,0 +1,29 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php 
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+?>
+
+<div class="jr_fieldDiv">
+	<label><?php __t("Category");?></label>
+	<?php echo $Form->select('data[categories]', $categoryList, null, array('class'=>'jrSelect','multiple'=>'multiple','size'=>5));?>
+</div>
+
+<?php echo $CustomFields->makeFormFields($searchFields,'listing',1, __t("Select",true));?>
+
+<div class="jr_fieldDiv">
+	<input type="submit" value="<?php __t("Search");?>" class="jrButton" />
+	<input type="button" value="<?php __t("Cancel");?>" onclick="history.back();" class="jrButton" />
+</div>

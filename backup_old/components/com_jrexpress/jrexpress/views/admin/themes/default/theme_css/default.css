@@ -1,0 +1,295 @@
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This stylesheet is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+/* new classes */
+#page select option {
+	padding-right:10px;	
+}
+
+/* general purpose description box */
+div.admin_description {
+	padding: 5px;
+	margin: 10px;
+	border: 1px solid #ccc;
+	line-height:1.25em;
+	font-size:110%;
+	}
+div.admin_description li{
+	margin-left: 20px;
+}
+
+div.admin_header {
+	font-size: 22px; font-weight: bold; color: #0B55C4; line-height: 48px;
+/*	padding-left: 55px;*/
+	background-repeat: no-repeat;
+	margin-left: 10px;
+}
+
+div.admin_filter {
+	text-align: left;
+	height: 25px;
+	font-size: 1.25em;
+	margin-bottom: 10px;
+}
+
+div.admin_filter select {
+	font-size:1.25em;
+}
+
+div.admin_filter .instructions {
+	font-size:85%;
+}
+
+div.admin_toolbar {
+	text-align: right;
+	margin-bottom: 10px;
+}
+#status {
+	display:none;
+	width:100%;
+	text-align:center;
+	height:25px;
+	font-weight:bold;
+	font-size:14px;
+	color:green;
+}
+
+/* Admin table class */
+table.admin_list {
+	width: 100%;
+	border-spacing: 1px;
+	background-color: #e7e7e7;
+	color: #000;
+}
+
+table.admin_list ul, table.admin_list ol {
+	margin-left: 15px;
+}
+
+table.admin_list input {
+	height: 2em;}
+
+table.admin_list td,
+table.admin_list th { padding: 4px; }
+
+table.admin_list thead th {
+	text-align: center;
+	background: #fff;
+	color: #666;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #fff;
+}
+
+table.admin_list td {
+	text-align: left;
+}
+
+table.admin_list a {
+	font-size:11.5px;
+}
+
+table.admin_list thead a:hover { text-decoration: none; }
+
+table.admin_list thead th img { vertical-align: middle; }
+
+table.admin_list tbody th { font-weight: bold; }
+
+table.admin_list tbody tr { background-color: #fff;  text-align: left; }
+
+table.admin_list tbody tr td 	   { height: 25px; border: 1px solid #fff; }
+
+table.admin_list tfoot tr { text-align: center;  color: #333; }
+table.admin_list tfoot td,
+table.admin_list tfoot th { background-color: #f3f3f3; border-top: 1px solid #999; text-align: center; }
+
+/* Reviews moderation */
+.jr_revType {
+	text-align: center;
+	border: 1px solid #696969;
+	background-color:#FEFFBF;
+	font-size: 9px;
+	color: #FF4500;
+	font-weight: bolder;
+}
+
+/* Field_advanced_options */
+.advoption_outer {
+	background-color:#FEFFBF;
+	border: 1px solid #CCC;
+}
+/*
+table.advoptionlist {
+	background-color:#FEFFBF;
+	border: 1px solid #5F5F5F;
+	border-spacing: 0px;
+	width: 100%;
+	border-collapse: collapse;
+	padding: 2px;
+}
+table.advoptionlist td {
+	border-bottom: 1px solid #5F5F5F;
+	padding: 4px;
+}
+*/
+.outputformat {
+	width: 95%;
+	height: 100px;
+}
+/*--END field_advanced_options --*/
+
+.header-admin {
+	padding: 5px;
+	margin-bottom: 10px;
+	border: 1px solid #CCCCCC;
+	background-color: #CCCCCC;
+	font-weight: bold;
+	clear: right;
+	height: 2em;
+}
+.button {
+	font-size: 120%;
+	padding: 4px;
+	border:1px outset #8F8F8F;
+	font-weight:bold;
+/*	background-color:#FFD40F;
+	border:2px outset #FFD40F;
+	color:#000;
+	font-size:12px;
+	font-weight:bold;
+	padding:4px;
+	text-transform: uppercase;
+	*/
+}
+.fix-it {
+	background-color:#d1ec4c;
+	border:2px outset #d1ec4c;
+	color:#000;
+	font-size:12px;
+	letter-spacing:2px;
+	font-weight:bold;
+	width:75px;
+	height:20px;
+}
+.fix-it-hover {
+	background-color:#e3f48e;
+	border:2px inset #d1ec4c;
+	color:#000;
+	font-size:12px;
+	letter-spacing:2px;
+	font-weight:bold;
+	width:75px;
+	height:20px;
+	padding-top: 2px;
+	padding-right: 2px;
+}
+.mainbody-box {border: 1px solid #CFCFCF;color: #4F4F4F;}
+.mainbody-box td {font-size: 12px;padding: 3px;vertical-align:top;}
+.mainbody-box th {
+	font-size: 12px;
+	background-color: #EBEBEB;
+	margin: 0;
+	border: 1px solid #ccc;
+	padding: 3px;
+	text-indent: 0px;
+	margin-bottom: 2px;
+	color: #666;
+	cursor: pointer;
+	text-align:left;
+}
+.stats-box-label {text-align:left;border:1px solid #FFF;width:80%;background-color:#F7F7F7;}
+.stats-box-value {border:1px solid #CCC;width:20%;text-align:right;background-color:#FFF;}
+.install-box-label {text-align:left;padding-top:3px;border:1px solid #FFF;background-color:#F7F7F7;}
+.install-box-status {border:1px solid #CCC;text-align:center;background-color:#FFF;width:25px;}
+.install-box-info {text-align:left;border:1px solid #FFF;background-color:#F7F7F7;}
+.install-box-infoinstall-err {text-align:left;border:1px solid #FFF;color:#FFF;background-color:#BF0000;}
+.install-war {color:#000;background-color:#FEFF6F;}
+.install-err {color:#FFF;background-color:#BF0000;}
+.install-err a {color:#FFF;}
+.sidemenu-box {
+	background-color:#F7F7F7;
+	border: 1px solid #CFCFCF;
+	padding-bottom: 2px;
+	margin-bottom:5px;
+	width:170px;}
+.title-box {
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0;
+	padding: 0 5px;
+	color: #0B55C4;
+	margin-bottom: 5px;
+}
+.sidemenu-box ul {
+	padding-left: 14px;
+	padding-top: 2px;
+	margin-bottom: 1px;
+	margin-top: 0px;
+	text-align: left;
+}
+.title-menugroup {
+	font-size: 10px;
+	font-weight: bold;
+	text-align: center;
+}
+.title-menu {
+	margin: 0;
+	border: 1px solid #ccc;
+	padding: 3px;
+	text-indent: 0px;
+	margin-bottom: 2px;
+	color: #666;
+	cursor: pointer;
+	font-size: 10px;
+	background-color: #EBEBEB;
+}
+.title-submenu {
+	margin-left: 3px;
+	padding-left: 0px;
+	padding-bottom: 2px;
+}
+.title-submenu ul {
+	margin-left: 3px;
+}
+.title-submenu li a {
+	font-family: 'Trebuchet MS', 'Lucida Grande',
+	  Verdana, Lucida, Geneva, Helvetica,
+	  Arial, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	display: block;
+	cursor: pointer;
+	padding-top: 0px !important;
+	padding-top: 5px;
+	height: 18px;
+}
+.title-submenu a:hover {
+	color: #0B55C4;
+}
+.stats-module {
+	float: left;
+	margin-right: 25px;
+	padding-left: 10px;
+	height: 90px;
+	width: 170px;
+	background-color: #EFEFEF;
+	border: 1px solid red;
+	line-height: 1.5em;
+}
+.stats-module div {
+	font-weight: bold;
+}
+.license_msg {
+	font-size: 14px;
+	background-color: #FFFBCF;
+	border: 1px solid #ccc;
+	margin-bottom: 20px;
+	padding: 5px;
+	color: red;
+	text-align:left;
+	width: 700px;
+}

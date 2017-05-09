@@ -1,0 +1,54 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+extract($review['Review']);
+
+$langDel = json_encode(array(
+    'del_confirm'=>__a("This action will delete the review(s) and associated media, votes and review comments. Are you sure you want to continue?",true,true),
+    'del_error'=>__a('There was a problem deleting the review.',true,true)
+    ));
+?>
+
+<div class="jr-layout-outer jrRoundedPanel" data-id="<?php echo $review_id;?>">
+
+    <form id="jr-form-review-<?php echo $review_id;?>" action="index.php" method="post" data-object-type="review">
+
+        <div class="jrGrid">
+
+            <div class="jrCol8">
+
+                <div class="jrButtonGroup jrRight">
+
+                    <button class="jr-delete-moderation jrButton jrSmall jrIconOnly" data-id="<?php echo $review_id;?>" data-lang='<?php echo $langDel;?>'>
+
+                        <span class="jrIconDelete"></span>
+
+                    </button>
+
+                </div>
+
+                <span class="jrStatusLabel">#<?php echo $review_id;?></span>
+
+                 &#149;
+
+                <span class="jrError"><?php __a("This review no longer has an associated listing so it can be safely deleted");?></span>
+
+                <br />
+
+            </div>
+
+            <div class="jrCol4">&nbsp;</div>
+
+        </div>
+
+    </form>
+
+</div>

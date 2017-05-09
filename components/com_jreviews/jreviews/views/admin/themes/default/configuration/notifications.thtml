@@ -1,0 +1,219 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+<div id="notifications" class="jrTabPanel">
+
+	<div class="jrInfo">
+
+		<?php echo sprintf(__a("To customize the text of the emails you need to edit the email themes in %s",true),PATH_APP_REL . '/views/themes/default/email_templates/');?>
+	</div>
+
+	<div class="jrDataList">
+
+		<div class="jrGrid jrDataListHeader">
+
+			<div class="jrCol3"><?php __a("Administrative e-mails");?></div>
+
+			<div class="jrCol4"><?php __a("Enabled");?></div>
+
+			<div class="jrCol5"><?php __a("Admin e-mail Addresses (one per line)");?></div>
+
+		</div>
+
+		<div class="jrGrid" data-setting-name="notify_content">
+
+			<div class="jrCol3"><?php __a("New/edited listing");?></div>
+
+			<div class="jrCol4"><?php echo $Form->radioYesNo( "notify_content", "", $this->Config->notify_content );?></div>
+
+			<div class="jrCol5"><textarea name="notify_content_emails" style="height:4em;" rows="2" cols="50"><?php echo ($this->Config->notify_content_emails != '' ? $this->Config->notify_content_emails : cmsFramework::getConfig('mailfrom'))?></textarea></div>
+
+		</div>
+
+		<div class="jrGrid" data-setting-name="notify_review">
+
+			<div class="jrCol3"><?php __a("New/edited review");?></div>
+
+			<div class="jrCol4"><?php echo $Form->radioYesNo( "notify_review", "", $this->Config->notify_review );?></div>
+
+			<div class="jrCol5"><textarea name="notify_review_emails" style="height:4em;" rows="2" cols="50"><?php echo ($this->Config->notify_review_emails != '' ? $this->Config->notify_review_emails : cmsFramework::getConfig('mailfrom'))?></textarea></div>
+
+		</div>
+
+		<div class="jrGrid" data-setting-name="notify_review_post">
+
+			<div class="jrCol3"><?php __a("New review comment");?></div>
+
+			<div class="jrCol4"><?php echo $Form->radioYesNo( "notify_review_post", "", $this->Config->notify_review_post );?></div>
+
+			<div class="jrCol5"><textarea name="notify_review_post_emails" style="height:4em;" rows="2" cols="50"><?php echo ($this->Config->notify_review_post_emails != '' ? $this->Config->notify_review_post_emails : cmsFramework::getConfig('mailfrom'))?></textarea></div>
+
+		</div>
+
+		<div class="jrGrid" data-setting-name="notify_owner_reply">
+
+			<div class="jrCol3"><?php __a("New owner reply");?></div>
+
+			<div class="jrCol4"><?php echo $Form->radioYesNo( "notify_owner_reply", "", $this->Config->notify_owner_reply );?></div>
+
+			<div class="jrCol5"><textarea name="notify_owner_reply_emails" style="height:4em;" rows="2" cols="50"><?php echo ($this->Config->notify_owner_reply_emails != '' ? $this->Config->notify_owner_reply_emails : cmsFramework::getConfig('mailfrom'))?></textarea></div>
+
+		</div>
+
+		<div class="jrGrid" data-setting-name="notify_report">
+
+			<div class="jrCol3"><?php __a("New abuse report");?></div>
+
+			<div class="jrCol4"><?php echo $Form->radioYesNo( "notify_report", "", $this->Config->notify_report );?></div>
+
+			<div class="jrCol5"><textarea name="notify_report_emails" style="height:4em;" rows="2" cols="50"><?php echo ($this->Config->notify_report_emails != '' ? $this->Config->notify_report_emails : cmsFramework::getConfig('mailfrom'))?></textarea></div>
+
+		</div>
+
+		<div class="jrGrid" data-setting-name="notify_claim">
+
+			<div class="jrCol3"><?php __a("New claimed listing");?></div>
+
+			<div class="jrCol4"><?php echo $Form->radioYesNo( "notify_claim", "", $this->Config->notify_claim );?></div>
+
+			<div class="jrCol5"><textarea name="notify_claim_emails" style="height:4em;" rows="2" cols="50"><?php echo ($this->Config->notify_claim_emails != '' ? $this->Config->notify_claim_emails : cmsFramework::getConfig('mailfrom'))?></textarea></div>
+
+		</div>
+
+	</div>
+
+	<div class="jrDataList">
+
+		<div class="jrGrid jrDataListHeader">
+
+			<div class="jrCol3"><?php __a("User e-mails");?></div>
+
+			<div class="jrCol4"><?php __a("Enabled");?></div>
+
+			<div class="jrCol5"><?php __a("BCC to other e-mail Addresses (one per line)");?></div>
+
+		</div>
+
+		<div class="jrGrid" data-setting-name="notify_user_listing">
+
+			<div class="jrCol3"><?php __a("New/edited listing to submitter");?></div>
+
+			<div class="jrCol4"><?php echo $Form->radioYesNo( "notify_user_listing", "", $this->Config->notify_user_listing );?></div>
+
+			<div class="jrCol5"><textarea name="notify_user_listing_emails" style="height:4em;" rows="2" cols="50"><?php echo $this->Config->notify_user_listing_emails;?></textarea></div>
+
+		</div>
+
+		<div class="jrGrid" data-setting-name="notify_owner_review">
+
+			<div class="jrCol3"><?php __a("New/edited review to listing owner");?></div>
+
+			<div class="jrCol4">
+
+				<?php echo $Form->radioYesNo( "notify_owner_review", "", $this->Config->notify_owner_review );?>
+
+				&nbsp;
+
+				<?php echo $Form->select('notify_owner_review_claimed',
+							array(0=>__a("All listings",true),1=>__a("Claimed listings",true)),
+							$this->Config->notify_owner_review_claimed
+					);?>
+			</div>
+
+			<div class="jrCol5"><textarea name="notify_owner_review_emails" style="height:4em;" rows="2" cols="50"><?php echo $this->Config->notify_owner_review_emails;?></textarea></div>
+
+		</div>
+
+		<div class="jrGrid" data-setting-name="notify_user_review">
+
+			<div class="jrCol3"><?php __a("New/edited review to submitter");?></div>
+
+			<div class="jrCol4"><?php echo $Form->radioYesNo( "notify_user_review", "", $this->Config->notify_user_review );?></div>
+
+			<div class="jrCol5"><textarea name="notify_user_review_emails" style="height:4em;" rows="2" cols="50"><?php echo $this->Config->notify_user_review_emails;?></textarea></div>
+
+		</div>
+
+		<div class="jrGrid" data-setting-name="notify_user_comment">
+
+			<div class="jrCol3"><?php __a("New/edited review comment to submitter");?></div>
+
+			<div class="jrCol4">
+
+				<?php echo $Form->radioYesNo( "notify_user_comment", "", $this->Config->notify_user_comment );?>
+
+			</div>
+
+			<div class="jrCol5"><textarea name="notify_reviewer_comment_emails" style="height:4em;" rows="2" cols="50"><?php echo $this->Config->notify_user_comment_emails;?></textarea></div>
+
+		</div>
+
+		<div class="jrGrid" data-setting-name="notify_reviewer_owner_reply">
+
+			<div class="jrCol3"><?php __a("New owner reply to reviewer");?></div>
+
+			<div class="jrCol4">
+
+				<?php echo $Form->radioYesNo( "notify_reviewer_owner_reply", "", $this->Config->notify_reviewer_owner_reply);?>
+
+			</div>
+
+			<div class="jrCol5"><textarea name="notify_reviewer_owner_reply_emails" style="height:4em;" rows="2" cols="50"><?php echo $this->Config->notify_reviewer_owner_reply_emails;?></textarea></div>
+
+		</div>
+
+		<div class="jrGrid" data-setting-name="notify_reviewer_comment">
+
+			<div class="jrCol3"><?php __a("New/edited review comment to reviewer");?></div>
+
+			<div class="jrCol4">
+
+				<?php echo $Form->radioYesNo( "notify_reviewer_comment", "", $this->Config->notify_reviewer_comment );?>
+
+			</div>
+
+			<div class="jrCol5"><textarea name="notify_reviewer_comment_emails" style="height:4em;" rows="2" cols="50"><?php echo $this->Config->notify_reviewer_comment_emails;?></textarea></div>
+
+		</div>
+
+		<div class="jrGrid" data-setting-name="notify_owner_comment">
+
+			<div class="jrCol3"><?php __a("New/edited review comment to listing owner");?></div>
+
+			<div class="jrCol4">
+
+				<?php echo $Form->radioYesNo( "notify_owner_comment", "", $this->Config->notify_owner_comment );?>
+
+				&nbsp;
+
+				<?php echo $Form->select('notify_owner_comment_claimed',
+							array(0=>__a("All listings",true),1=>__a("Claimed listings",true)),
+							$this->Config->notify_owner_comment_claimed
+					);?>
+			</div>
+
+			<div class="jrCol5"><textarea name="notify_owner_comment_emails" style="height:4em;" rows="2" cols="50"><?php echo $this->Config->notify_owner_comment_emails;?></textarea></div>
+
+		</div>
+
+		<div class="jrGrid" data-setting-name="notify_user_media_encoding">
+
+			<div class="jrCol3"><?php __a("Video encoding finished to submitter");?></div>
+
+			<div class="jrCol4"><?php echo $Form->radioYesNo( "notify_user_media_encoding", "", $this->Config->notify_user_media_encoding );?></div>
+
+			<div class="jrCol5"><textarea name="notify_user_media_encoding_emails" style="height:4em;" rows="2" cols="50"><?php echo Sanitize::getString($this->Config,'notify_user_media_encoding_emails');?></textarea></div>
+
+		</div>
+
+	</div>
+
+</div>

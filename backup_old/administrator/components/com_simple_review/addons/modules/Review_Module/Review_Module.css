@@ -1,0 +1,90 @@
+#reviewcontainer
+{
+  text-align: left;
+}
+
+#dynamicfieldstext
+{
+	clear: both;
+	float: left;
+}
+#dynamicfieldsdiv label
+{
+	clear: both;
+	float: left;
+	width: 120px;
+	text-align: center;
+	text-decoration: none;
+	border:1px;
+	float: left; 
+	border-style: solid;
+}
+
+#adddynamic
+{
+	margin: 0.5ex 0.5em 1.5ex 0px;
+}
+
+
+/**
+*
+*Rating Boxes
+*
+**/
+.rating
+{
+	font-size:50px;
+	font-weight:bold;
+	color:#ffffff;
+}
+
+.ratingText
+{
+	font-size:14px;
+	font-weight:bold;
+	color:#ffffff;
+}
+
+.ratingHeading
+{
+	font-size:16px;
+	font-weight:bold;
+	font-variant:small-caps;
+}
+/*error start*/
+p.error label 
+{ 
+	color: red; 
+}
+
+label.error 
+{
+	display: block;
+	margin-left: 1em;
+	width: auto;
+	float:none;
+	text-align:left;
+	text-decoration:none;
+}
+
+input.error, textarea.error 
+{
+	border:1px dotted red;
+}
+
+div.errorContainer
+{
+	border-top: red dotted 2px;
+	border-bottom: red dotted 2px;
+}
+/*error end*/
+
+#scoreBox{width:113px;height:114px;background-image:url(images/score.gif)}
+#scoreBox div{padding-top:4px; text-align:center; font:11px arial,sans-serif;}
+#scoreBox div#scoreBoxText{padding-top:0px;}
+#scoreBoxText {margin-top:-6px;}
+
+#userScoreBox{width:113px;height:114px;background-image:url(images/userscore.gif)}
+#userScoreBox div{padding-top:4px; text-align:center; font:11px arial,sans-serif; }
+#userScoreBox div#userScoreBoxText{padding-top:0px;}
+#userScoreBoxText {margin-top:-6px;}

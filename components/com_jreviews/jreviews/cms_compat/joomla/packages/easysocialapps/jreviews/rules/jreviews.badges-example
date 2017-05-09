@@ -1,0 +1,74 @@
+[
+    // Listings
+    {
+        "title"         : "Few listings",
+        "description"   : "",
+        "howto"         : "To unlock this badge submit 5 listings.",
+        "alias"         : "listing-low",
+        "extension"     : "com_jreviews",
+        "command"       : "listing.add.low",
+        "avatar"        : "media/com_easysocial/badges/listings-low.png",
+        "frequency"     : 5
+    },
+    {
+        "title"         : "Some listings",
+        "description"   : "",
+        "howto"         : "To unlock this badge submit 10 listings.",
+        "alias"         : "listing-medium",
+        "extension"     : "com_jreviews",
+        "command"       : "listing.add.medium",
+        "avatar"        : "media/com_easysocial/badges/listings-medium.png",
+        "frequency"     : 10
+    },
+    {
+        "title"         : "Lots of listings",
+        "description"   : "",
+        "howto"         : "To unlock this badge submit 15 listings.",
+        "alias"         : "listing-high",
+        "extension"     : "com_jreviews",
+        "command"       : "listing.add.high",
+        "avatar"        : "media/com_easysocial/badges/listings-high.png",
+        "frequency"     : 15
+    },
+    // Reviews
+    {
+        "title"         : "First Reviewer",
+        "description"   : "First one to review a listing.",
+        "howto"         : "To unlock this badge be the first one to review a listing.",
+        "alias"         : "first-reviewer",
+        "extension"     : "com_jreviews",
+        "command"       : "review.first",
+        "avatar"        : "media/com_easysocial/badges/superstar-shield-64.png",
+        "frequency"     : 1
+    },
+    {
+        "title"         : "Occasional reviewer",
+        "description"   : "",
+        "howto"         : "To unlock this badge submit 5 reviews.",
+        "alias"         : "review-low",
+        "extension"     : "com_jreviews",
+        "command"       : "review.add.low",
+        "avatar"        : "media/com_easysocial/badges/reviews-low.png",
+        "frequency"     : 5
+    },
+    {
+        "title"         : "Frequent Reviewer",
+        "description"   : "",
+        "howto"         : "To unlock this badge submit 10 reviews.",
+        "alias"         : "review-medium",
+        "extension"     : "com_jreviews",
+        "command"       : "review.add.medium",
+        "avatar"        : "media/com_easysocial/badges/reviews-medium.png",
+        "frequency"     : 10
+    },
+    {
+        "title"         : "Avid Reviewer",
+        "description"   : "",
+        "howto"         : "To unlock this badge submit 15 reviews.",
+        "alias"         : "review-high",
+        "extension"     : "com_jreviews",
+        "command"       : "review.add.high",
+        "avatar"        : "media/com_easysocial/badges/reviews-high.png",
+        "frequency"     : 15
+    }
+]

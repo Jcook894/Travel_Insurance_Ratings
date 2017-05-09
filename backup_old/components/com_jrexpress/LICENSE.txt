@@ -1,0 +1,7 @@
+JREVIEWS EXPRESS LICENSE
+========================
+
+All PHP files in JReviews Express are released under the GPL license.
+
+All theme files (.thtml), CSS files (.css), Javascript files (.js) and image icons used in the JReviews frontend
+themes are proprietary and cannot be distributed without prior written consent from the copyright holder.

@@ -1,0 +1,82 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+//prx($replies);
+$predefined_replies = 5;
+$types = array(
+    'listing'=>'Listings',
+    'review'=>'Reviews',
+    'owner_reply'=>'Owner Replies',
+    'discussion_post'=>'Discussion Posts',
+    'claim'=>'Claims'
+    );
+    
+$valid_tags = array(    
+    'listing'=>'{name} = user\'s name; {url} = frontend url; {listing_title}',
+    'review'=>'{name} = user\'s name; {url} = frontend url; {listing_title}, {review_title}',       
+    'owner_reply'=>'{name} = user\'s name; {url} = frontend url; {listing_title}, {review_title}',
+    'discussion_post'=>'{name} = user\'s name; {url} = frontend url; {review_title}',
+    'claim'=>'{name} = user\'s name; {url} = frontend url; {listing_title}'
+);
+$count = $predefined_replies*count($types);    
+?>
+
+<div class="admin_header"><?php __a("Predefined Email Replies for Moderation Actions");?></div>
+            
+<form id="adminForm" name="adminForm">
+
+    <div class="admin_toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
+        <span id="status" class="jr_floatLeft">&nbsp;</span>        
+        <button class="ui-button ui-corner-all" onclick="jreviews_admin.dispatch({'controller':'admin_predefined_replies','action':'_save','form_id':'adminForm','onComplete':function(){jreviews_admin.tools.statusUpdate('The new settings have been saved.');}});return false;">Save</button>
+    </div>
+
+    <div id="jr_tabs" class="jr_tabs">
+        <ul>
+            <?php foreach($types AS $value=>$text):?>
+            <li><a href="#<?php echo $value;?>"><span><?php __a("{$text}");?></span></a></li>
+            <?php endforeach;?>
+        </ul>
+   
+        <?php $j=0;foreach($types AS $value=>$text):?>        
+        
+        <div id="<?php echo $value;?>">
+            <p>Valid tags: <?php echo $valid_tags[$value];?></p>
+            <table class="admin_list">
+                <?php for($i=1;$i<=$predefined_replies;$i++):?>
+                <tr><th colspan="2">Predefined Reply #<?php echo $i;?></th></tr>
+                <tr>
+                    <td valign="top" width="100">Subject:</td>
+                    <td> 
+                        <input name="data[PredefinedReply][<?php echo $value;?>][<?php echo $i;?>][subject]" type="text" value="<?php echo isset($replies[$j]) ? $replies[$j]['PredefinedReply']['reply_subject'] : '';?>" size="100" />
+                    </td>
+                </tr>            
+                <tr>
+                    <td valign="top" width="100">Body:</td>
+                    <td>
+                        <textarea name="data[PredefinedReply][<?php echo $value;?>][<?php echo $i;?>][body]"rows="5" cols="400" style="margin:4px;width:60%;height:8em;"><?php echo isset($replies[$j]) ? $replies[$j]['PredefinedReply']['reply_body'] : '';?></textarea>
+                        <input name="data[PredefinedReply][<?php echo $value;?>][<?php echo $i;?>][type]" type="hidden" value="<?php echo $value;?>" />
+                    </td>
+                </tr>
+                <?php $j++;endfor;?>
+            </table>    
+        </div>
+        
+        <?php endforeach;?>
+ 
+    </div>
+</form>           	
+
+<pre>
+<div id="debug"></div>
+</pre>
+
+<script type="text/javascript">
+jQuery('#jr_tabs').tabs();
+</script>

@@ -1,0 +1,87 @@
+{
+	"name": "Computer Specifications",
+	"theme": "computer_specifications",
+	"schema":
+	{
+	    "title": "Computer Specifications",
+	    "type": "array",
+	    "format": "table",
+	    "items": {
+	        "title": "Specification",
+	        "type": "object",
+	        "properties": {
+                "specTitle": {
+	                "title": "Title",
+	                "type": "string",
+	                "$ref": "#\/definitions\/features",
+	                "default": "processor"
+	            },
+	            "specValue": {
+	                "title": "Value",
+	                "type": "string"
+	            }
+	        }
+	    },
+	    "definitions": {
+	        "features": {
+	            "type": "string",
+	            "enumSource": [
+	                {
+	                    "source": [
+	                        {
+	                            "value": "Screen Size",
+	                            "title": "Screen Size"
+	                        },
+	                        {
+	                            "value": "Screen Resolution",
+	                            "title": "Screen Resolution"
+	                        },
+	                        {
+	                            "value": "Processor",
+	                            "title": "Processor"
+	                        },
+	                        {
+	                            "value": "Memory",
+	                            "title": "Memory"
+	                        },
+	                        {
+	                            "value": "Graphics",
+	                            "title": "Graphics"
+	                        },
+	                        {
+	                            "value": "Audio",
+	                            "title": "Audio"
+	                        },
+	                        {
+	                            "value": "Storage",
+	                            "title": "Storage"
+	                        },
+	                        {
+	                            "value": "Optical Drive",
+	                            "title": "Optical Drive"
+	                        },
+	                        {
+	                            "value": "Operating System",
+	                            "title": "Operating System"
+	                        },
+	                        {
+	                            "value": "Ports",
+	                            "title": "Ports"
+	                        },
+	                        {
+	                            "value": "Dimensions",
+	                            "title": "Dimensions"
+	                        },
+	                        {
+	                            "value": "Weight",
+	                            "title": "Weight"
+	                        }
+	                    ],
+	                    "title": "{{item.title}}",
+	                    "value": "{{item.value}}"
+	                }
+	            ]
+	        }
+	    }
+	}
+}

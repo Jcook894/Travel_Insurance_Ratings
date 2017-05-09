@@ -1,0 +1,66 @@
+<?php defined( 'MVC_FRAMEWORK') or die;?>
+
+<div class="jr-addon-ratingsmigrator" style="font-size:13px;">
+
+    <div class="jrPageHeading">Ratings Migrator</div>
+
+    <div style="margin-bottom: 30px;">
+
+        <h3>If after running the migrator you don't see 8 steps completed and a "Migration complete!" message please contact support.</h3>
+
+        <p>To bring the database up to date, the add-on needs to peform several tasks to migrate the existing rating data. Below are some of the actions that will take place during the migration:
+
+            <ul>
+                <li>The rating criteria definitions and attributes (weights, required, tooltips) are stored in a new dedicated table [#__jreviews_criteria_ratings].</li>
+                <li>The individual user ratings are transformed from a comma list and exported into a new table [#__jreviews_review_ratings] where each rating criteria is its own row.</li>
+                <li>The individidual criteria ratings are averaged and stored in a new listing ratings table [#__jreviews_listing_ratings].</li>
+                <li>Listing averages are re-calculated using the new data format and updated in the listing totals table [#__jreviews_listing_totals]. Additionally, a Bayesian average is calculated for all listings because it will be used for rating-ordered pages for better accuracy of results  taking into account both rating and review count.</li>
+            </ul>
+
+        </p>
+
+    </div>
+
+    <div class="jrGrid">
+
+        <div class="jrCol12">
+
+            <button class="jrButton jrBlue jr-start jrLarge" >Start</button>
+
+        </div>
+
+    </div>
+
+    <div class="jrError jrHidden jr-ratingsmigrator-error" style="margin-top:15px; font-size:12px; font-weight:bold"></div>
+
+    <div class="jrSuccess jrHidden jr-ratingsmigrator-complete" style="margin-top:15px; font-size:12px;"><strong>Migration complete!</strong></div>
+
+    <div class="jrGrid jr-ratingsmigrator-progress jrHidden" style="margin-top:15px;">
+
+        <div class="jrCol5">
+            <div class="jrWarning" style="padding: 1.5px; border: 1px solid #ccc; height: 20px;">
+                <div class="jrWarning jr-progress-bar" style="background-color: #ccc; padding: 0;border: 0; width: 0%; height: 20px;"></div>
+            </div>
+        </div>
+
+        <div class="jrCol7"><span class="jr-progress-number" style="font-weight:bold;">&nbsp;</span></div>
+
+    </div>
+
+    <div class="jrInfo jrHidden jr-ratingsmigrator-step8" style="margin-top:15px;"><span class="jrStatusLabel">8</span> Calculating the bayesian rating for each listing and udpating the <strong>#__jreviews_listing_totals</strong> table.</div>
+
+    <div class="jrInfo jrHidden jr-ratingsmigrator-step7" style="margin-top:15px;"><span class="jrStatusLabel">7</span> Calculating the bayesian rating for individual criteria for each listing and udpating the <strong>#__jreviews_listing_ratings</strong> table.</div>
+
+    <div class="jrInfo jrHidden jr-ratingsmigrator-step6" style="margin-top:15px;"><span class="jrStatusLabel">6</span> Calculating the average rating and count for each listing and udpating the <strong>#__jreviews_listing_totals</strong> table.</div>
+
+    <div class="jrInfo jrHidden jr-ratingsmigrator-step5" style="margin-top:15px;"><span class="jrStatusLabel">5</span> Calculating the individual criteria rating average and count for each listing and udpating the <strong>#__jreviews_listing_ratings</strong> table.</div>
+
+    <div class="jrInfo jrHidden jr-ratingsmigrator-step4" style="margin-top:15px;"><span class="jrStatusLabel">4</span> Migrating the review ratings to the <strong>#__jreviews_review_ratings</strong> table with one row per criteria. If you have thousands of reviews, this may take some time.    </div>
+
+    <div class="jrInfo jrHidden jr-ratingsmigrator-step3" style="margin-top:15px;"><span class="jrStatusLabel">3</span> Adding the Listing Type ID to each review in the <strong>#__jreviews_comments</strong> table. If you have thousands of reviews, this may take some time.    </div>
+
+    <div class="jrInfo jrHidden jr-ratingsmigrator-step2" style="margin-top:15px;"><span class="jrStatusLabel">2</span> Migrating the criteria definitions to the <strong>#__jreviews_criteria_ratings</strong> table.</div>
+
+    <div class="jrInfo jrHidden jr-ratingsmigrator-step1" style="margin-top:15px;"><span class="jrStatusLabel">1</span> Creating new database tables and updating existing tables.</div>
+
+</div>

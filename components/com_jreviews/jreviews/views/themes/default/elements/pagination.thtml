@@ -1,0 +1,114 @@
+<?php
+$ajax = isset($ajax) ? $ajax : Sanitize::getInt($pagination, 'ajax', 0);
+
+$isMobile = Configure::read('System.isMobile');
+
+// PAGINATION SETUP
+$list_page = Sanitize::getBool($this->Config,'list_show_orderselect')
+				&&
+				$this->name == 'categories'
+				&&
+				(
+					in_array($this->action,array('search','category','alphaindex','list','mylistings','favorites'))
+					||
+					$this->action == 'custom' && Sanitize::getString($page['menuParams'],'custom_order') == ''
+				);
+
+$discussion_latest = $this->name == 'discussions' && $this->action == 'latest';
+
+$review_detail = $this->name == 'discussions' && $this->action == 'review';
+
+$review_list = ($this->name == 'reviews' && $this->action != 'rankings') || ($this->name == 'listings' && $this->action == 'detail');
+
+$media_list = $this->name == 'media' && in_array($this->action,array('mediaList','myMedia'));
+
+$ratingCriteriaOrderArray = isset($ratingCriteriaOrderArray) ? $ratingCriteriaOrderArray : array();
+
+$fieldOrderArray = isset($fieldOrderArray) ? $fieldOrderArray : array();
+?>
+
+<?php if(isset($pagination)):?>
+
+	<div class="jr-pagenav jrTableGrid jrPagination jrPagination<?php echo ucfirst($position);?>" data-ajax="<?php echo $ajax;?>">
+
+		<div class="jrCol4 jrPagenavResults">
+
+				<?php if($pagination['total'] && ($position == 'top' || ($position == 'bottom' && !$isMobile))):?>
+
+					<span class="jrPagenavResultsText"><?php echo sprintf(__t("%1\$s results - showing %2\$s - %3\$s",true), $pagination['total'], ($this->page-1)*$this->limit+1, min($pagination['total'],$this->page*$this->limit));?></span>
+
+				<?php endif;?>&nbsp;
+
+		</div>
+
+		<div class="jrCol4 jrPagenavPages">
+
+			<?php if(($position == 'top' && !$isMobile ) || $position != 'top'):?>
+	    		<?php if($pagination['total'] > $this->limit):?><?php echo $Paginator->display_pages($isMobile);?><?php endif;?>
+	    	<?php endif;?>&nbsp;
+
+		</div>
+
+		<div class="jrCol4 jrPagenavLimit">
+
+			<?php if($position == 'top'):?>
+
+			<div class="jrOrdering">
+
+				<?php /* LISTING LIST PAGES */ ?>
+
+				<?php if($list_page && Sanitize::getInt($pagination, 'total') > 0):?>
+
+					<?php __t("Ordering");?>&nbsp;<?php echo $Jreviews->orderingList(Sanitize::getString($this->params,'order'), array('fields'=>$fieldOrderArray, 'criteria'=>$ratingCriteriaOrderArray));?>
+
+				<?php endif;?>
+
+				<?php /* REVIEW DISCUSSIONS */ ?>
+
+				<?php if($discussion_latest || $review_detail):?>
+
+					<?php __t("Ordering");?>&nbsp;<?php echo $Jreviews->orderingListPosts(Sanitize::getString($this->params,'order'));?>
+
+				<?php endif;?>
+
+				<?php /* REVIEW LIST */ ?>
+
+				<?php if($review_list && $this->action != 'myreviews'):?>
+
+					<?php __t("Ordering");?>&nbsp;<?php echo $Jreviews->orderingListReviews(Sanitize::getString($this->params,'order'), array('criteria'=>$ratingCriteriaOrderArray));?>
+
+				<?php endif;?>
+
+				<?php /* MEDIA LIST */ ?>
+
+				<?php if($media_list):?>
+
+					<?php if($page['show_media_type_filter']):?>
+
+						<span class="jrMediaFilter"><?php __t("Filter");?>&nbsp;<?php echo $Media->mediaTypeFilter(Sanitize::getString($this->params,'type'));?></span>
+
+					<?php endif;?>
+
+					<?php if($page['show_order_list']):?>
+
+						<span clasS="jrMediaSort">&nbsp;<?php __t("Sort");?>&nbsp;<?php echo $Media->orderingList(Sanitize::getString($this->params,'order'),array('default'=>'newest'));?></span>
+
+					<?php endif;?>
+
+				<?php endif;?>
+
+			</div>
+
+			<?php endif;?>
+
+			<?php if($position == 'bottom' && $pagination['total']):?>
+
+				<?php echo $Paginator->display_items_per_page();?>
+
+			<?php endif;?>&nbsp;
+
+		</div>
+
+	</div>
+
+<?php endif;?>

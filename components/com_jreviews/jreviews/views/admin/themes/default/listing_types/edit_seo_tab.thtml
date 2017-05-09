@@ -1,0 +1,114 @@
+<div id="listing-type-seo">
+
+	<?php
+	$seoManager = array(
+		/*** NEW HEADER ***/
+		__a("Structured Data",true) => array(
+			 array(
+				'label'=>__a("Schema.org Object Type",true),
+				'type'=>'text',
+				'name'=>'schema_org_type',
+				'default'=>'Article',
+				'attributes'=>array('style'=>'width:150px'),
+				'help'=>sprintf(__a("%sClick for valid object types%s",true),'<a target="_blank" href="http://schema.org/docs/full.html">','</a>') . ' ' . __a("The 'Article' type will by used by default",true),
+				'global'=>false
+			),
+			array(
+				'label'=>__a("Facebook Open Graph Object Type",true),
+				'type'=>'text',
+				'name'=>'facebook_opengraph_type',
+				'default'=>Sanitize::getString($this->Config,'facebook_opengraph_type','article'),
+				'attributes'=>array('style'=>'width:150px'),
+				'help'=>sprintf(__a("%sClick for valid object types%s",true),'<a target="_blank" href="https://developers.facebook.com/docs/reference/opengraph/object-type">','</a>') .' '. __a("Open Graph must be enabled in Configuration, Community Settings.",true),
+				'global'=>false
+			),
+			array(
+				'label'=>__a("Twitter Card Type",true),
+				'type'=>'select',
+				'name'=>'twitter_card',
+				'options'=>array(
+						''=>__a("None",true),
+						'summary'=>__a("Summary Card",true),
+						'summary_large_image'=>__a("Summary Large Image Card",true),
+						'photo'=>__a("Photo Card",true),
+						'gallery'=>__a("Gallery Card",true)
+					),
+				'default'=>Sanitize::getString($this->Config,'twitter_card','summary'),
+				'help'=>sprintf(__a("%sRead more about Twitter Cards%s and make sure you use the %sCard Validator%s for at least one URL of your site and for each type of Twitter Card you use so your site can be whitelisted by Twitter. To include the twitter:creator meta tag when applicable it is necessary to set up the 'Twitter Username Listing Custom Field' in Configuration/Community.",true),'<a target="_blank" href="https://dev.twitter.com/cards/types">','</a>','<a target="_blank" href="https://cards-dev.twitter.com/validator">','</a>'),
+				'global'=>false
+			),
+			array(
+				'label'=>__a("Twitter Username for Twitter Card",true),
+				'type'=>'text',
+				'name'=>'twitter_card_username',
+				'default'=>'',
+				'attributes'=>array('style'=>'width:150px'),
+				'help'=>__a("Correct syntax is @username. If the 'Twitter Username Listing Custom Field' is configured in the general Configuration/Community tab and the value filled out in the listing then it will be used for the twitter:creator tag where applicable for correct attribution to the listing owner.",true),
+				'global'=>false
+			)
+		),
+		__a("Listing Detail Page",true) => array(
+			array(
+				'type'=>'placeholder',
+				'label'=>sprintf(__a("Valid tags: %s and any custom field by using the syntax {jr_field}.",true),'{title}, {directory}, {category}, {summary}, {description}, {metadesc}, {metakey}')
+			),
+			array(
+				'label'=>__a("Page Title",true),
+				'type'=>'text',
+				'name'=>'type_metatitle',
+				'help'=>_CMS_NAME == 'joomla' ? '<span class="jrIconWarning"></span> <a target="_blank" href="https://docs.jreviews.com/?title=Custom_title_set_in_SEO_Manager_not_working">'.__a("Download a patch to fix a bug in Joomla that prevents this from working",true) . '</a></label>' : '',
+				'attributes'=>array('style'=>'width:100%;'),
+				'global'=>false
+			),
+			array(
+				'label'=>__a("Apply to Listing Titles (List and detail pages)",true),
+				'type'=>'radioYesNo',
+				'name'=>'override_listing_title',
+				'default'=>0,
+				'attributes'=>array('div'=>false),
+				'help'=>'',
+				'global'=>false
+			),
+	        array(
+	            'label'=>__a("Meta Keywords",true),
+	            'type'=>'textarea',
+	            'name'=>'type_metakey',
+	            'attributes'=>array('style'=>'width:100%;height:5em;')
+	        ),
+	        array(
+	            'label'=>__a("Meta Description",true),
+	            'type'=>'textarea',
+	            'name'=>'type_metadesc',
+	            'attributes'=>array('style'=>'width:100%;height:5em;')
+	        )
+		),
+		__a("Review Detail Page",true) => array(
+			array(
+				'type'=>'placeholder',
+				'label'=>sprintf(__a("Valid tags: %s.",true),'{listing_title}, {review_title}, {name}, {username}, {created}, {rating}, {comments}, {summary}, {description}, {metadesc}, {metakey}')
+			),
+			array(
+				'label'=>__a("Page Title",true),
+				'type'=>'text',
+				'name'=>'review_pagetitle',
+				'attributes'=>array('style'=>'width:100%;'),
+				'global'=>false
+			),
+	        array(
+	            'label'=>__a("Meta Keywords",true),
+	            'type'=>'textarea',
+	            'name'=>'review_metakey',
+	            'attributes'=>array('style'=>'width:100%;height:5em;')
+	        ),
+	        array(
+	            'label'=>__a("Meta Description",true),
+	            'type'=>'textarea',
+	            'name'=>'review_metadesc',
+	            'attributes'=>array('style'=>'width:100%;height:5em;')
+	        )
+	    )
+	);
+
+	$AdminSettings->displayTab('listing-type-seo',$seoManager,'[Criteria][config]',$listingType['ListingType']['config']);
+	?>
+</div>

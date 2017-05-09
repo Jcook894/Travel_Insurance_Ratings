@@ -1,0 +1,37 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+
+<div id="criterialist">
+
+	<div class="admin_header">Listing Type Manager (Criteria Manager)</div>
+
+		<form id="adminForm" name="adminForm">
+	
+		<div class="admin_toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
+
+			<button class="ui-button ui-corner-all" onclick="jreviews_admin.dispatch({'controller':'listing_types','action':'edit','data':{'data[criteria_id]':0},'onComplete':function(res){jQuery('#page').html(res);}});return false;">New</button>&nbsp;
+			
+			<?php if(!empty($rows)):?>
+            <button class="ui-button ui-corner-all" onclick="copies=prompt('Enter the number of copies','1'); jreviews_admin.dispatch({'controller':'listing_types','action':'_copy','data':{'data[copies]':copies},'type':'json','form_id':'adminForm','onComplete':function(res){if(undefined!=res.page)jQuery('#criteriatable').html(res.page);if(undefined!=res.response)jQuery('#s2AjaxResponse').html(res.response);}});return false;">Copy</button>
+            <?php endif;?>
+            
+            <button class="ui-button ui-corner-all" onclick="jreviews_admin.dispatch({'controller':'listing_types','action':'refreshReviewRatings','onComplete':function(res){s2Alert(res);}});return false;">Sync Ratings</button>
+
+		</div>
+	
+		<br />
+		
+		<div id="criteriatable"><?php echo $table?></div>
+
+	</form>
+</div>

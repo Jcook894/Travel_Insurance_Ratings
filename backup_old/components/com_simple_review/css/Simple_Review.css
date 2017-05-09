@@ -1,0 +1,83 @@
+  .clear 
+  {
+    clear:both;
+    height:1px;
+    overflow:hidden;
+  }
+
+  /*star rating large start*/
+span.largeStarRating
+{
+	display:inline-block;
+	width:115px;
+	line-height:22px;					
+}
+
+.largeStarRating .starFull, .largeStarRating .starHalf, .largeStarRating .starEmpty
+{
+	width:23px;
+	height:22px;
+	display:inline-block;
+}
+.largeStarRating .starFull
+{
+	background-image:url(../images/fullstar.png);		
+
+}
+.largeStarRating .starHalf
+{
+	background-image:url(../images/halfstar.png);				
+}
+
+.largeStarRating .starEmpty
+{
+	background-image:url(../images/emptystar.png);					
+}
+/*star rating large end*/
+
+  /*star rating small start*/
+span.smallStarRating
+{
+	display:inline-block;
+	width:115px;
+	line-height:22px;					
+}
+
+.smallStarRating .starFull, .smallStarRating .starHalf, .smallStarRating .starEmpty,
+.smallStarRatingAlt .starFull, .smallStarRatingAlt .starHalf, .smallStarRatingAlt .starEmpty
+{
+	width:23px;
+	height:22px;
+	display:inline-block;
+}
+.smallStarRating .starFull
+{
+	background-image:url(../images/fullstar.png);		
+
+}
+.smallStarRating .starHalf
+{
+	background-image:url(../images/halfstar.png);				
+}
+
+.smallStarRating .starEmpty
+{
+	background-image:url(../images/emptystar.png);					
+}
+
+.smallStarRatingAlt .starFull
+{
+	background-image:url(../images/fullstar-alt.png);		
+
+}
+.smallStarRatingAlt .starHalf
+{
+	background-image:url(../images/halfstar-alt.png);				
+}
+
+.smallStarRatingAlt .starEmpty
+{
+	background-image:url(../images/emptystar-alt.png);					
+}
+/*star rating small end*/
+

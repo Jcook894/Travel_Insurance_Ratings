@@ -1,0 +1,2793 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JReviews 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-16 07:41-0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: ClickFWD <support@reviewsforjoomla.com>\n"
+"Language-Team: ClickFWD\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: f:\\components\\\n"
+"X-Poedit-KeywordsList: __t;__n:1,2\n"
+"Language: ar_US\n"
+"X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: com_jreviews\\jreviews\\views\n"
+"X-Poedit-SearchPath-1: com_jreviews\\jreviews\\controllers\n"
+"X-Poedit-SearchPath-2: com_jreviews\\jreviews\\models\n"
+"X-Poedit-SearchPath-3: com_jreviews\\jreviews\\locale\n"
+"X-Poedit-SearchPath-4: com_s2framework\\s2framework\\libs\\view\n"
+"X-Poedit-SearchPath-5: com_jreviews\\jreviews\\plugins\n"
+"X-Poedit-SearchPath-6: com_jreviews\\jreviews\\cms_compat\n"
+
+#: com_jreviews\jreviews\views/admin/helpers/paginator.php:141
+#: com_jreviews\jreviews\views/admin/helpers/paginator.php:145
+#: com_jreviews\jreviews\views/helpers/paginator.php:207
+#: com_jreviews\jreviews\views/helpers/paginator.php:211
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: com_jreviews\jreviews\views/admin/helpers/paginator.php:203
+#: com_jreviews\jreviews\views/helpers/paginator.php:234
+#, php-format
+msgid "Go to page %s"
+msgstr "به صفحه %s برو"
+
+#: com_jreviews\jreviews\views/admin/helpers/paginator.php:207
+#: com_jreviews\jreviews\views/helpers/paginator.php:238
+#, php-format
+msgid "Go to page %s of %s"
+msgstr "به صفحه %s از %s برو"
+
+#: com_jreviews\jreviews\views/admin/helpers/paginator.php:223
+#: com_jreviews\jreviews\views/admin/helpers/paginator.php:227
+#: com_jreviews\jreviews\views/helpers/paginator.php:250
+#: com_jreviews\jreviews\views/helpers/paginator.php:254
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: com_jreviews\jreviews\views/admin/helpers/paginator.php:289
+#: com_jreviews\jreviews\views/helpers/paginator.php:307
+msgid "Results per page"
+msgstr "نتایج در هر صفحه"
+
+#: com_jreviews\jreviews\views/helpers/assets.php:66
+msgid "jquery.framework"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/community.php:106
+msgid "Guest"
+msgstr "مهمان"
+
+#: com_jreviews\jreviews\views/helpers/community.php:211
+msgid "Tweet"
+msgstr "توییت کنید"
+
+#: com_jreviews\jreviews\views/helpers/community.php:216
+msgid "Twitter"
+msgstr "Twitter"
+
+#: com_jreviews\jreviews\views/helpers/community.php:237
+msgid "Facebook"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/community.php:249
+msgid "Google+"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/community.php:264
+msgid "LinkedIn"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/community.php:282
+msgid "Pinterest"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/community.php:302
+msgid "Reddit"
+msgstr "Reddit"
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:1273
+msgid "Add"
+msgstr "اضافه"
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:1280
+msgid "Submit"
+msgstr "ارسال"
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:1346
+msgid "between"
+msgstr "میان"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:19
+msgid "Featured"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:20
+msgid "Title"
+msgstr "عنوان"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:21
+#: com_jreviews\jreviews\views/helpers/jreviews.php:142
+#: com_jreviews\jreviews\views/helpers/jreviews.php:199
+msgid "Most recent"
+msgstr "جدیدترین"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:22
+#: com_jreviews\jreviews\views/helpers/jreviews.php:143
+#: com_jreviews\jreviews\views/helpers/jreviews.php:198
+#: com_jreviews\jreviews\views/helpers/media.php:29
+msgid "Oldest"
+msgstr "قدیمی ترین"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:23
+#: com_jreviews\jreviews\views/helpers/jreviews.php:144
+msgid "Last updated"
+msgstr "تازه‌ ترین به روز رسانی‌ها"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:24
+msgid "Most popular"
+msgstr "محبوب ترین"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:25
+#: com_jreviews\jreviews\views/helpers/jreviews.php:145
+msgid "Highest user rating"
+msgstr "بالاترین امتیاز توسط کاربران"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:26
+#: com_jreviews\jreviews\views/helpers/jreviews.php:146
+msgid "Lowest user rating"
+msgstr "پایین‌ترین امتیاز توسط کاربران"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:27
+msgid "Highest editor rating"
+msgstr "بالاترین امتیاز توسط کارشناسان"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:28
+msgid "Lowest editor rating"
+msgstr "پایین‌ترین امتیاز توسط کارشناسان"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:29
+msgid "Most reviews"
+msgstr "بیشترین بازدید"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:30
+msgid "Author"
+msgstr "نویسنده"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:68
+msgid "Distance"
+msgstr "فاصله"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:97
+#: com_jreviews\jreviews\views/helpers/jreviews.php:180
+#, php-format
+msgid "Best %s"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:107
+#, php-format
+msgid "Best %s (Editor rated)"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:121
+msgid "ASC"
+msgstr "صعودی"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:123
+msgid "DESC"
+msgstr "نزولی"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:147
+msgid "Most helpful"
+msgstr "مفیدترین"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:148
+msgid "Least helpful"
+msgstr "بی‌فایده‌ترین"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:149
+msgid "Most discussed"
+msgstr "مورد بحث‌ترین"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:308
+msgid "#1 Reviewer"
+msgstr "نقدنویس برتر"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:309
+msgid "Top 10 Reviewer"
+msgstr "ده نقدنویس برتر"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:310
+msgid "Top 50 Reviewer"
+msgstr "پنجاه نقدنویس برتر"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:311
+msgid "Top 100 Reviewer"
+msgstr "صد نقدنویس برتر"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:312
+msgid "Top 500 Reviewer"
+msgstr "پانصد نقدنویس برتر"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:313
+msgid "Top 1000 Reviewer"
+msgstr "هزار نقدنویس برتر"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:395
+msgid "Views"
+msgstr "بازدید"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:401
+msgid "Video count"
+msgstr "تعداد ویدیوها"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:407
+msgid "Photo count"
+msgstr "تعداد عکس‌ها"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:413
+msgid "Audio count"
+msgstr "تعداد فایل‌های صوتی"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:419
+msgid "Attachment count"
+msgstr "تعداد پیوست‌ها"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:425
+msgid "Favorite count"
+msgstr "تعداد علاقه‌مندی‌ها"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:463
+msgid "Pending Moderation"
+msgstr "در انتظار مدیریت"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:465
+msgid "Expired"
+msgstr "منقضی"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:477
+msgid "New"
+msgstr "جدید"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:483
+msgid "Hot"
+msgstr "محبوب"
+
+#: com_jreviews\jreviews\views/helpers/media.php:28
+msgid "Newest"
+msgstr "جدیدترین"
+
+#: com_jreviews\jreviews\views/helpers/media.php:30
+msgid "Most Popular"
+msgstr "محبوب‌ترین"
+
+#: com_jreviews\jreviews\views/helpers/media.php:31
+msgid "Most Liked"
+msgstr "موردپسند‌ترین"
+
+#: com_jreviews\jreviews\views/helpers/media.php:32
+msgid "Ordering"
+msgstr "چیدمان"
+
+#: com_jreviews\jreviews\views/helpers/media.php:534
+msgid "All"
+msgstr "همه"
+
+#: com_jreviews\jreviews\views/helpers/media.php:535
+msgid "Video"
+msgstr "ویدیو"
+
+#: com_jreviews\jreviews\views/helpers/media.php:536
+msgid "Photo"
+msgstr "عکس"
+
+#: com_jreviews\jreviews\views/helpers/media.php:537
+msgid "Attachment"
+msgstr "پیوست"
+
+#: com_jreviews\jreviews\views/helpers/media.php:538
+msgid "Audio"
+msgstr "فایل صوتی"
+
+#: com_jreviews\jreviews\views/helpers/media.php:595
+msgid "I like this"
+msgstr "می‌پسندم"
+
+#: com_jreviews\jreviews\views/helpers/media.php:601
+msgid "I dislike this"
+msgstr "نمی‌پسندم"
+
+#: com_jreviews\jreviews\views/helpers/media.php:611
+msgid "Report as inappropriate"
+msgstr "گزارش نامناسب بودن"
+
+#: com_jreviews\jreviews\views/helpers/media.php:765
+msgid "no upload limit"
+msgstr "بدون محدودیت آپلود"
+
+#: com_jreviews\jreviews\views/helpers/media.php:770
+#, php-format
+msgid "upload limit reached (%s)"
+msgstr "محدودیت آپلود به (%s) رسید"
+
+#: com_jreviews\jreviews\views/helpers/media.php:774
+#, php-format
+msgid "%1$s remaining out of %2$s"
+msgstr "%1$s مانده از %2$s"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:45
+msgid "No rating"
+msgstr "بدون امتیاز"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:77
+msgid "Select Rating"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/rating.php:85
+#, php-format
+msgid "%s and up"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/rating.php:155
+#: com_jreviews\jreviews\views/helpers/rating.php:157
+msgid "Editor rating"
+msgstr "امتیاز کاربر"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:188
+#: com_jreviews\jreviews\views/helpers/rating.php:204
+#: com_jreviews\jreviews\views/helpers/rating.php:232
+msgid "User rating"
+msgstr "امتیاز کارشناس"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:414
+#: com_jreviews\jreviews\views/helpers/rating.php:610
+#: com_jreviews\jreviews\views/helpers/rating.php:622
+msgid "Overall rating"
+msgstr "امتیاز نهایی"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:491
+#, php-format
+msgid "%s star"
+msgid_plural "%s stars"
+msgstr[0] ""
+msgstr[1] ""
+
+#: com_jreviews\jreviews\views/helpers/rating.php:632
+msgid "Not rated"
+msgstr "بدون امتیاز"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:632
+msgid "N/A"
+msgstr "موجود نیست"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:31
+#: com_jreviews\jreviews\views/helpers/widgets.php:689
+msgid "Add Media"
+msgstr "افزودن مدیا"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:45
+#: com_jreviews\jreviews\views/helpers/widgets.php:1228
+#, php-format
+msgid "Comments (%s)"
+msgstr "نظرات (%s)"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:93
+msgid "Claim this listing"
+msgstr "ادعای این مدخل"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:141
+msgid "Compare"
+msgstr "مقایسه"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:168
+msgid "Download"
+msgstr "دانلود"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:203
+msgid "LANG_LISTING_SEND_INQUIRY"
+msgstr "ارسال استعلام"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:260
+msgid "Reply to this review"
+msgstr "پاسخ به این نقد"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:260
+msgid "Reply to this comment"
+msgstr "پاسخ به این نظر"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:284
+msgid "Delete Reply"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:305
+#: com_jreviews\jreviews\views/helpers/widgets.php:580
+#: com_jreviews\jreviews\views/helpers/widgets.php:979
+msgid "Edit"
+msgstr "ویرایش"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:330
+#: com_jreviews\jreviews\views/helpers/widgets.php:338
+msgid "Report this comment"
+msgstr "گزارش تخلف این نظر را ارسال کنید"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:338
+msgid "Report this review"
+msgstr "گزارش تخلف این نقد را ارسال کنید"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:387
+msgid "Was this review helpful to you?"
+msgstr "آیا این نقد را مفید یافتید؟"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:564
+#: com_jreviews\jreviews\views/helpers/widgets.php:650
+#: com_jreviews\jreviews\views/helpers/widgets.php:945
+msgid "Manage"
+msgstr "مدیریت"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:596
+#: com_jreviews\jreviews\views/helpers/widgets.php:778
+#: com_jreviews\jreviews\views/helpers/widgets.php:994
+msgid "Delete"
+msgstr "حذف"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:708
+msgid "Edit Media"
+msgstr "ویرایش مدیا"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:731
+#: com_jreviews\jreviews\views/helpers/widgets.php:842
+#: com_jreviews\jreviews\views/helpers/widgets.php:963
+msgid "Published"
+msgstr "منتشر شده"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:731
+#: com_jreviews\jreviews\views/helpers/widgets.php:842
+#: com_jreviews\jreviews\views/helpers/widgets.php:963
+msgid "Unpublished"
+msgstr "منتشر نشده"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:755
+msgid "Not featured"
+msgstr "ویژه نشده"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:1040
+msgid "Main Media"
+msgstr "مدیای اصلی"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:1198
+msgid "Read more"
+msgstr "ادامه مطلب"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:1214
+msgid "Read reviews"
+msgstr "مشاهده نقدها"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:1242
+msgid "Write review"
+msgstr "نقد بنویسید"
+
+#: com_jreviews\jreviews\controllers/categories_controller.php:58
+#: com_jreviews\jreviews\controllers/categories_controller.php:232
+#: com_jreviews\jreviews\controllers/categories_controller.php:1141
+msgid "Page not found"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/com_content_controller.php:190
+msgid "content.prepare"
+msgstr "آماده سازی محتوا"
+
+#: com_jreviews\jreviews\controllers/cron_controller.php:43
+msgid "Cron ran successfully."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/components/advanced_search_theme.php:222
+msgid "Keywords"
+msgstr "واژگان کلیدی"
+
+#: com_jreviews\jreviews\controllers/components/advanced_search_theme.php:316
+msgid "Category"
+msgstr "مجموعه"
+
+#: com_jreviews\jreviews\controllers/components/advanced_search_theme.php:364
+msgid "User Rating"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/components/advanced_search_theme.php:382
+msgid "Editor Rating"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/modules/module_listings_controller.php:47
+msgid "Miles"
+msgstr "مایل"
+
+#: com_jreviews\jreviews\controllers/modules/module_listings_controller.php:47
+msgid "Km"
+msgstr "کیلومتر"
+
+#: com_jreviews\jreviews\models/field.php:2549
+#, php-format
+msgid "Please enter a valid value for %s."
+msgstr "باید برای %s مقدار صحیحی وارد نمایید."
+
+#: com_jreviews\jreviews\models/field.php:2654
+#, php-format
+msgid "You can only select %d option for %s"
+msgid_plural "You can only select %d options for %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: com_jreviews\jreviews\locale/locale.php:14
+#: com_jreviews\jreviews\locale/locale.php:148
+msgid "You don't have enough access to perform this action."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:17
+#: com_jreviews\jreviews\locale/locale.php:40
+#: com_jreviews\jreviews\locale/locale.php:185
+msgid "Select Category"
+msgstr "انتخاب مجموعه"
+
+#: com_jreviews\jreviews\locale/locale.php:18
+#, php-format
+msgid "User Reviews: %s"
+msgstr "نقد کاربران: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:19
+#, php-format
+msgid "Editor Reviews: %s"
+msgstr "نقد کارشناسان: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:20
+#, php-format
+msgid "Media for %s"
+msgstr "مدیا برای %s"
+
+#: com_jreviews\jreviews\locale/locale.php:23
+#, php-format
+msgid "Listings by %s"
+msgstr "مدخل‌ها بر اساس %s"
+
+#: com_jreviews\jreviews\locale/locale.php:24
+#, php-format
+msgid "ordered by %s"
+msgstr "چیده شده بر اساس %s"
+
+#: com_jreviews\jreviews\locale/locale.php:25
+#, php-format
+msgid "ordered by %s desc"
+msgstr "چیدمان بر اساس %s نزولی"
+
+#: com_jreviews\jreviews\locale/locale.php:26
+#, php-format
+msgid "Favorites by %s"
+msgstr "علاقه مندی‌ها توسط %s"
+
+#: com_jreviews\jreviews\locale/locale.php:29
+#: com_jreviews\jreviews\locale/locale.php:228
+#, php-format
+msgid "Reviews written by %s"
+msgstr "نقدهای نوشته شده توسط %s"
+
+#: com_jreviews\jreviews\locale/locale.php:30
+#, php-format
+msgid "Review for %s, %s"
+msgstr "نقد برای %s, %s"
+
+#: com_jreviews\jreviews\locale/locale.php:33
+#: com_jreviews\jreviews\locale/locale.php:262
+msgid "Remove from favorites"
+msgstr "حذف از علاقه مندی‌ها"
+
+#: com_jreviews\jreviews\locale/locale.php:34
+#: com_jreviews\jreviews\locale/locale.php:263
+msgid "Add to favorites"
+msgstr "افزودن به علاقه مندی‌ها"
+
+#: com_jreviews\jreviews\locale/locale.php:35
+msgid "Other users interested in {title}"
+msgstr "کاربرهای دیگر {title} را پسندیده‌اند"
+
+#: com_jreviews\jreviews\locale/locale.php:38
+msgid "Search ANY selected option"
+msgstr "هر گزینه انتخاب شده را جستجو کن"
+
+#: com_jreviews\jreviews\locale/locale.php:39
+msgid "Search ALL selected options"
+msgstr "تمام گزینه‌های انتخاب شده را جستجو کن"
+
+#: com_jreviews\jreviews\locale/locale.php:41
+msgid "Select Listing Type"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:42
+msgid "Select"
+msgstr "انتخاب"
+
+#: com_jreviews\jreviews\locale/locale.php:45
+msgid "No listings selected for comparison."
+msgstr "هیچ مدخلی برای مقایسه انتخاب نشده است."
+
+#: com_jreviews\jreviews\locale/locale.php:46
+#, php-format
+msgid "%s Comparison"
+msgstr " %s مقایسه"
+
+#: com_jreviews\jreviews\locale/locale.php:47
+msgid "Only listings with the same listing type can be compared. One or more of the listing ids in the menu has a different listing type."
+msgstr "فقط مدخل‌هایی که نوع یکسانی داشته باشند با یکدیگر مقایسه می‌شوند. یک یا چند مدخل در منوها نوع یکسانی ندارند."
+
+#: com_jreviews\jreviews\locale/locale.php:50
+#, php-format
+msgid "Media by %s"
+msgstr "مدیا توسط %s"
+
+#: com_jreviews\jreviews\locale/locale.php:51
+#, php-format
+msgid "Photos by %s"
+msgstr "عکس‌ها توسط %s"
+
+#: com_jreviews\jreviews\locale/locale.php:52
+#, php-format
+msgid "Videos by %s"
+msgstr "ویدیوها توسط %s"
+
+#: com_jreviews\jreviews\locale/locale.php:53
+#, php-format
+msgid "Audio by %s"
+msgstr "فایل صوتی توسط %s"
+
+#: com_jreviews\jreviews\locale/locale.php:54
+#, php-format
+msgid "Attachments by %s"
+msgstr "پیوست‌ها توسط %s"
+
+#: com_jreviews\jreviews\locale/locale.php:55
+#, php-format
+msgid "Photos for %s"
+msgstr "عکس‌های %s"
+
+#: com_jreviews\jreviews\locale/locale.php:56
+#, php-format
+msgid "Video for %s"
+msgstr "ویدیوهای %s"
+
+#: com_jreviews\jreviews\locale/locale.php:57
+#, php-format
+msgid "Listing photos for %s"
+msgstr "عکس‌های مدخل %s"
+
+#: com_jreviews\jreviews\locale/locale.php:58
+#, php-format
+msgid "User photos for %s"
+msgstr "عکس‌های کاربران برای %s"
+
+#: com_jreviews\jreviews\locale/locale.php:59
+#, php-format
+msgid "Reviewer photos for %s"
+msgstr "عکس‌های نقد %s"
+
+#: com_jreviews\jreviews\locale/locale.php:60
+msgid "photos"
+msgstr "عکس‌ها"
+
+#: com_jreviews\jreviews\locale/locale.php:61
+msgid "videos"
+msgstr "ویدیوها"
+
+#: com_jreviews\jreviews\locale/locale.php:62
+msgid "attachments"
+msgstr "پیوست‌ها"
+
+#: com_jreviews\jreviews\locale/locale.php:63
+msgid "audio"
+msgstr "فایل صوتی"
+
+#: com_jreviews\jreviews\locale/locale.php:64
+msgid "this type of file"
+msgstr "این نوع فایل"
+
+#: com_jreviews\jreviews\locale/locale.php:67
+msgid "Username is valid"
+msgstr "شناسه معتبر است"
+
+#: com_jreviews\jreviews\locale/locale.php:68
+msgid "Username is invalid"
+msgstr "شناسه معتبر نیست"
+
+#: com_jreviews\jreviews\locale/locale.php:70
+msgid "E-mail is valid"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:71
+msgid "E-mail is invalid"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:74
+msgid "We finished processing your upload"
+msgstr "پردازش آپلود شما به پایان رسید"
+
+#: com_jreviews\jreviews\locale/locale.php:75
+#, php-format
+msgid "New listing %s"
+msgstr "مدخل جدید %s"
+
+#: com_jreviews\jreviews\locale/locale.php:76
+#, php-format
+msgid "Edited listing %s"
+msgstr "مدخل ویرایش شده %s"
+
+#: com_jreviews\jreviews\locale/locale.php:77
+#, php-format
+msgid "New review for %s"
+msgstr " جدیدترین نقدها برای %s"
+
+#: com_jreviews\jreviews\locale/locale.php:78
+#, php-format
+msgid "Edited review for %s"
+msgstr " نقدهای ویرایش‌ شده برای %s"
+
+#: com_jreviews\jreviews\locale/locale.php:79
+#, php-format
+msgid "Owner review reply submitted for listing %s"
+msgstr "پاسخ ارسالی نویسنده برای مدخل %s"
+
+#: com_jreviews\jreviews\locale/locale.php:80
+#, php-format
+msgid "A new %s report has been submitted"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:81
+#, php-format
+msgid "New comment for review: %s"
+msgstr "نظر جدید برای نقد: %s "
+
+#: com_jreviews\jreviews\locale/locale.php:82
+#, php-format
+msgid "Edited comment for review: %s"
+msgstr "نظر ویرایش شده برای نقد: %s "
+
+#: com_jreviews\jreviews\locale/locale.php:83
+#, php-format
+msgid "Listing claim submitted for %s"
+msgstr "مطالبۀ مدخل برای %s ارسال شد"
+
+#: com_jreviews\jreviews\locale/locale.php:86
+#, php-format
+msgid "New inquiry for: %s"
+msgstr "استعلام جدید برای: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:87
+#, php-format
+msgid "From: %s"
+msgstr "از طرف: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:88
+#, php-format
+msgid "Email: %s"
+msgstr "ایمیل: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:89
+#, php-format
+msgid "Phone number: %s"
+msgstr "شماره تلفن: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:90
+#, php-format
+msgid "Listing: %s"
+msgstr "عنوان مدخل: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:91
+#, php-format
+msgid "Listing link: %s"
+msgstr "لینک به مدخل: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:94
+#, php-format
+msgid "submitted a new listing titled %s"
+msgstr "یک مدخل جدید با عنوان %s ارسال شد"
+
+#: com_jreviews\jreviews\locale/locale.php:95
+#, php-format
+msgid "wrote a review for %s"
+msgstr "نقدی برای %s نوشته شده"
+
+#: com_jreviews\jreviews\locale/locale.php:96
+msgid "posted a new comment"
+msgstr "یک نظر جدید ارسال شد"
+
+#: com_jreviews\jreviews\locale/locale.php:97
+#, php-format
+msgid "liked this review for %s"
+msgstr "این نقد به خاطر %s مورد پسند قرار گرفت"
+
+#: com_jreviews\jreviews\locale/locale.php:98
+msgid "Website"
+msgstr "وبسایت"
+
+#: com_jreviews\jreviews\locale/locale.php:99
+msgid "Rating"
+msgstr "امتیاز"
+
+#: com_jreviews\jreviews\locale/locale.php:101
+msgid "Read review"
+msgstr "مشاهده نقد"
+
+#: com_jreviews\jreviews\locale/locale.php:102
+#, php-format
+msgid "%s stars"
+msgstr "%s ستاره"
+
+#: com_jreviews\jreviews\locale/locale.php:104
+#: com_jreviews\jreviews\locale/locale.php:157
+msgid "Please verify you are not a robot."
+msgstr "باید کد امنیتی را وارد کنید."
+
+#: com_jreviews\jreviews\locale/locale.php:105
+#: com_jreviews\jreviews\locale/locale.php:158
+msgid "The security code you entered was invalid."
+msgstr "کد امنیتی که وارد کرده اید، نادرست است."
+
+#: com_jreviews\jreviews\locale/locale.php:111
+msgid "LANG_LISTING_EDIT"
+msgstr "ویرایش مدخل"
+
+#: com_jreviews\jreviews\locale/locale.php:112
+msgid "LANG_LISTING_FEATURED"
+msgstr "ویژه"
+
+#: com_jreviews\jreviews\locale/locale.php:116
+msgid "LANG_REVIEW_WRITE_DETAIL"
+msgstr "نوشتن نقد"
+
+#: com_jreviews\jreviews\locale/locale.php:117
+msgid "LANG_REVIEW_ADD_DETAIL"
+msgstr "افزودن نقد جدید"
+
+#: com_jreviews\jreviews\locale/locale.php:118
+msgid "LANG_REVIEW_ADD_COMMENT_DETAIL"
+msgstr "ارسال نظر جدید"
+
+#: com_jreviews\jreviews\locale/locale.php:119
+msgid "LANG_REVIEW_USER_REVIEWS_NOT_FOUND"
+msgstr "هیچ کاربری برای این مدخل نقد ارسال نکرده است."
+
+#: com_jreviews\jreviews\locale/locale.php:120
+msgid "LANG_REVIEW_USER_COMMENTS_NOT_FOUND"
+msgstr "هیچ کاربری در این مدخل نظر نداده است."
+
+#: com_jreviews\jreviews\locale/locale.php:124
+msgid "LANG_LISTING_CREATE"
+msgstr "افزودن مدخل جدید"
+
+#: com_jreviews\jreviews\locale/locale.php:125
+msgid "LANG_LISTING_FORM_TITLE"
+msgstr "عنوان مدخل"
+
+#: com_jreviews\jreviews\locale/locale.php:126
+msgid "LANG_LISTING_FORM_TITLE_ALIAS"
+msgstr "نام مستعار مدخل"
+
+#: com_jreviews\jreviews\locale/locale.php:127
+msgid "LANG_LISTING_FORM_SUMMARY"
+msgstr "خلاصه"
+
+#: com_jreviews\jreviews\locale/locale.php:128
+msgid "LANG_LISTING_FORM_DESCRIPTION"
+msgstr "توضیح"
+
+#: com_jreviews\jreviews\locale/locale.php:129
+msgid "LANG_LISTING_FORM_TITLE_SEARCH"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:130
+msgid "LANG_LISTING_FORM_UPLOAD_MEDIA_INFO"
+msgstr "پس از ارسال مدخل قادر به آپلود مدیا خواهید بود."
+
+#: com_jreviews\jreviews\locale/locale.php:134
+msgid "LANG_LISTING_MEDIA_UPLOAD_HEADER"
+msgstr "افزودن مدیا: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:135
+msgid "LANG_REVIEW_MEDIA_UPLOAD_HEADER"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:136
+msgid "LANG_MEDIA_PHOTO_FUNCTION_GALLERY"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:137
+msgid "LANG_MEDIA_PHOTO_FUNCTION_LOGO"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:138
+msgid "LANG_MEDIA_PHOTO_FUNCTION_COVER"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:140
+msgid "FILTERS_CLEAR_ALL"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:153
+msgid "Please enter your name."
+msgstr "باید نام خود را وارد کنید."
+
+#: com_jreviews\jreviews\locale/locale.php:154
+msgid "Please enter a valid email address."
+msgstr "باید یک ایمیل معتبر وارد کنید."
+
+#: com_jreviews\jreviews\locale/locale.php:155
+msgid "Please enter a username."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:156
+msgid "Please accept our Terms & Conditions."
+msgstr "موافقت خود را با شرایط ما اعلام کنید"
+
+#: com_jreviews\jreviews\locale/locale.php:161
+msgid "Close"
+msgstr "بستن"
+
+#: com_jreviews\jreviews\locale/locale.php:162
+msgid "Cancel"
+msgstr "انصراف"
+
+#: com_jreviews\jreviews\locale/locale.php:166
+msgid "Start"
+msgstr "شروع"
+
+#: com_jreviews\jreviews\locale/locale.php:167
+msgid "Stop"
+msgstr "توقف"
+
+#: com_jreviews\jreviews\locale/locale.php:168
+msgid "Continue"
+msgstr "ادامه"
+
+#: com_jreviews\jreviews\locale/locale.php:169
+msgid "Back"
+msgstr "بازگشت"
+
+#: com_jreviews\jreviews\locale/locale.php:170
+msgid "Place Order"
+msgstr "سفارش دهید"
+
+#: com_jreviews\jreviews\locale/locale.php:175
+msgid "Frontpaged"
+msgstr "نمایش در صفحه اصلی سایت"
+
+#: com_jreviews\jreviews\locale/locale.php:176
+msgid "Not frontpaged"
+msgstr "عدم نمایش در صفحه اصلی سایت"
+
+#: com_jreviews\jreviews\locale/locale.php:177
+msgid "Clear"
+msgstr "پاک کردن"
+
+#: com_jreviews\jreviews\locale/locale.php:178
+msgid "Publish to Facebook"
+msgstr "در فیسبوک منتشر کن"
+
+#: com_jreviews\jreviews\locale/locale.php:179
+msgid "Loading..."
+msgstr "در حال بارگذاری"
+
+#: com_jreviews\jreviews\locale/locale.php:180
+msgid "Fill in to create an account"
+msgstr "برای ایجاد حساب کاربری این را تکمیل کنید"
+
+#: com_jreviews\jreviews\locale/locale.php:181
+msgid "show more"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:182
+msgid "hide"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:186
+msgid "You are not allowed to submit listings in this category."
+msgstr "شما اجازه ندارید در این مجموعه مدخل ارسال کنید."
+
+#: com_jreviews\jreviews\locale/locale.php:187
+msgid "The category selected is invalid."
+msgstr "مجموعه انتخاب شده نامعتبر است."
+
+#: com_jreviews\jreviews\locale/locale.php:188
+msgid "A listing with that title already exists."
+msgstr "در حال حاضر یک مدخل با این عنوان وجود دارد."
+
+#: com_jreviews\jreviews\locale/locale.php:189
+msgid "You need to select a category."
+msgstr "باید یک مجموعه انتخاب کنید."
+
+#: com_jreviews\jreviews\locale/locale.php:190
+msgid "Please enter the listing title."
+msgstr "لطفاً عنوان مدخل را ذکر کنید"
+
+#: com_jreviews\jreviews\locale/locale.php:191
+msgid "Please enter a summary."
+msgstr "لطفاً خلاصه را وارد کنید."
+
+#: com_jreviews\jreviews\locale/locale.php:192
+msgid "Please enter a description."
+msgstr "لطفاً توضیحات را وارد کنید."
+
+#: com_jreviews\jreviews\locale/locale.php:193
+msgid "Go to listing"
+msgstr "رفتن به مدخل"
+
+#: com_jreviews\jreviews\locale/locale.php:194
+msgid "Are you sure you want to delete this listing?"
+msgstr "آیا مطمئن هستید که می‌خواهید این مدخل را حذف کنید؟"
+
+#: com_jreviews\jreviews\locale/locale.php:195
+msgid "The listing was deleted."
+msgstr "مدخل حذف شده است."
+
+#: com_jreviews\jreviews\locale/locale.php:198
+msgid "Are you sure you want to delete this file?"
+msgstr "آیا مطمئن هستید که می‌خواهید این فایل را حذف کنید؟"
+
+#: com_jreviews\jreviews\locale/locale.php:199
+#, php-format
+msgid "%s upload failed. You don't have permission to upload %s."
+msgstr "%s آپلود ناموفق بود. شما اجازه ندارید %s را آپلود کنید."
+
+#: com_jreviews\jreviews\locale/locale.php:200
+#, php-format
+msgid "%s has an invalid extension."
+msgstr "%s دارای پسوند نامعتبری است."
+
+#: com_jreviews\jreviews\locale/locale.php:201
+#, php-format
+msgid "File has an invalid extension, it should be one of %s."
+msgstr "فایل دارای پسوند نامعتبری است، پسوند آن باید یکی از این موارد باشد: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:202
+#, php-format
+msgid "Photo upload limit (%s) reached."
+msgstr "محدودیت آپلود عکس %s است."
+
+#: com_jreviews\jreviews\locale/locale.php:203
+#, php-format
+msgid "Video upload limit (%s) reached."
+msgstr "محدودیت آپلود ویدیو %s است."
+
+#: com_jreviews\jreviews\locale/locale.php:204
+#, php-format
+msgid "Attachment upload limit (%s) reached."
+msgstr "محدودیت آپلود پیوست %s است."
+
+#: com_jreviews\jreviews\locale/locale.php:205
+#, php-format
+msgid "Audio upload limit (%s) reached."
+msgstr "محدودیت آپلود فایل صوتی %s است."
+
+#: com_jreviews\jreviews\locale/locale.php:206
+msgid "Upload directory is not writable."
+msgstr "دایرکتوری آپلود فاقد قابلیت ذخیره سازی است."
+
+#: com_jreviews\jreviews\locale/locale.php:207
+msgid "No files were uploaded."
+msgstr "هیچ فایلی آپلود نشد."
+
+#: com_jreviews\jreviews\locale/locale.php:208
+#, php-format
+msgid "%s is empty."
+msgstr "%s خالی است."
+
+#: com_jreviews\jreviews\locale/locale.php:209
+#, php-format
+msgid "%s is too large. The maximum allowed size is %sMB."
+msgstr "%s خیلی بزرگ است. حداکثر حجم مجاز %s مگابیت است."
+
+#: com_jreviews\jreviews\locale/locale.php:210
+msgid "A video was not found at the specified url."
+msgstr "در آدرس داده شده هیچ ویدیویی پیدا نشد."
+
+#: com_jreviews\jreviews\locale/locale.php:211
+msgid "Video linking is disabled"
+msgstr "لینک به ویدیو غیرفعال است."
+
+#: com_jreviews\jreviews\locale/locale.php:212
+msgid "File not found"
+msgstr "فایل پیدا نشد"
+
+#: com_jreviews\jreviews\locale/locale.php:213
+msgid "Cannot complete video upload because remote storage and video encoding setup is incomplete in Media Settings."
+msgstr "آپلود ویدیو امکان‌پذیر نیست زیرا موارد زیر در مدیا ستینگ کامل نیست:remote storage & video encoding"
+
+#: com_jreviews\jreviews\locale/locale.php:214
+msgid "Cannot complete audio upload because remote storage and audio encoding setup is incomplete in Media Settings."
+msgstr "آپلود فایل صوتی امکان‌پذیر نیست زیرا موارد زیر در مدیا ستینگ کامل نیست:remote storage & audio encoding"
+
+#: com_jreviews\jreviews\locale/locale.php:215
+msgid "{file} has an invalid extension. Allowed extensions: {extensions}."
+msgstr "{file} دارای پسوند نامعتبری است. پسوندهای معتبر:  {extensions}"
+
+#: com_jreviews\jreviews\locale/locale.php:216
+msgid "{file} is too large, maximum file size is {sizeLimit}."
+msgstr "{file}  خیلی بزرگ است، حدکثر حجم مجاز:  {sizeLimit}"
+
+#: com_jreviews\jreviews\locale/locale.php:217
+msgid "{file} is empty."
+msgstr "{file} خالی است."
+
+#: com_jreviews\jreviews\locale/locale.php:218
+msgid "No files to upload."
+msgstr "فایلی برای آپلود وجود ندارد."
+
+#: com_jreviews\jreviews\locale/locale.php:219
+msgid "The files are being uploaded, if you leave now the upload will be cancelled."
+msgstr "فایل‌ها در حال آپلود هستند، اگر اکنون اینجا را ترک کنید آپلود لغو می‌شود."
+
+#: com_jreviews\jreviews\locale/locale.php:220
+msgid "The remote site rejected the connection to download the file."
+msgstr "سایت مقصد اتصال برای دانلود فایل را نپذیرفت."
+
+#: com_jreviews\jreviews\locale/locale.php:221
+msgid "The upload URL is not valid, please try again."
+msgstr "لینک آپلود معتبر نیست، لطفاً بعداً تلاش کنید."
+
+#: com_jreviews\jreviews\locale/locale.php:222
+msgid "You've reached your photo limit for this listing. To publish this photo you'll first need to unpublish one of the other photos."
+msgstr "شما از حد مجاز عکس برای این مدخل عبور کردید. برای انتشار این عکس در ابتدا باید یکی از عکس‌های دیگر را از حالت انتشار خارج کنید."
+
+#: com_jreviews\jreviews\locale/locale.php:223
+msgid "You've reached your video limit for this listing. To publish this video you'll first need to unpublish one of the other videos."
+msgstr "شما از حد مجاز ویدیو برای این مدخل عبور کردید. برای انتشار این ویدیو در ابتدا باید یکی از ویدیوهای دیگر را از حالت انتشار خارج کنید."
+
+#: com_jreviews\jreviews\locale/locale.php:224
+msgid "You've reached your attachment limit for this listing. To publish this attachment you'll first need to unpublish one of the other attachments."
+msgstr "شما از حد مجاز پیوست برای این مدخل عبور کردید. برای انتشار این پیوست در ابتدا باید یکی از پیوست‌های دیگر را از حالت انتشار خارج کنید."
+
+#: com_jreviews\jreviews\locale/locale.php:225
+msgid "You've reached your audio limit for this listing. To publish this audio track you'll first need to unpublish one of the other audio tracks."
+msgstr "شما از حد مجاز فایل صوتی برای این مدخل عبور کردید. برای انتشار این فایل صوتی در ابتدا باید یکی از فایل‌های صوتی دیگر را از حالت انتشار خارج کنید."
+
+#: com_jreviews\jreviews\locale/locale.php:229
+msgid "You already submitted a review."
+msgstr "در حال حاضر یک نقد ارسال کرده اید."
+
+#: com_jreviews\jreviews\locale/locale.php:230
+msgid "You are not allowed to review your own listing."
+msgstr "شما اجازه ندارید برای مدخل خود نقد بنویسید."
+
+#: com_jreviews\jreviews\locale/locale.php:231
+msgid "Thank you for your submission"
+msgstr "برای ارسال از شما سپاسگزاریم"
+
+#: com_jreviews\jreviews\locale/locale.php:232
+msgid "Thank you for your submission. Refresh the page to see it."
+msgstr "برای ارسال از شما سپاسگزاریم. صفحه را ریفرش کنید تا آن را مشاهده نمایید."
+
+#: com_jreviews\jreviews\locale/locale.php:233
+#: com_jreviews\jreviews\locale/locale.php:251
+msgid "Your changes were saved."
+msgstr "تغییرات شما ذخیره شد."
+
+#: com_jreviews\jreviews\locale/locale.php:234
+msgid "Your changes were saved, refresh the page to see them."
+msgstr "تغییرات شما ذخیره شد، صفحه را دوباره بارگذاری کنید تا آن‌ها را مشاهده کنید."
+
+#: com_jreviews\jreviews\locale/locale.php:235
+msgid "Please enter a title for the review."
+msgstr "باید برای نقد عنوانی در نظر بگیرید."
+
+#: com_jreviews\jreviews\locale/locale.php:236
+#: com_jreviews\jreviews\locale/locale.php:252
+msgid "Please enter your comment."
+msgstr "باید نظر بدهید."
+
+#: com_jreviews\jreviews\locale/locale.php:237
+#, php-format
+msgid "You are missing a rating in %s criteria."
+msgstr "به خاطر معیارهای %s یک امتیاز از دست دادید."
+
+#: com_jreviews\jreviews\locale/locale.php:240
+msgid "Are you sure you want to delete your reply?"
+msgstr " آیا مطمئن هستید که می‌خواهید پاسخ خود را حذف کنید؟"
+
+#: com_jreviews\jreviews\locale/locale.php:241
+msgid "The reply was deleted."
+msgstr " پاسخ حذف شد."
+
+#: com_jreviews\jreviews\locale/locale.php:244
+msgid "You are not allowed to vote on your own review."
+msgstr "شما اجازه ندارید به نقد خود رأی دهید."
+
+#: com_jreviews\jreviews\locale/locale.php:245
+msgid "Login or register to vote."
+msgstr "برای رأی دادن وارد یا عضو شوید."
+
+#: com_jreviews\jreviews\locale/locale.php:246
+msgid "You already voted."
+msgstr "شما قبلاً رأی داده اید."
+
+#: com_jreviews\jreviews\locale/locale.php:249
+msgid "Thank you for your submission."
+msgstr "برای ارسال از شما سپاسگزاریم."
+
+#: com_jreviews\jreviews\locale/locale.php:250
+msgid "Thank you for your submission. It will be published once it is verified."
+msgstr "برای ارسال از شما سپاسگزاریم. مورد ارسالی شما پس از بررسی منتشر خواهد شد."
+
+#: com_jreviews\jreviews\locale/locale.php:253
+msgid "Are you sure you want to delete this comment?"
+msgstr "آیا مطمئن هستید که می‌خواهید این نظر را حذف کنید؟"
+
+#: com_jreviews\jreviews\locale/locale.php:254
+msgid "The comment was deleted"
+msgstr "نظر حذف شد"
+
+#: com_jreviews\jreviews\locale/locale.php:257
+msgid "Your claim was submitted, thank you."
+msgstr "درخواست شما ارسال شد، سپاسگزاریم."
+
+#: com_jreviews\jreviews\locale/locale.php:258
+#: com_jreviews\jreviews\locale/locale.php:277
+msgid "The message is empty."
+msgstr "پیامی نوشته نشده است."
+
+#: com_jreviews\jreviews\locale/locale.php:259
+msgid "Please register to claim this listing"
+msgstr "لطفاً برای مطالبۀ این مدخل عضو شوید"
+
+#: com_jreviews\jreviews\locale/locale.php:264
+msgid "Register to add this entry to your favorites"
+msgstr "برای اضافه کردن این مدخل به علاقه مندی‌ها ثبت نام کنید"
+
+#: com_jreviews\jreviews\locale/locale.php:267
+msgid "Your inquiry has been submitted."
+msgstr "درخواست شما ارسال شد."
+
+#: com_jreviews\jreviews\locale/locale.php:269
+msgid "Your reply was submitted and has been approved."
+msgstr "پاسخ شما ارسال شد و مورد پذیرش قرار گرفت."
+
+#: com_jreviews\jreviews\locale/locale.php:270
+msgid "Your reply was submitted and will be published once it is verified."
+msgstr "پاسخ شما ارسال شد و بعد از بررسی منتشر خواهد شد."
+
+#: com_jreviews\jreviews\locale/locale.php:271
+msgid "A reply for this review already exists."
+msgstr "در حال حاضر یک پاسخ برای این نقد وجود دارد."
+
+#: com_jreviews\jreviews\locale/locale.php:272
+msgid "The reply is empty."
+msgstr "پاسخی وارد نشده است."
+
+#: com_jreviews\jreviews\locale/locale.php:276
+msgid "Your report was submitted, thank you."
+msgstr "گزارش شما ارسال شد، سپاسگزاریم."
+
+#: com_jreviews\jreviews\locale/locale.php:280
+msgid "-- Select --"
+msgstr "-- انتخاب --"
+
+#: com_jreviews\jreviews\locale/locale.php:281
+#, php-format
+msgid "-- Select %s --"
+msgstr "-- انتخاب %s --"
+
+#: com_jreviews\jreviews\locale/locale.php:282
+msgid "No results found, try a different spelling."
+msgstr "هیچ نتیجه‌ای یافت نشد. املای دیگری را امتحان کنید."
+
+#: com_jreviews\jreviews\locale/locale.php:283
+msgid "Start typing for suggestions"
+msgstr "پیشنهادات خود را ارائه دهید"
+
+#: com_jreviews\jreviews\locale/locale.php:288
+msgid "Compare All"
+msgstr "مقایسه همه"
+
+#: com_jreviews\jreviews\locale/locale.php:289
+msgid "Remove All"
+msgstr "حذف همه"
+
+#: com_jreviews\jreviews\locale/locale.php:290
+msgid "You need to select more than one listing for comparison."
+msgstr "برای مقایسه باید بیش از یک مدخل را انتخاب کنید."
+
+#: com_jreviews\jreviews\locale/locale.php:291
+msgid "You selected maximum number of listings for comparison."
+msgstr "تعداد مدخل‌های انتخاب شده از حد مجاز بیشتر است."
+
+#: com_jreviews\jreviews\locale/locale.php:294
+msgid "Narrow results matching all options"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:295
+msgid "FILTERS_RATINGS_AND_UP"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:296
+msgid "FILTERS_RANGE_DELIMITER"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:297
+msgid "FILTERS_CLEAR_SELECTED"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:298
+msgid "FILTERS_SHOW_ALL"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:299
+msgid "FILTERS_SHOW_LESS"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:300
+msgid "FILTERS_RANGE_MIN"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:301
+msgid "FILTERS_RANGE_MAX"
+msgstr ""
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:79
+msgid "%B %d, %Y"
+msgstr "%B %d, %Y"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:106
+msgid "%b %d, %Y"
+msgstr "%b %d, %Y"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:433
+#, php-format
+msgid "on %s"
+msgstr "در %s "
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:438
+msgid "year"
+msgid_plural "years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:439
+#: com_s2framework\s2framework\libs\view/helpers/time.php:444
+msgid "month"
+msgid_plural "months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:440
+#: com_s2framework\s2framework\libs\view/helpers/time.php:445
+#: com_s2framework\s2framework\libs\view/helpers/time.php:449
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:441
+#: com_s2framework\s2framework\libs\view/helpers/time.php:446
+#: com_s2framework\s2framework\libs\view/helpers/time.php:450
+#: com_s2framework\s2framework\libs\view/helpers/time.php:453
+msgid "day"
+msgid_plural "days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:454
+#: com_s2framework\s2framework\libs\view/helpers/time.php:457
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:458
+#: com_s2framework\s2framework\libs\view/helpers/time.php:461
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:464
+msgid "second"
+msgid_plural "seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:468
+#, php-format
+msgid "%s ago"
+msgstr "%s قبل"
+
+#: com_jreviews\jreviews\plugins/twitter.php:70
+#, php-format
+msgid "Listing: %1$s. %2$s"
+msgstr "مدخل: %1$s. %2$s"
+
+#: com_jreviews\jreviews\plugins/twitter.php:71
+#, php-format
+msgid "Review for: %1$s. %2$s"
+msgstr "نقد برای: %1$s. %2$s"
+
+#: com_jreviews\jreviews\plugins/twitter.php:72
+#, php-format
+msgid "Discussion on: %1$s. %2$s"
+msgstr "بحث در مورد: %1$s. %2$s"
+
+#: com_jreviews\jreviews\plugins/twitter.php:73
+#, php-format
+msgid "New photo for %1$s"
+msgstr ""
+
+#: com_jreviews\jreviews\plugins/twitter.php:74
+#, php-format
+msgid "New review photo for %1$s"
+msgstr ""
+
+#: com_jreviews\jreviews\plugins/twitter.php:241
+msgid "review"
+msgstr "نقد"
+
+#: com_jreviews\jreviews\cms_compat/joomla/bootloader.php:55
+msgid "JERROR_ALERTNOAUTHOR"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/bootloader.php:174
+msgid "JGLOBAL_RESOURCE_NOT_FOUND"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/community/jomsocial.php:108
+msgid "index.php?option=com_community&view=register"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/community/jomsocial.php:230
+msgid "COM_COMMUNITY_MALE"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/community/jomsocial.php:239
+msgid "COM_COMMUNITY_FEMALE"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/community/jomsocial.php:307
+msgid "index.php?option=com_community&view=profile&userid="
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/everywhere/everywhere_com_community_access.php:133
+#: com_jreviews\jreviews\cms_compat/joomla/models/everywhere/everywhere_com_easysocial.php:134
+msgid "COMMUNITY_TAG"
+msgstr "عضو جوم سوشال"
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/everywhere/everywhere_com_comprofiler.php:169
+msgid "COMMUNITY_BUILDER_TAG"
+msgstr "عضو جامعه ساز"
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/everywhere/everywhere_com_content.php:158
+msgid "Listing"
+msgstr "مدخل"
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/everywhere/everywhere_com_easysocial_event.php:117
+msgid "COMMUNITY_EVENT_TAG"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/everywhere/everywhere_com_easysocial_group.php:117
+msgid "COMMUNITY_GROUP_TAG"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/everywhere/everywhere_com_jomres.php:83
+msgid "JOMRES_TAG"
+msgstr "هتل"
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/everywhere/everywhere_com_k2.php:93
+msgid "K2_TAG"
+msgstr "کا2"
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/everywhere/everywhere_com_mtree.php:97
+msgid "MTREE_TAG"
+msgstr "فهرست‌ها"
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/easysocialapps/jreviews/jreviews.php:176
+msgid "COM_EASYSOCIAL_STREAM_CONTEXT_TITLE_"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/community/jreviews/jreviews.php:198
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/community/jreviews/jreviews.php:256
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/community/jreviews/jreviews.php:312
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/community/jreviews/jreviews.php:514
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/community/jreviews/jreviews.php:588
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/community/jreviews/jreviews.php:645
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/community/jreviews/jreviews.php:748
+msgid "string.truncate"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:121
+msgid "COM_MENUS_NO_ITEM_SELECTED"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:172
+msgid "JLIB_APPLICATION_ERROR_INSUFFICIENT_BATCH_INFORMATION"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:216
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:407
+msgid "JGLOBAL_BATCH_MOVE_PARENT_NOT_FOUND"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:236
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:417
+msgid "COM_MENUS_BATCH_MENU_ITEM_CANNOT_CREATE"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:423
+msgid "COM_MENUS_BATCH_MENU_ITEM_CANNOT_EDIT"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:944
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:949
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:963
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:993
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:1000
+msgid "JERROR_LOADFILE_FAILED"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:1201
+msgid "COM_MENUS_ERROR_ALL_LANGUAGE_ASSOCIATED"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:1307
+msgid "COM_MENUS_ERROR_ALREADY_HOME"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:1318
+msgid "JLIB_APPLICATION_ERROR_SAVE_NOT_PERMITTED"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:1369
+msgid "JLIB_DATABASE_ERROR_MENU_UNPUBLISH_DEFAULT_HOME"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_sef/jreviews_router.php:1426
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_sef/jreviews_router.php:1951
+msgid "JERROR_LAYOUT_PAGE_NOT_FOUND"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_sef/jreviews_router.php:2077
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_sef/jreviews_router.php:2158
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_sef/jreviews_router.php:2229
+msgid "JGLOBAL_CATEGORY_NOT_FOUND"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/easysocial.php:251
+msgid "Commented on a review"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/easysocial.php:295
+msgid "Added listing to favorites"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/easysocial.php:379
+msgid "Submitted a listing"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/easysocial.php:644
+msgid "Uploaded a photo"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/easysocial.php:647
+msgid "Uploaded a video"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/easysocial.php:650
+msgid "Uploaded an attachment"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/easysocial.php:653
+msgid "Uploaded an audio file"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/easysocial.php:763
+msgid "First to review listing"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/easysocial.php:766
+msgid "Submitted a review"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:65
+#, php-format
+msgid "{actor} added new listing %1$s in %2$s."
+msgstr "{actor} added new listing %1$s in %2$s."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:66
+#, php-format
+msgid "{actor} updated listing %1$s."
+msgstr "{actor} updated listing %1$s."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:67
+#, php-format
+msgid "{actor} reviewed %1$s."
+msgstr "{actor} reviewed %1$s."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:68
+#, php-format
+msgid "{actor} updated review for %1$s."
+msgstr "{actor} updated review for %1$s."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:69
+#, php-format
+msgid "{actor} added %1$s to favorites."
+msgstr "{actor} added %1$s to favorites."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:70
+#, php-format
+msgid "{actor} removed %1$s from favorites."
+msgstr "{actor} removed %1$s from favorites."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:71
+#, php-format
+msgid "{actor} voted as helpful a review, %1$s, written by %2$s."
+msgstr "{actor} voted as helpful a review, %1$s, written by %2$s."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:72
+#, php-format
+msgid "{actor} voted as not helpful a review, %1$s, written by %2$s."
+msgstr "{actor} voted as not helpful a review, %1$s, written by %2$s."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:73
+#, php-format
+msgid "{actor} commented on a %1$s for %2$s."
+msgstr "{actor} commented on a %1$s for %2$s."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:74
+#, php-format
+msgid "{actor} updated comment on a %1$s for %2$s."
+msgstr "{actor} updated comment on a %1$s for %2$s."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:75
+#, php-format
+msgid "{actor} added {single}a photo{/single}{multiple}{count} photos{/multiple} for %s"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:76
+#, php-format
+msgid "{actor} added {single}a video{/single}{multiple}{count} videos{/multiple} for %s"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:77
+#, php-format
+msgid "{actor} added {single}a song{/single}{multiple}{count} songs{/multiple} for %s"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:78
+#, php-format
+msgid "{actor} added {single}a document{/single}{multiple}{count} documents{/multiple} for %s"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:637
+msgid "A guest"
+msgstr "یک میهمان"
+
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:216
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:263
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:574
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:708
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:1032
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:1056
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:1059
+#: com_jreviews\jreviews\cms_compat/wordpress/views/helpers/routes.php:622
+msgid "and"
+msgstr "و"
+
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:861
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:883
+#: com_jreviews\jreviews\cms_compat/wordpress/views/helpers/routes.php:721
+#: com_jreviews\jreviews\cms_compat/wordpress/views/helpers/routes.php:743
+#, php-format
+msgid "%s listing feeds"
+msgstr "%s خوراک مدخل‌ها"
+
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:1021
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:1038
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:1073
+#: com_jreviews\jreviews\cms_compat/wordpress/views/helpers/routes.php:841
+#: com_jreviews\jreviews\cms_compat/wordpress/views/helpers/routes.php:863
+#, php-format
+msgid "%s review feeds"
+msgstr "%s خوراک نقدها"
+
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:1267
+#: com_jreviews\jreviews\cms_compat/wordpress/views/helpers/routes.php:1058
+#, php-format
+msgid "%s - restricted access"
+msgstr "%s ـ محدودیت دسترسی"
+
+#: com_jreviews\jreviews\cms_compat/wordpress/plugins/buddypress.php:59
+msgid "{actor} liked a photo contributed by {target}"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/wordpress/plugins/buddypress.php:60
+msgid "{actor} didn't like a photo contributed by {target}"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/wordpress/plugins/buddypress.php:61
+msgid "{actor} liked a photo"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/wordpress/plugins/buddypress.php:62
+msgid "{actor} didn't like a photo"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/wordpress/plugins/buddypress.php:63
+msgid "{actor} liked a video contributed by {target}"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/wordpress/plugins/buddypress.php:64
+msgid "{actor} didn't like a video contributed by {target}"
+msgstr ""
+
+#: com_jreviews\jreviews\views/admin/themes/default/addons/install.thtml:31
+msgid "Drop files here"
+msgstr "فایل‌ها را در اینجا قرار دهید"
+
+#: com_jreviews\jreviews\views/admin/themes/default/addons/install.thtml:46
+msgid "Failed"
+msgstr "بی نتیجه"
+
+#: com_jreviews\jreviews\views/admin/themes/default/elements/pagination.thtml:7
+#, php-format
+msgid "%1$s results - showing %2$s - %3$s"
+msgstr "%1$s نتایج - نمایش در %2$s - %3$s"
+
+#: com_jreviews\jreviews\views/admin/themes/default/listings/create_form.thtml:54
+msgid "Created"
+msgstr ""
+
+#: com_jreviews\jreviews\views/admin/themes/default/listings/create_form.thtml:62
+msgid "Publication Date"
+msgstr ""
+
+#: com_jreviews\jreviews\views/admin/themes/default/listings/create_form.thtml:70
+msgid "Expiration Date"
+msgstr ""
+
+#: com_jreviews\jreviews\views/admin/themes/default/media/edit_form.thtml:186
+msgid "Duration"
+msgstr "مدت"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:54
+msgid "Only linking allowed"
+msgstr ""
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:118
+msgid "Upload from URL"
+msgstr "آپلود از آدرس اینترنتی"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:186
+msgid "URL to media file"
+msgstr "آدرس اینترنتی فایل مدیا"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:218
+msgid "Uploaded Media"
+msgstr "مدیای آپلود شده"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:232
+msgid "URL to video page"
+msgstr "آدرس اینترنتی صفحه ویدیو"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:284
+msgid "Upload"
+msgstr "آپلود"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:284
+msgid "Select Files"
+msgstr "فایل‌ها را انتخاب کنید"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:287
+msgid "Select or Drag & Drop your files to automatically start the upload process"
+msgstr "با حرکت ماوس فایل‌ها را در اینجا قرار دهید تا پروسه آپلود به طور اتوماتیک آغاز شود."
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:293
+msgid "Use Camera"
+msgstr "از دوربین استفاده کنید"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:294
+msgid "Choose Existing"
+msgstr "انتخاب موجودی"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:337
+msgid "Description"
+msgstr ""
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:341
+msgid "Update Information"
+msgstr "آپدیت اطلاعات"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:347
+msgid "Approved"
+msgstr "پذیرفته شده"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:349
+msgid "Processing Failed"
+msgstr "پردازش ناموفق بود"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:350
+msgid "Processing Cancelled"
+msgstr "پردازش لغو شد"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:352
+msgid "We are processing the file and this can take several minutes. You can wait or we will send you a notification when it is done"
+msgstr "ما در حال پردازش فایل هستیم و این کار احتمالاً چند دقیقه طول می‌کشد. می‌توانید منتظر بمانید یا اینکه وقتی پردازش به پایان رسید برای شما اطلاعیه می‌فرستیم."
+
+#: com_jreviews\jreviews\views/admin/themes/default/reviews/create.thtml:28
+msgid "Reviewer"
+msgstr "نقدنویس"
+
+#: com_jreviews\jreviews\views/admin/themes/default/reviews/create.thtml:92
+msgid "Ratings (the higher the better)"
+msgstr "امتیازات (هرچه بیشتر بهتر)"
+
+#: com_jreviews\jreviews\views/admin/themes/default/reviews/create.thtml:115
+msgid "Rate it"
+msgstr "امتیاز دهید"
+
+#: com_jreviews\jreviews\views/themes/default/claims/create.thtml:7
+msgid "Please provide some information that will allow us to verify your ownership claim."
+msgstr "لطفاً اطلاعاتی ارائه کنید که به ما اجازه دهد ادعای مالکیت شما را تأیید کنیم."
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:30
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_mylistings.thtml:30
+msgid "No entries were found"
+msgstr "هیچ اطلاعات ورودی‌ای یافت نشد"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:171
+msgid "View all my favorites"
+msgstr "مشاهده همه علاقه مندی‌های من"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_mylistings.thtml:171
+msgid "View all my listings"
+msgstr "مشاهده همه مدخل‌های من"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myreviews.thtml:147
+msgid "Reviewed by"
+msgstr "نویسنده نقد"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myreviews.thtml:227
+msgid "View all my reviews"
+msgstr "مشاهده همه نقدهای من"
+
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:30
+msgid "The directory is empty."
+msgstr "این پوشه خالی است."
+
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:64
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:66
+msgid "Search"
+msgstr "جستجو"
+
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:68
+msgid "Advanced search"
+msgstr "جستجوی پیشرفته"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:38
+#, php-format
+msgid "Not you? %sClear user information.%s"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:48
+msgid "Name"
+msgstr "نام"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:64
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:126
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:148
+msgid "Username"
+msgstr "شناسه کاربری"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:66
+msgid "Create an account to be able to manage all of your submissions. After you submit the form we'll email you an activation link with a temporary password."
+msgstr "یک حساب کاربری ایجاد کنید تا بتوانید تمام ارسال‌های خود را مدیریت کنید. پس از اینکه فرم را ارسال کردید، برای شما لینک فعال‌سازی را با گذرواژه موقت ایمیل می‌کنیم."
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:84
+msgid "Email"
+msgstr "ایمیل"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:96
+msgid "Comment"
+msgstr "نظر"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/parent_popover.thtml:11
+msgid "Comment not found"
+msgstr "نظر یافت نشد"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/post_layout.thtml:40
+#, php-format
+msgid "In reply to an %searlier comment%s"
+msgstr "در پاسخ به %s نظر قبلی %s"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/post_layout.thtml:54
+#: com_jreviews\jreviews\views/themes/default/discussions/post_list_layout.thtml:42
+msgid "Written by"
+msgstr "نویسنده"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:54
+msgid "Review Detail"
+msgstr "جزئیات نقد"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:98
+#, php-format
+msgid "by %s"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:102
+msgid "Hits"
+msgstr "بازدید"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:127
+msgid "Comments"
+msgstr "نظرات"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:141
+msgid "Add new comment"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:240
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:352
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:534
+#, php-format
+msgid "User Photos (%s)"
+msgstr "عکس‌های کاربر (%s)"
+
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:242
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:406
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:582
+#, php-format
+msgid "User Videos (%s)"
+msgstr "ویدیوهای کاربر (%s)"
+
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:330
+msgid "Photos"
+msgstr "عکس‌ها"
+
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:339
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:521
+#, php-format
+msgid "All Photos (%s)"
+msgstr "تمام عکس‌ها (%s)"
+
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:348
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:530
+#, php-format
+msgid "Listing Photos (%s)"
+msgstr "عکس‌های مدخل (%s)"
+
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:394
+msgid "Videos"
+msgstr "ویدیوها"
+
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:400
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:576
+#, php-format
+msgid "All Videos (%s)"
+msgstr "تمام ویدیوها (%s)"
+
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:404
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:580
+#, php-format
+msgid "Listing Videos (%s)"
+msgstr "ویدیوهای مدخل (%s)"
+
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:447
+msgid "Attachments"
+msgstr "پیوست‌ها"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:75
+#, php-format
+msgid "Already have an account? %sLog in now%s"
+msgstr "آیا دارای حساب کاربری هستید؟ %s‌وارد شوید‌%s"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:79
+#, php-format
+msgid "Already have an account? %sLog in now%s or %sCreate an account%s"
+msgstr "آیا دارای حساب کاربری هستید؟ %s‌وارد شوید%s یا %sعضو شوید‌%s"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:89
+#, php-format
+msgid "To submit a listing please %sregister%s or %slog in%s"
+msgstr "برای ارسال مدخل لطفاً %sعضو شوید%s یا %s‌وارد شوید%s"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:95
+#, php-format
+msgid "To write a review please %sregister%s or %slog in%s"
+msgstr "برای نوشتن نقد لطفاً %sعضو شوید%s یا %s‌وارد شوید%s"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:98
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:104
+#, php-format
+msgid "To write a comment please %sregister%s or %slog in%s"
+msgstr "برای نوشتن نظر لطفاً %sعضو شوید%s یا %s‌وارد شوید%s"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:110
+#, php-format
+msgid "Access restricted to members. To continue %sregister%s or %slog in%s"
+msgstr "دسترسی فقط برای اعضا مجاز است. برای ادامه %sعضو شوید%s یا %sوارد شوید%s"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:128
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:150
+msgid "Password"
+msgstr "گذرواژه"
+
+#: com_jreviews\jreviews\views/themes/default/elements/page_meta.thtml:25
+#, php-format
+msgid "%s - Page %s"
+msgstr "%s - صفحه %s"
+
+#: com_jreviews\jreviews\views/themes/default/elements/pagination.thtml:88
+msgid "Filter"
+msgstr "فیلتر"
+
+#: com_jreviews\jreviews\views/themes/default/elements/pagination.thtml:94
+msgid "Sort"
+msgstr "طبقه بندی"
+
+#: com_jreviews\jreviews\views/themes/default/elements/submission_instructions.thtml:1
+msgid "Submission instructions"
+msgstr "راهنمای ارسال"
+
+#: com_jreviews\jreviews\views/themes/default/elements/submission_instructions.thtml:3
+msgid "Select the category where you want to submit the new item."
+msgstr "مجموعه مورد نظر را جهت ارسال آیتم جدید انتخاب کنید."
+
+#: com_jreviews\jreviews\views/themes/default/elements/submission_instructions.thtml:4
+#, php-format
+msgid "All form inputs marked %s are required."
+msgstr "مواردی که با %s مشخص شده‌اند الزامی هستند."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:14
+msgid "You will find this claim in Claims Moderation."
+msgstr "شما این درخواست را در بخش رسیدگی به درخواست‌ها پیدا خواهید کرد."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:18
+msgid "Claimed by"
+msgstr "ادعای مالکیت توسط"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:22
+msgid "Claimant's email"
+msgstr "ایمیل درخواست کننده"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:26
+msgid "Claim text"
+msgstr "متن ادعای مالکیت"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:30
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:31
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_notification.thtml:28
+msgid "IP address"
+msgstr "آی پی"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:34
+msgid "Current owner"
+msgstr "ایجادکننده مدخل"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:38
+msgid "Owner email"
+msgstr "ایمیل ایجادکننده مدخل"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:50
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:43
+msgid "Summary"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:16
+msgid "The listing is not published and you will find it in the moderation queue."
+msgstr "مدخل منتشر نشده است و شما می‌توانید آن را در فهرست انتظار برای مدیریت پیدا کنید."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:18
+msgid "The listing is published and you will find it in the listing browse admin menu."
+msgstr "مدخل منتشر شده است و شما می‌توانید آن را در منوی جستجوی مدخل‌ها بیابید."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:13
+msgid "You will find this owner reply in the owner reply moderation list."
+msgstr "شما این پاسخ ایجادکننده مدخل را می‌توانید در فهرست بررسی پاسخ‌های ایجادکننده مدخل پیدا کنید."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:17
+msgid "Owner's name"
+msgstr "نام ایجادکننده مدخل"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:25
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:25
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:25
+msgid "IP Address"
+msgstr "آی پی"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:29
+msgid "Owner's reply text"
+msgstr "متن پاسخ ایجادکننده مدخل"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:37
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:37
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:37
+msgid "Listing title"
+msgstr "عنوان مدخل"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:41
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:43
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:41
+msgid "Review title"
+msgstr "عنوان نقد"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:45
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:47
+msgid "Review Comments"
+msgstr "نظرات ارسال شده برای این نقد"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:13
+msgid "You will find this report in the reports moderation list."
+msgstr "شما این گزارش را در فهرست بررسی گزارش‌ها خواهید یافت."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:17
+msgid "Reporter"
+msgstr "گزارش کننده"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:29
+msgid "Report text"
+msgstr "متن گزارش"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:59
+msgid "Media type"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:65
+msgid "Media title"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:75
+msgid "Discussion Comment"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:17
+msgid "User name"
+msgstr "نام کاربری"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:45
+msgid "Review"
+msgstr "نقد"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_notification.thtml:32
+msgid "Entry"
+msgstr "اطلاعات ورودی"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/user_media_encoding_notification.thtml:6
+msgid "[Without a title]"
+msgstr "بدون عنوان"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:42
+msgid "User reviews"
+msgstr "نقدهای کاربران"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:42
+msgid "User comments"
+msgstr "نظرات کاربران"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:54
+msgid "Search reviews"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:54
+msgid "Search comments"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:94
+#, php-format
+msgid "%d reviews"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:98
+#, php-format
+msgid "%d comments"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:164
+msgid "You already submitted a comment."
+msgstr "قبلا نظر داده اید."
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:180
+msgid "View all reviews"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:182
+msgid "View all comments"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:192
+msgid "View most helpful"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:200
+#, php-format
+msgid "View my review"
+msgid_plural "View my reviews (%d)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:210
+msgid "Back to Listing"
+msgstr "بازگشت به مدخل"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:248
+msgid "View all user reviews"
+msgstr "مشاهده تمام نقدهای کاربر"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:250
+msgid "View all user comments"
+msgstr "مشاهده همه نظرات کاربران"
+
+#: com_jreviews\jreviews\views/themes/default/fields_phpformat/business_hours.thtml:39
+msgid "Open now"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/fields_phpformat/business_hours.thtml:40
+msgid "Closed now"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/fields_phpformat/business_hours.thtml:41
+msgid "Closed"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/fields_phpformat/inventory.thtml:11
+msgid "SKU"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/fields_phpformat/inventory.thtml:12
+msgid "Price"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/fields_phpformat/inventory.thtml:13
+msgid "In Stock"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/fields_phpformat/recipe.thtml:16
+msgid "Ingredients"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/fields_phpformat/recipe.thtml:44
+msgid "Preparation"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/inquiries/create.thtml:9
+msgid "Your name"
+msgstr "نام شما"
+
+#: com_jreviews\jreviews\views/themes/default/inquiries/create.thtml:21
+msgid "Your email"
+msgstr "ایمیل شما"
+
+#: com_jreviews\jreviews\views/themes/default/inquiries/create.thtml:23
+msgid "Please enter your email."
+msgstr "لطفاً ایمیل خود را وارد کنید"
+
+#: com_jreviews\jreviews\views/themes/default/inquiries/create.thtml:33
+msgid "Message"
+msgstr "پیام"
+
+#: com_jreviews\jreviews\views/themes/default/inquiries/create.thtml:35
+msgid "Please enter your message."
+msgstr "لطفاً پیام خود را وارد کنید."
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:70
+#: com_jreviews\jreviews\views/themes/default/listings/create_form_tabbed.thtml:78
+msgid "You have reached the maximum number of free listings for this category."
+msgstr "شما از حداکثر تعداد مجاز مدخل در این مجموعه عبور کرده اید."
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:310
+#: com_jreviews\jreviews\views/themes/default/listings/create_form_tabbed.thtml:327
+msgid "Meta Data"
+msgstr "داده‌های متا"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:314
+#: com_jreviews\jreviews\views/themes/default/listings/create_form_tabbed.thtml:331
+msgid "Meta Description"
+msgstr "توضیحات متا"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:322
+#: com_jreviews\jreviews\views/themes/default/listings/create_form_tabbed.thtml:339
+msgid "Meta Keywords"
+msgstr "کلمات کلیدی متا"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:351
+#: com_jreviews\jreviews\views/themes/default/listings/create_form_tabbed.thtml:368
+msgid "I will submit my review later on"
+msgstr "نقد خود را بعداً ارسال می‌کنم"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:351
+#: com_jreviews\jreviews\views/themes/default/listings/create_form_tabbed.thtml:368
+msgid "I will submit my comment later on"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:363
+#: com_jreviews\jreviews\views/themes/default/listings/create_form_tabbed.thtml:380
+msgid "Review Title"
+msgstr "عنوان نقد"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:455
+#: com_jreviews\jreviews\views/themes/default/listings/create_form_tabbed.thtml:459
+msgid "You will be able to upload media right after checkout."
+msgstr "پس از تسویه حساب قادر به آپلود مدیا خواهید بود."
+
+#: com_jreviews\jreviews\views/themes/default/listings/detail.thtml:96
+#: com_jreviews\jreviews\views/themes/default/listings/detail_compact.thtml:173
+#: com_jreviews\jreviews\views/themes/default/listings/detail_tabs.thtml:146
+msgid "Map"
+msgstr "نقشه"
+
+#: com_jreviews\jreviews\views/themes/default/listings/detail_tabs.thtml:126
+#: com_jreviews\jreviews\views/themes/default/listings/listings_tableview.thtml:62
+msgid "Details"
+msgstr "جزئیات"
+
+#: com_jreviews\jreviews\views/themes/default/listings/detail_tabs.thtml:150
+msgid "Reviews"
+msgstr "نقدها"
+
+#: com_jreviews\jreviews\views/themes/default/listings/detail_tabs.thtml:156
+msgid "Related Listings"
+msgstr "مدخل‌های مرتبط"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:71
+msgid "Go back to previous page"
+msgstr "بازگشت به صفحه قبل"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:91
+msgid "Editor Ratings"
+msgstr "امتیازات کارشناس"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:107
+msgid "User Ratings"
+msgstr "امتیازات کاربر"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:176
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:279
+msgid "Remove item"
+msgstr "حذف آیتم"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_header.thtml:241
+#: com_jreviews\jreviews\views/themes/default/listings/listings_noresults.thtml:4
+#, php-format
+msgid "%s Filters"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_noresults.thtml:7
+msgid "Your search did not return any results. Try adjusting your search values.<br /><br /><a href=\"javascript:window.history.go(-1)\">Click here to go back.</a>"
+msgstr "جستجوی شما نتایجی در بر نداشت معیارهای جستجو را تغییر دهید..<br /><br /><a href=\"javascript:window.history.go(-1)\">برای بازگشت اینجا را کلیک کنید</a>"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_noresults.thtml:11
+msgid "Your favorites list is empty."
+msgstr "فهرست علاقه مندی‌های شما خالی است."
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_search_results.thtml:155
+#, php-format
+msgid "View all results (%s)"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_tableview.thtml:76
+msgid "Ratings"
+msgstr "امتیازات"
+
+#: com_jreviews\jreviews\views/themes/default/media/attachment.thtml:29
+msgid "File Description"
+msgstr "توضیحات فایل"
+
+#: com_jreviews\jreviews\views/themes/default/media/attachment.thtml:31
+msgid "File Size"
+msgstr "اندازه فایل"
+
+#: com_jreviews\jreviews\views/themes/default/media/attachment.thtml:33
+msgid "File Type"
+msgstr "نوع فایل"
+
+#: com_jreviews\jreviews\views/themes/default/media/attachment.thtml:35
+msgid "Downloads"
+msgstr "دانلودها"
+
+#: com_jreviews\jreviews\views/themes/default/media/create.thtml:6
+#, php-format
+msgid "Review: %s"
+msgstr "نقد: %s"
+
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:125
+msgid "You are not allowed to upload or have reached your upload limit."
+msgstr "شما مجاز به آپلود نیستید یا از حد مجاز برای این کار عبور کرده اید."
+
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:215
+msgid "Upload Media"
+msgstr "آپلود مدیا"
+
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:227
+msgid "Link Video"
+msgstr "لینک ویدیو"
+
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:241
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:325
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:413
+msgid "Upload Limits:"
+msgstr "محدودیت آپلود:"
+
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:281
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:369
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:457
+msgid "Terms &amp; Conditions"
+msgstr "شرایط و مقررات"
+
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:283
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:371
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:459
+msgid "Before uploading media, please accept our Terms &amp; Conditions. All uploads must be family friendly, original non-copyrighted, non-commercial and virus-free."
+msgstr "قبل از آپلود مدیا لطفاَ با شرایط و مقررات ما موافقت کنید. تمام آپلودها باید مناسب برای تمام اعضای خانواده، اریژینال، فاقد حقوق مؤلف، غیرتجاری و فاقد ویروس باشند."
+
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:287
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:375
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:463
+msgid "Read our complete submission guidelines."
+msgstr "راهنمای کامل ارسال را بخوانید."
+
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:295
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:383
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:471
+msgid "I accept the Terms & Conditions."
+msgstr "کلیۀ‌ شرایط را می‌پذیرم."
+
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:485
+msgid "Linked Videos"
+msgstr "ویدیوهای لینک شده"
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:4
+msgid "Crop"
+msgstr "کراپ"
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:4
+msgid "Scale"
+msgstr "مقیاس"
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:21
+msgid "File Information"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:25
+msgid "Filename"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:33
+msgid "Relative Path"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:41
+msgid "Encoding Information"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:66
+msgid "Status"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:74
+msgid "API Response"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:80
+msgid "Click to view"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:84
+msgid "Response is empty"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:104
+msgid "Current Thumbnail Sizes"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:133
+msgid "Deleted thumbnails will be recreated on demand."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:173
+msgid "Pending"
+msgstr "در حال انتظار"
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:173
+msgid "Rejected"
+msgstr "مردود"
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:181
+msgid "Pending Approval"
+msgstr "در انتظار پذیرش"
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:193
+msgid "Uploaded"
+msgstr "آپلود شده"
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:205
+msgid "seconds"
+msgstr "seconds"
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:215
+msgid "User"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:219
+msgid "Start typing for suggestions."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:230
+msgid "User ID"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/list.thtml:135
+#: com_jreviews\jreviews\views/themes/default/media/photo_gallery.thtml:102
+msgid "Submitted by:"
+msgstr "ارسال شده توسط:"
+
+#: com_jreviews\jreviews\views/themes/default/media/list.thtml:137
+#: com_jreviews\jreviews\views/themes/default/media/photo_gallery.thtml:113
+#: com_jreviews\jreviews\views/themes/default/media/photo_gallery_detail.thtml:79
+#, php-format
+msgid "%s views"
+msgstr "%s بازدیدها"
+
+#: com_jreviews\jreviews\views/themes/default/media/list_manage.thtml:53
+msgid "Admin message: users will be able to re-order media only if the 'Default Media Order - Listing Specific' media setting is set to 'ordering'."
+msgstr "پیام مدیر: کاربران تنها زمانی می‌توانند چیدمان مدیا را تغییر دهند که این کار در تنظیمات مجاز شده باشد."
+
+#: com_jreviews\jreviews\views/themes/default/media/list_manage.thtml:62
+msgid "Listing Owner Photos"
+msgstr "عکس‌های ایجادکننده مدخل"
+
+#: com_jreviews\jreviews\views/themes/default/media/list_manage.thtml:63
+msgid "User Photos"
+msgstr "عکس‌های کاربران"
+
+#: com_jreviews\jreviews\views/themes/default/media/list_manage.thtml:65
+msgid "Listing Owner Videos"
+msgstr "ویدیوهای ایجادکننده مدخل"
+
+#: com_jreviews\jreviews\views/themes/default/media/list_manage.thtml:66
+msgid "User Videos"
+msgstr "ویدیوهای کاربران"
+
+#: com_jreviews\jreviews\views/themes/default/media/photo_gallery.thtml:105
+#, php-format
+msgid "More by %s"
+msgstr "مطالب دیگر %s"
+
+#: com_jreviews\jreviews\views/themes/default/media/upload_complete_actions.thtml:13
+msgid "My Media"
+msgstr "مدیای من"
+
+#: com_jreviews\jreviews\views/themes/default/media/upload_complete_actions.thtml:15
+msgid "My Listings"
+msgstr "مدخل‌های من"
+
+#: com_jreviews\jreviews\views/themes/default/media/upload_complete_actions.thtml:17
+msgid "My Reviews"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/upload_complete_actions.thtml:22
+msgid "Upload Successful. Continue with uploads or leave this page."
+msgstr "آپلود موفقیت‌آمیز بود. به آپلود ادامه دهید یا این صفحه را ترک کنید."
+
+#: com_jreviews\jreviews\views/themes/default/media/video_gallery.thtml:154
+#: com_jreviews\jreviews\views/themes/default/media/video_gallery_detail.thtml:72
+#, php-format
+msgid "%s%d%s views"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/modules/advanced_search_map.thtml:95
+msgid "Address"
+msgstr "آدرس"
+
+#: com_jreviews\jreviews\views/themes/default/modules/favorite_users.thtml:34
+#, php-format
+msgid "Other users interested in %s"
+msgstr "کاربران دیگر به %s علاقه داشته اند"
+
+#: com_jreviews\jreviews\views/themes/default/modules/filters.thtml:84
+msgid "Categories"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/modules/filters.thtml:88
+msgid "Listing Types"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/modules/reviewer_rank.thtml:87
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:82
+msgid "Number of reviews written:"
+msgstr "تعداد نقدهای نوشته شده:"
+
+#: com_jreviews\jreviews\views/themes/default/modules/reviewer_rank.thtml:91
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:92
+msgid "Percentage helpful votes"
+msgstr "درصد آرای مفید"
+
+#: com_jreviews\jreviews\views/themes/default/modules/reviewer_rank.thtml:91
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:92
+msgid "votes"
+msgstr "رأی‌ها"
+
+#: com_jreviews\jreviews\views/themes/default/modules/totals.thtml:1
+#, php-format
+msgid "There are %s listings and %s reviews."
+msgstr "%s مدخل و %s نقد موجود است."
+
+#: com_jreviews\jreviews\views/themes/default/reviews/create.thtml:252
+msgid "You will be able to upload media right after you submit your review."
+msgstr "شما پس از ارسال نقد می‌توانید مدیا آپلود کنید."
+
+#: com_jreviews\jreviews\views/themes/default/reviews/create.thtml:256
+msgid "You will be able to upload media right after you submit your comment."
+msgstr "شما پس از ارسال نظر می‌توانید مدیا آپلود کنید."
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:50
+msgid "Editor reviews"
+msgstr "نقدهای کارشناسان"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:50
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:144
+msgid "Editor review"
+msgstr "نقد کارشناس"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:53
+msgid "Editor comments"
+msgstr "نظرات کارشناسان"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:53
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:146
+msgid "Editor comment"
+msgstr "نظر کارشناس"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:74
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:90
+#, php-format
+msgid "%d reviews written by \"%s\""
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:76
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:92
+#, php-format
+msgid "%d comments written \"%s\""
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:99
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:103
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:136
+#, php-format
+msgid "%s reviews"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:239
+msgid "View all editor reviews"
+msgstr "مشاهده همه نقدهای کارشناسان"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:241
+msgid "View all editor comments"
+msgstr "مشاهده همه نظرات کارشناسان"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:56
+msgid "Rank"
+msgstr "رتبه"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/review_layout.thtml:68
+#: com_jreviews\jreviews\views/themes/default/reviews/review_list_layout.thtml:75
+msgid "Updated"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/review_layout.thtml:102
+#, php-format
+msgid "View all my reviews (%s)"
+msgstr "مشاهدۀ تمام نقدهای من (%s)"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/review_layout.thtml:194
+msgid "Owner's reply"
+msgstr "پاسخ ایجادکننده مدخل"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/review_layout.thtml:245
+#, php-format
+msgid "Photos (%s)"
+msgstr "عکس‌ها (%s)"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/review_layout.thtml:251
+#, php-format
+msgid "Videos (%s)"
+msgstr "ویدیوها (%s)"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/review_list_layout.thtml:147
+msgid "Read Review"
+msgstr "خواندن نقد"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/review_moderation.thtml:13
+#, php-format
+msgid "Do you have media to share? %s"
+msgstr "آیا مدیایی برای اشتراک دارید؟ %s"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/reviews_noresults.thtml:2
+msgid "No reviews were found."
+msgstr "هیچ نقدی یافت نشد."
+
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:75
+#, php-format
+msgid "%d reviews mentioning %s"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:75
+#, php-format
+msgid "%d comments mentioning %s"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:79
+#, php-format
+msgid "%d reviews with %s stars"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:55
+msgid "Listing summary"
+msgstr "خلاصه مدخل"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:65
+msgid "Listing description"
+msgstr "توضیحات مدخل"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:75
+msgid "Review comments"
+msgstr "مشاهده نظرات"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:93
+msgid "Any"
+msgstr "هر"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:105
+msgid "Exact"
+msgstr "دقیق"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:115
+msgid "Listing author"
+msgstr "نویسنده:"
+
+#, fuzzy
+#~ msgid "Clear all"
+#~ msgstr "پاک کردن"
+
+#, fuzzy
+#~ msgid "to"
+#~ msgstr "توقف"
+
+#~ msgid "The listing was successfully saved."
+#~ msgstr "مدخل با موفقیت ذخیره شد."
+
+#~ msgid "photo count"
+#~ msgstr "تعداد عکس"
+
+#~ msgid "EVENTLIST_EVENT_TAG"
+#~ msgstr "وقایع"
+
+#~ msgid "EVENTLIST_VENUE_TAG"
+#~ msgstr "محل وقوع"
+
+#~ msgid "EZREALTY_PROPERTY_TAG"
+#~ msgstr "املاک"
+
+#~ msgid "EZREALTY_PROFILE_TAG"
+#~ msgstr "پروفایل"
+
+#~ msgid "JOOMGALLERY_TAG"
+#~ msgstr "جوم گالری"
+
+#~ msgid "RESMAN_TAG"
+#~ msgstr "محل وقوع"
+
+#~ msgid "SOBI2_TAG"
+#~ msgstr "sobi2"
+
+#~ msgid "VIRTUEMART_TAG"
+#~ msgstr "محصولات"
+
+#~ msgid "Average user rating from: %s user(s)"
+#~ msgstr "میانگین امتیاز کاربران : %s کاربر"
+
+#~ msgid "Average editor rating from: %s user(s)"
+#~ msgstr "میانگین امتیازات کارشناسان: %s کارشناس"
+
+#~ msgid "Commented by"
+#~ msgstr "نظردهنده"

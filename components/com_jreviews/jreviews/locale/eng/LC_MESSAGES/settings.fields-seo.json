@@ -1,0 +1,15 @@
+[
+    {
+        "menu": "Fields SEO Manager",
+        "url": "seo/index",
+        "settings": [
+            {
+                "title": "Click2search SEO",
+                "keywords": "fields, seo, click2search",
+                "description": "Optimize the page title and meta description of click2search pages.",
+                "name": "",
+                "tags": []
+            }
+        ]
+    }
+]

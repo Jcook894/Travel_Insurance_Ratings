@@ -1,0 +1,15 @@
+[
+    {
+        "menu": "Theme Manager",
+        "url": "themes/index",
+        "settings": [
+            {
+                "title": "Category Theme Manager",
+                "keywords": "theme, manager, layouts, thumbview, tableview, masonry, blogview, suffix",
+                "description": "Override the list layout and theme suffixes for individual categories.",
+                "name": "",
+                "tags": []
+            }
+        ]
+    }
+]

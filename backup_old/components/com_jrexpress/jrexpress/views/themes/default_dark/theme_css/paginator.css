@@ -1,0 +1,113 @@
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This stylesheet file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+/* MODULE PAGINATION CONTROLS  */
+div.jr_pagination {margin:10px 0px 20px 0px;}
+div.jr_pagination a.paginate:link,
+div.jr_pagination a.paginate:active,
+div.jr_pagination a.paginate:visited {
+    border: 1px solid #999;
+    padding: 2px 4px 2px 4px;
+    text-decoration: none;
+    color: #000080;
+    font-weight:bold;
+    font-size:12px;
+}
+	
+div.jr_pagination a.paginate:hover,
+div.jr_pagination a.current:hover {
+	background-color: #ddd;
+	text-decoration:none;
+    font-weight:bold;
+    font-size:12px;
+	}
+div.jr_pagination span.inactive {
+	color:#999;
+	border: solid 1px #999;
+    padding: 2px 4px 2px 4px;
+    font-weight:bold;    
+    font-size:12px;
+	}
+	
+/* PAGINATION CONTROLS  */
+table.jr_pagination {
+	width:100%; 
+	line-height:1.5em; 
+	font-weight:normal; 
+	border-top:1px solid #222222; 
+	border-bottom:1px solid #222222; 
+	margin-bottom: 10px;
+	}
+	
+table#jr_pagination_top { 
+	border-top:0; 
+	border-bottom:0; 
+	margin-bottom: 5px;
+	}
+	
+table.jr_pagination td	{
+	padding:5px; 
+	vertical-align:middle;
+	white-space: nowrap; 
+	font-size: 90%;
+	}
+
+td.jr_pagenav_results {
+	width: 20%
+	}
+
+td.jr_pagenav_pages {
+	text-align:center;  
+	}
+
+td.jr_pagenav_limitbox {
+	width: 20%;
+	text-align:right; 
+	}
+	
+td.jr_pagenav_limitbox select {
+	font-size: 10px !important; 
+	height: 1.7em;
+	width: auto !important;
+	}
+
+td.jr_pagenav_limitbox select option {
+	padding-right: 5px;
+	}	
+	
+table.jr_pagination a.paginate:link,
+table.jr_pagination a.paginate:active,
+table.jr_pagination a.paginate:visited {
+    border: 1px solid #999;
+	padding: 0 2px;
+    text-decoration: none;
+    color: #ddd;
+}
+
+table.jr_pagination a.current:link,
+table.jr_pagination a.current:active,
+table.jr_pagination a.current:visited {
+	color:#000;
+	border: solid 1px #999;
+	padding: 0 2px;
+	background-color: #777777;
+	text-decoration:none;   
+	}
+	
+table.jr_pagination a.paginate:hover,
+table.jr_pagination a.current:hover {
+	background-color: #ccc;
+	text-decoration:none;
+	color: #000;
+	}
+	
+table.jr_pagination span.inactive {
+	color:#999;
+	border: solid 1px #999;
+    padding: 2px 4px 2px 4px;
+	}

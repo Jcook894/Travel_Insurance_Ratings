@@ -1,0 +1,132 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2016 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$selectOption = new stdClass;
+
+$selectOption->value = '';
+
+$selectOption->text = __a("-- Select Listing Type --", true);
+
+$listingTypes = array($selectOption) + $listingTypes;
+
+$overridesCount = !empty($overrides) ? count($overrides['ListingTypes']) : 0;
+?>
+
+<div class="jrTabsVertical">
+
+	<?php if(empty($results) && empty($overrides)):?>
+
+		<div class="jrSettingsHeaders">
+
+			<a class="jrSettingsOnlineDocs" href="https://docs.jreviews.com" target="_blank"><?php __a("Online Documentation");?></a>
+
+		</div>
+
+		<div class="jrNoResults">
+
+			<span><?php __a("There were no results for your search");?></span>
+
+		</div>
+
+	<?php else:?>
+
+		<div class="jrSettingsHeaders">
+
+			<ul>
+
+				<?php $i = 0; foreach($results AS $header => $rows):?>
+
+					<li><a href="#tabs-<?php echo $i++;?>"><?php echo $header;?> <span class="jrStatusLabel"><?php echo count($rows);?></span></a></li>
+
+				<?php endforeach;?>
+
+				<?php if(!empty($overrides)):?>
+
+					<li><a href="#tabs-overrides"><?php __a("Listing Types Overrides");?> <span class="jrStatusLabel"><?php echo $overridesCount;?></span></a></li>
+
+				<?php endif;?>
+
+			</ul>
+
+			<a class="jrSettingsOnlineDocs" href="https://docs.jreviews.com" target="_blank"><?php __a("Online Documentation");?></a>
+
+		</div>
+
+		<?php $i = 0; foreach($results AS $header => $rows):?>
+
+			<?php /* TAB PANEL */ ?>
+
+			<div id="tabs-<?php echo $i++;?>">
+
+				<ul class="jrSettingsList">
+
+					<?php foreach($rows AS $row): extract($row); ?>
+
+						<li>
+							<a href="#" class="jrSetting" data-url="<?php echo $url;?>" data-name="<?php echo $name;?>"><?php echo $title;?></a>
+
+							<?php foreach($tags AS $tag):?>
+
+								<span class="jrSettingTag"><?php echo $tag;?></span>
+
+							<?php endforeach;?>
+
+							<?php /* if($description):?><p><?php echo $description;?></p><?php endif; */?>
+						</li>
+
+					<?php endforeach;?>
+
+				</ul>
+
+			</div>
+
+		<?php endforeach;?>
+
+		<?php if(!empty($overrides)):?>
+
+			<?php /* TAB PANEL */ ?>
+
+			<div id="tabs-overrides">
+
+				<?php echo $Form->select('type_id', $listingTypes);?>
+
+				<?php foreach($overrides AS $header => $rows):  ?>
+
+					<ul class="jrSettingsList">
+
+						<?php foreach($rows AS $row): extract($row); ?>
+
+							<li>
+
+								<a href="#" class="jrSetting jrDisabled" data-url="<?php echo $url;?>" data-name="<?php echo $name;?>" data-override="1"><?php echo $title;?></a>
+
+								<?php foreach($tags AS $tag):?>
+
+									<span class="jrSettingTag"><?php echo $tag;?></span>
+
+								<?php endforeach;?>
+
+								<?php /* if($description):?><p><?php echo $description;?></p><?php endif; */?>
+
+							</li>
+
+						<?php endforeach;?>
+
+					</ul>
+
+				<?php endforeach;?>
+
+			</div>
+
+		<?php endif;?>
+
+	<?php endif;?>
+
+</div>

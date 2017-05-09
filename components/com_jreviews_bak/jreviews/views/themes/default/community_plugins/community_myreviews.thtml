@@ -1,0 +1,167 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+/**********************************************************************************
+ *                                 CONFIGURATION AND SETUP
+ **********************************************************************************/
+$module_id = Sanitize::getVar($this->params,'module_id','');
+extract($this->params['module']);
+$page_count = ceil($total/$limit);
+
+// calculations for single page module
+$item_padding = 1.428571429;
+$item_width = (100-($columns * $item_padding))/$columns;
+
+// Process link title output format
+//listing title
+$regex = '/{listing_title\s([0-9].*?)}/i';
+preg_match( $regex, $link_title, $matches );
+$listing_title_chars = isset($matches[1]) ? $matches[1] : null;
+$link_title = isset($matches[0]) ? str_replace($matches[0],'{listing_title}',$link_title) : $link_title;
+//review_title
+$regex = '/{review_title\s([0-9].*?)}/i';
+preg_match( $regex, $link_title, $matches );
+$review_title_chars = isset($matches[1]) ? $matches[1] : null;
+$link_title_format = isset($matches[0]) ? str_replace($matches[0],'{review_title}',$link_title) : $link_title;
+?>
+
+<?php if(empty($reviews)) { __t("No entries were found") . '<br /><br />'; return; } ?>
+
+<?php 
+/**********************************************************************************
+ *                                 EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+?>
+
+<?php if($page_count > 1):?>
+<a href="#prev" class="jr_modPrev"></a>
+<?php endif;?> 
+
+<div id="jr_modSlider<?php echo $module_id;?>" class="jr_modSlider<?php echo ($page_count < 2) ? ' singlePage' : ''; ?>">
+     
+    <?php /* root element for the items */ ?>
+    <div class="jr_modItems <?php echo $orientation;?>">
+
+        <?php /* new page starts here */
+            $pages = array_chunk($reviews,$limit);
+            $j=0;
+            foreach($pages AS $page): 
+            ?>
+            
+        <div class="jr_modContainer jrPlugin">
+            
+            <?php $i=0;
+                  while(!empty($page)):
+                    $i++; $j++; $review = array_shift($page); ?>     
+                               
+                <?php // Process link title
+                $listing_title = ($listing_title_chars && mb_strlen($review['Listing']['title'])>$listing_title_chars) ? $Text->truncate($review['Listing']['title'],$listing_title_chars) : $review['Listing']['title']; 
+                $review_title = ($review_title_chars && mb_strlen($review['Review']['title'])>$review_title_chars) ? $Text->truncate($review['Review']['title'],$review_title_chars) : $review['Review']['title']; 
+                $link_title = str_replace('{listing_title}',$listing_title,$link_title_format);
+                $link_title = str_replace('{review_title}',$review_title,$link_title);
+                ?>
+
+                <?php $lastItem = ($i == $columns) ? ' lastItem' : ''; ?>
+               
+                <div class="listItem<?php echo $lastItem; ?>" <?php echo ($page_count < 2) ? 'style="width: '. $item_width .'%; padding-right: '. $item_padding .'%;"' : ''; ?>>
+                
+                    <?php if($show_numbers):?><div class="contentNumber"><?php echo $j;?>.</div><?php endif;?>
+                                        
+                    <?php if($tn_show && $thumb = $Thumbnail->thumb($review, 0, array('tn_mode'=>$tn_mode, 'location'=>'module'.$tn_width, 'dimensions'=>array($tn_width)))):?>
+                        <!-- Listing Thumbnail -->
+                        <div class="contentThumbnail">
+                            <?php echo $Html->sefLink($thumb,$review['Listing']['url']);?>
+                            <?php // Uncomment line below to show reviewer avatar. You can comment or remove the thumbnail code above
+                                // echo $Community->avatar($review);
+                            ?>
+                        </div>                
+                    <?php endif;?>                    
+
+                    <div class="contentColumn">
+                        <!-- Listing Title -->
+                        <div class="contentTitle" style="white-space:normal;">
+                            <?php echo $Html->sefLink($link_title,$review['Listing']['url']);?> <?php echo Sanitize::getString($review['Listing'],'tag') ? '(' .Sanitize::getString($review['Listing'],'tag') . ')' : '';?>
+                        </div>
+
+                        <!-- Rating -->
+                        <?php if ( $review['Criteria']['state'] == 1 ):?>
+                        <div class="overall_ratings">
+                            <?php if($review['Review']['editor'] == 1):?>                        
+                                <?php
+                                    $rating_stars = $Rating->drawStars($review['Rating']['average_rating'], $this->Config->rating_scale, 'editor');
+                                    $rating_value = $Rating->round($review['Rating']['average_rating'],$this->Config->rating_scale);                        
+                                ?>
+                                <div class="overall_editor" title="<?php  __t("Editor rating"); ?>">
+                                    <div class="rating_stars"><?php echo $rating_stars ?></div>
+                                    <span class="rating_value"><?php echo $rating_value?></span>
+                                </div>
+                            <?php else:?>
+                                <?php
+                                    $rating_stars = $Rating->drawStars($review['Rating']['average_rating'], $this->Config->rating_scale, 'user');
+                                    $rating_value = $Rating->round($review['Rating']['average_rating'],$this->Config->rating_scale);                        
+                                ?>
+                                <div class="overall_user" title="<?php  __t("User rating"); ?>">
+                                    <div class="rating_stars"><?php echo $rating_stars ?></div>
+                                    <span class="rating_value"><?php echo $rating_value?></span>
+                                </div>
+                            <?php endif;?>
+                        </div>
+                        <?php endif;?>
+                        
+                        <!-- Reviewer name -->
+                        <div class="contentInfo">
+                            <span class="reviewer"><?php __t("Reviewed by");?> <?php echo $Community->screenName($review);?></span>
+                        </div>
+                        
+                        <!-- Review Comments -->
+                        <?php if($show_comments && trim($review['Review']['comments'])!=''):?>
+                        <div class="contentInfo">
+                            <?php
+                                // Uncomment line below to show review title
+                                // echo '<strong>' . $review['Review']['title'] . '</strong><br />';
+                            ?>
+                            <span class="comments">"<?php echo $Text->truncate($review['Review']['comments'],100,'...');?>"</span>
+                        </div>
+                        <?php endif;?>
+                    </div>
+                </div>
+               
+               <?php  /*end of row , start new row*/ 
+                    if(!empty($page) && ($i == $columns || $total == $j)):?>
+                    <div class="jr_divider"></div>
+                    <?php $i=0; endif;?>
+                    
+            <?php endwhile;?>
+            
+        </div>    
+            
+        <?php endforeach; /* new page ends here */?>
+
+    </div><?php /* end items root element */?>
+
+</div><?php /* end scrollable root element */?>
+
+<?php if($page_count > 1):?>
+<a href="#next" class="jr_modNext"></a>
+<?php endif;?>
+
+<div class="jr_floatRight">
+<?php echo $Routes->myReviews(__t("View all my reviews",true),array('user_id'=>Sanitize::getInt($this->params,'user')),array('class'=>'jrButton'));?>
+</div>
+
+<?php if(!$this->ajaxRequest && $page_count > 1):?>
+<script type="text/javascript">  
+/* <![CDATA[ */
+jreviews.module.pageNavInit(<?php echo json_encode(compact('module_id','columns','orientation','slideshow','slideshow_interval','nav_position'));?>);
+/* ]]> */
+</script>
+<?php endif;?>
+
+<div style="clear:both;"></div>

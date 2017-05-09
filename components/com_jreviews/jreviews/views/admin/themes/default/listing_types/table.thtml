@@ -1,0 +1,89 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$lang = json_encode(array(
+	'del_confirm'=>__a("Deleting this Listing Type will also remove all reviews for listings that have this listing type. Do you want to continue?",true,true)
+	));
+
+?>
+
+<div id="jr-table" class="jrDataList">
+
+	<div class="jrGrid24 jrDataListHeader">
+
+		<div class="jrCol1">&nbsp;</div>
+
+		<div class="jrCol1">#</div>
+
+		<div class="jrCol1">ID</div>
+
+		<div class="jrCol7"><?php __a("Title");?></div>
+
+		<div class="jrCol6"><?php __a("Rating Criteria");?></div>
+
+		<div class="jrCol7"><?php __a("Field Groups");?></div>
+
+		<div class="jrCol1">&nbsp;</div>
+
+	</div>
+
+	<?php $i = 1; foreach($rows AS $key=>$row): extract($row['Criteria']);?>
+
+	<div class="jr-layout-outer jrGrid24" data-id="<?php echo $criteria_id;?>">
+
+		<div class="jrCol1">
+
+			<input type="checkbox" class="jr-row-cb jrHidden" name="cid[]" value="<?php echo $criteria_id?>" />
+			<input type="radio" class="jr-row-radio" value="<?php echo $criteria_id?>" />
+
+		</div>
+
+		<div class="jrCol1"><?php echo $i++?></div>
+
+		<div class="jrCol1"><?php echo $criteria_id?></div>
+
+		<div class="jrCol7">
+
+			<a href="javascript:void(0);" class="jr-edit" data-id="<?php echo $criteria_id;?>">
+
+				<span data-key="Criteria.title"><?php echo $title?></span>
+
+			</a>
+
+		</div>
+
+		<div class="jrCol6">
+
+			<span data-key="Criteria.criteria"><?php echo $AdminCriterias->createListFromString(Sanitize::getVar($row['Criteria'],'criteria'));?></span>&nbsp;
+
+		</div>
+
+		<div class="jrCol7">
+
+			<span data-key="Criteria.field_groups"><?php echo $field_groups;?></span>&nbsp;
+
+		</div>
+
+		<div class="jrCol1">
+
+			<button <?php if(_JR_DEMO):?>disabled<?php endif?> class="jr-delete jrButton jrSmall jrIconOnly" data-id="<?php echo $criteria_id;?>" data-lang='<?php echo $lang;?>'>
+
+				<span class="jrIconDelete"></span><span class="jrHidden"><?php __a("Delete");?></span>
+
+			</button>
+
+		</div>
+
+	</div>
+
+	<?php endforeach;?>
+
+</div>

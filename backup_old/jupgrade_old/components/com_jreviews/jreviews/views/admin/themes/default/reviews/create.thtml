@@ -1,0 +1,118 @@
+<?php 
+/**********************************************************************************
+ *                                 EDIT HTML BELOW THIS LINE
+ **********************************************************************************/?>
+
+<div id="jr_reviewform" class="jr_form jr_pgContainer">
+
+    <div class="admin_toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
+        <button id="submitButton" onclick="jreviews_admin.review.submit(this);return false;" class="ui-button ui-corner-all"><?php __a("Submit");?></button>
+        <button id="cancel" onclick="jQuery('#jr_editContainer').slideUp('medium',function(){jQuery('#jr_pgContainer').slideDown('medium');});return false;" class="ui-button ui-corner-all"><?php __a("Cancel")?></button>
+    </div>
+
+    <div id="msg"></div>          
+        
+    <form id="reviewFormEdit" name="reviewFormEdit" action="javascript:void(0);" onsubmit="submitReviewEdit();">
+        
+        <fieldset>
+            <legend><?php __a("General"); ?></legend>
+                    
+            <div class="jr_fieldDiv">
+                <label for="jr_reviewerAC"><?php __t("Reviewer");?><span class="required">*</span></label>
+                <?php echo $Form->text('jr_reviewerAC',array('id'=>'jr_reviewerAC','value'=>$review['User']['name'],'size'=>30,'maxlength'=>100));?>
+                <span class="jr_infoTip">&nbsp;</span><div class="jr_tooltipBox"><?php echo htmlspecialchars(__t("You can change the author of this review. Start typing the reviewer's name to see a list of suggestions."));?></div>
+                <input type="hidden" name="data[Review][userid]" id="jr_reviewUserid" value="<?php echo $review['User']['user_id'];?>" />
+                <input type="hidden" name="data[Review][name]" id="jr_reviewName" value="<?php echo $review['User']['name'];?>" />
+                <input type="hidden" name="data[Review][username]" id="jr_reviewUsername" value="<?php echo $review['User']['username'];?>" />
+                <input type="hidden" name="data[Review][email]" id="jr_reviewEmail" value="<?php echo $review['User']['email'];?>" />
+            </div>
+            
+            <?php if(in_array($this->Config->reviewform_title,array('required','optional'))):?>
+            <div class="jr_fieldDiv">
+                <label for="title"><?php __a("Review title");?></label>
+                <?php echo $Form->text('data[Review][title]',array(
+                        'id'=>'title',
+                        'value'=>$review['Review']['title'],
+                        'class'=>'mediumField',
+                        'size'=>50,
+                        'maxlength'=>100
+                ));?>
+            </div>
+            <?php endif;?>
+        </fieldset>
+        
+        <?php if ( $review['Criteria']['state'] == 1 ):?>
+            <fieldset>
+            <legend><?php __a("Ratings (the higher the better)"); ?></legend>
+                <table class="jr_ratingsTable" border="0" cellpadding="0" cellspacing="0">
+                    <?php foreach($review['Criteria']['criteria'] AS $key=>$value):?>                
+                        <tr>
+                            <td style="padding-right:10px;white-space:nowrap;">
+								<?php echo $value;?><?php if($review['Criteria']['required'][$key]):?><span class="required">*</span><?php endif;?>
+                                <?php if(isset($review['Criteria']['tooltips'][$key]) && trim($review['Criteria']['tooltips'][$key]) != ''):?>
+									<span class="jr_infoTip">&nbsp;</span><div class="jr_tooltipBox"><?php echo $value . ": " . $review['Criteria']['tooltips'][$key];?></div>
+                                <?php endif;?>
+                            </td> 
+                            <td>
+                                <div id="jr_stars-edit-<?php echo $key;?>">
+                                <?php echo $Form->select(
+                                        'data[Rating][ratings][]',
+                                        $Rating->options($this->Config->rating_scale,__t("Rate it",true), $review['Criteria']['required'][$key]),
+                                        ($review['Review']['review_id'] > 0 
+                                            ? 
+                                                Sanitize::getVar($review['Rating']['ratings'],$key) 
+                                            : 
+                                                ($this->Config->rating_default_na && !$review['Criteria']['required'][$key] ? 'na' : '')
+                                        ),
+                                        array('id'=>'ratings'.$key.$value)
+                                        );?>  
+                                </div>
+                            </td>
+							<td class="ratingCaption"></td>
+                        </tr>
+                    <?php endforeach;?>    
+                </table>
+            </fieldset> 
+        <?php endif;?>
+
+        <?php echo $CustomFields->makeFormFields($review_fields,'review',null,__a("Select",true));?>
+
+        <?php if(in_array($this->Config->reviewform_comment,array('required','optional'))):?>    
+        <fieldset>
+        <legend><?php __a("Comments");?></legend>
+        <div class="jr_fieldDiv">
+            <?php echo $Form->textarea('data[Review][comments]',array(
+                    'id'=>'comments',
+                    'value'=>$review['Review']['comments'],
+                    'rows'=>5,
+                    'cols'=>45,
+                    'class'=>'largeArea'
+            ));?>    
+        </div>
+        </fieldset>            
+        <?php endif;?>
+
+        <input type="hidden" name="data[Review][id]" id="review_id" value="<?php echo $review['Review']['review_id'];?>" />
+        <input type="hidden" name="data[Review][pid]" id="pid" value="<?php echo isset($listing['Listing']['listing_id']) ? $listing['Listing']['listing_id'] : $review['Review']['listing_id'];?>" />
+        <input type="hidden" name="data[Review][mode]" id="mode" value="<?php echo $review['Review']['extension'];?>" />
+        <input type="hidden" name="data[page]" id="page" value="<?php echo $review['Review']['extension'];?>" />
+        <input type="hidden" name="data[Criteria][id]" id="criteriaid" value="<?php echo $review['Criteria']['criteria_id'];?>" />
+        <input type="hidden" name="data[Criteria][state]" id="criteria_state" value="<?php echo $review['Criteria']['state'];?>" />
+        <input type="hidden" id="referrer" name="data[referrer]" value="<?php echo $referrer;?>" />   
+    </form>
+ </div>
+
+<?php 
+/**********************************************************************************
+ *                                 JAVASCRIPT
+ **********************************************************************************/?>     
+<script type="text/javascript">
+<?php if($this->Config->rating_selector == 'stars'):?>
+jreviews.review.starRating('-edit-',<?php echo Sanitize::getVar($this->Config,'rating_increment',1);?>);
+<?php endif;?>
+
+var $controlFieldReview<?php echo $review['Review']['review_id'];?> = new jreviewsControlField('jr_reviewform');
+$controlFieldReview<?php echo $review['Review']['review_id'];?>.loadData({'fieldLocation':'Review','entry_id':<?php echo $review['Review']['review_id'];?>,'value':false,'page_setup':true,'referrer':'review'});
+
+jreviews.user.autocomplete(jQuery("#jr_reviewerAC"),{default_value:'<?php echo htmlspecialchars($review['User']['name'], ENT_QUOTES, 'utf-8');?>'});  
+</script>

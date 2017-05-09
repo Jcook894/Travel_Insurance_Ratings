@@ -1,0 +1,57 @@
+<?php
+    /**
+    * This is a register and login widget shown in restricted pages
+    */ 
+$secure = false;
+// register url
+$register_url = Configure::read('Community.register_url');
+if(!$register_url) {
+    if($this->cmsVersion == CMS_JOOMLA15) {
+        $register_url = 'index.php?option=com_user&view=register';
+    }  
+    else {
+        $register_url = 'index.php?option=com_users&view=registration';        
+    }  
+} 
+$register_url = cmsFramework::route($register_url);
+
+// return url
+$uri = JFactory::getURI();
+$url = $uri->toString(array('path', 'query', 'fragment'));
+$return = base64_encode($url);
+?>
+
+<?php if($this->name == 'listings' && $this->action == 'create'):?>
+    <?php echo sprintf(__t("To submit a listing please %sregister%s or log in.",true),'<a rel="nofollow" href="'.$register_url.'">','</a>');?>
+<?php elseif($this->name == 'com_content' && $this->action == 'com_content_view' || $this->name == 'everywhere'):?>
+    <?php echo sprintf(__t("To write a review please %sregister%s or log in.",true),'<a rel="nofollow" href="'.$register_url.'">','</a>');?>
+<?php elseif($this->name == 'discussions' && $this->action == 'review'):?>
+    <?php echo sprintf(__t("To write a comment please %sregister%s or log in.",true),'<a rel="nofollow" href="'.$register_url.'">','</a>');?>
+<?php else:?>                                              
+    <?php echo sprintf(__t("Access restricted to members. To continue %sregister%s or log in.",true),'<a rel="nofollow" href="'.$register_url.'">','</a>');?>
+<?php endif;?>
+
+<form action="<?php echo cmsFramework::route('index.php', true, $secure); ?>" method="post" name="jrLogin" id="jr_loginForm" style="margin-top:10px;">
+    <input id="jr_username" type="text" name="username" size="10" />
+    <?php /*<a href="<?php echo JRoute::_( 'index.php?option=com_user&view=reset' ); ?>">forgot password</a>  */ ?>
+    <?php if($this->cmsVersion == CMS_JOOMLA15):?>
+    <input id="jr_password" type="password" name="passwd" size="10" />
+    <input type="hidden" name="option" value="com_user" />
+    <input type="hidden" name="task" value="login" />
+    <?php else: /*J16*/?>
+    <input id="jr_password" type="password" name="password" size="10" />
+    <input type="hidden" name="option" value="com_users" />
+    <input type="hidden" name="task" value="user.login" />
+    <?php endif;?>
+    <input type="hidden" name="return" value="<?php echo $return; ?>" />
+    <input type="submit" name="Submit" class="jrButton jrLogin" value="<?php echo JText::_('LOGIN') ?>" />
+    <?php echo cmsFramework::getTokenInput();?>
+</form>
+<script type="text/javascript">
+jQuery('#jr_username').val("<?php echo JText::_('Username');?>")
+    .click(function(){ jQuery(this).val('');})
+    .blur(function(){if(jQuery(this).val()=='') jQuery(this).val("<?php echo JText::_('Username');?>");});
+jQuery('#jr_password').val("password")
+    .click(function(){ jQuery(this).val('');})
+    .blur(function(){if(jQuery(this).val()=='') jQuery(this).val("password");});
+</script>

@@ -1,0 +1,155 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**********************************************************************************
+ * 								CONFIGURATION AND SETUP
+ **********************************************************************************/
+
+echo $this->element('page_meta');
+
+// Thumbnail settings
+$galleryThumbnailSize = Sanitize::getString($this->Config,'media_detail_gallery_thumbnail_size');
+
+$galleryThumbnailMode = Sanitize::getString($this->Config,'media_detail_gallery_thumbnail_mode');
+
+$disable_main_media_lightbox = Sanitize::getBool($this->Config,'media_detail_main_lightbox_disable');
+
+$display_more_by = Sanitize::getBool($this->Config,'media_display_more_by',false);
+
+$report_abuse = Sanitize::getBool($this->Config,'media_report_abuse',true);
+
+if($listing_id > 0) {
+
+	$listing = reset($photos);
+}
+
+$is_mobile = Configure::read('System.isMobileOS');
+
+$photoOverlay = Sanitize::getBool($this->Config,'media_photo_gallery_overlay');
+
+$height = 0.75;
+?>
+
+<?php
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/?>
+
+<div class="jr-page jr-photo-gallery jrPage jrPhotoGallery">
+
+	<h1><?php echo $listing['Listing']['title'];?>: <?php __t("Photos");?></h1>
+
+	<div style="margin-bottom: 10px;">
+
+		<?php echo $Html->sefLink('<span class="jrIconPrev"></span>'.$listing['Listing']['title'],$listing['Listing']['url'], array('class'=>'jrButton'));?>
+
+		<?php if($this->Access->canAddAnyListingMedia($listing['User']['user_id'], $listing['ListingType']['config'], $listing['Listing']['listing_id'])):?>
+
+			<?php echo $Routes->mediaCreate('<span class="jrIconAddMedia"></span>' . __t("Add Media",true),reset($photos),array('class'=>'jrButton','rel'=>'nofollow'));?>
+
+		<?php endif;?>
+
+	</div>
+
+	<div class="jrMediaFilter">
+		<span class="jrMediaOrder">
+			<?php echo $Media->orderingListListing(Sanitize::getString($this->params,'order',Sanitize::getString($this->Config,'media_general_default_order_listing')));?>
+		</span>
+	</div>
+
+	<div id="jr-photo-slideshow" class="jrPhotoSlideShow<?php if($is_mobile != 1 && $photoOverlay == 1) echo ' jrPhotoOverlay'; ?>"
+		data-height="<?php echo $height;?>" data-media-id="<?php if($media_id) echo $Media->getMediaKey($media_id);?>"
+		data-image-position="left bottom"
+		data-transition="slide"
+		data-initial-transition="fade"
+		>
+
+		<?php foreach($photos AS $photo):
+
+			if($disable_main_media_lightbox && $photo['Media']['main_media'] == 1) continue;
+
+			$screenName = $Community->screenName($photo);
+
+			$screenNameNoLink = $Community->screenName($photo,false);
+
+			$mediaTitle = trim($photo['Media']['title']);
+
+			$altTag = $mediaTitle ? $mediaTitle : $photo['Listing']['title'];
+			?>
+
+			<li data-<?php echo S2_QVAR_MEDIA_CODE;?>="<?php echo $Media->getMediaKey($photo['Media']['media_id']);?>" data-views="<?php echo $photo['Media']['views'];?>">
+
+				<a href="<?php echo $Media->mediaSrc($photo['Media']);?>">
+
+					<img alt="<?php echo $altTag;?>" title="<?php echo addslashes($mediaTitle);?>" src="<?php echo $Media->thumb($photo['Media'],array('return_src'=>true,'size'=>$galleryThumbnailSize,'mode'=>$galleryThumbnailMode));?>" />
+
+				</a>
+
+				<div class="jrPhotoLayer jrHidden">
+
+					<?php if($mediaTitle):?><div class="jr-photo-caption jrPhotoCaption"><?php echo $mediaTitle;?></div><?php endif;?>
+
+					<div class="jr-photo-info jrPhotoInfo">
+
+						<p><?php __t("Submitted by:");?> <?php echo $screenName;?>, <?php echo $Time->nice($photo['Media']['created']);?>
+
+						<?php if($display_more_by):?>
+						 - <?php echo $Routes->myMedia(sprintf(__t("More by %s",true),$screenNameNoLink),$photo['User']['user_id'],array());?>
+						<?php endif;?>
+
+						</p>
+
+						<div class="jr-media-actions jrMediaActions" data-listing-id="<?php echo $photo['Media']['listing_id'];?>" data-review-id="<?php echo $photo['Media']['review_id'];?>" data-media-id="<?php echo s2alphaID($photo['Media']['media_id'],false,5,cmsFramework::getConfig('secret'));?>" data-extension="<?php echo $photo['Media']['extension'];?>">
+
+						<div class="jr-media-actions-right jrRight jrRightAlign">
+						  <span class="jr-media-views"><span class="jrIconGraph"></span><?php echo sprintf(__t("%s views",true),$photo['Media']['views']);?></span>
+						</div>
+
+						<?php if($this->Access->canVoteMedia('photo')):?>
+						<span class="jr-media-like-dislike jrMediaLikeDislike jrButtonGroup">
+
+							<button class="jr-media-like jrVoteYes jrButton jrSmall" title="<?php __t("I like this",false,true);?>" data-like-action="_like"><span class="jrIconThumbUp"></span><span class="jr-count jrButtonText"><?php echo $photo['Media']['likes_up'];?></span></button>
+
+							<button class="jr-media-dislike jrVoteNo jrButton jrSmall" title="<?php __t("I dislike this",false,true);?>" data-like-action="_dislike"><span class="jrIconThumbDown"></span><span class="jr-count jrButtonText"><?php echo $photo['Media']['likes_total'] - $photo['Media']['likes_up'];?></span></button>
+
+						</span>
+						<?php endif;?>
+
+						<?php if($report_abuse):?>
+
+							<button class="jr-report jrReport jrButton jrSmall" data-listing-id="<?php echo $photo['Media']['listing_id'];?>" data-review-id="<?php echo $photo['Media']['review_id'];?>" data-media-id="<?php echo s2alphaID($photo['Media']['media_id'],false,5,cmsFramework::getConfig('secret'));?>" data-extension="<?php echo $photo['Media']['extension'];?>"><span class="jrIconWarning"></span><?php __t("Report as inappropriate");?></button>
+
+						<?php endif;?>
+
+					 </div>
+
+					</div>
+
+				</div>
+
+			</li>
+
+		<?php endforeach;?>
+
+	</div>
+
+	<?php if($is_mobile == 1 || $photoOverlay != 1): ?>
+
+		<div id="jr-gallery-description" class="jrMediaDescription"></div>
+
+	<?php endif; ?>
+
+	<?php $Community->socialBookmarks($listing);?>
+
+	<div class="jrClear"></div>
+
+</div>
+

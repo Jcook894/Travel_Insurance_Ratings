@@ -1,0 +1,62 @@
+{
+	"name": "Restaurant Menu",
+	"theme": "restaurant_menu",
+	"schema":
+	{
+	    "title": "Restaurant Menu",
+	    "type": "array",
+	    "format": "tabs",
+	    "items": {
+	        "title": "Menu Section",
+	    	"headerTemplate": "{{self.heading.title}}",
+	        "properties": {
+	            "heading": {
+	                "title": "Heading",
+	                "type": "object",
+	                "properties": {
+	                    "title": {
+	                        "title": "Title",
+	                        "type": "string"
+	                    },
+	                    "description": {
+	                        "title": "Description",
+	                        "type": "string",
+	                        "format": "textarea"
+	                    }
+	                }
+	            },
+	            "dishes": {
+	                "title": "Dishes",
+	                "type": "array",
+	                "format": "table",
+	                "items": {
+	                    "title": "Dish",
+	                    "type": "object",
+	                    "properties": {
+	                        "name": {
+	                            "title": "Name",
+	                            "type": "string",
+	                            "options": {
+	                                "input_width": "18em"
+	                            }
+                            },
+	                        "price": {
+	                            "title": "Price",
+	                            "type": "string",
+	                            "format": "number",
+	                            "options": {
+	                                "input_width": "6em"
+	                            }
+	                        },
+	                        "description": {
+	                            "title": "Description",
+	                            "type": "string",
+	                            "format": "textarea"
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	    }
+	}
+}

@@ -1,0 +1,31 @@
+<?php
+$inventory = json_decode($text, true);
+?>
+
+<div class="jrTableGrid jrDataList">
+
+   <div class="jrRow jrDataListHeader">
+
+      <div class="jrCol">#</div>
+      <div class="jrCol"><?php __t("Name");?></div>
+      <div class="jrCol"><?php __t("SKU");?></div>
+      <div class="jrCol"><?php __t("Price");?></div>
+      <div class="jrCol"><?php __t("In Stock");?></div>
+
+   </div>
+
+   <?php $i=0; foreach ($inventory AS $item): $i++;?>
+
+      <div class="jrRow">
+
+         <div class="jrCol"><?php echo $i;?></div>
+         <div class="jrCol"><?php echo $item['name'];?></div>
+         <div class="jrCol"><?php echo $item['sku'];?></div>
+         <div class="jrCol">$<?php echo $item['price'];?></div>
+         <div class="jrCol"><span class="jrIcon<?php echo $item['in-stock'] ? 'Yes' : 'No';?>"></div>
+
+      </div>
+
+   <?php endforeach;?>
+
+</div>

@@ -1,0 +1,7 @@
+<h1 class="contentheading"><?php __t("Submission instructions");?></h1>
+<ul>
+	<li><?php __t("Select the category where you want to submit the new item.");?></li>
+	<li><?php __t("All fields marked with asterisks are required.");?></li>
+	<li><?php __t("Make sure any image files conform to the required specifications (.jpg,.gif,.png)");?></li>
+</ul>	
+<br />

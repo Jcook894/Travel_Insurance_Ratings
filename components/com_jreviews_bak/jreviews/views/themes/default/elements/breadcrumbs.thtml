@@ -1,0 +1,35 @@
+<?php if($this->cmsVersion == CMS_JOOMLA15):?>
+
+    <?php if($this->Config->dir_show_breadcrumb && in_array($this->action,array('section','category','alphaindex'))):?>
+    <div class="jr_pathway">
+        <?php if(!empty($directory) && $this->Config->breadcrumb_detail_directory):?>
+            <?php echo $Routes->directory($directory);?>
+        <?php endif;?>        
+        <?php if($this->action=='section' && $this->Config->breadcrumb_detail_section):?>
+            <?php echo $page['title'];?>
+        <?php elseif($this->action=='category'):?>
+            <?php echo $this->Config->breadcrumb_detail_section ? $Routes->section($directory,$section['Section']) . ' ' : '';?><?php echo $this->Config->breadcrumb_detail_category ? $page['title'] : '';?>
+        <?php elseif($this->action=='alphaindex'):?>
+            <?php echo $index == '0' ? '0-9' : $index;?>
+        <?php endif;?>
+    </div>
+    <?php endif;?>
+
+<?php else:?>
+
+    <?php if($this->Config->dir_show_breadcrumb && in_array($this->action,array('section','category','alphaindex'))):?>
+    <div class="jr_pathway">
+        <?php if(!empty($directory) && $this->Config->breadcrumb_detail_directory):?>
+            <?php echo $Routes->directory($directory);?> 
+        <?php endif;?>        
+        <?php if($this->action=='category'):?>
+            <?php while($cat = array_shift($parent_categories)):?>
+                <?php echo !empty($parent_categories) ? ($this->Config->breadcrumb_detail_category ? $Routes->category($cat) : '') : $cat['Category']['title'];?>
+            <?php endwhile;?>
+        <?php elseif($this->action=='alphaindex'):?>
+            <?php echo $index == '0' ? '0-9' : $index;?>
+        <?php endif;?>
+    </div>
+    <?php endif;?>
+
+<?php endif;?>

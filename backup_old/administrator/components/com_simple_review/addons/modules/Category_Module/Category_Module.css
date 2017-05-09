@@ -1,0 +1,211 @@
+
+/*
+*the div around the top N reviews table
+*/
+.topN {
+    width:100%;
+    border: 1px solid;
+}
+
+/*
+* the list of reviews on the category page
+*/
+table.categoryTable, table.sortable {
+	width: 100%;
+	margin-bottom: 5px;
+	padding: 0px;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+
+div.categoryTable, div.sortable {
+	padding: 0;
+	margin-bottom: 2px;
+}
+
+table.categoryTable th, div.categoryTable h3, table.sortable th, div.sortable h3 {
+	background: url(subhead_bg.png) repeat-x;
+	color: #666666;
+	text-align: left;
+	padding-left: 0px;
+	height: 21px;
+	line-height: 21px;
+	font-weight: bold;
+	font-size: 10px;
+	text-transform: uppercase;
+	margin: 0 0 2px 0;
+}
+
+table.categoryTable td, table.sortable td {
+	font-size: 11px;
+	padding: 0px;
+	margin: 0px;
+	font-weight: normal;
+	text-align: left;
+	padding-left: 0px;
+}
+
+/*
+* the top N table
+*/
+table.topNTable {
+	width: 100%;
+	margin-bottom: 5px;
+	padding: 0px;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+
+div.topNTable {
+	padding: 0;
+	margin-bottom: 2px;
+}
+
+table.topNTable th, div.topNTable h3 {
+	background: url(subhead_bg.png) repeat-x;
+	color: #666666;
+	text-align: left;
+	padding-left: 4px;
+	height: 21px;
+	line-height: 21px;
+	font-weight: bold;
+	font-size: 10px;
+	text-transform: uppercase;
+	margin: 0 0 2px 0;
+}
+
+table.topNTable td {
+	font-size: 11px;
+	padding: 0px;
+	margin: 0px;
+	font-weight: normal;
+}
+
+
+.catListingItem
+{
+    
+}
+
+.catImageContainer
+{
+    float:left;
+}
+
+.catTextContainer
+{
+    padding: 2px;
+}
+
+.catTitle
+{
+    
+}
+
+.catcontainer
+{
+ margin:2px 0px 2px 0px;   
+}
+
+.subcat
+{
+ margin:5px 0px 5px 0px;   
+}
+
+.catcontainer
+{
+    width:100%;
+	min-height:40px;
+}
+.catAlt
+{
+	background-color: #EFEFEF;
+}
+
+.subcat
+{
+border:1px solid #A8B5C2;
+width:33%;
+background-color:#EFEFEF;    
+}
+
+.catLink{}
+
+.catDesc{
+  font: oblique small-caps 12px/14px arial;
+  margin-left:10px;
+}
+
+.reviewListingTitle
+{
+    font-weight:bold;
+}
+
+.reviewRowAlt
+{
+	background-color:#DBDADB;
+}
+
+.reviewRow
+{
+		
+}
+
+
+
+div.topNHoriontalContainer
+{
+	text-align:center;
+	font-size:7pt;
+	margin-bottom:10px
+}
+
+div.topNHorizontal
+{
+	float: left;
+	cursor: pointer;
+	margin: 5px;
+	width: 120px;
+	max-width: 120px;
+	padding-top:5px;
+	border:#666666 solid 1px;	
+}
+
+div.topNHorizontal div a img
+{
+	border:none;	
+}
+
+a.topNHLink:link, a.topNHLink:visited, a.topNHLink:hover, a.topNHLink:active
+{
+	text-decoration:none;	
+}
+
+div.topNHTitles
+{
+	height:21px;	
+	width:118px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;	
+}
+
+div.topNHRating
+{
+	background: url(subhead_bg.png) repeat-x;
+	height:21px;
+	font-weight:bold;
+}
+
+label.mandatoryLabel
+{
+	float:none !important;
+	text-decoration:none !important;
+	vertical-align: top !important;
+	margin-left:5px !important;
+}
+
+select.titleType
+{
+	vertical-align: top !important;	
+}

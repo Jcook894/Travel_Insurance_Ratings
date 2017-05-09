@@ -1,0 +1,18 @@
+<?php extract($post['Discussion']);?>
+
+<form id="jr_postEditForm" name="jr_postEditForm" class="jr_form" action="" type="">
+    <div class="jr_fieldDiv">
+        <textarea id="postText" name="data[Discussion][text]"  rows="10" cols="250" class="smallArea"><?php echo $text;?></textarea>
+        <br />
+    </div>
+    <input id="jr_postId<?php echo $discussion_id;?>" name="data[Discussion][discussion_id]" type="hidden" value="<?php echo $discussion_id;?>" />
+    <input type="hidden" name="data[Discussion][type]" value="<?php echo $type;?>" />
+    <input type="hidden" name="data[Discussion][review_id]" value="<?php echo $review_id;?>" />            
+    <input type="hidden" name="data[controller]" value="discussions" />
+    <input type="hidden" name="data[action]" value="_saveEdit" />
+    <input type="hidden" name="option" value="com_jreviews" />    
+    <input type="hidden" name="format" value="raw" />     
+    <input type="hidden" name="Itemid" value="<?php echo $public_menu_id;?>" />              
+    <?php echo cmsFramework::getTokenInput();?>
+    <?php echo cmsFramework::formIntegrityToken($post['Discussion'],$formTokenKeys);?>
+</form>

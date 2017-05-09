@@ -1,0 +1,159 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+global $pagenow;
+
+?>
+
+<style>
+.jrForm fieldset {
+    background: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.jrForm p {
+    margin: 5px 0 3px 0;
+}
+.jrForm fieldset .jrLabel {
+    text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    display: block;
+    padding-bottom: 3px;
+}
+.jrForm .jrMenuSettings {
+    margin-top: 10px;
+}
+.jrForm .jrUpdate {
+    padding: 10px;
+    clear: both;
+    background: #f5f5f5;
+}
+.jrForm .jrUpdateInner {
+    float: right;
+}
+.jrForm .jrUpdate .spinner {
+    float: left;
+    display: none;
+}
+</style>
+
+<script>
+(function($) {
+
+    $(document).ready(function() {
+
+        var menuSettingsDiv = $('.jr-menu-settings');
+
+        $('.jr-update').on('click',function() {
+
+            $('.spinner').show();
+
+            $('#publish').trigger('click');
+        });
+
+        $('.jr-menu').on('change',function(){
+
+            option = $('option:selected', this);
+
+            if(option.val() == '') {
+
+                menuSettingsDiv.html('').hide();
+
+                return;
+            }
+
+            var path = option.data('path');
+
+            var params = {
+                action: 'jreviews_ajax',
+                'data[controller]': 'admin/admin_menu',
+                'data[action]': 'loadSettings',
+                'data[path]': path,
+                'data[menu_id]': <?php echo $page->ID;?>
+            };
+
+            var loadSettings = $.ajax({type: 'get', url: ajaxurl + '?side=admin', data: params, dataType: 'html'});
+
+            loadSettings.done(function(html) {
+
+                menuSettingsDiv.html(html).show();
+            });
+
+        }).trigger('change');
+
+    });
+
+})(jQuery);
+
+</script>
+
+<div class="jrForm">
+
+    <fieldset>
+
+        <div class="jrUpdateInner">
+
+            <span class="spinner"></span>
+
+            <a href="#" class="jr-update button button-primary button-large">
+
+                <?php echo $pagenow == 'post-new.php' ? 'Publish' : 'Update';?>
+
+            </a>
+
+        </div>
+
+        <div style="clear:both;"></div>
+
+    </fieldset>
+
+    <?php
+    // Add an nonce field so we can check for it later.
+    wp_nonce_field('jr_menu_settings', 'jr_menu_settings_nonce' );
+    ?>
+
+    <fieldset>
+
+        <p><strong>Menu Type</strong></p>
+
+        <select class="jr-menu" name="data[Menu][_jr_menu_type]">
+
+            <option value="">Select Menu Type</option>
+
+            <?php foreach($menu_types AS $label=>$group):?>
+
+            <optgroup label="<?php echo $label;?>">
+
+                <?php foreach($group AS $menu): $setting = get_post_meta($page->ID, '_jr_menu_type', true);?>
+
+                <option value="<?php echo $menu['route'];?>"
+                        data-path="<?php echo addslashes($menu['path']);?>"
+                        data-name="<?php echo $menu['name'];?>"
+                        <?php if($menu['route'] == $setting):?>selected<?php endif;?>><?php echo $menu['title'];?></option>
+
+                <?php endforeach;?>
+
+            </optgroup>
+
+            <?php endforeach;?>
+
+        </select>
+
+    </fieldset>
+
+    <div class="jr-menu-settings jrMenuSettings" style="display:none;"></div>
+
+
+
+</div>

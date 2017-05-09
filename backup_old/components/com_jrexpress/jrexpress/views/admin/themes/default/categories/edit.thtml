@@ -1,0 +1,38 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<form action="index2.php" method="post" name="categoryForm" id="categoryForm" class="adminForm">
+	<table class="admin_list" border="0" cellpadding="3" cellspacing="0">
+		<tr>
+			<td><strong><?php __a("Title");?>:</strong></td>
+			<td><?php echo $category['Category']['title']; ?></td>
+		</tr>
+		<tr>
+			<td valign="top"><strong><?php __a("Select criteria (required)");?></strong></td>
+			<td>
+				<input type="text" readonly="readonly" name="criteria" class="inputbox" value="<?php echo $criteria['text'];?>" />
+				<input type="hidden" name="data[Category][criteriaid]" value="<?php echo $category['Category']['criteria_id'];?>" />
+			</td>
+		</tr>
+	</table>
+	<input type="hidden" name="data[Category][id][]" value="<?php echo $category['Category']['cat_id']; ?>" />
+	<input type="hidden" name="data[cid]" value="<?php echo $sectionid; ?>" />
+	<input type="hidden" name="data[limitstart]" value="<?php echo $this->offset;?>" />
+	<input type="hidden" name="data[limit]" value="<?php echo $this->limit;?>" />
+	<input type="hidden" name="data[sectionid]" value="<?php echo $sectionid;?>" />
+	
+</form>
+
+<br />
+<input type="button" value="Submit" onclick="xajax.request({xjxfun:'xajaxDispatch'},{URI:'<?php displayXajaxUri('jrexpress');?>',parameters:['admin/categories','_save','jrexpress',xajax.getFormValues('categoryForm')]});" />
+
+<input type="button" value="Cancel" onclick="tb_remove();return false;" />

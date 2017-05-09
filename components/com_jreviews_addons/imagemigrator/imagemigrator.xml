@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon>
+	<title>ImageMigrator Add-on</title>
+	<name>imagemigrator</name>
+	<description><![CDATA[ImageMigrator Add-on]]></description>
+	<author>ClickFWD LLC</author>
+	<url>http://www.reviewsforjoomla.com</url>
+	<created>09/13/2014</created>
+	<version>2.0.0.1</version>
+	<minappversion>2.5.0.1</minappversion>
+	<copyright>Copyright (C) 2010-2014 ClickFWD LLC</copyright>
+	<license>Proprietary</license>
+	<type>Commercial</type>
+	<beta>0</beta>
+</addon>

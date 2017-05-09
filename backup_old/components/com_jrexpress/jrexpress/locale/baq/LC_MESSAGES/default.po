@@ -1,0 +1,917 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: jReviews 2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-27 19:46-0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alejandro Schmeichler <support@reviewsforjoomla.com>\n"
+"Language-Team: Alejandro Schmeichler\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Basque\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: F:\\components\\\n"
+"X-Poedit-KeywordsList: __t\n"
+"X-Poedit-Country: BASQUE COUNTRY\n"
+"X-Poedit-SearchPath-0: com_jreviews\\jreviews\\views\n"
+"X-Poedit-SearchPath-1: com_jreviews\\jreviews\\controllers\n"
+"X-Poedit-SearchPath-2: com_jreviews\\jreviews\\models\n"
+"X-Poedit-SearchPath-3: com_s2framework\\s2framework\\libs\\view\n"
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:351
+msgid "*"
+msgstr "*"
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:384
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:540
+msgid "Submit"
+msgstr "Bidali"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:25
+msgid "Featured"
+msgstr "Aukeratua"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:26
+msgid "Title"
+msgstr "Title Alias"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:29
+#: com_jreviews\jreviews\views/helpers/jreviews.php:91
+msgid "Most recent"
+msgstr "Azkenak"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:31
+msgid "Most popular"
+msgstr "Ikusienak"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:33
+#: com_jreviews\jreviews\views/helpers/jreviews.php:93
+msgid "Highest user rating"
+msgstr "Puntuazio handieneko erabiltzailea"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:34
+#: com_jreviews\jreviews\views/helpers/jreviews.php:94
+msgid "Lowest user rating"
+msgstr "Puntuazio bajueneko erabiltzailea"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:35
+msgid "Highest editor rating"
+msgstr "Puntuazio handieneko editorea"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:36
+msgid "Lowest editor rating"
+msgstr "Puntuazio bajueneko editorea"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:37
+msgid "Most reviews"
+msgstr "Iritzi gehien dituztenak"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:38
+msgid "Author"
+msgstr "Egilea"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:53
+msgid "Distance"
+msgstr "Distance"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:71
+msgid "ASC"
+msgstr "GOR"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:72
+msgid "DESC"
+msgstr "BEH"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:95
+msgid "Most helpful"
+msgstr "Baliagarrienak"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:96
+msgid "Least helpful"
+msgstr "Desegokienak"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:141
+msgid "#1 Reviewer"
+msgstr "#1 ikusiena"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:142
+msgid "Top 10 Reviewer"
+msgstr "Top 10 ikusienak"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:143
+msgid "Top 50 Reviewer"
+msgstr "Top 50 ikusienak"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:144
+msgid "Top 100 Reviewer"
+msgstr "Top 100 ikusienak"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:145
+msgid "Top 500 Reviewer"
+msgstr "Top 500 ikusienak"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:146
+msgid "Top 1000 Reviewer"
+msgstr "Top 1000 ikusienak"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:83
+#: com_jreviews\jreviews\views/helpers/paginator.php:86
+msgid "&laquo; Previous"
+msgstr "&laquo; Aurrekoa"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:119
+#: com_jreviews\jreviews\views/helpers/paginator.php:125
+#, php-format
+msgid "Go to page %s"
+msgstr "Joan % orriraldera"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:120
+#: com_jreviews\jreviews\views/helpers/paginator.php:126
+#, php-format
+msgid "Go to page %s of %s"
+msgstr "Joan %(r)en % orriraldera"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:140
+#: com_jreviews\jreviews\views/helpers/paginator.php:144
+msgid "Next &raquo;"
+msgstr "Hurrengoa &raquo;"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:227
+#: com_jreviews\jreviews\views/helpers/paginator.php:237
+msgid "Results per page"
+msgstr "Emaitzak orrialdeko"
+
+#: com_jreviews\jreviews\views/helpers/routes.php:69
+#: com_jreviews\jreviews\views/helpers/routes.php:83
+#: com_jreviews\jreviews\views/helpers/routes.php:85
+#: com_jreviews\jreviews\views/helpers/routes.php:87
+#: com_jreviews\jreviews\views/helpers/routes.php:142
+#: com_jreviews\jreviews\views/helpers/routes.php:183
+#: com_jreviews\jreviews\views/helpers/routes.php:233
+#: com_jreviews\jreviews\views/helpers/routes.php:234
+#: com_jreviews\jreviews\views/helpers/routes.php:313
+#: com_jreviews\jreviews\views/helpers/routes.php:320
+msgid "and"
+msgstr "eta"
+
+#: com_jreviews\jreviews\controllers/categories_controller.php:370
+#, php-format
+msgid "Favorites by %s"
+msgstr "Gogokoak %tan"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:431
+msgid "A listing with that title already exists."
+msgstr "Dagoeneko bada izenburu hori duen zerrenda bat."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:455
+msgid "You need to select both a section and a category."
+msgstr "Biak aukeratu behar dituzu sekzioa eta kategoria."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:462
+#: com_jreviews\jreviews\controllers/reviews_controller.php:184
+msgid "You must fill in your name."
+msgstr "Zure izena jarri behar duzu."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:463
+#: com_jreviews\jreviews\controllers/reviews_controller.php:186
+msgid "You must fill in a valid email address."
+msgstr "Helbide elektronikoa jarri behar duzu."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:470
+msgid "You must fill in a title for the new listing."
+msgstr "Zerrenda berriari izenburua jarri behar zaio."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:483
+msgid "You must fill in a summary for the new listing."
+msgstr "Zerrenda berriari laburpena jarri behar zaio."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:485
+msgid "You must fill in a description for the new listing."
+msgstr "Zerrenda berriari deskripzioa jarri behar zaio."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:496
+#: com_jreviews\jreviews\controllers/reviews_controller.php:188
+msgid "You must fill in a title for the review."
+msgstr "Zure iritziari izenburua jarri behar zaio."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:509
+#: com_jreviews\jreviews\controllers/reviews_controller.php:202
+#, php-format
+msgid "You are missing a rating in %s criteria."
+msgstr "Irizpide %s hauetan balorazioa jarri behar duzu."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:518
+#: com_jreviews\jreviews\controllers/reviews_controller.php:209
+msgid "You must fill in your comment."
+msgstr "Zure iritzia jarri behar duzu."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:531
+#: com_jreviews\jreviews\controllers/listings_controller.php:541
+#: com_jreviews\jreviews\controllers/reviews_controller.php:216
+#: com_jreviews\jreviews\controllers/reviews_controller.php:226
+msgid "The security code you entered was invalid."
+msgstr "Baliorik gabeko seguritate kodea."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:535
+#: com_jreviews\jreviews\controllers/reviews_controller.php:220
+msgid "You must fill in the security code."
+msgstr "Seguritate kodea jarri behar duzu."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:588
+#, php-format
+msgid "The total number of images is limited to %s"
+msgstr "Irudi kopurua % alera mugatzen da"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:726
+msgid "Thank you for your submission."
+msgstr "Mila esker bidalketa egin izanagatik."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:726
+msgid "Item successfully saved."
+msgstr "Itema gorde du."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:743
+#: com_jreviews\jreviews\controllers/reviews_controller.php:347
+#: com_jreviews\jreviews\controllers/reviews_controller.php:431
+msgid "Thank you for your submission. It will be published once it is verified."
+msgstr "Eskerrik asko zure aurkezpenagatik. Egiaztatu ondoren argitaratuko da."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:757
+#: com_jreviews\jreviews\controllers/listings_controller.php:788
+#: com_jreviews\jreviews\controllers/listings_controller.php:933
+#: com_jreviews\jreviews\controllers/listings_controller.php:968
+msgid "Access denied due to insufficient rights or the user session expired."
+msgstr "Ez duzu sartzeko baimenik eskubiderik ez duzulako edo saio"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:899
+msgid "The main image was successfully changed."
+msgstr "Irudi nagusia ondo aldatu da."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:921
+#: com_jreviews\jreviews\controllers/listings_controller.php:955
+msgid "Invalid request."
+msgstr "Baliogabeko eskaera."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:943
+msgid "Published"
+msgstr "Argitaratuta"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:943
+msgid "Unpublished"
+msgstr "Argitaragabea"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:978
+msgid "The listing has been removed."
+msgstr "Listatua kenduta dago."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:980
+msgid "There was a problem removing the listing. Please contact the site administrator."
+msgstr "There was a problem removing the listing. Please contact the site administrator."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:141
+msgid "You are not allowed to review your own listing."
+msgstr "You are not allowed to review your own listing."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:176
+msgid "You already submitted a review, thank you. We don't allow duplicates."
+msgstr "Zuk iritzia aurkeztu zenuen, eskerrik asko. Ez d"
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:177
+msgid "Duplicates not allowed."
+msgstr "Baimentzen ez diren izen bikoiztuak."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:322
+#: com_jreviews\jreviews\controllers/reviews_controller.php:399
+#: com_jreviews\jreviews\controllers/reviews_controller.php:418
+#: com_jreviews\jreviews\controllers/reviews_controller.php:447
+msgid "Your changes were saved."
+msgstr "Zure aldaketak gorde dira."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:501
+#: com_jreviews\jreviews\controllers/cb_plugins/cb_reviews_controller.php:91
+msgid "No reviews were found."
+msgstr "Ez da eritzirik aurkitu."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:562
+#: com_jreviews\jreviews\controllers/reviews_controller.php:581
+msgid "You already voted."
+msgstr "Botoa eman duzu."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:570
+#: com_jreviews\jreviews\controllers/reviews_controller.php:589
+msgid "Thank you for your vote, it will be processed soon."
+msgstr "Eskerrik asko botoa emateagatik, berehala prozesatuko dugu."
+
+#: com_jreviews\jreviews\controllers/review_reports_controller.php:87
+msgid "Your report was submitted, thank you."
+msgstr "Zure txostena aurkeztuta dago, eskerrik asko."
+
+#: com_jreviews\jreviews\controllers/review_reports_controller.php:97
+msgid "The message is empty."
+msgstr "Mezua hutsik dago."
+
+#: com_jreviews\jreviews\controllers/cb_plugins/cb_favorites_controller.php:101
+msgid "Your favorites list is empty."
+msgstr "Gogokoen zerrenda hutsik dago."
+
+#: com_jreviews\jreviews\controllers/cb_plugins/cb_listings_controller.php:94
+msgid "No listings found."
+msgstr "Ez da sarrerarik aurkitu"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:163
+#, php-format
+msgid "New listing: %s"
+msgstr "New listing: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:163
+#, php-format
+msgid "Edited listing: %s"
+msgstr "Edited listing: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:236
+#: com_jreviews\jreviews\controllers/components/notifications.php:285
+#: com_jreviews\jreviews\controllers/components/notifications.php:334
+#, php-format
+msgid "New review: %s"
+msgstr "New review: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:236
+#: com_jreviews\jreviews\controllers/components/notifications.php:285
+#: com_jreviews\jreviews\controllers/components/notifications.php:334
+#, php-format
+msgid "Edited review: %s"
+msgstr "Edited review: %s"
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:89
+#, php-format
+msgid "is %s Kb."
+msgstr "% Kb ditu."
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:90
+msgid "Some files exceed the allowed size, please correct this and resubmit the form:"
+msgstr "Some files exceed the allowed size, please correct this and resubmit the form:"
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:96
+#, php-format
+msgid "%s is not an image file."
+msgstr "% ez dira irudi fitxategiak."
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:97
+msgid "Some files are not images, please correct this and resubmit the form:"
+msgstr "Fitxategi batzuk ez dute irudirik, zuzendu hori mesedez et"
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:107
+msgid "Possible file upload attack."
+msgstr "Igotako fitxategiak kalteak sor ditzake."
+
+#: com_jreviews\jreviews\controllers/components/everywhere/everywhere_com_bookmarks.php:71
+msgid "BOOKMARKS_TAG"
+msgstr "Website"
+
+#: com_jreviews\jreviews\controllers/components/everywhere/everywhere_com_community_access.php:108
+msgid "JOMSOCIAL_TAG"
+msgstr "Member"
+
+#: com_jreviews\jreviews\controllers/components/everywhere/everywhere_com_comprofiler.php:139
+msgid "COMMUNITY_BUILDER_TAG"
+msgstr "Member"
+
+#: com_jreviews\jreviews\controllers/components/everywhere/everywhere_com_content.php:110
+msgid "Listing"
+msgstr "Zerrenda"
+
+#: com_jreviews\jreviews\controllers/components/everywhere/everywhere_com_eventlist_event.php:75
+msgid "EVENTLIST_EVENT_TAG"
+msgstr "Event"
+
+#: com_jreviews\jreviews\controllers/components/everywhere/everywhere_com_eventlist_venue.php:71
+msgid "EVENTLIST_VENUE_TAG"
+msgstr "Venue"
+
+#: com_jreviews\jreviews\controllers/components/everywhere/everywhere_com_hotproperty.php:88
+msgid "HOTPROPERTY_TAG"
+msgstr "Property"
+
+#: com_jreviews\jreviews\controllers/components/everywhere/everywhere_com_jomres.php:65
+msgid "JOMRES_TAG"
+msgstr "Hotel"
+
+#: com_jreviews\jreviews\controllers/components/everywhere/everywhere_com_joomgallery.php:71
+msgid "JOOMGALLERY_TAG"
+msgstr "Gallery"
+
+#: com_jreviews\jreviews\controllers/components/everywhere/everywhere_com_joomunity.php:101
+msgid "JOOMUNITY_TAG"
+msgstr "Member"
+
+#: com_jreviews\jreviews\controllers/components/everywhere/everywhere_com_mtree.php:76
+msgid "MTREE_TAG"
+msgstr "Zerrenda"
+
+#: com_jreviews\jreviews\controllers/components/everywhere/everywhere_com_myblog.php:74
+msgid "MYBLOG_TAG"
+msgstr "Blog"
+
+#: com_jreviews\jreviews\controllers/components/everywhere/everywhere_com_sobi2.php:73
+msgid "SOBI2_TAG"
+msgstr "Negozioa"
+
+#: com_jreviews\jreviews\controllers/components/everywhere/everywhere_com_virtuemart.php:73
+msgid "VIRTUEMART_TAG"
+msgstr "Produktua"
+
+#: com_jreviews\jreviews\controllers/components/everywhere/_everywhere_com_seyret.php:69
+msgid "SEYRET_TAG"
+msgstr "Video"
+
+#: com_jreviews\jreviews\controllers/modules/module_advanced_search_controller.php:154
+msgid "Select"
+msgstr "Aukeratu"
+
+#: com_jreviews\jreviews\models/category.php:124
+msgid "Select category"
+msgstr "Aukeratu kategoria"
+
+#: com_jreviews\jreviews\models/field.php:1128
+#, php-format
+msgid "You must fill in a valid value for %s."
+msgstr "% atalean balore egokia sartu."
+
+#: com_jreviews\jreviews\models/field_option.php:87
+#, php-format
+msgid "%s already exists"
+msgstr "Dagoeneko izenburu hori dutenak %s"
+
+#: com_jreviews\jreviews\models/field_option.php:103
+msgid "There was a problem adding new option"
+msgstr "There was a problem adding new option"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:60
+msgid "%B %d, %Y"
+msgstr "%Y, %B, %d "
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:86
+msgid "%b %d, %Y"
+msgstr "%Y, %b, %d"
+
+#: com_jreviews\jreviews\views/admin/themes/default/categories/index.thtml:93
+#, php-format
+msgid "%1$s results - showing %2$s - %3$s"
+msgstr "%1$s emaitza - erakusten %2$s - %3$s"
+
+#: com_jreviews\jreviews\views/admin/themes/default/elements/category_list.thtml:29
+msgid "Select Category"
+msgstr "Kategoria aukeratu"
+
+#: com_jreviews\jreviews\views/admin/themes/default/listings/create_form.thtml:37
+msgid "Title Alias"
+msgstr "Title Alias"
+
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myfavorites.thtml:50
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myfavorites.thtml:177
+msgid "View all favorites"
+msgstr "Ikusi gogokoenak"
+
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myfavorites.thtml:69
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myfavorites.thtml:70
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_mylistings.thtml:69
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_mylistings.thtml:70
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:94
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:95
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_mylistings.thtml:96
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_mylistings.thtml:97
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myreviews.thtml:92
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myreviews.thtml:93
+msgid "Editor rating"
+msgstr "Editorearen balorazioa"
+
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myfavorites.thtml:77
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myfavorites.thtml:78
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_mylistings.thtml:77
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_mylistings.thtml:78
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:99
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:100
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_mylistings.thtml:101
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_mylistings.thtml:102
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myreviews.thtml:96
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myreviews.thtml:97
+msgid "User rating"
+msgstr "Erabiltzailearen balorazioa"
+
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myfavorites.thtml:79
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_mylistings.thtml:79
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:101
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_mylistings.thtml:103
+msgid "User reviews"
+msgstr "Erabiltzaileen iritziak"
+
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myfavorites.thtml:92
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_mylistings.thtml:92
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:84
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_mylistings.thtml:86
+msgid "New"
+msgstr "Berria"
+
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myfavorites.thtml:95
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_mylistings.thtml:95
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:87
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_mylistings.thtml:89
+msgid "Hot"
+msgstr "Pil-pilean"
+
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myfavorites.thtml:106
+msgid "Written by"
+msgstr "Nork idatzia"
+
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myfavorites.thtml:108
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_mylistings.thtml:107
+msgid "Hits"
+msgstr "Bistaratze"
+
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myfavorites.thtml:110
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_mylistings.thtml:109
+msgid "Favorites"
+msgstr "Gogokoak"
+
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myfavorites.thtml:141
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_mylistings.thtml:140
+msgid "Read more"
+msgstr "Gehiago irakurri"
+
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myfavorites.thtml:144
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_mylistings.thtml:143
+msgid "Read reviews"
+msgstr "Iritziak irakurri"
+
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myfavorites.thtml:147
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_mylistings.thtml:146
+msgid "Write review"
+msgstr "Iritzia idatzi"
+
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_mylistings.thtml:50
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_mylistings.thtml:176
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_mylistings.thtml:126
+msgid "View all my listings"
+msgstr "Ikusi nire iritzi guztiak"
+
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myreviews.thtml:68
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myreviews.thtml:183
+msgid "View all reviews"
+msgstr "Iritzi guztiak irakurri"
+
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myreviews.thtml:105
+#, php-format
+msgid "%s of %s people found the following review helpful"
+msgstr "%k %tik baliagarritzat jo dute honako iritzi hau"
+
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myreviews.thtml:122
+msgid "Was this review helpful to you?"
+msgstr "Iritzi hau zuretzat baliagarria izan da?"
+
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myreviews.thtml:140
+msgid "Report this review"
+msgstr "Erakutsi iritzi hau"
+
+#: com_jreviews\jreviews\views/themes/default/cb_plugins/cb_myreviews.thtml:146
+msgid "Last updated"
+msgstr "Azken eguneratzea"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:66
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_mylistings.thtml:68
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myreviews.thtml:69
+msgid "No entries were found"
+msgstr "Ez da sarrerarik aurkitu"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:107
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_mylistings.thtml:109
+msgid "Category"
+msgstr "Kategoria"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:124
+msgid "View all my favorites"
+msgstr "Ikusi gogokoenak"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myreviews.thtml:102
+msgid "Reviewed by"
+msgstr "Iritzi emailea"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myreviews.thtml:118
+msgid "View all my reviews"
+msgstr "Ikusi nire iritzi guztiak"
+
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:73
+msgid "The directory is empty."
+msgstr "Direktorioa hutsik dago."
+
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:109
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:110
+msgid "Search"
+msgstr "Bilatu"
+
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:111
+msgid "Advanced search"
+msgstr "Bilaketa aurreratua"
+
+#: com_jreviews\jreviews\views/themes/default/elements/detailed_ratings.thtml:54
+#: com_jreviews\jreviews\views/themes/default/elements/detailed_ratings.thtml:68
+msgid "Overall rating"
+msgstr "Balorazio orokorra"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:20
+msgid "You will find this entry in the content moderation list."
+msgstr "Sarrera hau moderazio eduki zerrendan aurkituko duzu."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:32
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_notification.thtml:34
+msgid "IP address"
+msgstr "IP helbidea"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:40
+msgid "Section"
+msgstr "Sekzioa"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:48
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:68
+msgid "Summary"
+msgstr "Laburpena"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:54
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:75
+msgid "Description"
+msgstr "Deskripzioa"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_notification.thtml:22
+msgid "You will find this review in the review moderation list."
+msgstr "Iritzi hau moderazio iritzi zerrendan aurkituko duzu."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_notification.thtml:26
+msgid "Reviewer"
+msgstr "Iritzi emailea"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_notification.thtml:38
+msgid "Entry"
+msgstr "Sarrera"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_notification.thtml:46
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:180
+msgid "Comments"
+msgstr "Iruzkinak"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_report_notification.thtml:13
+msgid "You will find this report in the review moderation list."
+msgstr "Kronika hau moderazio iritzi zerrendan aurkituko duzu."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_report_notification.thtml:17
+msgid "Reporter"
+msgstr "Kronika egilea"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_report_notification.thtml:25
+msgid "IP Address"
+msgstr "IP helbidea"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_report_notification.thtml:29
+msgid "Report text"
+msgstr "Kronikaren testua"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_report_notification.thtml:37
+msgid "Listing title"
+msgstr "Izenburu zerrenda"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_report_notification.thtml:41
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:147
+msgid "Review title"
+msgstr "Iritziaren izenburua"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_report_notification.thtml:45
+msgid "Review Comments"
+msgstr "Iruzkinen iritzia"
+
+#: com_jreviews\jreviews\views/themes/default/errors/error404.thtml:15
+#: com_jreviews\jreviews\views/themes/default/errors/error404.thtml:18
+msgid "404 Not Found"
+msgstr "Ez da aurkitu 404"
+
+#: com_jreviews\jreviews\views/themes/default/errors/error404.thtml:19
+msgid "The page you requested was not found."
+msgstr "Eskatutako orria ez da aurkitu."
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:60
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:126
+msgid "View all user reviews"
+msgstr "Ikusi erabiltzaileen iritzi guztiak"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:76
+#, php-format
+msgid "Average user rating from: %s user(s)"
+msgstr "%s erabiltzaileen batez besteko balorazioa"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:82
+msgid "There are no user reviews for this listing."
+msgstr "Ez dago erabiltzaileen iritzirik."
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:87
+msgid "Add new review"
+msgstr "Iritzi berria ezarri"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:89
+msgid "To write a review please register or login."
+msgstr "Erregistratu edo sinatuta sartu iritzi berria idazteko."
+
+#: com_jreviews\jreviews\views/themes/default/listings/create.thtml:72
+msgid "Submission instructions"
+msgstr "Submission instructions"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create.thtml:74
+msgid "Select the section and category where you want to submit the new item."
+msgstr "Select the section and category where you want to submit the new item."
+
+#: com_jreviews\jreviews\views/themes/default/listings/create.thtml:75
+msgid "All fields marked with asterisks are required."
+msgstr "All fields marked with asterisks are required."
+
+#: com_jreviews\jreviews\views/themes/default/listings/create.thtml:76
+msgid "Make sure any image files conform to the required specifications (.jpg,.gif,.png)"
+msgstr "Make sure any image files conform to the required specifications (.jpg,.gif,.png)"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create.thtml:87
+msgid "Select Section"
+msgstr "Aukeratu sekzioa"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:39
+msgid "Name"
+msgstr "Izena"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:44
+msgid "Email"
+msgstr "Eposta"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:84
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:112
+msgid "Images"
+msgstr "Irudiak"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:88
+msgid "Image Manager - Use the radio buttons to set the main image shown in lists."
+msgstr "Image Manager - Use the radio buttons to set the main image shown in lists."
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:99
+msgid "Are you sure you want to delete this image?"
+msgstr "Ziur zaude irudi hau kendu nahi duzula?"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:112
+#, php-format
+msgid "Max. size %s Kb"
+msgstr "Gehienezko tamaina %s Kb"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:124
+msgid "Meta Data"
+msgstr "Meta Data"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:126
+msgid "Meta Description"
+msgstr "Meta deskripzioa"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:130
+msgid "Meta Keywords"
+msgstr "Meta gako-hitzak"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:153
+msgid "Ratings (the higher the better)"
+msgstr "Balorazioa (zenbat eta altuagoa, orduan eta hobea)"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:162
+msgid "Rate it"
+msgstr "Eman botoa"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:194
+msgid "Please enter the security code."
+msgstr "Mesedez, sartu seguritate kodea."
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:198
+msgid "Cancel"
+msgstr "Ezeztatu"
+
+#: com_jreviews\jreviews\views/themes/default/listings/detail.thtml:201
+msgid "Remove from favorites"
+msgstr "Gogokoetatik kendu"
+
+#: com_jreviews\jreviews\views/themes/default/listings/detail.thtml:207
+#: com_jreviews\jreviews\views/themes/default/listings/detail.thtml:214
+msgid "Add to favorites"
+msgstr "Gogokoetan gehitu"
+
+#: com_jreviews\jreviews\views/themes/default/listings/detail.thtml:215
+msgid "Register to add this entry to your favorites"
+msgstr "Register to add this entry to your favorites"
+
+#: com_jreviews\jreviews\views/themes/default/listings/detail.thtml:295
+#: com_jreviews\jreviews\views/themes/default/listings/detail.thtml:393
+#: com_jreviews\jreviews\views/themes/default/listings/detail.thtml:433
+msgid "Editor review"
+msgstr "Editorearen iritzia"
+
+#: com_jreviews\jreviews\views/themes/default/listings/detail.thtml:410
+msgid "Back to Listing"
+msgstr "Itzuli zerrendara"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_blogview.thtml:76
+#: com_jreviews\jreviews\views/themes/default/listings/listings_tableview.thtml:76
+#: com_jreviews\jreviews\views/themes/default/listings/listings_thumbview.thtml:76
+msgid "Add new listing"
+msgstr "Gehitu zerrenda"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_blogview.thtml:96
+#: com_jreviews\jreviews\views/themes/default/listings/listings_tableview.thtml:96
+#: com_jreviews\jreviews\views/themes/default/listings/listings_thumbview.thtml:96
+msgid "Ordering"
+msgstr "Ordenatu"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_blogview.thtml:229
+#: com_jreviews\jreviews\views/themes/default/listings/listings_tableview.thtml:246
+#: com_jreviews\jreviews\views/themes/default/listings/listings_thumbview.thtml:181
+msgid "Your search did not return any results. Try adjusting your search values.<br /><br /><a href=\"javascript:window.history.go(-1)\">Click here to go back.</a>"
+msgstr "Emaitzarik gabeko bilaketa.<br /><br /><a href=\"javascript:window.history.go(-1)\">Click here to go back.</a>"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_tableview.thtml:112
+msgid "Details"
+msgstr "Xehetasunak"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_tableview.thtml:115
+msgid "Ratings"
+msgstr "Balorazioak"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listing_manager.thtml:28
+msgid "Edit"
+msgstr "Editatu"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listing_manager.thtml:36
+msgid "This action cannnot be undone, are you sure you want to delete this listing?"
+msgstr "This action cannnot be undone, are you sure you want to delete this listing?"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listing_manager.thtml:41
+msgid "Delete"
+msgstr "Kendu"
+
+#: com_jreviews\jreviews\views/themes/default/modules/favorite_cbusers.thtml:62
+#, php-format
+msgid "Other users interested in %s"
+msgstr "% interesatu dira beste erabiltzaileak"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:36
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:58
+msgid "Reviewers"
+msgstr "Iritzi emaileak"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:75
+msgid "Rank"
+msgstr "Sailkapena"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:86
+msgid "Number of reviews written:"
+msgstr "Iritzi kopurua:"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:87
+msgid "Percentage helpful votes"
+msgstr "Balio duten botoen ehunekoa"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:87
+msgid "votes"
+msgstr "botoak"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/reviews.thtml:74
+#, php-format
+msgid "Reviews written by %s"
+msgstr "Iritzi egilea %s"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:50
+msgid "Listing summary"
+msgstr "Laburpen-zerrenda"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:56
+msgid "Listing description"
+msgstr "Zerrendaren deskripzioa"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:62
+msgid "Review comments"
+msgstr "Iruzkinak berrikusi"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:73
+msgid "Any"
+msgstr "Baten bat"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:77
+msgid "All"
+msgstr "Denak"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:81
+msgid "Exact"
+msgstr "Zehazki"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:87
+msgid "Listing author"
+msgstr "Autore zerrenda"
+
+#~ msgid "Your search did not return any results. Try adjusting you"
+#~ msgstr "Emaitzarik gabeko bilaketa. Saiatu bilaketa eremua"
+

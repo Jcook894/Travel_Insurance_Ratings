@@ -1,0 +1,126 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php	
+# Initialize paginator helper
+$Paginator->paginate(
+	array(
+		'current_page'=>$this->page,
+		'items_per_page'=>$this->limit,
+		'items_total'=>$pagination['total']
+	)
+);
+?>
+
+<div class="admin_header">Review Moderation</div>
+
+<form id="adminForm" name="adminForm" action="index2.php?option=com_jrexpress&url=reviews" method="post">
+
+	<div id="admin_filter">
+		<?php
+			echo $Form->select(
+				'data[filter_order]',
+				array('0'=>'Most recent','1'=>'Unpublished','2'=>'User reviews'),
+				$filter_order,
+				array(
+					'size'=>1,
+					'class'=>'inputbox',
+					'onchange'=>'setPage(1);document.adminForm.submit();'
+				)			
+			);
+		?>
+		&nbsp;&nbsp;
+		Listing title:
+		<input <?php echo (!$extension ? 'DISABLED' : '');?> type="text" name="data[entry_title]" value="<?php echo ($extension ? $entry_title : '');?>" class="text_area" onchange="setPage(1);document.adminForm.submit();" />
+	</div>
+	
+	<br />
+	
+	<!-- PAGINATION BEGINS HERE -->
+	<table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+	 <tr>
+		<td class="jr_pagenav_results"><?php echo sprintf(__t("%1\$s results - showing %2\$s - %3\$s",true), $pagination['total'], ($this->page-1)*$this->limit+1, min($pagination['total'],$this->page*$this->limit));?></td>
+	    <?php if($pagination['total'] > $this->limit):?>
+	    <td class="jr_pagenav_pages"><?php echo $Paginator->display_pages();?></td>
+	    <td class="jr_pagenav_limitbox"><?php echo $Paginator->display_items_per_page();?>
+		<?php endif;?>
+		</td>
+	 </tr>
+	</table>
+	
+	<table class="admin_list">
+		<tr>
+			<th width="5">#</th>
+			<th align="center">Review</th>
+			<th align="center">Category</th>
+			<th align="center">Published</th>
+			<th align="center">Date</th>
+			<th align="center">Reviewer&nbsp;<img src="../includes/js/ThemeOffice/messaging.png" /></th>
+			<th align="center">ID</th>
+			<th align="center">Delete</th>
+		</tr>
+		<?php
+		$j = $this->page*$this->limit - ($this->limit - 1);
+		foreach($reviews AS $review):?>
+		<tr id="reviews<?php echo $review['Review']['review_id'];?>" >
+			<td><?php echo $j++;?></td>
+			<td align="left">
+                <?php echo Sanitize::getString($review['Listing'],'tag',__a("Listing",true));?>: <?php echo $review['Listing']['title']; ?>
+				<a class="thickbox" href="index2.php?option=com_jrexpress&no_html=1&url=reviews/edit&reviewid=<?php echo $review['Review']['review_id'];?>&catid=<?php echo $review['Category']['cat_id'];?>&extension=<?php echo $review['Review']['extension'];?>&entry_title=<?php echo urlencode($review['Listing']['title']);?>&width=800&height=600">
+					<div id="title_<?php echo $review['Review']['review_id'];?>"><?php echo $review['Review']['title'] != '' ? $review['Review']['title'] : "[".__a("No title, click to edit",true)."]"; ?></div>
+				</a>
+			</td>
+			<td align="left"><?php echo $review['Category']['title'];?></td>
+			<td align="center">
+				<a href="javascript:void(0);" onclick="flashRow('reviews<?php echo $review['Review']['review_id'];?>'); 
+					xajax.request({xjxfun:'xajaxDispatch'},{URI:'<?php displayXajaxUri('jrexpress');?>',parameters:['admin/common','toggleState','jrexpress',<?php echo $review['Review']['review_id'];?>,'#__jreviews_comments','id','published']
+					});">
+					<span id="pubImg_<?php echo $review['Review']['review_id'];?>"><img src="images/<?php echo ($review['Review']['published'] ? 'publish_g.png' : 'publish_x.png');?>" border="0"></span>
+				</a>
+			</td>
+			<td><?php echo $Time->niceShort($review['Review']['created']); ?></td>
+			<td align="left"><a href="mailto:<?php echo $review['User']['email'];?>"><?php echo $review['User']['name']; ?></a><br /><?php echo $review['User']['ipaddress'];?></td>
+			<td align="center"><?php echo $review['Review']['review_id']; ?></td>
+			<td align="center">
+				<a href="javascript:void(0);" onclick="deleteReview(<?php echo $review['Review']['review_id'];?>,'<?php echo WWW_ROOT;?>administrator/index2.php?option=<?php echo S2Paths::get('jrexpress','S2_CMSCOMP');?>');">
+					<img src="<?php echo WWW_ROOT;?>includes/js/ThemeOffice/trash.png" alt="del" border="0">
+				</a>
+			</td>
+		</tr>
+		<?php endforeach;?>
+	</table>
+
+	<!-- PAGINATION BEGINS HERE -->
+	<table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+	 <tr>
+		<td class="jr_pagenav_results"><?php echo sprintf(__t("%1\$s results - showing %2\$s - %3\$s",true), $pagination['total'], ($this->page-1)*$this->limit+1, min($pagination['total'],$this->page*$this->limit));?></td>
+	    <?php if($pagination['total'] > $this->limit):?>
+	    <td class="jr_pagenav_pages"><?php echo $Paginator->display_pages();?></td>
+	    <td class="jr_pagenav_limitbox"><?php echo $Paginator->display_items_per_page();?>
+		<?php endif;?>
+		</td>
+	 </tr>
+	</table>
+	<input type="hidden" id="page_number" name="data[page]" value="<?php echo $this->page;?>" />
+	<input type="hidden" id="limit" name="data[limit]" value="<?php echo $this->limit;?>" />
+	<input type="hidden" id="controller" name="controller" value="admin/reviews" />
+	<input type="hidden" id="action" name="action" value="listReviews" />
+	<!-- PAGINATION ENDS HERE -->
+	
+	<!-- REORDER INPUTS -->
+	<input type="hidden" id="row_id" name="data[row_id]" value="" />		
+	<input type="hidden" id="direction" name="data[direction]" value="" />
+	<!-- REORDER INPUTS -->		
+
+	<input type="hidden" name="option" value="com_jrexpress" />
+	<input type="hidden" name="act" value="reviews" />
+</form>

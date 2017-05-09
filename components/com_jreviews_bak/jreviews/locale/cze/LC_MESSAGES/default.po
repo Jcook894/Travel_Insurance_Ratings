@@ -1,0 +1,2332 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: jReviews 2.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:44-0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: ClickFWD <support@reviewsforjoomla.com>\n"
+"Language-Team: ClickFWD\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Czech\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: f:\\components\\\n"
+"X-Poedit-KeywordsList: __t\n"
+"X-Poedit-Country: CZECH REPUBLIC\n"
+"X-Poedit-SearchPath-0: com_jreviews\\jreviews\\views\n"
+"X-Poedit-SearchPath-1: com_jreviews\\jreviews\\controllers\n"
+"X-Poedit-SearchPath-2: com_jreviews\\jreviews\\models\n"
+"X-Poedit-SearchPath-3: com_s2framework\\s2framework\\libs\\view\n"
+"X-Poedit-SearchPath-4: com_jreviews\\jreviews\\plugins\n"
+"X-Poedit-SearchPath-5: com_jreviews_addons\\geomaps\\views\n"
+"X-Poedit-SearchPath-6: com_jreviews_addons\\geomaps\\controllers\n"
+"X-Poedit-SearchPath-7: com_jreviews_addons\\geomaps\\plugins\n"
+"X-Poedit-SearchPath-8: com_jreviews_addons\\paidlistings\\views\n"
+"X-Poedit-SearchPath-9: com_jreviews_addons\\paidlistings\\plugins\n"
+"X-Poedit-SearchPath-10: com_jreviews_addons\\paidlistings\\controllers\n"
+
+#: com_jreviews\jreviews\views/helpers/assets.php:240
+#: com_jreviews\jreviews\views/helpers/assets.php:386
+#: com_jreviews\jreviews\views/helpers/assets.php:434
+msgid "Publish to Facebook"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/community.php:50
+msgid "Guest"
+msgstr "Host"
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:686
+msgid "*"
+msgstr "*"
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:709
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:948
+#: com_jreviews\jreviews\views/helpers/widgets.php:69
+#: com_jreviews\jreviews\views/helpers/widgets.php:72
+msgid "Add"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:717
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:956
+msgid "Submit"
+msgstr "Odeslat"
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:748
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:995
+msgid "between"
+msgstr "mezi"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:29
+#: com_jreviews\jreviews\views/helpers/jreviews.php:316
+msgid "Featured"
+msgstr "Doporučený"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:30
+msgid "Title"
+msgstr "Název"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:33
+#: com_jreviews\jreviews\views/helpers/jreviews.php:94
+#: com_jreviews\jreviews\views/helpers/jreviews.php:120
+msgid "Most recent"
+msgstr "Nejnovější"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:34
+#: com_jreviews\jreviews\views/helpers/jreviews.php:96
+msgid "Last updated"
+msgstr "Poslední aktualizace"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:36
+msgid "Most popular"
+msgstr "Nejpopulárnější"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:38
+#: com_jreviews\jreviews\views/helpers/jreviews.php:97
+msgid "Highest user rating"
+msgstr "Nejvyšší hodnocení uživatelů"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:39
+#: com_jreviews\jreviews\views/helpers/jreviews.php:98
+msgid "Lowest user rating"
+msgstr "Nejnižší hodnocení uživatelů"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:40
+msgid "Highest editor rating"
+msgstr "Nejvyšší hodnocení editora"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:41
+msgid "Lowest editor rating"
+msgstr "Nejnižší hodnocení editora"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:42
+msgid "Most reviews"
+msgstr "Nejvíce hodnoceno"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:43
+msgid "Author"
+msgstr "Autor"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:53
+msgid "Distance"
+msgstr "Vzdálenost"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:73
+msgid "ASC"
+msgstr "ASC"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:74
+msgid "DESC"
+msgstr "DESC"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:95
+#: com_jreviews\jreviews\views/helpers/jreviews.php:119
+msgid "Oldest"
+msgstr "Nejstarší"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:99
+msgid "Most helpful"
+msgstr "Nejvíce přínosné"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:100
+msgid "Least helpful"
+msgstr "Nejméně přínosné"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:101
+msgid "Most discussed"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:202
+msgid "Compare"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:221
+#: com_jreviews\jreviews\views/helpers/jreviews.php:265
+msgid "Manage"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:230
+#: com_jreviews\jreviews\views/helpers/jreviews.php:302
+msgid "Edit"
+msgstr "Upravit"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:237
+#: com_jreviews\jreviews\views/helpers/jreviews.php:327
+#: com_jreviews\jreviews\views/helpers/jreviews.php:328
+msgid "Delete"
+msgstr "Smazat"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:237
+msgid "Are you sure you want to delete this comment?"
+msgstr "Opravdu chcete smazat tento komentář?"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:309
+msgid "Unpublished"
+msgstr "Nepublikováno"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:309
+msgid "Published"
+msgstr "Publikováno"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:316
+msgid "Not featured"
+msgstr "Není v doporučených"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:321
+msgid "Not frontpaged"
+msgstr "Neni na frontpage"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:321
+msgid "Frontpaged"
+msgstr "Je na frontpage"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:327
+msgid "Are you sure you want to delete this listing?"
+msgstr "Opravdu chcete smazat tuto položku?"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:343
+msgid "#1 Reviewer"
+msgstr "#1 Hodnotitel"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:344
+msgid "Top 10 Reviewer"
+msgstr "Top 10 Hodnotitelé"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:345
+msgid "Top 50 Reviewer"
+msgstr "Top 50 Hodnotitelé"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:346
+msgid "Top 100 Reviewer"
+msgstr "Top 100 Hodnotitelé"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:347
+msgid "Top 500 Reviewer"
+msgstr "Top 500 Hodnotitelé"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:348
+msgid "Top 1000 Reviewer"
+msgstr "Top 1000 Hodnotitelé"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:153
+#: com_jreviews\jreviews\views/helpers/paginator.php:158
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:198
+#: com_jreviews\jreviews\views/helpers/paginator.php:206
+#, php-format
+msgid "Go to page %s"
+msgstr "Jít na stranu %s"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:199
+#: com_jreviews\jreviews\views/helpers/paginator.php:207
+#, php-format
+msgid "Go to page %s of %s"
+msgstr "Jít na stranu %s z %s"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:229
+#: com_jreviews\jreviews\views/helpers/paginator.php:236
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:229
+msgid "Next &raquo;"
+msgstr "Další &raquo;"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:317
+#: com_jreviews\jreviews\views/helpers/paginator.php:358
+msgid "Results per page"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/rating.php:32
+msgid "No rating"
+msgstr "Žádné hodnocení"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:72
+#: com_jreviews\jreviews\views/helpers/rating.php:73
+msgid "Editor rating"
+msgstr "Hodnocení Editora"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:86
+#: com_jreviews\jreviews\views/helpers/rating.php:87
+#: com_jreviews\jreviews\views/helpers/rating.php:98
+#: com_jreviews\jreviews\views/helpers/rating.php:99
+msgid "User rating"
+msgstr "Hodnocení uživatele"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:181
+#: com_jreviews\jreviews\views/helpers/rating.php:287
+#: com_jreviews\jreviews\views/helpers/rating.php:299
+msgid "Overall rating"
+msgstr "Celkové hodnocení"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:309
+msgid "Not rated"
+msgstr "Nehodnoceno"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:309
+msgid "N/A"
+msgstr "N/A"
+
+#: com_jreviews\jreviews\views/helpers/routes.php:86
+#: com_jreviews\jreviews\views/helpers/routes.php:138
+#: com_jreviews\jreviews\views/helpers/routes.php:140
+#: com_jreviews\jreviews\views/helpers/routes.php:171
+#: com_jreviews\jreviews\views/helpers/routes.php:185
+#: com_jreviews\jreviews\views/helpers/routes.php:230
+#: com_jreviews\jreviews\views/helpers/routes.php:295
+#: com_jreviews\jreviews\views/helpers/routes.php:397
+#: com_jreviews\jreviews\views/helpers/routes.php:398
+#: com_jreviews\jreviews\views/helpers/routes.php:550
+#: com_jreviews\jreviews\views/helpers/routes.php:561
+#: com_jreviews\jreviews\views/helpers/routes.php:578
+#: com_jreviews\jreviews\views/helpers/routes.php:580
+msgid "and"
+msgstr "a"
+
+#: com_jreviews\jreviews\views/helpers/routes.php:356
+#: com_jreviews\jreviews\views/helpers/routes.php:370
+#, php-format
+msgid "%s listing feeds"
+msgstr "%s listing feeds"
+
+#: com_jreviews\jreviews\views/helpers/routes.php:429
+msgid "Edit review"
+msgstr "Upravit recenzi"
+
+#: com_jreviews\jreviews\views/helpers/routes.php:542
+#: com_jreviews\jreviews\views/helpers/routes.php:553
+#: com_jreviews\jreviews\views/helpers/routes.php:564
+#: com_jreviews\jreviews\views/helpers/routes.php:592
+#, php-format
+msgid "%s review feeds"
+msgstr "%s review feeds"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:24
+#: com_jreviews\jreviews\views/helpers/widgets.php:28
+msgid "Claim This Business"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:28
+msgid "Please register to claim this business"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:60
+msgid "Favorites"
+msgstr "Oblíbené"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:66
+msgid "Remove from favorites"
+msgstr "Odstranit z oblíbených"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:66
+msgid "Remove"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:69
+#: com_jreviews\jreviews\views/helpers/widgets.php:72
+msgid "Add to favorites"
+msgstr "Přidat do oblíbených"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:72
+msgid "Register to add this entry to your favorites"
+msgstr "Registrujte se pro přidání tohoto zápisu do oblíbených"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:85
+msgid "Was this review helpful to you?"
+msgstr "Byla pro Vás tato recenze přínosná?"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:92
+#: com_jreviews\jreviews\views/helpers/widgets.php:102
+msgid "You are not allowed to vote"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:94
+#: com_jreviews\jreviews\views/helpers/widgets.php:104
+msgid "Login or register to vote"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/categories_controller.php:512
+#, php-format
+msgid "Listings by %s"
+msgstr "Položky dle %s"
+
+#: com_jreviews\jreviews\controllers/categories_controller.php:530
+#, php-format
+msgid "Favorites by %s"
+msgstr "Oblíbené dle %s"
+
+#: com_jreviews\jreviews\controllers/categories_controller.php:582
+#: com_jreviews\jreviews\controllers/categories_controller.php:592
+#, php-format
+msgid "ordered by %s"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/categories_controller.php:588
+#, php-format
+msgid "ordered by %s desc"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/categories_controller.php:672
+msgid "No listings selected for comparison."
+msgstr "Žádné položky pro srovnání nebyly vybrány."
+
+#: com_jreviews\jreviews\controllers/claims_controller.php:95
+msgid "Your claim was submitted, thank you."
+msgstr "Váš požadavek byl odeslánm děkujeme"
+
+#: com_jreviews\jreviews\controllers/claims_controller.php:103
+#: com_jreviews\jreviews\controllers/reports_controller.php:104
+msgid "The message is empty."
+msgstr "Zpráva je prázdna."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:67
+msgid "The comment has been removed."
+msgstr "Komentář byl odeslán."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:71
+msgid "There was a problem removing the comment."
+msgstr "Nastal problém při odstranění komentáře."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:98
+msgid "The comment was not found"
+msgstr "Komentář nebyl nalezen"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:141
+msgid "Your comment has been updated."
+msgstr "Váš komentář byl aktualizován."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:148
+msgid "There was an error saving the comment."
+msgstr "Došlo k chybě při ukládání komentáře."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:171
+msgid "You are not allowed to submit comments."
+msgstr "Nemáte oprávnění komentovat."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:175
+#: com_jreviews\jreviews\controllers/listings_controller.php:1294
+msgid "You must fill in your name."
+msgstr "Musíte zadat své jméno."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:177
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:68
+#: com_jreviews\jreviews\controllers/listings_controller.php:1295
+msgid "You must fill in a valid email address."
+msgstr "Musíte zadat platnou emailovou adresu."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:179
+#: com_jreviews\jreviews\controllers/listings_controller.php:1357
+msgid "You must fill in your comment."
+msgstr "Musíte zadat komentář."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:186
+#: com_jreviews\jreviews\controllers/discussions_controller.php:196
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:75
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:85
+#: com_jreviews\jreviews\controllers/listings_controller.php:1370
+#: com_jreviews\jreviews\controllers/listings_controller.php:1381
+msgid "The security code you entered was invalid."
+msgstr "Vložený bezpečnostní kód není správný."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:190
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:79
+#: com_jreviews\jreviews\controllers/listings_controller.php:1375
+msgid "You must fill in the security code."
+msgstr "Musíte zadat bezpečnostní kód."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:233
+#: com_jreviews\jreviews\controllers/listings_controller.php:1572
+msgid "Thank you for your submission. It will be published once it is verified."
+msgstr "Děkujeme za Váš příspěvek. Po ověření bude publikován"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:251
+#: com_jreviews\jreviews\controllers/listings_controller.php:1559
+msgid "Thank you for your submission."
+msgstr "Děkujeme za Váš příspěvek"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:308
+msgid "Latest comments"
+msgstr "Poslední komentáře"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:34
+#, php-format
+msgid "submitted a new listing titled %s"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:35
+#, php-format
+msgid "wrote a review for %s"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:36
+msgid "posted a new comment"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:37
+#, php-format
+msgid "liked this review for %s"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:133
+#: com_jreviews\jreviews\controllers/facebook_controller.php:244
+#: com_jreviews\jreviews\controllers/facebook_controller.php:356
+msgid "Website"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:147
+msgid "Read more"
+msgstr "Čti více"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:245
+#: com_jreviews\jreviews\controllers/facebook_controller.php:358
+msgid "Rating"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:245
+#: com_jreviews\jreviews\controllers/facebook_controller.php:358
+#, php-format
+msgid "%s stars"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:259
+#: com_jreviews\jreviews\controllers/facebook_controller.php:372
+msgid "Read review"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:185
+#, php-format
+msgid "New inquiry for: %s"
+msgstr "Nový dotaz na: %s"
+
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:186
+#, php-format
+msgid "From: %s"
+msgstr "Od: %s"
+
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:187
+#, php-format
+msgid "Email: %s"
+msgstr "Email: %s"
+
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:189
+#, php-format
+msgid "Listing: %s"
+msgstr "Položka: %s"
+
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:190
+#, php-format
+msgid "Listing link: %s"
+msgstr "Odkaz položky: %s"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:668
+msgid "The main image was successfully changed."
+msgstr "Hlavní obrázek byl úspěšně změněn.."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:705
+msgid "The listing has been removed."
+msgstr "Položka byla odstraněna."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:968
+msgid "Select Category"
+msgstr "Vyberte Kategorii"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:982
+#: com_jreviews\jreviews\controllers/listings_controller.php:1144
+msgid "You are not allowed to submit listings in this category."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1129
+msgid "The category selected is invalid."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1256
+msgid "A listing with that title already exists."
+msgstr "Položka s tímto názvem již existuje."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1282
+msgid "You need to select both a section and a category."
+msgstr "Musíte vybrat oboje - sekci i kategorii."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1287
+msgid "You need to select a category."
+msgstr "Musíte vybrat oboje - kategorii."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1304
+msgid "You must fill in a title for the new listing."
+msgstr "Musíte vybrat název nové položky."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1309
+msgid "You must fill in a summary for the new listing."
+msgstr "Musíte zadat shrnutí pro novou položku."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1310
+msgid "You must fill in a description for the new listing."
+msgstr "Musíte zadat popis nové položky."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1325
+msgid "You must fill in a title for the review."
+msgstr "Musíte zadat název recenze."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1350
+#, php-format
+msgid "You are missing a rating in %s criteria."
+msgstr "Scházi hodnocení v kritériu %s ."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1456
+#, php-format
+msgid "The total number of images is limited to %s"
+msgstr "Celkový počet obrázků je omezen na %s"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1492
+msgid "The was a problem saving the listing"
+msgstr "Došlo k problému při ukládání položky"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1559
+msgid "The listing was successfully saved."
+msgstr "Položka byla úspěšně uložena."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1560
+msgid "Click here to view the listing"
+msgstr "Klikněte zde pro zobrazení položky"
+
+#: com_jreviews\jreviews\controllers/my_controller.php:157
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: com_jreviews\jreviews\controllers/my_controller.php:159
+msgid "Clear"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:160
+msgid "-- Select --"
+msgstr "-- Vyberte --"
+
+#: com_jreviews\jreviews\controllers/my_controller.php:161
+#, php-format
+msgid "-- Select %s --"
+msgstr "-- Vyberte %s --"
+
+#: com_jreviews\jreviews\controllers/my_controller.php:162
+msgid "No results found, try a different spelling."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:163
+msgid "Start typing for suggestions"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:166
+msgid "Compare All"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:167
+msgid "Remove All"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:168
+msgid "You need to select more than one listing for comparison."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:169
+msgid "You selected maximum number of listings for comparison."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:170
+msgid "Street view not available for this address."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:171
+msgid "Address could not be geocoded. Modify the address and click on the Geocode Address button to try again."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:172
+msgid "Drag the marker to fine-tune the geographic location on the map."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:173
+msgid "No corresponding geographic location could be found for one of the specified addresses. This may be due to the fact that the address is relatively new, or it may be incorrect."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:174
+msgid "The was an error processing the request."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:175
+msgid "Enter a location"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/owner_replies_controller.php:122
+msgid "A reply for this review already exists."
+msgstr "Odpověď na tuto recenzi již existuje."
+
+#: com_jreviews\jreviews\controllers/owner_replies_controller.php:139
+msgid "Your reply was submitted and has been approved."
+msgstr "Vaše odpověď byla odeslána a schválena"
+
+#: com_jreviews\jreviews\controllers/owner_replies_controller.php:141
+msgid "Your reply was submitted and will be published once it is verified."
+msgstr "Vaše odpověď byla odeslána a bude publikována po schválení."
+
+#: com_jreviews\jreviews\controllers/owner_replies_controller.php:152
+msgid "The reply is empty."
+msgstr "Odpověď je prázdná."
+
+#: com_jreviews\jreviews\controllers/reports_controller.php:95
+msgid "Your report was submitted, thank you."
+msgstr "Vaše hlášení bylo odesláno, děkujeme."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:180
+msgid "You are not allowed to review your own listing."
+msgstr "Nemáte povolení k recenzi své vlastní položky"
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:219
+#: com_jreviews\jreviews\controllers/reviews_controller.php:277
+msgid "You already submitted a review."
+msgstr "Recenzi jste již odeslali."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:446
+msgid "Your changes were saved."
+msgstr "Vaše změny byly uloženy."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:456
+msgid "Thank you for your submission. Refresh the page to see your review."
+msgstr "Děkujeme za Váš příspěvek. Obnovte stránku prom zobrazení Vaši recenze."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:456
+msgid "Thank you for your submission. Refresh the page to see your comment."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:472
+msgid "Your changes were saved, refresh the page to see them."
+msgstr "Vaše změny byly uloženy. Obnovte stránku pro zobrazení změn."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:565
+msgid "Latest user reviews"
+msgstr "Poslední recenze uživatelů"
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:569
+msgid "Latest editor reviews"
+msgstr "Poslední recenze editorů"
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:572
+msgid "Latest reviews"
+msgstr "Poslední recenze"
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:582
+#: com_jreviews\jreviews\controllers/reviews_controller.php:659
+msgid "No reviews were found."
+msgstr "Žádné recenze nebyly nalezeny."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:672
+#, php-format
+msgid "Reviews written by %s"
+msgstr "Recenze od %s"
+
+#: com_jreviews\jreviews\controllers/votes_controller.php:98
+msgid "You already voted."
+msgstr "Již jste hlasovali."
+
+#: com_jreviews\jreviews\controllers/votes_controller.php:107
+msgid "Thank you for your vote."
+msgstr "Děkujeme za Váš hlas."
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:138
+msgid "New listing"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:138
+msgid "Edited listing"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:182
+#, php-format
+msgid "New listing: %s"
+msgstr "Nová položka: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:182
+#, php-format
+msgid "Edited listing: %s"
+msgstr "Upravená položka: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:256
+#: com_jreviews\jreviews\controllers/components/notifications.php:304
+#: com_jreviews\jreviews\controllers/components/notifications.php:349
+#, php-format
+msgid "New review: %s"
+msgstr "Nová recenze: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:256
+#: com_jreviews\jreviews\controllers/components/notifications.php:304
+#: com_jreviews\jreviews\controllers/components/notifications.php:349
+#, php-format
+msgid "Edited review: %s"
+msgstr "Upravená recenze: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:405
+#, php-format
+msgid "Owner review reply submitted for listing %s"
+msgstr "Pisatel recenze odpovědel pro položku %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:471
+msgid "A new report has been submitted"
+msgstr "Bylo odesláno nové hlášení"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:537
+#, php-format
+msgid "New comment for review: %s"
+msgstr "Nový komentář pro recenzi: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:539
+#, php-format
+msgid "Edited comment for review: %s"
+msgstr "Úprava komentáře pro recenzi: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:596
+#, php-format
+msgid "Listing claim submitted for %s"
+msgstr "Požadavek odeslán pro %s"
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:89
+#, php-format
+msgid "is %s Kb."
+msgstr "je %s Kb."
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:90
+msgid "Some files exceed the allowed size, please correct this and resubmit the form:"
+msgstr "Některé soubory přesahují povolenou velikost, proveďte změnu a odešlete formulář znovu:"
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:98
+#, php-format
+msgid "%s is not a supported image file."
+msgstr "%s není soubor obrázku."
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:99
+msgid "Some files are not images, please correct this and resubmit the form:"
+msgstr "Některé soubory nejsou obrázky, proveďte změnu a odešlete formulář znovu:"
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:109
+msgid "Could not upload file."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/modules/module_advanced_search_controller.php:227
+msgid "Select"
+msgstr "Vyberte"
+
+#: com_jreviews\jreviews\models/field.php:1465
+#, php-format
+msgid "You must fill in a valid value for %s."
+msgstr "Musíte zadat platnou hodnotu pro %s."
+
+#: com_jreviews\jreviews\models/everywhere/_everywhere_com_seyret.php:69
+msgid "SEYRET_TAG"
+msgstr "Video"
+
+#: com_jreviews\jreviews\models/everywhere/_everywhere_com_zoo.php:85
+msgid "ZOO_TAG"
+msgstr "Zoo"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_bookmarks.php:80
+msgid "BOOKMARKS_TAG"
+msgstr "Website"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_catalog.php:84
+msgid "JXCATALOG_TAG"
+msgstr "Katalog"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_community_access.php:143
+msgid "JOMSOCIAL_TAG"
+msgstr "Člen"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_comprofiler.php:174
+msgid "COMMUNITY_BUILDER_TAG"
+msgstr "Člen"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_content.php:137
+msgid "Listing"
+msgstr "Položka"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_eventlist_event.php:90
+msgid "EVENTLIST_EVENT_TAG"
+msgstr "Událost"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_eventlist_venue.php:80
+msgid "EVENTLIST_VENUE_TAG"
+msgstr "Místo"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_ezrealty_profile.php:111
+msgid "EZREALTY_PROFILE_TAG"
+msgstr "Profil"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_ezrealty_property.php:104
+msgid "EZREALTY_PROPERTY_TAG"
+msgstr "Nemovitost"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_hotproperty.php:97
+msgid "HOTPROPERTY_TAG"
+msgstr "Nemovitost"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_jomres.php:75
+msgid "JOMRES_TAG"
+msgstr "Hotel"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_joomgallery.php:80
+msgid "JOOMGALLERY_TAG"
+msgstr "Galerie"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_k2.php:87
+msgid "K2_TAG"
+msgstr "k2"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_mtree.php:90
+msgid "MTREE_TAG"
+msgstr "Položka"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_myblog.php:89
+msgid "MYBLOG_TAG"
+msgstr "Blog"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_resman.php:78
+msgid "RESMAN_TAG"
+msgstr "Místo"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_resource.php:93
+msgid "RESOURCE_TAG"
+msgstr "Zdroj"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_sobi2.php:96
+msgid "SOBI2_TAG"
+msgstr "Obchod"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_virtuemart.php:87
+msgid "VIRTUEMART_TAG"
+msgstr "Produkt"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:79
+msgid "%B %d, %Y"
+msgstr "%B %d, %Y"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:105
+msgid "%b %d, %Y"
+msgstr "%b %d, %Y"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:429
+#, php-format
+msgid "on %s"
+msgstr " %s"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:463
+#, php-format
+msgid "%s ago"
+msgstr " před %s "
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:37
+#, php-format
+msgid "{actor} added new listing %1$s in %2$s."
+msgstr "{actor} přidána nová položka %1$s v %2$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:38
+#, php-format
+msgid "{actor} updated listing %1$s."
+msgstr "{actor} aktualizovaná položka %1$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:39
+#, php-format
+msgid "{actor} reviewed %1$s."
+msgstr "{actor} recenzováno %1$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:40
+#, php-format
+msgid "{actor} updated review for %1$s."
+msgstr "{actor} aktualizovaná recenze pro %1$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:41
+#, php-format
+msgid "{actor} added %1$s to favorites."
+msgstr "{actor} %1$s přidáno k oblíbeným."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:42
+#, php-format
+msgid "{actor} removed %1$s from favorites."
+msgstr "{actor} %1$s odstraněno z oblíbených."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:43
+#, php-format
+msgid "{actor} voted as helpful a review, %1$s, written by %2$s."
+msgstr "{actor} hlasovalo pro přínosnou recenzi, %1$s, napsanou %2$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:44
+#, php-format
+msgid "{actor} voted as not helpful a review, %1$s, written by %2$s."
+msgstr "{actor} hlasovalo pro nepřínosnou recenzi, %1$s, napsanou %2$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:45
+#, php-format
+msgid "{actor} commented on a %1$s for %2$s."
+msgstr "{actor} komentováno %1$s pro %2$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:46
+#, php-format
+msgid "{actor} updated comment on a %1$s for %2$s."
+msgstr "{actor} aktualizovaný komentář %1$s pro %2$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:84
+msgid "A guest"
+msgstr "Host"
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:174
+#: com_jreviews\jreviews\plugins/twitter.php:168
+msgid "review"
+msgstr "recenze"
+
+#: com_jreviews\jreviews\plugins/twitter.php:60
+#, php-format
+msgid "Listing: %1$s. %2$s"
+msgstr ""
+
+#: com_jreviews\jreviews\plugins/twitter.php:61
+#, php-format
+msgid "Review for: %1$s. %2$s"
+msgstr ""
+
+#: com_jreviews\jreviews\plugins/twitter.php:62
+#, php-format
+msgid "Discussion on: %1$s. %2$s"
+msgstr ""
+
+#: com_jreviews_addons\geomaps\controllers/modules/module_geomaps_controller.php:92
+msgid "You selected the Custom Center mode, but did not specify the coordinates."
+msgstr ""
+
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:129
+msgid "Miles"
+msgstr "Mílí"
+
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:129
+msgid "Km"
+msgstr "Km"
+
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:224
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:240
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:336
+msgid "Map it"
+msgstr "Na Mapu"
+
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:225
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:240
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:336
+msgid "Clear LatLng"
+msgstr "Smazat LatLng"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:18
+msgid "Day(s)"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:19
+msgid "Week(s)"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:20
+msgid "Month(s)"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:21
+msgid "Year(s)"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:22
+msgid "Never Expires"
+msgstr "Nikdy neexpiruje"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:29
+msgid "Incomplete"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:30
+msgid "Pending"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:31
+msgid "Processing"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:32
+msgid "Complete"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:33
+msgid "Cancelled"
+msgstr "Zrušeno"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:34
+msgid "Fraud"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:35
+msgid "Failed"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:42
+msgid "One Time Payment"
+msgstr "Jednorázová Platba"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:43
+msgid "Subscription"
+msgstr "Předplatné"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:44
+msgid "Free or Trial"
+msgstr "Zdarma nebo Na Zkoušku"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:51
+msgid "New Listing"
+msgstr "Nová Položka"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:52
+msgid "Upgrade Listing"
+msgstr "Upgrade Položky"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid_routes.php:176
+#: com_jreviews_addons\paidlistings\views/helpers/paid_routes.php:182
+msgid "Order Upgrade"
+msgstr "Objednat Upgrade"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid_routes.php:199
+msgid "Order Plan"
+msgstr "Objednat Plán"
+
+#: com_jreviews_addons\paidlistings\plugins/paid_listings.php:643
+msgid "Order renewal set."
+msgstr "Objednat prodloužení."
+
+#: com_jreviews_addons\paidlistings\plugins/paid_listings.php:656
+msgid "Order processing error."
+msgstr "Chyba při zpracování"
+
+#: com_jreviews_addons\paidlistings\plugins/paid_listings.php:734
+#, php-format
+msgid "Listing expiration: %s"
+msgstr "Expirace položky: %s"
+
+#: com_jreviews_addons\paidlistings\plugins/paid_listings.php:735
+#: com_jreviews_addons\paidlistings\plugins/paid_listings.php:778
+#, php-format
+msgid "Listing state: %s"
+msgstr "Stav položky: %s"
+
+#: com_jreviews_addons\paidlistings\controllers/paidlistings_plans_controller.php:51
+#, php-format
+msgid "Plans for %s"
+msgstr "Plány pro %s"
+
+#: com_jreviews_addons\paidlistings\controllers/components/handler_authorize_net.php:133
+msgid "Transaction invalid"
+msgstr "Neplatná transakce"
+
+#: com_jreviews_addons\paidlistings\controllers/components/handler_authorize_net.php:134
+msgid "We have detected an invalid attempt to bypass the payment system. If you feel this is mistake please contact us."
+msgstr "Odhalili jsme neúspěšný pokus obejítí platebního systému. POkud je toto omyl prosím kontaktujte nás."
+
+#: com_jreviews_addons\paidlistings\controllers/components/handler_paypal.php:305
+msgid "New subscription"
+msgstr "Nové předplatné"
+
+#: com_jreviews_addons\paidlistings\controllers/components/paidlistings_notifications.php:245
+msgid "Never"
+msgstr "Nikdy"
+
+#: com_jreviews\jreviews\views/admin/themes/default/categories/index.thtml:95
+#: com_jreviews\jreviews\views/admin/themes/default/categories/j15.index.thtml:97
+#, php-format
+msgid "%1$s results - showing %2$s - %3$s"
+msgstr "%1$s výsledky - zobrazeno %2$s - %3$s"
+
+#: com_jreviews\jreviews\views/admin/themes/default/listings/create_form.thtml:33
+msgid "Title Alias"
+msgstr "Alias Názvu"
+
+#: com_jreviews\jreviews\views/admin/themes/default/listings/create_form.thtml:111
+msgid "Are you sure you want to delete this image?"
+msgstr "Opravdu chcete smazat tento obrázek?"
+
+#: com_jreviews\jreviews\views/admin/themes/default/reviews/create.thtml:21
+msgid "Reviewer"
+msgstr "Recenzent"
+
+#: com_jreviews\jreviews\views/admin/themes/default/reviews/create.thtml:23
+msgid "You can change the author of this review. Start typing the reviewer's name to see a list of suggestions."
+msgstr "Můžete změnit autora této recenze. Začněte psát jméno recenzenta pro seznam návrhů."
+
+#: com_jreviews\jreviews\views/admin/themes/default/reviews/create.thtml:60
+msgid "Rate it"
+msgstr "Ohodnoťte"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:65
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:77
+#, php-format
+msgid "User Reviews: %s"
+msgstr "Hodnocení Uživatelů: %s"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:66
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:78
+#, php-format
+msgid "Editor Reviews: %s"
+msgstr "Hodnocení Editorů: %s"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:67
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:79
+#, php-format
+msgid "%s - Page %s"
+msgstr "%s - Strana %s"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:151
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:160
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_blogview.thtml:95
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_tableview.thtml:93
+msgid "New"
+msgstr "Nový"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:154
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:163
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_blogview.thtml:98
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_tableview.thtml:96
+msgid "Hot"
+msgstr "Zajímavý"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:166
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:175
+msgid "Written by"
+msgstr "Napsal"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:172
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:181
+msgid "Views"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:202
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:211
+msgid "Send Inquiry"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:231
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:241
+msgid "Image Gallery"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:245
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:245
+msgid "Map"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:238
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_tableview.thtml:68
+msgid "Details"
+msgstr "Podrobnosti"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:249
+msgid "Reviews"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:253
+msgid "Related Listings"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_blogview.thtml:57
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_tableview.thtml:52
+msgid "Ordering"
+msgstr "Pořadí"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_blogview.thtml:139
+msgid "Read reviews"
+msgstr "Číst recenze"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_blogview.thtml:142
+msgid "Write review"
+msgstr "Napsat recenzi"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_tableview.thtml:70
+msgid "Ratings"
+msgstr "Hodnocení"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:44
+msgid "Reviewed by"
+msgstr "Recenzováno od"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:44
+msgid "Commented by"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:69
+msgid "Owner's reply"
+msgstr "Odpověď Majitele"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:81
+#, php-format
+msgid "Comments (%s)"
+msgstr "Komentáře (%s)"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:88
+msgid "Reply to this review"
+msgstr "Odpověď na tuto recenzi"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:90
+msgid "Reply to this comment"
+msgstr "Odpověď na tento komentář"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:106
+msgid "Report this review"
+msgstr "Nahlásit tuto recenzi"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:108
+msgid "Report this comment"
+msgstr "Nahlásit tento komentář"
+
+#: com_jreviews\jreviews\views/themes/default/claims/create.thtml:3
+msgid "Please provide some information that will allow us to verify your ownership claim"
+msgstr "Poskytněte nám prosím nějáké informace aby jsme mohli ověřit váš požadavek na vlastnictví."
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:22
+msgid "No entries were found"
+msgstr "Žádné záznamy nebyli nalezeny"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:73
+msgid "Category"
+msgstr "Kategorie"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:108
+msgid "View all my favorites"
+msgstr "Zobrazit všechny oblíbené"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_mylistings.thtml:108
+msgid "View all my listings"
+msgstr "Zobrazit všechny moje položky"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myreviews.thtml:156
+msgid "View all my reviews"
+msgstr "Zobrazit všechny moje recenze"
+
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:48
+#: com_jreviews\jreviews\views/themes/default/directories/j15.directory.thtml:58
+msgid "The directory is empty."
+msgstr "Adresář je prázdný"
+
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:76
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:77
+#: com_jreviews\jreviews\views/themes/default/directories/j15.directory.thtml:89
+#: com_jreviews\jreviews\views/themes/default/directories/j15.directory.thtml:90
+msgid "Search"
+msgstr "Hledat"
+
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:78
+#: com_jreviews\jreviews\views/themes/default/directories/j15.directory.thtml:91
+msgid "Advanced search"
+msgstr "Pokročilé hledání"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:10
+#, php-format
+msgid "Reply to %s's comment"
+msgstr "Odpověd na komentář %s's"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:15
+msgid "Name"
+msgstr "Jméno"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:22
+msgid "Email"
+msgstr "Email"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:33
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:30
+msgid "Please enter the security code."
+msgstr "Vložte bezpečnostní kód."
+
+#: com_jreviews\jreviews\views/themes/default/discussions/parent_popover.thtml:11
+msgid "Comment not found"
+msgstr "Komentář nebyl nalezen"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/post.thtml:24
+#, php-format
+msgid "In reply to an %searlier comment%s"
+msgstr "Odpověď na %spředchozí konentář%s"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:55
+#, php-format
+msgid "Review for %s, %s"
+msgstr "Recenze pro %s, %s"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:72
+msgid "Review Detail"
+msgstr "Podrobnosti Recenze"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:106
+msgid "Hits"
+msgstr "Návštěv"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:119
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:22
+msgid "Comments"
+msgstr "Komentáře"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:148
+msgid "Add new comment"
+msgstr "Přidat nový komentář"
+
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:8
+msgid "Your name"
+msgstr "Vaše jméno"
+
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:9
+msgid "Please fill in your name"
+msgstr "Zadejte Vaše jméno"
+
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:15
+msgid "Your email"
+msgstr "Váš email"
+
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:16
+msgid "Please fill in your email"
+msgstr "Zadejte Váš email"
+
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:23
+msgid "Please fill in your comments"
+msgstr "Zadejte Vaše komentáře"
+
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:40
+msgid "Your inquiry has been submitted."
+msgstr "Váš požadavek byl odeslán"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:25
+#, php-format
+msgid "To submit a listing please %sregister%s or log in."
+msgstr "Pro přidání položky se  %sregistrujte%s nebo se přihlašte."
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:27
+#, php-format
+msgid "To write a review please %sregister%s or log in."
+msgstr "Pro napsání recenze se %sregistrujte%s nebo se přihlašte."
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:29
+#, php-format
+msgid "To write a comment please %sregister%s or log in."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:31
+#, php-format
+msgid "Access restricted to members. To continue %sregister%s or log in."
+msgstr "Přístup povolen pouze členům. Pro pokračování se %sregistrujte%s nebo se přihlašte."
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:47
+msgid "LOGIN"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:51
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:53
+msgid "Username"
+msgstr "Uživatelksé Jméno"
+
+#: com_jreviews\jreviews\views/themes/default/elements/submission_instructions.thtml:1
+msgid "Submission instructions"
+msgstr "Instrukce Odesílání"
+
+#: com_jreviews\jreviews\views/themes/default/elements/submission_instructions.thtml:3
+msgid "Select the category where you want to submit the new item."
+msgstr "Vyberte kategorii kam chcete zařadit novou položku.."
+
+#: com_jreviews\jreviews\views/themes/default/elements/submission_instructions.thtml:4
+msgid "All fields marked with asterisks are required."
+msgstr "Všechny políčka označená hvězdičkou jsou povinná."
+
+#: com_jreviews\jreviews\views/themes/default/elements/submission_instructions.thtml:5
+msgid "Make sure any image files conform to the required specifications (.jpg,.gif,.png)"
+msgstr "Ujistěte se, že všechny soubory obrázku jsou v následujících formátech (.jpg,.gif,.png)"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:14
+msgid "You will find this claim in Claims Moderation."
+msgstr "Tuto žádost naleznete v Moderaci Žádostí."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:18
+msgid "Claimed by"
+msgstr "Žádost od"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:22
+msgid "Claimant's email"
+msgstr "Email žadatela"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:26
+msgid "Claim text"
+msgstr "Text žádosti"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:30
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:31
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_notification.thtml:28
+msgid "IP address"
+msgstr "IP adresa"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:34
+msgid "Current owner"
+msgstr "Současný majitel"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:38
+msgid "Owner email"
+msgstr "Email majitele"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:47
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:40
+msgid "Section"
+msgstr "Sekce"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:55
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:48
+msgid "Summary"
+msgstr "Shrnutí"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:61
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:54
+msgid "Description"
+msgstr "Popis"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:16
+msgid "The listing is not published and you will find it in the moderation queue."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:18
+msgid "The listing is published and you will find it in the listing browse admin menu."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:13
+msgid "You will find this owner reply in the owner reply moderation list."
+msgstr "Tuto odpověď majitele naleznete v seznamu moderace odpovědé majitele."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:17
+msgid "Owner's name"
+msgstr "Jméno majitele"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:25
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:25
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:25
+msgid "IP Address"
+msgstr "IP Adresa"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:29
+msgid "Owner's reply text"
+msgstr "Text Odpovědi majitele"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:37
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:37
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:37
+msgid "Listing title"
+msgstr "Název položky"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:41
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:41
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:41
+msgid "Review title"
+msgstr "Název recenze"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:45
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:45
+msgid "Review Comments"
+msgstr "Komentáře Recenze"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:13
+msgid "You will find this report in the reports moderation list."
+msgstr "Toto hlášení najdete v seznamu moderace hlášení."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:17
+msgid "Reporter"
+msgstr "Ohlasitel"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:29
+msgid "Report text"
+msgstr "Report text"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:17
+msgid "User name"
+msgstr "Uživatelksé jméno"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:29
+msgid "Comment"
+msgstr "Komentář"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:45
+msgid "Review"
+msgstr "Recenze"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_notification.thtml:32
+msgid "Entry"
+msgstr "Zápis"
+
+#: com_jreviews\jreviews\views/themes/default/errors/error404.thtml:15
+#: com_jreviews\jreviews\views/themes/default/errors/error404.thtml:18
+msgid "404 Not Found"
+msgstr "404 Nenalezeno"
+
+#: com_jreviews\jreviews\views/themes/default/errors/error404.thtml:19
+msgid "The page you requested was not found."
+msgstr "Požadovaná stránka nebyla nalezena"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:22
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:92
+msgid "View all user reviews"
+msgstr "Zobrazit všechny uživatelské recenze"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:39
+#, php-format
+msgid "Average user rating from: %s user(s)"
+msgstr "Průměrné hodnocení uživatelů od: %s uživatel(ů)"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:45
+msgid "There are no user reviews for this listing."
+msgstr "Pro tuto položku nejaosu žádné uživatelské recenze"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:54
+msgid "Add new review"
+msgstr "Přidat novou recenzi"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create.thtml:86
+msgid "Select Section"
+msgstr "Vyberte Sekci"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:39
+msgid "You have reached the maximum number of free listings for this category."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:109
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:149
+msgid "Images"
+msgstr "Obrázky"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:116
+msgid "Image Manager - Use the radio buttons to set the main image shown in lists."
+msgstr "Správa Obrázků - Použijte radiobuttony pro nastavení hlavního obrázku, který bude zobrazen na seznamu."
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:149
+#, php-format
+msgid "Max. size %s Kb"
+msgstr "Max. velikost %s Kb"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:166
+msgid "Meta Data"
+msgstr "Meta Data"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:169
+msgid "Meta Description"
+msgstr "Meta Description"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:174
+msgid "Meta Keywords"
+msgstr "Meta Keywords"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:195
+msgid "I will submit my review later on"
+msgstr "Odešlu recenzi později"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:212
+msgid "Ratings (the higher the better)"
+msgstr "Hodnocení (čím více tím lépe)"
+
+#: com_jreviews\jreviews\views/themes/default/listings/j15.listings_header.thtml:147
+#: com_jreviews\jreviews\views/themes/default/listings/listings_header.thtml:142
+msgid "Add new listing"
+msgstr "Přidat novou položku"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:40
+#, php-format
+msgid "%s Comparison"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:42
+msgid "Go back to previous page"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:58
+msgid "Editor Ratings"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:68
+msgid "User Ratings"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:115
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:178
+msgid "Remove item"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_noresults.thtml:3
+msgid "Your search did not return any results. Try adjusting your search values.<br /><br /><a href=\"javascript:window.history.go(-1)\">Click here to go back.</a>"
+msgstr "Nic se nepodařilo nalést. Zkuste upravit parametry hledání<br /><br /><a href=\"javascript:window.history.go(-1)\">Klikněte zde pro návrat.</a>"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_noresults.thtml:7
+msgid "Your favorites list is empty."
+msgstr "Váš seznam oblíbených je prázdný"
+
+#: com_jreviews\jreviews\views/themes/default/modules/advanced_search.thtml:53
+#: com_jreviews\jreviews\views/themes/default/modules/advanced_search_map.thtml:54
+msgid "Keywords"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/modules/favorite_users.thtml:30
+#, php-format
+msgid "Other users interested in %s"
+msgstr "Ostatní uživatelé zajímající se o %s"
+
+#: com_jreviews\jreviews\views/themes/default/modules/totals.thtml:1
+#, php-format
+msgid "There are %s listings and %s reviews."
+msgstr " %s položek a %s recenzí."
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:41
+msgid "Editor reviews"
+msgstr "Recenze editorů"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:41
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:78
+msgid "Editor review"
+msgstr "Recenze editora"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:43
+msgid "Editor comments"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:43
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:80
+msgid "Editor comment"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:53
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:127
+msgid "View all editor reviews"
+msgstr "Zobrazit všechny recenze editorů"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:53
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:127
+msgid "View all editor comments"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:57
+msgid "Back to Listing"
+msgstr "Zpět na Seznam"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:67
+#, php-format
+msgid "Average editor rating from: %s user(s)"
+msgstr "Průměrné hodnocení editorů: %s uživatel(ů)"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:80
+msgid "You already submitted a comment."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:28
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:40
+msgid "Reviewers"
+msgstr "Recenzenti"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:56
+msgid "Rank"
+msgstr "Pozice"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:67
+msgid "Number of reviews written:"
+msgstr "Počet napsaných recenzí:"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:73
+msgid "Percentage helpful votes"
+msgstr "Procenta přínosných hlasů"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:73
+msgid "votes"
+msgstr "hlasy"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:40
+msgid "User reviews"
+msgstr "Uživatelské recenze"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:40
+msgid "User comments"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:47
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:113
+msgid "View all user comments"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:64
+msgid "There are no user comments for this listing."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:32
+msgid "Listing summary"
+msgstr "Souhrn položek"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:38
+msgid "Listing description"
+msgstr "Popis položek"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:44
+msgid "Review comments"
+msgstr "Komentáře recenze"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:55
+msgid "Any"
+msgstr "Jakýkoliv"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:59
+msgid "All"
+msgstr "Vše"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:63
+msgid "Exact"
+msgstr "Přesné"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:69
+msgid "Listing author"
+msgstr "Autor položky"
+
+#: com_jreviews\jreviews\views/themes/mobile/geomaps/map_detail.thtml:68
+msgid "Swap Start/End"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/mobile/geomaps/map_detail.thtml:69
+msgid "Start Address"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/mobile/geomaps/map_detail.thtml:73
+msgid "Driving"
+msgstr "Autem"
+
+#: com_jreviews\jreviews\views/themes/mobile/geomaps/map_detail.thtml:73
+msgid "Walking"
+msgstr "Pěšky"
+
+#: com_jreviews\jreviews\views/themes/mobile/geomaps/map_detail.thtml:78
+msgid "End"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/mobile/geomaps/map_detail.thtml:82
+msgid "Get Directions"
+msgstr "Poradit Trasu"
+
+#: com_jreviews_addons\geomaps\views/themes/geomaps/geomaps/map_results.thtml:100
+msgid "&#171; Large Map"
+msgstr "&#171; Velká Mapa"
+
+#: com_jreviews_addons\geomaps\views/themes/geomaps/geomaps/map_results.thtml:101
+msgid "Small Map &#187;"
+msgstr "Malá Mapa &#187;"
+
+#: com_jreviews_addons\geomaps\views/themes/geomaps/geomaps/map_results.thtml:105
+msgid "Enable and click on a marker to see the streetview"
+msgstr "Povolte a klikněte na značku pro streetview"
+
+#: com_jreviews_addons\geomaps\views/themes/geomaps/geomaps/map_results.thtml:105
+msgid "Streetview"
+msgstr "Streetview"
+
+#: com_jreviews_addons\geomaps\views/themes/geomaps/geomaps/map_results.thtml:111
+msgid "Click on a marker to show its street view."
+msgstr "Klikněte na značku pro zobrazení street view"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:28
+msgid "Available plans in this category:"
+msgstr "Dostupné plány v této kategorii:"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:36
+msgid "Free and Trial Plans"
+msgstr "Plány Zdarma a na Zkoušku"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:45
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:66
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:87
+msgid "more..."
+msgstr "více..."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:57
+msgid "Single Payment Plans"
+msgstr "Jednorázové Platební Plány"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:78
+msgid "Subscription Plans"
+msgstr "Plány Předplatného"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:22
+msgid "Orders Expiring Soon"
+msgstr "Objednávky Brzy Expirující"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:37
+msgid "Listings Pending Payment"
+msgstr "Položky Čekající na Zaplacení"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:85
+msgid "Incomplete Orders"
+msgstr "Nekompletní Objednávky"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:100
+msgid "Listings"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:101
+msgid "Orders"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:102
+msgid "Invoices"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:103
+msgid "Account Details"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:26
+msgid "Your account information was saved."
+msgstr "Informace k Vašemu účtu uloženy."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:30
+msgid "There was a problem saving your account information."
+msgstr "Nastal problém při ukládání informací k účtu."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:45
+msgid "Business"
+msgstr "Obchod"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:50
+msgid "Address"
+msgstr "Adresa"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:55
+msgid "Country"
+msgstr "Země"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:60
+msgid "Tax ID"
+msgstr "DIČ"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:64
+msgid "Save"
+msgstr "Uložit"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:151
+msgid "Invoice"
+msgstr "Faktura"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:173
+msgid "Invoice #"
+msgstr "Faktura #"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:178
+msgid "UNPAID"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:183
+msgid "Order #"
+msgstr "Objednávka #"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:187
+msgid "Date"
+msgstr "Datum"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:196
+msgid "Item"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:198
+msgid "Amount"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:204
+msgid "Expires"
+msgstr "Expirace"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:221
+msgid "Subtotal"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:227
+#, php-format
+msgid "Tax (%s%%)"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:235
+msgid "Total"
+msgstr "Celkem"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:243
+msgid "Thank you for your business!"
+msgstr "Děkujeme! za Váš zájem"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoices.thtml:36
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:37
+msgid "Created"
+msgstr "Vytvořeno"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoices.thtml:37
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:159
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:39
+msgid "Plan"
+msgstr "Plán"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoices.thtml:55
+msgid "Print"
+msgstr "Tisk"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_listings.thtml:44
+msgid "Plan Info"
+msgstr "Info k Plánu"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_listings.thtml:79
+msgid "Base Plan"
+msgstr "Základní Plán"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_listings.thtml:81
+msgid "Upgrade Plans"
+msgstr "Upgrade Plány"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:16
+msgid "Your order is complete"
+msgstr "Vaše objednávka je kompletní"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:17
+#, php-format
+msgid "%s, we have received your payment and you may now check the status of your listing in your <a href=\"%s\">account</a>."
+msgstr "%s, obdrželi jsme Vaši platbu a nyní můžete zkontrolovat stav Vaší položky ve Vašem <a href=\"%s\">účtu</a>."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:21
+msgid "Your order is pending"
+msgstr "Vaše objednávka čeká"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:22
+#, php-format
+msgid "%s, your order is under review at the payment processor and will be processed once payment is confirmed."
+msgstr "%s, Vaše objednávka je ověřována platebním procesorem a bude pokračovat jakmile bude platba schválena."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:25
+msgid "Your order failed"
+msgstr "Vaše objednávka selhala"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:26
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:33
+#, php-format
+msgid "%s, your order failed to pass out security validations. If you feel this is an error, please contact us with your order number."
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:29
+msgid "Your order is incomplete"
+msgstr "Vaše objednávka je neůplná"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:37
+msgid "Your order is being processed"
+msgstr "Vaše objednávka je ve zpracování"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:38
+#, php-format
+msgid "%s, you will receive an email in a few minutes when your order is finalized and your listing is updated. You can also check the account page for the status of your listings."
+msgstr "%s, po kompletaci objednávky a aktualizaci položky obdržíte běhemn několika minut email .Pro stav Vaši položky se také můžete podívat na stránku účtu."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:44
+msgid "Order details"
+msgstr "Podrobnosti objednávky"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:46
+msgid "Go to my account"
+msgstr "Jít na můj účet"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:49
+msgid "Order status"
+msgstr "Stav objednávky"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:54
+msgid "Expiration"
+msgstr "Expirace"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:20
+msgid "There are no plans available for this listing."
+msgstr "Pro tutom položku nejsou dostupné žádné plány"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:40
+msgid "Step 1: Select a Plan"
+msgstr "Krok 1: vyberte Plán"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:54
+#, php-format
+msgid "You have %s free submission(s) left out of %s"
+msgstr "Máte %s položek zdarma z cekově %s"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:72
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:142
+msgid "Continue"
+msgstr "Pokračovat"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:76
+msgid "Please select a plan to continue."
+msgstr "Pro pokračování vyberte plán."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:81
+msgid "Step 2: Select Payment Method"
+msgstr "Krok 2: Vyberte Platební Metodu"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:99
+#, php-format
+msgid "You have a balance of %s points, equivalent to %s"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:100
+msgid "You don't have enough points to pay for the selected plan"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:135
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:226
+msgid "Back"
+msgstr "Zpět"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:146
+msgid "Please select a payment method to continue."
+msgstr "Pro pokračování vyberte způsob platby."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:151
+msgid "Step 3: Confirm order"
+msgstr "Krok 3: Potvrzení objednávky"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:166
+msgid "Plan Price"
+msgstr "Cena Plánu"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:170
+msgid "Discount"
+msgstr "Sleva"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:193
+msgid "Coupon"
+msgstr "Kupón"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:194
+msgid "Apply"
+msgstr "Aplikovat"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:195
+msgid "Coupon invalid or expired."
+msgstr "Kupón je neplatný nebo již vypršel."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:196
+msgid "The coupon was applied to your order."
+msgstr "Kupón byl aplikován na Vaši objednávku."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:202
+msgid "Terms of Service"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:214
+msgid "Click the submit button to finalize your order. You will be taken to the payment processor site to make your payment."
+msgstr "Klikněte na tlačátko odeslat pro kompletaci objednávky. Budete přesměrování na platební bránu pro dokončení platby."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:216
+#, php-format
+msgid "By clicking on %sSubmit Order%s you are agreeing to the %sTerms of Service%s above."
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:219
+#, php-format
+msgid "I have read and agree to the %sTerms of Service%s above."
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:233
+msgid "Submit Order"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:236
+msgid "There is already an unpaid order for this listing."
+msgstr "Pro tuto položku již existuje nezaplacená objednávka."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:237
+msgid "The plan selected for this listing is not valid."
+msgstr "Vybraný plán není pro tuto položku platný"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:238
+msgid "You have exceeded your quota of listings for the selected plan."
+msgstr "Přesáhli jste limit položek pro Váš vybraný plán předplatného."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:243
+msgid "You need to agree to the Terms of Service."
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:36
+msgid "Order"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:40
+msgid "Payment"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:52
+msgid "Expiring Soon!"
+msgstr "Brzy Expiruje!"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:54
+msgid "Expired"
+msgstr "Exirovalo"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:73
+msgid "Renew Order"
+msgstr "Objednat obnovení"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:19
+msgid "The selected category doesn't have any plans."
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:25
+msgid "Select a category to see the available plans."
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:33
+msgid "One time payment plans"
+msgstr "Plány jednorázobé platby"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:42
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:65
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:88
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:103
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:118
+msgid "Free"
+msgstr "Zdarma"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:43
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:67
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:89
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:104
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:119
+msgid "Never expires"
+msgstr "Nikdy neexpiruje"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:57
+msgid "Subscription plans"
+msgstr "Plány předplatného"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:80
+msgid "Upgrades"
+msgstr "Upgrady"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:83
+msgid "Free or trial"
+msgstr "Zdarma nebo na Zkoušku"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:98
+msgid "One time payment"
+msgstr "Jednorázová platba"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:113
+msgid "Subscriptions"
+msgstr "Předplatné"
+
+#~ msgid "Detail"
+#~ msgstr "Podrobnosti"
+
+#~ msgid "Type an address to move the map"
+#~ msgstr "Napište adresu pro zobrazení na mapě"
+
+#~ msgid "Go!"
+#~ msgstr "Spustit!"
+
+#, fuzzy
+#~ msgid "Please log in to submit a review."
+#~ msgstr "Recenzi jste již odeslali."
+
+#, fuzzy
+#~ msgid "Please log in to write a comment ."
+#~ msgstr "Zadejte Vaše komentáře"
+
+#, fuzzy
+#~ msgid "Access restricted to members. To continue please log in."
+#~ msgstr ""
+#~ "Přístup povolen pouze členům. Pro pokračování se %sregistrujte%s nebo se "
+#~ "přihlašte."
+
+#~ msgid "You will find this entry in the content moderation list."
+#~ msgstr "Tuto položku najdete  v seznamu moderace obsahu."
+
+#~ msgid "Stop following"
+#~ msgstr "Nenásledovat"
+
+#~ msgid "Follow me"
+#~ msgstr "Následovat"
+
+#~ msgid "&laquo; Previous"
+#~ msgstr "&laquo; Předchozí"
+
+#~ msgid "%s of %s people found the following review helpful"
+#~ msgstr "%s z %s lidí si myslí, že je následující recenze přínosná"
+
+#~ msgid "Yes"
+#~ msgstr "Ano"
+
+#~ msgid "No"
+#~ msgstr "Ne"
+
+#~ msgid "Claim listing"
+#~ msgstr "Vyžádat položku"
+
+#~ msgid "The field is empty."
+#~ msgstr "Pole je prázdné."
+
+#~ msgid "%s already exists"
+#~ msgstr "%s již existuje"
+
+#~ msgid "Possible file upload attack."
+#~ msgstr "Možny útok náhráním souboru."
+
+#~ msgid "username"
+#~ msgstr "uživatelksé jméno"
+
+#~ msgid "There was a problem updating the listing's images"
+#~ msgstr "Došlo k problému při aktualizaci obrázků položky."
+
+#~ msgid "Select category"
+#~ msgstr "Vyberte kategorii"
+
+#~ msgid "Invalid request."
+#~ msgstr "Neplatný požadavek"
+
+#~ msgid ""
+#~ "Access denied due to insufficient rights or the user session expired."
+#~ msgstr "Přístup odepřen pro nedostatešné oprávnění nebo relace vypršela."
+
+#~ msgid ""
+#~ "There was a problem removing the listing. Please contact the site "
+#~ "administrator."
+#~ msgstr "Došlo k problému s odstraněním položky. Kontaktujte administrátora."
+
+#~ msgid "Thank you for your vote, it will be processed soon."
+#~ msgstr "Děkujeme za Váš hlas, brzy bude zpracován"
+
+#~ msgid "To write a review please register or login."
+#~ msgstr "Pro napsání recenze se přihlašte nebo zaregistrujte."
+
+#~ msgid "index.php?option=com_user&view=register"
+#~ msgstr "index.php?option=com_user&view=register"
+
+#~ msgid "index.php"
+#~ msgstr "index.php"
+
+#~ msgid "JOOMUNITY_TAG"
+#~ msgstr "Member"
+
+#~ msgid "Item successfully saved."
+#~ msgstr "Item successfully saved."
+
+#~ msgid ""
+#~ "You already submitted a review, thank you. We don't allow duplicates."
+#~ msgstr ""
+#~ "You already submitted a review, thank you. We don't allow duplicates."
+
+#~ msgid "Duplicates not allowed."
+#~ msgstr "Duplicates not allowed."
+
+#~ msgid "View all favorites"
+#~ msgstr "View all favorites"
+
+#~ msgid "View all reviews"
+#~ msgstr "View all reviews"
+
+#~ msgid ""
+#~ "This action cannnot be undone, are you sure you want to delete this "
+#~ "listing?"
+#~ msgstr ""
+#~ "This action cannnot be undone, are you sure you want to delete this "
+#~ "listing?"

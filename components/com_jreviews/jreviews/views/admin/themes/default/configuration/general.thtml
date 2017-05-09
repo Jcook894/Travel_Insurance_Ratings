@@ -1,0 +1,164 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+if(_CMS_NAME == 'wordpress')
+{
+	$captcha_groups = array(1=>'Guest',2=>'Subscriber');
+}
+else {
+
+	$captcha_groups = array(1=>'Guest',2=>'Registered');
+}
+?>
+
+<?php $generalTab = array(
+	/*** NEW HEADER ***/
+	__a("Troubleshooting",true) => array(
+		array(
+			'label'=>__a("Debug PHP & Queries",true),
+			'type'=>'radioYesNo',
+			'name'=>'debug_enable',
+			'help'=>__a("Shows PHP and Database debug information at the bottom of the page.",true)
+		),
+		array(
+			'label'=>__a("Debug Themes",true),
+			'type'=>'radioYesNo',
+			'name'=>'debug_theme_enable',
+			'help'=>__a("Shows the theme output of each theme labeled with the theme filepath as well as the controller filename and function is used to process the output.",true)
+		),
+		array(
+			'label'=>__a("Debug IP",true),
+			'type'=>'text',
+			'name'=>'debug_ipaddress',
+			'after'=>'<a href="javascript:void(0)" class="jr-insert-ip jrButton jrSmall">'.__a("Insert IP",true).'</a>',
+			'help'=>__a("Limits debug output to this IP address only.",true)
+		),
+		array(
+			'label'=>__a("Disable Overrides",true),
+			'type'=>'radioYesNo',
+			'name'=>'debug_overrides_disable',
+			'help'=>__a("Ignore all files in the overrides folder. The Debug IP setting above has no effect over this setting which runs for all site visitors.",true),
+			'disable'=>_JR_DEMO == 1 ? true : false
+		),
+		array(
+			'label'=>__a("Disable DB Query Index Hints",true),
+			'type'=>'radioYesNo',
+			'name'=>'db_index_hints_disable',
+			'help'=>__a("By specifying index hints in certain DB queries it is possible to improve their performance. In some setups the index hints have a counter effect and disabling the feature allows MySQL to find a better index.",true)
+		),
+		array(
+			'label'=>__a("Include language segment in Ajax URI",true),
+			'type'=>'radioYesNo',
+			'name'=>'ajaxuri_lang_segment',
+			'help'=>__a("Setting only relevant for multilingual sites. Disable if ajax requests fail on non-default languages.",true)
+		)
+	),
+	__a("Javascript & CSS Settings",true) => array(
+		array(
+			'label'=>__a("Load Combined/Minified CSS",true),
+			'type'=>'radioYesNo',
+			'name'=>'libraries_css_minified',
+			'help'=>__a("Speed up loading times by loading a single minified CSS file. 3rd party and add-on stylesheets load separately",true)
+		),
+		array(
+			'label'=>__a("Load Combined/Minified Scripts",true),
+			'type'=>'radioYesNo',
+			'name'=>'libraries_scripts_minified',
+			'help'=>__a("Speed up loading times by loading a single minified script file. 3rd party and add-on scripts load separately",true)
+		),
+		array(
+			'label'=>__a("Enable Javascript Loader",true),
+			'type'=>'radioYesNo',
+			'name'=>'libraries_scripts_loader',
+			'help'=>__a("Loads scripts in parallel and non-blocking to speed up the page rendering process.",true)
+		),
+		array(
+			'label'=>__a("Disable jQuery",true),
+			'type'=>'radioYesNo',
+			'name'=>'libraries_jquery',
+			'help'=>__a("NOT optional. If you disable it, make sure it is loaded by your template or a plugin.",true)
+		),
+		array(
+			'label'=>__a("Disable jQuery UI",true),
+			'type'=>'radioYesNo',
+			'name'=>'libraries_jqueryui',
+			'help'=>__a("NOT optional. If you disable it, make sure it is loaded by your template or a plugin.",true)
+		)
+	),
+	__a("General Settings",true) => array(
+		array(
+			'label'=>__a("Page title separator",true),
+			'type'=>'text',
+			'name'=>'page_title_separator',
+			'default'=>'-',
+			'attributes'=>array('style'=>'width: 3em'),
+			'disable'=>_CMS_NAME == 'joomla'
+		),
+		array(
+			'label'=>__a("Site name position",true),
+			'type'=>'radio',
+			'name'=>'site_name_position',
+			'default'=>'right',
+			'options'=>array('left'=>__a("Left",true),'right'=>__a("Right",true),'none'=>__a("Hide",true)),
+			'disable'=>_CMS_NAME == 'joomla'
+		),
+		array(
+			'label'=>__a("Disable Secure URLs when site accessed via SSL",true),
+			'type'=>'select',
+			'options'=>array(0=>__a("No",true),'guests'=>__a("Guests",true),'all'=>__a("Everyone",true)),
+			'name'=>'url_no_ssl',
+			'help'=>__a("Useful for add-ons that render site links on remote sites with secure URLs. This only works for URLs rendered by JReviews.",true)
+		),
+		array(
+			'label'=>__a("Create accounts for guests",true),
+			'type'=>'radioYesNo',
+			'name'=>'user_registration_guest',
+			'help'=>__a("Guests will be given the option to enter a username when making a submission to automatically create an account for them. This feature requires that email activation in Joomla is enabled so users can receive an email with a temporary password.",true)
+		),
+		array(
+			'label'=>__a("Use username or realname",true),
+			'type'=>'select',
+			'options'=>array('realname'=>__a("Real Name",true),'alias'=>__a("Username",true)),
+			'name'=>'name_choice'
+		)
+	),
+	__a("reCAPTCHA",true) => array(
+		array(
+			'label'=>__a("Enable reCAPTCHA for spam reduction",true),
+			'type'=>'selectmultiple',
+			'options'=>$captcha_groups,
+			'name'=>'security_image',
+			'help'=>sprintf(__a("Used in listing, review, discussion and inquiry forms. You need to get the required keys at the %sGoogle reCAPTCHA website%s",true),'<a target="_blank" href="https://www.google.com/recaptcha/intro/index.html">','</a>')
+		),
+		array(
+			'label'=>__a("reCAPTCHA Site Key",true),
+			'type'=>'text',
+			'name'=>'recaptcha_sitekey',
+			'attributes'=>array('style'=>'width:98%;')
+		),
+		array(
+			'label'=>__a("reCAPTCHA Secret Key",true),
+			'type'=>'text',
+			'name'=>'recaptcha_secretkey',
+			'attributes'=>array('style'=>'width:98%;')
+		),
+		array(
+			'label'=>__a("reCAPTCHA Theme",true),
+			'type'=>'select',
+			'name'=>'recaptcha_theme',
+			'options'=>array('light'=>__a("Light",true),'dark'=>__a("Dark",true))
+		)
+	)
+);
+
+?>
+
+<?php $AdminSettings->columns = array(5,8,11); $AdminSettings->displayTab('general',$generalTab);?>

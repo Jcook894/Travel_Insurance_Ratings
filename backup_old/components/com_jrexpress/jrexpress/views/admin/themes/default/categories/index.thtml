@@ -1,0 +1,103 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php	
+# Initialize paginator helper
+$Paginator->paginate(
+	array(
+		'current_page'=>$this->page,
+		'items_per_page'=>$this->limit,
+		'items_total'=>$pagination['total']
+	)
+);
+?>
+
+<form id="adminForm" name="adminForm">
+
+	<div class="admin_header"><?php __a("Categories Manager");?></div>
+		
+	<div class="admin_toolbar">
+	
+		<input type="button" class="button" value="Setup Categories" onclick="tb_show('Setup Categories','index2.php?option=com_jrexpress&no_html=1&url=categories/create&sectionid=<?php echo $sectionid?>&width=600&height=500',null);" />
+		&nbsp;&nbsp;
+		<input type="button" class="button" value="Remove Categories" onclick="xajax.$('cat_id').value = '';removeCategories();" />
+	
+	</div>
+					
+	<div class="admin_filter">
+		<strong><?php __a("Section filter");?>:</strong>
+		<?php 
+			echo $Form->select(
+				'data[sectionid]',
+				array_merge(array(array('value'=>null,'text'=>'All')),$sections),
+				$sectionid,
+				array(
+					'onchange'=>"xajax.$('page_number').value = 1;
+					xajax.request({xjxfun:'xajaxDispatch'},{URI:'".getXajaxUri('jrexpress')."',parameters:['admin/categories','index','jrexpress',xajax.getFormValues('adminForm')]});"
+				)
+			);
+		?>
+	</div>
+	
+	<div id="categorytable">
+		
+		<table class="admin_list">
+			<tr>
+				<th width="15"><input name="toggle" value="" onclick="checkAll(<?php echo count($rows)?>);" type="checkbox"></th>
+				<th width="15">#</th>
+				<th class="title"><?php __a("Category");?></th>
+				<th align="left" width="150"><?php __a("Section");?></th>
+				<th class="title"><?php __a("Criteria");?></th>
+				<th align="center" width="15">ID</th>
+				<th align="center" width="15"><?php __a("Remove");?></th>
+			</tr>
+			<?php 
+			$i = $this->page*$this->limit - ($this->limit - 1); 
+			foreach($rows AS $key=>$row):
+			?>		
+			<tr id="category<?php echo $row->id?>">
+				<td style="width:15px; text-align:center;"><input id="cb<?php echo $key?>" name="cid[]" value="<?php echo $row->id?>" onclick="isChecked(this.checked);" type="checkbox" /></td>
+				<td style="width:15px; text-align:center;"><?php echo $i++;?></td>
+				<td align="left"><?php echo $row->cat?></td>
+				<td align="left"><?php echo $row->section?></td>
+				<td align="left"><?php echo ($row->criteria != '' ? $row->criteria : 'none')?></td>
+				<td><?php echo $row->id?></td>
+				<td align="center">
+					<a href="#" onclick="xajax.$('cat_id').value = <?php echo $row->id?>; removeCategories()">
+					<img src="<?php echo WWW_ROOT?>includes/js/ThemeOffice/trash.png" alt="del" border="0">
+					</a>
+				</td>
+			</tr>
+			<?php endforeach;?>
+		</table>
+
+		<input type="hidden" id="boxchecked" name="boxchecked" value="0" />
+		<input type="hidden" id="cat_id" name="cat_id" value="" />
+
+		<!-- PAGINATION BEGINS HERE -->
+		<table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+		 <tr>
+		 	<td class="jr_pagenav_results"><?php echo sprintf(__t("%1\$s results - showing %2\$s - %3\$s",true), $pagination['total'], ($this->page-1)*$this->limit+1, min($pagination['total'],$this->page*$this->limit));?></td>
+		    <td class="jr_pagenav_pages"><?php echo ($pagination['total'] > $this->limit) ? $Paginator->display_pages() : '';?></td>
+		    <td class="jr_pagenav_limitbox"><?php echo $Paginator->display_items_per_page();?></td>
+		 </tr>
+		</table>
+		<input type="hidden" id="page_number" name="data[page]" value="<?php echo $this->page;?>" />
+		<input type="hidden" id="limit" name="data[limit]" value="<?php echo $this->limit;?>" />
+		<input type="hidden" id="limitstart" name="data[offset]" value="<?php echo $this->offset;?>" />
+		<input type="hidden" id="controller" name="controller" value="admin/categories" />
+		<input type="hidden" id="action" name="action" value="index" />
+		<!-- PAGINATION ENDS HERE -->
+				
+	</div>
+
+</form>

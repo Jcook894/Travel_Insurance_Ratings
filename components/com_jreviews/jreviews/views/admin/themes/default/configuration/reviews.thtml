@@ -1,0 +1,332 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php $reviewsTab = array(
+	/*** NEW HEADER ***/
+	__a("General settings",true) => array(
+		 array(
+			'label'=>__a("Enable User Reviews",true),
+			'type'=>'radioYesNo',
+			'name'=>'user_reviews'
+		),
+		 array(
+			'label'=>__a("Enable Editor Reviews",true),
+			'type'=>'select',
+			'name'=>'author_review',
+			'options'=>array(
+						'0' => __a("Disabled",true),
+						'1' => __a("One editor review per listing",true),
+						'2' => __a("Multiple editor reviews per listing",true)
+						)
+		),
+		 array(
+			'label'=>__a("Comma list of JReviews Editors user IDs",true),
+			'type'=>'text',
+			'name'=>'authorids',
+			'attributes'=>array('style'=>'width:98%;'),
+			'help'=>__a("Only reviews written by these users will be automatically recognized as editor reviews. Addittionaly, any review can be marked as an editor review in the review moderation menu.",true)
+				.'<a href="' . cmsFramework::getAdminUserManagerUrl() . '" class="jr-popup-window" target="_blank">'.__a("View list of users",true).'</a>'
+		),
+		array(
+			'label'=>__a("Multiple user reviews per listing",true),
+			'type'=>'radioYesNo',
+			'name'=>'user_multiple_reviews',
+			'help'=>__a("Valid for registered users only. Checking is done against IP address and userid.",true)
+		),
+		 array(
+			'label'=>__a("Disable IP address check for multiple reviews",true),
+			'type'=>'radioYesNo',
+			'name'=>'review_ipcheck_disable',
+			'help'=>__a("Performs check on user id only.",true)
+		),
+		 array(
+			'label'=>__a("Stop users from reviewing their own listings",true),
+			'type'=>'radioYesNo',
+			'name'=>'user_owner_disable',
+			'help'=>__a("Also disable the review form in listing submission in Configuration => Standard Fields.",true)
+		)
+	),
+	__a("SEO",true) => array(
+		 array(
+			'label'=>__a("View All Reviews Canonical (SEO)",true),
+			'type'=>'radioYesNo',
+			'name'=>'viewallreviews_canonical',
+			'help'=>__a("Outputs a canonical tag to the listing detail page in the view all reviews page for a listing.",true)
+		)
+	),
+	__a("Ordering Box",true) => array(
+		 array(
+			'label'=>__a("Default Ordering",true),
+			'type'=>'select',
+			'name'=>'user_review_order',
+			'options'=>$Jreviews->orderingListReviews(null,array('return'=>true))
+		),
+		array(
+			'label'=>__a("Ordering options",true),
+			'type'=>'checkbox',
+			'name'=>'review_order_options',
+			'options'=>$Jreviews->orderingListReviews(null,array('return'=>true)),
+			'help'=>''
+		)
+	),
+	__a("Rating Settings",true) => array(
+		 array(
+			'label'=>__a("Rating scale",true),
+			'type'=>'text',
+			'name'=>'rating_scale',
+			'attributes'=>array('style'=>'width: 3em;'),
+			'help'=>__a("Enter a number higher than zero. Once you have reviews on your site DO NOT change this setting",true)
+		),
+		 array(
+			'label'=>__a("Rating increment",true),
+			'type'=>'select',
+			'name'=>'rating_increment',
+			'options'=>array('1'=>1,'0.5'=>0.5)
+		),
+		array(
+			'label'=>__a("Rating selector",true),
+			'type'=>'select',
+			'name'=>'rating_selector',
+			'options'=>array('select'=>__a("Select List",true),'stars'=>__a("Star Images",true),'slider'=>__a("Slider",true))
+		),
+		array(
+			'label'=>__a("Rating selector (mobile)",true),
+			'type'=>'select',
+			'name'=>'rating_selector_mobile',
+			'options'=>array('select'=>__a("Select List",true),'stars'=>__a("Star Images",true),'slider'=>__a("Slider",true))
+		),
+		array(
+			'label'=>__a("Editor rating style",true),
+			'type'=>'select',
+			'name'=>'editor_rating_style',
+			'default'=>1,
+			'options'=>array(
+				1=>__a("Star with square",true),
+				2=>__a("Star",true),
+				3=>__a("Bar",true)
+			)
+		),
+		array(
+			'label'=>__a("Editor rating color",true),
+			'type'=>'select',
+			'name'=>'editor_rating_color',
+			'default'=>1,
+			'options'=>array(
+				'green'=>__a("Green",true),
+				'orange'=>__a("Orange",true),
+				'red'=>__a("Red",true),
+				'blue'=>__a("Blue",true)
+			)
+		),
+		array(
+			'label'=>__a("User rating style",true),
+			'type'=>'select',
+			'name'=>'user_rating_style',
+			'default'=>1,
+			'options'=>array(
+				1=>__a("Star with square",true),
+				2=>__a("Star",true),
+				3=>__a("Bar",true)
+			)
+		),
+		array(
+			'label'=>__a("User rating color",true),
+			'type'=>'select',
+			'name'=>'user_rating_color',
+			'default'=>'green',
+			'options'=>array(
+					'green'=>__a("Green",true),
+					'orange'=>__a("Orange",true),
+					'red'=>__a("Red",true),
+					'blue'=>__a("Blue",true)
+			)
+		),
+		array(
+			'label'=>__a("Pre-select N/A for optional rating criteria",true),
+			'type'=>'radioYesNo',
+			'name'=>'rating_default_na',
+			'help'=>__a("If enabled, users don't need to click on the N/A option to ignore a criterion.",true)
+		),
+		 array(
+			'label'=>__a("Hide non-rated criteria from detailed ratings",true),
+			'type'=>'radioYesNo',
+			'name'=>'rating_hide_na',
+			'help'=>__a("Useful if there are many optional criteria.",true)
+		),
+		 array(
+			'label'=>__a("Show rating count in detailed ratings",true),
+			'type'=>'select',
+			'name'=>'show_criteria_rating_count',
+			'options'=>array(
+						'2'=>__a("Show for all criteria sets",true),
+						'1'=>__a("Show for criteria sets where N/A ratings are enabled",true),
+						'0'=>__a("Do not show",true)
+						),
+			'help'=>__a("This can be informational when users gave N/A ratings to certain criteria.",true)
+		),
+		array(
+			'label'=>__a("Display rating histogram",true),
+			'type'=>'text',
+			'name'=>'rating_histogram',
+			'before'=>__a("When listing has more than",true),
+			'after'=>__a("reviews",true),
+			'attributes'=>array('style'=>'width: 3em;')
+		)
+	),
+	__a("Bayesian Average Calculations",true) => array(
+		array(
+			'type'=>'placeholder',
+			'label'=>"<div class='jrInfo'><p>".__a("The Bayesian Average is used when ordering listings by rating (user, editor and criteria) by generating a score for each listing that takes into account both the average rating and the number of reviews. Listings with high confidence values (many reviews) will appear at the extremes, good at the top and bad at the bottom; while listings without ratings will remain in the middle. ",true)."</p><p>The tuning paremeter allows you to control how quickly the score moves away, up and down, from the average. Using a zero value reverts to the standard average rating as it gives a zero weight to the the number of reviews; while higher values give more weight to the number of reviews when calculating the rank.</p><p><strong>If you modify the tuning parameters you will need to \"Recalculate Rating Ranks\" to see an immediate effect.</strong> Keep in mind that it makes more sense to use this feature when you have a lot of listings with more than one review. Otherwise it may be difficult for site visitors to interpret the results.</div>"
+		),
+		 array(
+			'label'=>__a("Exclude unrated listings from Bayesian Average calculations",true),
+			'type'=>'radioYesNo',
+			'name'=>'bayesian_exclude_unrated',
+			'help'=>__a("Enabling this setting leaves listings without reviews at the bottom of the list when ordering by rating, instead of in the middle.",true)
+		),
+		 array(
+			'label'=>__a("Enable Bayesian average for user reviews",true),
+			'type'=>'radioYesNo',
+			'name'=>'user_review_bayesian'
+		),
+		array(
+			'label'=>__a("User reviews tuning parameter",true),
+			'type'=>'text',
+			'name'=>'user_review_bayesian_tuning',
+			'attributes'=>array('style'=>'width:3em;'),
+			'help'=>__a("Between 0 and 1, where 0 is the equivalent of disabling the Bayesian Average.",true)
+		),
+		 array(
+			'label'=>__a("Enable Bayesian average for editor reviews",true),
+			'type'=>'radioYesNo',
+			'name'=>'editor_review_bayesian'
+		),
+		array(
+			'label'=>__a("Editor reviews tuning parameter",true),
+			'type'=>'text',
+			'name'=>'editor_review_bayesian_tuning',
+			'attributes'=>array('style'=>'width:3em;'),
+			'help'=>__a("Between 0 and 1, where 0 is the equivalent of disabling the Bayesian Average.",true)
+		),
+	),
+	__a("Owner Replies",true) => array(
+		 array(
+			'label'=>__a("Enable listing owner replies to user reviews",true),
+			'type'=>'radioYesNo',
+			'name'=>'owner_replies'
+		)
+	),
+	__a("Review Discussions",true) => array(
+		 array(
+			'label'=>__a("Enable review discussions",true),
+			'type'=>'radioYesNo',
+			'name'=>'review_discussions'
+		)
+	),
+	__a("Review Reporting",true) => array(
+		 array(
+			'label'=>__a("Enable reporting of user reviews",true),
+			'type'=>'radioYesNo',
+			'name'=>'user_report'
+		),
+		 array(
+			'label'=>__a("Enable reporting of editor reviews",true),
+			'type'=>'radioYesNo',
+			'name'=>'author_report'
+		)
+	),
+	__a("Review Helpfulness Voting",true) => array(
+		 array(
+			'label'=>__a("Enable user review voting",true),
+			'type'=>'radioYesNo',
+			'name'=>'user_vote'
+		),
+		 array(
+			'label'=>__a("Enable editor review voting",true),
+			'type'=>'radioYesNo',
+			'name'=>'author_vote'
+		),
+		 array(
+			'label'=>__a("Disable ip address check for votes",true),
+			'type'=>'radioYesNo',
+			'name'=>'vote_ipcheck_disable'
+		)
+	),
+	__a("Editor Reviews",true) => array(
+		 array(
+			'label'=>__a("Number of editor reviews per page",true),
+			'type'=>'numbers',
+			'range'=>array(5,50,5),
+			'name'=>'editor_limit',
+			'help'=>__a("Used for pagination of editor reviews, if multiple editor reviews are enabled.",true)
+		),
+		 array(
+			'label'=>__a("Exclude Editor Reviews from Reviewer Ranking",true),
+			'type'=>'radioYesNo',
+			'name'=>'editor_rank_exclude'
+		),
+		 array(
+			'label'=>__a("Show detailed ratings in reviews",true),
+			'type'=>'radioYesNo',
+			'name'=>'author_ratings'
+		),
+		 array(
+			'label'=>__a("Show reviewer rank",true),
+			'type'=>'radioYesNo',
+			'name'=>'author_rank_link'
+		),
+		 array(
+			'label'=>__a("Show 'See all reviews' link for reviewer",true),
+			'type'=>'radioYesNo',
+			'name'=>'author_myreviews_link'
+		),
+		array(
+			'label'=>__a("Limit the number of characters shown in the review comments",true),
+			'type'=>'text',
+			'name'=>'editor_review_char_limit',
+			'attributes'=>array('style'=>'width:3em;'),
+			'help'=>__a("If you enter the number of characters higher than 0, visitors will need to click the 'show more' link to expand the full text. Limiting the number of characters will strip all html formatting.",true)
+		),
+	),
+	__a("User Reviews",true) => array(
+		 array(
+			'label'=>__a("Number of user reviews per page",true),
+			'type'=>'numbers',
+			'range'=>array(5,50,5),
+			'name'=>'user_limit'
+		),
+		 array(
+			'label'=>__a("Show detailed ratings in reviews",true),
+			'type'=>'radioYesNo',
+			'name'=>'user_ratings'
+		),
+		 array(
+			'label'=>__a("Show reviewer rank",true),
+			'type'=>'radioYesNo',
+			'name'=>'user_rank_link'
+		),
+		 array(
+			'label'=>__a("Show 'See all reviews' link for reviewer",true),
+			'type'=>'radioYesNo',
+			'name'=>'user_myreviews_link'
+		),
+		array(
+			'label'=>__a("Limit the number of characters shown in the review comments",true),
+			'type'=>'text',
+			'name'=>'user_review_char_limit',
+			'attributes'=>array('style'=>'width:3em;'),
+			'help'=>__a("If you enter the number of characters higher than 0, visitors will need to click the 'show more' link to expand the full text. Limiting the number of characters will strip all html formatting.",true)
+		),
+	),
+);?>
+
+<?php $AdminSettings->columns = array(5,8,11); $AdminSettings->displayTab('reviews',$reviewsTab);?>

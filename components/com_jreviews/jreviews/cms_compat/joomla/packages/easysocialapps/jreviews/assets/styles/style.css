@@ -1,0 +1,110 @@
+/**
+ * Activities
+**/
+.jrActivity {
+  overflow: hidden;
+}
+.jrActivity .jrActivityThumb {
+  float: left;
+  margin: 0 10px 5px 0;
+}
+.jrActivity .jrActivityContent {
+  overflow: hidden;
+}
+.jrActivity .jrActivityRow {
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.jrActivity .jrRatingStarsUser,
+.jrActivity .jrRatingStarsEditor,
+.jrActivity .jrRatingStarsUser div,
+.jrActivity .jrRatingStarsEditor div {
+  background: url(images/rating_stars.png) 0 0 repeat-x;
+  height: 16px;
+  font-size: 1px;
+}
+.jrActivity .jrRatingStarsUser,
+.jrActivity .jrRatingStarsEditor {
+  width: 80px;
+  margin-top: 3px;
+  text-align: left;
+}
+.jrActivity .jrRatingStarsUser div {
+  background-position: 0 -16px;
+}
+.jrActivity .jrRatingStarsEditor div {
+  background-position: 0 -32px;
+}
+.jrActivity blockquote:before {
+  color: #A5A5A5;
+  content: "\201C"!important;
+  font-family: Georgia, serif!important;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.2em;
+  vertical-align: -0.4em;
+}
+
+/**
+ * Icons
+**/
+@font-face {
+  font-family: 'jrIcons';
+  src: url('fonts/jrIcons.eot');
+  src: url('fonts/jrIcons.eot?#iefix') format('embedded-opentype'), url('fonts/jrIcons.svg#jrIcons') format('svg'), url('fonts/jrIcons.woff') format('woff'), url('fonts/jrIcons.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Use the following CSS code if you want to have a class per icon */
+[class*="ijreviews"] {
+  display: inline-block;
+  line-height: 1;
+}
+[class*="ijreviews"]:before {
+  font-family: 'jrIcons';
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+}
+.es-streams .ijreviews-listing:before {
+  content: "\e000";
+}
+.es-streams .ijreviews-review:before {
+  content: "\e008";
+}
+.es-streams .ijreviews-vote-yes:before {
+  content: "\e00c";
+}
+.es-streams .ijreviews-vote-no:before {
+  content: "\e00d";
+}
+.es-streams .ijreviews-discussion:before {
+  content: "\e00a";
+}
+.es-streams .ijreviews-photo:before {
+  content: "\e010";
+}
+.es-streams .ijreviews-video:before{
+  content: "\e011";
+}
+.es-streams .ijreviews-audio:before {
+  content: "\e012";
+}
+.es-streams .ijreviews-attachment:before{
+  content: "\e013";
+}
+.es-streams .ijreviews-medialike-yes:before {
+  content: "\e00c";
+}
+.es-streams .ijreviews-medialike-no:before {
+  content: "\e00d";
+}
+.es-streams .ijreviews-favorite-add:before{
+  content: "\e023";
+}
+.es-streams .ijreviews-favorite-remove:before{
+  content: "\e024";
+}

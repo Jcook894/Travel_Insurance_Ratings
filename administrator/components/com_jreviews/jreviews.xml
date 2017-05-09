@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.5" method="upgrade">
+    <name>com_jreviews</name>
+    <author>ClickFWD LLC</author>
+    <creationDate>April 2017</creationDate>
+    <copyright>Copyright (C) 2010-2017. ClickFWD LLC. All rights reserved.</copyright>
+    <license>Commercial</license>
+    <authorEmail>info@jreviews.com</authorEmail>
+    <authorUrl>www.jreviews.com</authorUrl>
+    <version>2.7.16.2</version>
+    <description>JReviews - Joomla CCK and Reviews</description>
+    <files folder="site">
+        <filename>index.html</filename>
+        <folder>views</folder>
+    </files>
+    <administration>
+        <menu>COM_JREVIEWS</menu>
+        <submenu>
+            <menu view="license" act="license" img="class:plugin">COM_JREVIEWS_LICENSE</menu>
+        </submenu>
+        <files folder="admin">
+            <filename>index.html</filename>
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>jreviews.php</filename>
+            <filename>jreviews.s2</filename>
+       </files>
+        <languages folder="admin/language">
+           <language tag="en-GB">en-GB/en-GB.com_jreviews.sys.ini</language>
+           <language tag="en-GB">en-GB/en-GB.com_jreviews.ini</language>
+        </languages>
+    </administration>
+    <scriptfile>jreviews.script.php</scriptfile>
+</extension>

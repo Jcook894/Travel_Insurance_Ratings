@@ -1,0 +1,124 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2009 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );  
+?>
+
+<?php	
+# Initialize paginator helper
+$Paginator->paginate(array(
+	    'current_page'=>$this->page,
+	    'items_per_page'=>$this->limit,
+	    'items_total'=>isset($total) ? $total : 0
+   ),
+   'category_table'
+);
+?>
+
+<?php if(isset($index)):?>
+
+    <div class="admin_header">Everywhere Addon</div>
+
+	<form id="adminForm" name="adminForm" method="post">
+
+	    <div class="admin_filter">
+		    <strong><?php __a("Component");?>:</strong> 
+		    <?php		
+			    echo $Form->select(
+				    'data[Everywhere][extension]',
+				    array_merge(array(array('value'=>null,'text'=>__a("Select",true))),$components),
+				    isset($this->data['Everywhere']['extension']) ? $this->data['Everywhere']['extension'] : null,
+				    array(
+					    'id'=>'extension',
+                        'onchange'=>"jQuery('#page_number').val(1);jreviews_admin.dispatch({'controller':'admin_everywhere','action':'_loadCategories','onComplete':function(res){jQuery('#category_table').html(res);},'form_id':'adminForm','type':'html'});return false;"
+				    )				
+			    );
+		    ?> 
+        </div>
+
+<?php endif;?>
+
+        <?php if(isset($index)):?>
+	    <div id="category_table">	
+        <?php endif;?>
+
+		    <?php if(isset($this->data['Everywhere']) && false !== strpos($this->data['Everywhere']['extension'],'com_')):?>
+    
+			    <?php echo $this->renderControllerView('everywhere',$this->data['Everywhere']['extension']);?>
+		    
+                <div class="admin_toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
+
+                     <button class="ui-button ui-corner-all" onclick="
+                        jQuery(this).s2Dialog('jr_everywhereCategories',{
+                                dialog:{width:'550px',height:'auto',title:'Setup Categories'},
+                                dialogData:{url:'admin_everywhere/addCategories/extension:<?php echo $this->data['Everywhere']['extension'];?>'}
+                        });return false;"><?php __a("Setup categories");?></button>
+                
+			    </div>
+			    
+		    <?php else:?>
+		    
+			    <p><?php __a("Select a component and afterwards use the Setup Categories button to include your component categories in jReviews.");?></p>
+				    
+		    <?php endif;?>
+
+
+		    <?php if(!empty($rows)):?>
+		    
+		        <table class="admin_list">
+			        <tr>
+				        <th>#</th>	
+				        <th class="title">Category</th>
+				        <th class="title">Listing Type (Criteria)</th>
+				        <th align="center" width="15">CatID</th>
+				        <th align="center" width="15">Delete</th>
+			        </tr>
+			        
+			        <?php 
+			        $i = $this->page*$this->limit - ($this->limit - 1); 
+			        foreach($rows AS $key=>$row): extract($row['Component'])?>
+			        
+			            <tr id="category<?php echo $cat_id?>" >
+				            <td><?php echo $i++;?><input type="hidden" id="cid" name="data[cid][]" value="<?php echo $cat_id;?>" /></td>
+				            <td><?php echo $cat_title;?></td>
+				            <td><?php echo $criteria_title;?></td>
+				            <td><?php echo $cat_id;?></td>
+				            <td align="center">
+
+                            <button class="ui-button-small ui-corner-all" 
+                                onclick="jreviews_admin.dispatch({'controller':'admin_everywhere','action':'_removeCategories','type':'script','data':{'data[cat_id]':<?php echo $cat_id;?>,'data[extension]':jQuery('#extension').val()}});return false;">
+                                <span class="ui-icon ui-icon-trash"></span>
+                            </button>					            
+				            </td>
+			            </tr>
+                    
+			        <?php endforeach;?>
+		        </table>
+		        
+		        <!-- PAGINATION BEGINS HERE -->
+		        <table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+		         <tr>
+		            <td class="jr_pagenav_results"><?php echo $total?> results - Showing <?php echo ($this->page-1)*$this->limit+1;?> - <?php echo min($total,$this->page*$this->limit);?></td>
+		            <td class="jr_pagenav_pages"><?php echo ($total > $this->limit) ? $Paginator->display_pages() : '';?></td>
+		            <td class="jr_pagenav_limitbox"><?php echo $Paginator->display_items_per_page('category_table',array(5,10,15,20,25,30,50,100));?></td>
+		         </tr>
+		        </table>
+                <!-- PAGINATION ENDS HERE -->   
+            <?php endif;?>        
+
+            <input type="hidden" id="page_number" name="data[page]" value="<?php echo $this->page;?>" />
+            <input type="hidden" id="limit" name="data[limit]" value="<?php echo $this->limit;?>" />
+            <input type="hidden" id="controller" name="data[controller]" value="admin/admin_everywhere" />
+            <input type="hidden" id="action" name="data[action]" value="index" />
+                            
+<?php if(isset($index)):?>
+	    </div>
+	</form>	
+<?php endif;?>
+

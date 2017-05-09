@@ -1,0 +1,89 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**
+ * Usage:
+ * In your detail.thtml theme file put the code below
+ * Change the field name from jr_brand to the field name you want to use
+ * Add a suffix so you can customize the /modules/listings.thtml theme for your related listings
+ * <?php echo $this->element('related_listings',array('field'=>'jr_brand','suffix'=>''));?>
+ */
+
+if(!isset($where)) $where = array();
+
+$fieldValues = $CustomFields->fieldValue($field,$listing);
+
+$isMultipleOption = $CustomFields->isMultipleOption($field,$listing);
+
+if(!empty($fieldValues) && !is_array($fieldValues))
+{
+	$fieldValues = array($fieldValues);
+}
+
+if(is_array($fieldValues) && !empty($fieldValues))
+{
+	$field_options = array();
+
+	foreach($fieldValues AS $fieldValue)
+	{
+		$field_options[] = $isMultipleOption ? " $field LIKE '%*".$fieldValue."*%'" : " $field = '".$fieldValue."'";
+	}
+
+	$where[] = '('.implode(' OR ',$field_options).')';
+}
+
+if(!empty($where) && $fieldValues!='')
+{
+	$where[] = " Listing.id NOT IN (".$listing['Listing']['listing_id'].")";
+	$custom_where = implode(' AND ',$where);
+
+	$params = array(
+		'module_id'=>rand(1000,10000),
+		'module' => array
+			(
+				'listing_order' => 'rdate', // Valid options rdate|rating|rrating|topratededitor|raviews|random|featuredrandom|rhits|proximity
+				'summary'=> isset($summary) ? $summary : 0, // Show summary text
+				'summary_words'=>'10',
+				'show_category'=> isset($show_category) ? $show_category : 1, // Show category
+				'fields'=> isset($fields) ? $fields : '', // Comma separated list of custom fields to show (i.e. jr_state,jr_city)
+				'editor_rating'=> isset($editor_rating) ? $editor_rating : 0, // Show editor text
+				'user_rating'=> isset($user_rating) ? $user_rating : 0, // Show user text
+				'tmpl_suffix' => isset($suffix) ? $suffix : '', // Theme file suffix. The default theme used is /modules/listings.thtml
+				'tn_show'=> isset($tn_show) ? $tn_show : 1, // Show thumbnail
+				'tn_position'=>'left', // left|right|top|bottom
+				'tn_mode'=> isset($tn_mode) ? $tn_mode : 'crop', // Thumbnail type. Valid options scale|crop
+				'tn_size'=> isset($tn_size) ? $tn_size : '100x100', // Thumbnail width
+				'extension' => 'com_content',
+				'cat_auto' => isset($cat_auto) ? $cat_auto : 0, // Cateogry auto-detect
+				'dir' => isset($dir_id) ? $dir_id : '', // Directory filter
+				'category' => isset($cat_id) ? $cat_id : '', // Category filter
+				'listing' => '', // Listing filter
+				'custom_where' => $custom_where,
+				'custom_order' => isset($order) ? $order : '',
+				'nav_position' => isset($nav_position) ? $nav_position: 'bottom',
+				'orientation' => isset($orientation) ? $orientation : 'horizontal', // horizontal|vertical|fade
+				'slideshow' => isset($slideshow) ? $slideshow: false,
+				'slideshow_interval' => isset($slideshow_interval) ? $slideshow_interval: 6,
+				'module_total' => isset($total) ? (int)$total : 10, // Max. number of results
+				'module_limit' => isset($limit) ? (int)$limit : 5, // Results per page
+				'columns' => isset($cols) ? (int)$cols : 1, // Number of columns
+				'show_numbers'=> isset($show_numbers) ? $show_numbers : 0,
+				'filter_listing_period'=>'', // Filter: Listings submitted in past x days
+				'filter_review_period'=>'', // Filter: Listings with reviews submitted in past x days
+				'filter_review_count'=>'', // Filter: Listings with review count higher than
+				'filter_avg_rating'=>'', // Filter: Listings with average rating higher than
+				'compare'=> isset($compare) ? $compare : 0, // Show compare button
+				'moduleclass_sfx' => '' // Module suffix
+			)
+	);
+
+	echo $this->requestAction('module_listings/index',$params);
+}

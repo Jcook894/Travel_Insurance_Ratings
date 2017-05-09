@@ -1,0 +1,92 @@
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This stylesheet file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+/*************************************
+JR FIELDS MODULE
+*************************************/
+div.jr_reviews_mod { 
+	border-top: solid 0px #ccc;
+	padding-top: 5px; 
+	}
+	
+div.jr_reviews_mod .listItem	{
+	float: left; 
+	padding-right: 10px;
+	margin: 0;
+	}
+	
+div.jr_reviews_mod .contentTitle	{
+    font-size: 11px;
+	}
+	
+div.jr_reviews_mod .contentTitle a {
+    font-size: 11px;
+	}
+	
+
+div.jr_reviews_mod .contentInfo	{
+	padding: 0 0 .4em 0}
+
+div.jr_reviews_mod .contentIndicators	{
+	display: none;
+	}
+	
+div.jr_reviews_mod .contentThumbnail {
+	margin: 0;
+	overflow:visible;
+	}	
+		
+div.jr_reviews_mod .contentThumbnail img {
+	width: auto;
+	height: auto;
+	border: 1px solid #CCC;	
+	}	
+
+div.jr_reviews_mod .listItem	.column1 {
+	padding: 0 5px 0 0;
+	}
+		
+div.jr_reviews_mod .listItem .contentheading a {
+	font-size: 11px; 
+	font-weight:bold;
+	}
+	
+div.jr_reviews_mod .jr_category {
+	font-size: 10px; 
+	}	
+
+div.jr_reviews_mod .jr_category a {
+	font-size: 10px; 
+	}	
+
+div.jr_reviews_mod table.rating_table	{
+	margin-bottom: 0px;
+	}
+	
+div.jr_reviews_mod table.rating_table td.rating_label {
+	width: 14px;
+	display:none;
+	}	
+	
+div.jr_reviews_mod table.rating_table td.rating_stars {
+	width: 60px;}
+	
+div.jr_reviews_mod .comments {
+	font-size:95%;font-style:italic;}	
+
+div.jr_reviews_mod .reviewer {
+	font-size:70%;}	
+
+div.jr_reviews_mod div.jr_divider {
+	border-bottom:0px;
+	clear:both;
+	height:1px;
+	margin-bottom:10px;
+	margin-top:10px;
+	width:100%;
+}		

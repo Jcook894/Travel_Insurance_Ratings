@@ -1,0 +1,128 @@
+[
+    {
+        "title"         : "Submit JReviews Listing",
+        "alias"         : "jreviews-listing-add",
+        "description"   : "Earn points when you submit a listing.",
+        "command"       : "listing.add",
+        "extension"     : "com_jreviews",
+        "state"         : true,
+        "points"        : 5
+    },
+    {
+        "title"         : "Delete JReviews Listing",
+        "alias"         : "jreviews-listing-delete",
+        "description"   : "Demote points when your listing is deleted.",
+        "command"       : "listing.delete",
+        "extension"     : "com_jreviews",
+        "state"         : true,
+        "points"        : -5
+    },
+    {
+        "title"         : "Submit JReviews Review",
+        "alias"         : "jreviews-review-add",
+        "description"   : "Earn points when you submit a review.",
+        "command"       : "review.add",
+        "extension"     : "com_jreviews",
+        "state"         : true,
+        "points"        : 5
+    },
+    {
+        "title"         : "Delete JReviews Review",
+        "alias"         : "jreviews-review-delete",
+        "description"   : "Demote points when your review is deleted.",
+        "command"       : "review.delete",
+        "extension"     : "com_jreviews",
+        "state"         : true,
+        "points"        : -5
+    },
+    {
+        "title"         : "Submit JReviews Comment",
+        "alias"         : "jreviews-discussion-add",
+        "description"   : "Earn points when you submit a comment.",
+        "command"       : "discussion.add",
+        "extension"     : "com_jreviews",
+        "state"         : true,
+        "points"        : 1
+    },
+    {
+        "title"         : "Delete JReviews Comment",
+        "alias"         : "jreviews-discussion-delete",
+        "description"   : "Demote points when your comment is deleted.",
+        "command"       : "discussion.delete",
+        "extension"     : "com_jreviews",
+        "state"         : true,
+        "points"        : -1
+    },
+    {
+        "title"         : "Submit JReviews Photo",
+        "alias"         : "jreviews-photo-add",
+        "description"   : "Earn points when you upload a photo.",
+        "command"       : "photo.add",
+        "extension"     : "com_jreviews",
+        "state"         : true,
+        "points"        : 1
+    },
+    {
+        "title"         : "Delete JReviews Photo",
+        "alias"         : "jreviews-photo-delete",
+        "description"   : "Demote points when you delete a photo.",
+        "command"       : "photo.delete",
+        "extension"     : "com_jreviews",
+        "state"         : true,
+        "points"        : -1
+    },
+    {
+        "title"         : "Submit JReviews Video",
+        "alias"         : "jreviews-video-add",
+        "description"   : "Earn points when you upload a video.",
+        "command"       : "video.add",
+        "extension"     : "com_jreviews",
+        "state"         : true,
+        "points"        : 1
+    },
+    {
+        "title"         : "Delete JReviews Video",
+        "alias"         : "jreviews-video-delete",
+        "description"   : "Demote points when you delete a video.",
+        "command"       : "video.delete",
+        "extension"     : "com_jreviews",
+        "state"         : true,
+        "points"        : -1
+    },
+    {
+        "title"         : "Submit JReviews Audio",
+        "alias"         : "jreviews-audio-add",
+        "description"   : "Earn points when you upload an audio file.",
+        "command"       : "audio.add",
+        "extension"     : "com_jreviews",
+        "state"         : true,
+        "points"        : 1
+    },
+    {
+        "title"         : "Delete JReviews Audio",
+        "alias"         : "jreviews-audio-delete",
+        "description"   : "Demote points when you delete an audio file.",
+        "command"       : "audio.delete",
+        "extension"     : "com_jreviews",
+        "state"         : true,
+        "points"        : -1
+    },
+    {
+        "title"         : "Submit JReviews Attachment",
+        "alias"         : "jreviews-attachment-add",
+        "description"   : "Earn points when you upload an attachment.",
+        "command"       : "attachment.add",
+        "extension"     : "com_jreviews",
+        "state"         : true,
+        "points"        : 1
+    },
+    {
+        "title"         : "Delete JReviews Attachment",
+        "alias"         : "jreviews-attachment-delete",
+        "description"   : "Demote points when you delete an attachment.",
+        "command"       : "attachment.delete",
+        "extension"     : "com_jreviews",
+        "state"         : true,
+        "points"        : -1
+    }
+]

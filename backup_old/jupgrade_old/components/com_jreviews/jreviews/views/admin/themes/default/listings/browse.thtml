@@ -1,0 +1,306 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<script type="text/javascript">
+//<![CDATA[ 
+<?php if(Configure::read('PaidListings.enabled')):?>
+if(null==jQuery('body').data('admin_paidlistings')){
+    jQuery.getScript('<?php echo $this->locateScript('admin_paidlistings',true);?>',function(){jQuery('body').data('admin_paidlistings',1)});
+}
+<?php endif;?>
+jQuery(document).ready(function(){
+    jQuery('#sectionid, #catid, #authorid, #filter_list, #search').bind('change',function() {
+        jQuery("#page_number").val(1); document.adminForm.submit();
+    });
+})
+//]]>
+</script>
+
+
+<?php				
+# Initialize paginator helper
+$pagination['total'] && $Paginator->paginate(
+	array(
+		'current_page'=>$this->page,
+		'items_per_page'=>$this->limit,
+		'items_total'=>$pagination['total']
+	)
+); 
+?>
+
+<div id="jr_editContainer" style="display:none;"></div>
+                      
+<div id="jr_pgContainer"> 
+
+    <form id="adminForm" name="adminForm" action="index.php?option=<?php echo S2Paths::get('jreviews','S2_CMSCOMP');?>&url=admin_listings" method="post">
+
+	    <div class="admin_header"><?php __a("Browse Listings");?></div>
+	    <div class="admin_filter">
+            <table class="">
+		        <tr>
+			        <?php if($this->cmsVersion == CMS_JOOMLA15):?>
+                    <td rowspan="1" valign="top">
+				        <?php
+					        echo $Form->select('sectionid',
+						        array_merge(array(array('value'=>'none','text'=>__a("Select Section",true))),$sections),
+						        $section_id,
+						        array(
+                                    'id'=>'sectionid',
+                                    'class'=>'inputbox',
+							        'size'=>'1'
+                                ))
+                            ;?>
+			        </td>
+                    <?php endif;?>
+			        <td valign="top">
+				        <?php
+					        echo $Form->select('catid',
+						        array_merge(array(array('value'=>'none','text'=>__a("Select Category",true))),$categories),
+						        $cat_id,
+						        array(
+                                    'id'=>'catid',
+							        'class'=>'inputbox',
+							        'size'=>'1'
+					        ));?>
+			        </td>
+			        <td valign="top">
+				        <?php
+					        echo $Form->select('authorid',
+						        array_merge(array(array('value'=>'none','text'=>__a("Select Owner",true))),$authors),
+						        $author_id,
+						        array(
+							        'id'=>'authorid',
+                                    'class'=>'inputbox',
+							        'size'=>'1'
+						    ));?>
+			        </td>
+			        <td valign="top">
+				        <?php
+					        echo $Form->select('filter_list',
+						        array(
+							        'none'=>'Filter_by',
+    //							    'published'=>'Published',
+							        'unpublished'=>'Unpublished',
+							        'featured'=>'Featured JReviews',
+							        'frontpage'=>'Front Page/Featured Joomla'							
+						        ),
+						        $filter_list,
+						        array(
+							        'id'=>'filter_list',
+                                    'class'=>'inputbox',
+							        'size'=>'1'
+						    ));?>
+			        </td>
+			        <td align="right"><?php __a("Title search");?>:</td>
+			        <td><input id="search" type="text" name="search" value="<?php echo $search;?>" /></td>			
+		        </tr>
+	        </table>
+        </div>            
+	    
+	    <br />
+	    
+        <?php if(!$filter):?>
+        <div style="padding: 0pt 0.7em;margin-bottom:10px" class="ui-widget ui-state-highlight ui-corner-all"> 
+            <p><span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span> 
+            <?php __a("Select a category, filter or perform a listing search.");?>
+            </p>
+        </div>
+        <?php endif;?>
+                        
+	    <?php if($pagination['total']):?>
+        <!-- PAGINATION BEGINS HERE -->
+	    <table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+	     <tr>
+		     <td class="jr_pagenav_results"><?php echo sprintf(__t("%1\$s results - showing %2\$s - %3\$s",true), $pagination['total'], ($this->page-1)*$this->limit+1, min($pagination['total'],$this->page*$this->limit));?></td>
+	        <?php if($pagination['total'] > $this->limit):?>
+	        <td class="jr_pagenav_pages"><?php echo $Paginator->display_pages();?></td>
+		    <?php endif;?>    
+	        <td class="jr_pagenav_limitbox"><?php echo $Paginator->display_items_per_page();?></td>
+	     </tr>
+	    </table>
+        <?php endif;?>
+	    
+	    <table class="admin_list">
+	    <tr>
+		    <th width="5">
+		    #
+		    </th>
+		    <th class="title">Title</th>
+		    <th width="8%">Reviews</th>
+		    <th nowrap="nowrap" width="5%">Featured JR</th>
+		    <th width="5%">Published</th>
+		    <th nowrap="nowrap" width="5%">Front Page</th>
+		    <th>Access</th>
+		    <th align="left">Category</th>
+		    <th align="left">Author</th>
+		    <th align="center" width="65">Date</th>
+		    <th width="2%">ID</th>
+		    <th></th>
+	      </tr>
+	    <?php
+	    $nullDate = '0000-00-00 00:00:00';
+        $j = 0;
+        foreach($listings AS $listing)
+        {   
+		    $j++; 
+            extract($listing['Listing']);
+                        
+		    $now = date('Y-m-d H:i:s');
+		    if ( $now <= $publish_up && $state == "1" ) {
+			    $img = 'status_on.png';
+			    $alt = 'Published';
+		    } else if ( ( $now <= $publish_down || $publish_down == $nullDate ) && $state == "1" ) {
+			    $img = 'status_on.png';
+			    $alt = 'Published';
+		    } else if ( $now > $publish_down && $state == "1" ) {
+			    $img = 'status_expired.png';
+			    $alt = 'Expired';
+		    } elseif ( $state == "0" ) {
+			    $img = "status_off.png";
+			    $alt = 'Unpublished';
+		    }
+			$times = ($publish_up == $nullDate ? "Start: Always" : "Start: " . $Time->nice($publish_up));
+			$times .= $publish_down == $nullDate ? " &nbsp; Finish: No Expiry" : "&nbsp; Finish: " . $Time->nice($publish_down);
+                                          
+			$author = $author_alias || $user_id == 0 ? $author_alias : $AdminRoutes->user($listing['User']['name'],$user_id,array('target'=>'_blank'));
+
+		    $date = $Time->niceShort($created);
+            $color_access = 'style="color: black;"';
+            $this->cmsVersion == CMS_JOOMLA15 and $access += 1;
+		    switch($access)
+            {
+                case 1: 
+                    $color_access = 'style="color: black;"';
+                    $task_access = 'accesspublic';
+                break;
+                case 2: 
+                    $color_access = 'style="color: green;"';
+                    $task_access = 'accessregistered';
+                break;
+                case 3: 
+                    $color_access = 'style="color: red;"';
+                    $task_access = 'accessspecial';
+                break;
+            }
+		    ?>
+		    <tr id="content<?php echo $listing_id;?>">
+			    <td><?php echo ($this->page-1)*$this->limit + $j;?></td>
+			    <td align="left">
+
+                    <!-- LISTING TITLE -->                    
+                    <a href="#" onclick="jreviews_admin.listing.edit(<?php echo $listing_id;?>,'browse');return false;">
+                        <span id="title_<?php echo $listing_id;?>"><?php echo htmlspecialchars($title, ENT_QUOTES);?></span>
+                    </a>
+                    <?php if(isset($listing['PaidPlanCategory']) && $listing['PaidPlanCategory']['cat_id']):?>
+                        <br />
+                        <span class="ui-corner-all" style="cursor:default;color:#000;font-weight:bold;font-size:9px;padding:1px;text-align:center;width:80px;border: 1px solid #003F09; background-color:#B6EF77;">
+                        Paid Listing
+                        </span>                               
+                        &nbsp;
+                        <?php if(isset($listing['PaidOrder'])): $last_order = array_shift($listing['PaidOrder']);?>
+                        <span class="ui-corner-all" title="Most recent order status" style="cursor:default;color:#000;font-weight:bold;font-size:9px;padding:1px;text-align:center;width:80px;border: 1px solid #DFB700; background-color:#FFEB8F;">
+                        <?php echo $last_order['order_status'];?>
+                        </span>                               
+                        <?php else:?>
+                        <span class="ui-corner-all ui-state-default" title="Most recent order status" style="cursor:default;color:#000;font-weight:bold;font-size:9px;padding:1px;text-align:center;width:80px;">
+                        Without Order
+                        </span>                               
+                        <?php endif;?>        
+                    <?php endif;?>
+                    
+                    <?php if(isset($listing['PaidOrder'])):?>
+                    <button onclick="admin_paidlistings.Orders.viewTxnLog({'listing_id':<?php echo $listing_id;?>});" style="float:right;margin-right:5px;" class="ui-button-small ui-state-default ui-corner-all" title="Transaction log" type="button">
+                    <span class="ui-icon ui-icon-cart"></span>
+                    </button>                            
+                    <?php endif;?>
+                    
+			    </td>
+
+			    <td align="left">
+				    <?php $link = "index.php?option=com_jreviews&url=reviews/browse&entry_id={$listing_id}&component=com_content";?>
+				    <a href="<?php echo $link;?>">user: <?php echo (int) $listing['Review']['review_count'];?></a>
+                    &nbsp;&#149;&nbsp;
+				    <a href="<?php echo $link;?>">editor: <?php echo (int) $listing['Review']['editor_review_count'];?></a>
+			    </td>
+			    <td style="text-align:center;" onclick="jQuery.get(s2AjaxUri+'&url=admin_listings/_feature/id:<?php echo $listing_id;?>',function(res){if(res.success){jreviews_admin.tools.toggleIcon('featuredImg_<?php echo $listing_id;?>',res.state,'status_on','status_off');}},'json');">
+				    <a href="javascript:void(0);" id="featuredImg_<?php echo $listing_id;?>"><img src="<?php echo $this->viewImages;?><?php echo ($featured ? 'status_on.png' : 'status_off.png');?>" border="0" alt="<?php echo ($featured ? 'yes' : 'no');?>"></a>
+			    </td>
+			    <?php
+			    if ( $times ) {
+				    ?>
+				    <td style="text-align:center;" onclick="jQuery.get(s2AjaxUri+'&url=admin_listings/_publish/id:<?php echo $listing_id;?>',function(res){if(res.success){jreviews_admin.tools.toggleIcon('pubImg_<?php echo $listing_id;?>',res.state,'status_on','status_off');}},'json');">
+					    <a href="javascript:void(0);" id="pubImg_<?php echo $listing_id;?>" class="jtooltip" title="<?php echo $times; ?>">
+						    <img src="<?php echo $this->viewImages;?><?php echo ($state ? 'status_on.png' : 'status_off.png');?>" border="0" />
+					    </a>
+                        <?php if($publish_down != NULL_DATE && $publish_down <= _CURRENT_SERVER_TIME):?>
+                        <img title="<?php __a("This is an expired listing, if you wish to re-publish it you will need to edit it via the Joomla article manager and change the publish down date.");?>" src="<?php echo $this->viewImages;?>status_expired.png" border="0" />
+                        <?php endif;?>
+				    </td>
+				    <?php
+			    }
+			    ?>
+			    <td style="text-align:center;" onclick="jQuery.get(s2AjaxUri+'&url=admin_listings/_frontpage/id:<?php echo $listing_id;?>',function(res){if(res.success){jreviews_admin.tools.toggleIcon('fpImg_<?php echo $listing_id;?>',res.state,'status_on','status_off');}},'json');">
+				    <a href="javascript:void(0);" id="fpImg_<?php echo $listing_id;?>">
+					    <img src="<?php echo $this->viewImages;?><?php echo ($frontpage ? 'status_on.png' : 'status_off.png');?>" border="0" alt="<?php echo ($frontpage ? 'yes' : 'no');?>">
+				    </a> 
+			    </td>
+			    <td style="text-align:center;" onclick="jreviews_admin.tools.flashRow('content<?php echo $listing_id?>');jreviews_admin.dispatch({'controller':'admin_listings','action':'_changeAccess','type':'json','data':{'data[id]':<?php echo $listing_id;?>},'onComplete':function(res){if(res.access){jQuery('#access_<?php echo $listing_id;?>').html(res.access).css('color',res.color);}}});return false;">
+				    <a href="#" onclick="return false;" id="access_<?php echo $listing_id;?>" <?php echo $color_access;?>><?php echo $view_level;?></a>
+			    </td>
+			    <td style="text-align:left;">
+                    <?php if(isset($listing['Section'])):?><?php echo $listing['Section']['title']; ?> &#187; <?php endif;?><?php echo $listing['Category']['title'];?>
+                </td>
+			    <td align="left" style='white-space:nowrap;'>
+				    <?php echo $author.($listing['User']['email'] != '' ? " <a href=\"mailto:{$listing['User']['email']}\">[email]</a>" : ''); ?>
+			    </td>
+			    <td style="text-align:left;"><?php echo $date; ?></td>
+			    <td style="text-align:left;"><?php echo $listing_id; ?></td>
+			    <td style="text-align:center;">
+                    <button type="button" class="ui-button-small ui-state-default ui-corner-all" onclick="jreviews_admin.listing.del(<?php echo $listing_id;?>);">
+                        <span class="ui-icon ui-icon-trash"></span>
+                    </button>                
+			    </td>
+		    </tr>
+		    <?php
+	    }
+	    ?>
+	    </table>
+	    <input type="hidden" name="act" value="content" />
+	    <input type="hidden" name="boxchecked" value="0" />
+	    <input type="hidden" name="hidemainmenu" value="0" />
+
+
+        <?php if($pagination['total']):?>
+        <!-- PAGINATION BEGINS HERE -->
+        <table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+         <tr>
+	        <td class="jr_pagenav_results"><?php echo sprintf(__t("%1\$s results - showing %2\$s - %3\$s",true), $pagination['total'], ($this->page-1)*$this->limit+1, min($pagination['total'],$this->page*$this->limit));?></td>
+            <?php if($pagination['total'] > $this->limit):?>
+            <td class="jr_pagenav_pages"><?php echo $Paginator->display_pages();?></td>
+	        <?php endif;?>    
+            <td class="jr_pagenav_limitbox"><?php echo $Paginator->display_items_per_page();?></td>
+         </tr>
+        </table>
+        <?php endif;?>
+        <input type="hidden" id="page_number" name="data[page]" value="<?php echo $this->page;?>" />
+        <input type="hidden" id="limit" name="data[limit]" value="<?php echo $this->limit;?>" />
+        <input type="hidden" id="controller" name="controller" value="admin/admin_listings" />
+        <input type="hidden" id="action" name="action" value="index" />
+        <!-- PAGINATION ENDS HERE -->
+
+        <!-- REORDER INPUTS -->
+        <input type="hidden" id="row_id" name="data[row_id]" value="" />		
+        <input type="hidden" id="direction" name="data[direction]" value="" />
+        <!-- REORDER INPUTS -->			
+
+    </form>
+
+</div>        

@@ -1,0 +1,81 @@
+/*
+ *bubble comment start
+ */
+ 
+ .commentForm
+ {
+   border:1px solid #A8B5C2; 
+   padding:5px 5px 4px 5px;  
+}
+
+  .commentOutline{
+  background-color:#FFFFFF;
+}
+
+ .commentBubble{
+  margin: 0px; padding: 0px;
+  background: url(images/bubble.gif) no-repeat bottom left;
+  border:0px;
+}
+.commenter{
+  color: #1d2a4a;
+  font-family: Georgia, "Times New Roman", serif;;
+  font-weight: bold;
+  font-style: normal;
+  font-variant: small-caps;
+  font-size: 12pt;
+}
+
+.commenterRating{
+  color: #1d2a4a;
+  font-family: Georgia, "Times New Roman", serif;;
+  font-weight: bold;
+  font-style: normal;
+  font-variant: small-caps;
+  font-size: 12pt;
+}
+
+
+.roundtop { 
+	background: url(images/tr.gif) no-repeat top right; 
+	background-color: #f90;
+	color: #fff;
+}
+
+.roundbottom {
+	background: url(images/br.gif) no-repeat top right; 
+	background-color: #f90;
+	color: #fff;	
+}
+
+.roundcorner {
+   width: 15px;
+   height: 15px;
+   border: none;
+   display: block !important;
+}
+
+  .prop {
+    float:right;
+    width:1px;
+  }
+
+
+  .min25px {
+    height:25px;
+  }
+  
+  
+
+  div.roundCont{
+
+    color: #ffffff;
+    background-color: #f90;
+    padding:5px 5px 4px 5px;
+    height:1%; /* Fix for MSIE peekaboo bug */
+  }
+  div.roundCont img {
+    float:left;
+    margin-right:5px;
+  }
+  /* bubble comment end*/

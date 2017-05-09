@@ -1,0 +1,45 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2016 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+
+$twentyfourHourFormat = false;
+
+$daysArray = array(
+	1 => __l('Mon',true),
+	2 => __l('Tue',true),
+	3 => __l('Wed',true),
+	4 => __l('Thu',true),
+	5 => __l('Fri',true),
+	6 => __l('Sat',true),
+	7 => __l('Sun',true)
+	);
+
+$data = json_decode($text, true);
+
+if ( (isset($data['periods']) && empty($data['periods'])) || empty($data) ) return;
+
+$periods = isset($data['periods']) ? $data['periods'] : $data;
+
+$timezone = isset($data['timezone']) ? $data['timezone'] : null;
+
+S2App::import('Helper', 'opening_hours', 'jreviews');
+
+$OpeningHours = (new OpeningHours($timezone))->addPeriods($periods);
+
+$days = $OpeningHours
+			->twentyfour($twentyfourHourFormat)
+			->getOrderedPeriods();
+
+$openNowLabel = __t("Open now", true);
+$closedNowLabel = __t("Closed now", true);
+$closedLabel = __t("Closed", true);
+?>
+
+<?php echo $this->renderControllerView('fields_phpformat', 'business_hours_schedule', compact('OpeningHours','days','daysArray','openNowLabel','closedNowLabel','closedLabel'));?>

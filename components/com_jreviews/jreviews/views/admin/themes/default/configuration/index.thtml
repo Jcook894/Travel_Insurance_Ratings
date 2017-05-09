@@ -1,0 +1,115 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<div class="jr-configuration">
+
+	<div class="jrPageHeading"><?php __a("Configuration Settings");?></div>
+
+	<form id="jr-page-form" class="jrForm" action="index.php" method="post">
+
+		<div class="jrPageToolbar jrRoundedPanel">
+
+			<span id="jr-status" class="jrLeft jrStatus"></span>
+
+			<button class="jr-save-settings jrButton jrGreen">
+
+				<span class="jrIconSave"></span><?php __a("Save");?>
+
+			</button>
+
+		</div>
+
+		<div class="jr-tabs jrTabs">
+
+			<ul>
+				<li><a href="#general"><span><?php __a("General");?></span></a></li>
+				<li><a href="#theme"><span><?php __a("Theme & Navigation");?></span></a></li>
+				<li><a href="#cron"><span><?php __a("Cron");?></span></a></li>
+				<li><a href="#community"><span><?php __a("Community");?></span></a></li>
+				<li><a href="#directory"><span><?php __a("Directory");?></span></a></li>
+				<li><a href="#items-list"><span><?php __a("List page");?></span></a></li>
+				<li><a href="#listings"><span><?php __a("Listings");?></span></a></li>
+				<li><a href="#reviews"><span><?php __a("Reviews");?></span></a></li>
+				<li><a href="#forms"><span><?php __a("Standard Fields");?></span></a></li>
+				<li><a href="#search"><span><?php __a("Search");?></span></a></li>
+				<li><a href="#notifications"><span><?php __a("Notifications");?></span></a></li>
+				<li><a href="#rss"><span><?php __a("RSS");?></span></a></li>
+				<li><a href="#cache"><span><?php __a("Cache");?></span></a></li>
+			</ul>
+
+			<!-- GENERAL SETTINGS -->
+
+			<?php echo $this->renderControllerView('configuration', 'general');?>
+
+			<!-- THEME & NAVIGATION -->
+
+			<?php echo $this->renderControllerView('configuration', 'theme-navigation');?>
+
+			<!-- CRON -->
+
+			<?php echo $this->renderControllerView('configuration', 'cron');?>
+
+			<!-- COMMUNITY BUILDING SETTINGS -->
+
+			<?php echo $this->renderControllerView('configuration', 'community');?>
+
+			<!-- DIRECTORY SETTINGS -->
+
+			<?php echo $this->renderControllerView('configuration', 'directory');?>
+
+			<!-- LIST PAGE SETTINGS -->
+
+			<?php echo $this->renderControllerView('configuration', 'list_page');?>
+
+			<!-- LISTINGS SETTINGS -->
+
+			<?php echo $this->renderControllerView('configuration', 'listings');?>
+
+
+			<!-- REVIEWS SETTINGS -->
+
+			<?php echo $this->renderControllerView('configuration', 'reviews');?>
+
+
+			<!-- STANDARD FIELDS SETTINGS -->
+
+			<?php echo $this->renderControllerView('configuration', 'standard_fields');?>
+
+
+			<!-- SEARCH SETTINGS -->
+
+			<?php echo $this->renderControllerView('configuration', 'search');?>
+
+
+			<!-- NOTIFICATIONS SETTINGS -->
+
+			<?php echo $this->renderControllerView('configuration', 'notifications');?>
+
+			<!-- RSS SETTINGS -->
+
+			<?php echo $this->renderControllerView('configuration', 'rss');?>
+
+
+			<!-- CACHE SETTINGS -->
+
+			<?php echo $this->renderControllerView('configuration', 'cache');?>
+
+
+		</div> <!-- end jtabs-->
+
+		<input type="hidden" name="data[controller]" value="admin/configuration" />
+
+		<input type="hidden" name="data[action]" value="_save" />
+
+	</form>
+
+</div>

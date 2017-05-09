@@ -1,0 +1,50 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+//prx($category);
+empty($criteria) and $criteria['text'] = '*No Listings*'; 
+?>
+
+<form name="jr_categoryForm" id="jr_categoryForm" action="" method="" style="width:400px;">
+	<table class="admin_list" border="0" cellpadding="3" cellspacing="0">
+		<tr>
+			<td><strong><?php __a("Title");?>:</strong></td>
+			<td><?php echo $category['Category']['title']; ?></td>
+		</tr>
+		<tr>
+			<td valign="top"><strong><?php __a("Select listing type (required)");?></strong></td>
+			<td>
+				<input type="text" readonly="readonly" name="criteria" class="inputbox" value="<?php echo $criteria['text'];?>" />
+				<input type="hidden" name="data[Category][criteriaid]" value="<?php echo $category['Category']['criteria_id'];?>" />
+			</td>
+		</tr>
+		<tr>
+			<td><strong><?php __a("Select directory (required)");?></strong></td>
+			<td>
+                <?php             
+                echo $Form->select(
+	                'data[Category][dirid]',
+	                array_merge(array(array('value'=>0,'text'=>__a("Select directory",true))),$directories),
+	                $category['Directory']['dir_id'],
+	                array('class'=>"inputbox",'size'=>"1",'id'=>'jr_directorySelect')
+                );													
+                ?>
+			</td>
+		</tr>
+    </table>
+    <input type="hidden" name="data[controller]" value="admin/categories" /> 
+    <input type="hidden" name="data[action]" value="_save" /> 
+	<input type="hidden" name="data[Category][id][]" value="<?php echo $category['Category']['cat_id']; ?>" />
+	<input type="hidden" name="data[cid]" value="<?php echo $sectionid; ?>" />
+	<input type="hidden" name="data[limitstart]" value="<?php echo $this->offset;?>" />
+	<input type="hidden" name="data[limit]" value="<?php echo $this->limit;?>" />
+	<input type="hidden" name="data[sectionid]" value="<?php echo $sectionid;?>" />
+	
+</form>

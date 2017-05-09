@@ -1,0 +1,705 @@
+/*************************************
+RTL styles
+*************************************/
+/* General JReviews styles */
+.jrPage {
+  text-align: right;
+}
+.jrOverallRatings .jrRatingLabel {
+  float: right;
+  margin: 3px 0 0 5px;
+}
+div.jrRatingStarsEditor div {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: fliph;
+  margin-right: 1px;
+}
+div.jrRatingStarsUser div {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: fliph;
+  margin-right: 1px;
+}
+.jrGrid > [class*="jrCol"] {
+  float: right;
+  margin-right: 2.127659574468085%;
+  margin-left: 0;
+}
+.jrGrid > [class*="jrCol"]:first-child {
+  margin-right: 0;
+}
+.jrPagenavLimit {
+  text-align: left;
+}
+@media (max-width: 480px) {
+  .jrGrid > [class*="jrCol"] {
+    margin-right: 0;
+  }
+}
+.jrDataList > * {
+  text-align: right;
+}
+.jrPopup {
+  text-align: right;
+}
+.jrDropdown .jrDropdownMenu {
+  left: auto;
+  right: 0;
+  float: right;
+}
+.jrDropdown .jrDropdownMenu li a {
+  text-align: right;
+}
+[class^="jrIcon"] {
+  margin-right: 0;
+  margin-left: 5px;
+}
+.jrRightAlign {
+  text-align: left;
+}
+.jrRight {
+  float: left;
+}
+.jrLeftAlign {
+  text-align: right;
+}
+.jrLeft {
+  float: right;
+}
+.jrIconRight:before,
+.jrIconNext:before {
+  content: "\e02b";
+}
+.jrIconLeft:before,
+.jrIconPrev:before {
+  content: "\e02c";
+}
+.jrListingDetail .jrAvatar,
+.jrListings .jrAvatar,
+.jrReviewList .jrReviewContainer .jrUserInfo .jrAvatar,
+.jrModuleItems .jrAvatar,
+.jrPopup .jrAvatar {
+  margin: 0 0 0 3px;
+}
+.jrUserInfo img {
+  float: right;
+  margin-right: 0;
+  margin-left: 10px;
+}
+.jrRSS {
+  top: 0;
+  left: 0;
+  right: auto;
+}
+.jrRSS li {
+  background: none;
+}
+.jrTabs.ui-tabs .ui-tabs-nav li {
+  float: right;
+  margin: 1px 0 0 .2em;
+}
+.jrExternalLink:after {
+  margin-left: 0;
+  margin-right: 3px;
+}
+.mfp-title {
+  padding-left: 36px;
+  padding-right: 0;
+  text-align: right;
+}
+.ui-dialog .ui-dialog-title {
+  float: right;
+  margin: .1em 0 .1em 16px;
+}
+.ui-dialog .ui-dialog-titlebar-close {
+  left: .3em;
+  right: auto;
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+  float: left;
+}
+/* Directory page */
+.jrDirview .jrDirectoryColumn {
+  float: right;
+  margin: 0 0 0 3%;
+}
+.jrDirview ul li div.jrListingThumbnail {
+  float: right;
+  margin: 0 0 10px 10px;
+}
+.jrDirview ul li div.jrContentDiv {
+  float: right;
+}
+.jrDirview ul li.jrCatLevel1 {
+  float: right;
+}
+.jrDirview.jrFormatComma ul li.jrCatLevel2 {
+  float: right;
+}
+.jrDirview .jrRSS {
+  float: left;
+}
+/* Listing detail page */
+.jrListingDetail .jrListingButtons {
+  float: right;
+}
+.jrListingDetail .jrOverallRatings {
+  float: right;
+}
+.jrListingDetail .jrListingStatus {
+  float: left;
+}
+.jrListingDetail div.jrListingInfo {
+  float: none;
+}
+.jrPageHeader .contentheading {
+  clear: both;
+}
+.jrPage .jrPathway {
+  float: right;
+  padding: 0 0 0 15px;
+}
+.jrPathway a {
+  background: url(images/breadcrumb-rtl.png) no-repeat center left;
+  padding-right: 0;
+  margin-right: 0;
+  padding-left: 15px;
+  margin-left: 3px;
+  float: right;
+}
+.jrFavoriteButton {
+  display: inline;
+}
+.jrFavoriteWidget {
+  display: inline-block;
+}
+.jrPage .jrManager .jrIcon {
+  right: 0;
+}
+.jrPage .jrManager a {
+  margin: 0 22px 0 2px;
+}
+.jrPage .jrListingMainImage {
+  float: right;
+  margin: 0 0 10px 10px;
+}
+.jrPage .jrListingMainImage.jrMediaLeft {
+  float: left;
+  margin: 0 10px 10px 0;
+}
+.jrPhotoGalleryCompact {
+  float: left;
+  clear: left;
+}
+.jrMediaContainer .jrMediaThumbs {
+  float: right;
+  margin: 6px 0 8px 8px;
+}
+.jrListingDetail .jrCustomFields {
+  clear: none;
+}
+.jrListingWidgets {
+  float: right;
+  margin: 0 0 15px;
+}
+.jrCustomFields .jrFieldGroup .jrFieldLabel {
+  float: right;
+  text-align: right;
+}
+.jrCustomFields .jrFieldGroup .jrFieldValue {
+  margin: 0 120px 0 0;
+}
+.jrCustomFields .jrFieldGroup .jrFieldValue.jrLabelDisabled {
+  margin-right: 0;
+}
+ul.jrFieldValueList li {
+  margin: 0 0 0 5px !important;
+  float: right;
+  display: block;
+}
+ul.jrFieldValueList li:after {
+  content: '\2022';
+  padding: 0 5px 0 0;
+}
+ul.jrFieldValueList li:last-child:after {
+  content: '';
+}
+ul.jrFieldValueList li:last-child:after {
+  content: '';
+}
+@media (max-width: 768px) {
+  .jrListingDetail div.jrListingMainImage {
+    float: right !important;
+    margin-right: 0;
+  }
+  .jrListingDetail div.jrCustomFields {
+    clear: both;
+  }
+}
+.socialBookmarks,
+.socialBookmarksVertical {
+  clear: right;
+  float: right;
+}
+/* Media Pages */
+.jrVideoGallery .jrVideoCurrentInfo a {
+  float: right;
+  margin-right: 0;
+  margin-left: 10px;
+}
+.jrVideoGallery .jrMediaActions .jrMediaLikeDislike {
+  float: right;
+  margin-right: 0;
+  margin-left: 5px;
+}
+.jrVideoGallery .jrMediaActions .jrReport {
+  float: right;
+  margin-left: 0;
+  margin-right: 5px;
+}
+/* Reviews */
+.jrUserReviewsSummary .jrReviewSummarySidebar {
+  margin: 0 15px 15px 20px;
+}
+.jrUserReviewsSummary .jrCol4 {
+  float: right;
+}
+.jrReviewContainer .jrReviewInfo {
+  float: left;
+}
+.jrReviewContainer .jrUserInfo {
+  float: right;
+}
+.jrReviewContainer .jrUserInfo .jrAvatar {
+  float: right;
+  margin: 0 0 10px 10px;
+}
+.jrReviewContainer .jrRatingInfo {
+  float: left;
+  clear: left;
+  margin: 0 10px 10px 0;
+}
+.jrRatingTable .jrCol.jrRatingLabel {
+  padding: 3px 0 2px 5px;
+  text-align: right;
+}
+.jrRatingTable .jrCol.jrRatingValue,
+.jrRatingTable .jrCol.jrRatingCount {
+  padding: 3px 5px 2px 15px;
+  text-align: right;
+}
+.jrReviewContainer .jrReviewContent {
+  clear: right;
+}
+.jrReview .jrLoginBox,
+.jrReviewSummary .jrLoginBox {
+  float: right;
+  clear: right;
+}
+.jrUserReviewsTitle {
+  background-position: right top;
+  padding-left: 0;
+  padding-right: 18px;
+}
+.jrReviewContainer .jrUserInfo img {
+  float: right;
+  margin: 0 0 10px 10px;
+}
+.jrReviewContainer .jrReviewActions .jrReviewComments {
+  float: right;
+  margin-left: 5px;
+}
+.jrReviewContainer .jrReviewVoting {
+  float: left;
+}
+.jrReviewContainer .jrReviewVoting .jrReviewHelpful {
+  margin-left: 10px;
+  float: right;
+}
+.jrReviewContainer .jrReviewVoting .jrHelpfulTitle {
+  float: right;
+}
+.jrReviewContainer .jrLeft,
+.jrReviewSummary .jrLeft,
+.jrReviewForm .jrLeft {
+  float: right;
+}
+.jrReviewContainer .jrRight,
+.jrReviewSummary .jrRight {
+  float: left;
+}
+.jrReviewList div.jrListingInfo {
+  float: right;
+}
+.jrReviewList .jrReviewContainer .jrUserInfo {
+  float: left;
+}
+.jrReviewList .jrReviewActions {
+  left: auto;
+  right: 0;
+}
+/* Discussions */
+.jrDiscussion .jrContentColumn {
+  float: left;
+  margin: 0 20px 20px 0;
+}
+.jrDiscussion .jrListingThumbnail {
+  float: none;
+}
+.jrDiscussion .jrReviewColumn .jrReviewContainer .jrUserInfo {
+  float: right;
+}
+.jrDiscussion .jrReviewSummarySidebar {
+  margin: 0 20px 15px 0;
+}
+.jrDiscussion .jrReviewComments .jrUserInfo {
+  float: left;
+}
+.jrDiscussion .jrReviewComments .jrUserInfo .jrAvatar {
+  float: left;
+  margin: 0 10px 10px 0;
+}
+/* Forms */
+.jrForm {
+  text-align: right;
+}
+.jrForm legend {
+  left: auto;
+  right: 0;
+}
+.jrForm .jrFieldBefore {
+  float: left;
+}
+.jrForm .jrFieldDiv .jrLeft {
+  margin-right: 5px;
+}
+.jrForm .jrFieldDiv .jrFieldOption {
+  float: right;
+  margin: 0 0 0 20px;
+}
+.jrForm input,
+.jrForm select option {
+  padding-right: 0;
+}
+.jrForm input[type="text"],
+.jrForm input[type="email"],
+.jrForm input[type="url"],
+.jrForm input[type="number"],
+.jrForm input[type="password"],
+.jrForm select option {
+  padding: 3px 2px 3px 10px;
+  margin: 0 0 0 5px;
+}
+.jrForm .jrSelect,
+.jrForm .jrSelectMultiple {
+  margin-right: 0;
+  margin-left: 5px;
+}
+.jrForm .jrSelectMultiple[data-click2add='1'] {
+  float: right !important;
+}
+.jrAutoSuggest {
+  float: right !important;
+}
+.ui-helper-hidden-accessible {
+  right: 7em;
+  left: auto;
+}
+.jrForm fieldset {
+  padding: 10px 12px 3px 10px;
+}
+.jrForm label [class^="jrIcon"],
+.jrForm legend [class^="jrIcon"],
+.jrForm .jrRatingCriteria .jrIconRequired {
+  margin: 0 5px 0 0;
+}
+.jrForm .ui-stars-star,
+.jrForm .ui-stars-cancel {
+  float: right;
+  text-indent: 999em;
+}
+.jrForm .ui-stars-star:first-child {
+  margin-right: 17px !important;
+  margin-left: 0 !important;
+}
+.jrMediaForm .jrMediaLimits ul li {
+  float: right;
+}
+/* Filters */
+.jrFilterFieldWrap {
+  margin: 0 0 0 20px;
+}
+.jrFilterFieldWrap.jrFilterSlideout:before {
+  right: auto;
+  left: 5px;
+}
+.jrGeosearchFilter .jr-geolocation {
+  right: auto;
+  left: 40px;
+}
+.jrFilterFieldWrap .jrApplyFilter {
+  right: auto;
+  left: 0;
+}
+.jrFilterContainer.jrLinkBoxedFilter {
+  margin-right: 2px;
+}
+.jrListFiltersButton {
+  float: left;
+}
+.jrFiltersPanel {
+  left: auto;
+  right: 0;
+  padding: 0 10px 20px 0;
+}
+.jrFiltersPanel .jrFiltersPanelclose {
+  right: auto;
+  left: 5px;
+}
+/* List pages */
+.jrPagenavLimit .jrOrdering {
+  text-align: left;
+}
+.jrPagenavResults {
+  text-align: right;
+}
+.jrAddListing.jrButton {
+  float: left;
+  background-position: right center;
+}
+.jrPageDescription img {
+  float: right;
+}
+/* Blogview */
+.jrBlogview .jrResults .jrOverallRatings {
+  float: none;
+}
+.jrBlogview .jrResults .jrOverallEditor,
+.jrBlogview .jrResults .jrOverallUser {
+  float: right;
+  margin: 0 0 0 10px;
+}
+.jrBlogview .jrResults .jrListingActions {
+  left: auto;
+  right: 3px;
+}
+.jrBlogview .jrResults .jrAvatar {
+  margin-left: 5px;
+}
+div.jrBlogview div.jrListingThumbnail {
+  clear: right;
+  float: right;
+}
+/* Thumbview */
+[class*="jrListColumn"] .jrListItem,
+.jrListColumn4 .jrListItem {
+  float: right;
+  margin: 0 0 1.428571429% 1.428571429%;
+}
+/* Masonry */
+.jrMasonry .jrResults .jrListItem {
+  float: right;
+}
+/* Tableview */
+.jrTableview.jrListings .jrContentTitle,
+.jrTableview.jrListings .jrContentTitle a {
+  text-align: right;
+}
+.jrTableview .jrResults .jrListingInfo {
+  text-align: right;
+}
+.jrTableview .jrListingSummary {
+  text-align: right;
+}
+.jrTableview .jrResults .jrListingActions {
+  left: auto;
+  right: 3px;
+  text-align: right;
+}
+.jrTableview .jrCustomFields .jrFieldGroup .jrFieldValue {
+  text-align: right;
+}
+/* Comparison */
+.jrCompareTabs .ui-tabs-panel .jrCompareScroll {
+  direction: ltr;
+}
+.jrCompareview div.jrComparisonHeader {
+  float: right;
+  text-align: right;
+}
+.jrCompareview .jrCompareHeader {
+  float: right;
+  text-align: right;
+}
+.jrCompareDashboard .jrCompareButtons {
+  right: auto;
+  left: 0;
+}
+/* Modules */
+.jrModuleItems .jrModuleItem * {
+  direction: rtl;
+}
+.jrModuleItems .jrModuleItem {
+  float: right;
+  padding-right: 0 !important;
+  padding-left: 1.428571429%;
+}
+.jrModuleItems .jrModuleItem.jrLastItem {
+  padding-left: 0px !important;
+}
+.jrModuleItems .jrModuleItemThumbnail {
+  float: right;
+  margin: 0 0 10px 10px;
+}
+.jrModuleItems .jrModuleItemNumber {
+  float: right;
+}
+.jrModuleItems .jrModuleItemContent {
+  text-align: right;
+}
+.jrOverallRatings .jrRatingStars,
+.jrOverallRatings .jrRatingValue {
+  float: right;
+}
+.bx-wrapper .bx-pager.bx-default-pager a,
+.bx-wrapper .bx-controls-direction a {
+  text-indent: 9999px;
+}
+.bx-wrapper .bx-pager {
+  direction: rtl;
+  overflow: hidden;
+}
+.bx-wrapper .bx-controls-direction a.bx-prev {
+  left: auto;
+  right: 0;
+}
+.bx-wrapper .bx-controls-direction a.bx-next {
+  left: auto;
+  right: 25px;
+}
+.jrModuleItems .jrVerticalLayout .jrModuleItemThumbnail {
+  margin: 0 0 5px 5px;
+}
+.jrModuleItems .jrSlideshowLayout .jrOverallRatings {
+  right: auto;
+  left: 0;
+}
+.jrModuleItems .jrSlideshowLayout .jrModuleItemContent {
+  text-align: center;
+}
+.jrModuleItems .jrSlideshowLayout .jrOverallRatings .jrOverallEditor,
+.jrModuleItems .jrSlideshowLayout .jrOverallRatings .jrOverallUser {
+  float: left;
+  margin-right: 10px;
+  margin-left: 0;
+}
+.jr-directory-tree.treeview {
+  direction: ltr;
+  float: right;
+}
+.jr-directory-tree.treeview:before,
+.jr-directory-tree.treeview:after {
+  content: " ";
+  display: table;
+}
+.jr-directory-tree.treeview:after {
+  clear: both;
+}
+.jrFieldsModule ul {
+  padding: 0;
+  text-align: right;
+}
+.jrFieldsModule.jrTagsLayout ul {
+  text-align: right;
+}
+.jrAdvSearchSuggest {
+  right: auto;
+}
+.jrAdvSearchSuggest .jrCloseLiveResults {
+  right: auto;
+  left: 2px;
+}
+.jrAdvSearchSuggest .jrModuleItem {
+  float: right;
+}
+.jrAdvSearchSuggest .jrModuleItem .jrModuleItemThumbnail {
+  float: right;
+  margin-left: 5px;
+  margin-right: 0;
+}
+.jrAdvSearchSuggest .jrModuleItem .jrModuleItemContent {
+  text-align: right;
+  padding-right: 0;
+  padding-left: 15px;
+}
+.jrModuleItems .jrModuleItemOverlay.jrMediaTypeIcon:before {
+  right: auto;
+  left: 2px;
+}
+.jrModuleItems .jrMediaTypeVideo .jrModuleItemOverlay:after {
+  right: auto;
+  left: 0;
+}
+/* PaidListings Add-on */
+#jrSellerInfo {
+  float: right;
+}
+#jrSeller #jrLogo {
+  float: left;
+  text-align: left;
+}
+#jrCustomerInfo {
+  float: right;
+}
+table#jrInvoiceData {
+  float: left;
+}
+table#jrInvoiceItems {
+  width: 100%;
+}
+table#jrInvoiceItems td {
+  text-align: right;
+}
+table#jrInvoiceItems td.jrInvoiceTotal {
+  text-align: left;
+}
+/* GeoMaps Add-on */
+.jrMapColumn {
+  left: 0;
+  right: auto;
+  float: left;
+}
+.jrListingColumn {
+  float: right;
+  width: 100%;
+}
+.jrDirectionsAddress .jrCol9,
+.jrDirectionsAddress .jrCol3 {
+  float: right;
+}
+.jrDirectionsAddress .jrCol3 {
+  margin-left: 0 !important;
+  margin-right: 2.127659574468085% !important;
+  text-align: left;
+}
+.jrInputButtonRow .jrInputButton {
+  left: 3px;
+  right: auto;
+}
+.jrMapResultsLinks {
+  text-align: left;
+}
+.jrInfowindow .jrMapListing {
+  text-align: right;
+}
+.jrInfowindow .jrMapListing .jrOverallRatings .jrOverallEditor,
+.jrInfowindow .jrMapListing .jrOverallRatings .jrOverallUser {
+  display: inline-block;
+  float: none;
+  margin: 0 0 0 5px;
+}
+/* UserProfiles Add-on */
+.userprofiles-page .contentheading {
+  clear: both;
+}

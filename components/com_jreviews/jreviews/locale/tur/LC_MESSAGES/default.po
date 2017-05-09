@@ -1,0 +1,2760 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JReviews 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-16 07:43-0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: ClickFWD <support@reviewsforjoomla.com>\n"
+"Language-Team: ClickFWD\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Turkish\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: f:\\components\\\n"
+"X-Poedit-KeywordsList: __t;__n:1,2\n"
+"X-Poedit-Country: TURKEY\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: com_jreviews\\jreviews\\views\n"
+"X-Poedit-SearchPath-1: com_jreviews\\jreviews\\controllers\n"
+"X-Poedit-SearchPath-2: com_jreviews\\jreviews\\models\n"
+"X-Poedit-SearchPath-3: com_jreviews\\jreviews\\locale\n"
+"X-Poedit-SearchPath-4: com_s2framework\\s2framework\\libs\\view\n"
+"X-Poedit-SearchPath-5: com_jreviews\\jreviews\\plugins\n"
+"X-Poedit-SearchPath-6: com_jreviews\\jreviews\\cms_compat\n"
+
+#: com_jreviews\jreviews\views/admin/helpers/paginator.php:141
+#: com_jreviews\jreviews\views/admin/helpers/paginator.php:145
+#: com_jreviews\jreviews\views/helpers/paginator.php:207
+#: com_jreviews\jreviews\views/helpers/paginator.php:211
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: com_jreviews\jreviews\views/admin/helpers/paginator.php:203
+#: com_jreviews\jreviews\views/helpers/paginator.php:234
+#, php-format
+msgid "Go to page %s"
+msgstr "%s sayfasına Git"
+
+#: com_jreviews\jreviews\views/admin/helpers/paginator.php:207
+#: com_jreviews\jreviews\views/helpers/paginator.php:238
+#, php-format
+msgid "Go to page %s of %s"
+msgstr "%s  %s sayfasına git "
+
+#: com_jreviews\jreviews\views/admin/helpers/paginator.php:223
+#: com_jreviews\jreviews\views/admin/helpers/paginator.php:227
+#: com_jreviews\jreviews\views/helpers/paginator.php:250
+#: com_jreviews\jreviews\views/helpers/paginator.php:254
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: com_jreviews\jreviews\views/admin/helpers/paginator.php:289
+#: com_jreviews\jreviews\views/helpers/paginator.php:307
+msgid "Results per page"
+msgstr "Sayfa Başına Girdi"
+
+#: com_jreviews\jreviews\views/helpers/assets.php:66
+msgid "jquery.framework"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/community.php:106
+msgid "Guest"
+msgstr "Ziyaretçi"
+
+#: com_jreviews\jreviews\views/helpers/community.php:211
+msgid "Tweet"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/community.php:216
+msgid "Twitter"
+msgstr "Twitter"
+
+#: com_jreviews\jreviews\views/helpers/community.php:237
+msgid "Facebook"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/community.php:249
+msgid "Google+"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/community.php:264
+msgid "LinkedIn"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/community.php:282
+msgid "Pinterest"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/community.php:302
+msgid "Reddit"
+msgstr "Reddit"
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:1273
+msgid "Add"
+msgstr "Ekle"
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:1280
+msgid "Submit"
+msgstr "Gönder"
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:1346
+msgid "between"
+msgstr "arasında"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:19
+msgid "Featured"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:20
+msgid "Title"
+msgstr "Başlık"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:21
+#: com_jreviews\jreviews\views/helpers/jreviews.php:142
+#: com_jreviews\jreviews\views/helpers/jreviews.php:199
+msgid "Most recent"
+msgstr "En Yeni"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:22
+#: com_jreviews\jreviews\views/helpers/jreviews.php:143
+#: com_jreviews\jreviews\views/helpers/jreviews.php:198
+#: com_jreviews\jreviews\views/helpers/media.php:29
+msgid "Oldest"
+msgstr "En Eski"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:23
+#: com_jreviews\jreviews\views/helpers/jreviews.php:144
+msgid "Last updated"
+msgstr "Son Güncellenenler"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:24
+msgid "Most popular"
+msgstr "Çok Okunanlar"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:25
+#: com_jreviews\jreviews\views/helpers/jreviews.php:145
+msgid "Highest user rating"
+msgstr "En Beğenilenler"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:26
+#: com_jreviews\jreviews\views/helpers/jreviews.php:146
+msgid "Lowest user rating"
+msgstr "Beğenilmeyenler"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:27
+msgid "Highest editor rating"
+msgstr "En yüksek editör beğenisi alanlar"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:28
+msgid "Lowest editor rating"
+msgstr "En düşük editor beğenisi alanlar"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:29
+msgid "Most reviews"
+msgstr "En Çok Yorumlananlar"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:30
+msgid "Author"
+msgstr "Yazar"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:68
+msgid "Distance"
+msgstr "Uzaklık"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:97
+#: com_jreviews\jreviews\views/helpers/jreviews.php:180
+#, php-format
+msgid "Best %s"
+msgstr "En iyi %s"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:107
+#, php-format
+msgid "Best %s (Editor rated)"
+msgstr "En iyi %s (site yönetimine göre)"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:121
+msgid "ASC"
+msgstr "ARTAN"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:123
+msgid "DESC"
+msgstr "AZALAN"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:147
+msgid "Most helpful"
+msgstr "En Çok Yararlı"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:148
+msgid "Least helpful"
+msgstr "En Az Yararlı"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:149
+msgid "Most discussed"
+msgstr "En Çok Konuşulan"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:308
+msgid "#1 Reviewer"
+msgstr "#1 yorumlayan"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:309
+msgid "Top 10 Reviewer"
+msgstr "İlk 10 Yorumlayan Arasında"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:310
+msgid "Top 50 Reviewer"
+msgstr "İlk 50 Yorumlayan Arasında"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:311
+msgid "Top 100 Reviewer"
+msgstr "İlk 100 Yorumlayan Arasında"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:312
+msgid "Top 500 Reviewer"
+msgstr "İlk 500 Yorumlayan Arasında"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:313
+msgid "Top 1000 Reviewer"
+msgstr "İlk 1000 Yorumlayan Arasında"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:395
+msgid "Views"
+msgstr "Bakılma sayısı"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:401
+msgid "Video count"
+msgstr "Video sayısı"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:407
+msgid "Photo count"
+msgstr "Resim sayısı"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:413
+msgid "Audio count"
+msgstr "Ses Kaydı sayısı"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:419
+msgid "Attachment count"
+msgstr "Ek sayısı"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:425
+msgid "Favorite count"
+msgstr "Beğenenlerin sayısı"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:463
+msgid "Pending Moderation"
+msgstr "Onay Bekliyor"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:465
+msgid "Expired"
+msgstr "Süresi Doldu"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:477
+msgid "New"
+msgstr "Yeni"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:483
+msgid "Hot"
+msgstr "Popüler"
+
+#: com_jreviews\jreviews\views/helpers/media.php:28
+msgid "Newest"
+msgstr "En Yeniler"
+
+#: com_jreviews\jreviews\views/helpers/media.php:30
+msgid "Most Popular"
+msgstr "En Popülerler"
+
+#: com_jreviews\jreviews\views/helpers/media.php:31
+msgid "Most Liked"
+msgstr "En Beğenilenler"
+
+#: com_jreviews\jreviews\views/helpers/media.php:32
+msgid "Ordering"
+msgstr "Sıralama"
+
+#: com_jreviews\jreviews\views/helpers/media.php:534
+msgid "All"
+msgstr "Hepsi"
+
+#: com_jreviews\jreviews\views/helpers/media.php:535
+msgid "Video"
+msgstr "Video"
+
+#: com_jreviews\jreviews\views/helpers/media.php:536
+msgid "Photo"
+msgstr "Fotoğraf"
+
+#: com_jreviews\jreviews\views/helpers/media.php:537
+msgid "Attachment"
+msgstr "Doküman"
+
+#: com_jreviews\jreviews\views/helpers/media.php:538
+msgid "Audio"
+msgstr "Ses Kaydı"
+
+#: com_jreviews\jreviews\views/helpers/media.php:595
+msgid "I like this"
+msgstr "Beğendim"
+
+#: com_jreviews\jreviews\views/helpers/media.php:601
+msgid "I dislike this"
+msgstr "Beğenmedim"
+
+#: com_jreviews\jreviews\views/helpers/media.php:611
+msgid "Report as inappropriate"
+msgstr "Uygunsuz olarak bildirin"
+
+#: com_jreviews\jreviews\views/helpers/media.php:765
+msgid "no upload limit"
+msgstr "yükleme limiti yok"
+
+#: com_jreviews\jreviews\views/helpers/media.php:770
+#, php-format
+msgid "upload limit reached (%s)"
+msgstr "yükleme limitine ulaşıldı (%s)"
+
+#: com_jreviews\jreviews\views/helpers/media.php:774
+#, php-format
+msgid "%1$s remaining out of %2$s"
+msgstr "%1$ kalan sayısı, toplam sayı %2$s"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:45
+msgid "No rating"
+msgstr "Zorunlu değil"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:77
+msgid "Select Rating"
+msgstr "Yorum seçiniz"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:85
+#, php-format
+msgid "%s and up"
+msgstr "ve yükseği"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:155
+#: com_jreviews\jreviews\views/helpers/rating.php:157
+msgid "Editor rating"
+msgstr "Editör puanı"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:188
+#: com_jreviews\jreviews\views/helpers/rating.php:204
+#: com_jreviews\jreviews\views/helpers/rating.php:232
+msgid "User rating"
+msgstr "Ziyaretçi Puanı"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:414
+#: com_jreviews\jreviews\views/helpers/rating.php:610
+#: com_jreviews\jreviews\views/helpers/rating.php:622
+msgid "Overall rating"
+msgstr "Genel Puan"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:491
+#, php-format
+msgid "%s star"
+msgid_plural "%s stars"
+msgstr[0] ""
+msgstr[1] ""
+
+#: com_jreviews\jreviews\views/helpers/rating.php:632
+msgid "Not rated"
+msgstr "Puanlandırılmamış"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:632
+msgid "N/A"
+msgstr "Zorunlu değil"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:31
+#: com_jreviews\jreviews\views/helpers/widgets.php:689
+msgid "Add Media"
+msgstr "Görsel Ekle"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:45
+#: com_jreviews\jreviews\views/helpers/widgets.php:1228
+#, php-format
+msgid "Comments (%s)"
+msgstr "Yorumlar (%s)"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:93
+msgid "Claim this listing"
+msgstr "Üye bilgileri hatalı"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:141
+msgid "Compare"
+msgstr "Karşılaştır"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:168
+msgid "Download"
+msgstr "İndir"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:203
+msgid "LANG_LISTING_SEND_INQUIRY"
+msgstr "Sorgulama Başlat"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:260
+msgid "Reply to this review"
+msgstr "Bu yoruma cevap yaz"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:260
+msgid "Reply to this comment"
+msgstr "Bu yorumu yanıtla"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:284
+msgid "Delete Reply"
+msgstr "Yanıtı Sil"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:305
+#: com_jreviews\jreviews\views/helpers/widgets.php:580
+#: com_jreviews\jreviews\views/helpers/widgets.php:979
+msgid "Edit"
+msgstr "Değiştir"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:330
+#: com_jreviews\jreviews\views/helpers/widgets.php:338
+msgid "Report this comment"
+msgstr "Bu Yorumu Şikayet Et"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:338
+msgid "Report this review"
+msgstr "Bu Yorumu Şikayet Et"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:387
+msgid "Was this review helpful to you?"
+msgstr "Bu yorumu beğendiniz mi?"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:564
+#: com_jreviews\jreviews\views/helpers/widgets.php:650
+#: com_jreviews\jreviews\views/helpers/widgets.php:945
+msgid "Manage"
+msgstr "Düzenle"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:596
+#: com_jreviews\jreviews\views/helpers/widgets.php:778
+#: com_jreviews\jreviews\views/helpers/widgets.php:994
+msgid "Delete"
+msgstr "Sil"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:708
+msgid "Edit Media"
+msgstr "Görselleri Düzenle"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:731
+#: com_jreviews\jreviews\views/helpers/widgets.php:842
+#: com_jreviews\jreviews\views/helpers/widgets.php:963
+msgid "Published"
+msgstr "Yayından Kaldır"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:731
+#: com_jreviews\jreviews\views/helpers/widgets.php:842
+#: com_jreviews\jreviews\views/helpers/widgets.php:963
+msgid "Unpublished"
+msgstr "Yayınla"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:755
+msgid "Not featured"
+msgstr "Normal üye"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:1040
+msgid "Main Media"
+msgstr "Sağ üst köşe resmi yap"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:1198
+msgid "Read more"
+msgstr "Devamı"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:1214
+msgid "Read reviews"
+msgstr "Yorumları Oku"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:1242
+msgid "Write review"
+msgstr "Yorum yaz"
+
+#: com_jreviews\jreviews\controllers/categories_controller.php:58
+#: com_jreviews\jreviews\controllers/categories_controller.php:232
+#: com_jreviews\jreviews\controllers/categories_controller.php:1141
+msgid "Page not found"
+msgstr "Sayfa bulunamadı"
+
+#: com_jreviews\jreviews\controllers/com_content_controller.php:190
+msgid "content.prepare"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/cron_controller.php:43
+msgid "Cron ran successfully."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/components/advanced_search_theme.php:222
+msgid "Keywords"
+msgstr "Anahtar Kelimeler"
+
+#: com_jreviews\jreviews\controllers/components/advanced_search_theme.php:316
+msgid "Category"
+msgstr "Kategori"
+
+#: com_jreviews\jreviews\controllers/components/advanced_search_theme.php:364
+msgid "User Rating"
+msgstr "Ziyaretçi yorumları"
+
+#: com_jreviews\jreviews\controllers/components/advanced_search_theme.php:382
+msgid "Editor Rating"
+msgstr "Editör yorumları"
+
+#: com_jreviews\jreviews\controllers/modules/module_listings_controller.php:47
+msgid "Miles"
+msgstr "Mil"
+
+#: com_jreviews\jreviews\controllers/modules/module_listings_controller.php:47
+msgid "Km"
+msgstr "Km"
+
+#: com_jreviews\jreviews\models/field.php:2549
+#, php-format
+msgid "Please enter a valid value for %s."
+msgstr "%s için uygun bir data tipi girmelisiniz."
+
+#: com_jreviews\jreviews\models/field.php:2654
+#, php-format
+msgid "You can only select %d option for %s"
+msgid_plural "You can only select %d options for %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: com_jreviews\jreviews\locale/locale.php:14
+#: com_jreviews\jreviews\locale/locale.php:148
+msgid "You don't have enough access to perform this action."
+msgstr "Bu işlemi yapmaya yetkili değilsiniz."
+
+#: com_jreviews\jreviews\locale/locale.php:17
+#: com_jreviews\jreviews\locale/locale.php:40
+#: com_jreviews\jreviews\locale/locale.php:185
+msgid "Select Category"
+msgstr "Kategori seç"
+
+#: com_jreviews\jreviews\locale/locale.php:18
+#, php-format
+msgid "User Reviews: %s"
+msgstr "Kullanıcı Yorumları: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:19
+#, php-format
+msgid "Editor Reviews: %s"
+msgstr "Editor Yorumları: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:20
+#, php-format
+msgid "Media for %s"
+msgstr "%s için görseller"
+
+#: com_jreviews\jreviews\locale/locale.php:23
+#, php-format
+msgid "Listings by %s"
+msgstr "%s tarafından yazılan üyeler"
+
+#: com_jreviews\jreviews\locale/locale.php:24
+#, php-format
+msgid "ordered by %s"
+msgstr "%s başlıklı alana göre sırala"
+
+#: com_jreviews\jreviews\locale/locale.php:25
+#, php-format
+msgid "ordered by %s desc"
+msgstr "%s başlıklı alana göre sırala - AZALAN"
+
+#: com_jreviews\jreviews\locale/locale.php:26
+#, php-format
+msgid "Favorites by %s"
+msgstr "%s tarafından Beğenilenler"
+
+#: com_jreviews\jreviews\locale/locale.php:29
+#: com_jreviews\jreviews\locale/locale.php:228
+#, php-format
+msgid "Reviews written by %s"
+msgstr "%s tarafından yazılan yorumlar."
+
+#: com_jreviews\jreviews\locale/locale.php:30
+#, php-format
+msgid "Review for %s, %s"
+msgstr "%s için yazılmış yorumlar, %s"
+
+#: com_jreviews\jreviews\locale/locale.php:33
+#: com_jreviews\jreviews\locale/locale.php:262
+msgid "Remove from favorites"
+msgstr "Beğeni Listemden Çıkar"
+
+#: com_jreviews\jreviews\locale/locale.php:34
+#: com_jreviews\jreviews\locale/locale.php:263
+msgid "Add to favorites"
+msgstr "Beğeni listeme ekle"
+
+#: com_jreviews\jreviews\locale/locale.php:35
+msgid "Other users interested in {title}"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:38
+msgid "Search ANY selected option"
+msgstr "Seçilenlerden herhangi birisini ara"
+
+#: com_jreviews\jreviews\locale/locale.php:39
+msgid "Search ALL selected options"
+msgstr "Seçilenlerin hepsini ara"
+
+#: com_jreviews\jreviews\locale/locale.php:41
+msgid "Select Listing Type"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:42
+msgid "Select"
+msgstr "Seçin"
+
+#: com_jreviews\jreviews\locale/locale.php:45
+msgid "No listings selected for comparison."
+msgstr "Karşılaştırma için üye seçimi yapılmadı."
+
+#: com_jreviews\jreviews\locale/locale.php:46
+#, php-format
+msgid "%s Comparison"
+msgstr "%s karşılaştırması"
+
+#: com_jreviews\jreviews\locale/locale.php:47
+msgid "Only listings with the same listing type can be compared. One or more of the listing ids in the menu has a different listing type."
+msgstr "Sadece aynı kategorideki üyeleri karşılaştırabilirsiniz. Seçtiğiniz üyelerden en az birisi farklı kategoriden."
+
+#: com_jreviews\jreviews\locale/locale.php:50
+#, php-format
+msgid "Media by %s"
+msgstr "%s'in görselleri"
+
+#: com_jreviews\jreviews\locale/locale.php:51
+#, php-format
+msgid "Photos by %s"
+msgstr "%s'in fotoğrafları"
+
+#: com_jreviews\jreviews\locale/locale.php:52
+#, php-format
+msgid "Videos by %s"
+msgstr "%s'in videoları"
+
+#: com_jreviews\jreviews\locale/locale.php:53
+#, php-format
+msgid "Audio by %s"
+msgstr "%s'in ses kayıtları"
+
+#: com_jreviews\jreviews\locale/locale.php:54
+#, php-format
+msgid "Attachments by %s"
+msgstr "%s'in dosyaları"
+
+#: com_jreviews\jreviews\locale/locale.php:55
+#, php-format
+msgid "Photos for %s"
+msgstr "%s'in fotoğrafları"
+
+#: com_jreviews\jreviews\locale/locale.php:56
+#, php-format
+msgid "Video for %s"
+msgstr "%s'in videoları"
+
+#: com_jreviews\jreviews\locale/locale.php:57
+#, php-format
+msgid "Listing photos for %s"
+msgstr "%s fotoğrafları"
+
+#: com_jreviews\jreviews\locale/locale.php:58
+#, php-format
+msgid "User photos for %s"
+msgstr "Üye fotoğrafları"
+
+#: com_jreviews\jreviews\locale/locale.php:59
+#, php-format
+msgid "Reviewer photos for %s"
+msgstr "Yorumcu fotoğrafları"
+
+#: com_jreviews\jreviews\locale/locale.php:60
+msgid "photos"
+msgstr "fotoğraflar"
+
+#: com_jreviews\jreviews\locale/locale.php:61
+msgid "videos"
+msgstr "videolar"
+
+#: com_jreviews\jreviews\locale/locale.php:62
+msgid "attachments"
+msgstr "dosyalar"
+
+#: com_jreviews\jreviews\locale/locale.php:63
+msgid "audio"
+msgstr "ses kaydı"
+
+#: com_jreviews\jreviews\locale/locale.php:64
+msgid "this type of file"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:67
+msgid "Username is valid"
+msgstr "Kullanıcı ismi geçerli"
+
+#: com_jreviews\jreviews\locale/locale.php:68
+msgid "Username is invalid"
+msgstr "Kullanıcı ismi geçerli değil"
+
+#: com_jreviews\jreviews\locale/locale.php:70
+msgid "E-mail is valid"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:71
+msgid "E-mail is invalid"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:74
+msgid "We finished processing your upload"
+msgstr "Yükleme işleminiz sona ermiştir"
+
+#: com_jreviews\jreviews\locale/locale.php:75
+#, php-format
+msgid "New listing %s"
+msgstr "Yeni Üye %s"
+
+#: com_jreviews\jreviews\locale/locale.php:76
+#, php-format
+msgid "Edited listing %s"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:77
+#, php-format
+msgid "New review for %s"
+msgstr "Yeni yorum: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:78
+#, php-format
+msgid "Edited review for %s"
+msgstr "Yorum güncellendi: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:79
+#, php-format
+msgid "Owner review reply submitted for listing %s"
+msgstr "Owner review reply submitted for listing %s"
+
+#: com_jreviews\jreviews\locale/locale.php:80
+#, php-format
+msgid "A new %s report has been submitted"
+msgstr "A new %s report has been submitted"
+
+#: com_jreviews\jreviews\locale/locale.php:81
+#, php-format
+msgid "New comment for review: %s"
+msgstr "Yeni değerlendirilen yorum: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:82
+#, php-format
+msgid "Edited comment for review: %s"
+msgstr "Değerlendirmesi değiştirilen yorum: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:83
+#, php-format
+msgid "Listing claim submitted for %s"
+msgstr "Listing claim submitted for %s"
+
+#: com_jreviews\jreviews\locale/locale.php:86
+#, php-format
+msgid "New inquiry for: %s"
+msgstr "New inquiry for: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:87
+#, php-format
+msgid "From: %s"
+msgstr "From: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:88
+#, php-format
+msgid "Email: %s"
+msgstr "Email: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:89
+#, php-format
+msgid "Phone number: %s"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:90
+#, php-format
+msgid "Listing: %s"
+msgstr "Üye: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:91
+#, php-format
+msgid "Listing link: %s"
+msgstr "Listing link: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:94
+#, php-format
+msgid "submitted a new listing titled %s"
+msgstr "%s başlıklı yeni birüye ekledi"
+
+#: com_jreviews\jreviews\locale/locale.php:95
+#, php-format
+msgid "wrote a review for %s"
+msgstr "%s başlıklı üye için yeni bir yorum yazdı."
+
+#: com_jreviews\jreviews\locale/locale.php:96
+msgid "posted a new comment"
+msgstr "Yeni Bir Yorum Yazdı"
+
+#: com_jreviews\jreviews\locale/locale.php:97
+#, php-format
+msgid "liked this review for %s"
+msgstr "%s başlıklı üye için yazılan yorumu beğendi"
+
+#: com_jreviews\jreviews\locale/locale.php:98
+msgid "Website"
+msgstr "Site"
+
+#: com_jreviews\jreviews\locale/locale.php:99
+msgid "Rating"
+msgstr "Puan"
+
+#: com_jreviews\jreviews\locale/locale.php:101
+msgid "Read review"
+msgstr "Yorumu Okumak İçin"
+
+#: com_jreviews\jreviews\locale/locale.php:102
+#, php-format
+msgid "%s stars"
+msgstr "%s Yıldız"
+
+#: com_jreviews\jreviews\locale/locale.php:104
+#: com_jreviews\jreviews\locale/locale.php:157
+msgid "Please verify you are not a robot."
+msgstr "Güvenlik kodunu girmelisiniz."
+
+#: com_jreviews\jreviews\locale/locale.php:105
+#: com_jreviews\jreviews\locale/locale.php:158
+msgid "The security code you entered was invalid."
+msgstr "Girdiğiniz güvenlik kodu yanlış."
+
+#: com_jreviews\jreviews\locale/locale.php:111
+msgid "LANG_LISTING_EDIT"
+msgstr "Üye Bilgilerini Düzenle"
+
+#: com_jreviews\jreviews\locale/locale.php:112
+msgid "LANG_LISTING_FEATURED"
+msgstr "Özellik"
+
+#: com_jreviews\jreviews\locale/locale.php:116
+msgid "LANG_REVIEW_WRITE_DETAIL"
+msgstr "Yorum yaz"
+
+#: com_jreviews\jreviews\locale/locale.php:117
+msgid "LANG_REVIEW_ADD_DETAIL"
+msgstr "Yeni Yorum Ekle"
+
+#: com_jreviews\jreviews\locale/locale.php:118
+msgid "LANG_REVIEW_ADD_COMMENT_DETAIL"
+msgstr "Yeni Yorum Ekle"
+
+#: com_jreviews\jreviews\locale/locale.php:119
+msgid "LANG_REVIEW_USER_REVIEWS_NOT_FOUND"
+msgstr "Bu tanıtım için henüz üye yorumu yok"
+
+#: com_jreviews\jreviews\locale/locale.php:120
+msgid "LANG_REVIEW_USER_COMMENTS_NOT_FOUND"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:124
+msgid "LANG_LISTING_CREATE"
+msgstr "Yeni Üye Gir"
+
+#: com_jreviews\jreviews\locale/locale.php:125
+msgid "LANG_LISTING_FORM_TITLE"
+msgstr "Üye ismi (Doktorlar lütfen ünvanlarını da yazsınlar. Ör.: Dr. Ahmet Mehmet)"
+
+#: com_jreviews\jreviews\locale/locale.php:126
+msgid "LANG_LISTING_FORM_TITLE_ALIAS"
+msgstr "Üye isminin url adresindeki gösterilme adı (boş bırakabilirsiniz)"
+
+#: com_jreviews\jreviews\locale/locale.php:127
+msgid "LANG_LISTING_FORM_SUMMARY"
+msgstr "<font color=#9900CC>Kısa Giriş</font> ----- (Lütfen Buraya sadece bir iki cümlelik kısa bir giriş ekleyin)"
+
+#: com_jreviews\jreviews\locale/locale.php:128
+msgid "LANG_LISTING_FORM_DESCRIPTION"
+msgstr "<font color=#9900CC>Asıl Tanıtım</font> -----(Lütfen ana metni buraya yazınız)"
+
+#: com_jreviews\jreviews\locale/locale.php:129
+msgid "LANG_LISTING_FORM_TITLE_SEARCH"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:130
+msgid "LANG_LISTING_FORM_UPLOAD_MEDIA_INFO"
+msgstr "Üye bilgilerin kayıt ettikten sonra görsel (fotoğraf, video, ses kaydı) eklemeniz mümkün olacaktır."
+
+#: com_jreviews\jreviews\locale/locale.php:134
+msgid "LANG_LISTING_MEDIA_UPLOAD_HEADER"
+msgstr "Görsel Ekle: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:135
+msgid "LANG_REVIEW_MEDIA_UPLOAD_HEADER"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:136
+msgid "LANG_MEDIA_PHOTO_FUNCTION_GALLERY"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:137
+msgid "LANG_MEDIA_PHOTO_FUNCTION_LOGO"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:138
+msgid "LANG_MEDIA_PHOTO_FUNCTION_COVER"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:140
+msgid "FILTERS_CLEAR_ALL"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:153
+msgid "Please enter your name."
+msgstr "Adınızı Girmelisiniz."
+
+#: com_jreviews\jreviews\locale/locale.php:154
+msgid "Please enter a valid email address."
+msgstr "Geçerli bir eposta adresi girmelisiniz."
+
+#: com_jreviews\jreviews\locale/locale.php:155
+msgid "Please enter a username."
+msgstr "Lütfen bir kullanıcı ismi giriniz."
+
+#: com_jreviews\jreviews\locale/locale.php:156
+msgid "Please accept our Terms & Conditions."
+msgstr "Lütfen kullanım şartlarını kabul ediniz."
+
+#: com_jreviews\jreviews\locale/locale.php:161
+msgid "Close"
+msgstr "Kapat"
+
+#: com_jreviews\jreviews\locale/locale.php:162
+msgid "Cancel"
+msgstr "İptal"
+
+#: com_jreviews\jreviews\locale/locale.php:166
+msgid "Start"
+msgstr "Başla"
+
+#: com_jreviews\jreviews\locale/locale.php:167
+msgid "Stop"
+msgstr "Dur"
+
+#: com_jreviews\jreviews\locale/locale.php:168
+msgid "Continue"
+msgstr "Devam"
+
+#: com_jreviews\jreviews\locale/locale.php:169
+msgid "Back"
+msgstr "Geri"
+
+#: com_jreviews\jreviews\locale/locale.php:170
+msgid "Place Order"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:175
+msgid "Frontpaged"
+msgstr "Ön Sayfadan Kaldır"
+
+#: com_jreviews\jreviews\locale/locale.php:176
+msgid "Not frontpaged"
+msgstr "Ön Sayfada Yayınla"
+
+#: com_jreviews\jreviews\locale/locale.php:177
+msgid "Clear"
+msgstr "Sil"
+
+#: com_jreviews\jreviews\locale/locale.php:178
+msgid "Publish to Facebook"
+msgstr "Facebook'ta Yayınla"
+
+#: com_jreviews\jreviews\locale/locale.php:179
+msgid "Loading..."
+msgstr "Yükleniyor"
+
+#: com_jreviews\jreviews\locale/locale.php:180
+msgid "Fill in to create an account"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:181
+msgid "show more"
+msgstr "daha fazlasını göster"
+
+#: com_jreviews\jreviews\locale/locale.php:182
+msgid "hide"
+msgstr "sakla"
+
+#: com_jreviews\jreviews\locale/locale.php:186
+msgid "You are not allowed to submit listings in this category."
+msgstr "Bu kategori için üye ekleyemezsiniz."
+
+#: com_jreviews\jreviews\locale/locale.php:187
+msgid "The category selected is invalid."
+msgstr "Seçilen Kategori Geçersiz"
+
+#: com_jreviews\jreviews\locale/locale.php:188
+msgid "A listing with that title already exists."
+msgstr "Bu başlıkla bir yorum zaten var"
+
+#: com_jreviews\jreviews\locale/locale.php:189
+msgid "You need to select a category."
+msgstr "Bir Kategori Seçmelisiniz"
+
+#: com_jreviews\jreviews\locale/locale.php:190
+msgid "Please enter the listing title."
+msgstr "Lütfen bir başlık giriniz"
+
+#: com_jreviews\jreviews\locale/locale.php:191
+msgid "Please enter a summary."
+msgstr "Lütfen bir özet bilgi giriniz"
+
+#: com_jreviews\jreviews\locale/locale.php:192
+msgid "Please enter a description."
+msgstr "Lütfen bir tanımlama giriniz"
+
+#: com_jreviews\jreviews\locale/locale.php:193
+msgid "Go to listing"
+msgstr "Üye profiline git"
+
+#: com_jreviews\jreviews\locale/locale.php:194
+msgid "Are you sure you want to delete this listing?"
+msgstr "Bu Üyeyi silmek istediğinizden emin misiniz?"
+
+#: com_jreviews\jreviews\locale/locale.php:195
+msgid "The listing was deleted."
+msgstr "Üye silindi"
+
+#: com_jreviews\jreviews\locale/locale.php:198
+msgid "Are you sure you want to delete this file?"
+msgstr "Bu dosyayı silmek istediğinizden emin misiniz?"
+
+#: com_jreviews\jreviews\locale/locale.php:199
+#, php-format
+msgid "%s upload failed. You don't have permission to upload %s."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:200
+#, php-format
+msgid "%s has an invalid extension."
+msgstr "%s dosyası geçerli olmayan uzantıya sahip."
+
+#: com_jreviews\jreviews\locale/locale.php:201
+#, php-format
+msgid "File has an invalid extension, it should be one of %s."
+msgstr "Dosya uzantısı geçerli değil. Bu uzantılardan birisi olmalı: %s"
+
+#: com_jreviews\jreviews\locale/locale.php:202
+#, php-format
+msgid "Photo upload limit (%s) reached."
+msgstr "Resim yükleme limitine (%s) ulaştınız"
+
+#: com_jreviews\jreviews\locale/locale.php:203
+#, php-format
+msgid "Video upload limit (%s) reached."
+msgstr "Video yükleme limitine (%s) ulaştınız"
+
+#: com_jreviews\jreviews\locale/locale.php:204
+#, php-format
+msgid "Attachment upload limit (%s) reached."
+msgstr "Eklenti yükleme limitine (%s) ulaştınız"
+
+#: com_jreviews\jreviews\locale/locale.php:205
+#, php-format
+msgid "Audio upload limit (%s) reached."
+msgstr "Ses kaydı yükleme limitine (%s) ulaştınız"
+
+#: com_jreviews\jreviews\locale/locale.php:206
+msgid "Upload directory is not writable."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:207
+msgid "No files were uploaded."
+msgstr "Dosyalar yüklenemedi."
+
+#: com_jreviews\jreviews\locale/locale.php:208
+#, php-format
+msgid "%s is empty."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:209
+#, php-format
+msgid "%s is too large. The maximum allowed size is %sMB."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:210
+msgid "A video was not found at the specified url."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:211
+msgid "Video linking is disabled"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:212
+msgid "File not found"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:213
+msgid "Cannot complete video upload because remote storage and video encoding setup is incomplete in Media Settings."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:214
+msgid "Cannot complete audio upload because remote storage and audio encoding setup is incomplete in Media Settings."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:215
+msgid "{file} has an invalid extension. Allowed extensions: {extensions}."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:216
+msgid "{file} is too large, maximum file size is {sizeLimit}."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:217
+msgid "{file} is empty."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:218
+msgid "No files to upload."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:219
+msgid "The files are being uploaded, if you leave now the upload will be cancelled."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:220
+msgid "The remote site rejected the connection to download the file."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:221
+msgid "The upload URL is not valid, please try again."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:222
+msgid "You've reached your photo limit for this listing. To publish this photo you'll first need to unpublish one of the other photos."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:223
+msgid "You've reached your video limit for this listing. To publish this video you'll first need to unpublish one of the other videos."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:224
+msgid "You've reached your attachment limit for this listing. To publish this attachment you'll first need to unpublish one of the other attachments."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:225
+msgid "You've reached your audio limit for this listing. To publish this audio track you'll first need to unpublish one of the other audio tracks."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:229
+msgid "You already submitted a review."
+msgstr "Daha önce bu üye için bir yorum yazdınız."
+
+#: com_jreviews\jreviews\locale/locale.php:230
+msgid "You are not allowed to review your own listing."
+msgstr "Kendi üyeniz için yorum yazamazsınız."
+
+#: com_jreviews\jreviews\locale/locale.php:231
+msgid "Thank you for your submission"
+msgstr "Yorumunuz için teşekkür ederiz."
+
+#: com_jreviews\jreviews\locale/locale.php:232
+msgid "Thank you for your submission. Refresh the page to see it."
+msgstr "Yorumunuz için teşekkür ederiz. Yorumunuzu görmek için sayfayı tekrar çağırın."
+
+#: com_jreviews\jreviews\locale/locale.php:233
+#: com_jreviews\jreviews\locale/locale.php:251
+msgid "Your changes were saved."
+msgstr "Değşiklikler kaydedildi."
+
+#: com_jreviews\jreviews\locale/locale.php:234
+msgid "Your changes were saved, refresh the page to see them."
+msgstr "Your changes were saved, refresh the page to see them."
+
+#: com_jreviews\jreviews\locale/locale.php:235
+msgid "Please enter a title for the review."
+msgstr "Yorumunuz için bir başlık girmelisiniz!"
+
+#: com_jreviews\jreviews\locale/locale.php:236
+#: com_jreviews\jreviews\locale/locale.php:252
+msgid "Please enter your comment."
+msgstr "Yorumunuzu girmelisiniz."
+
+#: com_jreviews\jreviews\locale/locale.php:237
+#, php-format
+msgid "You are missing a rating in %s criteria."
+msgstr "%s kriterde yorum eksik!"
+
+#: com_jreviews\jreviews\locale/locale.php:240
+msgid "Are you sure you want to delete your reply?"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:241
+msgid "The reply was deleted."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:244
+msgid "You are not allowed to vote on your own review."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:245
+msgid "Login or register to vote."
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:246
+msgid "You already voted."
+msgstr "Daha önce oyladınız."
+
+#: com_jreviews\jreviews\locale/locale.php:249
+msgid "Thank you for your submission."
+msgstr "Yorumunuz İçin Teşekkürler."
+
+#: com_jreviews\jreviews\locale/locale.php:250
+msgid "Thank you for your submission. It will be published once it is verified."
+msgstr "Gönderiniz/güncellemeniz için teşekkür ederiz. Profiliniz site yönetimi tarafından onaylandıktan sonra en kısa zamanda yayınlanacaktır."
+
+#: com_jreviews\jreviews\locale/locale.php:253
+msgid "Are you sure you want to delete this comment?"
+msgstr "Are you sure you want to delete this comment?"
+
+#: com_jreviews\jreviews\locale/locale.php:254
+msgid "The comment was deleted"
+msgstr "Bu yorum silinmiştir"
+
+#: com_jreviews\jreviews\locale/locale.php:257
+msgid "Your claim was submitted, thank you."
+msgstr "Your claim was submitted, thank you."
+
+#: com_jreviews\jreviews\locale/locale.php:258
+#: com_jreviews\jreviews\locale/locale.php:277
+msgid "The message is empty."
+msgstr "Mesaj Boş."
+
+#: com_jreviews\jreviews\locale/locale.php:259
+msgid "Please register to claim this listing"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:264
+msgid "Register to add this entry to your favorites"
+msgstr "Bu öğeyi Beğeni listenize eklemek için siteye giriş yapın"
+
+#: com_jreviews\jreviews\locale/locale.php:267
+msgid "Your inquiry has been submitted."
+msgstr "Your inquiry has been submitted."
+
+#: com_jreviews\jreviews\locale/locale.php:269
+msgid "Your reply was submitted and has been approved."
+msgstr "Yanıtınız gönderildi ve onaylandı."
+
+#: com_jreviews\jreviews\locale/locale.php:270
+msgid "Your reply was submitted and will be published once it is verified."
+msgstr "Your reply was submitted and will be published once it is verified."
+
+#: com_jreviews\jreviews\locale/locale.php:271
+msgid "A reply for this review already exists."
+msgstr "Bu yorum için bir cevap zaten verildi."
+
+#: com_jreviews\jreviews\locale/locale.php:272
+msgid "The reply is empty."
+msgstr "Yanıt Boş."
+
+#: com_jreviews\jreviews\locale/locale.php:276
+msgid "Your report was submitted, thank you."
+msgstr "İhbarınız gönderildi, teşekkürler"
+
+#: com_jreviews\jreviews\locale/locale.php:280
+msgid "-- Select --"
+msgstr "-- Seçin --"
+
+#: com_jreviews\jreviews\locale/locale.php:281
+#, php-format
+msgid "-- Select %s --"
+msgstr "-- %s (lütfen seçiniz)--"
+
+#: com_jreviews\jreviews\locale/locale.php:282
+msgid "No results found, try a different spelling."
+msgstr "Bu anahtar sözcüğü içeren bir girdi bulunamadı, lütfen tekrar deneyiniz."
+
+#: com_jreviews\jreviews\locale/locale.php:283
+msgid "Start typing for suggestions"
+msgstr "Önerileri görmek için birşeyler yazmaya başlayın"
+
+#: com_jreviews\jreviews\locale/locale.php:288
+msgid "Compare All"
+msgstr "Karşılaştır"
+
+#: com_jreviews\jreviews\locale/locale.php:289
+msgid "Remove All"
+msgstr "Sil"
+
+#: com_jreviews\jreviews\locale/locale.php:290
+msgid "You need to select more than one listing for comparison."
+msgstr "Karşılaştıtma yapabilmek için birden fazla üye seçmeniz gereklidir."
+
+#: com_jreviews\jreviews\locale/locale.php:291
+msgid "You selected maximum number of listings for comparison."
+msgstr "Karşılaştıtma yapabilmek için mümkün olan maximum üye sayısına ulaştınız."
+
+#: com_jreviews\jreviews\locale/locale.php:294
+msgid "Narrow results matching all options"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:295
+msgid "FILTERS_RATINGS_AND_UP"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:296
+msgid "FILTERS_RANGE_DELIMITER"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:297
+msgid "FILTERS_CLEAR_SELECTED"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:298
+msgid "FILTERS_SHOW_ALL"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:299
+msgid "FILTERS_SHOW_LESS"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:300
+msgid "FILTERS_RANGE_MIN"
+msgstr ""
+
+#: com_jreviews\jreviews\locale/locale.php:301
+msgid "FILTERS_RANGE_MAX"
+msgstr ""
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:79
+msgid "%B %d, %Y"
+msgstr "%B %d, %Y"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:106
+msgid "%b %d, %Y"
+msgstr "%b %d, %Y"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:433
+#, php-format
+msgid "on %s"
+msgstr "on %s"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:438
+msgid "year"
+msgid_plural "years"
+msgstr[0] "yıl"
+msgstr[1] "yıl"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:439
+#: com_s2framework\s2framework\libs\view/helpers/time.php:444
+msgid "month"
+msgid_plural "months"
+msgstr[0] "ay"
+msgstr[1] "ay"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:440
+#: com_s2framework\s2framework\libs\view/helpers/time.php:445
+#: com_s2framework\s2framework\libs\view/helpers/time.php:449
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] "hafta"
+msgstr[1] "hafta"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:441
+#: com_s2framework\s2framework\libs\view/helpers/time.php:446
+#: com_s2framework\s2framework\libs\view/helpers/time.php:450
+#: com_s2framework\s2framework\libs\view/helpers/time.php:453
+msgid "day"
+msgid_plural "days"
+msgstr[0] "gün"
+msgstr[1] "gün"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:454
+#: com_s2framework\s2framework\libs\view/helpers/time.php:457
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] "saat"
+msgstr[1] "saat"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:458
+#: com_s2framework\s2framework\libs\view/helpers/time.php:461
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] "dakika"
+msgstr[1] "dakika"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:464
+msgid "second"
+msgid_plural "seconds"
+msgstr[0] "saniye"
+msgstr[1] "saniye"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:468
+#, php-format
+msgid "%s ago"
+msgstr "%s önce"
+
+#: com_jreviews\jreviews\plugins/twitter.php:70
+#, php-format
+msgid "Listing: %1$s. %2$s"
+msgstr ""
+
+#: com_jreviews\jreviews\plugins/twitter.php:71
+#, php-format
+msgid "Review for: %1$s. %2$s"
+msgstr ""
+
+#: com_jreviews\jreviews\plugins/twitter.php:72
+#, php-format
+msgid "Discussion on: %1$s. %2$s"
+msgstr ""
+
+#: com_jreviews\jreviews\plugins/twitter.php:73
+#, php-format
+msgid "New photo for %1$s"
+msgstr ""
+
+#: com_jreviews\jreviews\plugins/twitter.php:74
+#, php-format
+msgid "New review photo for %1$s"
+msgstr ""
+
+#: com_jreviews\jreviews\plugins/twitter.php:241
+msgid "review"
+msgstr "yorumları"
+
+#: com_jreviews\jreviews\cms_compat/joomla/bootloader.php:55
+msgid "JERROR_ALERTNOAUTHOR"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/bootloader.php:174
+msgid "JGLOBAL_RESOURCE_NOT_FOUND"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/community/jomsocial.php:108
+msgid "index.php?option=com_community&view=register"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/community/jomsocial.php:230
+msgid "COM_COMMUNITY_MALE"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/community/jomsocial.php:239
+msgid "COM_COMMUNITY_FEMALE"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/community/jomsocial.php:307
+msgid "index.php?option=com_community&view=profile&userid="
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/everywhere/everywhere_com_community_access.php:133
+#: com_jreviews\jreviews\cms_compat/joomla/models/everywhere/everywhere_com_easysocial.php:134
+msgid "COMMUNITY_TAG"
+msgstr "Üye"
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/everywhere/everywhere_com_comprofiler.php:169
+msgid "COMMUNITY_BUILDER_TAG"
+msgstr "Member"
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/everywhere/everywhere_com_content.php:158
+msgid "Listing"
+msgstr "Üye"
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/everywhere/everywhere_com_easysocial_event.php:117
+msgid "COMMUNITY_EVENT_TAG"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/everywhere/everywhere_com_easysocial_group.php:117
+msgid "COMMUNITY_GROUP_TAG"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/everywhere/everywhere_com_jomres.php:83
+msgid "JOMRES_TAG"
+msgstr "Hotel"
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/everywhere/everywhere_com_k2.php:93
+msgid "K2_TAG"
+msgstr "k2"
+
+#: com_jreviews\jreviews\cms_compat/joomla/models/everywhere/everywhere_com_mtree.php:97
+msgid "MTREE_TAG"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/easysocialapps/jreviews/jreviews.php:176
+msgid "COM_EASYSOCIAL_STREAM_CONTEXT_TITLE_"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/community/jreviews/jreviews.php:198
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/community/jreviews/jreviews.php:256
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/community/jreviews/jreviews.php:312
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/community/jreviews/jreviews.php:514
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/community/jreviews/jreviews.php:588
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/community/jreviews/jreviews.php:645
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/community/jreviews/jreviews.php:748
+msgid "string.truncate"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:121
+msgid "COM_MENUS_NO_ITEM_SELECTED"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:172
+msgid "JLIB_APPLICATION_ERROR_INSUFFICIENT_BATCH_INFORMATION"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:216
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:407
+msgid "JGLOBAL_BATCH_MOVE_PARENT_NOT_FOUND"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:236
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:417
+msgid "COM_MENUS_BATCH_MENU_ITEM_CANNOT_CREATE"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:423
+msgid "COM_MENUS_BATCH_MENU_ITEM_CANNOT_EDIT"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:944
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:949
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:963
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:993
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:1000
+msgid "JERROR_LOADFILE_FAILED"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:1201
+msgid "COM_MENUS_ERROR_ALL_LANGUAGE_ASSOCIATED"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:1307
+msgid "COM_MENUS_ERROR_ALREADY_HOME"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:1318
+msgid "JLIB_APPLICATION_ERROR_SAVE_NOT_PERMITTED"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_addonmenus/models/j2/item.php:1369
+msgid "JLIB_DATABASE_ERROR_MENU_UNPUBLISH_DEFAULT_HOME"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_sef/jreviews_router.php:1426
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_sef/jreviews_router.php:1951
+msgid "JERROR_LAYOUT_PAGE_NOT_FOUND"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_sef/jreviews_router.php:2077
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_sef/jreviews_router.php:2158
+#: com_jreviews\jreviews\cms_compat/joomla/packages/plugins/system/jreviews_sef/jreviews_router.php:2229
+msgid "JGLOBAL_CATEGORY_NOT_FOUND"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/easysocial.php:251
+msgid "Commented on a review"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/easysocial.php:295
+msgid "Added listing to favorites"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/easysocial.php:379
+msgid "Submitted a listing"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/easysocial.php:644
+msgid "Uploaded a photo"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/easysocial.php:647
+msgid "Uploaded a video"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/easysocial.php:650
+msgid "Uploaded an attachment"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/easysocial.php:653
+msgid "Uploaded an audio file"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/easysocial.php:763
+msgid "First to review listing"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/easysocial.php:766
+msgid "Submitted a review"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:65
+#, php-format
+msgid "{actor} added new listing %1$s in %2$s."
+msgstr "{actor}, %2$s bölümüne %1$s başlıklı yeni bir üye ekledi."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:66
+#, php-format
+msgid "{actor} updated listing %1$s."
+msgstr "{actor}, %1$s başlıklı üyeyi güncelledi."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:67
+#, php-format
+msgid "{actor} reviewed %1$s."
+msgstr "{actor},  %1$s başlıklı üye için yeni bir yorum yazdı."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:68
+#, php-format
+msgid "{actor} updated review for %1$s."
+msgstr "{actor}, %1$s başlıklı üye için yazdığı yorumu güncelledi."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:69
+#, php-format
+msgid "{actor} added %1$s to favorites."
+msgstr "{actor}, %1$s başlıklı üyeyi Beğeni Listesine ekledi."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:70
+#, php-format
+msgid "{actor} removed %1$s from favorites."
+msgstr "{actor}, %1$s üyeyi Beğeni Listesinden çıkardı."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:71
+#, php-format
+msgid "{actor} voted as helpful a review, %1$s, written by %2$s."
+msgstr "{actor}, %1$s başlıklı üye için %2$s tarafından yazılan yorumu beğendi."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:72
+#, php-format
+msgid "{actor} voted as not helpful a review, %1$s, written by %2$s."
+msgstr "{actor}, %1$s başlıklı üye için %2$s tarafından yazılan yorumu beğenmedi."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:73
+#, php-format
+msgid "{actor} commented on a %1$s for %2$s."
+msgstr "{actor}, %1$s Başlıklı üye için yazılan %2$s başlıklı yorum için yeni bir yorumda bulundu."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:74
+#, php-format
+msgid "{actor} updated comment on a %1$s for %2$s."
+msgstr "{actor}, %1$s Başlıklı üyenin %2$s başlıklı yorumu için yazdığı yorumu güncelledi."
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:75
+#, php-format
+msgid "{actor} added {single}a photo{/single}{multiple}{count} photos{/multiple} for %s"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:76
+#, php-format
+msgid "{actor} added {single}a video{/single}{multiple}{count} videos{/multiple} for %s"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:77
+#, php-format
+msgid "{actor} added {single}a song{/single}{multiple}{count} songs{/multiple} for %s"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:78
+#, php-format
+msgid "{actor} added {single}a document{/single}{multiple}{count} documents{/multiple} for %s"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/joomla/plugins/jomsocial2.php:637
+msgid "A guest"
+msgstr "Ziyaretçi"
+
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:216
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:263
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:574
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:708
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:1032
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:1056
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:1059
+#: com_jreviews\jreviews\cms_compat/wordpress/views/helpers/routes.php:622
+msgid "and"
+msgstr "ve"
+
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:861
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:883
+#: com_jreviews\jreviews\cms_compat/wordpress/views/helpers/routes.php:721
+#: com_jreviews\jreviews\cms_compat/wordpress/views/helpers/routes.php:743
+#, php-format
+msgid "%s listing feeds"
+msgstr "%s listing feeds"
+
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:1021
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:1038
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:1073
+#: com_jreviews\jreviews\cms_compat/wordpress/views/helpers/routes.php:841
+#: com_jreviews\jreviews\cms_compat/wordpress/views/helpers/routes.php:863
+#, php-format
+msgid "%s review feeds"
+msgstr "%s review feeds"
+
+#: com_jreviews\jreviews\cms_compat/joomla/views/helpers/routes.php:1267
+#: com_jreviews\jreviews\cms_compat/wordpress/views/helpers/routes.php:1058
+#, php-format
+msgid "%s - restricted access"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/wordpress/plugins/buddypress.php:59
+msgid "{actor} liked a photo contributed by {target}"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/wordpress/plugins/buddypress.php:60
+msgid "{actor} didn't like a photo contributed by {target}"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/wordpress/plugins/buddypress.php:61
+msgid "{actor} liked a photo"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/wordpress/plugins/buddypress.php:62
+msgid "{actor} didn't like a photo"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/wordpress/plugins/buddypress.php:63
+msgid "{actor} liked a video contributed by {target}"
+msgstr ""
+
+#: com_jreviews\jreviews\cms_compat/wordpress/plugins/buddypress.php:64
+msgid "{actor} didn't like a video contributed by {target}"
+msgstr ""
+
+#: com_jreviews\jreviews\views/admin/themes/default/addons/install.thtml:31
+msgid "Drop files here"
+msgstr ""
+
+#: com_jreviews\jreviews\views/admin/themes/default/addons/install.thtml:46
+msgid "Failed"
+msgstr ""
+
+#: com_jreviews\jreviews\views/admin/themes/default/elements/pagination.thtml:7
+#, php-format
+msgid "%1$s results - showing %2$s - %3$s"
+msgstr "%1$s sonuç - %2$s - %3$s arası gösteriliyor"
+
+#: com_jreviews\jreviews\views/admin/themes/default/listings/create_form.thtml:54
+msgid "Created"
+msgstr ""
+
+#: com_jreviews\jreviews\views/admin/themes/default/listings/create_form.thtml:62
+msgid "Publication Date"
+msgstr "Yatınlanma tarihi"
+
+#: com_jreviews\jreviews\views/admin/themes/default/listings/create_form.thtml:70
+msgid "Expiration Date"
+msgstr "Sona erme tarihi"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media/edit_form.thtml:186
+msgid "Duration"
+msgstr "Zaman dilimi"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:54
+msgid "Only linking allowed"
+msgstr "Sadece bağlantı (link) yapabilirsiniz"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:118
+msgid "Upload from URL"
+msgstr "Bir linkden yükle"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:186
+msgid "URL to media file"
+msgstr "Görsele ait link"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:218
+msgid "Uploaded Media"
+msgstr "Görsel yükle"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:232
+msgid "URL to video page"
+msgstr "Videoya ait link"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:284
+msgid "Upload"
+msgstr "Yükle"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:284
+msgid "Select Files"
+msgstr "Dosyaları seç"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:287
+msgid "Select or Drag & Drop your files to automatically start the upload process"
+msgstr "Yükleme işleminin başlaması için dosyaları seç yada işaretleyip taşı"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:293
+msgid "Use Camera"
+msgstr "Kamerayı kullan"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:294
+msgid "Choose Existing"
+msgstr "Var olanı seç"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:337
+msgid "Description"
+msgstr ""
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:341
+msgid "Update Information"
+msgstr "Güncelle"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:347
+msgid "Approved"
+msgstr "Onaylandı"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:349
+msgid "Processing Failed"
+msgstr "İşlem başarısız"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:350
+msgid "Processing Cancelled"
+msgstr "İşlem durduruldu"
+
+#: com_jreviews\jreviews\views/admin/themes/default/media_upload/create.thtml:352
+msgid "We are processing the file and this can take several minutes. You can wait or we will send you a notification when it is done"
+msgstr ""
+
+#: com_jreviews\jreviews\views/admin/themes/default/reviews/create.thtml:28
+msgid "Reviewer"
+msgstr "Yorumlayan"
+
+#: com_jreviews\jreviews\views/admin/themes/default/reviews/create.thtml:92
+msgid "Ratings (the higher the better)"
+msgstr "Puanlar (daha yüksek daha iyi)"
+
+#: com_jreviews\jreviews\views/admin/themes/default/reviews/create.thtml:115
+msgid "Rate it"
+msgstr "Puan Ver"
+
+#: com_jreviews\jreviews\views/themes/default/claims/create.thtml:7
+msgid "Please provide some information that will allow us to verify your ownership claim."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:30
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_mylistings.thtml:30
+msgid "No entries were found"
+msgstr "Hiçbir üye bulunamadı."
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:171
+msgid "View all my favorites"
+msgstr "Diğer Beğendiklerim."
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_mylistings.thtml:171
+msgid "View all my listings"
+msgstr "Bütün üyelerime bakın"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myreviews.thtml:147
+msgid "Reviewed by"
+msgstr "Yorumlayan"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myreviews.thtml:227
+msgid "View all my reviews"
+msgstr "Yazarın diğer yorumları"
+
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:30
+msgid "The directory is empty."
+msgstr "Klasör boş."
+
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:64
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:66
+msgid "Search"
+msgstr "Ara"
+
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:68
+msgid "Advanced search"
+msgstr "Gelişmiş Arama"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:38
+#, php-format
+msgid "Not you? %sClear user information.%s"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:48
+msgid "Name"
+msgstr "İsim"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:64
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:126
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:148
+msgid "Username"
+msgstr "Kullanıcı isminiz"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:66
+msgid "Create an account to be able to manage all of your submissions. After you submit the form we'll email you an activation link with a temporary password."
+msgstr "Şayet bir kullnıcı ismi belirlerseniz ileride gönderilerinizi görebili, düzenleyebili ve yönetebilirsiniz. Hesabınıza ait bilgiler mail adresinize gönderilecektir. Hesap açmak istemiyorsanız bu alanı boş bırakın."
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:84
+msgid "Email"
+msgstr "E-posta"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:96
+msgid "Comment"
+msgstr "Yorum"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/parent_popover.thtml:11
+msgid "Comment not found"
+msgstr "Yorum bulunamadı"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/post_layout.thtml:40
+#, php-format
+msgid "In reply to an %searlier comment%s"
+msgstr "In reply to an %searlier comment%s"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/post_layout.thtml:54
+#: com_jreviews\jreviews\views/themes/default/discussions/post_list_layout.thtml:42
+msgid "Written by"
+msgstr "Yazar:"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:54
+msgid "Review Detail"
+msgstr "Yorum Ayrıntıları"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:98
+#, php-format
+msgid "by %s"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:102
+msgid "Hits"
+msgstr "Tıklar"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:127
+msgid "Comments"
+msgstr "Yorumunuz"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:141
+msgid "Add new comment"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:240
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:352
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:534
+#, php-format
+msgid "User Photos (%s)"
+msgstr "Kullanıcı fotoğrafları (%s)"
+
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:242
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:406
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:582
+#, php-format
+msgid "User Videos (%s)"
+msgstr "Kullanıcı videoları (%s)"
+
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:330
+msgid "Photos"
+msgstr "Fotoğraflar"
+
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:339
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:521
+#, php-format
+msgid "All Photos (%s)"
+msgstr "Tüm fotoğraflar (%s)"
+
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:348
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:530
+#, php-format
+msgid "Listing Photos (%s)"
+msgstr "Üye fotoğrafları (%s)"
+
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:394
+msgid "Videos"
+msgstr "Videolar"
+
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:400
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:576
+#, php-format
+msgid "All Videos (%s)"
+msgstr "Tüm videolar (%s)"
+
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:404
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:580
+#, php-format
+msgid "Listing Videos (%s)"
+msgstr "Üye videoları (%s)"
+
+#: com_jreviews\jreviews\views/themes/default/elements/listing_detail_media.thtml:447
+msgid "Attachments"
+msgstr "Dosyalar"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:75
+#, php-format
+msgid "Already have an account? %sLog in now%s"
+msgstr "Web sitemizde bir hesabınız var mı? %sGiriş yap%s"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:79
+#, php-format
+msgid "Already have an account? %sLog in now%s or %sCreate an account%s"
+msgstr "Web sitemizde bir hesabınız hala yok mu? Bir hesabınız var ise %sGiriş yap%s yada %sHesap oluştur%s"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:89
+#, php-format
+msgid "To submit a listing please %sregister%s or %slog in%s"
+msgstr "Üye eklemek için %skayıt%s olun yada %sgiriş%s yapın."
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:95
+#, php-format
+msgid "To write a review please %sregister%s or %slog in%s"
+msgstr "Yorum yapmak için %skayıt%s olun yada %sgiriş%s yapın."
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:98
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:104
+#, php-format
+msgid "To write a comment please %sregister%s or %slog in%s"
+msgstr "Bir yorum eklemek için kayıt olmanız yada giriş yampanız gereklidir"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:110
+#, php-format
+msgid "Access restricted to members. To continue %sregister%s or %slog in%s"
+msgstr "Bu içeriği görmek için üye olmanız gereklidir. Devam etmek için %skayıt%s olun yada %sgiriş%s yapın."
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:128
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:150
+msgid "Password"
+msgstr "Şifre"
+
+#: com_jreviews\jreviews\views/themes/default/elements/page_meta.thtml:25
+#, php-format
+msgid "%s - Page %s"
+msgstr "%s - sayfa %s"
+
+#: com_jreviews\jreviews\views/themes/default/elements/pagination.thtml:88
+msgid "Filter"
+msgstr "Filitre"
+
+#: com_jreviews\jreviews\views/themes/default/elements/pagination.thtml:94
+msgid "Sort"
+msgstr "Sırala"
+
+#: com_jreviews\jreviews\views/themes/default/elements/submission_instructions.thtml:1
+msgid "Submission instructions"
+msgstr "Yeni Üye Kayıt Formu"
+
+#: com_jreviews\jreviews\views/themes/default/elements/submission_instructions.thtml:3
+msgid "Select the category where you want to submit the new item."
+msgstr "Yeni üye eklemek istediğiniz kategoriyi seçiniz."
+
+#: com_jreviews\jreviews\views/themes/default/elements/submission_instructions.thtml:4
+#, php-format
+msgid "All form inputs marked %s are required."
+msgstr "%s ile işaretli alanların doldurulması zorunludur."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:14
+msgid "You will find this claim in Claims Moderation."
+msgstr "You will find this claim in Claims Moderation."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:18
+msgid "Claimed by"
+msgstr "Claimed by"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:22
+msgid "Claimant's email"
+msgstr "Claimant's email"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:26
+msgid "Claim text"
+msgstr "Claim text"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:30
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:31
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_notification.thtml:28
+msgid "IP address"
+msgstr "IP adresi"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:34
+msgid "Current owner"
+msgstr "Current owner"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:38
+msgid "Owner email"
+msgstr "Owner email"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:50
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:43
+msgid "Summary"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:16
+msgid "The listing is not published and you will find it in the moderation queue."
+msgstr "Üye bilgileri henüz onaylanmamıştır. Admin panelden üye bilgirini kontol edebilirsiniz."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:18
+msgid "The listing is published and you will find it in the listing browse admin menu."
+msgstr "Üye bilgileri onaylanmıştır. Üye bilgilerini aşşağıdaki linkten görebilirsiniz."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:13
+msgid "You will find this owner reply in the owner reply moderation list."
+msgstr "You will find this owner reply in the owner reply moderation list."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:17
+msgid "Owner's name"
+msgstr "Sahibinin ismi:"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:25
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:25
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:25
+msgid "IP Address"
+msgstr "IP Adresi"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:29
+msgid "Owner's reply text"
+msgstr "Sahibinin cevap mesajı"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:37
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:37
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:37
+msgid "Listing title"
+msgstr "Doktor/Hastane/Otel/Firma ismi"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:41
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:43
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:41
+msgid "Review title"
+msgstr "Yorum başlığı"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:45
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:47
+msgid "Review Comments"
+msgstr "Yorum değerlendirmeleri"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:13
+msgid "You will find this report in the reports moderation list."
+msgstr "You will find this report in the reports moderation list."
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:17
+msgid "Reporter"
+msgstr "Raporlayan"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:29
+msgid "Report text"
+msgstr "Rapor Metni"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:59
+msgid "Media type"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:65
+msgid "Media title"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:75
+msgid "Discussion Comment"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:17
+msgid "User name"
+msgstr "Kullanıcı İsmi"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:45
+msgid "Review"
+msgstr "Yorum"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_notification.thtml:32
+msgid "Entry"
+msgstr "Üye"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/user_media_encoding_notification.thtml:6
+msgid "[Without a title]"
+msgstr "[Başlıksız]"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:42
+msgid "User reviews"
+msgstr "Üye Yorumları"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:42
+msgid "User comments"
+msgstr "Üye Yorumları"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:54
+msgid "Search reviews"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:54
+msgid "Search comments"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:94
+#, php-format
+msgid "%d reviews"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:98
+#, php-format
+msgid "%d comments"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:164
+msgid "You already submitted a comment."
+msgstr "Daha Önce bir yorum eklediniz."
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:180
+msgid "View all reviews"
+msgstr "Tüm yorumları göster"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:182
+msgid "View all comments"
+msgstr "Tüm yorumları göster"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:192
+msgid "View most helpful"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:200
+#, php-format
+msgid "View my review"
+msgid_plural "View my reviews (%d)"
+msgstr[0] "Bütün yorumlarım"
+msgstr[1] "Bütün yorumlarım"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:210
+msgid "Back to Listing"
+msgstr "Tanıtıma Geri Dön"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:248
+msgid "View all user reviews"
+msgstr "Bütün üye yorumlarını listele"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:250
+msgid "View all user comments"
+msgstr "Bütün Üye Yorumlarına Bakın"
+
+#: com_jreviews\jreviews\views/themes/default/fields_phpformat/business_hours.thtml:39
+msgid "Open now"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/fields_phpformat/business_hours.thtml:40
+msgid "Closed now"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/fields_phpformat/business_hours.thtml:41
+msgid "Closed"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/fields_phpformat/inventory.thtml:11
+msgid "SKU"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/fields_phpformat/inventory.thtml:12
+msgid "Price"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/fields_phpformat/inventory.thtml:13
+msgid "In Stock"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/fields_phpformat/recipe.thtml:16
+msgid "Ingredients"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/fields_phpformat/recipe.thtml:44
+msgid "Preparation"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/inquiries/create.thtml:9
+msgid "Your name"
+msgstr "Adınız"
+
+#: com_jreviews\jreviews\views/themes/default/inquiries/create.thtml:21
+msgid "Your email"
+msgstr "E-posta Adresiniz:"
+
+#: com_jreviews\jreviews\views/themes/default/inquiries/create.thtml:23
+msgid "Please enter your email."
+msgstr "Lütfen e-posta adresinizi girin."
+
+#: com_jreviews\jreviews\views/themes/default/inquiries/create.thtml:33
+msgid "Message"
+msgstr "Mesaj"
+
+#: com_jreviews\jreviews\views/themes/default/inquiries/create.thtml:35
+msgid "Please enter your message."
+msgstr "Lütfen mesajınızi girin."
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:70
+#: com_jreviews\jreviews\views/themes/default/listings/create_form_tabbed.thtml:78
+msgid "You have reached the maximum number of free listings for this category."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:310
+#: com_jreviews\jreviews\views/themes/default/listings/create_form_tabbed.thtml:327
+msgid "Meta Data"
+msgstr "Arama Motorları İçin Anahtar Kelimeler (Boş bırakabilirsiniz)"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:314
+#: com_jreviews\jreviews\views/themes/default/listings/create_form_tabbed.thtml:331
+msgid "Meta Description"
+msgstr "Arama Motorları İçin Tanımlama (Description)"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:322
+#: com_jreviews\jreviews\views/themes/default/listings/create_form_tabbed.thtml:339
+msgid "Meta Keywords"
+msgstr "Arama Motorları Anahtar Kelimeleri (Keywords)"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:351
+#: com_jreviews\jreviews\views/themes/default/listings/create_form_tabbed.thtml:368
+msgid "I will submit my review later on"
+msgstr "I will submit my review later on"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:351
+#: com_jreviews\jreviews\views/themes/default/listings/create_form_tabbed.thtml:368
+msgid "I will submit my comment later on"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:363
+#: com_jreviews\jreviews\views/themes/default/listings/create_form_tabbed.thtml:380
+msgid "Review Title"
+msgstr "Yorum Başlığı"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:455
+#: com_jreviews\jreviews\views/themes/default/listings/create_form_tabbed.thtml:459
+msgid "You will be able to upload media right after checkout."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/listings/detail.thtml:96
+#: com_jreviews\jreviews\views/themes/default/listings/detail_compact.thtml:173
+#: com_jreviews\jreviews\views/themes/default/listings/detail_tabs.thtml:146
+msgid "Map"
+msgstr "Konum"
+
+#: com_jreviews\jreviews\views/themes/default/listings/detail_tabs.thtml:126
+#: com_jreviews\jreviews\views/themes/default/listings/listings_tableview.thtml:62
+msgid "Details"
+msgstr "Ayrıntılar"
+
+#: com_jreviews\jreviews\views/themes/default/listings/detail_tabs.thtml:150
+msgid "Reviews"
+msgstr "Yorumlar"
+
+#: com_jreviews\jreviews\views/themes/default/listings/detail_tabs.thtml:156
+msgid "Related Listings"
+msgstr "Benzer Üyeler"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:71
+msgid "Go back to previous page"
+msgstr "Bir önceki sayfaya git"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:91
+msgid "Editor Ratings"
+msgstr "Editör Yorumu"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:107
+msgid "User Ratings"
+msgstr "Kullanıcı Yorumu"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:176
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:279
+msgid "Remove item"
+msgstr "Sil"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_header.thtml:241
+#: com_jreviews\jreviews\views/themes/default/listings/listings_noresults.thtml:4
+#, php-format
+msgid "%s Filters"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_noresults.thtml:7
+msgid "Your search did not return any results. Try adjusting your search values.<br /><br /><a href=\"javascript:window.history.go(-1)\">Click here to go back.</a>"
+msgstr "Aramanız bir sonuç vermedi. Arama kriterleriniz değiştirin.<br /><br /><a href=\"javascript:window.history.go(-1)\">Geri Dönmek için tıklayın.</a>"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_noresults.thtml:11
+msgid "Your favorites list is empty."
+msgstr "Beğeni Listeniz Boş."
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_search_results.thtml:155
+#, php-format
+msgid "View all results (%s)"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_tableview.thtml:76
+msgid "Ratings"
+msgstr "Puanlar"
+
+#: com_jreviews\jreviews\views/themes/default/media/attachment.thtml:29
+msgid "File Description"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/attachment.thtml:31
+msgid "File Size"
+msgstr "Dosya Büyüklüğü"
+
+#: com_jreviews\jreviews\views/themes/default/media/attachment.thtml:33
+msgid "File Type"
+msgstr "Dosya Çeşidi"
+
+#: com_jreviews\jreviews\views/themes/default/media/attachment.thtml:35
+msgid "Downloads"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/create.thtml:6
+#, php-format
+msgid "Review: %s"
+msgstr "Yorum başlığı: %s"
+
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:125
+msgid "You are not allowed to upload or have reached your upload limit."
+msgstr "Dosya yükleme hakkınız yok yada limite ulaştınız."
+
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:215
+msgid "Upload Media"
+msgstr "Görsel Yükle"
+
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:227
+msgid "Link Video"
+msgstr "Video Bağlantısı Gir"
+
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:241
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:325
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:413
+msgid "Upload Limits:"
+msgstr "Yükleme Limiti:"
+
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:281
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:369
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:457
+msgid "Terms &amp; Conditions"
+msgstr "Kurallar ve Şartlar"
+
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:283
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:371
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:459
+msgid "Before uploading media, please accept our Terms &amp; Conditions. All uploads must be family friendly, original non-copyrighted, non-commercial and virus-free."
+msgstr "Herhangi bir dosya yüklemeden önce, kullanım şartlarını kabul ediniz. Tüm yüklenen dosyalar, şiddet içermemeli, pornografik, telif hakkı olmayan ve virus barındırmayan dosyalar olmalıdır."
+
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:287
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:375
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:463
+msgid "Read our complete submission guidelines."
+msgstr "Lütfen tüm yükleme kurallarını okuyun."
+
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:295
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:383
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:471
+msgid "I accept the Terms & Conditions."
+msgstr "Yükleme kurallarını kabul ediyorum."
+
+#: com_jreviews\jreviews\views/themes/default/media/create_form.thtml:485
+msgid "Linked Videos"
+msgstr "Videoları"
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:4
+msgid "Crop"
+msgstr "Kes"
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:4
+msgid "Scale"
+msgstr "Büyüklüğünü ayarla"
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:21
+msgid "File Information"
+msgstr "Dosya bilgileri"
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:25
+msgid "Filename"
+msgstr "Dosya ismi"
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:33
+msgid "Relative Path"
+msgstr "Dosya konumu"
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:41
+msgid "Encoding Information"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:66
+msgid "Status"
+msgstr "Durum"
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:74
+msgid "API Response"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:80
+msgid "Click to view"
+msgstr "Bakmak içi tıklayın"
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:84
+msgid "Response is empty"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:104
+msgid "Current Thumbnail Sizes"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:133
+msgid "Deleted thumbnails will be recreated on demand."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:173
+msgid "Pending"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:173
+msgid "Rejected"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:181
+msgid "Pending Approval"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:193
+msgid "Uploaded"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:205
+msgid "seconds"
+msgstr "saniye"
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:215
+msgid "User"
+msgstr "Üye"
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:219
+msgid "Start typing for suggestions."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/edit_form.thtml:230
+msgid "User ID"
+msgstr "Üye no"
+
+#: com_jreviews\jreviews\views/themes/default/media/list.thtml:135
+#: com_jreviews\jreviews\views/themes/default/media/photo_gallery.thtml:102
+msgid "Submitted by:"
+msgstr "Ekleyen"
+
+#: com_jreviews\jreviews\views/themes/default/media/list.thtml:137
+#: com_jreviews\jreviews\views/themes/default/media/photo_gallery.thtml:113
+#: com_jreviews\jreviews\views/themes/default/media/photo_gallery_detail.thtml:79
+#, php-format
+msgid "%s views"
+msgstr "%s kez bakıldı"
+
+#: com_jreviews\jreviews\views/themes/default/media/list_manage.thtml:53
+msgid "Admin message: users will be able to re-order media only if the 'Default Media Order - Listing Specific' media setting is set to 'ordering'."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/list_manage.thtml:62
+msgid "Listing Owner Photos"
+msgstr "Üye fotoğrafları"
+
+#: com_jreviews\jreviews\views/themes/default/media/list_manage.thtml:63
+msgid "User Photos"
+msgstr "Üye fotoğrafları"
+
+#: com_jreviews\jreviews\views/themes/default/media/list_manage.thtml:65
+msgid "Listing Owner Videos"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/list_manage.thtml:66
+msgid "User Videos"
+msgstr "Kullanıcı videoları"
+
+#: com_jreviews\jreviews\views/themes/default/media/photo_gallery.thtml:105
+#, php-format
+msgid "More by %s"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/upload_complete_actions.thtml:13
+msgid "My Media"
+msgstr "Görsellerim"
+
+#: com_jreviews\jreviews\views/themes/default/media/upload_complete_actions.thtml:15
+msgid "My Listings"
+msgstr "Üyelerim"
+
+#: com_jreviews\jreviews\views/themes/default/media/upload_complete_actions.thtml:17
+msgid "My Reviews"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/media/upload_complete_actions.thtml:22
+msgid "Upload Successful. Continue with uploads or leave this page."
+msgstr "Yükleme başarıyla yapıldı. Yeni bir görsel yükleyebilirsiniz yada bu sayfadan ayrılabilirsiniz."
+
+#: com_jreviews\jreviews\views/themes/default/media/video_gallery.thtml:154
+#: com_jreviews\jreviews\views/themes/default/media/video_gallery_detail.thtml:72
+#, php-format
+msgid "%s%d%s views"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/modules/advanced_search_map.thtml:95
+msgid "Address"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/modules/favorite_users.thtml:34
+#, php-format
+msgid "Other users interested in %s"
+msgstr "%s adlı eseri Beğeni Listesine ekleyenler."
+
+#: com_jreviews\jreviews\views/themes/default/modules/filters.thtml:84
+msgid "Categories"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/modules/filters.thtml:88
+msgid "Listing Types"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/modules/reviewer_rank.thtml:87
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:82
+msgid "Number of reviews written:"
+msgstr "Toplam Yazılmış Yorumlar:"
+
+#: com_jreviews\jreviews\views/themes/default/modules/reviewer_rank.thtml:91
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:92
+msgid "Percentage helpful votes"
+msgstr "Beğenilme Yüzdesi"
+
+#: com_jreviews\jreviews\views/themes/default/modules/reviewer_rank.thtml:91
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:92
+msgid "votes"
+msgstr "oylar"
+
+#: com_jreviews\jreviews\views/themes/default/modules/totals.thtml:1
+#, php-format
+msgid "There are %s listings and %s reviews."
+msgstr "Sitemizde toplam %s üye ve %s yorum bulunmaktadır."
+
+#: com_jreviews\jreviews\views/themes/default/reviews/create.thtml:252
+msgid "You will be able to upload media right after you submit your review."
+msgstr "Yorumunuzu yazıp gönderdikten sonra görsel eklemeniz mümkün olacaktır."
+
+#: com_jreviews\jreviews\views/themes/default/reviews/create.thtml:256
+msgid "You will be able to upload media right after you submit your comment."
+msgstr "Yorumunuzu yazıp gönderdikten sonra görsel eklemeniz mümkün olacaktır."
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:50
+msgid "Editor reviews"
+msgstr "Editör Yorumları"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:50
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:144
+msgid "Editor review"
+msgstr "Editör Yorumları"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:53
+msgid "Editor comments"
+msgstr "Editör görüşleri"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:53
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:146
+msgid "Editor comment"
+msgstr "Editör görüşü"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:74
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:90
+#, php-format
+msgid "%d reviews written by \"%s\""
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:76
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:92
+#, php-format
+msgid "%d comments written \"%s\""
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:99
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:103
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:136
+#, php-format
+msgid "%s reviews"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:239
+msgid "View all editor reviews"
+msgstr "Tüm editör yorumlarını göster"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:241
+msgid "View all editor comments"
+msgstr "Tüm editör görüşlerini göster"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:56
+msgid "Rank"
+msgstr "Seviye"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/review_layout.thtml:68
+#: com_jreviews\jreviews\views/themes/default/reviews/review_list_layout.thtml:75
+msgid "Updated"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/review_layout.thtml:102
+#, php-format
+msgid "View all my reviews (%s)"
+msgstr "Yazarın bütün yorumlarını göster (%s)"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/review_layout.thtml:194
+msgid "Owner's reply"
+msgstr "Yazarın Yanıtı"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/review_layout.thtml:245
+#, php-format
+msgid "Photos (%s)"
+msgstr "Fotoğraflar (%s)"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/review_layout.thtml:251
+#, php-format
+msgid "Videos (%s)"
+msgstr "Videolar (%s)"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/review_list_layout.thtml:147
+msgid "Read Review"
+msgstr "Yorumu Oku"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/review_moderation.thtml:13
+#, php-format
+msgid "Do you have media to share? %s"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/reviews_noresults.thtml:2
+msgid "No reviews were found."
+msgstr "Yorum Bulunamadı."
+
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:75
+#, php-format
+msgid "%d reviews mentioning %s"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:75
+#, php-format
+msgid "%d comments mentioning %s"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:79
+#, php-format
+msgid "%d reviews with %s stars"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:55
+msgid "Listing summary"
+msgstr "Üye bilgileri özeti"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:65
+msgid "Listing description"
+msgstr "Üye tanımı"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:75
+msgid "Review comments"
+msgstr "Yorum değerlendirmeleri"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:93
+msgid "Any"
+msgstr "Herhangi Biri"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:105
+msgid "Exact"
+msgstr "Tam uyumlu"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:115
+msgid "Listing author"
+msgstr "Üye yazarı"
+
+#, fuzzy
+#~ msgid "Clear all"
+#~ msgstr "Sil"
+
+#, fuzzy
+#~ msgid "to"
+#~ msgstr "Dur"
+
+#~ msgid "The listing was successfully saved."
+#~ msgstr "Üye başarı ile kaydedildi."
+
+#~ msgid "photo count"
+#~ msgstr "fotoğraf sayısı"

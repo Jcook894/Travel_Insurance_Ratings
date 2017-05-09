@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0.0" type="plugin" group="system" method="upgrade">
+	<name>System - JReviews ShortCodes</name>
+	<author>ClickFWD</author>
+	<creationDate>September 2016</creationDate>
+	<copyright>Copyright (C) 2016 ClickFWD. All rights reserved.</copyright>
+	<license>Commercial</license>
+	<authorEmail>support@clickfwd.com</authorEmail>
+	<authorUrl>http://clickfwd.com</authorUrl>
+	<version>1.0</version>
+    <description>
+        <![CDATA[<p>Please refer to the documentation for a <a href="https://docs.jreviews.com/?title=ShortCodes">list of valid shortcodes</a></p>
+        ]]>
+    </description>
+    <files>
+		<filename plugin="jreviews_shortcodes">jreviews_shortcodes.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<config>
+	</config>
+</extension>

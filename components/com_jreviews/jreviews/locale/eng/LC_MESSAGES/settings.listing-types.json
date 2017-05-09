@@ -1,0 +1,60 @@
+[
+    {
+        "menu": "ListingTypes",
+        "override": true,
+        "url": "listing_types/index",
+        "settings": [
+            {
+                "title": "Show map in detail pages",
+                "keywords": "geomaps, map, detail, listings",
+                "description": "",
+                "name": "geomaps.enable_map_detail",
+                "tags": ["GeoMaps"]
+            },
+            {
+                "title": "Show map in list pages",
+                "keywords": "geomaps, map, list, listings",
+                "description": "",
+                "name": "geomaps.enable_map_list",
+                "tags": ["GeoMaps"]
+            },
+            {
+                "title": "Listing Title Field",
+                "keywords": "listings, title, hide",
+                "description": "Hide the listing title field.",
+                "name": "listing_title",
+                "tags": ["Listings", "Form"]
+            },
+            {
+                "title": "Publication Date Field",
+                "keywords": "listings, date, publish, publication",
+                "description": "The listing will remain unpublished until this date.",
+                "name": "listing_publication_date",
+                "tags": ["Listings", "Form"]
+            },
+            {
+                "title": "Expiration Date Field",
+                "keywords": "listings, date, expires, expiration, publish",
+                "description": "The listing will no longer be published after this date.",
+                "name": "listing_expiration_date",
+                "tags": ["Listings", "Form"]
+            },
+            {
+                "title": "Detail Page Related Listings Widgets",
+                "keywords": "widget, related listings, favorites, detail page",
+                "description": "Setup a related listings widget to be displayed in the listing detail page.",
+                "name": "related_listings_widget",
+                "tags": ["Listings"]
+            },
+            {
+                "title": "Listing Title Live Search",
+                "keywords": "search, listing, title, live, submit, duplicate",
+                "description": "",
+                "name": "listing_title_livesearch_enable",
+                "tags": ["Listing", "Form"]
+            }
+        ]
+    }
+]
+
+

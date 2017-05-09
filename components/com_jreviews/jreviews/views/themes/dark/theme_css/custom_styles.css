@@ -1,0 +1,650 @@
+/*************************************
+Buttons & Links
+*************************************/
+.jrButton,
+input.jrButton,
+.jrDialog .ui-dialog-buttonset button {
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #666;
+  border-color: #595959;
+}
+.jrButton:hover,
+input.jrButton:hover,
+.jrDialog .ui-dialog-buttonset button:hover,
+.jrButton:active,
+input.jrButton:active,
+.jrDialog .ui-dialog-buttonset button:active,
+.jrButton.jrActive,
+input.jrButton.jrActive,
+.jrDialog .ui-dialog-buttonset button.jrActive {
+  color: #fff;
+  background-color: #4d4d4d;
+  border-color: #545454;
+}
+.jrButton.jrDisabled,
+input.jrButton.jrDisabled,
+.jrDialog .ui-dialog-buttonset button.jrDisabled,
+.jrButton[disabled],
+input.jrButton[disabled],
+.jrDialog .ui-dialog-buttonset button[disabled] {
+  cursor: default;
+  background-color: #666;
+  border-color: #595959;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+a.jrButton,
+.jrButton a:link,
+.jrButton a:visited {
+  text-decoration: none;
+  color: #eee !important;
+}
+.jrLinkButton {
+  color: #fff;
+}
+.jrLinkButton:hover {
+  border: 0;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/*************************************
+Dropdowns
+*************************************/
+.jrDropdown .jrDropdownMenu {
+  background-color: #333;
+  border-color: #222;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.jrDropdown .jrDropdownMenu li a {
+  color: #fff;
+}
+.jrDropdown .jrDropdownMenu li > a:hover {
+  color: #555;
+  background-color: #666;
+}
+.jrDropdown .jrArrow {
+  border-top: 4px solid #eee;
+}
+.jrDropdown .jrDivider {
+  background-color: #444;
+  border-bottom: 1px solid #333;
+}
+.jrDropdown.jrSmall .jrDropdownMenu {
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+/*************************************
+Headings
+*************************************/
+/* Page separators */
+.jrHeading {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+  padding: 7px 10px !important;
+  margin: 30px 0 20px !important;
+  color: #eee;
+  background: #333;
+  border: 1px solid #222;
+}
+/*************************************
+List Column Styles
+*************************************/
+.jrShadowBox {
+  color: #eee;
+  border: 1px solid #111;
+  background: #222;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+}
+.jrShadowBox:hover {
+  -webkit-box-shadow: 0 0 10px #222222;
+  -moz-box-shadow: 0 0 10px #222222;
+  box-shadow: 0 0 10px #222222;
+}
+/* Compact shadow box */
+.jrCompactBox {
+  color: #eee;
+  border: 1px solid #111;
+  background: #222;
+  -webkit-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.16);
+}
+.jrCompactBox:hover {
+  -webkit-box-shadow: 1px 1px 6px #222222;
+  -moz-box-shadow: 1px 1px 6px #222222;
+  box-shadow: 1px 1px 6px #222222;
+}
+/*************************************
+Icons
+*************************************/
+[class^="jrIcon"]:before {
+  color: #fff;
+}
+.jrIconRequired:before {
+  color: #AD0909;
+}
+.jrIconInfo:before {
+  color: #3F7FD5;
+}
+/*************************************
+Panels
+*************************************/
+.jrRoundedPanel {
+  color: #eee;
+  border: 1px solid #222;
+  background-color: #101010;
+  background-image: -moz-linear-gradient(top, #0f0f0f, #111111);
+  background-image: -ms-linear-gradient(top, #0f0f0f, #111111);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0f0f0f), to(#111111));
+  background-image: -webkit-linear-gradient(top, #0f0f0f, #111111);
+  background-image: -o-linear-gradient(top, #0f0f0f, #111111);
+  background-image: linear-gradient(top, #0f0f0f, #111111);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0f0f0f', endColorstr='#111111', GradientType=0);
+}
+.jrRoundedPanelLt {
+  color: #fff;
+  border: 1px solid #444;
+  background-color: #292929;
+  background-image: -moz-linear-gradient(top, #222222, #333333);
+  background-image: -ms-linear-gradient(top, #222222, #333333);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#333333));
+  background-image: -webkit-linear-gradient(top, #222222, #333333);
+  background-image: -o-linear-gradient(top, #222222, #333333);
+  background-image: linear-gradient(top, #222222, #333333);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#222222', endColorstr='#333333', GradientType=0);
+}
+/*************************************
+Data Table
+*************************************/
+.jrDataTable {
+  color: #eee;
+  border-bottom: 1px solid #444 !important;
+}
+.jrDataTable th {
+  border-top: 1px solid #444;
+  background-color: #222;
+  color: #fff;
+}
+.jrDataTable td {
+  border-top: 1px solid #444 !important;
+}
+.jrDataTable tr:nth-child(odd) {
+  color: #fff;
+  background: #333;
+}
+/*************************************
+Data List
+*************************************/
+.jrDataList {
+  border: 1px solid #444;
+}
+.jrDataList > * {
+  color: #fff;
+  border-top: 1px solid #444;
+  background: #555;
+}
+.jrDataList > .jrDataListHeader {
+  color: #eee;
+  background: #222 !important;
+  border-bottom: 1px solid #444;
+  -webkit-box-shadow: inset 0 0 20px #333333;
+  -moz-box-shadow: inset 0 0 20px #333333;
+  box-shadow: inset 0 0 20px #333333;
+}
+.jrDataList > *:nth-child(odd) {
+  background: #333;
+}
+/*************************************
+RATING STARS
+*************************************/
+.jrPage .jrRatingStarsUser,
+.jrPage .jrRatingStarsEditor,
+.jrPage .jrRatingStarsUser div,
+.jrPage .jrRatingStarsEditor div {
+  background-image: url(images/rating_stars_dark.png);
+}
+.jrPage .ui-stars-star a {
+  background-image: url(images/rating_stars_dark.png);
+}
+.jrPage .jrRatingsLarge .jrRatingStarsUser,
+.jrPage .jrRatingsLarge .jrRatingStarsEditor,
+.jrPage .jrRatingsLarge .jrRatingStarsUser div,
+.jrPage .jrRatingsLarge .jrRatingStarsEditor div {
+  background-image: url(images/rating_stars_dark_lg.png);
+}
+/* Alternative rating styles */
+.jrPage .jrRatingStarsUser.jrRatingsStyle2,
+.jrPage .jrRatingStarsEditor.jrRatingsStyle2,
+.jrPage .jrRatingStarsUser.jrRatingsStyle2 div,
+.jrPage .jrRatingStarsEditor.jrRatingsStyle2 div {
+  background-image: url(images/rating_stars_2_dark.png);
+}
+.jrPage .jrRatingsLarge .jrRatingStarsUser.jrRatingsStyle2,
+.jrPage .jrRatingsLarge .jrRatingStarsEditor.jrRatingsStyle2,
+.jrPage .jrRatingsLarge .jrRatingStarsUser.jrRatingsStyle2 div,
+.jrPage .jrRatingsLarge .jrRatingStarsEditor.jrRatingsStyle2 div {
+  background-image: url(images/rating_stars_2_dark_lg.png);
+}
+.jrPage .jrRatingStarsUser.jrRatingsStyle3,
+.jrPage .jrRatingStarsEditor.jrRatingsStyle3,
+.jrPage .jrRatingStarsUser.jrRatingsStyle3 div,
+.jrPage .jrRatingStarsEditor.jrRatingsStyle3 div {
+  background-image: url(images/rating_bars_dark.png);
+}
+.jrPage .jrRatingsLarge .jrRatingStarsUser.jrRatingsStyle3,
+.jrPage .jrRatingsLarge .jrRatingStarsEditor.jrRatingsStyle3,
+.jrPage .jrRatingsLarge .jrRatingStarsUser.jrRatingsStyle3 div,
+.jrPage .jrRatingsLarge .jrRatingStarsEditor.jrRatingsStyle3 div {
+  background-image: url(images/rating_bars_dark_lg.png);
+}
+.jrPage .jrRatingBarsUser,
+.jrPage .jrRatingBarsEditor {
+  background: #656565;
+}
+.jrPage .jrOverallRatings {
+  color: #777;
+}
+/*************************************
+Pagination
+*************************************/
+.jrPagination .jrPageCurrent {
+  color: #eee;
+  background-image: none !important;
+}
+/*************************************
+Media Elements
+*************************************/
+.jrPhotoGallery .galleria-thumbnails .galleria-image {
+  border: 1px solid #333;
+}
+.jrPhotoGallery .galleria-thumb-nav-left,
+.jrPhotoGallery .galleria-thumb-nav-right,
+.jrPhotoGallery .galleria-info-link,
+.jrPhotoGallery .galleria-info-close,
+.jrPhotoGallery .galleria-image-nav-left,
+.jrPhotoGallery .galleria-image-nav-right {
+  background-image: url(images/gallery_white.png);
+}
+.jrVideoSlider .jrVideoListItem {
+  border: 1px solid #333;
+}
+/*************************************
+Listing Detail Page
+*************************************/
+.jrListingDetail div.jrListingInfoContainer {
+  color: #eee;
+  border-color: #444;
+  background-color: #222;
+}
+.jrListingDetail div.jrListingInfo {
+  border-bottom: 1px solid #111;
+  color: #555;
+}
+.jrListingMainImage img {
+  border: solid 1px #333;
+}
+.jrListingMainImage img:hover,
+.jrCompactGallery img:hover {
+  -webkit-box-shadow: 0 0 4px #111111;
+  -moz-box-shadow: 0 0 4px #111111;
+  box-shadow: 0 0 4px #111111;
+}
+.jrCompactGallery img {
+  border: solid 1px #333;
+}
+.jrMediaContainer h4 {
+  border-bottom: 1px solid #333;
+}
+.jrMediaContainer .jrMediaThumbs {
+  border: solid 1px #333;
+}
+.jrMediaContainer .jrMediaThumbs:hover {
+  -webkit-box-shadow: 0 0 3px #111111;
+  -moz-box-shadow: 0 0 3px #111111;
+  box-shadow: 0 0 3px #111111;
+}
+.jrRatingInfo {
+  border: 1px solid #333;
+  background: #444;
+  color: #eee;
+}
+.jrReviewContainer {
+  color: #fff;
+}
+.jrRoundedPanel .jrRatingInfo {
+  color: #eee;
+  border: 1px solid #111;
+  background-color: #292929;
+  background-image: -moz-linear-gradient(top, #222222, #333333);
+  background-image: -ms-linear-gradient(top, #222222, #333333);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#333333));
+  background-image: -webkit-linear-gradient(top, #222222, #333333);
+  background-image: -o-linear-gradient(top, #222222, #333333);
+  background-image: linear-gradient(top, #222222, #333333);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#222222', endColorstr='#333333', GradientType=0);
+}
+.jrReviewContainer div.jrUserInfo,
+.jrReviewContainer div.jrListingInfo {
+  color: #ccc;
+}
+.jrReviewContainer .jrOwnerReply {
+  background: #555;
+}
+.jrReviewContainer .jrReviewVoting .jrReviewHelpful {
+  color: #ccc;
+}
+.jrReviewList > *:nth-child(odd) .jrRatingInfo {
+  background: #555;
+}
+/*************************************
+List pages
+*************************************/
+.jrResults .jrListingActionsBox {
+  background: #222;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid #333;
+}
+.jrTableview .jrResults th {
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #111;
+  background-color: #222;
+}
+.jrTableview .jrResults .row1 td {
+  background-color: #333;
+}
+.jrTableview .jrResults .row2 td {
+  background-color: #111;
+}
+.jrTableview .jrResults td,
+.jrTableview .jrResults td.jrTableColumnFirst,
+.jrTableview .jrResults td.jrTableColumnMain,
+.jrTableview .jrResults td.jrTableColumnField,
+.jrTableview .jrResults td.jrTableColumnLast {
+  border-top: solid 1px #444;
+}
+.jrBlogview .jrResults .jrListItem.row2 {
+  color: #eee;
+  background: #222;
+}
+.jrBlogview .jrListingThumbnail {
+  border: solid 1px #333;
+}
+.jrListingColumn {
+  /*border-right: 1px solid #444;*/
+}
+.jrMapResize {
+  border-bottom: 1px solid #444;
+  background-color: #333;
+}
+.jrMapResultsWrapper {
+  border: 1px solid #444;
+}
+.jrMapResultsLinks {
+  border-bottom: 1px solid #444;
+  background-color: #333;
+}
+.jrCompareview .jrCompareField {
+  background: #444;
+  color: #eee;
+}
+.jrCompareview .jrCompareField.alt {
+  background: #333;
+  color: #eee;
+}
+.jrCompareview .jrCompareHeader .jrCompareField {
+  background: #222;
+}
+.jrCompareview .jrCompareHeader .jrCompareField.alt {
+  background: #111;
+}
+.jrCompareview .jrFieldGroup.jrCompareField {
+  background: #111;
+  border-top: 1px solid #555;
+  border-bottom: 1px solid #555;
+  color: #eee;
+}
+.jrCompareview .itemTitle.jrCompareField {
+  background: #222;
+}
+.jrCompareview .itemThumbnail.jrCompareField {
+  background: #222;
+}
+.jrCompareview .itemSummary.jrCompareField {
+  background: #222;
+}
+.jrCompareTabs span.compareItemTitle a {
+  color: #333 !important;
+}
+/*************************************************
+Comparison Dashboard
+**************************************************/
+.jrCompareDashboard {
+  background: #444;
+  -webkit-box-shadow: 0px 0px 9px #555555;
+  -moz-box-shadow: 0px 0px 9px #555555;
+  box-shadow: 0px 0px 9px #555555;
+}
+.jrCompareDashboard .jrCompareHeader {
+  background: #222;
+  border-bottom: 1px solid #111;
+}
+.jrCompareDashboard .jrCompareTitle {
+  color: #eee;
+}
+.jrCompareDashboard .jrCompareTabs ul.ui-tabs-nav li {
+  background-color: #474747;
+  background-image: -moz-linear-gradient(top, #555555, #333333);
+  background-image: -ms-linear-gradient(top, #555555, #333333);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#555555), to(#333333));
+  background-image: -webkit-linear-gradient(top, #555555, #333333);
+  background-image: -o-linear-gradient(top, #555555, #333333);
+  background-image: linear-gradient(top, #555555, #333333);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#555555', endColorstr='#333333', GradientType=0);
+  color: #fff;
+  border: 1px solid #555 !important;
+}
+.jrCompareDashboard .jrCompareTabs ul.ui-tabs-nav li a {
+  color: #fff !important;
+}
+.jrCompareDashboard .jrCompareTabs ul.ui-tabs-nav li.ui-tabs-active {
+  background-color: #4e4e4e;
+  background-image: -moz-linear-gradient(top, #555555, #444444);
+  background-image: -ms-linear-gradient(top, #555555, #444444);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#555555), to(#444444));
+  background-image: -webkit-linear-gradient(top, #555555, #444444);
+  background-image: -o-linear-gradient(top, #555555, #444444);
+  background-image: linear-gradient(top, #555555, #444444);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#555555', endColorstr='#444444', GradientType=0);
+  border-bottom: 1px solid #444 !important;
+}
+.jrCompareDashboard .jrCompareTabs .ui-tabs-panel ul li.ltItem {
+  border: 1px solid #666;
+  background-color: #5f5f5f;
+  background-image: -moz-linear-gradient(top, #666666, #555555);
+  background-image: -ms-linear-gradient(top, #666666, #555555);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#666666), to(#555555));
+  background-image: -webkit-linear-gradient(top, #666666, #555555);
+  background-image: -o-linear-gradient(top, #666666, #555555);
+  background-image: linear-gradient(top, #666666, #555555);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#666666', endColorstr='#555555', GradientType=0);
+  color: #eee;
+}
+.jrCompareDashboard .jrCompareTabs span.compareItemTitle a {
+  color: #eee !important;
+}
+.jrCompareDashboard .jrCompareTabs span.removeItem:before {
+  color: #fff;
+}
+/*************************************************
+Forms
+**************************************************/
+.jrPage .jrFormChooser {
+  background-color: #333;
+  border: 1px solid #222;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.jrPage .jrForm fieldset {
+  color: #fff;
+  background-color: #333;
+  border: 1px solid #222;
+  border-bottom-color: #111;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.jrPage .jrForm legend {
+  color: #fff !important;
+}
+.jrPage .jrForm .jrFieldDiv label {
+  color: #fff;
+}
+.jrPage .jrForm fieldset.jrReviewForm fieldset {
+  background: #555;
+  border: 1px solid #444 !important;
+}
+/************************
+jQuery UI additions
+*************************/
+.jrTabs.ui-tabs .ui-tabs-nav li.ui-tabs-selected,
+.jrTabs.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+  border: 1px solid #333;
+}
+.jrTabs.ui-tabs .ui-tabs-nav li.ui-state-default {
+  border: 1px solid #444;
+  background: #666;
+}
+.jrTabs.ui-tabs .ui-tabs-nav li.ui-state-default a {
+  color: #fff;
+}
+.jrTabs.ui-tabs .ui-tabs-nav li.ui-state-active {
+  border: 1px solid #333;
+  background: #444;
+}
+.jrTabs.ui-tabs .ui-tabs-nav li.ui-state-hover {
+  border: 1px solid #333;
+}
+.jrTabs.ui-tabs .ui-widget-content {
+  color: #eee;
+}
+.jrTabs.ui-tabs .ui-tabs-panel {
+  border: 1px solid #333;
+  background: #444;
+}
+/************************
+GeoMaps
+*************************/
+.jrMapDetail,
+.jrStreetviewDetail {
+  border: 1px solid #000;
+}
+.jrMapLoading:after,
+.jrLoading::after {
+  background-color: #131313;
+}
+/*************************************
+RATING STARS
+*************************************/
+.jrRatingStarsUser,
+.jrRatingStarsEditor,
+.jrRatingStarsUser div,
+.jrRatingStarsEditor div {
+  background-image: url(images/rating_stars_dark.png);
+}
+.ui-stars-star a {
+  background-image: url(images/rating_stars_dark.png);
+}
+/*************************************
+RATING STARS for JomSocial Plugins
+*************************************/
+.jrPlugin .jrRatingStarsUser,
+.jrPlugin .jrRatingStarsEditor,
+.jrPlugin .jrRatingStarsUser div,
+.jrPlugin .jrRatingStarsEditor div {
+  background-image: url(images/rating_stars_dark.png) !important;
+}
+.jrPlugin .ui-stars-star a {
+  background-image: url(images/rating_stars_dark.png) !important;
+}
+/************************
+Modules
+*************************/
+.jrModuleItems .jrVerticalLayout {
+  border-bottom: 1px solid #444;
+}
+.jrModuleItems .jrMediaModule .jrModuleItemThumbnail {
+  border: 1px solid #444;
+}
+/************************
+GeoMaps
+*************************/
+.jrMapModule {
+  border: 1px solid #000 !important;
+}
+/************************
+Filters Module
+*************************/
+.jrFilterFieldWrap {
+  border-bottom: 1px solid #616161;
+}
+/************************
+Datepicker
+*************************/
+#ui-datepicker-div {
+  background: #616161;
+  box-shadow: 1px 2px 5px rgba(0,0,0,0.1);
+  border: 1px solid #424242;
+}
+.ui-datepicker-header.ui-widget-header {
+  background: #424242;
+}
+.ui-datepicker .ui-widget-content {
+  border: 1px solid #424242;
+}
+.ui-datepicker th {
+    color: #aaa;
+ }
+.ui-datepicker .ui-state-default, .ui-datepicker .clearDate {
+    color: #fff;
+}
+.ui-datepicker .ui-state-hover, .ui-datepicker .clearDate.ui-state-hover {
+  background: #424242;
+}
+.ui-datepicker .ui-datepicker-title select {
+   border: 2px solid #424242;
+   background: #212121;
+}
+.ui-datepicker .ui-datepicker-next.ui-state-hover.ui-datepicker-next-hover,
+.ui-datepicker .ui-datepicker-prev.ui-state-hover.ui-datepicker-prev-hover {
+  background: #424242;
+}
+.ui-datepicker .ui-datepicker-today .ui-state-default {
+  background: #757575;
+}
+.ui-datepicker .ui-datepicker-current-day .ui-state-active {
+  background: #f57c00;
+}

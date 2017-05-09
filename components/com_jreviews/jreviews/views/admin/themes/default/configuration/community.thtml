@@ -1,0 +1,243 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php $communityTab = array(
+	/*** NEW HEADER ***/
+	__a("Community Integration",true) => array(
+		array(
+			'label'=>__a("Community",true),
+			'type'=>'select',
+			'name'=>'community',
+			'options'=>array_merge(
+				array(''=>__t("Select",true)),
+				$plugins_list
+			),
+			'help'=>__a("JReviews will automatically show user avatars and create links to user profiles from listings and reviews.",true)
+		)
+	),
+	__a("Social Sharing",true) => array(
+		array(
+			'label'=>__a("Services",true),
+			'type'=>'checkbox',
+			'name'=>'social_sharing_detail',
+			'options'=>array(
+					'fbsend'=>'FB Share',
+					'fblike'=>'FB Like',
+					'twitter'=>'Twitter',
+					'gplusone'=>'Google+1',
+					'linkedin'=>'LinkedIn',
+					'pinit'=>'Pinterest',
+					'reddit'=>'Reddit'
+				),
+			'help'=>__a("Output can be modified in /jreviews/views/helpers/community.php",true)
+		),
+		array(
+			'label'=>__a("Button Count Position",true),
+			'type'=>'radio',
+			'name'=>'social_sharing_count_position',
+			'options'=>array('vertical'=>__a("Vertical",true),'horizontal'=>__a("Horizontal",true),'none'=>__a("None",true),'none-custom'=>__a("None - Custom",true))
+		),
+		array(
+			'label'=>__a("Disable Secure URLs",true),
+			'type'=>'radioYesNo',
+			'name'=>'social_sharing_disable_secure_urls',
+			'help'=>__a("Useful if you use both secure and non-secure URLs on your site to avoid having duplicate URLs for social sites.",true)
+		)
+	),
+	__a("Activty Stream integration",true) . ' - JomSocial, EasySocial' => array(
+		array(
+			'label'=>__a("Thumbnail mode",true),
+			'type'=>'radio',
+			'name'=>'jomsocial_tnmode',
+			'options'=>array('crop'=>__a("Crop",true),'scale'=>__a("Scale",true)),
+		),
+		array(
+			'label'=>__a("Thumbnail dimensions",true),
+			'type'=>'text',
+			'name'=>'jomsocial_tnsize',
+			'attributes'=>array('style'=>'width:6em;'),
+			'help'=>__a("WIDTHxHEIGHT in pixels",true)
+		),
+		array(
+			'label'=>__a("Post listings",true),
+			'type'=>'select',
+			'name'=>'jomsocial_listings',
+			'options'=>array(0=>__a("No",true),1=>__a("New only",true),2=>__a("New + Updates",true))
+		),
+		array(
+			'label'=>__a("Post review",true),
+			'type'=>'select',
+			'name'=>'jomsocial_reviews',
+			'options'=>array(0=>__a("No",true),1=>__a("New only",true),2=>__a("New + Updates",true))
+		),
+		array(
+			'label'=>__a("Post review comments",true),
+			'type'=>'select',
+			'name'=>'jomsocial_discussions',
+			'options'=>array(0=>__a("No",true),1=>__a("New only",true),2=>__a("New + Updates",true))
+		),
+		array(
+			'label'=>__a("Post media uploads",true),
+			'type'=>'select',
+			'name'=>'jomsocial_media',
+			'options'=>array(0=>__a("No",true),1=>__a("New only",true))
+		),
+		array(
+			'label'=>__a("Post favorites",true),
+			'type'=>'select',
+			'name'=>'jomsocial_favorites',
+			'options'=>array(0=>__a("No",true),1=>__a("Add only",true),2=>__a("Add + Remove",true))
+		),
+		array(
+			'label'=>__a("Post review voting",true),
+			'type'=>'select',
+			'name'=>'jomsocial_votes',
+			'options'=>array(0=>__a("No",true),1=>__a("Vote yes only",true),2=>__a("Vote yes + Vote no",true))
+		)
+	),
+	__a("Bit.ly integration Oauth",true) => array(
+		array(
+			'label' => __a("Used for Auto Tweets.",true) . sprintf(__a("The bit.ly service is used to automatically shorten the urls. Sign up for a %sBit.ly account%s and create an %sOauth App%s",true),'<a target="_blank" href="http://bit.ly/">','</a>','<a target="_blank" href="https://bitly.com/a/oauth_apps">','</a>'),
+			'type' => 'placeholder'
+		),
+		array(
+			'label'=>__a("Access Token",true),
+			'type'=>'text',
+			'name'=>'bitly_access_token',
+			'help'=>__a("Create a Generic Access Token for your App.",true),
+			'attributes'=>array('style'=>'width:98%;')
+		)
+	),
+	__a("Bit.ly integration LEGACY - will be deprecated soon",true) => array(
+		array(
+			'label'=>__a("bit.ly user",true),
+			'type'=>'text',
+			'name'=>'bitly_user'
+		),
+		array(
+			'label'=>__a("bit.ly API Key",true),
+			'type'=>'text',
+			'name'=>'bitly_key',
+			'help'=>__a("Get the API Key from the Account page at the Bit.ly site.",true)
+		)
+	),	__a("Twitter integration",true) => array(
+		array(
+			'label'=>__a("Enable Auto Tweets",true),
+			'type'=>'radioYesNo',
+			'name'=>'twitter_enable'
+		),
+		array(
+			'label'=>__a("Twitter Authentication",true),
+			'type'=>'placeholder',
+			'text'=>'<button class="jr-twitter-setup jrButton jrSmall">'.__a("Setup Twitter Authentication",true).'</button>'.'&nbsp;'.__a("Create a new Twitter App and fill in the requested values in the dialog.",true)
+		),
+		array(
+			'label'=>__a("Tweet on new listing",true),
+			'type'=>'radioYesNo',
+			'name'=>'twitter_listings'
+		),
+		array(
+			'label'=>__a("Tweet on new review",true),
+			'type'=>'radioYesNo',
+			'name'=>'twitter_reviews'
+		),
+		array(
+			'label'=>__a("Tweet on new review comment",true),
+			'type'=>'radioYesNo',
+			'name'=>'twitter_discussions'
+		),
+		array(
+			'label'=>__a("Tweet on new photo",true),
+			'type'=>'radioYesNo',
+			'name'=>'twitter_photos',
+			'help'=>'<span style="color:red;">'.__a("Requires PHP version >= 5.5",true).'</span>'
+		),
+		array(
+			'label'=>__a("Tweet hashtag",true),
+			'type'=>'text',
+			'name'=>'twitter_hashtag',
+			'help'=>__a("Appended to Tweets.",true)
+		),
+		array(
+			'label'=>__a("Twitter Username Listing Custom Field",true),
+			'type'=>'text',
+			'name'=>'twitter_creator',
+			'attributes'=>array('class'=>'jr-field-suggest jrAutoSuggest','data-field-types'=>'text'),
+			'help'=>__a("Value entered in listings for this field will be used for Twitter Cards 'creator' tag where applicable.",true)
+		)
+	),
+	__a("Facebook integration",true) => array(
+		array(
+			'text'=>'<div class="jrWarning">'
+				.__a("Facebook Wall posts only work for unmoderated submissions (i.e. those automatically published). Make sure you check these in Access Settings.",true)
+				.sprintf(__a("For additional help read the %sFacebook integration%s article.",true),'<a target="_blank" href="https://docs.jreviews.com/?title=Setup_Facebook_integration">','</a>')
+				.'</div>',
+			'type'=>'placeholder'
+		),
+		array(
+			'label'=>__a("App ID",true),
+			'type'=>'text',
+			'name'=>'facebook_appid',
+			'attributes'=>array('style'=>'width:98%;'),
+			'help'=>sprintf(__a("Create a Facebook App at %sfacebook.com%s",true),'<a href="https://developers.facebook.com/" target="_blank">','</a>')
+		),
+		array(
+			'label'=>__a("App Secret",true),
+			'type'=>'text',
+			'name'=>'facebook_secret',
+			'attributes'=>array('style'=>'width:98%;')
+		),
+		array(
+			'label'=>__a("Enable Open Graph Protocol",true),
+			'type'=>'radioYesNo',
+			'name'=>'facebook_opengraph',
+			'help'=>sprintf(__a("Enabling Open Graph will result in better functionality of the Facebook Like button enabled via the Social Sharing setting above. %sMore info about Open Graph%s.",true),'<a target="_blank" href="http://developers.facebook.com/docs/opengraph/">','</a>')
+		),
+		array(
+			'label'=>__a("Enable FB Wall Posts",true),
+			'type'=>'radioYesNo',
+			'name'=>'facebook_enable'
+		),
+		array(
+			'label'=>__a("Allow users to opt out",true),
+			'type'=>'radioYesNo',
+			'name'=>'facebook_optout',
+			'help'=>__a("Enabling this will always show the Publish to Facebook checkbox so users can opt out of publishing to their FB account.",true)
+		),
+		array(
+			'label'=>__a("Post on new listing",true),
+			'type'=>'radioYesNo',
+			'name'=>'facebook_listings',
+			'help'=>__a("Works for umoderated listings only.",true)
+		),
+		array(
+			'label'=>__a("Post on new review",true),
+			'type'=>'radioYesNo',
+			'name'=>'facebook_reviews',
+			'help'=>__a("Works for umoderated reviews only.",true)
+		),
+		array(
+			'label'=>__a("Post on helpful vote",true),
+			'type'=>'radioYesNo',
+			'name'=>'facebook_votes'
+		),
+		array(
+			'label'=>__a("Trim posts",true),
+			'type'=>'text',
+			'name'=>'facebook_posts_trim',
+			'attributes'=>array('style'=>'width:3em;'),
+			'help'=>__a("Applies to all posts above.",true)
+		)
+	)
+);?>
+
+<?php $AdminSettings->columns = array(5,8,11); $AdminSettings->displayTab('community',$communityTab);?>

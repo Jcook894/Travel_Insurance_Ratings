@@ -1,0 +1,114 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**
+ * Reviewers list
+ */
+?>
+
+<s2:nocache>
+<?php
+/**********************************************************************************
+ * 								JAVASCRIPT & CSS
+ **********************************************************************************/
+$headScripts = array(
+	'css'=>array('theme','paginator')
+);
+
+# Load CSS stylesheets
+$Html->css(arrayFilter($headScripts['css'], $Libraries->css()));
+?>
+</s2:nocache>
+
+<s2:nocache>
+<?php
+/**********************************************************************************
+ * 								META DATA
+ **********************************************************************************/
+cmsFramework::meta('title', __t("Reviewers",true)); // Set page title
+?>
+</s2:nocache>
+
+<?php
+/**********************************************************************************
+ * 								PAGINATION HELPER
+ **********************************************************************************/
+$Paginator->paginate(array(
+		'current_page'=>$this->page,
+		'items_per_page'=>$this->limit,
+		'items_total'=>$pagination['total'],
+));
+?>
+
+<?php 
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+//prx($rankings);
+?>
+
+<h1 class="contentheading"><?php __t("Reviewers");?></h1>
+
+<!-- PAGINATION BEGINS -->
+<table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+ <tr>
+	<td class="jr_pagenav_results"><?php echo sprintf(__t("%1\$s results - showing %2\$s - %3\$s",true), $pagination['total'], ($this->page-1)*$this->limit+1, min($pagination['total'],$this->page*$this->limit));?></td>
+    <?php if($pagination['total'] > $this->limit):?>
+    <td class="jr_pagenav_pages"><?php echo $Paginator->display_pages();?></td>
+    <td class="jr_pagenav_limitbox"><?php echo $Paginator->display_items_per_page();?>
+	<?php endif;?>
+	</td>
+ </tr>
+</table>
+<!-- PAGINATION ENDS -->
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="jr_dataTable">
+<tr>
+	<th style="text-align:center;"><?php __t("Rank");?></th>
+   <th><?php __t("Reviewer");?></th>
+   <th></th>
+</tr>
+   
+<?php $i = $this->page*$this->limit - ($this->limit - 1);?>
+<?php foreach($rankings AS $rank):?>
+<tr>
+	<td id="<?php echo $rank['User']['user_id'];?>" style="text-align:center;"><?php echo $i++;?></td>
+	<td>
+		<?php echo $Community->screenName($rank,$this->Config);?><br />
+		<?php __t("Number of reviews written:");?> <?php echo $rank['Review']['count'];?>
+        <!-- BEGIN VIEW MY REVIEWS -->    
+        - <?php echo $Routes->myReviews(__t("View all my reviews",true), $rank['User'],array('class'=>'jr_myReviews'));?>
+        <!-- END VIEW MY REVIEWS -->
+        
+        <br />
+		<?php __t("Percentage helpful votes");?>: <?php echo $rank['Vote']['helpful']*100;?>% (<?php echo (int)$rank['Vote']['count'];?> <?php __t("votes");?>)
+	</td>
+	<td>
+		<?php if(isset($rank['Community']['avatar_path'])):?>
+			<?php echo $Community->avatar($rank);?>
+		<?php endif;?>
+	</td>
+</tr>
+<?php endforeach;?>
+</table>
+
+<!-- PAGINATION BEGINS  -->
+<table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+ <tr>
+	<td class="jr_pagenav_results"><?php echo sprintf(__t("%1\$s results - showing %2\$s - %3\$s",true), $pagination['total'], ($this->page-1)*$this->limit+1, min($pagination['total'],$this->page*$this->limit));?></td>
+    <?php if($pagination['total'] > $this->limit):?>
+    <td class="jr_pagenav_pages"><?php echo $Paginator->display_pages();?></td>
+    <td class="jr_pagenav_limitbox"><?php echo $Paginator->display_items_per_page();?>
+	<?php endif;?>
+	</td>
+ </tr>
+</table>
+<!-- PAGINATION ENDS  -->

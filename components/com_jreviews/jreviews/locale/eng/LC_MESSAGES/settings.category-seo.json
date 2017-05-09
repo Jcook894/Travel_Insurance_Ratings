@@ -1,0 +1,15 @@
+[
+    {
+        "menu": "Category SEO Manager",
+        "url": "categories/seo",
+        "settings": [
+            {
+                "title": "Category Page SEO",
+                "keywords": "categories, category, seo, title, description, heading, meta",
+                "description": "Optimize the category page title, headings, keywords and meta description.",
+                "name": "",
+                "tags": []
+            }
+        ]
+    }
+]

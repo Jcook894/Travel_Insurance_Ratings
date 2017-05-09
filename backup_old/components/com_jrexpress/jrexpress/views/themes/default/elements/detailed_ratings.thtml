@@ -1,0 +1,75 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**
+ * This view element outputs the detailed ratings for reviews and review summary
+ * $reviewType can be 'editor' or 'user'
+ */
+
+//prx($review);
+
+/**
+ * Settings
+ */
+$isReview = isset($review['Review']); // It's user or editor review
+$isUserReview = $isReview && !$review['Review']['editor'];
+$isEditorReview = $isReview && $review['Review']['editor'];
+$showDetailedCriteriaRatings = !$isReview || (($isUserReview && $this->Config->user_ratings) || ($isEditorReview && $this->Config->author_ratings));
+?>
+
+<?php
+if(!$this->xajaxRequest)
+{
+	# Load CSS stylesheets
+	$Html->css(arrayFilter(array('theme','theme.detail'), $Libraries->css()));
+}
+?>
+	
+<?php
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+?>
+
+<?php if(!isset($review['Rating']['average_rating'])) return;?>
+
+<table class="rating_table" border="0" cellpadding="0" cellspacing="0">
+	<?php if(count($review['Criteria']['criteria']) == 1):?>
+	<tr>
+	   <td class="rating_label"><?php echo $review['Criteria']['criteria'][0];?>:</td>
+	   <td><?php echo $Rating->drawStars($review['Rating']['average_rating'], $this->Config->rating_scale, $this->Config->rating_graph, $reviewType);?></td>
+	   <td class="rating_value"><?php echo $Rating->round($review['Rating']['average_rating'],$this->Config->rating_scale);?></td>
+	</tr>
+	<?php // Display detailed ratings ?>
+	<?php elseif($showDetailedCriteriaRatings):?>
+		<tr>
+		   <td class="rating_label"><?php __t("Overall rating");?>:&nbsp;</td>
+		   <td><?php echo $Rating->drawStars($review['Rating']['average_rating'], $this->Config->rating_scale, $this->Config->rating_graph, $reviewType);?></td>
+		   <td class="rating_value"><?php echo $Rating->round($review['Rating']['average_rating'],$this->Config->rating_scale);?></td>
+		</tr>
+		<?php foreach($review['Criteria']['criteria'] AS $key=>$value):?>		
+		<tr>
+		   <td class="rating_label"><?php echo $value;?>:</td>
+		   <td><?php echo $Rating->drawStars($review['Rating']['ratings'][$key], $this->Config->rating_scale, $this->Config->rating_graph, $reviewType);?></td>
+		   <td class="rating_value"><?php echo $Rating->round($review['Rating']['ratings'][$key],$this->Config->rating_scale);?></td>
+		</tr>
+		<?php endforeach;?>
+	<?php // Don't display detailed ratings ?>
+	<?php else:?>
+	<tr>
+	   <td class="rating_label"><?php __t("Overall rating");?>:&nbsp;</td>
+	   <td><?php echo $Rating->drawStars($review['Rating']['average_rating'], $this->Config->rating_scale, $this->Config->rating_graph, $reviewType);?></td>
+	   <td class="rating_value"><?php echo $Rating->round($review['Rating']['average_rating'],$this->Config->rating_scale);?></td>
+	</tr>			
+	<?php endif;?>
+</table>
+
+<div class="clr"></div>

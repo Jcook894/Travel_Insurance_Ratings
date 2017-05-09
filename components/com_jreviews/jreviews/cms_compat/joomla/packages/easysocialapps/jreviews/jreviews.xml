@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<social type="apps" group="user">
+	<name>JReviews Activity Stream</name>
+	<element>jreviews</element>
+	<author>ClickFWD LLC</author>
+	<url>https://www.jreviews.com</url>
+	<created>11/29/2016</created>
+	<version>2.0</version>
+	<copyright>Copyright (C) 2010 - 2016 ClickFWD LLC</copyright>
+	<license>Proprietary</license>
+	<installable>false</installable>
+	<core>false</core>
+	<system>true</system>
+	<widget>false</widget>
+	<description>JReviews Stream</description>
+	<files>
+		<folder>assets</folder>
+		<folder>config</folder>
+		<folder>rules</folder>
+		<folder>themes</folder>
+		<file>index.html</file>
+		<file>jreviews.php</file>
+		<file>jreviews.xml</file>
+	</files>
+	<languages>
+		<language type="en-GB">en-GB.plg_app_user_jreviews.ini</language>
+	</languages>
+</social>

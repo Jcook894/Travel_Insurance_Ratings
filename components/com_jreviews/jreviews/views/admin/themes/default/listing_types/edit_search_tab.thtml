@@ -1,0 +1,38 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die;
+?>
+
+<?php
+
+$searchTab = array(
+	__a("Directory and list pages",true) => array(
+		array(
+			'label'=>__a("Simple search",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_searchbox',
+			'default'=>Sanitize::getVar($this->Config,'list_show_searchbox',1),
+			'attributes'=>array('div'=>false),
+			'global'=>true
+		)
+	),
+	__a("Listing Form",true) => array(
+		array(
+			'label'=>__a("Enable Title Live Search",true),
+			'type'=>'radioYesNo',
+			'name'=>'listing_title_livesearch_enable',
+			'default'=>1,
+			'attributes'=>array('div'=>false),
+			'global'=>true,
+			'help'=>__a("Displays other listings that match the current title below the title input.",true)
+		)
+	)
+);
+
+$AdminSettings->displayTab('listing-type-search',$searchTab,'[Criteria][config]',$listingType['ListingType']['config']);

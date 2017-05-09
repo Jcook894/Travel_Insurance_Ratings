@@ -1,0 +1,117 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**********************************************************************************
+ * 								CONFIGURATION AND SETUP
+ **********************************************************************************/
+$columns = Sanitize::getInt($this->params['module'],'columns',1);
+$tn_width = Sanitize::getInt($this->params['module'],'tn_width',50);
+$tn_mode = Sanitize::getString($this->params['module'],'tn_mode','scale');
+$tn_show = Sanitize::getInt($this->params['module'],'tn_show',1);
+$width = (100/$columns - $columns*2); // In percentage
+$ajax_nav = Sanitize::getInt($this->params['module'],'ajax_nav',1);
+?>
+
+
+<?php
+/**********************************************************************************
+ * 								JAVASCRIPT & CSS
+ **********************************************************************************/
+$inline = in_array(getCmsVersion(),array(CMS_JOOMLA10,CMS_MAMBO46));
+if($ajax_nav) {		
+	$headScripts = array('js'=>array('jquery','module'));
+	$Html->js(arrayFilter($headScripts['js'], $Libraries->js()),$inline);
+	# Set noConflict mode for jQuery
+	if(in_array('jquery',$headScripts['js'])) {
+		cmsFramework::addScript(sprintf($Html->tags['javascriptcode'],'jQuery.noConflict();'),$inline);
+	}
+}
+$Html->css(array('theme','plugin_reviews','paginator'),$inline);
+?>
+
+
+<?php
+/**********************************************************************************
+ * 								AJAX PAGINATION HELPER
+ **********************************************************************************/
+
+if($ajax_nav) {
+	$Paginator->paginate(array(
+		'current_page'=>$this->module_page,
+		'items_per_page'=>$this->module_limit,
+		'items_total'=>$total,
+		'module_id'=>$module_id
+	));
+}
+?>
+
+<?php 
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+?>
+
+<?php if(!$this->xajaxRequest):?>
+<div id="jr_modContainer<?php echo $module_id;?>" class="jr_plugContainer jr_reviews_plugin">
+<?php endif;?>
+
+   <!--  REVIEWS MODULE BEGINS HERE -->
+   <?php if(empty($reviews)):?>
+		<?php __t("No entries were found");?><br /><br />
+   <?php else:?>
+	   <?php $i=0;foreach($reviews AS $review):$i++;?>
+	   <div class="listItem" style="width:<?php echo $width;?>%;">
+		<div class="contentTitle" style="white-space:normal;">
+			<?php echo $Html->sefLink($review['Listing']['title'],$review['Listing']['url']);?> <?php echo Sanitize::getString($review['Listing'],'tag') ? '(' .Sanitize::getString($review['Listing'],'tag') . ')' : '';?>
+       </div>	      
+	   	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	         <tr>
+	         	<?php $thumb = $Thumbnail->thumb($review, 0, $tn_mode, 'module'.$module_id, array($tn_width),array('border'=>0,'alt'=>$review['Listing']['title']));?>
+	            <?php if($tn_show && $thumb):?>
+	            <td class="column1" valign="top" style="width:<?php echo $tn_width+10;?>px;">
+	               <div class="contentThumbnail"> <?php echo $Html->sefLink($thumb,$review['Listing']['url']);?> </div>
+					<?php // Uncomment line below to show reviewer avatar. You can comment or remove the thumbnail code above
+						//echo $Community->avatar($review);?>
+	            </td>
+	            <?php endif;?>
+	            <td class="column2" valign="top">
+	            	<?php echo $review['Review']['title'];?>
+					<!--<div class="jr_pathway"><?php echo $review['Category']['title'];?></div>-->
+					<table border="0" cellpadding="0" cellspacing="0" class="rating_table">
+	                  <tr>
+	                     <td class="rating_label"><?php echo $Html->image($this->viewImages.'review_user.png',array('title'=>__t("User rating",true),'alt'=>__t("User rating",true)));?></td>
+	                     <td class="rating_stars" title="<?php __t("User rating");?>" style="cursor:help;"><?php echo $Rating->drawStars($review['Rating']['average_rating'], $this->Config->rating_scale, $this->Config->rating_graph, 'user');?></td>
+	                     <td class="rating_value"><?php echo $Rating->round($review['Rating']['average_rating'],$this->Config->rating_scale);?></td>
+	                  </tr>
+	               </table>
+<!--			       <span class="reviewer"><?php __t("Reviewed by");?> <?php echo $Community->screenName($review,$this->Config);?></span><br />-->
+			       <?php if(Sanitize::getInt($this->params['module'],'comments')>0):?><span class="comments">"<?php echo $Text->truncate($review['Review']['comments'],100,'...');?>"</span><?php endif;?>
+			    </td>
+	         </tr>
+	      </table>
+	      <div class="clr"></div>
+	   </div>
+	   <?php if($i==$columns):?><div class="jr_divider"></div><?php $i=0;endif;?>	   
+	   <?php endforeach;?>
+	<?php endif;?>
+	<!--  REVIEWS MODULE ENDS HERE -->
+	<div class="clr"></div>
+
+   <?php if(!empty($reviews)):?>	
+	<div class="jr_pagination">
+		<?php if($ajax_nav && $total > count($listings)):?><?php echo $Paginator->display_pages_module();?><?php endif;?>
+		<?php echo $Routes->myReviews(__t("View all my reviews",true),array('user_id'=>Sanitize::getInt($this->params,'user')),array('class'=>'jr_buttonLink'));?>
+	</div>
+	<?php endif;?>
+	
+<?php if(!$this->xajaxRequest):?>
+</div>
+<?php endif;?>

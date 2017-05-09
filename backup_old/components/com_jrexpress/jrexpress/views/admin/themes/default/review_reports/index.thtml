@@ -1,0 +1,51 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<div class="admin_header">Reports Moderation</div>
+<form id="adminForm" name="adminForm" action="index2.php" method="post">
+							
+<table cellpadding="4" cellspacing="0" border="0" width="100%" class="adminlist">
+	<tr>
+		<th class="title" width="350">Report</th>
+		<th class="title">Message</th>
+		<th align="center" width="15">ID</th>
+		<th align="center" width="15">Delete</th>
+	</tr>
+
+	<?php $i=0; foreach($reports AS $report):?>
+	
+		<tr id="review_report<?php echo $report['ReviewReport']['report_id'];?>" class="row<?php echo $i;?>">
+			<td id="reviews<?php echo $report['Review']['review_id'];?>">				
+				<strong><?php __a("Review");?>:</strong> 
+				<a class="thickbox" href="index2.php?option=com_jrexpress&no_html=1&url=reviews/edit&reviewid=<?php echo $report['Review']['review_id'];?>&catid=<?php echo $report['Category']['cat_id'];?>&extension=<?php echo $report['Review']['extension'];?>&entry_title=<?php echo urlencode($report['Listing']['title']);?>&width=800&height=600">
+				<div style="display:inline;" id="title_<?php echo $report['Review']['review_id'];?>"><?php echo $report['Review']['title'] != '' ? $report['Review']['title'] : "[".__a("No title, click to edit",true)."]"; ?></div>
+				</a><br />
+                <strong><?php __a("Created");?></strong> <?php echo $report['Review']['created'];?><br />
+                <strong><?php __a("Reviewer");?></strong> <?php echo $report['User']['name'];?> (<?php echo $report['User']['alias'];?>)<br />
+                <strong><?php __a("Listing");?>:</strong> <?php echo $report['Listing']['title'];?> (<?php echo $report['Category']['title'];?>)<br />
+				<strong><?php __a("Extension");?>:</strong> <?php echo $report['Review']['extension'];?>
+			</td>
+				
+			<td><?php echo $report['ReviewReport']['message'];?></td>
+
+			<td><?php echo $report['ReviewReport']['report_id'];?></td>
+			
+			<td align="center">
+				<a href="javascript:void(0);" onclick="deleteReport('<?php echo $report['ReviewReport']['report_id'];?>');"><img src="<?php echo WWW_ROOT;?>includes/js/ThemeOffice/trash.png" alt="del" border="0" /></a>
+			</td>
+		</tr>
+	
+	<?php $i=1-$i; endforeach;?>
+	
+</table>
+
+</form>		

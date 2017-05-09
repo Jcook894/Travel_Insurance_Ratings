@@ -1,0 +1,46 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+extract($params);
+?>
+
+<?php
+if( ($custom_link_1_text || $custom_link_2_text || $custom_link_3_text)
+	&& (
+		($position == 'top' && in_array($custom_link_position,array('top-right','top-left')))
+		||
+		($position == 'bottom' && in_array($custom_link_position,array('bottom-right','bottom-left')))
+	)
+):
+?>
+
+<ul class="jrModuleLinks <?php if(in_array($custom_link_position,array('top-right','bottom-right'))):?>jrRightAlign<?php endif;?>">
+
+	<?php if($custom_link_1_text):?>
+
+		<li><a href="<?php echo $custom_link_1_url;?>"><?php echo $custom_link_1_text;?></a></li>
+
+	<?php endif;?>
+
+	<?php if($custom_link_2_text):?>
+
+		<li><a href="<?php echo $custom_link_2_url;?>"><?php echo $custom_link_2_text;?></a></li>
+
+	<?php endif;?>
+
+	<?php if($custom_link_3_text):?>
+
+		<li><a href="<?php echo $custom_link_3_url;?>"><?php echo $custom_link_3_text;?></a></li>
+
+	<?php endif;?>
+
+</ul>
+
+<?php endif;?>

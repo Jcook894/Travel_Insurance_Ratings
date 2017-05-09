@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/component-install.dtd">
+<!--$Id: simple_review.xml 122 2009-09-13 12:39:25Z rowan $-->	
+<install type="component" version="1.5.0">
+	<name>simple_review</name>
+	<creationDate>15 September 2009</creationDate>
+	<author>Rowan Youngson</author>
+	<copyright>This component in released under the GNU General Public License.</copyright>
+	<authorUrl>http://www.simple-review.com</authorUrl>
+	<version>2.1.0 Beta 2</version>
+	<description>Simple Review is a Review component for the Joomla! CMS</description>
+    
+  	<installfile>install.simple_review.php</installfile>
+  	<uninstallfile>uninstall.simple_review.php</uninstallfile>
+	
+	<install folder="admin">
+		<sql>
+			<file charset="utf8" driver="mysql">sql/install.utf8.sql</file>
+			<file driver="mysql">sql/install.sql</file>
+		</sql>
+	</install>
+	<uninstall folder="admin">
+		<sql>
+			<file charset="utf8" driver="mysql">sql/uninstall.sql</file>
+			<file driver="mysql">sql/uninstall.sql</file>
+		</sql>
+	</uninstall>	
+	
+	<files folder="frontend">
+
+		<filename>simple_review.html.php</filename>
+		<filename>simple_review.php</filename>
+		<filename>index.html</filename>
+		<filename>css/Simple_Review.css</filename>
+		<filename>css/index.html</filename>
+		<filename>javascript/SRCore.js</filename>
+		<filename>javascript/pluginselect.js</filename>
+		<filename>javascript/sorttable.js</filename>
+		<filename>javascript/index.html</filename>
+			
+		<filename>images/simplereview_banner.gif</filename>
+		<filename>images/fullstar.png</filename>
+		<filename>images/halfstar.png</filename>
+		<filename>images/emptystar.png</filename>
+		<filename>images/fullstar-alt.png</filename>
+		<filename>images/halfstar-alt.png</filename>
+		<filename>images/emptystar-alt.png</filename>		
+		<filename>images/image_unavailable.gif</filename>
+		<filename>images/avatars/noimage.png</filename>
+		<filename>images/avatars/analog.png</filename>
+		<filename>images/avatars/bloodthirsty.png</filename>
+		<filename>images/avatars/bratty.png</filename>
+		<filename>images/avatars/chic.png</filename>
+		<filename>images/avatars/clown.png</filename>
+		<filename>images/avatars/cuddly.png</filename>
+		<filename>images/avatars/cynic.png</filename>
+		<filename>images/avatars/dimensional.png</filename>
+		<filename>images/avatars/faithful.png</filename>
+		<filename>images/avatars/fresh.png</filename>
+		<filename>images/avatars/haunting.png</filename>
+		<filename>images/avatars/infantile.png</filename>
+		<filename>images/avatars/oceanic.png</filename>
+		<filename>images/avatars/pessimist.png</filename>
+		<filename>images/avatars/protective.png</filename>
+		<filename>images/avatars/stale.png</filename>
+		<filename>images/avatars/vigilant.png</filename>	
+	
+	</files>      	
+
+
+
+  <administration>
+    <menu>Simple Review</menu>
+	<submenu>
+		<menu task="">Main</menu>
+		<menu task="configuration">Configuration</menu>
+		<menu task="list&amp;module=Award_Module">Award Management</menu>
+		<menu task="list&amp;module=Comment_Module">Comment Management</menu>
+		<menu task="list&amp;module=Category_Module">Category Management</menu>
+		<menu task="list&amp;module=Review_Module">Review Management</menu>
+		<menu task="list&amp;module=Template_Module">Template Management</menu>
+	</submenu>
+	
+    <files folder="admin">
+      <filename>admin.simple_review.css</filename>
+      <filename>admin.simple_review.html.php</filename>
+      <filename>admin.simple_review.php</filename>
+      <filename>config.simple_review.php</filename>
+      <filename>globals.php</filename>
+      <filename>index.html</filename>
+      <filename>toolbar.simple_review.php</filename>
+      <filename>addons/Addon_Base.php</filename>
+      <filename>addons/Addon_Base_Admin.php</filename>
+      <filename>addons/Addon_Base_Frontend.php</filename>
+      <filename>addons/Addon_Common.php</filename>
+      <filename>addons/Addon_Manager.php</filename>
+      <filename>addons/index.html</filename>
+      <filename>addons/modules/base.php</filename>
+      <filename>addons/modules/index.html</filename>
+	  
+      <filename>addons/modules/Award_Module/Award_Module.php</filename>	  
+      <filename>addons/modules/Award_Module/Award_Module.Admin.js</filename>
+      <filename>addons/modules/Award_Module/Award_Module_Admin.php</filename>
+      <filename>addons/modules/Award_Module/db.php</filename>
+      <filename>addons/modules/Award_Module/index.html</filename>
+	  
+      <filename>addons/modules/BannedIP_Module/BannedIP_Module.Admin.js</filename>
+	  <filename>addons/modules/BannedIP_Module/BannedIP_Module.php</filename>
+      <filename>addons/modules/BannedIP_Module/BannedIP_Module_Admin.php</filename>
+      <filename>addons/modules/BannedIP_Module/db.php</filename>
+      <filename>addons/modules/BannedIP_Module/index.html</filename>
+	  
+      <filename>addons/modules/Category_Module/Category_Module.Admin.js</filename>
+      <filename>addons/modules/Category_Module/Category_Module.css</filename>
+      <filename>addons/modules/Category_Module/Category_Module.php</filename>
+      <filename>addons/modules/Category_Module/Category_Module_Admin.php</filename>
+      <filename>addons/modules/Category_Module/config.php</filename>
+      <filename>addons/modules/Category_Module/db.php</filename>
+      <filename>addons/modules/Category_Module/index.html</filename>
+	  <filename>addons/modules/Category_Module/templates/Admin/CategoryForm.php</filename>	  
+      <filename>addons/modules/Category_Module/templates/Default/Default.php</filename>
+      <filename>addons/modules/Category_Module/templates/Default/Default.css</filename>
+      <filename>addons/modules/Category_Module/templates/Default/subhead_bg.png</filename>	  
+	  
+      <filename>addons/modules/Comment_Module/Comment_Module.Admin.js</filename>
+      <filename>addons/modules/Comment_Module/Comment_Module.html.php</filename>
+      <filename>addons/modules/Comment_Module/Comment_Module.php</filename>
+      <filename>addons/modules/Comment_Module/Comment_Module_Admin.php</filename>
+      <filename>addons/modules/Comment_Module/config.php</filename>
+      <filename>addons/modules/Comment_Module/db.php</filename>
+      <filename>addons/modules/Comment_Module/index.html</filename>
+	  
+	  <filename>addons/modules/Language_Module/index.html</filename>
+	  <filename>addons/modules/Language_Module/Language_Module.php</filename>
+	  <filename>addons/modules/Language_Module/languages/index.html</filename>
+	  <filename>addons/modules/Language_Module/languages/en-GB/Award_Module.php</filename>  
+	  <filename>addons/modules/Language_Module/languages/en-GB/BannedIP_Module.php</filename>
+	  <filename>addons/modules/Language_Module/languages/en-GB/Category_Module.php</filename>
+	  <filename>addons/modules/Language_Module/languages/en-GB/Comment_Module.php</filename>
+	  <filename>addons/modules/Language_Module/languages/en-GB/Language_Module.php</filename>
+	  <filename>addons/modules/Language_Module/languages/en-GB/Review_Module.php</filename>
+	  <filename>addons/modules/Language_Module/languages/en-GB/Tag_Module.php</filename>
+	  <filename>addons/modules/Language_Module/languages/en-GB/Template_Module.php</filename>
+	  
+      <filename>addons/modules/Review_Module/config.php</filename>
+      <filename>addons/modules/Review_Module/db.php</filename>
+      <filename>addons/modules/Review_Module/index.html</filename>
+      <filename>addons/modules/Review_Module/Review_Module.Admin.js</filename>
+      <filename>addons/modules/Review_Module/Review_Module.css</filename>
+      <filename>addons/modules/Review_Module/Review_Module.php</filename>
+      <filename>addons/modules/Review_Module/Review_Module_Admin.php</filename>
+	  <filename>addons/modules/Review_Module/Review_Title_Helper.php</filename>
+      <filename>addons/modules/Review_Module/images/index.html</filename>
+      <filename>addons/modules/Review_Module/images/score.gif</filename>
+      <filename>addons/modules/Review_Module/images/userscore.gif</filename>
+	  <filename>addons/modules/Review_Module/templates/Admin/ReviewForm.php</filename>
+	  
+      <filename>addons/modules/Tag_Module/config.php</filename>
+      <filename>addons/modules/Tag_Module/index.html</filename>
+      <filename>addons/modules/Tag_Module/Tag_Module.Admin.js</filename>
+      <filename>addons/modules/Tag_Module/Tag_Module.html.php</filename>
+      <filename>addons/modules/Tag_Module/Tag_Module.php</filename>
+      <filename>addons/modules/Tag_Module/Tag_Module_Admin.php</filename>
+	  
+      <filename>addons/modules/Template_Module/db.php</filename>
+      <filename>addons/modules/Template_Module/index.html</filename>
+      <filename>addons/modules/Template_Module/Template_Module.Admin.js</filename>
+	  <filename>addons/modules/Template_Module/Template_Module.php</filename>	  
+      <filename>addons/modules/Template_Module/Template_Module_Admin.php</filename>
+      <filename>addons/modules/Template_Module/templates/default.php</filename>
+	  
+      <filename>addons/plugins/base.php</filename>
+      <filename>addons/plugins/index.html</filename>
+	  
+      <filename>addons/plugins/Comment_Display/base.php</filename>
+      <filename>addons/plugins/Comment_Display/Bubble_Comment.php</filename>
+      <filename>addons/plugins/Comment_Display/index.html</filename>
+      <filename>addons/plugins/Comment_Display/Standard_Comment.php</filename>
+      <filename>addons/plugins/Comment_Display/Bubble_Comment/Bubble_Comment.css</filename>
+      <filename>addons/plugins/Comment_Display/Bubble_Comment/Bubble_Comment.html.php</filename>
+      <filename>addons/plugins/Comment_Display/Bubble_Comment/index.html</filename>
+      <filename>addons/plugins/Comment_Display/Bubble_Comment/images/bl.gif</filename>
+      <filename>addons/plugins/Comment_Display/Bubble_Comment/images/br.gif</filename>
+      <filename>addons/plugins/Comment_Display/Bubble_Comment/images/bubble.gif</filename>
+      <filename>addons/plugins/Comment_Display/Bubble_Comment/images/index.html</filename>
+      <filename>addons/plugins/Comment_Display/Bubble_Comment/images/tl.gif</filename>
+      <filename>addons/plugins/Comment_Display/Bubble_Comment/images/tr.gif</filename>
+      <filename>addons/plugins/Comment_Display/Standard_Comment/index.html</filename>
+      <filename>addons/plugins/Comment_Display/Standard_Comment/Standard_Comment.css</filename>
+      <filename>addons/plugins/Comment_Display/Standard_Comment/Standard_Comment.html.php</filename>
+      <filename>addons/plugins/Comment_Display/Standard_Comment/images/subhead_bg.png</filename>
+	  
+      <filename>addons/plugins/Comment_Form/base.php</filename>
+      <filename>addons/plugins/Comment_Form/index.html</filename>
+      <filename>addons/plugins/Comment_Form/Standard_Comment_Form.php</filename>
+      <filename>addons/plugins/Comment_Form/Standard_Comment_Form/index.html</filename>
+      <filename>addons/plugins/Comment_Form/Standard_Comment_Form/Standard_Comment_Form.css</filename>
+      <filename>addons/plugins/Comment_Form/Standard_Comment_Form/Standard_Comment_Form.html.php</filename>
+      <filename>addons/plugins/Comment_Form/Standard_Comment_Form/Standard_Comment_Form.js</filename>
+	  
+      <filename>addons/plugins/TopN_Display/base.php</filename>
+      <filename>addons/plugins/TopN_Display/index.html</filename>
+      <filename>addons/plugins/TopN_Display/Standard_TopN.php</filename>
+      <filename>addons/plugins/TopN_Display/Standard_TopN/index.html</filename>
+      <filename>addons/plugins/TopN_Display/Standard_TopN/Standard_TopN.html.php</filename>
+      <filename>addons/plugins/TopN_Display/Horizontal_TopN.php</filename>
+      <filename>addons/plugins/TopN_Display/Horizontal_TopN/index.html</filename>
+      <filename>addons/plugins/TopN_Display/Horizontal_TopN/Horizontal_TopN.html.php</filename>	  
+
+      <filename>classes/class.simple_review_common.php</filename>
+	  <filename>classes/SRBridgeCMS.php</filename>
+	  <filename>classes/SRBridgeControlsBase.php</filename>
+	  <filename>classes/SRBridgeControlsJoomla10.php</filename>	  
+	  <filename>classes/SRBridgeControlsJoomla15.php</filename>
+	  <filename>classes/SRBridgeDatabaseBase.php</filename>
+	  <filename>classes/SRBridgeDatabaseJoomla10.php</filename>
+	  <filename>classes/SRBridgeDatabaseJoomla15.php</filename>
+	  <filename>classes/SRBridgeJoomla10.php</filename>
+	  <filename>classes/SRBridgeJoomla15.php</filename>
+	  <filename>classes/SRConfiguration.php</filename>
+	  <filename>classes/SRFrontEndRouter.php</filename>
+      <filename>classes/index.html</filename>
+	  
+	  <filename>sql/install.utf8.sql</filename>
+	  <filename>sql/install.sql</filename>
+	  <filename>sql/uninstall.sql</filename>
+
+    </files>
+	
+  </administration>
+</install>

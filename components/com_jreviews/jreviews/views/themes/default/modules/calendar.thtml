@@ -1,0 +1,60 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**********************************************************************************
+ * 								CONFIGURATION AND SETUP
+ **********************************************************************************/
+
+$module_id = Sanitize::getVar($this->params,'module_id','');
+
+extract($this->params['module']);
+
+$settings = json_encode(compact('module_id','start_field','end_field','start_date','end_date','hide_past','autoload','listing_order','summary','summary_words','show_category','fields','editor_rating','user_rating','columns','show_numbers','listings_tmpl_suffix','tn_show','tn_position','tn_mode','tn_size'));
+
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/?>
+
+<div class="jr-module-calendar jrModuleCalendar" data-options='<?php echo $settings;?>'>
+
+  <?php if(isset($description) && $description != ''): ?>
+
+  <div class="jrModuleCalendarDescription"><?php echo $description; ?></div>
+
+  <?php endif; ?>
+
+  <div class="jr-module-calendar-container"></div>
+
+  <div class="jr-module-calendar-listings"></div>
+
+</div>
+
+<script id="jr-module-calendar-template-<?php echo $module_id; ?>" type="text/template">
+
+<div class="controls">
+  <div class="clndr-previous-button">&lsaquo;</div><div class="month">{{ month }} {{ year }}</div><div class="clndr-next-button">&rsaquo;</div>
+</div>
+
+<div class="days-container">
+  <div class="days">
+    <?php if($display_week_letters): ?>
+    <div class="headers">
+      {{#daysOfTheWeek}}
+      <div class="day-header">{{ . }}</div>
+      {{/daysOfTheWeek}}
+    </div>
+    <?php endif; ?>
+    {{#days}}
+    <div class="{{ classes }}" id="{{ id }}">{{ day }}</div>
+    {{/days}}
+  </div>
+</div>
+
+</script>

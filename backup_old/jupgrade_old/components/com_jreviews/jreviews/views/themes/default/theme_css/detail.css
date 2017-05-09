@@ -1,0 +1,299 @@
+/*************************************
+Listing detail page styles
+*************************************/
+.jr_itemDetail {}
+
+.jr_itemDetail div.contentheading {
+	margin-bottom: .5em;
+}
+
+/* author community builder avatar */	
+.jr_itemDetail div.contentInfo img.jr_avatar{
+    float: left;
+    margin: 0 10px 0 0;
+    border: 0;
+    width: 48px;
+    height: auto;
+}
+
+/*************************************
+Custom Fields
+*************************************/
+.jr_itemDetail .jr_customFields {
+	clear: left;
+}
+
+/*************************************
+Images
+*************************************/
+div.itemMainImage  {
+	float: right; 
+	margin: 0 0 30px 10px; 
+	border: solid 1px #ccc;
+	padding: 1px;
+	vertical-align: middle;
+}
+
+div.itemMainImage:hover  {
+	-moz-box-shadow: 0 0 6px #999;
+	-webkit-box-shadow: 0 0 6px #999;
+	box-shadow: 0 0 6px #999;
+}
+
+div.itemMainImage img {
+	margin: 0;
+	padding: 0;
+}
+
+div.itemThumbnails  {
+	overflow: hidden;
+	margin-bottom: 30px;
+}
+
+div.itemThumbnails div {	
+	float: left;
+	border: solid 1px #ddd;
+	padding: 1px;
+	margin: 6px 10px 10px 6px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+div.itemThumbnails div:hover {
+	-moz-box-shadow: 0 0 6px #999;
+	-webkit-box-shadow: 0 0 6px #999;
+	box-shadow: 0 0 6px #999;
+}
+
+div.itemImages div.itemThumbnails a {text-decoration:none;}
+
+
+/*************************************
+INTRO AND FULL TEXT
+*************************************/
+div.jr_itemDetail .contentIntrotext {line-height:1.7em; clear:left;}
+div.jr_itemDetail .contentFulltext {line-height:1.7em; clear:left;}
+
+
+/*************************************
+Related Listing Widgets
+*************************************/
+#jrRelatedListings {
+	/*margin: 20px 0;*/
+} 
+
+#jrRelatedListings .jrWidget h4 {	
+	font-size: 14px;
+	font-weight: 600;
+	font-family: sans-serif;
+	text-transform: uppercase;
+	padding: 6px 10px;
+	margin: 0 0 15px 0;
+	color: #333;
+	border: 1px solid #ccc;
+	background-color: #ddd;
+	background-image: -moz-linear-gradient(center top, #eee, #ccc);
+	background-image: -o-linear-gradient(top, #eee, #ccc);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #eee), color-stop(1, #ccc));
+	background-image: -webkit-linear-gradient(#eee, #ccc);
+	background-image: linear-gradient(top, #eee, #ccc);
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-moz-box-shadow: 1px 1px 2px #bbb;
+	-webkit-box-shadow: 1px 1px 2px #bbb;
+	box-shadow: 1px 1px 2px #bbb;	
+}
+
+.jrWidget {
+	margin-top: 10px;
+}
+
+
+/*************************************
+COMMON REVIEW ELEMENTS
+*************************************/
+h4.jr_reviewTitle {
+	font-size: 14px !important;
+	font-weight: bold !important;
+	margin: 5px 0 .5em 0 !important;
+}
+	
+div.jr_reviewContainer {
+	clear: left;
+    line-height: 1.5em;
+    font-size: 95%;
+}
+
+.jr_reviewContainer .jr_customFields {
+    margin-top: 15px;
+}
+
+div.jr_reviewContainer .jr_addReview {
+    float: left;
+}
+
+div.jr_reviewContainerSidebar {
+    float: right; 
+    margin: 0 20px 15px 15px;
+    white-space: nowrap;
+}    
+
+div.jr_review table.rating_table {
+	margin: 0;
+}
+
+#rating_table_summary { /* special table for user review summary */
+	margin-bottom: 0;
+}
+
+div.reviewActions {
+	overflow: hidden;
+	clear: both;
+	padding-top: 5px;
+}
+
+div.reviewComments .jrButton {
+	margin: 0;
+}
+
+div.reviewVoting{
+	float: right;
+	margin-top: 3px;
+}  
+
+div.jrHelpfulTitle {
+	float: left;
+	margin: 0;
+}
+
+/* buttons */	
+div.reviewHelpful {
+	font-size: .9em;
+	font-weight: bold;
+	color: #777;
+	line-height: 2em;
+	overflow: hidden;
+	margin-right: 10px;
+	float: left;
+}
+
+span.jrVote {
+	margin: 0.1em 0.3em;
+	line-height: 1em;
+}
+
+a.jrReportReview {
+	float: right; 
+	margin-top: 5px;
+}
+
+/* results */		
+div.jr_helpfulSummary {
+	font-size: 90%;
+	font-weight: normal;
+	color: #777;
+	line-height: 2em;
+	margin-bottom: 10px;	
+}
+	
+div.reviewInfo {
+	font-size: 0.9em;
+	color: #777;
+	line-height: 1.5em;
+	padding-top: 0px;
+    margin: 5px 0 10px 0; 
+}
+	
+/* review community avatar */	
+div.reviewInfo img {
+	float: left;
+	margin: 0 10px 10px 0;
+	border: 0;
+	width: 48px;
+	height: auto;
+}
+
+a.jrReviewEdit {
+	text-decoration: none;
+}
+
+a.jrReviewEdit span {
+	font-size: 11px;
+	padding: 2px 4px;
+	margin: 0 5px;
+}
+
+div.jr_reviewOwnerReply {
+	padding: 15px;
+	background: #eee;
+	font-style: italic;
+	margin-bottom: 10px;
+	-moz-border-radius: 9px;
+	-webkit-border-radius: 9px;
+	border-radius: 9px;	
+}
+
+div.jr_reviewOwnerReply span.ownerTitle {
+	margin: 5px 0;
+	font-weight: bold;
+}
+
+div.reviewComments{
+	float: left;
+}   
+
+
+/*************************************
+EDITOR REVIEW ELEMENTS
+*************************************/
+#jr_reviewEditorMainTitle {}
+	
+#jr_reviewEditor {
+	margin-bottom: 10px;
+}
+	
+	
+/*************************************
+USER REVIEW SUMMARY
+*************************************/
+#jr_reviewUserSummaryMainTitle {}
+	
+#jr_reviewUserSummary {
+	margin-bottom: 10px;
+}
+
+
+/*************************************
+MY REVIEWS / LISTING REVIEWS PAGE
+*************************************/
+#jr_itemReviews .jr_pathway {
+	margin-bottom: 0;
+}
+
+
+/**************************
+* Social Bookmarks  
+***************************/
+span.socialBookmarks {
+	margin: 0;
+	vertical-align: bottom;
+}
+
+span.socialBookmarks iframe {
+	vertical-align: text-top;	
+}
+
+span.socialBookmarks #___plusone_0 {
+    vertical-align: top !important;
+}
+
+span.socialBookmarks .fb-like {
+    display: inline-block;
+}
+
+span.socialBookmarks .fb-send {
+    display: inline-block;
+    margin-right: 15px;
+}
+

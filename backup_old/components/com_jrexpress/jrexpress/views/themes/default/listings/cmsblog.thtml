@@ -1,0 +1,81 @@
+<?php 
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**
+ * Core blog pages, includes frontpage, blogsection and blogcategory pages
+ */
+?>
+
+<?php
+/**********************************************************************************
+ * 								JAVASCRIPT & CSS
+ **********************************************************************************/		
+$headScripts = array(
+	'js'=>array('jrexpress'),
+	'css'=>array('theme','theme.list')
+);
+
+# Load javascript libraries
+$Html->js(arrayFilter($headScripts['js'], $Libraries->js()));
+
+# Load CSS stylesheets
+$Html->css(arrayFilter($headScripts['css'], $Libraries->css()));
+?>
+
+<?php
+/**********************************************************************************
+ * 								META DATA
+ **********************************************************************************/
+?>
+
+<?php
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+?>
+<!--  CMSBLOG  -->
+<div class="jr_pgContainer jr_cmsblog">
+	<div class="listItem">
+											
+	<div class="contentInfo">
+		<?php if($this->Config->list_show_author):?><?php __t("Written by");?> <?php echo $Community->screenName($listing,$this->Config);?>&nbsp;&nbsp;&nbsp;&nbsp;<?php endif;?> 
+		<?php if($this->Config->list_show_date):?><?php echo $Time->nice($listing['Listing']['created']);?>&nbsp;&nbsp;&nbsp;&nbsp;<?php endif;?>
+		<?php if($this->Config->list_show_hits):?><?php __t("Hits");?>:&nbsp;<?php echo $listing['Listing']['hits']?>&nbsp;&nbsp;&nbsp;&nbsp;<?php endif;?>
+	</div>
+      
+   	<?php if($listing['Criteria']['state'] && $this->Config->user_reviews && $this->Config->list_show_user_rating):?>
+    <!-- BEGIN RATINGS -->
+    <table border="0" cellpadding="0" cellspacing="0" class="rating_table">
+    <tr>
+          <td align="left" class="rating_label"><?php echo $Html->image($this->viewImages.'review_user.png',array('title'=>__t("User rating",true),'alt'=>__t("User rating",true)));?></td>
+          <td align="left" class="rating_stars" style="cursor:help;" title="User Rating"><?php echo $Rating->drawStars($listing['Review']['user_rating'], $this->Config->rating_scale, $this->Config->rating_graph, 'user');?></td>
+          <td align="left" class="rating_value"><?php echo $Rating->round($listing['Review']['user_rating'],$this->Config->rating_scale);?> (<span style="cursor:help;" title="<?php __t("User reviews");?>"><?php echo (int) $listing['Review']['review_count'];?></span>)</td>
+    </tr>
+    </table>
+    <!-- END RATINGS-->
+    <?php endif;?>
+          
+	<div class="clr"></div>		    
+					     			
+	<?php if($this->Config->list_show_image && $introThumb = $Thumbnail->thumb($listing, 0, 'scale', 'list', array($this->Config->list_image_resize), array('border'=>0,'alt'=>$listing['Listing']['title']))):?>
+	<div class="contentThumbnail">
+		<?php echo $Routes->content($introThumb,$listing)?>
+	</div>				
+	<?php endif;?>
+
+	<!-- BEGIN INTROTEXT -->
+	<div class="contentIntrotext">
+	 <?php echo $listing['Listing']['summary'];?>
+	</div>
+	<!-- END INTROTEXT -->		   
+	
+   </div>
+</div>

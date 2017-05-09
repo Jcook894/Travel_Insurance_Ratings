@@ -1,0 +1,217 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**********************************************************************************
+ * 								CONFIGURATION & SETUP
+ * Read instructions towards the bottom of the file to limit results to certain
+ * categories when the select list is not shown in the form
+ **********************************************************************************/
+$module_id = Sanitize::getString($this->params,'module_id','',true);
+
+$dir_id = Sanitize::getString($this->params['module'],'dir_id','',true);
+
+$criteria_id = Sanitize::getString($this->params['module'],'criteria_id','',true);
+
+$tmpl_suffix = Sanitize::getString($this->params['module'],'results_suffix','',true);
+
+$category_field = Sanitize::getBool($this->params['module'],'category_field', 1);
+
+$rating_field = Sanitize::getBool($this->params['module'],'rating_field', 1);
+
+$editor_rating_field = Sanitize::getBool($this->params['module'],'editor_rating_field', 0);
+
+$query_type = 'all'; // all|exact|any
+
+$search_review_comments = false;
+
+$address_field = Sanitize::getString($this->Config,'geomaps.advsearch_input', 'jr_address');
+
+$radius = Sanitize::getFloat($this->params,'jr_radius',5);
+
+$radius_metric = Sanitize::getString($this->Config,'geomaps.radius_metric', 'mi');
+
+$live_search = Sanitize::getInt($this->params['module'],'live_search',0);
+
+$live_search_auto_hide = Sanitize::getInt($this->params['module'],'live_search_auto_hide',1);
+
+if ($radius_metric == 'mi') {
+
+	$radius_values = array(
+		1=>'1 mi',
+		5=>'5 mi',
+		10=>'10 mi',
+		15=>'15 mi',
+		20=>'20 mi'
+	);
+
+} else {
+
+	$radius_values = array(
+		1=>'1 km',
+		5=>'5 km',
+		10=>'10 km',
+		15=>'15 km',
+		20=>'20 km'
+	);
+}
+
+$rating = Sanitize::getVar($this->params,S2_QVAR_RATING_AVG);
+
+$editor_rating = Sanitize::getVar($this->params,S2_QVAR_EDITOR_RATING_AVG);
+
+/**********************************************************************************
+ * 						EDIT HTML BELOW THIS LINE
+ **********************************************************************************/?>
+
+<div class="jr-page jrPage jrAdvSearchModule jrRoundedPanel jrForm">
+
+	<form class="jr-form-adv-search-module" action="<?php echo cmsFramework::getCurrentUrl();?>" method="post" data-live-search="<?php echo $live_search;?>" data-live-search-hide="<?php echo $live_search_auto_hide;?>" data-module-id="<?php echo $module_id;?>">
+
+		<moduletheme>
+
+		<?php if($category_field): ?>
+		<div class="jrFieldDiv jrLeft">
+
+			<?php __t("Category");?>: {category}
+
+		</div>
+		<?php endif;?>
+
+		<div class="jrFieldDiv jrLeft">
+
+			<?php __t("Keywords");?>: <input type="text" class="jrKeywords" name="data[keywords]" value="<?php echo Sanitize::getString($this->params,'keywords','',true);?>" />
+
+		</div>
+
+		<div class="jrFieldDiv jrClear jrLeft">
+
+			<?php __t("Address");?>: {<?php echo $address_field; ?>}
+
+		</div>
+
+		<div class="jrFieldDiv jrLeft">
+			<?php echo $Form->select(
+					'data[Field][Listing][jr_radius]',
+					$radius_values,
+					$radius,
+					array(
+						'id'=>'jr_radius'.$module_id,
+						'class'=>'jrSelect',
+						'selected'=>$radius
+					)
+			);?>&nbsp;&nbsp;&nbsp;
+		</div>
+
+		<?php if($rating_field): ?>
+		<div class="jrFieldDiv jrClear jrLeft">
+
+			<?php __t("User Rating");?>: <?php echo $Form->select(
+					'data['.S2_QVAR_RATING_AVG.'][]',
+					$Rating->ratingSearchOptions(),
+					$rating,
+					array(
+						'class'=>'jrSelect',
+						'selected'=>1
+					)
+			);?>
+
+		</div>
+		<?php endif;?>
+
+		<?php if($editor_rating_field): ?>
+		<div class="jrFieldDiv jrLeft">
+
+			<?php __t("Editor Rating");?>: <?php echo $Form->select(
+					'data['.S2_QVAR_EDITOR_RATING_AVG.'][]',
+					$Rating->ratingSearchOptions(),
+					$editor_rating,
+					array(
+						'class'=>'jrSelect',
+						'selected'=>1
+					)
+			);?>
+
+		</div>
+		<?php endif;?>
+
+		<div class="jrFieldDiv jrLeft">
+
+			<button class="jr-search jrButton" style="margin:0;">
+
+				<span class="jrIconSearch"></span><span><?php __t("Search");?></span>
+
+			</button>
+
+		</div>
+
+		</moduletheme>
+
+		<div class="jrClear"></div>
+
+		<?php
+		/**********************************************************************************
+		 * 						EDIT HTML ABOVE THIS LINE
+		 **********************************************************************************/?>
+
+		<input name="data[contentoptions][]" type="hidden" value="title" />
+
+		<input name="data[contentoptions][]" type="hidden" value="introtext" />
+
+		<input name="data[contentoptions][]" type="hidden" value="fulltext" />
+
+		<?php if($search_review_comments):?>
+
+			<input name="data[contentoptions][]" type="hidden" value="reviews" />
+
+		<?php endif;?>
+
+		<input name="data[search_query_type]" type="hidden" value="<?php echo $query_type;?>" />
+
+		<?php if(isset($this->params['lang'])):?>
+
+			<input type="hidden" name="lang" value="<?php echo $this->params['lang'];?>" />
+
+		<?php endif;?>
+
+		<input type="hidden" name="data[controller]" value="search" />
+
+		<input type="hidden" name="data[action]" value="_process" />
+
+		<input type="hidden" name="data[menu_id]" value="<?php echo $search_itemid;?>" />
+
+		<input type="hidden" name="data[dir]" value="<?php echo $dir_id;?>" />
+
+		<input type="hidden" name="data[Search][criteria_id]" value="<?php echo $criteria_id;?>" />
+
+		<input type="hidden" name="data[form_id]" value="JreviewsAdvSearch_<?php echo $module_id;?>" />
+
+		<input type="hidden" name="data[module_id]" value="<?php echo $module_id;?>" />
+
+		<?php if($tmpl_suffix != ''):?>
+
+			<input type="hidden" name="data[tmpl_suffix]" value="<?php echo $tmpl_suffix;?>" />
+
+		<?php endif;?>
+
+		<?php
+		/*****************************************************************************************************
+		* Example html code for limiting results to certain categories only if you decide to remove
+		* the {categories} tag for the select list.
+		*****************************************************************************************************/
+		//<input type="hidden" name="data[categories][]" value="29" />
+		//<input type="hidden" name="data[categories][]" value="34" />
+		?>
+
+		<?php /* Change the default search result ordering */
+		// <input type="hidden" name="data[order]" value="rdate" />
+		?>
+	</form>
+
+</div>

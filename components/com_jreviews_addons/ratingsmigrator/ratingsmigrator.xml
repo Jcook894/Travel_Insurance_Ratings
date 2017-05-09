@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon>
+   <title>Ratings Migrator Add-on</title>
+   <name>ratingsmigrator</name>
+   <description><![CDATA[Ratings Migrator Add-on]]></description>
+   <author>ClickFWD LLC</author>
+   <url>https://www.jreviews.com</url>
+   <created>April 2016</created>
+   <version>1.0.3.1</version>
+   <minappversion>2.5.0.1</minappversion>
+   <copyright>Copyright (C) 2010-2016 ClickFWD LLC</copyright>
+   <license>Proprietary</license>
+   <type>Commercial</type>
+   <beta>1</beta>
+</addon>

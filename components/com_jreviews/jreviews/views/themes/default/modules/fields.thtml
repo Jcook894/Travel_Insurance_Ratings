@@ -1,0 +1,186 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**********************************************************************************
+ * 								CONFIGURATION & SETUP
+ **********************************************************************************/
+
+$show_image = Sanitize::getString($this->params['module'], 'show_image', 'before');
+
+$display_mode = Sanitize::getString($this->params['module'], 'display_mode');
+
+$before_text = Sanitize::getString($this->params['module'], 'before_text');
+
+$listing_count = Sanitize::getBool($this->params['module'], 'listing_count');
+
+$menu_id = Sanitize::getInt($this->params['module'],'hc_itemid' );
+
+$showAll = Sanitize::getInt($this->params['module'], 'show_all', 0);
+
+$showLimit = Sanitize::getInt($this->params['module'], 'show_limit', 5);
+
+$hideOnStartup = $showAll && count($field_options) > $showLimit;
+
+$links = array();
+
+$listOptions = array();
+
+$class = '';
+
+$selected_url = '';
+
+$return_url = 1;
+
+if(isset($this->params['tag']['field']) && $this->params['tag']['field'] == substr($field,3))
+{
+	$selected = Sanitize::getString($this->params['tag'],'value');
+}
+else {
+	$selected = Sanitize::getString($this->params,$field,'');
+}
+
+$i = 1;
+
+foreach($field_options AS $option)
+{
+	extract(current($option));
+
+	// calculations for tag cloud
+	$percent = floor(($count / $highest_count) * 100);
+
+	if ($percent < 20):
+		$class = 'jrOptionSmallest';
+	elseif ($percent >= 20 and $percent < 40):
+		$class = 'jrOptionSmall';
+	elseif ($percent >= 40 and $percent < 60):
+		$class = 'jrOptionMedium';
+	elseif ($percent >= 60 and $percent < 80):
+		$class = 'jrOptionLarge';
+	else:
+		$class = 'jrOptionLargest';
+	endif;
+
+	if ($value == $selected)
+	{
+		$class .= ' jrActive';
+	}
+
+	$url = str_ireplace(
+				array('{fieldname}','{optionvalue}'),
+				array(substr($field,3), urlencode($value)),
+				$url_format
+			) . $custom_params;
+
+	$url = $Routes->click2search('', $url , compact('cat_id','criteria_id','return_url','menu_id'));
+
+	$text = $CustomFields->fieldOptionFormat($option, $url, array('display_mode' => $display_mode, 'show_count' => $listing_count, 'show_image' => $show_image));
+
+	if ($hideOnStartup && $i > $showLimit)
+	{
+		$links[] = '<li class="jrOptionHidden">'.$Html->link($text,$url, array('class'=>$class,'sef'=>false)).'</li>';
+	}
+	else {
+		$links[] = '<li>'.$Html->link($text,$url, array('class'=>$class,'sef'=>false)).'</li>';
+	}
+
+	$listOptions[] = array('value'=>$url,'text'=>$text);
+
+	$i++;
+}
+
+if($selected != '')
+{
+	$selected_url = str_ireplace(
+				array('{fieldname}','{optionvalue}'),
+				array(substr($field,3), urlencode($selected)),
+				$url_format
+			) . $custom_params;
+
+	$selected_url = $Routes->click2search('', $selected_url , compact('cat_id','criteria_id','return_url','menu_id'));
+}
+
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/?>
+
+<?php if($before_text != ''):?>
+
+<div><?php echo $before_text;?></div>
+
+<?php endif;?>
+
+<?php if($display_mode == 'links_horiz'):?>
+
+	<?php /* HORIZONTAL LIST */?>
+
+	<div class="jrPage jrFieldsModule jrHorizontalLayout">
+
+		<div class="jrListScope jrRoundedPanel">
+
+			<ul class="jr-fields-module" data-show-all="<?php echo $showAll;?>" data-show-limit="<?php echo $showLimit;?>">
+				<?php echo implode('',$links);?>
+			</ul>
+
+		</div>
+
+	</div>
+
+<?php elseif($display_mode=='links_vert'):?>
+
+	<?php /* VERTICAL LIST */?>
+
+	<div class="jrPage jrFieldsModule">
+		<ul class="jr-fields-module" data-show-all="<?php echo $showAll;?>" data-show-limit="<?php echo $showLimit;?>">
+			<?php echo implode('',$links);?>
+		</ul>
+	</div>
+
+	<?php elseif($display_mode=='tags'):?>
+
+	<?php /* TAGS */?>
+
+	<div class="jrPage jrFieldsModule jrTagsLayout">
+
+		<ul class="jr-fields-module" data-show-all="<?php echo $showAll;?>" data-show-limit="<?php echo $showLimit;?>">
+			<?php echo implode('',$links);?>
+		</ul>
+
+	</div>
+
+<?php elseif($display_mode=='tag_cloud'):?>
+
+	<?php /* TAG CLOUD */?>
+
+	<div class="jrPage jrFieldsModule jrTagsLayout jrTagCloud">
+
+		<ul class="jr-fields-module" data-show-all="<?php echo $showAll;?>" data-show-limit="<?php echo $showLimit;?>">
+			<?php echo implode('',$links);?>
+		</ul>
+
+	</div>
+
+<?php else:?>
+
+	<?php /* DROPDOWN LIST */?>
+
+	<div class="jrPage jrFieldsModule">
+
+		<?php echo $Form->select(
+				$field,
+				array_merge(array('FieldOption'=>array('value'=>'','class'=>'jrSelect','text'=>__t("Select",true))),$listOptions),
+				$selected_url,
+				array(
+								'class'=>'jrSelect',
+								'size'=>1,
+								'onchange'=>'window.location=this.value'
+		));?>
+	</div>
+
+<?php endif;?>

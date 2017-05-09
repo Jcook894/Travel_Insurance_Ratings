@@ -1,0 +1,118 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );    
+?>
+
+<?php
+/**********************************************************************************
+ * 								PAGINATION HELPER
+ **********************************************************************************/
+$Paginator->paginate(array(
+		'current_page'=>$this->page,
+		'items_per_page'=>$this->limit,
+		'items_total'=>$pagination['total'],
+));
+
+// Add page meta tags - must go after Paginator helper
+echo $this->element('page_meta');
+?>
+
+<?php 
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+ ?>
+    
+<div class="jr_pgContainer">
+
+	<!--  BEGIN PAGE HEADER AREA -->
+    <?php echo $this->renderControllerView('listings',($this->cmsVersion==CMS_JOOMLA15 ? 'j15.' : '').'listings_header');?>
+	
+	<?php if($pagination['total'] > 0):?>	
+	<!-- PAGINATION BEGINS HERE -->
+	<table class="jr_pagination" id="jr_pagination_top" width="100%" cellpadding="0" cellspacing="0">
+	 <tr>
+	    <?php if($pagination['total'] > $this->limit):?>
+	    <td class="jr_pagenav_pages"><?php echo $Paginator->display_pages();?></td>
+		<?php else:?>
+	    <td class="jr_pagenav_pages"></td>		
+	    <?php endif;?>
+	    <td class="jr_pagenav_limitbox">
+		    <!--  BEGIN LIST OPTIONS -->    
+			<div class="jr_listOptions">
+			<?php if($this->Config->list_show_orderselect && in_array($this->action,array('search','section','category','alphaindex','list','mylistings'))):?>	 
+				<?php __t("Ordering");?>&nbsp;<?php echo $Jreviews->orderingList(Sanitize::getString($this->params,'order'), $order_list)?>
+			<?php endif;?>
+		    </div>
+		    <!--  END LIST OPTIONS -->	    
+	    </td>		
+	 </tr>
+	</table>
+	<!-- PAGINATION ENDS HERE --> 	 	
+	<?php endif;?>
+
+	<?php if(!empty($listings)):?>
+	<!--  BEGIN TABLEVIEW   -->
+	<div class="jr_tableview">
+	    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="sectiontable jr_tableview">
+			<tr class="sectiontableheader">
+				<?php if($this->Config->list_show_image):?><th class="columnFirst"></th><?php endif;?>
+				<th class="columnMain"><?php __t("Details");?></th>
+			</tr>
+			<?php $i = 2; foreach($listings AS $listing): $i = $i == 2 ? 1 : 2;?>  
+			<tr class="row<?php echo $i;?>">
+				<?php if($this->Config->list_show_image):?>
+				<td class="columnFirst">							
+					<div class="contentThumbnail">
+						<?php echo $Routes->content($Thumbnail->thumb($listing, 0, array('tn_mode'=>$this->Config->list_thumb_mode,'location'=>'list','dimensions'=>array($this->Config->list_image_resize),'id'=>'thumb'.$listing['Listing']['listing_id'])),$listing);?>
+					</div>				
+				</td>			
+				<?php endif;?>				
+				<td class="columnMain">
+					<div class="contentTitle"><?php echo $Routes->content($listing['Listing']['title'],$listing)?>
+						<span class="contentIndicators">
+						<?php if($this->Config->list_featured && $listing['Listing']['featured']):?>
+							<span class="featuredListing"><?php __t("Featured");?></span>
+						<?php endif;?>						
+						<?php if($this->Config->list_new && $Jreviews->newIndicator($this->Config->list_new_days,$listing['Listing']['created'])):?>
+							<span class="newListing"><?php __t("New");?></span>
+						<?php endif;?>
+						<?php if($this->Config->list_hot && $this->Config->list_hot_hits <= $listing['Listing']['hits']):?>
+							<span class="hotListing"><?php __t("Hot");?></span>
+						<?php endif;?>
+						</span>		   			
+					</div>
+			    </td> 
+
+			</tr>
+			<?php endforeach;?>
+		</table>
+	</div>
+	<!--  END TABLEVIEW   -->	        
+	<div class="clr">&nbsp;</div>
+	<?php endif;?>  
+	
+	<?php if($pagination['total'] > 0):?>		
+	<!-- PAGINATION BEGINS HERE -->
+	<table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+	 <tr>
+	    <?php if($pagination['total'] > $this->limit):?>
+	    <td class="jr_pagenav_pages"><?php echo $Paginator->display_pages();?></td>
+		<?php else:?>
+		<td class="jr_pagenav_pages"></td>
+		<?php endif;?>		
+	    <td class="jr_pagenav_limitbox"><?php echo $Paginator->display_items_per_page();?></td>			
+	 </tr>
+	</table>
+	<!-- PAGINATION ENDS HERE -->
+	<?php endif;?>	
+</div>
+
+<?php if(empty($listings)) { echo $this->renderControllerView('listings','listings_noresults'); } ?>

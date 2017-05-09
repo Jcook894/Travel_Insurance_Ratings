@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.5" method="upgrade">
+	<name>com_s2framework</name>
+	<author>ClickFWD LLC</author>
+	<creationDate>April 2017</creationDate>
+    <authorEmail>info@jreviews.com</authorEmail>
+	<authorUrl>www.jreviews.com</authorUrl>
+	<version>2.1.13.2</version>
+	<description>S2 Framework</description>
+	<files>
+		<filename>index.html</filename>
+	</files>
+	<administration>
+      <files>
+		<filename>index.html</filename>
+		<filename>s2framework.php</filename>
+		<filename>s2framework.s2</filename>
+      </files>
+	</administration>
+    <scriptfile>s2framework.script.php</scriptfile>
+</extension>

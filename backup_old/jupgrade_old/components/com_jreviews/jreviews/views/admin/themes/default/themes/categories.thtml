@@ -1,0 +1,101 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+  
+<?php	       
+# Initialize paginator helper
+$Paginator->paginate(
+	array(
+		'current_page'=>$this->page,
+		'items_per_page'=>$this->limit,
+		'items_total'=>$pagination['total']
+	)
+);
+?>
+
+<form action="index.php" method="post" id="adminForm" name="adminForm">
+	
+<div class="admin_header">Theme Manager</div>
+
+	<div id="categorytable">
+	
+		<div class="admin_toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
+            <span id="status" class="jr_floatLeft">&nbsp;</span>        
+			<button class="ui-button ui-corner-all" onclick="jreviews_admin.dispatch({'controller':'themes','action':'saveCategory','type':'json','form_id':'adminForm','onComplete':function(res){if(res.page)jQuery('#page').html(res.page);jQuery('#s2AjaxResponse').html(res.response);jreviews_admin.tools.statusUpdate('The new settings have been saved.');}});return false;">Save</button>
+		</div>
+					
+		<div class="admin_filter">
+			<strong><?php __a("Category filter");?>:</strong>
+			<?php 
+                echo $Form->select(
+                    'data[cat_alias]',
+                    array_merge(array(array('value'=>null,'text'=>'All')),$sections),
+                    $sectionid,
+                    array(
+                        'onchange'=>"jQuery('#page_number').val(1);jQuery.post(s2AjaxUri,jQuery('#adminForm').serialize(),function(page){jQuery('#page').html(page);},'html');"
+                    )
+                );            
+			?>
+		</div>
+			
+			<table class="admin_list">
+				<tr>
+					<th width="5" align="center">#</th>
+					<th width="50" align="center">Cat ID</th>
+					<th align="left" width="125">Category</th>
+					<th width="250">Category List Template</th>
+					<th width="100">Category Suffix</th>
+				</tr>
+				<?php 
+				$i = $this->page*$this->limit - ($this->limit - 1); 
+				foreach($rows AS $key=>$row):
+				?>	
+				<tr id="category<?php echo $row->value?>">
+					<td align="center"><?php echo $i++;?></td>
+					<td align="center"><?php echo $row->value;?></td>
+					<td align="left">
+                        <?php echo $row->level > 1 ? str_repeat('|&mdash;',$row->level) : '';?><?php echo $row->text;?>
+                    </td>
+					<td align="left">
+						<input name="data[tmpl][<?php echo $row->value?>][name]" id="tmpl[<?php echo $row->value?>][name]3" <?php echo ($row->tmpl=='' ? 'checked="checked"' : '')?> value="" type="radio">
+						<label for="tmpl[<?php echo $row->value?>][name]3">Global</label>
+						<input name="data[tmpl][<?php echo $row->value?>][name]" id="tmpl[<?php echo $row->value?>][name]0" <?php echo ($row->tmpl=='tableview' ? 'checked="checked"' : '')?> value="tableview" type="radio">
+						<label for="tmpl[<?php echo $row->value?>][name]0">Tableview</label>
+						<input name="data[tmpl][<?php echo $row->value?>][name]" id="tmpl[<?php echo $row->value?>][name]1" <?php echo ($row->tmpl=='blogview' ? 'checked="checked"' : '')?> value="blogview" type="radio">
+						<label for="tmpl[<?php echo $row->value?>][name]1">Blogview</label>
+						<input name="data[tmpl][<?php echo $row->value?>][name]" id="tmpl[<?php echo $row->value?>][name]2" <?php echo ($row->tmpl=='thumbview' ? 'checked="checked"' : '')?> value="thumbview" type="radio">
+						<label for="tmpl[<?php echo $row->value?>][name]2">Thumbview</label>
+					</td>
+					<td>
+						<input name="data[tmpl][<?php echo $row->value?>][suffix]" type="text" size="10" maxsize="20" value="<?php echo $row->tmpl_suffix?>" />
+					</td>
+				</tr>
+				<?php endforeach;?>			
+			</table>		
+	
+			<!-- PAGINATION BEGINS HERE -->
+			<table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+			 <tr>
+			    <td class="jr_pagenav_results"><?php echo $pagination['total']?> results - Showing <?php echo ($this->page-1)*$this->limit+1;?> - <?php echo min($pagination['total'],$this->page*$this->limit);?></td>
+			    <td class="jr_pagenav_pages"><?php echo ($pagination['total'] > $this->limit) ? $Paginator->display_pages() : '';?></td>
+			    <td class="jr_pagenav_limitbox"><?php echo $Paginator->display_items_per_page();?></td>
+			 </tr>
+			</table>
+			<input type="hidden" id="page_number" name="data[page]" value="<?php echo $this->page;?>" />
+			<input type="hidden" id="limit" name="data[limit]" value="<?php echo $this->limit;?>" />
+			<input type="hidden" id="limitstart" name="data[offset]" value="<?php echo $this->offset;?>" />
+			<input type="hidden" id="controller" name="data[controller]" value="admin/themes" />
+			<input type="hidden" id="action" name="data[action]" value="categories" />		
+			<!-- PAGINATION ENDS HERE -->
+	</div>
+
+</form>
+	

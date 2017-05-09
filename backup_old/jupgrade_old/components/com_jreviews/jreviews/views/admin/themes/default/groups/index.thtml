@@ -1,0 +1,212 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php if($row['Group']['group_id'] == 0):?>
+<script type="text/javascript">
+jQuery('#group_title','#adminForm').blur(function(){
+    var text = jQuery('#group_title','#adminForm').val();
+    var $value = jQuery('#group_name','#adminForm');
+    if (text != '' && $value.val() == '') {
+        $value.val(jreviews_admin.tools.slug(text,{'numbers':true,'spaceReplaceChar':'-'}));
+    }
+});
+</script>
+<?php endif;?>
+
+<style type="text/css">
+#adminForm label {
+    float:left; padding:0; margin: 0 10px 0 0; text-align:right; width:100px;    
+}
+#adminForm fieldset input, #adminForm fieldset select { float:none; margin: 0 0 0 5px; padding:2px;}
+#adminForm .jr_fieldDiv { margin: 10px; padding-bottom: 0px; white-space: nowrap;}
+#adminForm .width50percent {width: 45%; margin-right: 10px; float: left;}
+#adminForm .control_value_search {float:left; margin-right: 5px;}
+#adminForm .control-value-cb-div {float: left; padding: 2px; border: 1px solid #ccc;}
+</style>
+
+<?php	
+# Initialize paginator helper
+$Paginator->paginate(
+	array(
+		'current_page'=>$this->page,
+		'items_per_page'=>$this->limit,
+		'items_total'=>$pagination['total']
+	)
+);
+?>
+
+<div class="admin_header">Field Groups Manager</div>
+
+<form id="adminForm" name="adminForm">
+
+    <div class="ui-widget">        
+        <div class="ui-state-highlight ui-corner-all" style="padding: 0pt 0.7em; margin-top: 20px;">
+            <p><span style="float:left;margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+            In order for the custom fields to appear in listing and review forms, you must associate the Field Groups to the listing types.</p>
+        </div>
+    </div>
+    
+    <br />	
+
+    <div class="admin_toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
+        <span id="status" class="jr_floatLeft">&nbsp;</span>        
+        <button class="ui-button ui-corner-all" onclick="jreviews_admin.group.submit('adminForm');return false;"><?php __a("Add New");?></button>
+    </div>
+
+    <div id="jr_groupNew" class="jr_form">
+        <fieldset class="width50percent">
+            <legend>Basic Setup</legend>                
+                <div class="jr_fieldDiv">
+                    <label for="group_type">Type<span class="required">*</span></label>
+                    <?php        
+                            echo $Form->select(
+                                'data[Group][type]',
+                                array('content'=>'Listing','review'=>'Review'),
+                                $type,
+                                array(
+                                    'id'=>'group_type',
+                                    'class'=>'field_location',
+                                    'onchange'=>"jreviews_admin.group.changeType(this,'adminForm');"
+                                )
+                            );                    
+                    ?>
+                </div>                    
+                <div class="jr_fieldDiv">
+                    <label for="group_value">Title<span class="required">*</span></label>
+                    <div>
+                        Visible on the site<br />
+                        <?php echo $Form->text('data[Group][title]',array('id'=>'group_title','max_size'=>'200','class'=>'mediumField'));?>
+                    </div>
+                </div>                    
+                <div class="jr_fieldDiv">
+                    <label for="group_name">Name<span class="required">*</span></label>
+                    <div>
+                        Reference value<br />
+                        <?php echo $Form->text('data[Group][name]',array('id'=>'group_name','max_size'=>'200','class'=>'mediumField'));?>
+                    </div>
+                </div>                    
+        </fieldset>
+        <fieldset class="width50percent">
+            <legend>Controlled By</legend>
+                <div>Start typing for a list of options. Only select, multiselect, radio and checkboxes can be control fields.</div>  
+                <div class="jr_fieldDiv">
+                    <label for="control_field">Control Field<span class="required">&nbsp;</span></label>
+                    <div>
+                        Which field controls this group?<br />
+                        <?php echo $Form->text('data[Group][control_field]',array('class'=>'control_field','max_size'=>'200'));?>
+                    </div>
+                </div>                    
+                <div class="jr_fieldDiv">
+                    <label for="control_value">Control Value<span class="required">&nbsp;</span></label>
+                    <div style="float:left;">
+                        Which field value controls this group?<br />
+                        <?php echo $Form->text('control_value_search',array('data-defaultValue'=>__a("Select a field",true),'disabled'=>'disabled','class'=>'control_value_search','max_size'=>'200'));?>
+                        <div class="control-value-cb-div"></div>                        
+                    </div>
+                </div>                    
+        </fieldset>
+
+    </div>   
+    
+    <script type="text/javascript">jreviews_admin.field.control_setup('adminForm',{model:'Group'});</script>
+	
+    <br /><div class="clr"></div> 
+
+	<div id="fieldgrouptable">		
+			<table class="admin_list">
+				<tr>
+					<th width="5">#</th>
+                    <th width="10" align="center">ID</th>
+					<th width="200">Name</th>
+					<th>Title</th>
+					<th width="150" align="center">Type</th>
+					<th align="center">Controlled by</th>
+                    <th width="10" align="center">Field Count</th>
+                    <th width="100" align="center">Show title</th>
+					<th colspan="2" align="center" width="5%">Reorder</th>
+					<th width="10">Order</th>
+					<th width="20">
+						<a href="#" onclick="jreviews_admin.group.reorder_page();">
+						<img src="<?php echo $this->viewImages;?>filesave.png" border="0" width="16" height="16" alt="Save Order" />
+						</a>
+					</th>
+					<th width="10">Delete</th>
+				  </tr>
+					<?php 
+					$i = $this->page*$this->limit - ($this->limit - 1); 
+					foreach($rows AS $key=>$row):
+					?>		
+					<tr id="fieldgroup<?php echo $row->groupid?>" >
+						<td>
+							<?php echo $i++;?>
+							<input type="hidden" id="cid" name="data[cid][]" value="<?php echo $row->groupid?>" />
+						</td>
+                        <td align="center"><?php echo $row->groupid;?></td>
+						<td>
+                           <a href="#" onclick="jreviews_admin.group.edit('groupid=<?php echo $row->groupid?>&type=<?php echo $type?>&limitstart=<?php echo $this->offset?>&limit=<?php echo $this->limit?>&page=<?php echo $this->page?>',{title:'<?php __a("Edit field group");?>','width':'1000px'});"><?php echo $row->name?></a>
+						</td>
+						<td><?php echo $row->title?></td>
+						<td align="center"><?php echo $row->type == 'content' ? 'listing' : $row->type;?></td>
+						<td><?php echo !empty($row->control_field) ? $row->control_field . ' &#149; ' . $row->control_value : '---';?></td>
+                        <td align="center"><?php echo $row->field_count;?></td>						
+                        <td style="text-align:center;">
+                            <a href="#" onclick="jreviews_admin.group.toggleTitle(<?php echo $row->groupid?>);return false;">
+                                <span id="showTitle_<?php echo $row->groupid?>"><img src="<?php echo $this->viewImages . ($row->showtitle ? 'status_on.png' : 'status_off.png')?>" border="0"></span>
+                            </a>
+                        </td>
+						<td align="right">
+							<a href="javascript:void(0);" onclick="jreviews_admin.group.reorder(<?php echo $row->groupid?>,-1);">
+								<img src="<?php echo $this->viewImages;?>uparrow.png" alt="Up" border="0">
+							</a>
+						</td>
+						<td align="left">
+                            <a href="javascript:void(0);" onclick="jreviews_admin.group.reorder(<?php echo $row->groupid?>,1);">
+								<img src="<?php echo $this->viewImages;?>downarrow.png" alt="Down" border="0">
+							</a>
+						</td>
+						<td align="center" colspan="2">
+							<input type="text" name="data[order][]" size="5" value="<?php echo $row->ordering?>" class="text_area" style="text-align: center" />
+						</td>
+						<td style="text-align:center;">
+                            <button type="button" class="ui-button-small ui-state-default ui-corner-all" 
+                                onclick="jreviews_admin.group.remove(<?php echo $row->groupid;?>,<?php echo $row->field_count;?>,'<?php __a("Are you sure you want to delete this group?");?>',{title:'<?php __a("Delete");?>'});">                 
+                                <span class="ui-icon ui-icon-trash"></span>
+                            </button>                        
+						</td>
+					</tr>
+				<?php endforeach;?>
+			</table>
+							
+		<!-- PAGINATION BEGINS HERE -->
+		<table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+		 <tr>
+		    <td class="jr_pagenav_results"><?php echo $pagination['total']?> results - Showing <?php echo ($this->page-1)*$this->limit+1;?> - <?php echo min($pagination['total'],$this->page*$this->limit);?></td>
+		    <td class="jr_pagenav_pages"><?php echo ($pagination['total'] > $this->limit) ? $Paginator->display_pages() : '';?></td>
+		    <td class="jr_pagenav_limitbox"><?php echo $Paginator->display_items_per_page();?></td>
+		 </tr>
+		</table>
+		<input type="hidden" id="page_number" name="data[page]" value="<?php echo $this->page;?>" />
+		<input type="hidden" id="limit" name="data[limit]" value="<?php echo $this->limit;?>" />
+		<input type="hidden" id="limitstart" name="data[offset]" value="<?php echo $this->offset;?>" />
+		<!-- PAGINATION ENDS HERE -->
+	</div>
+	
+	<!-- REORDER INPUTS -->
+	<input type="hidden" id="row_id" name="data[row_id]" value="" />		
+	<input type="hidden" id="direction" name="data[direction]" value="" />
+	<!-- REORDER INPUTS -->	
+		
+    <input type="hidden" id="controller" name="data[controller]" value="admin/groups" />
+    <input type="hidden" id="action" name="data[action]" value="_save" />    
+    <input type="hidden" id="group_type" name="data[group_type]" value="<?php echo $type?>" />
+	
+</form>

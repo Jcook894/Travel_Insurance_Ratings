@@ -1,0 +1,120 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php
+/**********************************************************************************
+ *                                 CONFIGURATION OPTIONS
+ **********************************************************************************/
+$format = $this->Config->dir_cat_format; // "0" comma separated | "1" bullet list
+$thumbPosition = $this->Config->dir_cat_images; // Left|Above|None - Uses category images
+$dir_id = Sanitize::getInt($this->params,'dir') > 0 ? Sanitize::getInt($this->params,'dir') : '';  
+?>
+
+<s2:nocache>
+<?php
+/**********************************************************************************
+ *                                 META DATA
+ **********************************************************************************/
+if(Configure::read('Cache.enable') && Configure::read('Cache.view')){
+    if($cachedMeta = S2Cache::read('meta_'.md5($this->here))) {
+        $page = $cachedMeta;
+    } else {        
+        S2Cache::write('meta_'.md5($this->here),$page,Configure::read('Cache.expires'));
+    }
+}
+if(isset($page['title'])) {cmsFramework::meta('title', $page['title']);} // Set page title
+if(isset($page['keywords'])) cmsFramework::meta('keywords',$page['keywords']); // Set meta keywords
+if(isset($page['description']))cmsFramework::meta('description',$page['description']); // Set meta description
+?>
+</s2:nocache>
+
+<?php 
+/**********************************************************************************
+ *                                 EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+// prx($directories);
+?>
+
+<?php if(empty($directories)):?>
+
+    <?php __t("The directory is empty.");?>
+
+<?php else:?>
+    <!--  BEGIN JR TEMPLATE -->
+    <div class="jr_pgContainer">
+        <!--  BEGIN PAGE HEADER AREA -->
+        <?php if($this->Config->rss_enable || (isset($page['title']) && $page['show_title'])):?>
+        <div class="jr_pgHeader">
+            <?php if (isset($page['title']) && $page['show_title']):?>
+                <h1 class="contentheading"><?php echo $page['title'];?></h1>
+            <?php endif;?>
+            <div class="clr">&nbsp;</div>        
+        </div>
+        <?php endif;?>
+        <!--  END PAGE HEADER AREA -->
+      
+        <?php if($this->Config->dir_show_alphaindex || $this->Config->list_show_searchbox):?>
+        <!-- BEGIN ROUND PANNEL -->
+        <div class="jr_listScope roundedPanel">
+			<!--  BEGIN LIST SCOPE AREA -->
+			<?php if($this->Config->dir_show_alphaindex) echo $this->element('alphaindex');?>
+			<!--  END LIST SCOPE AREA -->
+		  
+			<?php if($this->Config->list_show_searchbox):?>  
+			<!--  BEGIN LIST OPTIONS AND SEARCH CONTROLS  -->
+			<div class="jr_listSearch">
+				<form id="directorySearchForm" name="directorySearchForm" action="<?php echo WWW_ROOT;?>index.php?option=com_jreviews<?php echo isset($this->params['lang'])? "&amp;lang=".$this->params['lang'] : '';?>" method="post">
+					<?php if($this->Config->list_show_searchbox):?>
+					<input size="20" type="text" name="data[keywords]" id="keywords" class="inputbox" value="<?php __t("Search");?>" onblur="if(this.value=='') this.value='<?php __t("Search");?>';" onfocus="if(this.value=='<?php __t("Search");?>') this.value='';" />
+					<input type="submit" id="submit" name="submit" value="<?php __t("Search");?>" class="jrButton" />
+					&nbsp;<?php echo $Routes->search(__t("Advanced search",true));?>
+					<?php endif;?>
+					<input type="hidden" name="data[simple_search]" id="simple_search" value="1" />
+					<input type="hidden" name="data[dir]" id="dir" value="<?php echo $dir_id;?>" />
+					<input type="hidden" name="data[controller]" value="search" />
+					<input type="hidden" name="data[action]" value="_process" />
+					<input type="hidden" name="data[menu_id]" value="<?php echo $search_itemid;?>" />                    
+				</form>
+			</div>
+			<!--  END LIST OPTIONS AND SEARCH CONTROLS  -->
+			<?php endif;?>
+			
+			<!-- END ROUND PANNEL CONTENT -->
+        </div>
+        <!-- END ROUND PANNEL -->    
+        <?php endif;?>
+                  
+        <div id="jr_dirview" class="jr_dirview_thumb<?php echo $thumbPosition; if($format == 0) echo ' formatComma'; ?>">
+         <!-- BEGIN DIRECTORY -->
+         <?php foreach ($directories AS $directory):?>
+
+            <?php if($this->Config->rss_enable):?>
+            <div class="jr_rss">
+                <ul id="jr_feeds"> 
+                    <li><?php echo $Routes->listingsFeedDirectory(current($directory));?></li>
+                    <li><?php echo $Routes->rssDirectory(current($directory));?></li>
+                </ul>
+            </div>            
+            <?php endif;?>
+			 
+            <h3 class="contentheading"><?php echo $Tree->getDirTitle($directory);?></h3>
+
+            <?php echo $Tree->renderDirectory($directory); ?>
+            
+            <div class="clr"></div>    
+         <?php endforeach;?>    
+         <!-- END DIRECTORY -->    
+            
+        </div>        
+    
+    </div>
+    <div style="clear:both;"></div>
+<?php endif;?>

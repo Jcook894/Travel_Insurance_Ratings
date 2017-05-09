@@ -1,0 +1,81 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php __t("You will find this report in the reports moderation list.");?>
+
+<br /><br />
+
+<strong><?php __t("Reporter");?>:</strong>  <?php echo $User->name != '' ? $User->name : 'Guest';?> ( <?php echo $User->id;?> )
+
+<br />
+
+<strong>E-mail:</strong> <?php echo $User->email;?>
+
+<br />
+
+<strong><?php __t("IP Address");?>:</strong> <?php echo (string)strip_tags($_SERVER['REMOTE_ADDR']);?>
+
+<br />
+
+<strong><?php __t("Report text");?>:</strong>
+
+<br />
+
+<?php echo $report['Report']['report_text'];?>
+
+<br />
+
+<strong><?php __t("Listing title");?>:</strong>  <?php echo $listing['Listing']['title'];?>
+
+<?php if($review):?>
+
+	<br />
+
+	<strong><?php __t("Review title");?>:</strong> <?php echo $review['Review']['title'];?>
+
+	<br />
+
+	<strong><?php __t("Review Comments");?>:</strong>
+
+	<br />
+
+	<?php echo $review['Review']['comments'];?>
+
+<?php endif;?>
+
+<?php if($media):?>
+
+	<br />
+
+	<strong><?php __t("Media type");?>:</strong> <?php echo $media['Media']['media_type'];?>
+
+	<?php if($media['Media']['title'] != ''):?>
+
+		<br />
+
+		<strong><?php __t("Media title");?>:</strong> <?php echo $media['Media']['title'];?>
+
+	<?php endif;?>
+
+<?php endif;?>
+
+<?php if($post):?>
+
+	<br />
+
+	<strong><?php __t("Discussion Comment");?>:</strong>
+
+	<br />
+
+	<?php echo $post['Discussion']['text'];?>
+
+<?php endif;?>

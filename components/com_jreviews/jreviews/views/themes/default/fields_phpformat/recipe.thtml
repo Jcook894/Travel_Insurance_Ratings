@@ -1,0 +1,63 @@
+<?php
+$recipe = json_decode($text, true);
+
+$ingredients = Sanitize::getVar($recipe, 'ingredients');
+$steps = Sanitize::getVar($recipe, 'preparation');
+?>
+
+<div class="jrGrid">
+
+   <?php if ($ingredients):?>
+
+   <div class="jrCol6">
+
+      <div class="jrIngredients">
+
+         <h4><?php __t("Ingredients");?></h4>
+
+         <div class="jrTableGrid jrDataList">
+
+            <?php foreach ($ingredients AS $ingredient): $line = implode(' ', $ingredient);?>
+
+            <div class="jrRow">
+
+               <div class="jrCol"><?php echo $line;?></div>
+
+            </div>
+
+            <?php endforeach;?>
+
+         </div>
+
+      </div>
+
+   </div>
+
+   <?php endif;?>
+
+   <?php if ($steps):?>
+
+   <div class="jrCol6">
+
+      <div class="jrPreparation">
+
+         <h4><?php __t("Preparation");?></h4>
+
+         <ol class="jrRecipeSteps">
+
+            <?php foreach ($steps AS $row): $step = Sanitize::getString($row, 'step');?>
+
+               <li><span><?php echo $step;?></span></li>
+
+            <?php endforeach;?>
+
+         </ol>
+
+      </div>
+
+   </div>
+
+   <?php endif;?>
+
+</div>
+

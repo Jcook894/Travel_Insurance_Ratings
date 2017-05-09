@@ -1,0 +1,201 @@
+<div id="listing-type-user-favorites">
+    <fieldset>
+
+        <legend>Module Settings</legend>
+        
+        <div class="jr_fieldDiv">
+            <label>Enable Module</label>
+            <div>
+                <?php 
+                echo $Form->radioYesNo(
+                    'data[Criteria][config][userfavorites][enable]',
+                    '',
+                    array('value'=>Sanitize::getVar($criteria['ListingType']['config']['userfavorites'],'enable', 0))
+                );
+                ?>
+            </div>
+        </div>
+                                            
+        <div class="jr_fieldDiv">   
+            <label>Module Title</label>
+            <div>
+                    <?php echo $Form->text(
+                        'data[Criteria][config][userfavorites][title]',
+                        array('style'=>'width:300px;','value'=>Sanitize::getVar($criteria['ListingType']['config']['userfavorites'],'title'))
+                    );?> Use the {title} tag to add the current listing title
+            </div>
+        </div>
+
+        <div class="jr_fieldDiv">
+            <label>Target Element ID</label>
+            <div>
+                    <?php echo $Form->text(
+                        'data[Criteria][config][userfavorites][target_id]',
+                        array('value'=>Sanitize::getVar($criteria['ListingType']['config']['userfavorites'],'target_id','jrRelatedListings'))
+                    );?> Output rendered in html element with this id. Default is "jrRelatedListings" 
+            </div>
+        </div>
+
+        <div class="jr_fieldDiv">
+            <label>Target Element Class</label>
+            <div>
+                    <?php echo $Form->text(
+                        'data[Criteria][config][userfavorites][target_class]',
+                        array('value'=>Sanitize::getVar($criteria['ListingType']['config']['userfavorites'],'target_class'))
+                    );?> Output rendered in html element with this class. Used instead of target id.
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Main Setup</legend>
+        
+        <div class="jr_fieldDiv">
+            <label>Only Users w/Avatars</label>
+            <div>
+                <?php 
+                echo $Form->radioYesNo(
+                    'data[Criteria][config][userfavorites][avatar]',
+                    '',
+                    array('value'=>Sanitize::getVar($criteria['ListingType']['config']['userfavorites'],'avatar', 0))
+                );
+                ?>
+            </div>
+        </div>
+        
+        <div class="jr_fieldDiv">
+            <label>Theme Suffix</label>
+            <div>
+                    <?php echo $Form->text(
+                        'data[Criteria][config][userfavorites][tmpl_suffix]',
+                        array('value'=>Sanitize::getVar($criteria['ListingType']['config']['userfavorites'],'tmpl_suffix'))
+                    );?>
+            </div>
+        </div>  
+        
+        <div class="jr_fieldDiv">
+            <label>Max. Number of Results</label>
+            <div>
+                    <?php echo $Form->text(
+                        'data[Criteria][config][userfavorites][module_total]',
+                        array('class'=>'shortField','value'=>Sanitize::getVar($criteria['ListingType']['config']['userfavorites'],'module_total','12'))
+                    );?>
+            </div>
+        </div> 
+                
+        <div class="jr_fieldDiv">
+            <label>Results per Page</label>
+            <div>
+                    <?php echo $Form->text(
+                        'data[Criteria][config][userfavorites][module_limit]',
+                        array('class'=>'shortField','value'=>Sanitize::getVar($criteria['ListingType']['config']['userfavorites'],'module_limit','6'))
+                    );?>
+            </div>
+        </div>   
+                                    
+        <div class="jr_fieldDiv">
+            <label>Columns</label>
+            <div>
+                    <?php echo $Form->text(
+                        'data[Criteria][config][userfavorites][columns]',
+                        array('class'=>'shortField','value'=>Sanitize::getVar($criteria['ListingType']['config']['userfavorites'],'columns','3'))
+                    );?>
+            </div>
+        </div>                                                                
+    </fieldset>
+
+    <fieldset>
+        <legend>Thumbnail Settings</legend>
+    
+            <div class="jr_fieldDiv">
+                <label>Show Thumbnail</label>
+                <div>
+                    <?php 
+                    echo $Form->radioYesNo(
+                        'data[Criteria][config][userfavorites][tn_show]',
+                        '',
+                        array('value'=>Sanitize::getVar($criteria['ListingType']['config']['userfavorites'],'tn_show', 1))
+                    );
+                    ?>
+                </div>
+            </div>
+            
+            <div class="jr_fieldDiv">
+                <label>Thumbnail Type</label>
+                <div>
+                    <?php 
+                    echo $Form->radio(
+                        'data[Criteria][config][userfavorites][tn_mode]',
+                        array('crop'=>'Crop','scale'=>'Scale'),
+                        array('div'=>false,'value'=>Sanitize::getVar($criteria['ListingType']['config']['userfavorites'],'tn_mode','crop'))
+                    );
+                    ?>
+                </div>
+            </div>
+          
+            <div class="jr_fieldDiv">
+                <label>Thumbnail Width</label>
+                <div>
+                        <?php echo $Form->text(
+                            'data[Criteria][config][userfavorites][tn_width]',
+                            array('class'=>'shortField','value'=>Sanitize::getVar($criteria['ListingType']['config']['userfavorites'],'tn_width','100'))
+                        );?>px
+                </div>
+            </div>   
+               
+    </fieldset>
+
+    <fieldset>
+        <legend>Pagination &amp; Slideshow</legend>
+                                 
+        <div class="jr_fieldDiv">
+            <label>Pagination Position</label>
+            <div>
+                <?php 
+                echo $Form->radio(
+                    'data[Criteria][config][userfavorites][nav_position]',
+                    array('bottom'=>'Bottom','side'=>'Sides'),
+                    array('div'=>false,'value'=>Sanitize::getVar($criteria['ListingType']['config']['userfavorites'],'nav_position','side'))
+                );
+                ?>
+            </div>
+        </div>
+
+        <div class="jr_fieldDiv">
+            <label>Module Orientation</label>
+            <div>
+                <?php 
+                echo $Form->radio(
+                    'data[Criteria][config][userfavorites][orientation]',
+                    array('horizontal'=>'Horizontal','vertical'=>'Vertical'),
+                    array('div'=>false,'value'=>Sanitize::getVar($criteria['ListingType']['config']['userfavorites'],'orientation','horizontal'))
+                );
+                ?>
+            </div>
+        </div>
+
+        <div class="jr_fieldDiv">
+            <label>Enable Slideshow</label>
+            <div>
+                <?php 
+                echo $Form->radioYesNo(
+                    'data[Criteria][config][userfavorites][slideshow]',
+                    '',
+                    array('value'=>Sanitize::getVar($criteria['ListingType']['config']['userfavorites'],'slideshow', 0))
+                );
+                ?>
+            </div>
+        </div>
+
+        <div class="jr_fieldDiv">
+            <label>Slideshow Interval</label>
+            <div>
+                    <?php echo $Form->text(
+                        'data[Criteria][config][userfavorites][slideshow_interval]',
+                        array('class'=>'shortField','value'=>Sanitize::getVar($criteria['ListingType']['config']['userfavorites'],'slideshow_interval','6'))
+                    );?>secs
+            </div>
+        </div>   
+    </fieldset>                            
+
+</div><!-- end relatedlistings -->

@@ -1,0 +1,87 @@
+<?php if($this->Config->dir_show_breadcrumb && (in_array($this->action,array('alphaindex','category')) || $click2search)):?>
+
+	<?php
+	if($click2search && !empty($fieldCrumbs))
+	{
+		$crumbs = $fieldCrumbs;
+
+		while($crumb = array_shift($crumbs))
+		{
+			if(isset($crumb['text']))
+			{
+				cmsFramework::addCrumb($crumb['text'],$Routes->tag($crumb, array('return_url'=>true)));
+			}
+		}
+	}
+	?>
+
+	<?php
+
+		// Hide breadcrumbs on category pages when there is only one breadcrumb item
+		if(($this->action=='category') &&
+		   (!$this->Config->breadcrumb_detail_directory) &&
+		   (!$this->Config->breadcrumb_detail_category || count($parent_categories) == 1)
+		  ){
+			return false;
+		}
+
+		// Hide breadcrumbs on click2search pages when there is only one breadcrumb item
+		if (($click2search) &&
+		   (!$this->Config->breadcrumb_detail_directory) &&
+		   (!$this->Config->breadcrumb_detail_category || count($parent_categories) == 0)
+		  ){
+			return false;
+		}
+	?>
+
+	<div class="jrPathway">
+
+		<?php if(!empty($directory) && $this->Config->breadcrumb_detail_directory):?>
+
+			<?php echo $Routes->directory($directory, array('breadcrumb'=>1));?>
+
+		<?php endif;?>
+
+		<?php if($this->action=='category' || $click2search):?>
+
+			<?php if(empty($parent_categories) && !empty($fieldCrumbs)):?>
+
+				<?php echo $Routes->currentPage(array('breadcrumb'=>1));?>
+
+			<?php endif;?>
+
+			<?php while($cat = array_shift($parent_categories)):?>
+
+				<?php echo !empty($parent_categories) || !empty($fieldCrumbs)
+						?
+						($this->Config->breadcrumb_detail_category ? $Routes->category($cat, array('breadcrumb'=>1)) : '')
+						:
+						$Routes->breadcrumb($cat['Category']['title']);
+				?>
+
+			<?php endwhile;?>
+
+			<?php while($option = array_shift($fieldCrumbs)):?>
+
+				<?php if(isset($option['text'])):?>
+
+					<?php echo !empty($fieldCrumbs)
+							?
+							$Routes->click2search($option['text'], $Routes->tag($option), array('breadcrumb'=>1,'current_page'=>1))
+							:
+							$Routes->breadcrumb($option['text']);
+					;?>
+
+				<?php endif;?>
+
+			<?php endwhile;?>
+
+		<?php elseif($this->action=='alphaindex'):?>
+
+			<?php echo $Routes->breadcrumb($index == '0' ? '0-9' : mb_strtoupper($index));?>
+
+		<?php endif;?>
+
+	</div>
+
+<?php endif;?>

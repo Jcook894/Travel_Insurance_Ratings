@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" version="2.5" method="upgrade">
+	<name>JReviews Advanced Filtering Module</name>
+	<author>ClickFWD LLC</author>
+	<creationDate>October 2016</creationDate>
+	<copyright>Copyright (C) 2010-2016 ClickFWD LLC. All rights reserved.</copyright>
+	<license>Commercial</license>
+	<authorEmail>sales@jreviews.com</authorEmail>
+	<authorUrl>www.jreviews.com</authorUrl>
+	<version>3.0</version>
+	<description>MODULE_HEADER</description>
+	<files>
+		<filename module="mod_jreviews_filters">mod_jreviews_filters.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_jreviews_filters.ini</language>
+		<language tag="en-GB">en-GB.mod_jreviews_filters.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<!-- main setup -->
+				<field type="spacer" class="dataListHeader" label="MAIN SETUP" />
+
+				<field name="scope" type="list" label="Keyword Scope" default="" description="Limits keyword search to selected options, otherwise they are all used."  multiple="multiple">
+					<option value="title">Listing title</option>
+					<option value="introtext">Listing summary</option>
+					<option value="fulltext">Listing description</option>
+				</field>
+
+				<field name="reset_link" type="radio" default="0" label="Clear all link" description="Displays a link that allows to clear all selected options.">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+
+				<field name="category_field" type="radio" default="1" label="Category Field" description="Displays Category select list in the form.">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+
+				<field name="listing_type_field" type="radio" default="0" label="Listing Type Field" description="Displays Listing Type select list in the form.">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+
+				<field name="keywords_field" type="radio" default="1" label="Keywords Field" description="Displays Keywords input in form.">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+
+				<field name="rating_field" type="radio" default="1" label="User Rating Field" description="Displays User Rating select list in the form.">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+
+				<field name="editor_rating_field" type="radio" default="0" label="Editor Rating Field" description="Displays Editor Rating select list in the form.">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+
+				<field name="tmpl_suffix" type="text" default="" label="JReviews Theme Suffix" description="" />
+
+				<field name="results_tmpl_suffix" type="text" default="" label="Results Theme Suffix" description="" />
+
+				<!-- User Interface -->
+
+				<field type="spacer" class="dataListHeader" label="USABILITY &amp; USER INTERFACE" />
+
+				<field name="hide_searchpage" type="radio" default="1" label="Hide in Adv. Search Page" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+
+				<field name="desktop_width" type="list" default="992" label="Convert to mobile view" description="Below the selected width the filters are converted to a sidebar panel triggered via a Filters button at the top of list pages.">
+					<option value="768">768px</option>
+					<option value="992">992px</option>
+					<option value="1200">1200px</option>
+					<option value="0">Always</option>
+				</field>
+
+				<field name="live_search" type="radio" default="1" label="Live updates" description="Filters results without page reloads.">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+
+				<field name="container_class" type="text" default="mod-container" label="Module container class" description="The CSS class used by the module container so it can be hidden in mobile view" />
+
+				<field name="title_class" type="text" default="mod-title" label="Module title class" description="The CSS class used by the module title so it can be shown in the filters sidebar" />
+
+				<!-- URL Modifiers -->
+
+				<field type="spacer" class="dataListHeader" label="SEARCH RESULTS URL MODIFIERS" />
+
+				<field name="search_itemid" type="text" size="5" default="" label="Specify Itemid of JReviews menu for result url" description="Overrides global configuration setting for Itemid." />
+
+				<field name="results_suffix" type="text" size="15" default="" label="Theme Suffix for search results page" description="Apply custom theme suffixes to search result pages." />
+
+				<!-- basic filters -->
+
+				<field type="spacer" class="dataListHeader" label="BASIC FILTERS" />
+
+				<field name="autodetect" type="radio" default="0" label="Auto detect" description="Automatically filters the results by auto-detected IDs. Modifies the options shown in the category list and overrides all filtering options below when enabled.">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+
+				<field name="dir_id" type="directory" label="Directories" description="Limits results to the selected options" multiple="multiple" addfieldpath="/components/com_jreviews/views" />
+
+				<field name="listing_type_id" type="listingtype" label="Listing Types" description="Limits results to the selected options"  multiple="multiple" addfieldpath="/components/com_jreviews/views" />
+
+				<field name="cat_id" type="jreviewscategory" default="" label="Categories" description="Limits results to the selected options" multiple="multiple" addfieldpath="/components/com_jreviews/views" />
+
+				<field type="spacer" class="dataListHeader" label="THEME CUSTOMIZATION" />
+
+				<field name="module_theme_enable" type="radio" default="0" label="Enable Module Theme" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+
+				<field name="module_theme" filter="raw" type="textarea" default="" rows="10" cols="28" label="MODULE_THEME" description="" />
+
+			</fieldset>
+			<fieldset name="advanced">
+				<field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field name="owncache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

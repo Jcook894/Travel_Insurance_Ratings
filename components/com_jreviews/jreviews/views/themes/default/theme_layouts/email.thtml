@@ -1,0 +1,6 @@
+<?php
+/**
+ * You can wrap the code below in your own email HTML markup to customize your emails.
+ */
+?>
+<?php echo $content_for_layout;?>

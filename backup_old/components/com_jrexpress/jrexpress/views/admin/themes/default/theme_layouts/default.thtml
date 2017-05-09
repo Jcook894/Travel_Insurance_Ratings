@@ -1,0 +1,158 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+// Version checker
+//$remoteVersion=trim(@file_get_contents('http://www.reviewsforjoomla.com/jreviews_version.txt'));
+//$remoteVersion=(int)str_replace('.','',$remoteVersion);
+//$localVersion=(int)str_replace('.','',strip_tags($this->Config->version));
+//$versionStatus = $remoteVersion > $localVersion ? "Newer version available" : false;
+
+$Html->js(array(
+	'jquery/jquery-1.2.6.pack',
+	'jquery/jquery.color',
+	'jquery/cluetip/jquery.cluetip',
+	'jquery/thickbox/thickbox.min',
+	'jquery/datepicker/ui.datepicker.min',
+	'jquery/jquery.selectboxes.pack',
+	'jquery/tabs/ui.tabs.pack',
+	'jrexpress.jquery.plugins',
+	'admin/admin'
+    )
+);
+
+$Html->css(array(
+	'admin/default',
+	'cluetip/jquery.cluetip',
+	'thickbox/thickbox',
+	'datepicker/ui.datepicker',
+	'tabs/ui.tabs',
+	'form',
+	'admin/paginator'
+	)
+);	
+?>
+
+<script>jQuery.noConflict();</script>
+
+<script type="text/javascript">var tb_pathToImage = "<?php echo $this->viewImages;?>loadingAnimation.gif"</script>
+<script type="text/javascript">var datePickerImage = "<?php echo $this->viewImages;?>calendar.gif"</script>
+
+<?php 
+/**
+ * When editing a listing initialize editor and load client side js
+ */
+if(isset($Editor) && $this->Access->loadWysiwygEditor()) {
+	$Html->js(array('jrexpress'));
+	$Html->css(array('jrexpress'));
+	# Transforms class="wysiwyg_editor" textareas
+	$Editor->Html->app = $this->app;
+	$Editor->load(); 
+	$Editor->transform();	
+}
+?>
+
+<div>
+	<table width="100%" border="0" cellspacing="10" cellpadding="0">
+		<tr>			
+			<td style="vertical-align:top;width:170px;">
+			<table class="sidemenu-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+			<tr>
+				<td>
+					<div style="text-align:center;">
+						<div style="margin-bottom:3px;">
+                            <a href="index2.php?option=com_jrexpress&url=about"><img alt="logo" border="0" src="<?php echo $this->viewImages;?>jr_logo.gif"></a>
+                        </div>
+						Copyright &copy; 2009<br />Alejandro Schmeichler
+                        <br />
+                        <strong><?php __a("Version");?>: <span style="font-size:14px;"><?php echo $this->Config->version?></span></strong>
+					</div>
+					<div id="spinner" style="display: none;">
+						<div align="center" style="width: 160px; border:1px solid #CCC; background-color: #FEFFBF;">
+							<img alt="loading" src="<?php echo $this->viewImages;?>loading.gif"/> processing...
+						</div>
+					</div>
+				</td>
+			</tr>
+			</table>
+			
+			<div id="main_modules">
+				<table width="165" class="sidemenu-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+				<tr>
+					<td>
+						<div class="title-menu">Moderation</div>
+							<div id="moderate" style="width: 140px; display:block; ">
+								<ul class="title-submenu">
+									<li><a href="index2.php?option=com_jrexpress&url=reviews">Reviews&nbsp;(<?php echo (int)$stats['reviews_user_unpublished'];?>)</a></li>
+									<li><a href="index2.php?option=com_jrexpress&url=admin_review_reports">Review Reports&nbsp;(<?php echo (int)$stats['review_reports'];?>)</a></li>
+								</ul>
+							</div>
+							<div class="title-menu">Setup JReviews Express</div>
+							<div id="setup" style="display:block; margin:0px; padding:0px;">
+								<ul class="title-submenu">
+									<li><a href="#" id="criterias">Criteria Manager</a></li>
+									<li><a href="#" id="categories">Categories Manager</a></li>
+								</ul>
+							</div>
+							<div class="title-menu">Frontend Configuration</div>
+							<div id="config" style="display:block; margin:0px; padding:0px;">
+								<ul class="title-submenu">
+									<li><a href="index2.php?url=configuration&option=com_jrexpress">Configuration Settings</a></li>
+									<li><a href="index2.php?url=access&option=com_jrexpress">Access settings</a></li>
+								</ul>
+							</div>
+						</div>
+					</td>
+				</tr>
+				</table>			
+				
+				<?php //echo $this->element('addons');?>
+			</div>			
+
+			<div id="addon_module" style="display:none;">
+			</div>
+			
+			<table width="165" class="sidemenu-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+			<tr>
+				<td>
+				<div class="title-menu">Maintenance</div>
+				<div id="about" style="display:block; margin:0px; padding:0px;">
+					<ul class="title-submenu">
+						<li><a href="#" id="clear_cache"><?php __a("Clear Cache");?></a></li>
+                        <li><a href="#" id="clear_registry"><?php __a("Clear File Registry");?></a></li>
+					</ul>
+				</div>
+				</td>
+			</tr>
+			</table>				
+
+			<table width="165" class="sidemenu-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+			<tr>
+				<td>
+				<div class="title-menu">Support</div>
+				<div id="about" style="display:block; margin:0px; padding:0px;">
+					<ul class="title-submenu">
+						<li><a target="_blank" href="http://support.reviewsforjoomla.com/index.php?_m=knowledgebase&_a=view">Knowledge Base</a></li>
+						<li><a target="_blank" href="http://support.reviewsforjoomla.com/index.php?_m=tickets&_a=submit">Submit Ticket</a></li>
+						<li><a target="_blank" href="http://www.reviewsforjoomla.com/forum/">Support Forum</a></li>
+					</ul>
+				</div>
+				</td>
+			</tr>
+			</table>				
+		
+			<td valign="top">
+				<div id="page">
+					<?php echo $content_for_layout; ?>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,237 @@
+/*************************************
+Add your custom styles here
+*************************************/
+
+div.jr_pgContainer {
+	margin: 8px;
+}
+
+/* listing detail page overrides */
+div.jr_itemDetail div.jr_pathway {
+	margin-bottom: 15px;
+}
+
+div.jr_itemDetail h1.contentheading {
+	border: 0 !important;
+	font-size: 20px !important;
+}
+
+div.jr_itemDetail  div.overall_ratings {
+	clear: left;
+	float: none;
+	overflow: hidden;
+}
+
+div.jr_itemDetail  div.overall_editor {
+	float: left;
+	margin-right: 10px;
+}
+
+div.jr_itemDetail  div.overall_user {
+	clear: left;
+	float: left;
+	margin-right: 10px;
+}
+
+div.contentInfoButtons span.listingManagement.jrButton {
+	padding: 3px 20px 4px 6px !important;
+	font-size: 12px;
+    margin: 5px 5px 0 0;
+    vertical-align: top;
+}
+
+div.jr_itemDetail div.jr_customFields {
+	clear: both;
+	float: none;
+	background: #f0f0f0;
+	padding: 10px;
+	margin: 10px 0;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+div.jr_pgContainer div.jr_customFields {
+	font-size: 12px;
+}
+
+div.jr_pgContainer div.jr_customFields a {
+	font-size: 12px !important;
+}
+
+div.jr_itemDetail div.jr_reviewContainer div.jr_customFields,
+div.jr_itemDetail div.jr_tabs div.jr_customFields  {
+	width: auto;
+	clear: both;
+	float: none;
+	background: #f0f0f0;
+	padding: 10px;
+	margin: 10px 0;
+}
+
+div.jr_itemDetail div.contentFulltext {
+	clear: both;
+}
+
+
+/* review layout */
+
+div.reviewInfo img  {
+	width: 20px;
+	height: auto;
+}
+
+div.jr_reviewContainerSidebar {
+	float: none;
+	margin: 10px 0 10px 30px;
+}
+
+div.ratingInfo {
+	padding: 4px !important;
+}
+
+table.rating_table {
+	font-size: 11px;
+}
+
+
+/* review comments */
+.jr_discussion div.jr_reviewContainerSidebar {
+	margin: 5px;
+}
+
+
+/* blogview overrides */
+div.jr_blogview div.contentThumbnail {
+    float: right;
+	margin: 0 0 10px 10px;
+}
+
+div.jr_blogview div.contentInfoContainer {
+    background: none;
+	border: 0;
+}
+
+div.jr_blogview div.contentIntrotext {
+	clear: left;
+	margin-bottom: 35px;
+}
+
+div.jr_blogview div.overall_ratings {
+	clear: left;
+	float: none;
+	overflow: hidden;
+}
+
+div.jr_blogview  div.overall_ratings span.rating_value {
+	display: none;
+}
+
+div.jr_blogview  div.overall_editor {
+	float: left;
+	margin-right: 10px;
+}
+
+div.jr_blogview  div.overall_user {
+	clear: left;
+	float: left;
+}
+
+div.jr_blogview div.listItem {
+	margin: 0 !important;
+	padding: 2px;
+	overflow: visible;
+}
+
+div.jr_blogview div.listItem.row2 {
+    background: #fff;
+}
+
+div.jr_blogview div.listItem.row2 {
+    background: #f5f5f5;
+}
+
+div.jr_blogview div.fieldGroup div.fieldLabel {
+    float: left;
+    width: 60px;
+}
+
+div.jr_blogview div.fieldGroup div.fieldValue {
+    margin-left: 65px;
+}
+
+
+
+/* tableview overrides */
+div.jr_tableview th {
+    padding: 5px !important;
+}
+
+div.jr_tableview th.columnMain {
+	padding: 5px 5px 5px 0 !important;
+}
+
+div.jr_tableview td.columnFirst {
+	padding: 10px 5px 0 5px;
+}
+
+div.jr_tableview td.columnFirst .contentThumbnail img {
+    height: 25px !important;
+    width: 25px !important;
+}
+
+div.jr_tableview td, div.jr_tableview td.columnFirst div.jr_tableview td.columnMain, div.jr_tableview td.columnLast {
+    border-top: 1px solid #ccc;
+    padding: 5px;
+    vertical-align: middle;
+}
+
+
+
+/* thumbview overrides */
+div.jr_thumbview .listItem {
+	overflow: hidden;
+	border: 1px solid #ddd;
+	background: #fafafa;
+	height: 200px;  
+	float: left; 
+	width: 44%; 
+}
+
+div.overall_ratings span.rating_value {
+    display: none;
+}
+
+
+/* directory page */
+#jr_dirview ul li.cat_level1 {
+	float: none;
+	width: 99% !important;
+	font-size: 12px;
+}
+
+
+/* form styles */
+.jr_form .jrTitle, .jr_form .jrWebsite {
+    width: 20em;
+}
+
+
+/* listings module/widgets */
+/* Vertical layout */ 
+div.verticalLayout.listItem {
+	border-bottom: 1px solid #ddd;
+}
+
+div.verticalLayout div.contentNumber {
+	width: 15px;
+}
+
+div.verticalLayout  div.contentThumbnail {
+    margin: 0 5px 5px 0;
+}
+   
+div.verticalLayout .contentThumbnail img {
+    width: 25px !important; 
+	height: 25px !important; 
+}

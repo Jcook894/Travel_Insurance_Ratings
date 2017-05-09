@@ -1,0 +1,213 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die;
+?>
+
+<?php
+
+$langTab = array(
+	/*** NEW HEADER ***/
+	'' => array(
+		array(
+			'type'=>'separator',
+			'text'=>'<p class="jrInfo">You can override the language strings below so they display something different for each listing type. If your site is multilingual, then first change the constant value, for example by appending the name of the listing type, and then add the new constant to your <a target="_blank" href="https://docs.jreviews.com/?title=How_to_edit_the_JReviews_language_files">language file overrides</a>.</p>',
+		)
+	),
+	__a("Listing General Strings",true) => array(
+		array(
+			'label'=>__a("Edit Listing",true),
+			'type'=>'text',
+			'name'=>'lang_listing_edit',
+			'default'=>'LANG_LISTING_EDIT',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"Edit Listing",
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Featured label",true),
+			'type'=>'text',
+			'name'=>'lang_listing_featured',
+			'default'=>'LANG_LISTING_FEATURED',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"Featured",
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Send Inquiry",true),
+			'type'=>'text',
+			'name'=>'lang_listing_send_inquiry',
+			'default'=>'LANG_LISTING_SEND_INQUIRY',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"Send Inquiry",
+			'global'=>false
+		)
+	),
+	__a("Review General Strings",true) => array(
+		array(
+			'label'=>__a("Write Review",true),
+			'type'=>'text',
+			'name'=>'lang_review_write_detail',
+			'default'=>'LANG_REVIEW_WRITE_DETAIL',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"Write Review (listing detail header)",
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Add new review",true),
+			'type'=>'text',
+			'name'=>'lang_review_add_detail',
+			'default'=>'LANG_REVIEW_ADD_DETAIL',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"Add new review (listind detail body)",
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Add new comment (ratings disabled)",true),
+			'type'=>'text',
+			'name'=>'lang_review_comment_add_detail',
+			'default'=>'LANG_REVIEW_ADD_COMMENT_DETAIL',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"Add new comment (listind detail body)",
+			'global'=>false
+		),
+		array(
+			'label'=>__a("User reviews not found",true),
+			'type'=>'text',
+			'name'=>'lang_review_user_reviews_not_found',
+			'default'=>'LANG_REVIEW_USER_REVIEWS_NOT_FOUND',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"There are no user reviews for this listing.",
+			'global'=>false
+		),
+		array(
+			'label'=>__a("User comments not found",true),
+			'type'=>'text',
+			'name'=>'lang_review_user_comments_not_found',
+			'default'=>'LANG_REVIEW_USER_COMMENTS_NOT_FOUND',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"There are no user comments for this listing.",
+			'global'=>false
+		)
+
+	),
+	__a("Listing Form Strings",true) => array(
+		array(
+			'label'=>__a("Add new listing",true),
+			'type'=>'text',
+			'name'=>'lang_listing_create',
+			'default'=>'LANG_LISTING_CREATE',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"Add new listing",
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Listing Title",true),
+			'type'=>'text',
+			'name'=>'lang_listing_form_title',
+			'default'=>'LANG_LISTING_FORM_TITLE',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"Listing Title",
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Listing Title Alias",true),
+			'type'=>'text',
+			'name'=>'lang_listing_form_title_alias',
+			'default'=>'LANG_LISTING_FORM_TITLE_ALIAS',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"Listing Title Alias",
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Listing Summary",true),
+			'type'=>'text',
+			'name'=>'lang_listing_form_summary',
+			'default'=>'LANG_LISTING_FORM_SUMMARY',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"Summary",
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Listing Description",true),
+			'type'=>'text',
+			'name'=>'lang_listing_form_description',
+			'default'=>'LANG_LISTING_FORM_DESCRIPTION',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"Description",
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Listing Title Search Results Message",true),
+			'type'=>'text',
+			'name'=>'lang_listing_form_title_search',
+			'default'=>'LANG_LISTING_FORM_TITLE_SEARCH',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"We want to give you a heads up that there are other listings matching this title.",
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Upload media after listing",true),
+			'type'=>'text',
+			'name'=>'lang_listing_form_upload_media_info',
+			'default'=>'LANG_LISTING_FORM_UPLOAD_MEDIA_INFO',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"You will be able to upload media right after you submit your listing.",
+			'global'=>false
+		)
+	),
+	__a("Media Form Strings",true) => array(
+		array(
+			'label'=>__a("Upload listing media header",true),
+			'type'=>'text',
+			'name'=>'lang_listing_media_upload_header',
+			'default'=>'LANG_LISTING_MEDIA_UPLOAD_HEADER',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"Add Media: %s",
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Upload review media header",true),
+			'type'=>'text',
+			'name'=>'lang_review_media_upload_header',
+			'default'=>'LANG_REVIEW_MEDIA_UPLOAD_HEADER',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"Add Media: %s",
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Gallery",true),
+			'type'=>'text',
+			'name'=>'lang_media_photo_function_gallery',
+			'default'=>'LANG_MEDIA_PHOTO_FUNCTION_GALLERY',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"Gallery",
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Logo",true),
+			'type'=>'text',
+			'name'=>'lang_media_photo_function_logo',
+			'default'=>'LANG_MEDIA_PHOTO_FUNCTION_LOGO',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"Logo",
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Cover",true),
+			'type'=>'text',
+			'name'=>'lang_media_photo_function_cover',
+			'default'=>'LANG_MEDIA_PHOTO_FUNCTION_COVER',
+			'attributes' => array('class' => 'jrTitleMedium'),
+			'help'=>"Cover",
+			'global'=>false
+		)
+	)
+);
+
+$AdminSettings->displayTab('listing-type-language',$langTab,'[Criteria][config]',$listingType['ListingType']['config']);

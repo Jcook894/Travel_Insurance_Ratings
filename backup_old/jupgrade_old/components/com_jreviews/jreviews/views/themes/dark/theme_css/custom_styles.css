@@ -1,0 +1,299 @@
+/*************************************
+General styles
+*************************************/
+
+/* Button */
+div.jr_pgContainer .jrButton {
+    color: #eee;
+    border: 1px solid #777;
+	text-shadow: 0 0 1px #000;
+	background-color: #555;
+	background-image: -moz-linear-gradient(center top, #555, #666);
+	background-image: -o-linear-gradient(top, #555, #666);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #555), color-stop(1, #666));
+	background-image: -webkit-linear-gradient(#555, #666);
+	background-image: linear-gradient(top, #555, #666);
+}
+div.jr_pgContainer .jrButton:hover {    
+	background-color: #666;
+	background-image: -moz-linear-gradient(center top , #666, #555);
+	background-image: -o-linear-gradient(top, #666, #555);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #666), color-stop(1, #555));
+	background-image: -webkit-linear-gradient(#666, #555);
+	background-image: linear-gradient(top, #666, #555);	
+	-moz-box-shadow: 0 0 2px #333;
+	-webkit-box-shadow: 0 0 2px #333;
+	box-shadow: 0 0 2px #333;
+}
+div.jr_pgContainer a.jrButton, 
+div.jr_pgContainer .jrButton a:link, 
+div.jr_pgContainer .jrButton a:visited {
+	text-decoration: none;
+	color: #eee !important;
+}
+
+/* Heading */
+div.jr_pgContainer .jrHeading {
+	color: #eee;
+	border: 1px solid #333;
+	background-color: #222;
+	background-image: -moz-linear-gradient(center top, #222, #111);
+	background-image: -o-linear-gradient(top, #222, #111);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #222), color-stop(1, #111));
+	background-image: -webkit-linear-gradient(#222, #111);
+	background-image: linear-gradient(top, #222, #111);
+	-moz-box-shadow: 1px 1px 2px #000;
+	-webkit-box-shadow: 1px 1px 2px #000;
+	box-shadow: 1px 1px 2px #000;
+}
+
+div.jr_pgContainer .jrHeadingText {
+	vertical-align: middle;
+	color: #eee;
+}
+
+/* Rounded panel */
+div.jr_pgContainer .roundedPanel {
+	border: 1px solid #222;
+	color: #ddd;
+	background-color: #0F0F0F;
+	background-image: -moz-linear-gradient(top, #0F0F0F, #111);
+	background-image: -o-linear-gradient(top, #0F0F0F, #111);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #0F0F0F), color-stop(1, #111));
+	background-image: -webkit-linear-gradient(#0F0F0F, #111);
+	background-image: linear-gradient(top, #0F0F0F, #111);
+}
+div.jr_pgContainer .roundedPanelLt	{
+	border: 1px solid #555;
+	color: #ddd;
+	background-color: #222;
+	background-image: -moz-linear-gradient(top, #222, #333);
+	background-image: -o-linear-gradient(top, #222, #333);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #222), color-stop(1, #333));
+	background-image: -webkit-linear-gradient(#222, #333);
+	background-image: linear-gradient(top, #222, #333);
+}
+
+/* widgets */
+.jrHitsWidget,
+.jrFavoriteWidget  {
+	color: #eee;
+	border: 1px solid #555;
+	background-color: #333;
+	background-image: -moz-linear-gradient(center top, #111, #333);
+	background-image: -o-linear-gradient(top, #111, #efefef);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #111), color-stop(1, #333));
+	background-image: -webkit-linear-gradient(#111, #333);
+	background-image: linear-gradient(top, #111, #333);
+}
+
+
+/* pagination */ 
+table.jr_pagination a:link,
+table.jr_pagination a:active,
+table.jr_pagination a:visited,
+table.jr_pagination span.inactive {
+	border: 1px solid #555;
+	color: #ddd;
+    background-color: #222;
+	background-image: -moz-linear-gradient(top, #222, #333);
+	background-image: -o-linear-gradient(top, #222, #333);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #222), color-stop(1, #333));
+	background-image: -webkit-linear-gradient(#222, #333);
+	background-image: linear-gradient(top, #222, #333);   
+}
+
+table.jr_pagination a.current:link,
+table.jr_pagination a.current:active,
+table.jr_pagination a.current:visited {
+	color: #fff;
+	border: 1px solid #222;	
+	background-color: #000;
+	background-image: -moz-linear-gradient(center top, #000, #111);
+	background-image: -o-linear-gradient(top, #000, #111);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #000), color-stop(1, #111));
+	background-image: -webkit-linear-gradient(#000, #111);
+	background-image: linear-gradient(top, #000, #111);
+}
+
+	
+table.jr_pagination a.paginate:hover {
+	background: #777;
+	background: -moz-linear-gradient(center top , #777, #666);
+	background-image: -o-linear-gradient(top, #777, #666);
+	background: -webkit-gradient(linear, center top, center bottom, color-stop(0, #777), color-stop(1, #666));
+	background-image: -webkit-linear-gradient(#777, #666);
+	background-image: linear-gradient(top, #777, #666);
+	-moz-box-shadow: 0 0 2px #333;
+	-webkit-box-shadow: 0 0 2px #333;
+	box-shadow: 0 0 2px #333;
+}
+
+/* Rating stars */
+.rating_star_user, 
+.rating_star_editor , 
+.rating_star_user div, 
+.rating_star_editor div { 
+	background-image: url(images/rating_stars_dark.png); 
+}
+
+/* rating form */
+.ui-stars-star a {
+    background-image: url(images/rating_stars_dark.png);
+}
+
+div.overall_ratings {
+	color: #777;
+}
+
+.jrArrowBottom {
+	border-top: 7px solid #bbb;	
+}
+
+/*************************************
+Listing Detail Page
+*************************************/
+
+div.jr_pgContainer div.contentInfoContainer {
+	background: #222;
+	color: #eee;
+	border-color: #444;
+	border-width: 1px 0;
+}
+
+/* Reviews */
+div.jr_pgContainer div.ratingInfo {
+	background: #333;
+	border: 1px solid #555;
+	color: #eee;
+}
+
+div.jr_pgContainer div.roundedPanel div.ratingInfo {
+    background: #000;
+    border: 1px solid #222;
+}
+
+div.jr_pgContainer div.jr_reviewOwnerReply {
+	background: #444;
+	color: #eee;
+}
+
+
+/*************************************
+List pages
+*************************************/
+
+div.jr_pgContainer .contentActionsBox {
+	background: #222;
+	background: rgba(0,0,0,0.7);
+	border: 1px solid #333;
+}
+
+/* tableview */
+div.jr_tableview th {
+	border-top: 1px solid #4F4F4F; 
+	border-bottom: 1px solid #4F4F4F; 
+	background-color: #0F0C0C;
+}
+
+div.jr_tableview tr.row1 td {
+	background-color: #333;
+}
+
+div.jr_tableview tr.row2 td {
+	background-color: #111;
+}
+
+/* thumbview */
+div.jr_thumbview .listItem {
+	border: 1px solid #333;
+	background: #222;
+}
+
+div.jr_thumbview .listItem:hover {
+	background: #333;
+	-webkit-box-shadow: 0 0 2px #555;
+	-moz-box-shadow: 0 0 2px #555;
+	box-shadow: 0 0 2px #555;
+}
+
+/* compareview */
+#jr_compareview .compareField {
+	background: #444; 
+	color: #eee;
+}
+
+#jr_compareview .compareField.alt {
+	background: #333; 
+	color: #eee;
+}
+
+#jr_compareview .comparisonHeader .compareField {
+	background: #222;
+}
+
+#jr_compareview .comparisonHeader .compareField.alt {
+	background: #111; 
+}
+
+#jr_compareview .fieldGroup.compareField {
+	background: #111;
+	border-top: 1px solid #555;
+	border-bottom: 1px solid #555;
+	color: #eee;
+}
+
+#jr_compareview  .itemTitle.compareField {
+	background: #222; 
+}
+
+#jr_compareview  .itemThumbnail.compareField {
+	background: #222; 
+}
+
+#jr_compareview  .itemSummary.compareField {
+	background: #222; 
+}
+
+/* compare dashboard */
+#jr_compareTabs span.compareItemTitle a {
+    color: #333 !important;
+}
+
+/* forms */
+.jr_formChooser,
+.jr_formContainer {
+	color: #eee;
+	border: 1px solid #555;
+	background-color: #444;
+}
+
+.jr_form fieldset {
+	border: 1px solid #333 !important;
+	background-color: #222;
+	color: #eee;
+}
+
+.jr_form fieldset.reviewForm,
+.jr_form fieldset.reviewForm fieldset  {
+    background-color: #222;
+    border: 1px solid #333;
+	color: #eee;
+}
+
+/* alphaindex */
+#jr_alphaindex a:link, #jr_alphaindex a:visited, #jr_alphaindex a:hover {
+    color: #eee !important;
+}
+
+/* management */
+div.jr_pgContainer .jrManager {
+    background: none repeat scroll 0 0 #333;
+    border: 1px solid #555;
+}
+div.jr_pgContainer .jrManager a {
+    color: #eee !important;
+}
+div.jr_pgContainer ul.jrManagementLinks li:hover{
+	background: #222;
+}

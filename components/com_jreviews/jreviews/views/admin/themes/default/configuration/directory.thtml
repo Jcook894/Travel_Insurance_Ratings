@@ -1,0 +1,69 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php $dirTab = array(
+	/*** NEW HEADER ***/
+	__a("General settings",true) => array(
+		 array(
+			'label'=>__a("Show alphabetical index bar",true),
+			'type'=>'radioYesNo',
+			'name'=>'dir_show_alphaindex'
+		),
+		 array(
+			'label'=>__a("Display category images",true),
+			'type'=>'select',
+			'name'=>'dir_cat_images',
+			'options'=>array('No'=>__a("No",true),
+							'Above'=>__a("Above category",true),
+							'Left'=>__a("Left of category",true)),
+			'help'=>__a("Applies to top level categories only.",true),
+			'disable'=>_CMS_NAME == 'wordpress'
+		),
+		 array(
+			'label'=>__a("Number of columns",true),
+			'type'=>'text',
+			'name'=>'dir_columns',
+			'attributes'=>array('style'=>'width:3em'),
+			'help'=>__a("Applies to top level categories only.",true)
+		),
+		 array(
+			'label'=>__a("Show number of entries per category",true),
+			'type'=>'radioYesNo',
+			'name'=>'dir_cat_num_entries',
+			'help'=>__a("Also applies to the category box in lists.",true)
+		),
+		 array(
+			'label'=>__a("Hide empty categories",true),
+			'type'=>'radioYesNo',
+			'name'=>'dir_category_hide_empty',
+			'help'=>__a("Also applies to the category box in lists.",true)
+		),
+		 array(
+			'label'=>__a("Category levels to show",true),
+			'type'=>'text',
+			'name'=>'dir_category_levels',
+			'attributes'=>array('style'=>'width:3em')
+		),
+		 array(
+			'label'=>__a("Categories format",true),
+			'type'=>'select',
+			'name'=>'dir_cat_format',
+			'options'=>array(
+							'1'=>__a("Bullet list",true),
+							'0'=>__a("Comma separated list",true)
+							),
+			'help'=>__a("When comma list is selected only 2 level of categories are shown.",true)
+		)
+	)
+);?>
+
+<?php $AdminSettings->columns = array(5,8,11); $AdminSettings->displayTab('directory',$dirTab);?>

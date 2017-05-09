@@ -1,0 +1,61 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<div align="left" width="100%">
+    <h2>Theme Manager</h2>
+</div>
+<br />
+<div class="ui-widget-header ui-corner-all ui-helper-clearfix">
+    <button class="ui-button ui-corner-all" onclick="jreviews_admin.menu.load('themes','sections');return false;">Section Themes</button>
+    &nbsp;&nbsp;
+    <button class="ui-button ui-corner-all" 
+        onclick="jreviews_admin.menu.load('themes','categories');return false;">Category Themes</button>
+</div>
+<br />
+
+<table class="admin_list" style="font-size:110%;color:#000;">
+	<tr>
+		<td width="150"><strong>Global Theme Settings</strong></td>
+		<td>There are two global theme settings in the configuration menu. One of the section/category lists in the [List Page] tab and 
+		one for the search results in the [Search] tab</td>
+	</tr>
+
+	<tr>
+		<td><strong>Priority order</strong></td>
+		<td>For any given page, except search result pages (task=list), the category setup is checked first, then the section setup and finally the global setting (items list tab in configuration settings).</td>
+	</tr>
+	
+	<tr>
+		<td><strong>Menu links</strong></td>
+		<td>The menu parameters for list view and suffix override the settings in the theme manager and they also allow customization of lists for top rated, most popular and so on.</td>
+	</tr>
+
+	<tr>
+		<td><strong>Theme Manager</strong></td>
+		<td>The theme manager allows you to specify both/either a <u>list view</u> (blogview,tableview,thumbview) and/or a <u>view suffix</u>.</td>
+	</tr>	
+	
+	<tr>
+		<td><strong>Theme files</strong></td>
+		<td>Theme files are in "/components/com_jreviews/jreviews/views/themes/[theme_name]" and CSS files in "/components/com_jreviews/jreviews/views/themes/[theme_name]/theme_css".</td>
+	</tr>
+	
+	<tr>
+		<td><strong>Suffix &amp; Inheritance</strong></td>
+		<td>When a suffix is assigned (i.e. _hotels), you can copy and rename any view/css file to use that suffix. If the file is found it will be used, otherwise the default view/css files are used.</td>
+	</tr>
+
+	<tr>
+		<td><strong>Images</strong></td>
+		<td>For every new theme you create you must copy the theme_images folder from the default theme.</td>
+	</tr>			
+</table>

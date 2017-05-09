@@ -1,0 +1,36 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<form name="directoryForm" id="directoryForm" action="" type="">
+	
+	<table class="admin_list" border="0" cellpadding="3" cellspacing="0">
+		<tr>
+			<td>Name</td>
+			<td>
+                <input type="text" size="50" maxsize="50" name="data[Directory][title]" value="<?php echo $directory['slug'];?>" />
+			</td>
+		</tr>
+		<tr>
+			<td>Title</td>
+			<td>	
+                <input type="text" size="50" maxsize="100" name="data[Directory][desc]" value="<?php echo $directory['title'];?>" />
+			</td>
+		</tr>
+	</table>
+
+    <input type="hidden" name="data[controller]" value="admin/directories" />
+    <input type="hidden" name="data[action]" value="_save" />
+	<input type="hidden" name="data[Directory][id]" value="<?php echo $directory['id']; ?>" />
+	<input type="hidden" id="limitstart" name="data[offset]" value="<?php echo $this->offset;?>" />
+	<input type="hidden" id="limit" name="data[limit]" value="<?php echo $this->limit;?>" />
+	<input type="hidden" id="page" name="data[page]" value="<?php echo $this->page;?>" />
+</form>

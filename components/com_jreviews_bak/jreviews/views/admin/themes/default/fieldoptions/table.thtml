@@ -1,0 +1,114 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php	
+# Initialize paginator helper
+$Paginator->paginate(
+	array(
+		'current_page'=>$this->page,
+		'items_per_page'=>$this->limit,
+		'items_total'=>$pagination['total']
+	)
+);
+
+# Set theme images path
+$this->viewTheme = $this->Config->template;
+?>
+             
+<table class="admin_list">
+    <tr>
+		<th width="5" align="center">#</th>
+        <th width="10" align="center">ID</th>
+		<th align="center">Text</th>
+		<th align="center">Value</th>
+		<th align="center">Image</th>
+        <?php if(!in_array($field['type'],array('radiobuttons','checkboxes'))):?>
+        <th align="center">Controlled by</th>
+		<?php endif;?>
+        <th colspan="2" align="center" width="5%">Reorder</th>
+		<th width="10" align="right">Order</th>
+		<th width="10">
+			<a href="#" onclick="jreviews_admin.dispatch({'controller':'fieldoptions','action':'_saveOrder','form_id':'adminForm','type':'html','onComplete':function(res){jQuery('#optionlist').html(res);s2Alert('New ordering saved.');}});return false;">
+			<img src="<?php echo $this->viewImages;?>filesave.png" border="0" width="16" height="16" alt="Save Order" />
+			</a>
+		</th>
+		<th width="15" align="center">Delete</th>
+	</tr>
+	<?php 
+	$i = $this->page*$this->limit - ($this->limit - 1); 
+	foreach($rows AS $key=>$row):
+	?>		
+	<tr id="fieldoption<?php echo $row->optionid;?>">
+		<td width="5" align="center">
+			<?php echo $i++;?>
+            <input type="hidden" id="cid" name="data[cid][]" value="<?php echo $row->optionid;?>" />
+		</td>
+        <td width="15" align="center"><?php echo $row->optionid;?></td>
+		<td>   
+            <a href="#" onclick="jreviews_admin.fieldoption.edit('optionid=<?php echo $row->optionid;?>&limitstart=<?php echo $this->offset?>&limit=<?php echo $this->limit?>&page=<?php echo $this->page?>&field_id=<?php echo $field['fieldid'];?>&location=<?php echo $field['location'];?>',{title:'<?php __a("Edit field option");?>','width':'1000px'});return false;"><?php echo $row->text;?></a>                
+        </td>
+		<td><?php echo $row->value;?></td>
+		<td><?php echo $row->image;?>
+			<?php if($row->image!='' && $this->locateThemeFile('theme_images',$row->image,'',true)):?>
+				&nbsp;<span style="color:green;font-weight:bold;">[image found]</span>
+			<?php elseif($row->image!=''):?>
+				&nbsp;<span style="color:red;font-weight:bold;">[image not found]</span>			
+			<?php endif;?>	
+		</td>
+        <?php if(!in_array($field['type'],array('radiobuttons','checkboxes'))):?>
+        <td><?php echo !empty($row->control_field) ? $row->control_field . ': ' . $row->control_value : '---';?></td>  <!--&#149;-->
+        <?php endif;?>
+		<td align="right">
+			<a href="#" onclick="jreviews_admin.tools.flashRow('fieldoption<?php echo $row->optionid;?>'); 
+				jQuery('#option_id').val(<?php echo $row->optionid;?>);
+				jQuery('#direction').val(-1);				
+				jreviews_admin.dispatch({'controller':'fieldoptions','action':'_changeOrder','form_id':'adminForm','type':'html','onComplete':function(res){jQuery('#optionlist').html(res);jreviews_admin.tools.flashRow('fieldoption<?php echo $row->optionid;?>');}});return false;">
+				<img src="<?php echo $this->viewImages;?>uparrow.png" alt="up" border="0">
+			</a>
+		</td>
+		<td align="left">
+            <a href="#" onclick="jreviews_admin.tools.flashRow('fieldoption<?php echo $row->optionid;?>'); 
+                jQuery('#option_id').val(<?php echo $row->optionid;?>);
+                jQuery('#direction').val(1);                
+                jreviews_admin.dispatch({'controller':'fieldoptions','action':'_changeOrder','form_id':'adminForm','type':'html','onComplete':function(res){jQuery('#optionlist').html(res);jreviews_admin.tools.flashRow('fieldoption<?php echo $row->optionid;?>');}});return false;">
+                <img src="<?php echo $this->viewImages;?>downarrow.png" alt="down" border="0">
+            </a>
+		</td>
+		<td align="center" colspan="2">
+			<input type="text" name="data[order][]" size="5" value="<?php echo $row->ordering;?>" class="text_area" style="text-align: center" />
+		</td>
+		<td width="15" style="text-align:center;">
+            <button type="button" class="ui-button-small ui-corner-all" onclick="jreviews_admin.dispatch({'controller':'fieldoptions','action':'delete','data':{'data[option_id]':<?php echo $row->optionid;?>},'onComplete':function(res){if(res==1)jreviews_admin.tools.removeRow('fieldoption<?php echo $row->optionid;?>');}});return false;">
+            <span class="ui-icon ui-icon-trash"></span>
+            </button>             
+		</td>
+	</tr>
+	<?php endforeach;?>
+</table>
+ 
+<!-- PAGINATION BEGINS HERE -->
+<table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+ <tr>
+    <td class="jr_pagenav_results"><?php echo $pagination['total']?> results - Showing <?php echo ($this->page-1)*$this->limit+1;?> - <?php echo min($pagination['total'],$this->page*$this->limit);?></td>
+    <td class="jr_pagenav_pages"><?php echo ($pagination['total'] > $this->limit) ? $Paginator->display_pages() : '';?></td>
+    <td class="jr_pagenav_limitbox"><?php echo $Paginator->display_items_per_page();?></td>
+ </tr>
+</table>
+<input type="hidden" id="page_number" name="data[page]" value="<?php echo $this->page;?>" />
+<input type="hidden" id="limit" name="data[limit]" value="<?php echo $this->limit;?>" />
+<input type="hidden" id="controller" name="data[controller]" value="admin/fieldoptions" />
+<input type="hidden" id="action" name="data[action]" value="_save" />	
+<!-- PAGINATION ENDS HERE -->
+
+<!-- REORDER INPUTS -->
+<input type="hidden" id="option_id" name="data[option_id]" value="" />		
+<input type="hidden" id="direction" name="data[direction]" value="" />
+<!-- REORDER INPUTS -->

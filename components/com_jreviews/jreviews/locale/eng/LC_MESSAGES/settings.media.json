@@ -1,0 +1,738 @@
+[
+    {
+        "menu": "Media Settings",
+        "url": "admin_media/config",
+        "settings": [
+            {
+                "title": "Upload protocol",
+                "keywords": "media, photos, videos, attachments, audio, files, upload",
+                "description": "The PUT method is more efficient for uploading files to the server and the preferred method when uploading very large files. Make sure your server supports it before you changing the setting.",
+                "name": "media_upload_protocol",
+                "tags": ["Uploads"]
+            },
+            {
+                "title": "Force use of Catch-All menu for media urls",
+                "keywords": "media, urls, catch-all, menu",
+                "description": "You need to create the Catch-All menu for Media. If disabled, JReviews category menu ids will be used if they exist.",
+                "name": "media_url_catchall",
+                "tags": ["Display"]
+            },
+            {
+                "title": "No Image Path",
+                "keywords": "media, default, image, path, missing",
+                "description": "When changing the image use a different file name so new thumbnails can be generated.",
+                "name": "media_general_default_image_path",
+                "tags": ["Display"],
+                "override": true
+            },
+            {
+                "title": "Video Processing Path",
+                "keywords": "media, default, videos, path, missing, encoding, processing",
+                "description": "Set the path of the default 'processing' image shown while videos and are in the process of being encoded.",
+                "name": "media_general_default_video_path",
+                "tags": ["Display"]
+            },
+            {
+                "title": "Thumbnail Quality",
+                "keywords": "media, thumbnails, quality",
+                "description": "",
+                "name": "media_general_thumbnail_quality",
+                "tags": ["Display"]
+            },
+            {
+                "title": "Default Media Order",
+                "keywords": "media, ordering, sorting, list",
+                "description": "This is the ordering that will be used in media list pages.",
+                "name": "media_general_default_order",
+                "tags": ["Display"]
+            },
+            {
+                "title": "Default Media Order - Listing Specific",
+                "keywords": "media, ordering, sorting, list",
+                "description": "This is the ordering that will be used in listing detail pages and photo and video galleries for a specific listing.",
+                "name": "media_general_default_order_listing",
+                "tags": ["Display"],
+                "override": true
+            },
+            {
+                "title": "Display Terms & Conditions in upload page",
+                "keywords": "media, upload, form, terms, conditions",
+                "description": "The terms will only display for regular users.",
+                "name": "media_general_tos",
+                "tags": ["Display"]
+            },
+            {
+                "title": "Add additional link to Submission Guidelines page",
+                "keywords": "media, upload, form, terms, conditions",
+                "description": "Enter the Page/Article ID you want to use. You can find the ID in the URL when editing a Page/Article.",
+                "name": "media_general_tos_articleid",
+                "tags": ["Display"]
+            },
+            {
+                "title": "Display 'More by username' link",
+                "keywords": "media, user, all",
+                "description": "Links to my media page for the user that submitted the media. Displays in standalone media gallery pages.",
+                "name": "media_display_more_by",
+                "tags": ["Display"]
+            },
+            {
+                "title": "Enable media reporting",
+                "keywords": "media, abuse, reporting",
+                "description": "",
+                "name": "media_report_abuse",
+                "tags": ["Display"],
+                "override": true
+            },
+            {
+                "title": "Photo Count Indicator",
+                "keywords": "media, photos, count, indicator",
+                "description": "",
+                "name": "media_photo_show_count",
+                "tags": ["Display"],
+                "override": true
+            },
+            {
+                "title": "Video Count Indicator",
+                "keywords": "media, videos, count, indicator",
+                "description": "",
+                "name": "media_video_show_count",
+                "tags": ["Display"],
+                "override": true
+            },
+            {
+                "title": "Attachment Count Indicator",
+                "keywords": "media, attachments, count, indicator",
+                "description": "",
+                "name": "media_attachment_show_count",
+                "tags": ["Display"],
+                "override": true
+            },
+            {
+                "title": "Audio Count Indicator",
+                "keywords": "media, audio, music, count, indicator",
+                "description": "",
+                "name": "media_audio_show_count",
+                "tags": ["Display"],
+                "override": true
+            },
+            {
+                "title": "Show Main Media Thumbnail",
+                "keywords": "media, listings, list, main, thumbnail, photo",
+                "description": "",
+                "name": "media_list_thumbnail",
+                "tags": ["Display", "Listings", "List Pages"],
+                "override": true
+            },
+            {
+                "title": "Thumbnail Mode",
+                "keywords": "media, listings, list, main, thumbnail, photos, crop, scale",
+                "description": "Set the list page thumbnail mode to scale or crop",
+                "name": "media_list_thumbnail_mode",
+                "tags": ["Display", "Listings", "List Pages"],
+                "override": true
+            },
+            {
+                "title": "Thumbnail Size",
+                "keywords": "media, listings, list, main, thumbnail, photos, size, pixels",
+                "description": "",
+                "name": "media_list_thumbnail_size",
+                "tags": ["Display", "Listings", "List Pages"],
+                "override": true
+            },
+            {
+                "title": "Use Category Image",
+                "keywords": "media, listings, list, main, thumbnail, category, default",
+                "description": "",
+                "name": "media_list_category_image",
+                "tags": ["Display", "Listings", "List Pages"],
+                "cms": ["joomla"],
+                "override": true
+            },
+            {
+                "title": "Use Default Image",
+                "keywords": "media, listings, list, main, thumbnail, category, default",
+                "description": "Used if both category and main media thumbnails are not available.",
+                "name": "media_list_default_image",
+                "tags": ["Display", "Listings", "List Pages"],
+                "override": true
+            },
+            {
+                "title": "Separate Listing Owner and User uploaded media",
+                "keywords": "media, listings, detail, main, separate, user, owner, uploads",
+                "description": "Photos and video only. Listing Owner media displays in main area of the listing detail page while Review media will appear in individual reviews. Links to view 'All', 'Listing' and 'Users' photos and videos will also be displayed unless lightbox or gallery layouts are used.",
+                "name": "media_detail_separate_media",
+                "tags": ["Display", "Listings", "Detail Pages"],
+                "override": true
+            },
+            {
+                "title": "Photo Display Layout",
+                "keywords": "media, photos, layout, gallery, lightbox, contact sheet, film strip",
+                "description": "Choose the detail page layout: gallery, lightbox, contact sheet, film strip.",
+                "name": "media_detail_photo_layout",
+                "tags": ["Display", "Listings", "Detail Pages"],
+                "override": true
+            },
+            {
+                "title": "Video Display Layout",
+                "keywords": "media, videos, layout, player, lightbox, contact sheet, film strip",
+                "description": "Choose the detail page layout: full with player, lightbox, contact sheet, film strip.",
+                "name": "media_detail_video_layout",
+                "tags": ["Display", "Listings", "Detail Pages"],
+                "override": true
+            },
+            {
+                "title": "Audio Downloads",
+                "keywords": "media, audio, music, downloads",
+                "description": "Displays a download button next to each track.",
+                "name": "media_detail_audio_downloads",
+                "tags": ["Display", "Listings", "Detail Pages"],
+                "override": true
+            },
+            {
+                "title": "Sync Main Media Photo with Article Image",
+                "keywords": "media, article, image, sync",
+                "description": "Only works with local storage. Copies the main media URL to the chosen Joomla article image setting to allow 3rd party plugins and modules to use the Main Media from JReviews.",
+                "name": "media_article_sync",
+                "tags": ["Display", "Listings", "Detail Pages"],
+                "cms": ["joomla"]
+            },
+            {
+                "title": "Sync Main Media Photo with Post Featured Image",
+                "keywords": "media, post, featured image, sync",
+                "description": "",
+                "name": "media_article_sync",
+                "tags": ["Display", "Listings", "Detail Pages"],
+                "cms": ["wordpress"]
+            },
+            {
+                "title": "Hide Article Image",
+                "keywords": "media, article, image, introtext, fulltext, summary, description",
+                "description": "Supresses the output of the core Joomla article images in the listing detail page.",
+                "name": "media_article_hide",
+                "tags": ["Display", "Listings", "Detail Pages"],
+                "cms": ["joomla"]
+            },
+            {
+                "title": "Main Media Thumbnail",
+                "keywords": "media, photos, main, thumbnail",
+                "description": "Enable to display main media thumbnail separately.",
+                "name": "media_detail_main",
+                "tags": ["Display", "Listings", "Detail Pages"],
+                "override": true
+            },
+            {
+                "title": "Disable Main Media Link",
+                "keywords": "media, photos, main, thumbnail, lightbox",
+                "description": "Disable the lightbox for photos when set as main media. Gallery photos will continue opening in a lightbox if Photo Lightbox is enabled.",
+                "name": "media_detail_main_lightbox_disable",
+                "tags": ["Display", "Listings", "Detail Pages"],
+                "override": true
+            },
+            {
+                "title": "Main Media Thumbnail Mode",
+                "keywords": "media, photos, main, thumbnail, crop, scale, mode",
+                "description": "Set the detail page main media thumbnail mode to scale or crop.",
+                "name": "media_detail_main_thumbnail_mode",
+                "tags": ["Display", "Listings", "Detail Pages"],
+                "override": true
+            },
+            {
+                "title": "Main Media Thumbnail Size",
+                "keywords": "media, photos, main, thumbnail, size, pixels",
+                "description": "",
+                "name": "media_detail_main_thumbnail_size",
+                "tags": ["Display", "Listings", "Detail Pages"],
+                "override": true
+            },
+            {
+                "title": "Show category/default image using above settings for List Pages",
+                "keywords": "media, photos, main, default, category, image",
+                "description": "Enable the display of a default image in detail pages.",
+                "name": "media_detail_default",
+                "tags": ["Display", "Listings", "Detail Pages"],
+                "override": true
+            },
+            {
+                "title": "Thumbnail alignment",
+                "keywords": "media, photos, main, alignment",
+                "description": "Set left or right thumbnail alignment for the detail page",
+                "name": "media_detail_main_thumbnail_alignment",
+                "tags": ["Display", "Listings", "Detail Pages"],
+                "override": true
+            },
+            {
+                "title": "Gallery Thumbnail Mode",
+                "keywords": "media, photos, contact sheet, film strip, crop, scale",
+                "description": "Set the detail page gallery thumbnail mode to scale or crop.",
+                "name": "media_detail_gallery_thumbnail_mode",
+                "tags": ["Display", "Listings", "Detail Pages"],
+                "override": true
+            },
+            {
+                "title": "Gallery Thumbnail Size",
+                "keywords": "media, photos, contact sheet, film strip, size, pixels",
+                "description": "Set the detail page gallery thumbnail size.",
+                "name": "media_detail_gallery_thumbnail_size",
+                "tags": ["Display", "Listings", "Detail Pages"],
+                "override": true
+            },
+            {
+                "title": "Display photo info as overlay on mouseover",
+                "keywords": "media, photos, gallery, overlay, tooltip",
+                "description": "Applies to full will gallery only",
+                "name": "media_photo_gallery_overlay",
+                "tags": ["Display", "Listings", "Detail Pages"],
+                "override": true
+            },
+            {
+                "title": "Photo Limit when linking to separate gallery page",
+                "keywords": "media, photos, gallery, limit, link",
+                "description": "After this number visitors need to go to the gallery page for the listing to view all photos",
+                "name": "media_detail_photo_limit",
+                "tags": ["Display", "Listings", "Detail Pages"],
+                "override": true
+            },
+            {
+                "title": "Video Limit when linking to separate gallery page",
+                "keywords": "media, videos, gallery, limit, link",
+                "description": "After this number visitors need to go to the gallery page for the listing to view all videos",
+                "name": "media_detail_video_limit",
+                "tags": ["Display", "Listings", "Detail Pages"],
+                "override": true
+            },
+            {
+                "title": "Gallery Thumbnail Mode",
+                "keywords": "media, reviews, gallery, thumbnails, photos, crop, scale",
+                "description": "Set the review page thumbnail mode to scale or crop.",
+                "name": "media_review_gallery_thumbnail_mode",
+                "tags": ["Display", "Reviews"]
+            },
+            {
+                "title": "Gallery Thumbnail Size",
+                "keywords": "media, reviews, gallery, thumbnails, photos, size, pixels",
+                "description": "Set the review page gallery thumbnail size.",
+                "name": "media_review_gallery_thumbnail_mode",
+                "tags": ["Display", "Reviews"]
+            },
+            {
+                "title": "Photo Limit in reviews",
+                "keywords": "media, reviews, photos, limit",
+                "description": "After this number visitors need to go to the gallery page for the listing to view all photos.",
+                "name": "media_review_photo_limit",
+                "tags": ["Display", "Reviews"]
+            },
+            {
+                "title": "Video Limit in reviews",
+                "keywords": "media, reviews, videos, limit",
+                "description": "After this number visitors need to go to the gallery page for the listing to view all videos.",
+                "name": "media_review_video_limit",
+                "tags": ["Display", "Reviews"]
+            },
+            {
+                "title": "Media List Layout",
+                "keywords": "media, list, layout, thumbview, masonry",
+                "description": "Set the media page list layout to thumbview or masonry.",
+                "name": "media_list_layout",
+                "tags": ["Display", "Media Pages"]
+            },
+            {
+                "title": "Media List Thumbnail Mode",
+                "keywords": "media, list, thumbnails, mode, crop, scale",
+                "description": "Set the media list page thumbnail mode to scale or crop.",
+                "name": "media_media_thumbnail_mode",
+                "tags": ["Display", "Media Pages"]
+            },
+            {
+                "title": "Replace filename with listing title",
+                "keywords": "media, photos, upload, filename, listing, title",
+                "description": "",
+                "name": "media_photo_filename_title",
+                "tags": ["Photos"]
+            },
+            {
+                "title": "Prepend listing id to filename",
+                "keywords": "media, photos, upload, filename, listing",
+                "description": "",
+                "name": "media_photo_filename_listingid",
+                "tags": ["Photos"]
+            },
+            {
+                "title": "Max Photos per Listing per User",
+                "keywords": "media, photos, upload, listings, users, maximum",
+                "description": "Leave blank for no limit. Set to zero to disable uploads.",
+                "name": "media_photo_max_uploads_listing",
+                "tags": ["Photos", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Max Photos per Review per User",
+                "keywords": "media, photos, upload, reviews, users, maximum",
+                "description": "Leave blank for no limit. Set to zero to disable uploads.",
+                "name": "media_photo_max_uploads_review",
+                "tags": ["Photos", "Reviews"],
+                "override": true
+            },
+            {
+                "title": "Maximum Upload Size",
+                "keywords": "media, photos, upload, maximum, size",
+                "description": "",
+                "name": "media_photo_max_size",
+                "tags": ["Photos"],
+                "override": true
+            },
+            {
+                "title": "Allowed File Extensions",
+                "keywords": "media, photos, upload, file, extensions",
+                "description": "",
+                "name": "media_photo_extensions",
+                "tags": ["Photos"],
+                "override": true
+            },
+            {
+                "title": "Original Resize",
+                "keywords": "media, photos, upload, resize, pixels",
+                "description": "",
+                "name": "media_photo_resize",
+                "tags": ["Photos"],
+                "override": true
+            },
+            {
+                "title": "Original Resize Quality",
+                "keywords": "media, photos, upload, thumbnail resize, quality",
+                "description": "",
+                "name": "media_photo_resize_quality",
+                "tags": ["Photos"],
+                "override": true
+            },
+            {
+                "title": "Replace filename with listing title",
+                "keywords": "media, videos, upload, filename, listing, title",
+                "description": "",
+                "name": "media_video_filename_title",
+                "tags": ["Videos"]
+            },
+            {
+                "title": "Prepend listing id to filename",
+                "keywords": "media, videos, upload, filename, listing",
+                "description": "",
+                "name": "media_video_filename_listingid",
+                "tags": ["Videos"]
+            },
+            {
+                "title": "Video Upload Methods",
+                "keywords": "media, videos, upload, link",
+                "description": "Set allowed video upload methods to upload only and/or link only.",
+                "name": "media_video_upload_methods",
+                "tags": ["Videos"],
+                "override": true
+            },
+            {
+                "title": "Video Link Sites",
+                "keywords": "media, videos, upload, link, embed, youtube, vimeo, dailymotion",
+                "description": "Choose the services for video linking: YouTube, Vimeo, Dailymotion",
+                "name": "media_video_link_sites",
+                "tags": ["Videos"],
+                "override": true
+            },
+            {
+                "title": "Youtube API Key",
+                "keywords": "videos, youtube, api",
+                "description": "",
+                "name": "media_youtube_key",
+                "tags": ["Videos"]
+            },
+            {
+                "title": "Max Videos per Listing per User",
+                "keywords": "media, videos, upload, listings, users, maximum",
+                "description": "Leave blank for no limit. Set to zero to disable uploads.",
+                "name": "media_video_max_uploads_listing",
+                "tags": ["Videos"],
+                "override": true
+            },
+            {
+                "title": "Max Videos per Review per User",
+                "keywords": "media, videos, upload, reviews, users, maximum",
+                "description": "Leave blank for no limit. Set to zero to disable uploads.",
+                "name": "media_video_max_uploads_review",
+                "tags": ["Videos", "Reviews"],
+                "override": true
+            },
+            {
+                "title": "Maximum Upload Size",
+                "keywords": "media, videos, upload, maximum, size",
+                "description": "",
+                "name": "media_video_max_size",
+                "tags": ["Videos"],
+                "override": true
+            },
+            {
+                "title": "Allowed File Extensions",
+                "keywords": "media, videos, upload, file, extensions",
+                "description": "",
+                "name": "media_video_extensions",
+                "tags": ["Videos"],
+                "override": true
+            },
+            {
+                "title": "Replace filename with listing title",
+                "keywords": "media, attachments, upload, filename, listing, title",
+                "description": "",
+                "name": "media_attachment_filename_title",
+                "tags": ["Attachments"]
+            },
+            {
+                "title": "Prepend listing id to filename",
+                "keywords": "media, attachments, upload, filename, listing",
+                "description": "",
+                "name": "media_attachment_filename_listingid",
+                "tags": ["Attachments"]
+            },
+            {
+                "title": "Max Attachments per Listing per User",
+                "keywords": "media, attachments, upload, listings, users, maximum",
+                "description": "Leave blank for no limit. Set to zero to disable uploads.",
+                "name": "media_attachment_max_uploads_listing",
+                "tags": ["Attachments"],
+                "override": true
+            },
+            {
+                "title": "Max Attachments per Review per User",
+                "keywords": "media, attachments, upload, reviews, users, maximum",
+                "description": "Leave blank for no limit. Set to zero to disable uploads.",
+                "name": "media_attachment_max_uploads_review",
+                "tags": ["Attachments", "Reviews"],
+                "override": true
+            },
+            {
+                "title": "Maximum Upload Size",
+                "keywords": "media, attachments, upload, maximum, size",
+                "description": "",
+                "name": "media_attachment_max_size",
+                "tags": ["Attachments"],
+                "override": true
+            },
+            {
+                "title": "Allowed File Extensions",
+                "keywords": "media, attachments, upload, file, extensions",
+                "description": "",
+                "name": "media_attachment_max_size",
+                "tags": ["Attachments"],
+                "override": true
+            },
+            {
+                "title": "Replace filename with listing title",
+                "keywords": "media, audio, music, upload, filename, listing, title",
+                "description": "",
+                "name": "media_audio_filename_title",
+                "tags": ["Audio"]
+            },
+            {
+                "title": "Prepend listing id to filename",
+                "keywords": "media, audio, music, upload, filename, listing",
+                "description": "",
+                "name": "media_audio_filename_listingid",
+                "tags": ["Audio"]
+            },
+            {
+                "title": "Max Audio per Listing per User",
+                "keywords": "media, audio, music, upload, listings, users, maximum",
+                "description": "Leave blank for no limit. Set to zero to disable uploads.",
+                "name": "media_audio_max_uploads_listing",
+                "tags": ["Audio"],
+                "override": true
+            },
+            {
+                "title": "Max Audio per Review per User",
+                "keywords": "media, audio, music, upload, reviews, users, maximum",
+                "description": "Leave blank for no limit. Set to zero to disable uploads.",
+                "name": "media_audio_max_uploads_review",
+                "tags": ["Audio", "Reviews"],
+                "override": true
+            },
+            {
+                "title": "Maximum Upload Size",
+                "keywords": "media, audio, music, upload, maximum, size",
+                "description": "",
+                "name": "media_audio_max_size",
+                "tags": ["Audio"],
+                 "override": true
+           },
+            {
+                "title": "Allowed File Extensions",
+                "keywords": "media, audio, music, upload, file, extensions",
+                "description": "",
+                "name": "media_audio_extensions",
+                "tags": ["Audio"],
+                "override": true
+            },
+            {
+                "title": "Storage for Photos",
+                "keywords": "photos, storage, amazon s3, local",
+                "description": "",
+                "name": "media_store_photo",
+                "tags": ["Storage"]
+            },
+            {
+                "title": "Storage for Videos",
+                "keywords": "videos, storage, amazon s3",
+                "description": "",
+                "name": "media_store_video",
+                "tags": ["Storage"]
+            },
+            {
+                "title": "Storage for 3rd Party Videos (embedded)",
+                "keywords": "videos, storage, amazon s3, local, youtube, vimeo, dailymotion",
+                "description": "Storage is used for the video thumbnails",
+                "name": "media_store_video_embed",
+                "tags": ["Storage"]
+            },
+            {
+                "title": "Storage for Attachments",
+                "keywords": "attachments, storage, amazon s3, local",
+                "description": "Storage is used for the video thumbnails",
+                "name": "media_store_attachment",
+                "tags": ["Storage"]
+            },
+            {
+                "title": "Storage for Audio",
+                "keywords": "audio, music, storage, amazon s3",
+                "description": "",
+                "name": "media_store_audio",
+                "tags": ["Storage"]
+            },
+            {
+                "title": "Path",
+                "keywords": "local, storage, path",
+                "description": "",
+                "name": "media_store_local_path",
+                "tags": ["Storage", "Local"]
+            },
+            {
+                "title": "Original media folder name",
+                "keywords": "local, storage, path, folder, originals",
+                "description": "",
+                "name": "media_store_local_original_folder",
+                "tags": ["Storage", "Local"]
+            },
+            {
+                "title": "Thumbnail media folder name",
+                "keywords": "local, storage, path, folder, thumbnails",
+                "description": "",
+                "name": "media_store_local_thumbnail_folder",
+                "tags": ["Storage", "Local"]
+            },
+            {
+                "title": "Photo Folder",
+                "keywords": "local, storage, photos, path, folder",
+                "description": "",
+                "name": "media_store_local_photo",
+                "tags": ["Storage", "Local"]
+            },
+            {
+                "title": "Video Folder",
+                "keywords": "local, storage, videos, path, folder",
+                "description": "",
+                "name": "media_store_local_video",
+                "tags": ["Storage", "Local"]
+            },
+            {
+                "title": "Attachment Folder",
+                "keywords": "local, storage, attachments, path, folder",
+                "description": "",
+                "name": "media_store_local_attachment",
+                "tags": ["Storage", "Local"]
+            },
+            {
+                "title": "Audio Folder",
+                "keywords": "local, storage, audio, path, folder",
+                "description": "",
+                "name": "media_store_local_audio",
+                "tags": ["Storage", "Local"]
+            },
+            {
+                "title": "Amazon S3 API Key",
+                "keywords": "cloud, storage, amazon s3, api",
+                "description": "",
+                "name": "media_store_amazons3_key",
+                "tags": ["Storage", "Amazon S3"]
+            },
+            {
+                "title": "Amazon S3 API Secret",
+                "keywords": "cloud, storage, amazon s3, api",
+                "description": "",
+                "name": "media_store_amazons3_secret",
+                "tags": ["Storage", "Amazon S3"]
+            },
+            {
+                "title": "Amazon S3 Bucket Region",
+                "keywords": "cloud, storage, amazon s3, bucket, region",
+                "description": "",
+                "name": "media_store_amazons3_region",
+                "tags": ["Storage", "Amazon S3"]
+            },
+            {
+                "title": "Amazon S3 Photo Bucket",
+                "keywords": "cloud, storage, amazon s3, photos, bucket, region",
+                "description": "",
+                "name": "media_store_amazons3_photo",
+                "tags": ["Storage", "Amazon S3"]
+            },
+            {
+                "title": "Amazon S3 Video Bucket",
+                "keywords": "cloud, storage, amazon s3, videos, bucket, region",
+                "description": "",
+                "name": "media_store_amazons3_video",
+                "tags": ["Storage", "Amazon S3"]
+            },
+            {
+                "title": "Amazon S3 Attachment Bucket",
+                "keywords": "cloud, storage, amazon s3, attachments, bucket, region",
+                "description": "",
+                "name": "media_store_amazons3_attachment",
+                "tags": ["Storage", "Amazon S3"]
+            },
+            {
+                "title": "Amazon S3 Audio Bucket",
+                "keywords": "cloud, storage, amazon s3, audio, music, bucket, region",
+                "description": "",
+                "name": "media_store_amazons3_audio",
+                "tags": ["Storage", "Amazon S3"]
+            },
+            {
+                "title": "Photos CDN URL",
+                "keywords": "cloud, storage, amazon s3, photos, cdn, cloudfront",
+                "description": "",
+                "name": "media_photo_cdn_url",
+                "tags": ["Storage", "Amazon S3"]
+            },
+            {
+                "title": "Videos CDN URL",
+                "keywords": "cloud, storage, amazon s3, videos, cdn, cloudfront",
+                "description": "",
+                "name": "media_video_cdn_url",
+                "tags": ["Storage", "Amazon S3"]
+            },
+            {
+                "title": "Attachments CDN URL",
+                "keywords": "cloud, storage, amazon s3, attachments, cdn, cloudfront",
+                "description": "",
+                "name": "media_attachment_cdn_url",
+                "tags": ["Storage", "Amazon S3"]
+            },
+            {
+                "title": "Audio CDN URL",
+                "keywords": "cloud, storage, amazon s3, audio, music, cdn, cloudfront",
+                "description": "",
+                "name": "media_audio_cdn_url",
+                "tags": ["Storage", "Amazon S3"]
+            },
+            {
+                "title": "Encoding Service",
+                "keywords": "videos, audio, processing, encoding, service, transloadit, zencoder",
+                "description": "Setup an encoding service to process video and audio uploads to produce HTML5 compatible files.",
+                "name": "media_encode_service",
+                "tags": ["Encoding", "Videos", "Audio"]
+            }
+        ]
+    }
+]

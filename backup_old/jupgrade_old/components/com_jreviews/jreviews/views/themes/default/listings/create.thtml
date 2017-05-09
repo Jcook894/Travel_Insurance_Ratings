@@ -1,0 +1,137 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2011 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**
+ * New/edit listing form
+ * create_form.thtml view is a separate file because it's used in ajax calls when selecting a category
+ * on new listing submissions
+ */
+$listing_id = Sanitize::getInt($listing['Listing'],'listing_id');
+$section_id = Sanitize::getInt($listing['Listing'],'section_id');
+$cat_id = Sanitize::getInt($listing['Listing'],'cat_id');
+?>
+
+<?php 
+/**********************************************************************************
+ * 								JAVASCRIPT
+ **********************************************************************************/	
+ # Trigger new form if both section and category are selected
+?>
+<?php if($this->cmsVersion == CMS_JOOMLA15 && $listing_id):?>
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery(document).ready(function() {
+    // Load custom field data
+    jreviews.controlFieldListing = new jreviewsControlField('jr_listingForm','hidden_cat_id');
+    jreviews.controlFieldListing.loadData({'entry_id':jQuery('#listing_id','#jr_listingForm').val(),'value':false,'page_setup':true,'referrer':'listing'});
+});
+/* ]]> */
+</script>
+<?php elseif($this->cmsVersion == CMS_JOOMLA15 && !$listing_id && $section_id && $cat_id):?>
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery(document).ready(function() {jreviews.listing.submitCategory(document.getElementById('cat_id1'));});
+/* ]]> */
+</script>
+<?php elseif($this->cmsVersion == CMS_JOOMLA15 && !$listing_id && $section_id):?>
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery(document).ready(function() {jreviews.listing.submitSection(document.getElementById('section_id'));});
+/* ]]> */
+</script>
+<?php elseif($this->cmsVersion == CMS_JOOMLA16 && $listing_id && $cat_id):?>
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery(document).ready(function() { 
+    jreviews.controlFieldListing = new jreviewsControlField('jr_listingForm','catid');
+    jreviews.controlFieldListing.loadData({'entry_id':jQuery('#listing_id','#jr_listingForm').val(),'value':false,'page_setup':true,'referrer':'listing'});
+});
+/* ]]> */
+</script>
+<?php endif;?>
+
+<?php 
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+?>
+
+<?php if(in_array(1,$submit_step)):?>
+<div id="jr_listingFormOuter" class="jr_pgContainer">
+    
+    <iframe id="listing_submit" name="listing_submit" width="0" height="0" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" ></iframe>
+   
+    <form target="listing_submit" id="jr_listingForm" name="jr_listingForm" action="<?php displayAjaxUri('jreviews');?>&amp;Itemid=<?php echo $menu_id;?><?php echo isset($this->params['lang'])? "&amp;lang=".$this->params['lang'] : '';?>&amp;url=listings/_save" enctype="multipart/form-data" method="post">
+     
+		<?php if(!$listing_id):?>
+			<!-- Submission instructions -->
+			<?php echo $this->element('submission_instructions');?>
+		<?php endif;?>
+
+		<?php if(!$listing_id || $Access->isAdmin()):?>
+		
+			<div class="jr_formChooser">
+			
+				<?php if($this->cmsVersion == CMS_JOOMLA15):?>						
+					<span id="jr_Sections">
+					<?php echo $Form->select(
+								'data[Listing][sectionid]',
+								array_merge(array(array('value'=>null,'text'=>__t("Select Section",true))),$sections),
+								$listing['Listing']['section_id'],
+								array(
+		                            'id'=>'section_id',
+		                            'class'=>'jrSelect',
+		                            'size'=>'1',
+		                            'onchange'=>"jreviews.listing.submitSection(this);"
+		                        )
+							);
+					?>
+					</span>
+					&nbsp;&nbsp;
+				<?php else:?>
+					<?php __t("Category");?>&nbsp;
+				<?php endif;?>
+
+				<span id="jr_Categories"><?php echo $this->element('category_list',compact('listing_id','cat_id'));?></span>
+			
+				<span class="jr_loadingSmall jr_hidden"></span>
+
+				<br />
+			</div>
+		
+		<?php else:?>
+		
+			<?php if($this->cmsVersion == CMS_JOOMLA15):?>
+				<input id="sectionid" name="data[Listing][sectionid]" type="hidden" value="<?php echo $listing['Listing']['section_id'];?>" />
+				<input id="catid" class="jrSelect" name="data[Listing][catid]" type="hidden" value="<?php echo $listing['Listing']['cat_id'];?>" />
+			<?php else:?>
+				<input id="catid" class="jrSelect" name="data[Listing][catid][]" type="hidden" value="<?php echo $listing['Listing']['cat_id'];?>" />
+			<?php endif;?>
+		
+		<?php endif;?>
+
+		<div class="jr_form jr_formContainer">
+			<div id="jr_newFields"><!-- div required to show/hide form on section/category selection -->
+			<?php if(in_array(2,$submit_step)):?><?php echo $this->renderControllerView('listings','create_form');?><?php endif;?>
+			</div>
+			
+            <input type="hidden" name="option" value="com_jreviews" />
+            <input type="hidden" id="section" name="data[section]" value="<?php echo $listing_id &&  isset($listing['Section']) ? $listing['Section']['title'] : '';?>" /> 
+            <input type="hidden" id="parent_category" name="data[parent_category]" value="" />
+            <input type="hidden" id="category" name="data[category]" value="<?php echo $listing_id ? $listing['Category']['title'] : '';?>" />
+            <input type="hidden" id="listing_id" name="data[Listing][id]" value="<?php echo $listing['Listing']['listing_id'];?>" />
+            <input type="hidden" name="format" value="raw" />     
+            <input type="hidden" name="Itemid" value="<?php echo $public_menu_id;?>" />    		
+            <?php echo cmsFramework::getTokenInput();?>
+            <?php echo $listing_id ? cmsFramework::formIntegrityToken($listing['Listing'],$formTokenKeys) : '';?>        
+        </div>			
+	</form>	
+</div>
+<?php endif;?>

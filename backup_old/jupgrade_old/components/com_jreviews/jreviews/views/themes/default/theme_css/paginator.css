@@ -1,0 +1,266 @@
+/*************************************
+Module pagination
+*************************************/
+a.jr_modPrev, a.jr_modNext {
+	background: url(images/arrows.png) no-repeat;
+	width: 22px;
+	height: 22px;
+	padding: 0;
+	margin-bottom: 15px;
+	outline: none;
+}
+
+a.jr_modPrev:link, a.jr_modPrev:active, a.jr_modPrev:visited {
+	background-position: 0px 0px;
+	float: left;
+	margin-right: 6px;
+}
+
+a.jr_modNext:link, a.jr_modNext:active, a.jr_modNext:visited {
+	background-position: -22px 0px;
+	float: right;
+	margin-left: 6px;
+}
+
+a.jr_modPrev.vertical {
+	background-position: 0px -22px;
+}   
+
+a.jr_modPrev.jr_modDisabled {
+	background-position: -44px 0px;
+	cursor: default;
+} 
+
+a.jr_modPrev.jr_modDisabled.vertical {
+	background-position: -44px -22px;
+	cursor: default;
+}    
+
+a.jr_modNext.vertical {
+	background-position: -22px -22px;
+}   
+
+a.jr_modNext.jr_modDisabled {
+	background-position: -66px 0;
+	cursor: default;
+} 
+
+a.jr_modNext.jr_modDisabled.vertical {
+	background-position: -66px -22px;
+	cursor: default;
+}      
+
+div.jr_modSlider {
+	float: left;
+    position:relative; 
+    overflow:hidden;
+	margin: 0 0 5px 0;
+	padding: 0;
+	direction: ltr;
+} 
+ 
+div.jr_modSlider div.jr_modItems {   
+    width:20000em; /* this cannot be too large */     
+    position:absolute;         
+}
+
+div.jr_modSlider div.jr_modItems.vertical {   
+    height:20000em; /* this cannot be too large */    
+	width: auto;
+    position:absolute;         
+} 
+
+/*  
+    a single item. must be floated on horizontal scrolling 
+    typically this element is the one that *you* will style 
+    the most. 
+*/ 
+div.jr_modSlider div.jr_modItems div.jr_modContainer,
+div.jr_modSlider div.jr_modItems div.jr_plugContainer
+ { 
+    float: left;
+    overflow: hidden;
+    /*width: 1000px!important;*/ /*it's added as style in each module based on defined width*/
+} 
+ 
+/* you may want to setup some decorations to active item */ 
+div.jr_modItems div.active {} 
+
+
+/*************************************
+Single page modules
+*************************************/
+
+div.jr_modSlider.singlePage,
+div.jr_modSlider.singlePage div.jr_listings_mod,
+div.jr_modSlider.singlePage div.jr_favoriteUsers,
+div.jr_modSlider.singlePage div.jrPlugin {
+    width: auto;
+    float: none !important;
+}
+
+div.jr_modSlider.singlePage div.jr_modItems {   
+    width: auto;
+    overflow: hidden;
+    position: relative;         
+}
+
+div.jr_modSlider.singlePage div.jr_modItems.vertical {   
+    height: auto;   
+    width: auto;
+    position: relative;         
+} 
+
+
+/*************************************
+Module Slideshow Navigator
+*************************************/
+.jr_modSlider .navi {
+	position: absolute;
+	bottom: 0;
+	left: 40%;
+    height: 11px;
+	margin: 0 auto;
+}
+
+.jr_modSlider .navi a {
+    background: url(images/navigator.png) no-repeat;
+    display: block;
+    float: left;
+    font-size: 1px;
+    height: 8px;
+    margin: 3px;
+    width: 8px;
+}
+
+.jr_modSlider .navi a:hover {
+    background-position: 0 -8px;
+}
+.jr_modSlider .navi a.active {
+    background-position: 0 -16px;
+}
+
+
+/*************************************
+Pagination
+*************************************/
+div.jr_pgContainer table.jr_pagination {
+	width: 100%; 
+	line-height: 1.5em; 
+	font-weight: normal; 
+	border-top: 1px solid #ccc; 
+	border-bottom: 1px solid #ccc; 
+	margin-bottom: 10px;
+}
+	
+table#jr_pagination_top { 
+	border-top: 0; 
+	border-bottom: 0; 
+	margin-bottom: 5px;
+}
+
+table.jr_pagination td {
+	padding: 5px; 
+	vertical-align: middle;
+	white-space: nowrap; 
+	font-size: 90%;
+}
+
+td.jr_pagenav_results {
+	width: 20%;
+}
+
+td.jr_pagenav_pages {
+	text-align: center;  
+}
+
+td.jr_pagenav_limitbox {
+	width: 20%;
+	text-align: right; 
+}
+	
+td.jr_pagenav_limitbox select {
+	font-size: 10px !important; 
+	width: auto !important;
+	background: #f8f8f8;
+	color: #444;
+	vertical-align: middle;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #aaa #ccc #ccc #aaa;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;		
+}
+
+td.jr_pagenav_limitbox select:focus {
+	outline: none;
+	background: #fff;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #777 #aaa #aaa #777;	
+}
+
+td.jr_pagenav_limitbox select option {
+	padding-right: 10px;
+}	
+	
+table.jr_pagination a:link,
+table.jr_pagination a:active,
+table.jr_pagination a:visited,
+table.jr_pagination span.inactive {
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 0.35em;
+	margin: 0 1px 0 0;	
+	background-color: #F6F6F6;
+    border: 1px solid #ccc;
+    white-space: nowrap;	
+	background-image: -moz-linear-gradient(center top, #fff, #efefef);
+	background-image: -o-linear-gradient(top, #fff, #efefef);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #fff), color-stop(1, #efefef));
+	background-image: -webkit-linear-gradient(#fff, #efefef);
+	background-image: linear-gradient(top, #fff, #efefef);
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+table.jr_pagination a.current:link,
+table.jr_pagination a.current:active,
+table.jr_pagination a.current:visited {
+	color: #fff;
+	text-decoration: none;
+	border: 1px solid #888;	
+	background-color: #999;
+	background-image: -moz-linear-gradient(center top, #888, #999);
+	background-image: -o-linear-gradient(top, #888, #999);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #888), color-stop(1, #999));
+	background-image: -webkit-linear-gradient(#888, #999);
+	background-image: linear-gradient(top, #888, #999);
+}
+	
+table.jr_pagination a.paginate:hover {
+	text-decoration: none;
+	background: #ddd;
+	background-image: -moz-linear-gradient(center top , #eee, #fff);
+	background-image: -o-linear-gradient(top, #eee, #fff);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #eee), color-stop(1, #fff));
+	background-image: -webkit-linear-gradient(#eee, #fff);
+	background-image: linear-gradient(top, #eee, #fff);
+	-moz-box-shadow: 0 0 2px #999;
+	-webkit-box-shadow: 0 0 2px #999;
+	box-shadow: 0 0 2px #999;
+}
+
+table.jr_pagination a.current:hover {
+	cursor: default;
+	color: #fff !important;
+}
+	
+table.jr_pagination span.inactive {
+	cursor: default;
+	color: #999;
+}

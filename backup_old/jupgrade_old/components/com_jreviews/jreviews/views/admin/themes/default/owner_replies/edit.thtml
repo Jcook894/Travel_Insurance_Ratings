@@ -1,0 +1,34 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2009 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+extract($owner_reply['OwnerReply']);
+?>
+<form id="jr_ownerReply" name="jr_ownerReply" action="" method="">        
+    <div class="jr_fieldDiv">
+        <textarea id="reply_text" name="data[OwnerReply][owner_reply_text]" rows="10" cols="250" style="width:99%; height:10em;"><?php echo $owner_reply_text;?></textarea>
+    </div>
+    <div class="jr_fieldDiv">
+        <label for="reply_text"><?php __a("Admin Note");?></label>
+        <textarea id="reply_note" name="data[OwnerReply][owner_reply_note]" rows="10" cols="250" style="width:99%; height:8em;"><?php echo $owner_reply_note;?></textarea>
+    </div>
+    <div class="jr_fieldDiv">
+        <?php echo $Form->select(
+                'data[OwnerReply][owner_reply_approved]',
+                array('1'=>__a("Approve",true),'0'=>__a("Hold",true),'-1'=>__a('Reject',true)),
+                $owner_reply_approved,
+                array('size'=>'1','class'=>'inputbox','id'=>'owner_reply_approved'.$review_id)
+            );
+        ?>
+    </div>
+    <p><small>If you want to send out a moderation e-mail, set the reply status to "Hold" and then go to Owner Reply moderation.</small></p>
+    <input type="hidden" id="owner_reply_created" name="data[OwnerReply][owner_reply_created]" value="<?php echo $owner_reply_created;?>" />                            
+    <input type="hidden" id="review_id" name="data[OwnerReply][id]" value="<?php echo $review_id;?>" />                        
+    <input type="hidden" name="data[page]" value="browse" />                        
+</form>    

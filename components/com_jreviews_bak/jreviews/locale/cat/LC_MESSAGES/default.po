@@ -1,0 +1,2364 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: jReviews 2.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:44-0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: ClickFWD <support@reviewsforjoomla.com>\n"
+"Language-Team: multivers.cat <web@multivers.cat>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Catalan\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: f:\\components\\\n"
+"X-Poedit-KeywordsList: __t\n"
+"X-Poedit-Country: SPAIN\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: com_jreviews\\jreviews\\views\n"
+"X-Poedit-SearchPath-1: com_jreviews\\jreviews\\controllers\n"
+"X-Poedit-SearchPath-2: com_jreviews\\jreviews\\models\n"
+"X-Poedit-SearchPath-3: com_s2framework\\s2framework\\libs\\view\n"
+"X-Poedit-SearchPath-4: com_jreviews\\jreviews\\plugins\n"
+"X-Poedit-SearchPath-5: com_jreviews_addons\\geomaps\\views\n"
+"X-Poedit-SearchPath-6: com_jreviews_addons\\geomaps\\controllers\n"
+"X-Poedit-SearchPath-7: com_jreviews_addons\\geomaps\\plugins\n"
+"X-Poedit-SearchPath-8: com_jreviews_addons\\paidlistings\\views\n"
+"X-Poedit-SearchPath-9: com_jreviews_addons\\paidlistings\\plugins\n"
+"X-Poedit-SearchPath-10: com_jreviews_addons\\paidlistings\\controllers\n"
+
+#: com_jreviews\jreviews\views/helpers/assets.php:240
+#: com_jreviews\jreviews\views/helpers/assets.php:386
+#: com_jreviews\jreviews\views/helpers/assets.php:434
+msgid "Publish to Facebook"
+msgstr "Publicar a Facebook"
+
+#: com_jreviews\jreviews\views/helpers/community.php:50
+msgid "Guest"
+msgstr "Convidat"
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:686
+msgid "*"
+msgstr "*"
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:709
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:948
+#: com_jreviews\jreviews\views/helpers/widgets.php:69
+#: com_jreviews\jreviews\views/helpers/widgets.php:72
+msgid "Add"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:717
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:956
+msgid "Submit"
+msgstr "Enviar"
+
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:748
+#: com_jreviews\jreviews\views/helpers/custom_fields.php:995
+msgid "between"
+msgstr "entre"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:29
+#: com_jreviews\jreviews\views/helpers/jreviews.php:316
+msgid "Featured"
+msgstr "Patrocinats"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:30
+msgid "Title"
+msgstr "Títol"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:33
+#: com_jreviews\jreviews\views/helpers/jreviews.php:94
+#: com_jreviews\jreviews\views/helpers/jreviews.php:120
+msgid "Most recent"
+msgstr "Més recents"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:34
+#: com_jreviews\jreviews\views/helpers/jreviews.php:96
+msgid "Last updated"
+msgstr "Darrera actualització"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:36
+msgid "Most popular"
+msgstr "Més populars"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:38
+#: com_jreviews\jreviews\views/helpers/jreviews.php:97
+msgid "Highest user rating"
+msgstr "Millor puntuació d'usuaris"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:39
+#: com_jreviews\jreviews\views/helpers/jreviews.php:98
+msgid "Lowest user rating"
+msgstr "Pitjor puntuació d'usuaris"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:40
+msgid "Highest editor rating"
+msgstr "Millor puntuació de l'editors"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:41
+msgid "Lowest editor rating"
+msgstr "Pitjor puntuació dels editors"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:42
+msgid "Most reviews"
+msgstr "Més analitzats"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:43
+msgid "Author"
+msgstr "Autor"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:53
+msgid "Distance"
+msgstr "Distància"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:73
+msgid "ASC"
+msgstr "ASC"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:74
+msgid "DESC"
+msgstr "DESC"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:95
+#: com_jreviews\jreviews\views/helpers/jreviews.php:119
+msgid "Oldest"
+msgstr "Antic"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:99
+msgid "Most helpful"
+msgstr "Més útils"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:100
+msgid "Least helpful"
+msgstr "Menys útils"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:101
+msgid "Most discussed"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:202
+msgid "Compare"
+msgstr "Comparar"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:221
+#: com_jreviews\jreviews\views/helpers/jreviews.php:265
+msgid "Manage"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:230
+#: com_jreviews\jreviews\views/helpers/jreviews.php:302
+msgid "Edit"
+msgstr "Editar"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:237
+#: com_jreviews\jreviews\views/helpers/jreviews.php:327
+#: com_jreviews\jreviews\views/helpers/jreviews.php:328
+msgid "Delete"
+msgstr "Esborrar"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:237
+msgid "Are you sure you want to delete this comment?"
+msgstr "Estàs segur que vols esborrar aquest comentari?"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:309
+msgid "Unpublished"
+msgstr "No publicat"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:309
+msgid "Published"
+msgstr "Publicat"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:316
+msgid "Not featured"
+msgstr "No patrocinat"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:321
+msgid "Not frontpaged"
+msgstr "No en portada"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:321
+msgid "Frontpaged"
+msgstr "En portada"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:327
+msgid "Are you sure you want to delete this listing?"
+msgstr "Estàs segur que vols eliminar aquest llistat?"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:343
+msgid "#1 Reviewer"
+msgstr "#1 reanalista"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:344
+msgid "Top 10 Reviewer"
+msgstr "Top 10 analistes"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:345
+msgid "Top 50 Reviewer"
+msgstr "Top 50 analistes"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:346
+msgid "Top 100 Reviewer"
+msgstr "Top 100 analistes"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:347
+msgid "Top 500 Reviewer"
+msgstr "Top 500 analistes"
+
+#: com_jreviews\jreviews\views/helpers/jreviews.php:348
+msgid "Top 1000 Reviewer"
+msgstr "Top 1000 analistes"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:153
+#: com_jreviews\jreviews\views/helpers/paginator.php:158
+msgid "&laquo;"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:198
+#: com_jreviews\jreviews\views/helpers/paginator.php:206
+#, php-format
+msgid "Go to page %s"
+msgstr "Anar a la pàgina %s"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:199
+#: com_jreviews\jreviews\views/helpers/paginator.php:207
+#, php-format
+msgid "Go to page %s of %s"
+msgstr "Anar a la pàgina %s de %s"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:229
+#: com_jreviews\jreviews\views/helpers/paginator.php:236
+msgid "&raquo;"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:229
+msgid "Next &raquo;"
+msgstr "Següent &raquo;"
+
+#: com_jreviews\jreviews\views/helpers/paginator.php:317
+#: com_jreviews\jreviews\views/helpers/paginator.php:358
+msgid "Results per page"
+msgstr "Resultats por pàgina"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:32
+msgid "No rating"
+msgstr "Sense puntuació"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:72
+#: com_jreviews\jreviews\views/helpers/rating.php:73
+msgid "Editor rating"
+msgstr "Valoració de l'editor"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:86
+#: com_jreviews\jreviews\views/helpers/rating.php:87
+#: com_jreviews\jreviews\views/helpers/rating.php:98
+#: com_jreviews\jreviews\views/helpers/rating.php:99
+msgid "User rating"
+msgstr "Valoració de l'usuari"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:181
+#: com_jreviews\jreviews\views/helpers/rating.php:287
+#: com_jreviews\jreviews\views/helpers/rating.php:299
+msgid "Overall rating"
+msgstr "Puntuacío promig"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:309
+msgid "Not rated"
+msgstr "No valorat"
+
+#: com_jreviews\jreviews\views/helpers/rating.php:309
+msgid "N/A"
+msgstr "N/D"
+
+#: com_jreviews\jreviews\views/helpers/routes.php:86
+#: com_jreviews\jreviews\views/helpers/routes.php:138
+#: com_jreviews\jreviews\views/helpers/routes.php:140
+#: com_jreviews\jreviews\views/helpers/routes.php:171
+#: com_jreviews\jreviews\views/helpers/routes.php:185
+#: com_jreviews\jreviews\views/helpers/routes.php:230
+#: com_jreviews\jreviews\views/helpers/routes.php:295
+#: com_jreviews\jreviews\views/helpers/routes.php:397
+#: com_jreviews\jreviews\views/helpers/routes.php:398
+#: com_jreviews\jreviews\views/helpers/routes.php:550
+#: com_jreviews\jreviews\views/helpers/routes.php:561
+#: com_jreviews\jreviews\views/helpers/routes.php:578
+#: com_jreviews\jreviews\views/helpers/routes.php:580
+msgid "and"
+msgstr "i"
+
+#: com_jreviews\jreviews\views/helpers/routes.php:356
+#: com_jreviews\jreviews\views/helpers/routes.php:370
+#, php-format
+msgid "%s listing feeds"
+msgstr "Feeds d'artículos per %s"
+
+#: com_jreviews\jreviews\views/helpers/routes.php:429
+msgid "Edit review"
+msgstr "Editar opinió"
+
+#: com_jreviews\jreviews\views/helpers/routes.php:542
+#: com_jreviews\jreviews\views/helpers/routes.php:553
+#: com_jreviews\jreviews\views/helpers/routes.php:564
+#: com_jreviews\jreviews\views/helpers/routes.php:592
+#, php-format
+msgid "%s review feeds"
+msgstr "Feeds d'opinions per %s"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:24
+#: com_jreviews\jreviews\views/helpers/widgets.php:28
+msgid "Claim This Business"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:28
+msgid "Please register to claim this business"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:60
+msgid "Favorites"
+msgstr "Favorits"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:66
+msgid "Remove from favorites"
+msgstr "Esborrar de favorits"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:66
+msgid "Remove"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:69
+#: com_jreviews\jreviews\views/helpers/widgets.php:72
+msgid "Add to favorites"
+msgstr "Afegir a favorits"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:72
+msgid "Register to add this entry to your favorites"
+msgstr "Registra't per afegir aquesta entrada als teus favorits"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:85
+msgid "Was this review helpful to you?"
+msgstr "T'ha interessat aquesta opinió?"
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:92
+#: com_jreviews\jreviews\views/helpers/widgets.php:102
+msgid "You are not allowed to vote"
+msgstr ""
+
+#: com_jreviews\jreviews\views/helpers/widgets.php:94
+#: com_jreviews\jreviews\views/helpers/widgets.php:104
+msgid "Login or register to vote"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/categories_controller.php:512
+#, php-format
+msgid "Listings by %s"
+msgstr "Anàlisis de %s"
+
+#: com_jreviews\jreviews\controllers/categories_controller.php:530
+#, php-format
+msgid "Favorites by %s"
+msgstr "Favorits de %s"
+
+#: com_jreviews\jreviews\controllers/categories_controller.php:582
+#: com_jreviews\jreviews\controllers/categories_controller.php:592
+#, php-format
+msgid "ordered by %s"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/categories_controller.php:588
+#, php-format
+msgid "ordered by %s desc"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/categories_controller.php:672
+msgid "No listings selected for comparison."
+msgstr "No has escollit cap llistat per comparar."
+
+#: com_jreviews\jreviews\controllers/claims_controller.php:95
+msgid "Your claim was submitted, thank you."
+msgstr "La teva solicitud ha estat enviada, gràcies."
+
+#: com_jreviews\jreviews\controllers/claims_controller.php:103
+#: com_jreviews\jreviews\controllers/reports_controller.php:104
+msgid "The message is empty."
+msgstr "El missatge està buit."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:67
+msgid "The comment has been removed."
+msgstr "S'ha eliminat el comentari"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:71
+msgid "There was a problem removing the comment."
+msgstr "No s'ha pogut eliminar el comentari."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:98
+msgid "The comment was not found"
+msgstr "No s'ha trobat el comentari."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:141
+msgid "Your comment has been updated."
+msgstr "S'ha actualitzat el comentari."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:148
+msgid "There was an error saving the comment."
+msgstr "No s'ha pogut guardar el comentari."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:171
+msgid "You are not allowed to submit comments."
+msgstr "No t'està permés enviar comentaris."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:175
+#: com_jreviews\jreviews\controllers/listings_controller.php:1294
+msgid "You must fill in your name."
+msgstr "Escriu el teu nom."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:177
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:68
+#: com_jreviews\jreviews\controllers/listings_controller.php:1295
+msgid "You must fill in a valid email address."
+msgstr "Escriu una adreça d'E-mail vàlida."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:179
+#: com_jreviews\jreviews\controllers/listings_controller.php:1357
+msgid "You must fill in your comment."
+msgstr "Has d'omplir el comentari"
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:186
+#: com_jreviews\jreviews\controllers/discussions_controller.php:196
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:75
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:85
+#: com_jreviews\jreviews\controllers/listings_controller.php:1370
+#: com_jreviews\jreviews\controllers/listings_controller.php:1381
+msgid "The security code you entered was invalid."
+msgstr "El codi de seguretat introduit no és vàlid."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:190
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:79
+#: com_jreviews\jreviews\controllers/listings_controller.php:1375
+msgid "You must fill in the security code."
+msgstr "Has d'introduir el codi de seguretat."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:233
+#: com_jreviews\jreviews\controllers/listings_controller.php:1572
+msgid "Thank you for your submission. It will be published once it is verified."
+msgstr "Gracies per la teva opinió. El teu comentari serà publicat després de verifica'l."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:251
+#: com_jreviews\jreviews\controllers/listings_controller.php:1559
+msgid "Thank you for your submission."
+msgstr "Gracies per la teva opinió."
+
+#: com_jreviews\jreviews\controllers/discussions_controller.php:308
+msgid "Latest comments"
+msgstr "Últims comentaris"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:34
+#, php-format
+msgid "submitted a new listing titled %s"
+msgstr "ha enviat una nova entrada anomenada %s"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:35
+#, php-format
+msgid "wrote a review for %s"
+msgstr "ha escrit una opinió sobre %s"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:36
+msgid "posted a new comment"
+msgstr "ha escrit un comentari nou"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:37
+#, php-format
+msgid "liked this review for %s"
+msgstr "ha trobat útil aquest anàlisis sobre %s"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:133
+#: com_jreviews\jreviews\controllers/facebook_controller.php:244
+#: com_jreviews\jreviews\controllers/facebook_controller.php:356
+msgid "Website"
+msgstr "Pàgina Web"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:147
+msgid "Read more"
+msgstr "Seguir llegint"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:245
+#: com_jreviews\jreviews\controllers/facebook_controller.php:358
+msgid "Rating"
+msgstr "Valoració"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:245
+#: com_jreviews\jreviews\controllers/facebook_controller.php:358
+#, php-format
+msgid "%s stars"
+msgstr "%s estrelles"
+
+#: com_jreviews\jreviews\controllers/facebook_controller.php:259
+#: com_jreviews\jreviews\controllers/facebook_controller.php:372
+msgid "Read review"
+msgstr "Llegir anàlisis"
+
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:185
+#, php-format
+msgid "New inquiry for: %s"
+msgstr "Nova questió per: %s"
+
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:186
+#, php-format
+msgid "From: %s"
+msgstr "De: %s"
+
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:187
+#, php-format
+msgid "Email: %s"
+msgstr "E-mail: %s"
+
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:189
+#, php-format
+msgid "Listing: %s"
+msgstr "Llistat: %s"
+
+#: com_jreviews\jreviews\controllers/inquiry_controller.php:190
+#, php-format
+msgid "Listing link: %s"
+msgstr "Enllaç del llistat: %s"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:668
+msgid "The main image was successfully changed."
+msgstr "S'ha actualitzat amb èxit la imatge principal."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:705
+msgid "The listing has been removed."
+msgstr "El llistat s'ha eliminat."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:968
+msgid "Select Category"
+msgstr "Seleccioni categoria"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:982
+#: com_jreviews\jreviews\controllers/listings_controller.php:1144
+msgid "You are not allowed to submit listings in this category."
+msgstr "No tens permis per enviar llistats a aquesta categoría"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1129
+msgid "The category selected is invalid."
+msgstr "La categoría seleccionada és invàlida."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1256
+msgid "A listing with that title already exists."
+msgstr "Un llistat amb aquest títol ja existeix."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1282
+msgid "You need to select both a section and a category."
+msgstr "S'ha de seleccionar secció i categoria."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1287
+msgid "You need to select a category."
+msgstr "S'ha de seleccionar categoria."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1304
+msgid "You must fill in a title for the new listing."
+msgstr "Introdueix un títol per el nou llistat."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1309
+msgid "You must fill in a summary for the new listing."
+msgstr "Introdueix un resum pel nou llistat."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1310
+msgid "You must fill in a description for the new listing."
+msgstr "Introdueix una descripció pel nou llistat."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1325
+msgid "You must fill in a title for the review."
+msgstr "Has d'introduir un títol per la teva opinió"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1350
+#, php-format
+msgid "You are missing a rating in %s criteria."
+msgstr "Has oblidat valorar el criteri %s ."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1456
+#, php-format
+msgid "The total number of images is limited to %s"
+msgstr "El nombre total d'imatges està limitat a %s"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1492
+msgid "The was a problem saving the listing"
+msgstr "Hi ha hagut un problema guardant la llista"
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1559
+msgid "The listing was successfully saved."
+msgstr "El llistat s'ha enviat amb èxit."
+
+#: com_jreviews\jreviews\controllers/listings_controller.php:1560
+msgid "Click here to view the listing"
+msgstr "Fes clic aquí per veure el llistat"
+
+#: com_jreviews\jreviews\controllers/my_controller.php:157
+msgid "Cancel"
+msgstr "Cancel·lar"
+
+#: com_jreviews\jreviews\controllers/my_controller.php:159
+msgid "Clear"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:160
+msgid "-- Select --"
+msgstr "-- Selecciona --"
+
+#: com_jreviews\jreviews\controllers/my_controller.php:161
+#, php-format
+msgid "-- Select %s --"
+msgstr "-- Selecciona %s --"
+
+#: com_jreviews\jreviews\controllers/my_controller.php:162
+msgid "No results found, try a different spelling."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:163
+msgid "Start typing for suggestions"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:166
+msgid "Compare All"
+msgstr "Comparar Tots"
+
+#: com_jreviews\jreviews\controllers/my_controller.php:167
+msgid "Remove All"
+msgstr "Esborrar llista"
+
+#: com_jreviews\jreviews\controllers/my_controller.php:168
+msgid "You need to select more than one listing for comparison."
+msgstr "Has de seleccionar més d'un llistat per comparar!"
+
+#: com_jreviews\jreviews\controllers/my_controller.php:169
+msgid "You selected maximum number of listings for comparison."
+msgstr "Has de seleccionar més d'un llistat per comparar!"
+
+#: com_jreviews\jreviews\controllers/my_controller.php:170
+msgid "Street view not available for this address."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:171
+msgid "Address could not be geocoded. Modify the address and click on the Geocode Address button to try again."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:172
+msgid "Drag the marker to fine-tune the geographic location on the map."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:173
+msgid "No corresponding geographic location could be found for one of the specified addresses. This may be due to the fact that the address is relatively new, or it may be incorrect."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:174
+msgid "The was an error processing the request."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/my_controller.php:175
+msgid "Enter a location"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/owner_replies_controller.php:122
+msgid "A reply for this review already exists."
+msgstr "Ja existeix una resposta per aquesta opinió."
+
+#: com_jreviews\jreviews\controllers/owner_replies_controller.php:139
+msgid "Your reply was submitted and has been approved."
+msgstr "La teva resposta ha estat enviada i aprovada."
+
+#: com_jreviews\jreviews\controllers/owner_replies_controller.php:141
+msgid "Your reply was submitted and will be published once it is verified."
+msgstr "La teva resposta ha estat enviada i serà publicada un cop sigui revisada."
+
+#: com_jreviews\jreviews\controllers/owner_replies_controller.php:152
+msgid "The reply is empty."
+msgstr "La resposta està buida."
+
+#: com_jreviews\jreviews\controllers/reports_controller.php:95
+msgid "Your report was submitted, thank you."
+msgstr "S'ha enviat el teu llistat, gracies."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:180
+msgid "You are not allowed to review your own listing."
+msgstr "No pots opinar sobre el teu llistat."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:219
+#: com_jreviews\jreviews\controllers/reviews_controller.php:277
+msgid "You already submitted a review."
+msgstr "Ja has enviat una opinió."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:446
+msgid "Your changes were saved."
+msgstr "Els seus canvis s'han guardat."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:456
+msgid "Thank you for your submission. Refresh the page to see your review."
+msgstr "Gracies per la teva contribució. Refresca la pàgina per veure la teva opinió."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:456
+msgid "Thank you for your submission. Refresh the page to see your comment."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:472
+msgid "Your changes were saved, refresh the page to see them."
+msgstr "S'han desat els canvis, refresca la pàgina per veure'ls."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:565
+msgid "Latest user reviews"
+msgstr "Últimes opinions d'usuaris"
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:569
+msgid "Latest editor reviews"
+msgstr "Últimes opinions d'editors"
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:572
+msgid "Latest reviews"
+msgstr "Últimes opinions"
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:582
+#: com_jreviews\jreviews\controllers/reviews_controller.php:659
+msgid "No reviews were found."
+msgstr "No s'ha trobat cap opinió."
+
+#: com_jreviews\jreviews\controllers/reviews_controller.php:672
+#, php-format
+msgid "Reviews written by %s"
+msgstr "Comentaris escrits per %s"
+
+#: com_jreviews\jreviews\controllers/votes_controller.php:98
+msgid "You already voted."
+msgstr "Ja has votat."
+
+#: com_jreviews\jreviews\controllers/votes_controller.php:107
+msgid "Thank you for your vote."
+msgstr "Gracies per votar"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:138
+msgid "New listing"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:138
+msgid "Edited listing"
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:182
+#, php-format
+msgid "New listing: %s"
+msgstr "Nou llistat: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:182
+#, php-format
+msgid "Edited listing: %s"
+msgstr "Llistat editat: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:256
+#: com_jreviews\jreviews\controllers/components/notifications.php:304
+#: com_jreviews\jreviews\controllers/components/notifications.php:349
+#, php-format
+msgid "New review: %s"
+msgstr "Nova opinió: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:256
+#: com_jreviews\jreviews\controllers/components/notifications.php:304
+#: com_jreviews\jreviews\controllers/components/notifications.php:349
+#, php-format
+msgid "Edited review: %s"
+msgstr "Opinió editada: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:405
+#, php-format
+msgid "Owner review reply submitted for listing %s"
+msgstr "Resposta de l'autor de l'anàlisi enviada pel llistat %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:471
+msgid "A new report has been submitted"
+msgstr "S'ha enviat un nou informe"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:537
+#, php-format
+msgid "New comment for review: %s"
+msgstr "Nou llistat per la opinió: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:539
+#, php-format
+msgid "Edited comment for review: %s"
+msgstr "Comentari editat per la opinió: %s"
+
+#: com_jreviews\jreviews\controllers/components/notifications.php:596
+#, php-format
+msgid "Listing claim submitted for %s"
+msgstr "S'ha rebut una reclamació pel llistat %s"
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:89
+#, php-format
+msgid "is %s Kb."
+msgstr "son %s Kb."
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:90
+msgid "Some files exceed the allowed size, please correct this and resubmit the form:"
+msgstr "Alguns arxius sobrepasen la mida màxima permesa. Sisplau, corretgeix-ho e intenta-ho de nou:"
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:98
+#, php-format
+msgid "%s is not a supported image file."
+msgstr "%s no es una imatge."
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:99
+msgid "Some files are not images, please correct this and resubmit the form:"
+msgstr "Alguns arxius no son imatges. Sisplau, corretgeix-ho e intenta-ho de nou:"
+
+#: com_jreviews\jreviews\controllers/components/uploads.php:109
+msgid "Could not upload file."
+msgstr ""
+
+#: com_jreviews\jreviews\controllers/modules/module_advanced_search_controller.php:227
+msgid "Select"
+msgstr "Selecciona"
+
+#: com_jreviews\jreviews\models/field.php:1465
+#, php-format
+msgid "You must fill in a valid value for %s."
+msgstr "Has d'introduir un valor vàlid per a %s."
+
+#: com_jreviews\jreviews\models/everywhere/_everywhere_com_seyret.php:69
+msgid "SEYRET_TAG"
+msgstr "Vídeo"
+
+#: com_jreviews\jreviews\models/everywhere/_everywhere_com_zoo.php:85
+msgid "ZOO_TAG"
+msgstr "Llistat"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_bookmarks.php:80
+msgid "BOOKMARKS_TAG"
+msgstr "Pàgina web"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_catalog.php:84
+msgid "JXCATALOG_TAG"
+msgstr "Catàleg"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_community_access.php:143
+msgid "JOMSOCIAL_TAG"
+msgstr "Usuari"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_comprofiler.php:174
+msgid "COMMUNITY_BUILDER_TAG"
+msgstr "Membre"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_content.php:137
+msgid "Listing"
+msgstr "LListat"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_eventlist_event.php:90
+msgid "EVENTLIST_EVENT_TAG"
+msgstr "Esdeveniment"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_eventlist_venue.php:80
+msgid "EVENTLIST_VENUE_TAG"
+msgstr "Local"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_ezrealty_profile.php:111
+msgid "EZREALTY_PROFILE_TAG"
+msgstr "Perfil"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_ezrealty_property.php:104
+msgid "EZREALTY_PROPERTY_TAG"
+msgstr "Propietat"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_hotproperty.php:97
+msgid "HOTPROPERTY_TAG"
+msgstr "Propietat"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_jomres.php:75
+msgid "JOMRES_TAG"
+msgstr "Hotel"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_joomgallery.php:80
+msgid "JOOMGALLERY_TAG"
+msgstr "Galería"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_k2.php:87
+msgid "K2_TAG"
+msgstr "k2"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_mtree.php:90
+msgid "MTREE_TAG"
+msgstr "Llistat"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_myblog.php:89
+msgid "MYBLOG_TAG"
+msgstr "Blog"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_resman.php:78
+msgid "RESMAN_TAG"
+msgstr "Propietat"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_resource.php:93
+msgid "RESOURCE_TAG"
+msgstr "Llistat"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_sobi2.php:96
+msgid "SOBI2_TAG"
+msgstr "Negoci"
+
+#: com_jreviews\jreviews\models/everywhere/everywhere_com_virtuemart.php:87
+msgid "VIRTUEMART_TAG"
+msgstr "Producte"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:79
+msgid "%B %d, %Y"
+msgstr "%d %B , %Y"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:105
+msgid "%b %d, %Y"
+msgstr "%d %b, %Y"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:429
+#, php-format
+msgid "on %s"
+msgstr "a %s"
+
+#: com_s2framework\s2framework\libs\view/helpers/time.php:463
+#, php-format
+msgid "%s ago"
+msgstr "fa %s"
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:37
+#, php-format
+msgid "{actor} added new listing %1$s in %2$s."
+msgstr "{actor} ha afegit una nova entrada %1$s a %2$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:38
+#, php-format
+msgid "{actor} updated listing %1$s."
+msgstr "{actor} ha actualitzat l'entrada %1$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:39
+#, php-format
+msgid "{actor} reviewed %1$s."
+msgstr "{actor} ha analitzat %1$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:40
+#, php-format
+msgid "{actor} updated review for %1$s."
+msgstr "{actor} ha actualitzat l'anàlisi de %1$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:41
+#, php-format
+msgid "{actor} added %1$s to favorites."
+msgstr "{actor}ha afegit %1$s als favorits."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:42
+#, php-format
+msgid "{actor} removed %1$s from favorites."
+msgstr "{actor} ha eliminat %1$s dels favorits."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:43
+#, php-format
+msgid "{actor} voted as helpful a review, %1$s, written by %2$s."
+msgstr "{actor} a valorat com útil un anàlisi, %1$s, escrit per %2$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:44
+#, php-format
+msgid "{actor} voted as not helpful a review, %1$s, written by %2$s."
+msgstr "{actor} ha votat com poc útil un anàlisi,,%1$s, escrit per %2$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:45
+#, php-format
+msgid "{actor} commented on a %1$s for %2$s."
+msgstr "{actor} ha comentat a %1$s per %2$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:46
+#, php-format
+msgid "{actor} updated comment on a %1$s for %2$s."
+msgstr "{actor} ha actualitzat un comentari a %1$s per %2$s."
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:84
+msgid "A guest"
+msgstr "Un convidat"
+
+#: com_jreviews\jreviews\plugins/jomsocial.php:174
+#: com_jreviews\jreviews\plugins/twitter.php:168
+msgid "review"
+msgstr "Anàlisi"
+
+#: com_jreviews\jreviews\plugins/twitter.php:60
+#, php-format
+msgid "Listing: %1$s. %2$s"
+msgstr ""
+
+#: com_jreviews\jreviews\plugins/twitter.php:61
+#, php-format
+msgid "Review for: %1$s. %2$s"
+msgstr ""
+
+#: com_jreviews\jreviews\plugins/twitter.php:62
+#, php-format
+msgid "Discussion on: %1$s. %2$s"
+msgstr ""
+
+#: com_jreviews_addons\geomaps\controllers/modules/module_geomaps_controller.php:92
+msgid "You selected the Custom Center mode, but did not specify the coordinates."
+msgstr ""
+
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:129
+msgid "Miles"
+msgstr "Milles"
+
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:129
+msgid "Km"
+msgstr "Km"
+
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:224
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:240
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:336
+msgid "Map it"
+msgstr "Mapejar-ho"
+
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:225
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:240
+#: com_jreviews_addons\geomaps\plugins/geomaps.php:336
+msgid "Clear LatLng"
+msgstr "Netejar LatLng"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:18
+msgid "Day(s)"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:19
+msgid "Week(s)"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:20
+msgid "Month(s)"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:21
+msgid "Year(s)"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:22
+msgid "Never Expires"
+msgstr "Mai caduca"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:29
+msgid "Incomplete"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:30
+msgid "Pending"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:31
+msgid "Processing"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:32
+msgid "Complete"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:33
+msgid "Cancelled"
+msgstr "Cancel·lat"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:34
+msgid "Fraud"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:35
+msgid "Failed"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:42
+msgid "One Time Payment"
+msgstr "Pagament únic"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:43
+msgid "Subscription"
+msgstr "Suscripció"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:44
+msgid "Free or Trial"
+msgstr "De prova o grátis"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:51
+msgid "New Listing"
+msgstr "Nou llistat"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid.php:52
+msgid "Upgrade Listing"
+msgstr "Afegir opcions"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid_routes.php:176
+#: com_jreviews_addons\paidlistings\views/helpers/paid_routes.php:182
+msgid "Order Upgrade"
+msgstr "Demanar més opcions"
+
+#: com_jreviews_addons\paidlistings\views/helpers/paid_routes.php:199
+msgid "Order Plan"
+msgstr "Demanar plà"
+
+#: com_jreviews_addons\paidlistings\plugins/paid_listings.php:643
+msgid "Order renewal set."
+msgstr "Data de renovació fixada."
+
+#: com_jreviews_addons\paidlistings\plugins/paid_listings.php:656
+msgid "Order processing error."
+msgstr "Error processant l'ordre."
+
+#: com_jreviews_addons\paidlistings\plugins/paid_listings.php:734
+#, php-format
+msgid "Listing expiration: %s"
+msgstr "Data d'expiració: %s"
+
+#: com_jreviews_addons\paidlistings\plugins/paid_listings.php:735
+#: com_jreviews_addons\paidlistings\plugins/paid_listings.php:778
+#, php-format
+msgid "Listing state: %s"
+msgstr "Estat: %s"
+
+#: com_jreviews_addons\paidlistings\controllers/paidlistings_plans_controller.php:51
+#, php-format
+msgid "Plans for %s"
+msgstr "plans per %s"
+
+#: com_jreviews_addons\paidlistings\controllers/components/handler_authorize_net.php:133
+msgid "Transaction invalid"
+msgstr "Transacció invàlida"
+
+#: com_jreviews_addons\paidlistings\controllers/components/handler_authorize_net.php:134
+msgid "We have detected an invalid attempt to bypass the payment system. If you feel this is mistake please contact us."
+msgstr "S'ha detectat un intent d'evasió de pagament. Si creus que això és un error posa't en contacte amb nosaltres."
+
+#: com_jreviews_addons\paidlistings\controllers/components/handler_paypal.php:305
+msgid "New subscription"
+msgstr "Nova suscripció"
+
+#: com_jreviews_addons\paidlistings\controllers/components/paidlistings_notifications.php:245
+msgid "Never"
+msgstr "Mai"
+
+#: com_jreviews\jreviews\views/admin/themes/default/categories/index.thtml:95
+#: com_jreviews\jreviews\views/admin/themes/default/categories/j15.index.thtml:97
+#, php-format
+msgid "%1$s results - showing %2$s - %3$s"
+msgstr "%1$s resultats - ensenyant %2$s - %3$s"
+
+#: com_jreviews\jreviews\views/admin/themes/default/listings/create_form.thtml:33
+msgid "Title Alias"
+msgstr "Àlias del títol"
+
+#: com_jreviews\jreviews\views/admin/themes/default/listings/create_form.thtml:111
+msgid "Are you sure you want to delete this image?"
+msgstr "Estàs segur que vols esborrar aquesta imatge?"
+
+#: com_jreviews\jreviews\views/admin/themes/default/reviews/create.thtml:21
+msgid "Reviewer"
+msgstr "Votant"
+
+#: com_jreviews\jreviews\views/admin/themes/default/reviews/create.thtml:23
+msgid "You can change the author of this review. Start typing the reviewer's name to see a list of suggestions."
+msgstr "Pots canviar l'autor d'aquesta opinió. Comença a escriure el nom del nou autor per veure una llista de suggeriments."
+
+#: com_jreviews\jreviews\views/admin/themes/default/reviews/create.thtml:60
+msgid "Rate it"
+msgstr "Opinar"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:65
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:77
+#, php-format
+msgid "User Reviews: %s"
+msgstr "Opinions d'usuaris: %s"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:66
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:78
+#, php-format
+msgid "Editor Reviews: %s"
+msgstr "Opinions d'editors: %s"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:67
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:79
+#, php-format
+msgid "%s - Page %s"
+msgstr "%s - Pàgina %s"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:151
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:160
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_blogview.thtml:95
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_tableview.thtml:93
+msgid "New"
+msgstr "Nou"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:154
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:163
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_blogview.thtml:98
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_tableview.thtml:96
+msgid "Hot"
+msgstr "Recent"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:166
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:175
+msgid "Written by"
+msgstr "Escrit per"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:172
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:181
+msgid "Views"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:202
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:211
+msgid "Send Inquiry"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:231
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:241
+msgid "Image Gallery"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail.thtml:245
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:245
+msgid "Map"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:238
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_tableview.thtml:68
+msgid "Details"
+msgstr "Detalls"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:249
+msgid "Reviews"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/listings/detail_tabs.thtml:253
+msgid "Related Listings"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_blogview.thtml:57
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_tableview.thtml:52
+msgid "Ordering"
+msgstr "Ordenar"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_blogview.thtml:139
+msgid "Read reviews"
+msgstr "Llegir opinions"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_blogview.thtml:142
+msgid "Write review"
+msgstr "Opinar"
+
+#: com_jreviews\jreviews\views/themes/compact/listings/listings_tableview.thtml:70
+msgid "Ratings"
+msgstr "Vots"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:44
+msgid "Reviewed by"
+msgstr "Analitzat per"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:44
+msgid "Commented by"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:69
+msgid "Owner's reply"
+msgstr "Respuesta de l'autor"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:81
+#, php-format
+msgid "Comments (%s)"
+msgstr "Comentaris (%s)"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:88
+msgid "Reply to this review"
+msgstr "Respondre a aquesta opinió"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:90
+msgid "Reply to this comment"
+msgstr "Respondre a aquest comentari"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:106
+msgid "Report this review"
+msgstr "Informar sobre aquest comentari"
+
+#: com_jreviews\jreviews\views/themes/compact/reviews/review_layout.thtml:108
+msgid "Report this comment"
+msgstr "Informar sobre aquest comentari"
+
+#: com_jreviews\jreviews\views/themes/default/claims/create.thtml:3
+msgid "Please provide some information that will allow us to verify your ownership claim"
+msgstr "Sisplau, inclou alguna informació que ens permeti verificar la teva reclamació"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:22
+msgid "No entries were found"
+msgstr "No s'ha trobat cap entrada"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:73
+msgid "Category"
+msgstr "Categoria"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myfavorites.thtml:108
+msgid "View all my favorites"
+msgstr "Veure tots els meus favorits"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_mylistings.thtml:108
+msgid "View all my listings"
+msgstr "Veure tots els meus artícles"
+
+#: com_jreviews\jreviews\views/themes/default/community_plugins/community_myreviews.thtml:156
+msgid "View all my reviews"
+msgstr "Veure tots els meus anàlisis"
+
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:48
+#: com_jreviews\jreviews\views/themes/default/directories/j15.directory.thtml:58
+msgid "The directory is empty."
+msgstr "El directori està buit."
+
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:76
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:77
+#: com_jreviews\jreviews\views/themes/default/directories/j15.directory.thtml:89
+#: com_jreviews\jreviews\views/themes/default/directories/j15.directory.thtml:90
+msgid "Search"
+msgstr "Cercar"
+
+#: com_jreviews\jreviews\views/themes/default/directories/directory.thtml:78
+#: com_jreviews\jreviews\views/themes/default/directories/j15.directory.thtml:91
+msgid "Advanced search"
+msgstr "Cerca avançada"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:10
+#, php-format
+msgid "Reply to %s's comment"
+msgstr "Respondre al comentari de %s"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:15
+msgid "Name"
+msgstr "Nom"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:22
+msgid "Email"
+msgstr "E-mail"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/create.thtml:33
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:30
+msgid "Please enter the security code."
+msgstr "Sisplau, introdueix el codi de seguretat"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/parent_popover.thtml:11
+msgid "Comment not found"
+msgstr "No s'ha trobat el comentari"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/post.thtml:24
+#, php-format
+msgid "In reply to an %searlier comment%s"
+msgstr "En resposta a un %scomentari anterior%s"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:55
+#, php-format
+msgid "Review for %s, %s"
+msgstr "Anàlisi per %s, %s"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:72
+msgid "Review Detail"
+msgstr "Detalls de l'anàlisi"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:106
+msgid "Hits"
+msgstr "Visites"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:119
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:22
+msgid "Comments"
+msgstr "Comentaris"
+
+#: com_jreviews\jreviews\views/themes/default/discussions/review.thtml:148
+msgid "Add new comment"
+msgstr "Afegir nou comentari"
+
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:8
+msgid "Your name"
+msgstr "El teu nom"
+
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:9
+msgid "Please fill in your name"
+msgstr "Sisplau, escriu el teu nom"
+
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:15
+msgid "Your email"
+msgstr "El teu E-mail"
+
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:16
+msgid "Please fill in your email"
+msgstr "Sisplau, escriu el teu E-mail"
+
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:23
+msgid "Please fill in your comments"
+msgstr "Sisplau, escriu els teus comentaris"
+
+#: com_jreviews\jreviews\views/themes/default/elements/inquiry_widget.thtml:40
+msgid "Your inquiry has been submitted."
+msgstr "La teva pregunta s'ha enviat."
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:25
+#, php-format
+msgid "To submit a listing please %sregister%s or log in."
+msgstr "Per escriure un llista has de %sregistrar-te%s o conectar-te al multivers."
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:27
+#, php-format
+msgid "To write a review please %sregister%s or log in."
+msgstr "Per escriure una opinió has de %sregistrar-te%s o conectar-te al multivers."
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:29
+#, php-format
+msgid "To write a comment please %sregister%s or log in."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:31
+#, php-format
+msgid "Access restricted to members. To continue %sregister%s or log in."
+msgstr "Accés limitat a membres. Per continuar %sregistra't%s o conecta't al multivers."
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:47
+msgid "LOGIN"
+msgstr "Iniciar sessió"
+
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:51
+#: com_jreviews\jreviews\views/themes/default/elements/login.thtml:53
+msgid "Username"
+msgstr "Usuari"
+
+#: com_jreviews\jreviews\views/themes/default/elements/submission_instructions.thtml:1
+msgid "Submission instructions"
+msgstr "Instruccions"
+
+#: com_jreviews\jreviews\views/themes/default/elements/submission_instructions.thtml:3
+msgid "Select the category where you want to submit the new item."
+msgstr "Selecciona la categoría on vulguis enviar un nou element."
+
+#: com_jreviews\jreviews\views/themes/default/elements/submission_instructions.thtml:4
+msgid "All fields marked with asterisks are required."
+msgstr "Els camps amb asterisc son obligatoris."
+
+#: com_jreviews\jreviews\views/themes/default/elements/submission_instructions.thtml:5
+msgid "Make sure any image files conform to the required specifications (.jpg,.gif,.png)"
+msgstr "Asegura't de que els fitxers són .jpg,.gif o .png"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:14
+msgid "You will find this claim in Claims Moderation."
+msgstr "Trobaràs aquesta solicitud a Moderació de ReclamacionsEncontrara esta solicitud en Claims Moderation"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:18
+msgid "Claimed by"
+msgstr "Reclamat per"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:22
+msgid "Claimant's email"
+msgstr "E-mail del reclamant"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:26
+msgid "Claim text"
+msgstr "Text de la reclamació"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:30
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:31
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_notification.thtml:28
+msgid "IP address"
+msgstr "Direcció IP"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:34
+msgid "Current owner"
+msgstr "Propietari actual"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:38
+msgid "Owner email"
+msgstr "E-mail del propietari"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:47
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:40
+msgid "Section"
+msgstr "Secció"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:55
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:48
+msgid "Summary"
+msgstr "Resum"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_claim.thtml:61
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:54
+msgid "Description"
+msgstr "Descripció"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:16
+msgid "The listing is not published and you will find it in the moderation queue."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_listing_notification.thtml:18
+msgid "The listing is published and you will find it in the listing browse admin menu."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:13
+msgid "You will find this owner reply in the owner reply moderation list."
+msgstr "Trobaràs la resposta del propietari a la llista de moderació de respostes del propietari"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:17
+msgid "Owner's name"
+msgstr "Nom del propietari"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:25
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:25
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:25
+msgid "IP Address"
+msgstr "Direcció IP"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:29
+msgid "Owner's reply text"
+msgstr "Text de la respuesta del propietari"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:37
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:37
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:37
+msgid "Listing title"
+msgstr "Títol del llistat"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:41
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:41
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:41
+msgid "Review title"
+msgstr "Títol de l'anàlisi"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_owner_reply_notification.thtml:45
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:45
+msgid "Review Comments"
+msgstr "Revisar Comentaris"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:13
+msgid "You will find this report in the reports moderation list."
+msgstr "Trobaràs aquest informe a moderació d'informes"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:17
+msgid "Reporter"
+msgstr "informador"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_report_notification.thtml:29
+msgid "Report text"
+msgstr "Text de l'informe"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:17
+msgid "User name"
+msgstr "Nom de l'usuari"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:29
+msgid "Comment"
+msgstr "Comentari"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_discussion_post.thtml:45
+msgid "Review"
+msgstr "Anàlisi"
+
+#: com_jreviews\jreviews\views/themes/default/email_templates/admin_review_notification.thtml:32
+msgid "Entry"
+msgstr "Entrada"
+
+#: com_jreviews\jreviews\views/themes/default/errors/error404.thtml:15
+#: com_jreviews\jreviews\views/themes/default/errors/error404.thtml:18
+msgid "404 Not Found"
+msgstr "404 No trobat"
+
+#: com_jreviews\jreviews\views/themes/default/errors/error404.thtml:19
+msgid "The page you requested was not found."
+msgstr "La pàgina solicitada no està disponible."
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:22
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:92
+msgid "View all user reviews"
+msgstr "Veure tots els comentaris"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:39
+#, php-format
+msgid "Average user rating from: %s user(s)"
+msgstr "Valoració promig de: %s user(s)"
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:45
+msgid "There are no user reviews for this listing."
+msgstr "No hi ha anàlisis d'usuaris per aquest llistat."
+
+#: com_jreviews\jreviews\views/themes/default/everywhere/reviews.thtml:54
+msgid "Add new review"
+msgstr "Afegir anàlisi"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create.thtml:86
+msgid "Select Section"
+msgstr "Escull secció"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:39
+msgid "You have reached the maximum number of free listings for this category."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:109
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:149
+msgid "Images"
+msgstr "Imatges"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:116
+msgid "Image Manager - Use the radio buttons to set the main image shown in lists."
+msgstr "Gestor d'imatges - utilitza el botó radial per canviar la imatge principal."
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:149
+#, php-format
+msgid "Max. size %s Kb"
+msgstr "Mida màximo en KB: %s"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:166
+msgid "Meta Data"
+msgstr "Meta Data"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:169
+msgid "Meta Description"
+msgstr "Meta Descripció"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:174
+msgid "Meta Keywords"
+msgstr "Meta Paraules Clau"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:195
+msgid "I will submit my review later on"
+msgstr "Enviaré el meu anàlisi més tard"
+
+#: com_jreviews\jreviews\views/themes/default/listings/create_form.thtml:212
+msgid "Ratings (the higher the better)"
+msgstr "Asigna una valoració (com més alta millor)"
+
+#: com_jreviews\jreviews\views/themes/default/listings/j15.listings_header.thtml:147
+#: com_jreviews\jreviews\views/themes/default/listings/listings_header.thtml:142
+msgid "Add new listing"
+msgstr "Afegir nou llistat"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:40
+#, php-format
+msgid "%s Comparison"
+msgstr "Comparació de %s"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:42
+msgid "Go back to previous page"
+msgstr "Tornar a la pàgina anterior"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:58
+msgid "Editor Ratings"
+msgstr "Valoració de l'editor"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:68
+msgid "User Ratings"
+msgstr "Valoració de l'usuari"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:115
+#: com_jreviews\jreviews\views/themes/default/listings/listings_compare.thtml:178
+msgid "Remove item"
+msgstr "Eliminar"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_noresults.thtml:3
+msgid "Your search did not return any results. Try adjusting your search values.<br /><br /><a href=\"javascript:window.history.go(-1)\">Click here to go back.</a>"
+msgstr "La teva cerca no ha tornat cap resultat. Intent ajustar-la.<br /><br /><a href=\"javascript:window.history.go(-1)\">Fes clic per anar enrera.</a>"
+
+#: com_jreviews\jreviews\views/themes/default/listings/listings_noresults.thtml:7
+msgid "Your favorites list is empty."
+msgstr "No s'han trobat favorits."
+
+#: com_jreviews\jreviews\views/themes/default/modules/advanced_search.thtml:53
+#: com_jreviews\jreviews\views/themes/default/modules/advanced_search_map.thtml:54
+msgid "Keywords"
+msgstr "Paraules Clau"
+
+#: com_jreviews\jreviews\views/themes/default/modules/favorite_users.thtml:30
+#, php-format
+msgid "Other users interested in %s"
+msgstr "Altres usuaris interesats en %s"
+
+#: com_jreviews\jreviews\views/themes/default/modules/totals.thtml:1
+#, php-format
+msgid "There are %s listings and %s reviews."
+msgstr "Hi han %s llistats i %s opinions."
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:41
+msgid "Editor reviews"
+msgstr "Anàlisis d'editors"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:41
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:78
+msgid "Editor review"
+msgstr "Anàlisi de l'editor"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:43
+msgid "Editor comments"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:43
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:80
+msgid "Editor comment"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:53
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:127
+msgid "View all editor reviews"
+msgstr "Veure totes les opinions editorials"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:53
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:127
+msgid "View all editor comments"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:57
+msgid "Back to Listing"
+msgstr "Tornar al llistat"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:67
+#, php-format
+msgid "Average editor rating from: %s user(s)"
+msgstr "Valoració mitja d'editors: %s opinió(ns)"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/editor_reviews.thtml:80
+msgid "You already submitted a comment."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:28
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:40
+msgid "Reviewers"
+msgstr "Analistes"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:56
+msgid "Rank"
+msgstr "Ranking"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:67
+msgid "Number of reviews written:"
+msgstr "Número d'opinions escrites:"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:73
+msgid "Percentage helpful votes"
+msgstr "Percentatge de vots útils"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/rankings.thtml:73
+msgid "votes"
+msgstr "vots"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:40
+msgid "User reviews"
+msgstr "Anàlisis dels usuaris"
+
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:40
+msgid "User comments"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:47
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:113
+msgid "View all user comments"
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/reviews/user_reviews.thtml:64
+msgid "There are no user comments for this listing."
+msgstr ""
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:32
+msgid "Listing summary"
+msgstr "Resum del llistat"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:38
+msgid "Listing description"
+msgstr "Descripció del llistat"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:44
+msgid "Review comments"
+msgstr "Revisar comentaris"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:55
+msgid "Any"
+msgstr "Qualsevol"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:59
+msgid "All"
+msgstr "Tots"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:63
+msgid "Exact"
+msgstr "Exacte"
+
+#: com_jreviews\jreviews\views/themes/default/search/advanced.thtml:69
+msgid "Listing author"
+msgstr "Autor del llistat"
+
+#: com_jreviews\jreviews\views/themes/mobile/geomaps/map_detail.thtml:68
+msgid "Swap Start/End"
+msgstr "Intercanviar Principi/Fi"
+
+#: com_jreviews\jreviews\views/themes/mobile/geomaps/map_detail.thtml:69
+msgid "Start Address"
+msgstr "Direcció d'origen"
+
+#: com_jreviews\jreviews\views/themes/mobile/geomaps/map_detail.thtml:73
+msgid "Driving"
+msgstr "Conduint"
+
+#: com_jreviews\jreviews\views/themes/mobile/geomaps/map_detail.thtml:73
+msgid "Walking"
+msgstr "Caminant"
+
+#: com_jreviews\jreviews\views/themes/mobile/geomaps/map_detail.thtml:78
+msgid "End"
+msgstr "Destinació"
+
+#: com_jreviews\jreviews\views/themes/mobile/geomaps/map_detail.thtml:82
+msgid "Get Directions"
+msgstr "Rebre indicacions"
+
+#: com_jreviews_addons\geomaps\views/themes/geomaps/geomaps/map_results.thtml:100
+msgid "&#171; Large Map"
+msgstr "&#171; Mapa gran"
+
+#: com_jreviews_addons\geomaps\views/themes/geomaps/geomaps/map_results.thtml:101
+msgid "Small Map &#187;"
+msgstr "Mapa petit &#187;"
+
+#: com_jreviews_addons\geomaps\views/themes/geomaps/geomaps/map_results.thtml:105
+msgid "Enable and click on a marker to see the streetview"
+msgstr "Activa i clica en un marcador per veure a nivell de carrer"
+
+#: com_jreviews_addons\geomaps\views/themes/geomaps/geomaps/map_results.thtml:105
+msgid "Streetview"
+msgstr "Nivell de carrer"
+
+#: com_jreviews_addons\geomaps\views/themes/geomaps/geomaps/map_results.thtml:111
+msgid "Click on a marker to show its street view."
+msgstr "Clica en un marcador per veure la vista a nivell de carrer."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:28
+msgid "Available plans in this category:"
+msgstr "Plans disponibles per aquesta categoria:"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:36
+msgid "Free and Trial Plans"
+msgstr "Plans gratuits o de proba"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:45
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:66
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:87
+msgid "more..."
+msgstr "més..."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:57
+msgid "Single Payment Plans"
+msgstr "Plans de pagament únic"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/elements/paidlistings_listing_plans.thtml:78
+msgid "Subscription Plans"
+msgstr "Plans de suscripció"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:22
+msgid "Orders Expiring Soon"
+msgstr "Comandes que expiren aviat"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:37
+msgid "Listings Pending Payment"
+msgstr "Llistats amb pagaments pendents"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:85
+msgid "Incomplete Orders"
+msgstr "Comandes incompletes"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:100
+msgid "Listings"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:101
+msgid "Orders"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:102
+msgid "Invoices"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account.thtml:103
+msgid "Account Details"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:26
+msgid "Your account information was saved."
+msgstr "S'ha guardat a informació del teu compte."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:30
+msgid "There was a problem saving your account information."
+msgstr "Hi ha hagut un problema desant la informació del teu compte."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:45
+msgid "Business"
+msgstr "Negoci"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:50
+msgid "Address"
+msgstr "Adreça"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:55
+msgid "Country"
+msgstr "País"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:60
+msgid "Tax ID"
+msgstr "Número fiscal"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_account_details.thtml:64
+msgid "Save"
+msgstr "Guardar"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:151
+msgid "Invoice"
+msgstr "Rebut"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:173
+msgid "Invoice #"
+msgstr "Rebut #"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:178
+msgid "UNPAID"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:183
+msgid "Order #"
+msgstr "Comanda #"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:187
+msgid "Date"
+msgstr "Data"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:196
+msgid "Item"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:198
+msgid "Amount"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:204
+msgid "Expires"
+msgstr "Caduca"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:221
+msgid "Subtotal"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:227
+#, php-format
+msgid "Tax (%s%%)"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:235
+msgid "Total"
+msgstr "Total"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoice_detail.thtml:243
+msgid "Thank you for your business!"
+msgstr "Gracies por fer negocis amb nosaltres!"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoices.thtml:36
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:37
+msgid "Created"
+msgstr "Creada"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoices.thtml:37
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:159
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:39
+msgid "Plan"
+msgstr "Pla"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_invoices.thtml:55
+msgid "Print"
+msgstr "Imprimir"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_listings.thtml:44
+msgid "Plan Info"
+msgstr "Informació del Pla"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_listings.thtml:79
+msgid "Base Plan"
+msgstr "Pla Base"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_listings.thtml:81
+msgid "Upgrade Plans"
+msgstr "Plans per afegir Opcions"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:16
+msgid "Your order is complete"
+msgstr "La teva comanda s'ha completat"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:17
+#, php-format
+msgid "%s, we have received your payment and you may now check the status of your listing in your <a href=\"%s\">account</a>."
+msgstr "%s, hem rebut el teu pagament i pots revisar l'estat del teu llistat al teu <a href=\"%s\">compte</a>."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:21
+msgid "Your order is pending"
+msgstr "La teva comanda està pendent"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:22
+#, php-format
+msgid "%s, your order is under review at the payment processor and will be processed once payment is confirmed."
+msgstr "%s, el teu pagament està sent revisat pel procesador de pagaments i es processarà tan aviat com estigui confirmat."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:25
+msgid "Your order failed"
+msgstr "No s'ha completat la comanda"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:26
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:33
+#, php-format
+msgid "%s, your order failed to pass out security validations. If you feel this is an error, please contact us with your order number."
+msgstr "%s, el teu pagament no ha passat les comprobacions de seguretat. Si consideres que això és un error comunicat amb nosaltres amb el teu número de comanda."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:29
+msgid "Your order is incomplete"
+msgstr "La teva comanda està incomplerta"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:37
+msgid "Your order is being processed"
+msgstr "S'està processant la teva comanda"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:38
+#, php-format
+msgid "%s, you will receive an email in a few minutes when your order is finalized and your listing is updated. You can also check the account page for the status of your listings."
+msgstr "%s, rebras un E-mail en uns minuts quan haguem processat la teva comanda i el llistat estigui actualitzat. També pots visitar la pàgina del teu compte per revisar l'estat dels teus llistats."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:44
+msgid "Order details"
+msgstr "Detalls de la comanda"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:46
+msgid "Go to my account"
+msgstr "Anar al teu compte"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:49
+msgid "Order status"
+msgstr "Estat de la comanda"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_complete.thtml:54
+msgid "Expiration"
+msgstr "Caducitat"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:20
+msgid "There are no plans available for this listing."
+msgstr "No hi han plans disponibles per aquesta llista."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:40
+msgid "Step 1: Select a Plan"
+msgstr "Pas 1: Escull un pla"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:54
+#, php-format
+msgid "You have %s free submission(s) left out of %s"
+msgstr "Et queden %s tramesa(es) gratuites de %s"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:72
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:142
+msgid "Continue"
+msgstr "Continuar"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:76
+msgid "Please select a plan to continue."
+msgstr "Sisplau, selecciona un pla per continuar:"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:81
+msgid "Step 2: Select Payment Method"
+msgstr "Pas 2: Escull el mètode de pagament"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:99
+#, php-format
+msgid "You have a balance of %s points, equivalent to %s"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:100
+msgid "You don't have enough points to pay for the selected plan"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:135
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:226
+msgid "Back"
+msgstr "Enrera"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:146
+msgid "Please select a payment method to continue."
+msgstr "Escull un mètode de pagament per continuar"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:151
+msgid "Step 3: Confirm order"
+msgstr "Pas 3: Confirmar comanda"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:166
+msgid "Plan Price"
+msgstr "Preu"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:170
+msgid "Discount"
+msgstr "Descompte"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:193
+msgid "Coupon"
+msgstr "Cupó"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:194
+msgid "Apply"
+msgstr "Aplicar"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:195
+msgid "Coupon invalid or expired."
+msgstr "El cupó és invàlid o ja ha caducat"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:196
+msgid "The coupon was applied to your order."
+msgstr "Em aplicat el cupó a la teva comanda"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:202
+msgid "Terms of Service"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:214
+msgid "Click the submit button to finalize your order. You will be taken to the payment processor site to make your payment."
+msgstr "Fes click al botó de tramesa per finalitzar la comanda i enviarte a la pàgina del procesador de pagaments per poder fer-lo."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:216
+#, php-format
+msgid "By clicking on %sSubmit Order%s you are agreeing to the %sTerms of Service%s above."
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:219
+#, php-format
+msgid "I have read and agree to the %sTerms of Service%s above."
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:233
+msgid "Submit Order"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:236
+msgid "There is already an unpaid order for this listing."
+msgstr "Ja hi ha una comanda inpagada per aquest llistat."
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:237
+msgid "The plan selected for this listing is not valid."
+msgstr "El pla seleccionat per aquest llistat no és vàlid"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:238
+msgid "You have exceeded your quota of listings for the selected plan."
+msgstr "Ja has excedit el número de llistats permesos pel pla seleccionat"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_order_form.thtml:243
+msgid "You need to agree to the Terms of Service."
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:36
+msgid "Order"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:40
+msgid "Payment"
+msgstr ""
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:52
+msgid "Expiring Soon!"
+msgstr "Caduca aviat!"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:54
+msgid "Expired"
+msgstr "Caducat"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_orders.thtml:73
+msgid "Renew Order"
+msgstr "Renovar comanda"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:19
+msgid "The selected category doesn't have any plans."
+msgstr "La categoria seleccionada no te cap pla"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:25
+msgid "Select a category to see the available plans."
+msgstr "Escull una categoria per veure els plans disponibles"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:33
+msgid "One time payment plans"
+msgstr "Plans de pagament únic"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:42
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:65
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:88
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:103
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:118
+msgid "Free"
+msgstr "Gratuit"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:43
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:67
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:89
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:104
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:119
+msgid "Never expires"
+msgstr "No caduca mai"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:57
+msgid "Subscription plans"
+msgstr "Plans de suscripció"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:80
+msgid "Upgrades"
+msgstr "Més opcions"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:83
+msgid "Free or trial"
+msgstr "De prova o gratuit"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:98
+msgid "One time payment"
+msgstr "Pagament únic"
+
+#: com_jreviews_addons\paidlistings\views/themes/paid_addon/paidlistings/paidlistings_plans.thtml:113
+msgid "Subscriptions"
+msgstr "Subscripcions"
+
+#~ msgid "Detail"
+#~ msgstr "Detall"
+
+#~ msgid "Type an address to move the map"
+#~ msgstr "Escriu una adreça per moure el mapa"
+
+#~ msgid "Go!"
+#~ msgstr "Anar!"
+
+#, fuzzy
+#~ msgid "Please log in to submit a review."
+#~ msgstr "Ja has enviat una opinió."
+
+#, fuzzy
+#~ msgid "Please log in to write a comment ."
+#~ msgstr "Sisplau, escriu els teus comentaris"
+
+#, fuzzy
+#~ msgid "Access restricted to members. To continue please log in."
+#~ msgstr ""
+#~ "Accés limitat a membres. Per continuar %sregistra't%s o conecta't al "
+#~ "multivers."
+
+#~ msgid "You will find this entry in the content moderation list."
+#~ msgstr ""
+#~ "Trobaràs aquesta entrada a la llista de contingut pendent de moderació."
+
+#~ msgid "Stop following"
+#~ msgstr "Deixar de seguir"
+
+#~ msgid "Follow me"
+#~ msgstr "Segueix-me"
+
+#~ msgid "&laquo; Previous"
+#~ msgstr "&laquo; Previ"
+
+#~ msgid "%s of %s people found the following review helpful"
+#~ msgstr "%s de %s persones han trobat útil aquesta opinión"
+
+#~ msgid "Yes"
+#~ msgstr "Si"
+
+#~ msgid "No"
+#~ msgstr "No"
+
+#~ msgid "Claim listing"
+#~ msgstr "Reclamar llistat"
+
+#~ msgid "The field is empty."
+#~ msgstr "El camp està buit."
+
+#~ msgid "%s already exists"
+#~ msgstr "%s ja existeix"
+
+#~ msgid "Possible file upload attack."
+#~ msgstr "Possible atac pujant un arxiu."
+
+#~ msgid "Listings for comparison"
+#~ msgstr "Llistats a comparar"
+
+#~ msgid "form.token"
+#~ msgstr "form.token"
+
+#~ msgid "username"
+#~ msgstr "usuari"
+
+#~ msgid "There was a problem updating the listing's images"
+#~ msgstr "Hi ha hagut un problema actualitzant les imatges del llistat"
+
+#~ msgid "Invalid request."
+#~ msgstr "Petició invàlida."
+
+#~ msgid ""
+#~ "Access denied due to insufficient rights or the user session expired."
+#~ msgstr ""
+#~ "Permís denegat. No tens permisos o pot ser que la teva sessió hagi "
+#~ "caducat."
+
+#~ msgid ""
+#~ "There was a problem removing the listing. Please contact the site "
+#~ "administrator."
+#~ msgstr ""
+#~ "Hi ha hagut un problema mentres s'eliminava el llistat. Sisplau, contacti "
+#~ "amb l'administrador."
+
+#~ msgid "Select category"
+#~ msgstr "Escull categoria"
+
+#~ msgid "Thank you for your vote, it will be processed soon."
+#~ msgstr "Gracias por su voto. En breve sera procesado."
+
+#~ msgid "To write a review please register or login."
+#~ msgstr ""
+#~ "Para escribir un comentario, por favor regístrese o entre como usuario."
+
+#~ msgid "JOOMUNITY_TAG"
+#~ msgstr "Miembro"
+
+#~ msgid "Item successfully saved."
+#~ msgstr "Listado guardado."
+
+#~ msgid ""
+#~ "You already submitted a review, thank you. We don't allow duplicates."
+#~ msgstr ""
+#~ "Usted ya ha opinado, lo sentimos pero sólo esta permitido opinar una vez."
+
+#~ msgid "Duplicates not allowed."
+#~ msgstr "No se permiten duplicados."
+
+#~ msgid "View all favorites"
+#~ msgstr "Ver todos mis favoritos"
+
+#~ msgid "View all reviews"
+#~ msgstr "View all reviews"
+
+#~ msgid ""
+#~ "This action cannnot be undone, are you sure you want to delete this "
+#~ "listing?"
+#~ msgstr ""
+#~ "Esta acción no se puede deshacer, esta seguro que quiere borrar este "
+#~ "listado?"
+
+#, fuzzy
+#~ msgid ""
+#~ "<h1 class=\"contentheading\">Submission instructions</h1><ul><li>Select "
+#~ "the section and category where you want to submit the new item.</"
+#~ "li><li>All fields marked with asterisks are required.</li><li>Make sure "
+#~ "any image files conform to the required specifications (.jpg,.gif,.png)</"
+#~ "li></ul>"
+#~ msgstr ""
+#~ "<h1 class=\"contentheading\">Submission instructions</"
+#~ "h1><ul><li>Selecciona la seccion y la categoria adonde quiere enviar un "
+#~ "nuevo elemento.</li><li>Los campos con arterisco son obligatorios.</"
+#~ "li><li>Asegurese de que los ficheros son .jpg,.gif o .png</li></ul>"
+
+#~ msgid "M jS Y"
+#~ msgstr "M jS Y"
+
+#~ msgid "Today"
+#~ msgstr "Hoy"
+
+#~ msgid "Yesterday"
+#~ msgstr "Ayer"
+
+#~ msgid "&raquo; Next"
+#~ msgstr "&raquo; Siguiente"

@@ -1,0 +1,74 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );        
+?>
+
+<iframe id="listing_submit" name="listing_submit" width="0" height="0" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" ></iframe>    
+
+
+<div id="jr_listingSubmit" class="jr_form jr_pgContainer">
+	
+	<form target="listing_submit" id="jr_listingForm" name="jr_listingForm" action="<?php echo WWW_ROOT;?>administrator/index.php?option=com_jreviews&amp;url=admin_listings/_save&amp;format=raw&amp;tmpl=component" enctype="multipart/form-data" method="post">
+
+		<div class="admin_toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
+			<button id="submitButton" name="submitButton" class="ui-button ui-corner-all" onclick="jreviews_admin.listing.submit();return false;"><?php __a("Save");?></button>
+            <button id="submitButton" name="submitButton" class="ui-button ui-corner-all" onclick="jreviews_admin.listing.submitAsNew();return false;"><?php __a("Save As New");?></button>
+			<button id="cancel" onclick="jQuery('.wysiwyg_editor').RemoveTinyMCE();jQuery('#jr_editContainer').fadeOut('fast',function(){jQuery('#jr_pgContainer').fadeIn('fast');});return false;" class="ui-button ui-corner-all"><?php __a("Cancel");?></button>
+        </div>
+	
+        <div style="float:right;font-style:italic;">* [Save As New] will ignore current listing images. You also need to change the title alias to make it unique   .</div>
+
+        <div id="msg"></div>                  
+
+		<div class="jr_formChooser">
+        
+            <?php if($this->cmsVersion == CMS_JOOMLA15):?>
+                <span id="jr_Sections">
+                <?php echo $Form->select(
+                        'data[Listing][sectionid]',
+                        array_merge(array(array('value'=>null,'text'=>__a("Select section",true))),$sections),
+                        $listing['Listing']['section_id'],
+                        array('id'=>'sectionid','class'=>'inputbox','size'=>'1','onchange'=>'jreviews.listing.submitSection(this);'));?>
+                </span>
+                &nbsp;&nbsp;
+                <span id="jr_Categories"><?php echo $this->element('category_list');?></span>
+            <?php else:?>
+                <span id="jr_Categories">
+                <?php __a("Select Category");?> <?php
+                    echo $Form->select(
+                        'data[Listing][catid]',
+                        array_merge(array(array('value'=>null,'text'=>'- '.__a("Select Category",true).' -')),$categories),
+                        $listing['Listing']['cat_id'],
+                        array('id'=>'cat_id')
+                    );
+                ?>            
+                </span>
+            <?php endif;?>
+            <span id="spinner" style="display: none;">
+                <img alt="loading" src="<?php echo $this->viewImages;?>loading.gif" />
+            </span>
+			<br />
+            
+		</div>
+
+		<div id="jr_newFields">
+			<?php echo $this->renderControllerView('listings','create_form');?>
+		</div>
+		
+        <input type="hidden" id="referrer" name="data[referrer]" value="<?php echo $referrer;?>" />
+        <input type="hidden" name="option" value="com_jreviews" />
+        <input type="hidden" id="section" name="data[section]" value="" /> 
+        <input type="hidden" id="category" name="data[category]" value="" />
+        <input type="hidden" id="listing_id" name="data[Listing][id]" value="<?php echo $listing['Listing']['listing_id'];?>" />
+        <input type="hidden" id="controller" name="data[controller]" value="admin_listings" />
+        <input type="hidden" id="action" name="data[action]" value="_save" />
+        <input type="hidden" name="format" value="raw" />     
+	</form>	
+</div>

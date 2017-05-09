@@ -1,0 +1,15 @@
+<form id="jr_ownerReplyForm" name="jr_ownerReplyForm" class="jr_form" action="" method="">
+	
+	<div class="jr_fieldDiv">
+        <textarea id="reply_text" name="data[OwnerReply][owner_reply_text]" rows="10" cols="250" class="jrTextArea"></textarea>
+    </div>
+    	
+	<input type="hidden" id="review_id" name="data[OwnerReply][id]" value="<?php echo $review_id?>" />
+    <input name="data[controller]" type="hidden" value="owner_replies" />                                                              
+    <input name="data[action]" type="hidden" value="_save" /> 
+    <input type="hidden" name="option" value="com_jreviews" />
+    <input type="hidden" name="format" value="raw" />     
+    <input type="hidden" name="Itemid" value="<?php echo $public_menu_id;?>" />         
+    <?php echo cmsFramework::getTokenInput();?>
+    <input type="hidden" name="<?php echo cmsFramework::getCustomToken($review_id);?>" value="1" />     
+</form>

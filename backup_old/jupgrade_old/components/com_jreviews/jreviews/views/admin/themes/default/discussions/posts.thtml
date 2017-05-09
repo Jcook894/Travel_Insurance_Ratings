@@ -1,0 +1,135 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+//prx($posts);
+//prx($reviews);
+//prx($replies);
+?>
+
+<?php if($this->offset==0):?>
+
+    <div class="jr_pgContainer">
+
+        <?php if(!empty($predefined_replies)):?>
+            <?php foreach($predefined_replies AS $predefined_reply):extract($predefined_reply['PredefinedReply']);?>
+                <span id="jr_cannedResponse<?php echo $reply_id;?>" style="display:none;"><?php echo $reply_body;?></span>
+            <?php endforeach;?>
+        <?php endif;?>        
+        
+            
+    <div class="admin_header">Moderation of Discussion Posts</div>
+    
+<?php endif;?>    
+    
+    <?php foreach($posts AS $post): extract($post['Discussion']);?>
+    <form id="jr_postForm<?php echo $discussion_id;?>" name="jr_postForm<?php echo $discussion_id;?>" action="" method="">							
+        <div class="roundedPanelLt">
+            <div class="box_upperOuter">
+                <div class="box_upperInner">
+                    <!-- ROUND PANEL INNER -->    
+                    <table class="jr_moderation" cellpadding="4" cellspacing="0" border="0" width="100%">                        
+                        <tr>
+                            <th>
+                                #<?php echo $discussion_id;?> Posted <?php echo $Time->timeAgoInWords($created);?> by <?php echo $AdminRoutes->user($name,$user_id,array('target'=>"_blank"));?> for review: 
+                                <?php echo $Routes->reviewDiscuss($post['Review']['title'] != '' ? $post['Review']['title'] : '{no title}',$post,array('listing'=>$post,'target'=>'_blank'));?> &#149; <?php echo $post['Listing']['title'];?>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <textarea name="data[Discussion][text]" style="width:100%;height:7em;" cols="150" rows="5"><?php echo $text;?></textarea>
+                            </td>
+                        </tr>	
+                        <tr>
+                            <td>
+                                <div class="jr_fieldDiv">
+                                    <label for="approvedAcceptjr_postForm<?php echo $discussion_id;?>">
+                                        <input name="data[Discussion][approved]" id="approvedAcceptjr_postForm<?php echo $discussion_id;?>" checked="checked" type="radio" value="1">&nbsp;<?php __a("Accept");?>
+                                    </label>
+                                    &nbsp;
+                                    <label for="approvedRejectjr_postForm<?php echo $discussion_id;?>">
+                                        <input name="data[Discussion][approved]" id="approvedRejectjr_postForm<?php echo $discussion_id;?>" type="radio" value="-1">&nbsp;<?php __a("Reject");?>
+                                    </label>
+                                    &nbsp;
+                                    <?php if($post['User']['email']!=''):?>                                    
+                                    <label for="sendEmail<?php echo $discussion_id;?>">
+                                        <input name="data[Email][send]" id="sendEmail<?php echo $discussion_id;?>" type="checkbox" value="1" onclick="if(jQuery(this).attr('checked')){jQuery('#jr_submitterEmail<?php echo $discussion_id;?>').slideDown('medium');}else{jQuery('#jr_submitterEmail<?php echo $discussion_id;?>').slideUp('medium');}">
+                                        &nbsp;<?php __a("Send e-mail to submitter upon approval/rejection");?>
+                                    </label>
+                                    <?php else:?>
+                                        <?php __a("Email feature disabled because user's email is not available.");?>
+                                    <?php endif;?>                                    
+                                </div>
+                                    
+                                <?php if($post['User']['email']!=''):?>                                                                          
+                                <div id="jr_submitterEmail<?php echo $discussion_id;?>" style="display:none;clear:left;margin-top:5px;">
+                                    <div class="jr_fieldDiv" style="margin:10px 0 10px 0;">
+                                        <select id="jr_cannedResponseSelect<?php echo $discussion_id;?>" onchange="showCannedResponse(<?php echo $discussion_id;?>,this.value,'');">
+                                            <option value=""><?php __a("--- Select a pre-defined reply ---");?></option>
+                                            <?php foreach($predefined_replies AS $predefined_reply):extract($predefined_reply['PredefinedReply']);?>                            
+                                                <?php if(trim($reply_body)!=''):?>                                                
+                                                <option value="<?php echo $reply_id;?>"><?php echo $reply_subject;?></option>                                         
+                                                <?php endif;?>
+                                            <?php endforeach;?>
+                                        </select> (<?php echo $post['User']['email'];?>)                           
+                                    </div>
+                                    <div class="jr_fieldDiv">
+                                        <textarea name="data[Email][body]" id="jr_emailBody<?php echo $discussion_id;?>" style="width:100%;height:8em;" cols="150" rows="5"></textarea>            
+                                    </div>
+                                    <div><br />Valid tags: {name} = user's name; {link} = page link; {review_title} = review title</div>
+                                </div>
+                                <?php endif;?>                                                                    
+                            </td>
+                        </tr>
+                        <tr><td><button class="ui-button ui-corner-all" onclick="jreviews_admin.discussion.moderate('jr_postForm<?php echo $discussion_id;?>');return false;"><?php __a("Submit");?></button></td></tr>    
+                    </table>
+
+                    <input name="data[Email][email]" type="hidden" value="<?php echo $post['User']['email'];?>" />   
+                    <input name="data[Email][name]" type="hidden" value="<?php echo $post['User']['name'];?>" />
+                    <input name="data[Email][subject]" id="jr_emailSubject<?php echo $discussion_id;?>" type="hidden" value="" />
+                    <input name="data[Email][review_title]" type="hidden" value="<?php echo $reviews[$review_id]['Review']['title'];?>" />
+                    <input name="data[Discussion][review_id]" type="hidden" value="<?php echo $review_id;?>" />
+                    <input name="data[Discussion][discussion_id]" type="hidden" value="<?php echo $discussion_id;?>" />
+                    <input name="data[Discussion][type]" type="hidden" value="<?php echo $type;?>" />
+                    <input name="data[moderation]" type="hidden" value="1" />
+                   <!-- ROUND PANEL INNER -->
+                </div>
+                <div class="box_lowerOuter">
+                    <div class="box_lowerInner">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </form>        
+    <div>&nbsp;</div>
+    <?php endforeach;?>
+    
+<?php if($this->offset==0):?>    
+
+        <?php if($total>0 && $total > $this->limit):?>
+        
+        <div id="jr_loadMore" style="border:1px solid #000;background-color:#FBFBFB;width:100%;padding:5px;line-height:30px;text-align:center;">                                 
+        
+            <a href="#load-more" style="font-weight:bold;font-size:14px;" onclick="jreviews_admin.tools.moderateLoadMore('admin_discussions','index');return false;">Load more...</a>
+        
+            <span style="display: none;" id="jr_loadMoreSpinner">
+                <img src="<?php echo $this->viewImages;?>loading.gif" alt="loading" />
+            </span>    
+
+        </div>
+        
+        <form id="jr_pageScroll" name="jr_pageScroll" method="" action="">
+            <input type="hidden" id="jr_page" name="data[page]" value="1" />
+            <input type="hidden" id="jr_limit" name="data[limit]" value="<?php echo $this->limit;?>" />
+            <input type="hidden" id="jr_num_pages" name="data[num_pages]" value="<?php echo $num_pages;?>" />        
+        </form>   
+
+        <?php endif;?>
+ 
+ </div>    
+ <?php endif;?> 

@@ -1,0 +1,60 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2009 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+extract($post['Discussion']);
+if($this->action == 'review') $post['Listing'] = $listing['Listing'];
+?>
+
+<?php 
+if($this->action!='_saveEdit'): // Don't add the outer div if updating on screen after edit?>
+<div id="jr_post<?php echo $discussion_id;?>" class="roundedPanelLt jr_review <?php echo ($parent_post_id>0) ? 'jr_discussionReply' : ''; ?>">
+<?php endif;?>        
+	<!-- BEGIN COMMENT INNER -->            
+	<div class="jr_reviewContainer">
+		<div class="jr_reviewContainerSidebar">                    
+			<div class="reviewInfo">
+			
+				<?php echo $Community->avatar($post);?>                            
+			
+				<span class="jr_postAuthor"><?php __t("Written by");?> <?php echo $Community->screenName($post);?></span><br />
+			
+				<span class="jr_postCreated"><?php echo $Time->nice($created);?></span><br />
+			
+				<?php if($modified!=NULL_DATE):?><?php __t("Last updated");?>:<br />
+				<span class="jr_postModified"><?php echo $Time->nice($modified);?></span><br /><?php endif;?>
+			
+				<div class="clr"></div>
+				
+				<?php if($this->Config->user_report && $this->action == 'review'):?>
+				<!-- BEGIN REPORT COMMENT -->
+				<?php echo $Routes->reportThis(__t("Report this comment",true),array('listing_id'=>$review['Review']['listing_id'],'review_id'=>$review['Review']['review_id'],'post_id'=>$discussion_id,'extension'=>$extension));?>
+				<!-- END REPORT COMMENT -->    
+				<?php endif;?>   
+			
+			</div>                                
+		</div>                        
+		<!-- BEGIN POST MANAGER -->
+		<?php echo $Jreviews->discussionManager($post);?>
+		<!-- END POST MANAGER -->               
+		<div class="jr_comments"><?php echo nl2br($text);?></div>                    
+		<div class="clear"></div>                    
+	</div>
+	<!-- END COMMENT INNER -->
+	<?php if($this->action != '_save' && $this->action != 'latest' && $this->Config->review_discussions && $this->Access->canAddPost()): // Don't show form when updating display after save'?>
+		<!-- BEGIN COMMENT WIDGET -->                  
+		<div id="jr_postCommentAction<?php echo $discussion_id;?>" class="jr_postReplyLink">
+			<a id="jr_postComment<?php echo $discussion_id;?>" class="jrButton" href="#new-comment" onclick="jreviews.discussion.showForm(this,{discussion_id:<?php echo $discussion_id;?>});return false;"><?php __t("Reply to this comment");?></a>
+		</div>                
+		<?php echo $this->renderControllerView('discussions','create',array('discussion_id'=>$discussion_id,'post'=>$post));?>               
+		<!-- END COMMENT WIDGET -->                              
+	<?php endif;?>
+            
+<?php if($this->action!='_saveEdit'): // Don't add the outer div if updating on screen after edit?>            
+</div>
+<?php endif;?>

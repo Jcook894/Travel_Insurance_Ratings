@@ -1,0 +1,166 @@
+<?php
+/***************************************************************
+* This is a register and login widget shown in restricted pages
+****************************************************************/
+
+// Check if registrations are enabled in Joomla. Otherwise don't output anything.
+
+$registration_enabled = $this->Access->isGuest() && Configure::read('CMS.registration');
+
+$secure = false;
+
+if(!$registration_enabled) return;
+
+$register_guests = isset($register_guests) && $registration_enabled ? $register_guests : false;
+
+// register url
+
+$register_url = Configure::read('Community.register_url');
+
+// June 5, 2016 - changed conditional because the login button didn't work on view all reviews page
+// when guest account creation was disabled
+$detailOrViewAllReviewsPage = ($this->name == 'com_content' && $this->action == 'com_content_view')
+							|| ($this->name == 'listings' && $this->action == 'detail')
+							|| $this->name == 'everywhere';
+
+switch(_CMS_NAME)
+{
+	case 'joomla':
+
+		if(!$register_url)
+		{
+			$register_url = 'index.php?option=com_users&view=registration';
+
+			$register_url = cmsFramework::route($register_url);
+		}
+
+		// Return url
+
+		if(!$this->ajaxRequest) {
+
+			$return_url = cmsFramework::makeAbsUrl(cmsFramework::getCurrentUrl());
+
+			cmsFramework::setSessionVar('return_url',$return_url,'jreviews');
+		}
+		else {
+
+			// For ajax loaded forms, get the return url value from the session
+
+			$return_url = cmsFramework::makeAbsUrl(cmsFramework::getSessionVar('return_url','jreviews'));
+		}
+
+		$return_url_encoded = base64_encode($return_url);
+
+		break;
+
+	case 'wordpress':
+
+		if(!$register_url)
+		{
+			$register_url = site_url('/wp-login.php?action=register&redirect_to=' . urlencode(get_permalink()));
+		}
+
+		break;
+}
+?>
+
+<?php if($register_guests):?>
+
+	<div class="jrFieldDiv jrInfo">
+
+		<?php /* When guests submission enabled and account creation activated, remove the create account button */?>
+
+		<?php if(isset($access_submit) && $access_submit):?>
+
+			<?php echo sprintf(__t("Already have an account? %sLog in now%s",true),'<a href="javascript:void(0)" class="jr-show-login jrButton">','</a>');?>
+
+		<?php else:?>
+
+			<?php echo sprintf(__t("Already have an account? %sLog in now%s or %sCreate an account%s",true),'<a href="javascript:void(0)" class="jr-show-login jrButton">','</a>','<a class="jrButton" rel="nofollow" href="'.$register_url.'">','</a>');?>
+
+		<?php endif;?>
+
+<?php endif;?>
+
+	<?php if(!$register_guests):?>
+
+		<?php if($this->name == 'listings' && $this->action == 'create'):?>
+
+			<?php echo sprintf(__t("To submit a listing please %sregister%s or %slog in%s",true),'<a rel="nofollow" href="'.$register_url.'">','</a>','<a href="javascript:void(0)" class="jr-show-login jrLogin jrButton">','</a>');?>
+
+		<?php elseif($detailOrViewAllReviewsPage):?>
+
+			<?php
+				if (Sanitize::getInt($listing['Criteria'],'state') != 2) {
+					echo sprintf(__t("To write a review please %sregister%s or %slog in%s",true),'<a rel="nofollow" href="'.$register_url.'">','</a>','<a href="javascript:void(0)" class="jr-show-login jrLogin jrButton">','</a>');
+				}
+				else {
+					echo sprintf(__t("To write a comment please %sregister%s or %slog in%s",true),'<a rel="nofollow" href="'.$register_url.'">','</a>','<a href="javascript:void(0)" class="jr-show-login jrLogin jrButton">','</a>');
+				}
+			?>
+
+		<?php elseif($this->name == 'discussions' && $this->action == 'review'):?>
+
+			<?php echo sprintf(__t("To write a comment please %sregister%s or %slog in%s",true),'<a rel="nofollow" href="'.$register_url.'">','</a>','<a href="javascript:void(0)" class="jr-show-login jrLogin jrButton">','</a>');?>
+
+		<?php else:?>
+
+			<div class="jr-page jrPage">
+
+				<?php echo sprintf(__t("Access restricted to members. To continue %sregister%s or %slog in%s",true),'<a rel="nofollow" href="'.$register_url.'">','</a>','<a href="javascript:void(0)" class="jr-show-login jrLogin jrButton">','</a>');?>
+
+			</div>
+
+		<?php endif;?>
+
+	<?php endif;?>
+
+	<div id="jr-login-form" class="jr-login-form jrHidden">
+
+		<?php switch(_CMS_NAME):
+
+			case 'joomla':?>
+
+				<form action="<?php echo $return_url;?>" method="post" name="jrLogin" id="jr_loginForm" style="margin-top:10px;">
+
+					<input id="jr-username" type="text" name="username" placeholder="<?php __t("Username");?>" size="10" />
+
+					<input id="jr-password" type="password" name="password" placeholder="<?php __t("Password");?>" size="10" />
+
+					<input type="hidden" name="option" value="com_users" />
+
+					<input type="hidden" name="task" value="user.login" />
+
+					<input type="submit" name="Submit" class="jrButton jrLogin" value="<?php __t("Submit");?>" />
+
+					<input type="hidden" name="return" value="<?php echo $return_url_encoded; ?>" />
+
+					<?php echo cmsFramework::getTokenInput();?>
+
+				</form>
+
+			<?php break;?>
+
+			<?php case 'wordpress':?>
+
+				<form action="<?php echo WWW_ROOT;?>wp-login.php" method="post" name="jrLogin" id="jr_loginForm" style="margin-top:10px;">
+
+					<input id="jr-username" type="text" name="log" placeholder="<?php __t("Username");?>" size="10" />
+
+					<input id="jr-password" type="password" name="pwd" placeholder="<?php __t("Password");?>" size="10" />
+
+					<input type="submit" name="Submit" class="jrButton jrLogin" value="<?php __t("Submit");?>" />
+
+				</form>
+
+			<?php break;?>
+
+		<?php endswitch;?>
+
+	</div>
+
+<?php if($register_guests):?>
+
+	</div>
+
+<?php endif;?>

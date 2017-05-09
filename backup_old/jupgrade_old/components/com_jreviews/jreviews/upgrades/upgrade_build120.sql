@@ -1,0 +1,1 @@
+ALTER TABLE `#__jreviews_activities` ADD `permalink` MEDIUMTEXT NOT NULL AFTER `value` 

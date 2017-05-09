@@ -1,0 +1,180 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2009 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );       
+?>
+
+<?php if($this->offset==0):?>
+
+<div class="jr_pgContainer">
+
+    <?php if(!empty($predefined_replies)):?>
+        <?php foreach($predefined_replies AS $predefined_reply):extract($predefined_reply['PredefinedReply']);?>
+            <span id="jr_cannedResponse<?php echo $reply_id;?>" style="display:none;"><?php echo $reply_body;?></span>
+        <?php endforeach;?>
+    <?php endif;?>    
+            
+    <div class="admin_header"><?php __a("Moderation of Owner Replies to Reviews");?></div>
+    
+<?php endif;?>    
+    
+    <?php foreach($owner_replies AS $owner_reply): extract($owner_reply['Review']);extract($owner_reply['OwnerReply'])?>
+        
+        <div id="jr_reviewPreview<?php echo $review_id;?>" style="display:none;">
+            <!-- BEGIN RATINGS -->
+            <table border="0" cellpadding="0" cellspacing="0" class="rating_table">
+                <tr>
+                <?php if($owner_reply['Review']['editor']==1):?>
+                  <td align="left" class="rating_label"><?php echo $Html->image($this->viewImages.'review_editor.png',array('title'=>__t("Editor rating",true),'alt'=>__t("Editor rating",true)));?></td>
+                  <td align="left" class="rating_stars" style="cursor:help;" title="<?php __t("Editor rating");?>"><?php echo $Rating->drawStars($owner_reply['Rating']['average_rating'], $this->Config->rating_scale, $this->Config->rating_graph, 'editor');?></td>
+                  <?php else:?>                        
+                  <td align="left" class="rating_label"><?php echo $Html->image($this->viewImages.'review_user.png',array('title'=>__t("User rating",true),'alt'=>__t("User rating",true)));?></td>
+                  <td align="left" class="rating_stars" style="cursor:help;" title="<?php __t("User rating");?>"><?php echo $Rating->drawStars($owner_reply['Rating']['average_rating'], $this->Config->rating_scale, $this->Config->rating_graph, 'user');?></td>
+                  <?php endif;?>
+                  <td><span class="jr_title"><?php echo $owner_reply['Review']['title'];?></span></td>
+                </tr>                                        
+            </table>
+            <!-- END RATINGS-->                                    
+            <?php if(isset($owner_reply['Field']['groups'])):?>
+                <?php echo $this->element('custom_fields',array('entry'=>$owner_reply,'page'=>'content'))?>
+            <?php endif;?>
+            <?php echo $owner_reply['Review']['comments'];?> 
+        </div>
+                                                            
+        <form id="jr_moderateForm<?php echo $review_id;?>" name="jr_moderateForm<?php echo $review_id;?>" action="" method="">
+        <div class="roundedPanelLt">
+            <div class="box_upperOuter">
+                <div class="box_upperInner">
+                    <!-- ROUND PANEL INNER -->    
+                        <table class="jr_moderation" cellpadding="4" cellspacing="0" border="0" width="100%">
+                            <tr>
+                                <th class="jr_column1" style="padding-left:5px;"> 
+
+                                    <button type="button" title="<?php __a("Delete");?>" class="ui-button-small ui-state-default ui-corner-right" style="float:right;" 
+                                        onclick="jreviews_admin.dialog.remove('admin_owner_replies','_deleteModeration','<?php __a("This reply will be permanently deleted and cannot be recovered. Are you sure?");?>',{'data[entry_id]':<?php echo $review_id;?>});">
+                                        <span class="ui-icon ui-icon-trash"></span>
+                                    </button>    
+                                                                                                                                       
+                                    <button type="button" class="ui-button-small ui-state-default ui-corner-left" style="float:right;"
+                                        title="See the review" 
+                                        onclick="jreviews_admin.dialog.preview('jr_reviewPreview<?php echo $review_id;?>',{title:'<?php echo addslashes($title);?>'});">
+                                        <span class="ui-icon ui-icon-newwin"></span>
+                                    </button>                                                                                           
+                                    
+                                    #<?php echo $review_id;?> Submitted <?php echo $Time->timeAgoInWords($owner_reply_created);?> by <?php echo $owner_reply['Owner']['name'];?> for review:<br />
+                                    <?php echo $Html->link($title != '' ? $title : '{no title}',$owner_reply['Review']['url'],array('sef'=>false,'target'=>'_blank'));?> in listing <?php echo $Html->link($owner_reply['Listing']['title'],$owner_reply['Listing']['url'],array('sef'=>false,'target'=>'_blank'));?>
+                                </th>
+                                <th class="jr_column2">Admin Note</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <textarea name="data[OwnerReply][owner_reply_text]" style="width:100%;height:7em;" cols="150" rows="5"><?php echo $owner_reply_text;?></textarea>
+                                </td>
+                                <td>
+                                    <textarea name="data[OwnerReply][owner_reply_note]" style="width:100%;height:7em;" cols="150" rows="5"><?php echo $owner_reply_note;?></textarea>
+                                </td>
+                            </tr>	
+                            <tr>
+                                <td colspan="2">
+                                    <div class="jr_fieldDiv">
+                                        <label for="approvedAcceptjr_moderateForm<?php echo $review_id;?>">
+                                            <input name="data[OwnerReply][owner_reply_approved]" id="approvedAcceptjr_moderateForm<?php echo $review_id;?>" checked="checked" type="radio" value="1">&nbsp;<?php __a("Accept");?>
+                                        </label>
+                                        &nbsp;
+                                        <label for="approvedRejectjr_moderateForm<?php echo $review_id;?>">
+                                            <input name="data[OwnerReply][owner_reply_approved]" id="approvedRejectjr_moderateForm<?php echo $review_id;?>" type="radio" value="-1">&nbsp;<?php __a("Reject");?>
+                                        </label>
+                                        &nbsp;
+                                        <label for="approvedHoldjr_moderateForm<?php echo $review_id;?>">
+                                            <input name="data[OwnerReply][owner_reply_approved]" id="approvedHoldjr_moderateForm<?php echo $review_id;?>" type="radio" value="0">&nbsp;<?php __a("Hold");?>
+                                        </label>
+                                        &nbsp;
+                                        <?php if($owner_reply['Owner']['email'] != ''):?>                                        
+                                            <label for="sendEmail<?php echo $review_id;?>">
+                                                <input name="data[Email][send]" id="sendEmail<?php echo $review_id;?>" type="checkbox" value="1" onclick="if(jQuery(this).attr('checked')){jQuery('#jr_replyEmail<?php echo $review_id;?>').slideDown('medium');}else{jQuery('#jr_replyEmail<?php echo $review_id;?>').slideUp('medium');}">
+                                                &nbsp;<?php __a("Send owner e-mail upon approval/rejection/holding");?>
+                                            </label>
+                                        <?php else:?>
+                                            <?php __a("Email feature disabled because user's email is not available.");?>
+                                        <?php endif;?>                                        
+                                    </div>
+                                          
+                                    <!-- BEGIN EMAIL BLOCK -->
+                                    <?php if($owner_reply['Owner']['email'] != ''):?>                                                                                             
+                                    <div id="jr_replyEmail<?php echo $review_id;?>" style="display:none;clear:left;margin-top:5px;">
+                                        <div class="jr_fieldDiv" style="margin:10px 0 10px 0;">
+                                            <select id="jr_cannedResponseSelect<?php echo $review_id;?>" onchange="showCannedResponse(<?php echo $review_id;?>,this.value,'');">
+                                                <option value=""><?php __a("--- Select a pre-defined reply ---");?></option>
+                                                <?php foreach($predefined_replies AS $predefined_reply):extract($predefined_reply['PredefinedReply']);?>                            
+                                                    <?php if(trim($reply_body)!=''):?>                                                
+                                                    <option value="<?php echo $reply_id;?>"><?php echo $reply_subject;?></option>                                         
+                                                    <?php endif;?>
+                                                <?php endforeach;?>                                                     
+                                            </select> (<?php echo $owner_reply['Owner']['email'];?>)
+                                        </div>
+                                        <div class="jr_fieldDiv">
+                                            <textarea name="data[Email][body]" id="jr_emailBody<?php echo $review_id;?>" style="width:100%;height:8em;" cols="150" rows="5"></textarea>            
+                                        </div>
+                                        <div><br />Valid tags: {name} = user's name; {url} = frontend url; {listing_title} = listing title, {review_title} = review title</div>
+                                    </div>
+                                    <?php endif;?>                                        
+                                    <!-- END EMAIL BLOCK -->                
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <button class="ui-button ui-corner-all" onclick="jreviews_admin.dispatch({'controller':'admin_owner_replies','action':'_save','form_id':'jr_moderateForm<?php echo $review_id;?>','type':'json','onComplete':function(res){jQuery('#s2AjaxResponse').html(res.response);}});;return false;"><?php __a("Submit");?></button>
+                                </td>
+                            </tr>    
+                        </table>
+
+                        <input name="data[Email][email]" type="hidden" value="<?php echo $owner_reply['Owner']['email'];?>" />   
+                        <input name="data[Email][name]" type="hidden" value="<?php echo $owner_reply['Owner']['name'];?>" />   
+                        <input name="data[Email][subject]" id="jr_emailSubject<?php echo $review_id;?>" type="hidden" value="" />
+                        <input name="data[Email][entry_title]" type="hidden" value="<?php echo $title;?>">
+                        <input name="data[Email][listing_title]" type="hidden" value="<?php echo $owner_reply['Listing']['title'];?>">
+                        <input name="data[Email][review_title]" type="hidden" value="<?php echo $owner_reply['Review']['title'];?>">
+                        <input name="data[OwnerReply][pid]" type="hidden" value="<?php echo $listing_id;?>" />
+                        <input name="data[OwnerReply][id]" type="hidden" value="<?php echo $review_id;?>" />
+                    <!-- ROUND PANEL INNER -->
+                </div>
+            </div>
+            <div class="box_lowerOuter">
+                <div class="box_lowerInner">&nbsp;</div>
+            </div>
+        </div>
+        <div>&nbsp;</div>
+        </form>        
+    <?php endforeach;?>	
+    
+<?php if($this->offset==0):?>    
+
+    <?php if($total>0 && $total > $this->limit):?>
+    
+    <div id="jr_loadMore" style="border:1px solid #000;background-color:#FBFBFB;width:100%;padding:5px;line-height:30px;text-align:center;">                                 
+    
+        <a href="#load-more" style="font-weight:bold;font-size:14px;" onclick="jreviews_admin.tools.moderateLoadMore('admin_owner_replies','index');return false;">Load more...</a>
+    
+        <span style="display: none;" id="jr_loadMoreSpinner">
+            <img src="<?php echo $this->viewImages;?>loading.gif" alt="loading" />
+        </span>    
+
+    </div>
+    
+    <form id="jr_pageScroll" name="jr_pageScroll" method="" action="">
+        <input type="hidden" id="jr_page" name="data[page]" value="1" />
+        <input type="hidden" id="jr_limit" name="data[limit]" value="<?php echo $this->limit;?>" />
+        <input type="hidden" id="jr_num_pages" name="data[num_pages]" value="<?php echo $num_pages;?>" />        
+    </form>   
+
+    <?php endif;?>
+        
+ </div>    
+ 
+ <?php endif;?>        

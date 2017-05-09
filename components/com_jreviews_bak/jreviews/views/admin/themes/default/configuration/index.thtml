@@ -1,0 +1,1601 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2009 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<script type="text/javascript">
+var winResize = "location=0,menubar=0,resizable=1,scrollbars=0,status=0,toolbar=0";
+function showPopup(url, title)                 
+{
+  var w = window.open( url, title, winResize + ",width=800,height=640" );
+  if (w != null) w.focus();
+  return false;
+}
+</script>
+
+<div class="admin_header"><?php __a("Configuration Settings");?></div>
+			
+<form id="adminForm" name="adminForm">
+
+	<div class="admin_toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
+        <span id="status" class="jr_floatLeft">&nbsp;</span>		
+        <button class="ui-button ui-corner-all" onclick="jreviews_admin.dispatch({'form_id':'adminForm','onComplete':function(){jreviews_admin.tools.statusUpdate('The new settings have been saved.');}});return false;">Save</button>
+	</div>
+	
+	<div id="jr_tabs" class="jr_tabs">
+	    <ul>
+	        <li><a href="#general"><span><?php __a("General");?></span></a></li>
+            <li><a href="#community"><span><?php __a("Community");?></span></a></li>
+	        <li><a href="#directory"><span><?php __a("Directory");?></span></a></li>
+	        <li><a href="#items-list"><span><?php __a("List page");?></span></a></li>
+            <li><a href="#listings"><span><?php __a("Listings");?></span></a></li>
+	        <li><a href="#reviews"><span><?php __a("Reviews");?></span></a></li>
+	        <li><a href="#forms"><span><?php __a("Standard Fields");?></span></a></li>  
+	        <li><a href="#search"><span><?php __a("Search");?></span></a></li>  
+	        <li><a href="#images"><span><?php __a("Images");?></span></a></li>
+	        <li><a href="#notifications"><span><?php __a("Notifications");?></span></a></li>  
+	        <li><a href="#rss"><span><?php __a("RSS");?></span></a></li> 
+	        <li><a href="#cache"><span><?php __a("Cache");?></span></a></li> 
+	    </ul>
+        
+        <!-- GENERAL SETTINGS -->
+        
+        <?php // Output the theme descriptions to be shown when a theme is selected
+        foreach($themes_description AS $theme_name=>$desc):?>
+        <div id="theme-<?php echo $theme_name;?>" style="display:none;" ><?php echo $desc;?></div>
+        <?php endforeach;?>
+        
+	    <div id="general">
+			<table class="admin_list">
+                <tr><th colspan="3">Javascript Libraries</th></tr>
+                <tr>
+                    <td width="250">Disable jQuery:</td>
+                    <td><?php echo $Form->radioYesNo( "libraries_jquery", "", $this->Config->libraries_jquery ); ?></td>
+                    <td>NOT optional. If you disable it, make sure it is loaded by your template or a plugin.</td>
+                </tr>              
+                <tr>
+                    <td width="250">Disable jQuery UI:</td>
+                    <td><?php echo $Form->radioYesNo( "libraries_jqueryui", "", $this->Config->libraries_jqueryui ); ?></td>
+                    <td>NOT optional. If you disable it, make sure it is loaded by your template or a plugin.</td>
+                </tr>              
+				<tr><th colspan="3">General settings</th></tr>
+				
+                <tr>
+                    <td width="250">Joomla style URL parameters:</td>
+                    <td><?php echo $Form->radioYesNo( "url_param_joomla", "", Sanitize::getInt($this->Config,'url_param_joomla',0)); ?></td>
+                    <td>Uses the &amp;param=val style for url parameters rather than /param:val.</td>
+                </tr>
+
+                <tr>
+                    <td width="250">Display "Results per page" list in front-end:</td>
+                    <td><?php echo $Form->radioYesNo( "display_list_limit", "", Sanitize::getInt($this->Config,'display_list_limit',0)); ?></td>
+                    <td>Disabled by default to stop search engines from crawling all different combinations of the same page.</td>
+                </tr>
+				
+                <tr valign="top">
+                    <td width="250"><?php __a("Security image verification");?></td>
+                    <td><a href="javascript:void(0);" onclick="clearSelect('security_image');"><?php __a("Clear all");?></a><br />
+                        <?php 
+                        $captcha_groups = $this->cmsVersion == CMS_JOOMLA15 ? array(0=>'Guest',18=>'Registered') : array(1=>'Guest',2=>'Registered');
+                        echo $Form->select(
+                                'security_image',
+                                $captcha_groups,
+                                ($this->Config->security_image!='none' ? explode(',',$this->Config->security_image) : 'none'),
+                                array('id'=>'security_image','multiple'=>'multiple','size'=>2, 'style'=>'width:150px;')                            
+                            );
+                        ?>
+                    </td>
+                    <td><?php __a("Used in submission listing, review and review discussion forms.");?>
+                    <br /><i><?php __a("Use CTRL key to select multiple options.");?></i>            
+                    </td>
+                </tr>                
+				<tr>
+					<td width="250">Use username or realname:</td>
+					<td>
+						<?php echo $Form->select(
+								'name_choice',
+								array('realname'=>'Real Name','alias'=>'Username'),
+								$this->Config->name_choice,
+								array('size'=>'1','class'=>'inputbox')
+							);
+						?>
+					</td>
+					<td></td>
+				</tr>
+				<tr><th colspan="3">Theme Settings</th></tr>		
+				<tr>
+					<td width="250">Site Theme</td>
+					<td>
+						<?php 
+							echo $Form->select(
+								'template',
+								$themes_config,
+								$this->Config->template,
+								array('size'=>'1',
+                                    'class'=>'inputbox',
+                                    'onchange'=>"jQuery('#site-theme-desc').html(jQuery('#theme-'+this.value).html());"
+                                )
+							);
+						?>
+					</td>
+					<td>Choose the Theme to use for the JReviews frontend.
+                    <div id="site-theme-desc" style="padding:3px;" class="ui-state-highlight ui-corner-all"><?php echo $themes_description[$this->Config->template];?></div>
+                    </td>
+				</tr>
+                <tr>
+                    <td width="250">Mobile Theme</td>
+                    <td>
+                        <?php
+                            echo $Form->select(
+                                'mobile_theme',
+                                $themes_mobile,
+                                Sanitize::getString($this->Config,'mobile_theme','default'),
+                                array('size'=>'1',
+                                    'class'=>'inputbox',
+                                    'onchange'=>"jQuery('#mobile-theme-desc').html(jQuery('#theme-'+this.value).html());"
+                                )
+                            );
+                        ?>
+                    </td>
+                    <td>If a mobile device is detected the selected theme will be used instead of the Site Theme.
+                    <div id="mobile-theme-desc" style="padding:3px;" class="ui-state-highlight ui-corner-all"><?php echo $themes_description[$this->Config->mobile_theme];?></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="250">Fallback Theme</td>
+                    <td>
+                        <?php
+                            echo $Form->select(
+                                'fallback_theme',
+                                $themes_fallback,
+                                $this->Config->fallback_theme,
+                                array('size'=>'1','class'=>'inputbox')
+                            );
+                        ?>
+                    </td>
+                    <td>Choose a theme with a complete set of files to use as fallback if the selected theme doesn't include all theme files</td>
+                </tr>
+				<tr>
+					<td width="250">Number of items per page?</td>
+					<td>
+						<?php
+							echo $Form->selectNumbers('list_limit',5,50,5,$this->Config->list_limit,array('class'=>'inputbox','size'=>'1'));				
+						?>
+					</td>
+					<td>Used for pagination.</td>
+				</tr>
+                <tr>
+                    <td width="250">Number of pages shown in pagination in lists:</td>
+                    <td><?php echo $Form->text(
+                            'paginator_mid_range',
+                            array('style'=>'width:3em','value'=>Sanitize::getInt($this->Config,'paginator_mid_range',6))
+                        );?></td>
+                    <td>It's the number of pages in between the first and last page.</td>
+                </tr>               
+                <tr>
+                    <td width="250">Enable IE6 Png Fix:</td>
+                    <td><?php echo $Form->radioYesNo( "ie6pngfix", "", $this->Config->ie6pngfix ); ?></td>
+                    <td>A jQuery plugin is loaded to fix png transparency issues with IE6.</td>
+                </tr>               
+                <tr><th colspan="3">Breadcrumb Settings</th></tr>
+                <tr>
+                    <td width="250">Show JReviews breadcrumb:</td>
+                    <td><?php echo $Form->radioYesNo( "dir_show_breadcrumb", "", $this->Config->dir_show_breadcrumb ); ?></td>
+                    <td>Adds a pathway on top of JReviews' section, category and detail pages.</td>
+                </tr>
+                <tr>
+                    <td width="250">Override CMS breadcrumb in detail page:</td>
+                    <td><?php echo $Form->radioYesNo( "breadcrumb_detail_override", "", $this->Config->breadcrumb_detail_override); ?></td>
+                    <td>Takes over the article page breadcrumb showing JReviews links. Joomla 1.5 only. A bug in Joomla prevents this from working in J1.6 and J1.7.</td>
+                </tr>
+                <tr>
+                    <td width="250">     - Show directory in breadcrumb:</td>
+                    <td><?php echo $Form->radioYesNo( "breadcrumb_detail_directory", "", $this->Config->breadcrumb_detail_directory); ?></td>
+                    <td></td>
+                </tr>
+                <?php if($this->cmsVersion == CMS_JOOMLA15):?>
+                <tr>
+                    <td width="250">   -   Show section in breadcrumb:</td>
+                    <td><?php echo $Form->radioYesNo( "breadcrumb_detail_section", "", $this->Config->breadcrumb_detail_section); ?></td>
+                    <td></td>
+                </tr>
+                <?php endif;?>
+                <tr>
+                    <?php if($this->cmsVersion == CMS_JOOMLA15):?>
+                    <td width="250">   -   Show category in breadcrumb:</td>
+                    <?php else:?>
+                    <td width="250">   -   Show parent categories in breadcrumb:</td>
+                    <?php endif;?>
+                    <td><?php echo $Form->radioYesNo( "breadcrumb_detail_category", "", $this->Config->breadcrumb_detail_category); ?></td>
+                    <td></td>
+                </tr>
+                <tr><th colspan="3">Integration with other extensions</th></tr>
+                <tr>
+                    <td width="250">Enable Joomfish front-end listing translation</td>
+                    <td><?php echo $Form->radioYesNo('joomfish_plugin','',$this->Config->joomfish_plugin);?></td>
+                    <td>Allows translation of listing standard fields via JReviews front-end editing.</td>                                        
+                </tr>                 
+ 			</table>    
+	    </div>
+
+        <!-- COMMUNITY BUILDING SETTINGS -->
+        <div id="community">
+            <table class="admin_list">
+                <tr><th colspan="3">Joomla Community Integration</th></tr>
+                <tr>
+                    <td width="250">Community</td>
+                    <td>
+                        <?php echo $Form->select(
+                                'community',
+                                array(''=>__t("Select",true),'community_builder'=>'CommunityBuilder','jom_social'=>'JomSocial','kunena'=>'Kunena'),
+                                $this->Config->community,
+                                array('size'=>'1','class'=>'inputbox')
+                            );
+                        ?>
+                    </td>
+                    <td>JReviews will automatically show user avatars and create links to user profiles from listings and reviews.</td>                                        
+                </tr>
+                <tr><th colspan="3">Social Sharing Services</th></tr>
+                <tr>
+                    <td width="250">Enable Social Sharing Buttons in detail pages (FB, Twitter, Google +1)</td>
+                    <td><?php echo $Form->radioYesNo('social_sharing_detail','',$this->Config->social_sharing_detail);?></td>
+                    <td>Output can be modified in /jreviews/views/helpers/community.php</td>                                        
+                </tr>
+                <tr>
+                    <td width="250">Enable Facebook "Send" when social sharing is enabled</td>
+                    <td><?php echo $Form->radioYesNo('facebook_send','',$this->Config->facebook_send);?></td>
+                    <td>Output can be modified in /jreviews/views/helpers/community.php</td>                                        
+                </tr>
+                <tr><th colspan="3">JomSocial Activty Feed integration</th></tr>
+                <?php $jomsocial_options1 = array(0=>'No',1=>'New only',2=>'New + Updates');?>
+                <?php $jomsocial_options2 = array(0=>'No',1=>'Add only',2=>'Add + Remove');?>
+                <?php $jomsocial_options3 = array(0=>'No',1=>'Vote yes only',2=>'Vote yes + Vote no');?>
+                <tr>
+                    <td>Thumbnail mode</td>
+                    <td><?php echo $Form->select('jomsocial_tnmode',array('crop'=>'Crop','scale'=>'Scale'),$this->Config->jomsocial_tnmode,array('value'=>'crop','size'=>'1','class'=>'inputbox'));?></td>
+                    <td></td>                                        
+                </tr>                 
+                <tr>
+                    <td>Thumbnail width (pixels)</td>
+                    <td><?php echo $Form->text('jomsocial_tnsize',array('value'=>$this->Config->jomsocial_tnsize,'size'=>'5','class'=>'inputbox'));?></td>
+                    <td></td>                                        
+                </tr>                 
+                <tr>
+                    <td>Post listings</td>
+                    <td><?php echo $Form->select('jomsocial_listings',$jomsocial_options1,$this->Config->jomsocial_listings,array('size'=>'1','class'=>'inputbox'));?></td>
+                    <td></td>                                        
+                </tr>                 
+                <tr>
+                    <td>Post reviews</td>
+                    <td><?php echo $Form->select('jomsocial_reviews',$jomsocial_options1,$this->Config->jomsocial_reviews,array('size'=>'1','class'=>'inputbox'));?></td>
+                    <td></td>                                        
+                </tr>                 
+                <tr>
+                    <td>Post review comments</td>
+                    <td><?php echo $Form->select('jomsocial_discussions',$jomsocial_options1,$this->Config->jomsocial_discussions,array('size'=>'1','class'=>'inputbox'));?></td>
+                    <td></td>                                        
+                </tr>   
+                <tr>
+                    <td>Post favorites</td>
+                    <td><?php echo $Form->select('jomsocial_favorites',$jomsocial_options2,$this->Config->jomsocial_favorites,array('size'=>'1','class'=>'inputbox'));?></td>
+                    <td></td>                                        
+                </tr>
+                <tr>
+                    <td>Post review voting</td>
+                    <td><?php echo $Form->select('jomsocial_votes',$jomsocial_options3,$this->Config->jomsocial_votes,array('size'=>'1','class'=>'inputbox'));?></td>
+                    <td></td>                                        
+                </tr>  
+                
+                <tr><th colspan="3">Twitter integration</th></tr>
+                <tr>
+                    <td>Enable Auto Tweets</td>
+                    <td><?php echo $Form->radioYesNo('twitter_enable','',$this->Config->twitter_enable);?></td>
+                    <td></td>                                        
+                </tr>                 
+                <tr>
+                    <td>Twitter Authentication</td>
+                    <td>
+                        <a href="javascript:void(0);" onclick="jreviews_admin.dialog.form('admin_twitter','form','',{'title':'Twitter Authentication','buttons':{'Save': function() {jQuery.ajax({url: s2AjaxUri+'&url=admin_twitter/_save',type: 'POST',data:jQuery('#twitter_form').serialize(),dataType: 'json', success: function(s2Out){jQuery('#s2AjaxResponse').html(s2Out.response);}});return false;}}});return false;">Setup Twitter Authentication</a>
+                    </td>
+                    <td>You need to create a new Twitter App and fill in the requested values in the dialog.</td>
+                </tr>
+                <tr>
+                    <td>bit.ly user</td>
+                    <td><input class="inputbox" type="text" name="bitly_user" value="<?php echo $this->Config->bitly_user;?>" size="15" maxlength="50" /></td>
+                    <td>The bit.ly service is used to automatically shorten the urls. Sign up for a <a target="_blank" href="http://bit.ly/">bit.ly account</a></td>                            
+                </tr>
+                <tr>
+                    <td>bit.ly API Key</td>
+                    <td><input class="inputbox" type="text" name="bitly_key" value="<?php echo $this->Config->bitly_key;?>" size="45" /></td>
+                    <td>You can get the API Key from the Account page at the bit.ly site.</td>                            
+                </tr>
+                <tr>
+                    <td>Save bit.ly links in account history</td>
+                    <td><?php echo $Form->radioYesNo('bitly_history','',$this->Config->bitly_history);?></td>
+                    <td>Stores generated links in your bit.ly's account history</td>                                        
+                </tr>     
+                <tr>
+                    <td>Tweet on new listing</td>
+                    <td><?php echo $Form->radioYesNo('twitter_listings','',$this->Config->twitter_listings);?></td>
+                    <td></td>                                        
+                </tr>                                              
+                <tr>
+                    <td>Tweet on new review</td>
+                    <td><?php echo $Form->radioYesNo('twitter_reviews','',$this->Config->twitter_reviews);?></td>
+                    <td></td>                                        
+                </tr>   
+                <tr>
+                    <td>Tweet on new review comment</td>
+                    <td><?php echo $Form->radioYesNo('twitter_discussions','',$this->Config->twitter_discussions);?></td>
+                    <td></td>                                        
+                </tr>  
+                <tr><th colspan="3">Facebook integration<th></tr>
+                <tr>
+                    <td colspan="3">
+                    <p>For additional help read the <a target="_blank" href="http://docs.reviewsforjoomla.com/Setup_Facebook_integration">Facebook integration</a> article.</p>
+                    <div style="padding: 0pt 0.7em;" class="ui-state-error ui-corner-all"> 
+                        <p><span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-alert"></span> 
+                        Facebook Wall posts only work for unmoderated submissions (i.e. those automatically published). Make sure you check these in Access Settings.
+                        </p>
+                    </div>                
+                    </td>
+                </tr>
+                <tr>
+                    <td>Application ID</td>
+                    <td><input class="inputbox" type="text" name="facebook_appid" value="<?php echo $this->Config->facebook_appid;?>" size="45" /></td>
+                    <td>You need to create a Facebook App at <a href="http://www.facebook.com/developers/" target="_blank">facebook.com/developers</a></td>                            
+                </tr>
+                <tr>
+                    <td>Secret</td>
+                    <td><input class="inputbox" type="text" name="facebook_secret" value="<?php echo $this->Config->facebook_secret;?>" size="45" /></td>
+                    <td></td>                            
+                </tr>
+                <tr>
+                    <td>Enable Open Graph Protocol</td>
+                    <td><?php echo $Form->radioYesNo('facebook_opengraph',1,$this->Config->facebook_opengraph);?></td>
+                    <td><a target="_blank" href="http://developers.facebook.com/docs/opengraph/">More info about Open Graph.</a> Enabling Open Graph will result in better functionality of the Facebook Like button in detail pages enabled via the Social Sharing setting above.</td>                                        
+                </tr>
+                <tr>
+                    <td>Admin User IDs (optional)</td>
+                    <td><input class="inputbox" type="text" name="facebook_admins" value="<?php echo $this->Config->facebook_admins;?>" size="45" /></td>
+                    <td>What is my Facebook User ID? Click on the profile link in your account and it is the number after the id parameter http://www.facebook.com/profile.php?id={facebook_id}. Each listed user must click Like on the URL to be approved as an admin. This is to prevent users being made admins without their consent.</td>                            
+                </tr>                                 
+                <tr>
+                    <td>Enable FB Wall Posts</td>
+                    <td><?php echo $Form->radioYesNo('facebook_enable','',$this->Config->facebook_enable);?></td>
+                    <td></td>                                        
+                </tr>                 
+                <tr>
+                    <td>Allow users to opt out</td>
+                    <td><?php echo $Form->radioYesNo('facebook_optout','',$this->Config->facebook_optout);?></td>
+                    <td>Enabling this will always show the Publish to Facebook checkbox so users can opt out of publishing to their FB account.</td>                                        
+                </tr>                 
+                <tr>
+                    <td>Post on new listing</td>
+                    <td><?php echo $Form->radioYesNo('facebook_listings','',$this->Config->facebook_listings);?></td>
+                    <td>Works for umoderated listings only</td>                                        
+                </tr>   
+                <tr>
+                    <td>Post on new review</td>
+                    <td><?php echo $Form->radioYesNo('facebook_reviews','',$this->Config->facebook_reviews);?></td>
+                    <td>Works for umoderated reviews only</td>                                        
+                </tr>   
+                <tr>
+                    <td>Post on helpful vote</td>
+                    <td><?php echo $Form->radioYesNo('facebook_votes','',$this->Config->facebook_votes);?></td>
+                    <td></td>                                        
+                </tr>   
+                
+                <tr>
+                    <td>Trim posts</td>
+                    <td><input class="inputbox" type="text" name= "facebook_posts_trim" value="<?php echo $this->Config->facebook_posts_trim; ?>" size="3" maxlength="3" />words</td>
+                    <td>Applies to all posts above.</td>
+                </tr>                 
+                
+           </table>
+        </div>
+		
+        <!-- DIRECTORY SETTINGS -->        	
+        
+		<div id="directory">
+			<table class="admin_list">
+				<tr><th colspan="3">General settings</th></tr>
+				<tr>
+					<td>Show alphabetical index bar:</td>
+					<td><?php echo $Form->radioYesNo( "dir_show_alphaindex", "", $this->Config->dir_show_alphaindex ); ?></td>
+					<td></td>
+				<tr>                                             
+                <?php if($this->cmsVersion == CMS_JOOMLA15):?>
+                <tr>
+                    <td>Display section images:</strong></td>
+                    <td>
+                        <?php
+                            echo $Form->select(
+                                'dir_cat_images',
+                                array(
+                                    'None'=>'No',
+                                    'Above'=>'Above category',
+                                    'Left'=>'Left of category'
+                                    ),
+                                $this->Config->dir_cat_images,
+                                array('size'=>'1','class'=>'inputbox')
+                            );                    
+                        ?>
+                    </td>
+                    <td>Applies to top level categories only.</td>
+                </tr>                
+				<tr><th colspan="3">Sections</th></tr>
+				<tr>
+					<td>Number of section columns:</td>
+					<td><input id="dir_columns" name="dir_columns" type="text" size="3" value="<?php echo $this->Config->dir_columns;?>" /></td>
+					<td></td>
+				</tr>    
+				<tr>
+					<td>Section Ordering:</strong></td>
+					<td>
+						<?php
+							echo $Form->select(
+								'dir_section_order',
+								array(
+									'1'=>'A-Z',
+									'0'=>'Custom Ordering'
+									),
+								$this->Config->dir_section_order,
+								array('size'=>'1','class'=>'inputbox')
+							);					
+						?>
+					</td>
+					<td></td>
+				</tr>
+                <?php endif;?>
+				<tr><th colspan="3">Categories</th></tr>
+                <?php if($this->cmsVersion == CMS_JOOMLA16):?>
+                <tr>
+                    <td>Display category images:</strong></td>
+                    <td>
+                        <?php
+                            echo $Form->select(
+                                'dir_cat_images',
+                                array(
+                                    'None'=>'No',
+                                    'Above'=>'Above category',
+                                    'Left'=>'Left of category'
+                                    ),
+                                $this->Config->dir_cat_images,
+                                array('size'=>'1','class'=>'inputbox')
+                            );                    
+                        ?>
+                    </td>
+                    <td>Applies to top level categories only.</td>
+                </tr>
+                <tr>
+                    <td>Number of columns:</td>
+                    <td><input id="dir_columns" name="dir_columns" type="text" size="3" value="<?php echo $this->Config->dir_columns;?>" /></td>
+                    <td>Applies to top level categories only.</td>
+                </tr>    
+                <?php endif;?>                   
+				<tr>
+					<td>Show number of entries per category:</td>
+					<td><?php echo $Form->radioYesNo( "dir_cat_num_entries", "", $this->Config->dir_cat_num_entries); ?></td>
+					<td>Shows the number of entries in parenthesis next to the category name. Also applies to the category box in lists.</td>
+				</tr>
+				<tr>
+					<td>Hide empty categories:</td>
+					<td><?php echo $Form->radioYesNo( "dir_category_hide_empty", "", $this->Config->dir_category_hide_empty ); ?></td>
+					<td>Also works in the category box for lists.</td>
+				</tr>
+                <?php if($this->cmsVersion == CMS_JOOMLA16):?>
+                <tr>
+                    <td>Category levels to show:</td>
+                    <td>
+                        <?php echo $Form->text(
+                            'dir_category_levels',
+                            array('style'=>'width:3em','value'=>Sanitize::getInt($this->Config,'dir_category_levels',2))
+                        );?>
+                    </td>
+                    <td></td>
+                </tr>
+                <?php endif;?>
+				<tr>
+					<td>Categories format:</td>
+					<td>
+						<?php
+							echo $Form->select(
+								'dir_cat_format',
+								array(
+									'1'=>'Bullet list',
+									'0'=>'Comma separated list'
+									),
+								$this->Config->dir_cat_format,
+								array('size'=>'1','class'=>'inputbox')
+							);					
+						?>
+					</td>	
+					<td>When comma list is selected only 2 level of categories are shown.</td>
+				</tr>
+                <?php if($this->cmsVersion == CMS_JOOMLA15):?>
+				<tr>
+					<td>Category Ordering:</td>
+					<td>
+						<?php
+							echo $Form->select(
+								'dir_category_order',
+								array(
+									'1'=>'A-Z',
+									'0'=>'Custom Ordering'
+									),
+								$this->Config->dir_category_order,
+								array('size'=>'1','class'=>'inputbox')
+							);					
+						?>			
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Limit number of categories shown:</td>
+					<td><input id="dir_category_limit" name="dir_category_limit" type="text" size="3" value="<?php echo $this->Config->dir_category_limit;?>" /></td>
+					<td>The number of categories shown is limited to this number and then "..." is shown. Leave empty for no limit, 0 for no categories.</td>
+				</tr>
+                <?php endif;?>
+			</table>
+		</div>	
+	
+        <!-- LIST PAGE SETTINGS -->            
+    
+		<div id="items-list">
+			<table class="admin_list" style="margin-bottom: 5px;">
+				<tr><th colspan="3">Category List Global View Selection</th></tr>
+				<tr>
+					<td width="250">Theme Layout</td>
+					<td>
+						<?php echo $Form->select(
+								'list_display_type',
+								array(
+									'0'=>'Tableview',
+									'1'=>'Blogview',
+									'2'=>'Thumbview',							
+									),
+								$this->Config->list_display_type,	
+								array('size'=>'1','class'=>'inputbox')
+							);					
+						?>
+					</td>
+					<td></td>
+				</tr>
+				<tr><th colspan="3">General settings for listings</th></tr>
+                <tr>
+					<td width="250">Show "add new listing here" link at the top of category lists</td>
+					<td><?php echo $Form->radioYesNo( "list_show_addnew", "", $this->Config->list_show_addnew);?></td>
+					<td></td>
+				</tr>
+                <tr>
+                    <td width="250">Use current page Itemid in the "add new listing" url</td>
+                    <td><?php echo $Form->radioYesNo( "list_addnew_menuid", "", $this->Config->list_addnew_menuid);?></td>
+                    <td>Enabling this setting will keep the current page modules in the submit listing form</td>
+                </tr>                
+                <?php if($this->cmsVersion == CMS_JOOMLA15):?>
+				<tr>
+					<td width="250">Show listings in section view?</td>
+					<td><?php echo $Form->radioYesNo( "list_show_sectionlist", "", $this->Config->list_show_sectionlist);?></td>
+					<td>Show listings in the section page.</td>
+				</tr>
+                <?php else:?>
+                <tr>
+                    <td width="250">Show listings of child categories</td>
+                    <td><?php echo $Form->radioYesNo( "list_show_child_listings", "", $this->Config->list_show_child_listings);?></td>
+                    <td>In category pages current category and child category listings are displayed.</td>
+                </tr>
+                <?php endif;?>
+                <tr><th colspan="3">Listing Comparison</th></tr>
+                <tr>
+                    <td>Enable listing comparison</td>            
+                    <td><?php echo $Form->radioYesNo( "list_compare", "", $this->Config->list_compare);?></td>
+                    <td>Shows a compare checkbox in list pages allowing users to create side by side comparison of same-type listings</td>
+                </tr>                
+                <tr>
+                    <td>Slider listing columns</td>            
+                    <td><input class="inputbox" type="text" name= "list_compare_columns" value="<?php echo $this->Config->list_compare_columns; ?>" size="5" /></td>
+                    <td>Defines the number of listings that the user can see at once.</td>
+                </tr>                
+                <tr>
+                    <td>Show detailed user ratings</td>            
+                    <td><?php echo $Form->radioYesNo( "list_compare_user_ratings", "", $this->Config->list_compare_user_ratings);?></td>
+                    <td>If enabled the individual criteria ratings will be shown.</td>
+                </tr>                
+                <tr>
+                    <td>Show detailed editor ratings</td>            
+                    <td><?php echo $Form->radioYesNo( "list_compare_editor_ratings", "", $this->Config->list_compare_editor_ratings);?></td>
+                    <td>If enabled the individual criteria ratings will be shown.</td>
+                </tr>                
+				<tr><th colspan="3">Category box</th></tr>
+				<tr>
+					<td width="250">Show categories in CATEGORY list view</td>
+					<td><?php echo $Form->radioYesNo( "list_show_categories", "", $this->Config->list_show_categories);?></td>
+					<td>Box with the list of categories for the section of the current category.</td>
+				</tr>
+                <?php if($this->cmsVersion == CMS_JOOMLA15):?>
+				<tr>
+					<td width="250">Show categories in SECTION list view</td>
+					<td><?php echo $Form->radioYesNo( "list_show_categories_section", "", $this->Config->list_show_categories_section);?></td>
+					<td>Box with the list of categories for the current section.</td>
+				</tr>
+                <?php endif;?>
+				<tr>
+					<td>Number of columns for categories</td>
+					<td><input id="cat_columns" name="cat_columns" type="text" size="3" value="<?php echo $this->Config->cat_columns;?>" /></td>
+					<td></td>
+				</tr>
+				<tr><th colspan="3">Ordering box</th></tr>
+				<tr>
+					<td>Show ordering dropdown list</td>
+					<td><?php echo $Form->radioYesNo( "list_show_orderselect", "", $this->Config->list_show_orderselect);?></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Default Ordering</td>
+					<td>
+						<?php
+						echo $Form->select(
+							'list_order_default',
+							$Jreviews->orderingList(null,null,true),
+							$this->Config->list_order_default,
+							array('size'=>'1','class'=>'inputbox')
+						);				
+						?>
+					</td>
+					<td></td>
+				</tr>
+                <tr>
+                    <td>Order by field</td>
+                    <td>
+                        <?php echo $Form->text(
+                            'list_order_field',
+                            array('value'=>Sanitize::getString($this->Config,'list_order_field'))
+                        );?>
+                    </td>
+                    <td>This setting overrides the default ordering. Use jr_field or rjr_field for descending order. You should use this setting only if the field you are using is common across all listing. Otherwise you should use the equivalent setting in the listing types.</td>
+                </tr>
+			</table>
+	
+			<table class="admin_list" style="margin-bottom: 5px;">
+				<tr><th colspan="2">Info box</th></tr>
+				<tr>
+					<td width="250">Show date</td>
+					<td><?php echo $Form->radioYesNo('list_show_date',"", $this->Config->list_show_date);?></td>
+				</tr>
+				<tr>
+					<td width="250">Show listing author</td>
+					<td><?php echo $Form->radioYesNo('list_show_author',"", $this->Config->list_show_author);?></td>
+				</tr>
+				<tr>
+					<td width="250">Show average user rating</td>
+					<td><?php echo $Form->radioYesNo( "list_show_user_rating", "", $this->Config->list_show_user_rating);?></td>
+				</tr>
+				<tr>
+					<td width="250">Show hits</td>
+					<td><?php echo $Form->radioYesNo( "list_show_hits", "", $this->Config->list_show_hits);?></td>
+				</tr>
+			</table>
+			<table class="admin_list" style="margin-bottom: 5px;">
+				<tr><th colspan="3">Listings</th></tr>
+				<tr>
+					<td width="250">Show summary</td>
+					<td><?php echo $Form->radioYesNo( "list_show_abstract", "", $this->Config->list_show_abstract);?></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Trim summary (words)</td>
+					<td><input class="inputbox" type="text" name= "list_abstract_trim" value="<?php echo $this->Config->list_abstract_trim; ?>" size="3" maxlength="3" /></td>
+					<td>If zero or blank it will display all the text.
+					<br /><strong>Limiting the number of words will strip all html formatting.</strong></td>
+				</tr>
+				<tr>
+					<td colspan="3"><p><b>The button settings below also apply to blog and frontpage views!</b></p></td>
+				</tr>
+				<tr>
+					<td>Show <u>New</u> icon</u></td>
+					<td><?php echo $Form->radioYesNo( "list_new", "", $this->Config->list_new);?></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><u>New</u> button days (days)</td>
+					<td><input class="inputbox" type="text" name= "list_new_days" value="<?php echo $this->Config->list_new_days; ?>" size="4" maxlength="5" /></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Show <u>Hot</u> icon</u></td>
+					<td><?php echo $Form->radioYesNo( "list_hot", "", $this->Config->list_hot);?></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><u>Hot</u> button hits</td>
+					<td><input class="inputbox" type="text" name= "list_hot_hits" value="<?php echo $this->Config->list_hot_hits; ?>" size="4" maxlength="5" /></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Show <u>Featured</u> icon</u></td>
+					<td><?php echo $Form->radioYesNo( "list_featured", "", $this->Config->list_featured);?></td>
+					<td></td>
+				</tr>
+			</table>
+		
+			<table class="admin_list" style="margin-bottom: 5px;">
+				<tr><th colspan="2">Action box</th></tr>
+				<tr>
+					<td width="250">Show read more link</td>
+					<td><?php echo $Form->radioYesNo( "list_show_readmore", "", $this->Config->list_show_readmore);?></td>
+				</tr>
+				<tr>
+					<td width="250">Show read reviews link</td>
+					<td><?php echo $Form->radioYesNo( "list_show_readreviews", "", $this->Config->list_show_readreviews);?></td>
+				</tr>
+				<tr>
+					<td width="250">Show write review link</td>
+					<td><?php echo $Form->radioYesNo( "list_show_newreview", "", $this->Config->list_show_newreview);?></td>
+				</tr>
+			</table>
+		</div>
+				                                
+        <!-- LISTINGS SETTINGS -->            
+                
+        <div id="listings">
+            <table class="admin_list">
+                <tr><th colspan="3">Favorites</th></tr>
+                <tr>
+                    <td width="250">Enable Favorites:</td>
+                    <td><?php echo $Form->radioYesNo( "favorites_enable", "", $this->Config->favorites_enable);?></td>
+                    <td>Users can add entries to their favorites list.</td>
+                </tr>                
+                <tr><th colspan="3">Claims</th></tr>
+                <tr>
+                    <td width="250">Enable Listing Claims:</td>
+                    <td><?php echo $Form->radioYesNo( "claims_enable", "", $this->Config->claims_enable);?></td>
+                    <td>Users can claim previously unclaimed listings as their own.</td>
+                </tr>
+                <tr>
+                    <td width="250">Enable claims only for listings owned by (optional)</td>
+                    <td><input id="claims_enable_userids" name="claims_enable_userids" type="text" size="20" value="<?php echo $this->Config->claims_enable_userids;?>" /></td>                    
+                    <td>Add user ids separated by comma without any spaces. If you are adding most listings yourself you can enable the claims functionality only for your userid or setup a special user to submit listings and make them claimable.</td>
+                </tr>                                
+                <tr><th colspan="1">Inquiries</th></tr>
+                <tr>
+                    <td width="250">Enable Listing Inquiries:</td>
+                    <td><?php echo $Form->radioYesNo( "inquiry_enable", "", $this->Config->inquiry_enable);?></td>
+                    <td>Site visitors can fill a contact form to request information.</td>
+                </tr>                
+                <tr>
+                    <td width="250">Inquiry is sent to:</td>
+                    <td width="250"><?php echo $Form->select('inquiry_recipient',
+                            array(
+                                'owner' => 'Listing owner',
+                                'admin' => 'Site e-mail',
+                                'field' => 'Custom field e-mail'
+                                ),
+                            $this->Config->inquiry_recipient,    
+                            array('size'=>'1','class'=>'inputbox')
+                        );?></td>
+                    <td></td>
+                </tr>  
+                <tr>
+                    <td>Custom field name:</td>
+                    <td><input class="inputbox" type="text" name= "inquiry_field" value="<?php echo $this->Config->inquiry_field; ?>" size="20" maxlength="60" /></td>
+                    <td>If custom field selected above, enter the field's name here (i.e. jr_email)</td>
+                </tr>                              
+                <tr>
+                    <td>BCC Admin email:</td>
+                    <td><input class="inputbox" type="text" name= "inquiry_bcc" value="<?php echo $this->Config->inquiry_bcc; ?>" size="35" maxlength="60" /></td>
+                    <td>You can send a bcc to this email address.</td>
+                </tr> 
+                <tr><td colspan="3">
+                <div class="ui-widget">
+                    <div style="padding: 10px 10px 0 10px;" class="ui-state-highlight ui-corner-all"> 
+                        <p>If you prefer to embed the form on the page you can leave inquiries disabled above and manually call the inquiry form in /listings/detail.thtml by using this code:<br /><br />
+                        &lt;?php echo $this->element('inquiry_widget');?&gt;
+                        </p>
+                        <p>
+                            <strong>Important:</strong> The Joomla email cloaking plugin must have a lower order number than the JReviews plugin, otherwise the registered user's email will appear scrambled.
+                        </p>
+                    </div>
+                </div>                 
+                </td></tr>                                             
+            </table>
+        </div>
+                                                    
+        <!-- REVIEWS SETTINGS -->            
+                
+		<div id="reviews">
+			<table class="admin_list">
+				<tr><th colspan="3">General settings</th></tr>
+                <tr>
+                    <td width="250">Enable User Reviews</td>
+                    <td width="250"><?php echo $Form->radioYesNo( "user_reviews", "", $this->Config->user_reviews );?></td>
+                    <td></td>
+                </tr>                
+				<tr>
+					<td width="250">Enable Editor Reviews</td>
+					<td width="250"><?php
+						echo $Form->select(
+							'author_review',
+							array(
+								'0' => 'No editor reviews',
+								'1' => 'One editor review per listing',
+								'2' => 'Multiple editor reviews per listing'
+								),
+							$this->Config->author_review,	
+							array('size'=>'1','class'=>'inputbox')
+						);
+					?></td>
+					<td></td>
+				</tr>
+                <tr valign="top">
+                    <td width="250">User IDs of JReviews editors (separated by commas)</td>
+                    <td width="250"><textarea class="inputbox" name="authorids" style="width:98%;"><?php echo $this->Config->authorids; ?></textarea></td>
+                    <td>Only reviews written by these users will be automatically recognized as editor reviews. Addittionaly, any review can be marked as an editor review in the review moderation menu.<br />
+                        <?php if($this->cmsVersion == CMS_JOOMLA15):?>
+                        <a href="index.php?option=com_users&task=view&tmpl=component" onclick="return showPopup(this.href,'Users');"target="_blank">Click here to view user list.</a>
+                        <?php else:?>
+                        <a href="index.php?option=com_users&view=users&tmpl=component" onclick="return showPopup(this.href,'Users');"target="_blank">Click here to view user list.</a>
+                        <?php endif;?>
+                    </td>
+                </tr>                
+			    <tr valign="top">
+                    <td width="200"><?php __a("Multiple user reviews per listing");?></td>
+                    <td><?php echo $Form->radioYesNo( "user_multiple_reviews", "", $this->Config->user_multiple_reviews );?></td>
+                    <td><?php __a("Valid for registered users only. Checking is done against IP address and userid.");?></td>
+                </tr>
+                <tr valign="top">
+                    <td width="200">&nbsp;&nbsp;&nbsp;-<?php __a("Disable IP address check for multiple reviews");?></td>
+                    <td><?php echo $Form->radioYesNo( "review_ipcheck_disable", "", $this->Config->review_ipcheck_disable );?></td>
+                    <td><?php __a("Valid for both guest and registered users.");?></td>
+                </tr>                
+                <tr valign="top">
+                    <td width="200"><?php __a("Stop users from reviewing their own listings");?></td>
+                    <td><?php echo $Form->radioYesNo( "user_owner_disable", "", $this->Config->user_owner_disable);?></td>
+                    <td><?php __a("Also disable the review form in listing submission in Configuration => Standard Fields");?></td>
+                </tr>
+				
+
+				<tr valign="top">
+                    <td width="200"><?php __a("Interval for rebuilding the reviewer ranks table");?></td>
+                    <td><input id="ranks_rebuild_interval" name="ranks_rebuild_interval" type="text" size="3" value="<?php echo $this->Config->ranks_rebuild_interval;?>" />&nbsp;<?php __a("hours");?></td>
+                    <td>
+						<?php __a("Rebuilding the table consumes system resources and is therefore executed periodically. Use zero only for testing purposes!");?>
+						
+					</td>
+                </tr> 
+                
+                <tr><th colspan="3">Ordering box</th></tr>
+                <tr>
+                    <td>Default Ordering</td>
+                    <td>
+                        <?php
+                        echo $Form->select(
+                            'user_review_order',
+                            $Jreviews->orderingListReviews(null,array('return'=>true)),
+                            $this->Config->user_review_order,
+                            array('size'=>'1','class'=>'inputbox')
+                        );                
+                        ?>
+                    </td>
+                    <td></td>
+                </tr>
+                                
+                <!-- Ratings -->                
+                
+                <tr><th colspan="3">Rating Settings</th></tr>
+                 <tr>
+                    <td width="250">Rating scale:</td>
+                    <td><input id="rating_scale" name="rating_scale" type="text" size="3" value="<?php echo $this->Config->rating_scale;?>" /></td>
+                    <td>Enter a number higher than zero. <strong>Once you have reviews on your site you must not change this setting!</strong></td>
+                </tr>
+                 <tr>
+                    <td width="250">Rating increment:</td>
+                    <td><?php echo $Form->select('rating_increment',array('1'=>1,'0.5'=>0.5),array('id'=>'rating_increment','selected'=>$this->Config->rating_increment));?></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td width="250">Rating selector in review form:</td>
+                    <td>
+                        <?php echo $Form->select(
+                                'rating_selector',
+                                array('select'=>'Select List','stars'=>'Star Images'),
+                                $this->Config->rating_selector,
+                                array('size'=>'1','class'=>'inputbox')
+                            );
+                        ?>
+                    </td>
+                    <td>Star images provides a graphic interface for choosing the rating values.</td>
+                </tr>                
+                <tr>
+                    <td width="250">Pre-select N/A for optional rating criteria:</td>
+                    <td><?php echo $Form->radioYesNo( "rating_default_na", "", $this->Config->rating_default_na);?></td>
+                    <td>If enabled, users don't need to click on the N/A option to ignore a criterion.</td>
+                </tr>
+                <tr>
+                    <td width="250">Hide non-rated criteria from detailed ratings:</td>
+                    <td><?php echo $Form->radioYesNo( "rating_hide_na", "", $this->Config->rating_hide_na);?></td>
+                    <td>Can be useful when all criteria voted as N/A so review shows as comment.</td>
+                </tr>                
+                <tr>
+                    <td width="250">Show rating count in detailed ratings?</td>
+                    <td>
+                        <?php
+                        echo $Form->select(
+                            'show_criteria_rating_count',
+                            array(
+                                '2'=>'Show for all criteria sets',                        
+                                '1'=>'Show for criteria sets where N/A ratings are enabled',
+                                '0'=>'Do not show'
+                                ),
+                            $this->Config->show_criteria_rating_count,    
+                            array('size'=>'1','class'=>'inputbox','style'=>'width:200px;')
+                        );                    
+                        ?>
+                    </td>
+                    <td>This can be informational when users gave N/A ratings to certain criteria.</td>
+                </tr>
+                                
+                <!-- Owner replies -->
+                <tr><th colspan="3">Owner Replies</th></tr>                
+                <tr>
+                    <td width="250">Enable listing owner replies to user reviews</td>
+                    <td width="250"><?php echo $Form->radioYesNo( "owner_replies", "", $this->Config->owner_replies);?></td>
+                    <td></td>
+                </tr> 
+                
+                <!-- Owner replies -->
+                <tr><th colspan="3">Review Discussions</th></tr>                
+                <tr>
+                    <td width="250">Enable review discussions</td>
+                    <td width="250"><?php echo $Form->radioYesNo("review_discussions", "", $this->Config->review_discussions);?></td>
+                    <td></td>
+                </tr>                                
+                
+                <!-- Review reporting -->
+                <tr><th colspan="3">Review Reporting to Administrators</th></tr>                
+                <tr>
+                    <td>Enable reporting of user reviews</td>
+                    <td><?php echo $Form->radioYesNo( "user_report", "", $this->Config->user_report );?></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Enable reporting of editor reviews</td>
+                    <td><?php echo $Form->radioYesNo( "author_report", "", $this->Config->author_report );?></td>
+                    <td></td>
+                </tr>             
+                                
+                <!-- Helpfulness voting-->
+                
+                <tr><th colspan="3">Review Helpfulness Voting</th></tr>
+                <tr>
+                    <td width="250">Enable user review voting</td>
+                    <td width="250"><?php echo $Form->radioYesNo( "user_vote", "", $this->Config->user_vote );?></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Enable editor review voting</td>
+                    <td><?php echo $Form->radioYesNo( "author_vote", "", $this->Config->author_vote );?></td>
+                    <td></td>
+                </tr>                
+                <tr>
+                    <td width="250">Disable ip address check for votes</td>
+                    <td width="250"><?php echo $Form->radioYesNo( "vote_ipcheck_disable", "", $this->Config->vote_ipcheck_disable );?></td>
+                    <td></td>
+                </tr>
+
+                <!-- Editor reviews -->
+                
+				<tr><th colspan="3">Editor Reviews</th></tr>
+                <tr>
+                    <td width="250">Number of editor reviews per page?</td>
+                    <td>
+                        <?php echo $Form->selectNumbers('editor_limit',5,50,5,$this->Config->editor_limit,array('class'=>'inputbox','size'=>'1'));?>
+                    </td>
+                    <td>Used for pagination of <i>editor</i> reviews, if multiple editor reviews are allowed.</td>
+                </tr>                
+                <tr>
+                    <td>Exclude Editor Reviews from Reviewer Ranking</td>
+                    <td><?php echo $Form->radioYesNo( "editor_rank_exclude", "", $this->Config->editor_rank_exclude );?></td>
+                    <td></td>
+                </tr>
+				<tr>
+					<td>Show detailed ratings box</td>
+					<td><?php echo $Form->radioYesNo( "author_ratings", "", $this->Config->author_ratings );?></td>
+					<td>Shows the individual criteria ratings when enabled, otherwise only the overall rating is displayed.</td>
+				</tr>
+				<tr>
+					<td>Show editor review rank link</td>
+					<td><?php echo $Form->radioYesNo( "author_rank_link", "", $this->Config->author_rank_link );?></td>
+					<td>The link will show only in reviews submitted by registered users.</td>
+				</tr>
+				<tr>
+					<td>Show <u>see all reviews</u> link</td>
+					<td><?php echo $Form->radioYesNo( "author_myreviews_link", "", $this->Config->author_myreviews_link );?></td>
+					<td>The link will show only in reviews submitted by registered users.</td>
+				</tr>
+
+                <!-- User reviews -->
+                
+				<tr><th colspan="3">User Reviews</th></tr>
+                <tr>
+                    <td width="250">Number of user reviews per page?</td>
+                    <td>
+                        <?php echo $Form->selectNumbers('user_limit',5,50,5,$this->Config->user_limit,array('class'=>'inputbox','size'=>'1'));?>
+                    </td>
+                    <td>Used for pagination of <i>user</i> reviews.</td>
+                </tr>                                                
+				<tr>
+					<td>Show detailed ratings box</td>
+					<td><?php echo $Form->radioYesNo( "user_ratings", "", $this->Config->user_ratings );?></td>
+					<td>Shows the individual criteria ratings when enabled, otherwise only the overall rating is displayed.</td>
+				</tr>
+				<tr>
+					<td>Show user review rank link</td>
+					<td><?php echo $Form->radioYesNo( "user_rank_link", "", $this->Config->user_rank_link );?></td>
+					<td>The link will show only in reviews submitted by registered users.</td>
+				</tr>
+				<tr>
+					<td>Show <u>see all reviews</u> link</td>
+					<td><?php echo $Form->radioYesNo( "user_myreviews_link", "", $this->Config->user_myreviews_link );?></td>
+					<td>The link will show only in reviews submitted by registered users.</td>
+				</tr>
+			</table>
+		</div>
+			
+        <!-- STANDARD FIELDS SETTINGS -->            
+            
+		<div id="forms">
+			<table class="admin_list">
+				<tr><th colspan="3">Listing Form</th></tr>
+				<tr>
+					<td width="200" height="40"><?php __a("Allow duplicate listing titles");?></td>
+					<td>
+						<?php
+							echo $Form->select(
+								'content_title_duplicates',
+								array(
+									'no'=>'No, don\'t allow duplicates',						
+									'yes'=>'Yes, allow duplicates',
+									'category'=>'Yes, but only in different categories'
+									),
+								$this->Config->content_title_duplicates,	
+								array('size'=>'1','class'=>'inputbox')
+							);					
+						?>			
+					</td>
+					<td></td>
+				</tr>	
+                <tr>
+                    <td><?php __a("Name");?></td>
+                    <td>
+                        <?php echo $Form->select(
+                                'content_name',
+                                array(
+                                    'required'=>'Required',
+                                    'optional'=>'Optional',
+                                    'hidden'=>'Hidden'                        
+                                    ),
+                                $this->Config->content_name,    
+                                array('size'=>'1','class'=>'inputbox')
+                            );?>
+                    </td>
+                    <td>By default not shown to registered users.</td>
+                </tr>                
+                <tr>
+                    <td><?php __a("E-mail");?></td>
+                    <td>
+                        <?php echo $Form->select(
+                                'content_email',
+                                array(
+                                    'required'=>'Required',
+                                    'optional'=>'Optional',
+                                    'hidden'=>'Hidden'                        
+                                    ),
+                                $this->Config->content_email,    
+                                array('size'=>'1','class'=>'inputbox')
+                            );?>                    
+                    </td>
+                    <td>By default not shown to registered users.</td>
+                </tr>                			
+				<tr>
+					<td width="200" height="40"><?php __a("Summary");?></td>
+					<td>
+						<?php
+							echo $Form->select(
+								'content_summary',
+								array(
+                                    'required'=>'Required',
+                                    'optional'=>'Optional',
+									'hidden'=>'Hidden'						
+								),
+								$this->Config->content_summary,
+								array('size'=>'1','class'=>'inputbox')
+							);					
+						?>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td width="200" height="40"><?php __a("Description");?></td>
+					<td>
+						<?php echo $Form->select(
+								'content_description',
+								array(
+                                    'required'=>'Required',
+                                    'optional'=>'Optional',
+                                    'hidden'=>'Hidden'                                              
+									),
+								$this->Config->content_description,	
+								array('size'=>'1','class'=>'inputbox')
+							);?>			
+					</td>
+					<td></td>
+				</tr>
+                <tr><th colspan="3"><?php __a("Review Form when submitting a new Listing");?></th></tr>
+				<tr>
+					<td width="200" height="40"><?php echo __a("Review form shown to");?></td>
+					<td>
+						<?php
+							echo $Form->select(
+								'content_show_reviewform',
+								array(
+									'authors'=>'Editors',						
+									'noteditors'=>'Everyone except editors',						
+									'all'=>'Everyone',
+									'none'=>'Don\'t show'
+									),
+								$this->Config->content_show_reviewform,	
+								array('size'=>'1','class'=>'inputbox')
+							);					
+						?>			
+					</td>
+					<td>The review form is shown at the bottom of the new listing submission form.</td>
+				</tr>
+                <tr>
+                    <td><?php __a("Make review optional");?></td>
+                    <td><?php echo $Form->radioYesNo( "reviewform_optional", "", $this->Config->reviewform_optional);?></td>
+                    <td>Shows a checkbox allowing users to hide the review form</td>
+                </tr>                
+				<tr><th colspan="3">Review Form</th></tr>
+				<tr>
+					<td width="200"><?php __a("Title");?></td>
+					<td>
+                        <?php echo $Form->select(
+                                'reviewform_title',
+                                array(
+                                    'required'=>'Required',
+                                    'optional'=>'Optional',
+                                    'hidden'=>'Hidden'                        
+                                    ),
+                                $this->Config->reviewform_title,    
+                                array('size'=>'1','class'=>'inputbox')
+                            );?>
+                    </td>
+					<td></td>
+				</tr>
+                <tr>
+                    <td><?php __a("Name");?></td>
+                    <td>
+                        <?php echo $Form->select(
+                                'reviewform_name',
+                                array(
+                                    'required'=>'Required',
+                                    'optional'=>'Optional',
+                                    'hidden'=>'Hidden'                        
+                                    ),
+                                $this->Config->reviewform_name,    
+                                array('size'=>'1','class'=>'inputbox')
+                            );?>
+                    </td>
+                    <td>By default not shown to registered users.</td>
+                </tr>                
+				<tr>
+					<td><?php __a("E-mail");?></td>
+					<td>
+                        <?php echo $Form->select(
+                                'reviewform_email',
+                                array(
+                                    'required'=>'Required',
+                                    'optional'=>'Optional',
+                                    'hidden'=>'Hidden'                        
+                                    ),
+                                $this->Config->reviewform_email,    
+                                array('size'=>'1','class'=>'inputbox')
+                            );?>                    
+                    </td>
+					<td>By default not shown to registered users.</td>
+				</tr>
+				<tr>
+					<td><?php __a("Comment");?></td>
+					<td>
+                        <?php echo $Form->select(
+                                'reviewform_comment',
+                                array(
+                                    'required'=>'Required',
+                                    'optional'=>'Optional',
+                                    'hidden'=>'Hidden'                        
+                                    ),
+                                $this->Config->reviewform_comment,    
+                                array('size'=>'1','class'=>'inputbox')
+                            );?>
+                    </td>
+					<td></td>
+				</tr>
+                <tr><th colspan="3">Discussion Form</th></tr>
+                <tr>
+                    <td><?php __a("Name");?></td>
+                    <td>
+                        <?php echo $Form->select(
+                                'discussform_name',
+                                array(
+                                    'required'=>'Required',
+                                    'optional'=>'Optional',
+                                    'hidden'=>'Hidden'                        
+                                    ),
+                                $this->Config->discussform_name,    
+                                array('size'=>'1','class'=>'inputbox')
+                            );?>
+                    </td>
+                    <td>By default not shown to registered users.</td>
+                </tr>                
+                <tr>
+                    <td><?php __a("E-mail");?></td>
+                    <td>
+                        <?php echo $Form->select(
+                                'discussform_email',
+                                array(
+                                    'required'=>'Required',
+                                    'optional'=>'Optional',
+                                    'hidden'=>'Hidden'                        
+                                    ),
+                                $this->Config->discussform_email,    
+                                array('size'=>'1','class'=>'inputbox')
+                            );?>                    
+                    </td>
+                    <td>By default not shown to registered users.</td>
+                </tr>                
+			</table>
+		</div>
+	
+        <!-- SEARCH SETTINGS -->                
+		<div id="search">
+			<table class="admin_list">
+				<tr><th colspan="3">General</th></tr>
+				<tr>
+					<td width="250">Use current page Itemid for search results</td>
+					<td><?php echo $Form->radioYesNo( "search_itemid", "", $this->Config->search_itemid);?></td>
+					<td>Works only for JReviews pages, not detail pages which are com_content. In that case the JReviews search menu id will be used or one you specify below.</td>
+				</tr>
+				<tr>
+					<td width="250">Specify a menu id for search results.</td>
+					<td>
+						<input id="search_itemid_hc" name="search_itemid_hc" type="text" size="5" value="<?php echo $this->Config->search_itemid_hc?>" />
+					</td>
+					<td>Used in detail pages; and other JReviews pages if the setting above is disabled.</td>
+				</tr>
+                <tr>
+                    <td width="250">If one result found, redirect to detail page</td>
+                    <td><?php echo $Form->radioYesNo( "search_one_result", "", $this->Config->search_one_result);?></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td width="250">Allow all listings to be returned with empty search queries</td>
+                    <td><?php echo $Form->radioYesNo( "search_return_all", "", $this->Config->search_return_all);?></td>
+                    <td></td>
+                </tr>
+<!--                <tr>
+                    <td width="250">Show archived (expired) articles in search results</td>
+                    <td><?php echo $Form->radioYesNo( "search_archived", "", $this->Config->search_archived);?></td>
+                    <td></td>
+                </tr> -->
+				<tr><th colspan="3">Search Results Global Theme Layout</th></tr>
+				<tr>
+					<td>Display Type</td>
+					<td colspan="2">
+						<?php
+							echo $Form->select(
+								'search_display_type',
+								array(
+									'0'=>'Tableview',						
+									'1'=>'Blogview',
+									'2'=>'Thumbview',
+									),
+								$this->Config->search_display_type,
+								array('size'=>'1','class'=>'inputbox')
+							);					
+						?>			
+				</td>
+				</tr>
+				<tr><td>View Suffix</td>
+					<td><input name="search_tmpl_suffix" type="text" size="10" maxsize="20" value="<?php echo $this->Config->search_tmpl_suffix;?>" /></td>
+					<td></td>
+				</tr>
+				<tr><th colspan="3">Simple search</th></tr>
+				<tr>
+					<td width="250">Show search box in listings and directory</td>
+					<td><?php echo $Form->radioYesNo( "list_show_searchbox", "", $this->Config->list_show_searchbox);?></td>
+					<td></td>
+                </tr>                                         
+                <tr>
+                    <td width="250">Use current page section/category id as filters for simple search</td>
+                    <td><?php echo $Form->radioYesNo( "search_cat_filter", "", $this->Config->search_cat_filter);?></td>
+                    <td>Users can drill-down on a particular category and then use the simple search to find results in that category.</td>
+				</tr>
+				<tr><th colspan="3">Advanced search</th></tr>
+				<tr>
+					<td width="250">Allow searching by author?</td>
+					<td width="250"><?php echo $Form->radioYesNo( "search_item_author", "", $this->Config->search_item_author);?></td>
+					<td>Displays the author input field to allow searching for listings written by a specific user.</td>
+				</tr>
+				<tr valign="top">
+					<td width="250">Allow searches on more than one option for single select and radiobutton fields?</td>
+					<td width="250"><?php echo $Form->radioYesNo( "search_field_conversion", "", $this->Config->search_field_conversion);?></td>
+					<td>This setting allows the user to find records that match several of the options for single select and radiobuttons. For example: if you have a multiple select field with all the states in the US, the user
+					will be able to choose several of the states instead of just one if this setting is disabled.
+                    <div class="ui-widget">
+                        <div style="padding: 0pt 0.7em;" class="ui-state-highlight ui-corner-all"> 
+                            <p><span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span> 
+                            This feature will not work if you use control fields in your setup.
+                            </p>
+                        </div>
+                    </div>                    
+                    </td>
+				</tr>
+			</table>
+		</div>
+	
+        <!-- IMAGES SETTINGS -->            
+    
+		<div id="images">
+			<table class="admin_list">
+				<tr><th colspan="3">Image upload settings</th></tr>
+				<tr>
+					<td width="250">Number of image upload fields to show on form:</td>
+					<td><input id="content_images" name="content_images" type="text" size="4" value="<?php echo $this->Config->content_images?>" /></td>
+					<td>Make sure upload directory exists and is writeable: <b>/<?php echo _JR_PATH_IMAGES;?>jreviews\</b></td>
+				</tr>
+				<tr>
+					<td>Maximum allowable image size in Kbytes:</td>
+					<td><input type="text" size="4" maxsize="4" name="content_max_imgsize" value="<?php echo $this->Config->content_max_imgsize;?>" /></td>
+					<td></td>					
+				</tr>
+				<tr>
+					<td>Resize width in pixels:</td>
+					<td><input type="text" size="4" maxsize="4" name="content_max_imgwidth" value="<?php echo $this->Config->content_max_imgwidth;?>" /></td>
+					<td>If higher than zero the uploaded images will be resized to this maximum width.</td>
+				</tr>
+				<tr>
+					<td width="250">Show image fields on edit:</td>
+					<td width="250"><?php echo $Form->radioYesNo( "content_images_edit", "", $this->Config->content_images_edit);?></td>
+					<td>If enabled, new images can be uploaded while editing an entry.</td>
+				</tr>
+				<tr>
+					<td>Enforce image upload limit:</td>
+					<td><?php echo $Form->radioYesNo( "content_images_total_limit", "", $this->Config->content_images_total_limit);?></td>
+					<td>If enabled, the total number of images for each entry will be limited to the number of upload fields. If disabled, every time the entry is edited new images can be added beyond the number of upload fields.</td>
+				</tr>
+		
+				<tr><th colspan="3">Display settings for list views</th></tr>
+				<tr>
+					<td>Show image</td>
+					<td><?php echo $Form->radioYesNo( "list_show_image", "", $this->Config->list_show_image);?></td>
+					<td>Make sure upload directory exists and is writeable: <b>/<?php echo _JR_PATH_IMAGES;?>jreviews\tn\</b></td>
+				</tr>
+
+                <tr>
+                    <td width="250">Thumbnail mode</td>
+                    <td>
+                        <?php echo $Form->select(
+                                'list_thumb_mode',
+                                array('scale'=>'Scale','crop'=>'Crop'),
+                                $this->Config->list_thumb_mode,
+                                array('size'=>'1','class'=>'inputbox')
+                            );
+                        ?>
+                    </td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+					<td>Thumbnail width (pixels)</td>
+					<td><input class="inputbox" type="text" name= "list_image_resize" value="<?php echo $this->Config->list_image_resize; ?>" size="3" maxlength="3" /></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Use category image</td>
+					<td><?php echo $Form->radioYesNo( "list_category_image", "", $this->Config->list_category_image);?></td>
+					<td>If there isn't a listing image it will use the category image if available.'</td>
+				</tr>
+				<tr>
+					<td>Use "no image" image</td>
+					<td><?php echo $Form->radioYesNo( "list_noimage_image", "", $this->Config->list_noimage_image);?></td>
+                    <td>If listing image or category images are not found a default image will be shown. Place it in the theme's theme_images folder.</td>
+				</tr>
+				<tr>
+					<td>Default image file</td>
+					<td><input type="text" name="list_noimage_filename" value="<?php echo $this->Config->list_noimage_filename; ?>"></td>
+					<td></td>
+				</tr>
+				<tr><th colspan="3">Display settings for detailed view</th></tr>
+				<tr>
+					<td>Show main image:</td>
+					<td><?php echo $Form->radioYesNo( "content_intro_img", "", $this->Config->content_intro_img );?></td>
+					<td>Shows the first image in a bigger size.
+                    <br />Make sure upload directory exists and is writeable: <b>/<?php echo _JR_PATH_IMAGES;?>jreviews\tn\</b>
+                    </td>
+				</tr>
+				<tr>
+					<td>Main image thumbnail width (pixels):</td>
+					<td><input type="text" size="4" maxsize="4" name="content_intro_img_size" value="<?php echo $this->Config->content_intro_img_size;?>" /></td>
+					<td>You can set a different width for the main image thumbnail.</td>
+				</tr>
+				<tr>
+					<td>Show category/default image using above settings from list views</td>
+					<td><?php echo $Form->radioYesNo( "content_default_image", "", $this->Config->content_default_image);?></td>
+					<td>If no image is found then the category or "no image" image will be shown.</td>
+				</tr>
+                <tr>
+                    <td>Show gallery images:</td>
+                    <td><?php echo $Form->radioYesNo( "content_gallery", "", $this->Config->content_gallery);?></td>
+                    <td>Smaller thumbnails are shown if more than one image exists for the listing.</td>
+                </tr>                				
+				<tr>
+					<td>Gallery thumbnails width (pixels):</td>
+					<td><input type="text" size="4" maxsize="4" name="content_thumb_size" value="<?php echo $this->Config->content_thumb_size;?>" /></td>
+					<td>Thumbnails created for listing images are displayed using a lightbox effect.</td>
+				</tr>
+			</table>
+		</div>
+		
+        <!-- NOTIFICATIONS SETTINGS -->            
+        
+		<div id="notifications">
+            <p>To customize the text of the emails you need to edit the email templates in: <br />
+            /components/com_jreviews/jreviews/views/themes/default/email_templates/<br /><br /></p>
+			<table class="admin_list">
+				<tr><th>Administrative e-mails</th><th></th><th>Admin e-mail Addresses (one per line)</th></tr>
+                <tr>
+                    <td width="250" valign="top"><?php __a("New/edited listing");?></td>
+                    <td valign="top"><?php echo $Form->radioYesNo( "notify_content", "", $this->Config->notify_content );?></td>
+                    <td><textarea id="notify_content_emails" name="notify_content_emails" style="height:4em;" rows="2" cols="50"><?php echo ($this->Config->notify_content_emails != '' ? $this->Config->notify_content_emails : cmsFramework::getConfig('mailfrom'))?></textarea></td>
+                </tr>
+                <tr>
+					<td width="250" valign="top"><?php __a("New/edited review");?></td>
+					<td valign="top"><?php echo $Form->radioYesNo( "notify_review", "", $this->Config->notify_review );?></td>
+					<td><textarea id="notify_review_emails" name="notify_review_emails" style="height:4em;" rows="2" cols="50"><?php echo ($this->Config->notify_review_emails != '' ? $this->Config->notify_review_emails : cmsFramework::getConfig('mailfrom'))?></textarea></td>
+				</tr>
+                <tr>
+                    <td width="250" valign="top"><?php __a("New review discussion post");?></td>
+                    <td valign="top"><?php echo $Form->radioYesNo( "notify_review_post", "", $this->Config->notify_review_post );?></td>
+                    <td><textarea id="notify_review_post_emails" name="notify_review_post_emails" style="height:4em;" rows="2" cols="50"><?php echo ($this->Config->notify_review_post_emails != '' ? $this->Config->notify_review_post_emails : cmsFramework::getConfig('mailfrom'))?></textarea></td>
+                </tr>
+                <tr>
+                    <td width="250" valign="top"><?php __a("New owner reply to user review");?></td>
+                    <td valign="top"><?php echo $Form->radioYesNo( "notify_owner_reply", "", $this->Config->notify_owner_reply);?></td>
+                    <td><textarea id="notify_owner_reply_emails" name="notify_owner_reply_emails" style="height:4em;" rows="2" cols="50"><?php echo ($this->Config->notify_owner_reply_emails != '' ? $this->Config->notify_owner_reply_emails : cmsFramework::getConfig('mailfrom'))?></textarea></td>
+                </tr>                
+				<tr>
+					<td valign="top"><?php __a("New abuse report");?></td>
+					<td valign="top"><?php echo $Form->radioYesNo( "notify_report", "", $this->Config->notify_report );?></td>
+					<td><textarea id="notify_report_emails" name="notify_report_emails" style="height:4em;" rows="2" cols="50"><?php echo ($this->Config->notify_report_emails != '' ? $this->Config->notify_report_emails : cmsFramework::getConfig('mailfrom'))?></textarea></td>
+				</tr>
+                <tr>
+                    <td valign="top"><?php __a("New claimed listing");?></td>
+                    <td valign="top"><?php echo $Form->radioYesNo( "notify_claim", "", $this->Config->notify_claim);?></td>
+                    <td><textarea id="notify_claim_emails" name="notify_claim_emails" style="height:4em;" rows="2" cols="50"><?php echo ($this->Config->notify_claim_emails != '' ? $this->Config->notify_claim_emails : cmsFramework::getConfig('mailfrom'))?></textarea></td>
+                </tr>                
+                <tr><th>User e-mails</th><th></th><th>BCC to other e-mail Addresses (one per line)</th></tr>
+                <tr>
+                    <td valign="top"><?php __a("New/edited listing to submitter");?></td>
+                    <td valign="top"><?php echo $Form->radioYesNo( "notify_user_listing", "", $this->Config->notify_user_listing );?></td>
+                    <td><textarea id="notify_user_listing_emails" name="notify_user_listing_emails" style="height:4em;" rows="2" cols="50"><?php echo $this->Config->notify_user_listing_emails;?></textarea></td>
+                </tr>
+                <tr>
+                    <td valign="top"><?php __a("New/edited review to listing owner");?></td>
+                    <td valign="top"><?php echo $Form->radioYesNo( "notify_owner_review", "", $this->Config->notify_owner_review );?></td>
+                    <td><textarea id="notify_owner_review_emails" name="notify_owner_review_emails" style="height:4em;" rows="2" cols="50"><?php echo $this->Config->notify_owner_review_emails;?></textarea></td>
+                </tr>
+                <tr>
+                    <td valign="top"><?php __a("New/edited review to submitter");?></td>
+                    <td valign="top"><?php echo $Form->radioYesNo( "notify_user_review", "", $this->Config->notify_user_review );?></td>
+                    <td><textarea id="notify_user_review_emails" name="notify_user_review_emails" style="height:4em;" rows="2" cols="50"><?php echo $this->Config->notify_user_review_emails;?></textarea></td>
+                </tr>
+			</table>
+		</div>
+	
+        <!-- RSS SETTINGS -->            
+    
+		<div id="rss">
+			<?php
+			$javascript = "onchange=\"javascript:if (document.adminForm.rss_image.options[selectedIndex].value!='') {document.getElementById('imagelib').src='../images/stories/' + document.adminForm.rss_image.options[selectedIndex].value} else {document.getElementById('imagelib').src='../images/blank.png'}\"";
+			?>			
+			<table class="admin_list">
+				<tr><th colspan="3">RSS Feeds Settings</th></tr>
+				<tr style="vertical-align:top;">
+					<td width="250">Enable RSS Feeds</td>
+					<td><?php echo $Form->radioYesNo('rss_enable','',$this->Config->rss_enable)?></td>
+				</tr>
+				<tr><th colspan="3">Channel Settings</th></tr>
+				<tr style="vertical-align:top;">
+					<td width="250">Number of listings in feed:</td>
+					<td><input id="rss_limit" name="rss_limit" type="text" value="<?php echo $this->Config->rss_limit?>" size="5" /></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td width="250">Feed title</td>
+					<td><input id="rss_title" name="rss_title" type="text" value="<?php echo $this->Config->rss_title?>" size="100" maxsize="255" /></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td width="250">Feed description</td>
+					<td><textarea id="rss_description" name="rss_description" rows="5" cols="100"><?php echo $this->Config->rss_description?></textarea></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td style="height:100px;" width="250">Feed image:</td>
+					<td><?php echo cmsFramework::listImages( 'rss_image', $this->Config->rss_image, $javascript )?>&nbsp;In /images/stories/<br />
+					<img style="height:100px;float:right;" id="imagelib" src="../images/stories/<?php echo $this->Config->rss_image?>" />
+					</td>
+				</tr>
+		
+				<tr><th colspan="3">Listing Settings</th></tr>
+				<tr style="vertical-align:top;">
+					<td width="250">Show Listing Images?:</td>
+					<td><?php echo $Form->radioYesNo('rss_item_images','',$this->Config->rss_item_images)?></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td width="250">Listing image alignment:</td>
+					<td><?php echo cmsFramework::listPositions( 'rss_item_image_align',$this->Config->rss_item_image_align)?></td>
+				</tr>
+			</table>	
+		</div>
+		
+        <!-- CACHE SETTINGS -->            
+        
+		<div id="cache">
+			<table class="admin_list">
+                <tr><th colspan="3">File Registry</th></tr>
+                <tr style="vertical-align:top;">
+                    <td colspan="3">Provides a significant boost in performance by mapping the whole framework and jReviews filesystem and caching it. You should clear the file registry often using the link on the left column if you are creating custom theme files with suffixes or adding new files to the jreviews_overrides folder. Otherwise JReviews is not able to find the new files.</td>
+                </tr>
+				<tr><th colspan="3">Cache Settings</th></tr>
+				<tr style="vertical-align:top;">
+					<td width="250">Cache duration (seconds)</td>
+					<td><input id="cache_expires" name="cache_expires" type="text" value="<?php echo $this->Config->cache_expires;?>" size="10" maxsize="10" /></td>
+					<td>Cached files will be re-created if they have expired.</td>
+				</tr>
+                <tr style="vertical-align:top;">
+                    <td width="250">Cache cleanup (seconds)</td>
+                    <td><input id="cache_cleanup" name="cache_cleanup" type="text" value="<?php echo $this->Config->cache_cleanup;?>" size="10" maxsize="10" /></td>
+                    <td>Cached files will be deleted.</td>
+                </tr>
+				<tr style="vertical-align:top;">
+					<td width="250">Enable Query Cache</td>
+					<td><?php echo $Form->radioYesNo('cache_query','',$this->Config->cache_query)?></td>
+					<td>Reduces the number of queries per page. The cache is cleared after the cache duration has passed or everytime the jReviews setup, configuration, a listing or review is submitted or updated.</td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td width="250">Enable View Cache (Guests Only)</td>
+					<td><?php echo $Form->radioYesNo('cache_view','',$this->Config->cache_view)?></td>
+					<td>Caches whole views for guest users only. The cache is cleared after the cache duration has passed or everytime the jReviews setup, configuration, a listing or review is submitted or updated.</td>
+				</tr>
+                <tr style="vertical-align:top;">
+                    <td width="250">Enable Session Cache</td>
+                    <td><?php echo $Form->radioYesNo('cache_session','',$this->Config->cache_session)?></td>
+                    <td>Caches data to the user's session to reduce the number of queries. For example the total count of results for different paginated pages is cached and then read from the user's session data.</td>
+                </tr>
+			</table>
+			<br />
+						
+		</div>
+				
+	</div> <!-- end jtabs-->	
+    <input type="hidden" name="data[controller]" value="admin/configuration" />
+    <input type="hidden" name="data[action]" value="_save" />
+</form>
+
+<script type="text/javascript">jQuery(".jr_tabs").tabs();</script>

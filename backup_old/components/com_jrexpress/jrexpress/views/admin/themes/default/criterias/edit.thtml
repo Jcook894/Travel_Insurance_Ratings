@@ -1,0 +1,55 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+
+<form name="adminForm" id="adminForm" class="adminForm">
+
+	<div class="admin_toolbar">
+		<input type="button" class="button" value="submit" onclick="xajax.request({xjxfun:'xajaxDispatch'},{URI:'<?php displayXajaxUri('jrexpress');?>',parameters:['admin/criterias','_save','jrexpress',xajax.getFormValues('adminForm')]});" />
+		&nbsp;<input type="button" class="button" value="cancel" onclick="xajax.request({xjxfun:'xajaxDispatch'},{URI:'<?php displayXajaxUri('jrexpress');?>',parameters:['admin/criterias','index','jrexpress']});" />
+	</div>
+	
+	<table class="admin_list">
+		<tr>
+			<td colspan="2"><?php echo ($criteria['criteria_id'] ?
+				"<span style='color:red;font-weight:bold;'>You can change the descriptions,
+				but NEVER change the number of criteria if you already have reviews in the system!</span>" :
+				"<span style='color:red;font-weight:bold;'>Think carefully before entering the criteria,
+				because once you have the first review, you should not add or remove criteria or
+				you will get unexpected behaviour in rating calculations and elsewhere.</span>");?>
+			</td>
+		</tr>
+		<tr>
+			<td><b>Criteria Set Name (required)</b>:<br />
+				<input type="text" size="50" maxsize="50" name="data[Criteria][title]" value="<?php echo $criteria['title']; ?>" />
+			</td>
+			<td valign="top">You will assign this name to the categories in the Categories Manager.</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<strong>Criteria (at least one required)</strong> ONE PER LINE
+				 <br />
+				 <textarea cols="40" rows="4" name="data[Criteria][criteria]"><?php echo $criteria['criteria']; ?></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2"><strong>Tooltips (optional)</strong>
+				ONE PER LINE. These are hints for users to have a better idea how to rate in the review form.	
+				<div id="tooltips" style="marting-top:5px;">
+					<textarea style="width:100%; height: 70px;" name="data[Criteria][tooltips]"><?php echo $criteria['tooltips']; ?></textarea>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<input type="hidden" name="data[Criteria][id]" value="<?php echo $criteria['criteria_id']; ?>" />
+</form>

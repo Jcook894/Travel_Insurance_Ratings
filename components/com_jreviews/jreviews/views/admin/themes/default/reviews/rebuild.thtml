@@ -1,0 +1,37 @@
+<?php defined( 'MVC_FRAMEWORK') or die;?>
+
+<div class="jr-rebuild-ratings" style="font-size:13px;">
+
+    <div class="jrPageHeading"><?php __a("Rebuild Ratings & Reviews");?></div>
+
+    <div style="margin: 25px 0;">
+
+        <p><?php __a("Typically you wouldn't need to rebuild ratings and reviews. Use this if you believe the avarage rating and review count totals are out of sync.");?></p>
+
+    </div>
+
+    <div class="jrGrid">
+
+        <div class="jrCol12">
+
+            <button class="jrButton jrBlue jr-start jrLarge" >Start</button>
+
+        </div>
+
+    </div>
+
+    <div class="jrInfo jrHidden jr-rebuild-step1" style="margin-top:15px;"><span class="jrStatusLabel">1</span> <?php __a("Removing orphaned criteria rating records and resetting rating and review totals for listings without reviews.");?></div>
+
+    <div class="jrInfo jrHidden jr-rebuild-step2" style="margin-top:15px;"><span class="jrStatusLabel">2</span> <?php __a("Recalculating individual review rating averages.");?></div>
+
+    <div class="jrInfo jrHidden jr-rebuild-step3" style="margin-top:15px;"><span class="jrStatusLabel">3</span> <?php __a("Recalculating listing rating averages for each criteria.");?></div>
+
+    <div class="jrInfo jrHidden jr-rebuild-step4" style="margin-top:15px;"><span class="jrStatusLabel">4</span> <?php __a("Recalculating listing rating and review averages and total counts.");?></div>
+
+    <div class="jrInfo jrHidden jr-rebuild-step5" style="margin-top:15px;"><span class="jrStatusLabel">5</span> <?php __a("Recalculating bayesian averages for each listing criteria and listing totals.");?></div>
+
+    <div class="jrError jrHidden jr-rebuild-error" style="margin-top:15px; font-size:12px; font-weight:bold"><?php __a("There was a problem rebuilding ratings & reviews");?></div>
+
+    <div class="jrSuccess jrHidden jr-rebuild-complete" style="margin-top:15px; font-size:12px;"><strong><?php __a("Rebuilding complete");?></strong></div>
+
+</div>

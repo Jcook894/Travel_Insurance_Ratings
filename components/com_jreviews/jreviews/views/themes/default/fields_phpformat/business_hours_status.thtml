@@ -1,0 +1,38 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2017 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php foreach ($daysArray AS $dayNumeric => $dayName):?>
+
+	<?php if ($status = $OpeningHours->showDayStatus($dayNumeric)):?>
+
+		<div class="jrBusinessHours">
+
+			<span class="jrHourPeriod">
+
+				<?php if (!isset($days[$dayNumeric])): echo $closedLabel; else:?>
+
+					<?php echo implode(', ', $days[$dayNumeric]);?>
+
+				<?php endif;?>
+
+			</span>
+
+			<span class="jrBusinessHoursStatus jrBusiness-<?php echo $status;?>">
+
+				<?php if ($status == 'open'): echo $openNowLabel; else: echo $closedNowLabel; endif;?>
+
+			</span>
+
+		</div>
+
+	<?php endif;?>
+
+<?php endforeach;?>

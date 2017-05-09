@@ -1,0 +1,95 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$groups = array();
+
+$showFieldsInView = 0;
+
+$fields = Sanitize::getVar($entry['Field'],'pairs');
+
+// Pre-processor to hide groups with no visible fields
+if(!empty($fields))
+{
+    foreach($entry['Field']['pairs'] AS $field) {
+
+        $showFieldsInView++;
+
+        $showGroup[$field['group_id']] = 1;
+    }
+}
+
+if($showFieldsInView)
+{
+    $groups = $entry['Field']['groups'];
+}
+?>
+
+<?php
+/**********************************************************************************
+ *                                 EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+?>
+
+<?php if(empty($groups)) return;?>
+
+<div class="jrCustomFields">
+
+    <?php foreach($groups AS $group_title=>$group):?>
+
+        <?php if(isset($showGroup[$group['Group']['group_id']]) || isset($group_name)):?>
+
+        <div class="jrFieldGroup <?php echo $group['Group']['name'];?>">
+
+            <?php if($group['Group']['show_title']):?>
+
+                <h3 class="jrFieldGroupTitle"><?php echo $group['Group']['title']?></h3>
+
+            <?php endif;?>
+
+            <?php foreach($group['Fields'] AS $field):?>
+
+                <div class="jrFieldRow <?php echo lcfirst(Inflector::camelize($field['name']));?>">
+
+                    <?php if($field['properties']['show_title']):?>
+
+                        <div class="jrFieldLabel<?php echo ($field['properties']['show_title'] ? '' : 'Disabled');?>"><?php echo $field['title']?></div>
+
+                    <?php endif;?>
+
+                    <?php $fieldText = $CustomFields->display($field['name'], $entry, false, true);?>
+
+                    <?php if(count($fieldText) == 1):?>
+
+                    <?php
+                            if(in_array($field['type'],array('code','banner'))) {
+
+                                $fieldText[0] = htmlentities($fieldText[0],ENT_QUOTES,'utf-8');
+                            }
+
+                            echo $fieldText[0];
+                    ?>
+
+                    <?php else: ?>
+
+                            <ul class="jrFieldValueList"><li><?php echo implode('</li><li>', $fieldText);?></li></ul>
+
+                    <?php endif;?>
+
+                </div>
+
+            <?php endforeach;?>
+
+        </div>
+
+        <?php endif;?>
+
+    <?php endforeach;?>
+
+</div>

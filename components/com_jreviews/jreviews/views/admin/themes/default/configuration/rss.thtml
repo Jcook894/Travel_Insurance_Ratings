@@ -1,0 +1,72 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php $feedsTab = array(
+	/*** NEW HEADER ***/
+	__a("RSS Feeds Settings",true) => array(
+		 array(
+			'label'=>__a("Display feed icons",true),
+			'type'=>'radioYesNo',
+			'name'=>'rss_enable'
+		)
+	),
+	__a("Channel Settings",true) => array(
+		 array(
+			'label'=>__a("Listings in feed",true),
+			'type'=>'text',
+			'name'=>'rss_limit',
+			'attributes'=>array('style'=>'width:4em')
+		),
+		 array(
+			'label'=>__a("Feed title",true),
+			'type'=>'text',
+			'name'=>'rss_title',
+			'attributes'=>array('style'=>'width:98%;')
+		),
+		 array(
+			'label'=>__a("Feed description",true),
+			'type'=>'textarea',
+			'name'=>'rss_description',
+			'attributes'=>array('style'=>'width:98%;')
+		),
+		 array(
+			'label'=>__a("Feed image",true),
+			'type'=>'placeholder',
+			'text'=>cmsFramework::listImages( 'rss_image', $this->Config->rss_image, ' ')
+					.'<img id="jr-feed-img" style="height:100px;float:right;" src="../images/'.$this->Config->rss_image.'" />',
+			'disable'=>_CMS_NAME == 'wordpress'
+		),
+		 array(
+			'label'=>__a("Feed image",true),
+			'type'=>'text',
+			'name'=>'rss_image',
+			'disable'=>_CMS_NAME == 'joomla',
+			'attributes'=>array('style'=>'width:98%;'),
+			'help'=>__a("Path from root. For example: /wp-content/uploads/feed.jpg",true)
+		),
+	),
+	__a("Listing Settings",true) => array(
+		 array(
+			'label'=>__a("Show listing thumbnail",true),
+			'type'=>'radioYesNo',
+			'name'=>'rss_item_images'
+		),
+		 array(
+			'label'=>__a("Thumbnail alignment",true),
+			'type'=>'select',
+			'options'=>array(''=>__a("None",true),'center'=>__a("Center",true),'left'=>__a("Left",true),'right'=>__a("Right",true)),
+			'name'=>'rss_item_image_align'
+		)
+	)
+);?>
+
+<?php $AdminSettings->columns = array(5,8,11); $AdminSettings->displayTab('rss',$feedsTab);?>

@@ -1,0 +1,100 @@
+[
+    {
+        "menu": "ListingTypes",
+        "override": true,
+        "url": "listing_types/index",
+        "settings": [
+            {
+                "title": "Edit Listing",
+                "keywords": "override language string edit listing",
+                "description": "Override 'Edit Listing' string",
+                "name": "lang_listing_edit",
+                "tags": ["Language", "Listings"]
+            },
+            {
+                "title": "Add New Listing",
+                "keywords": "override language string add new listing, submit",
+                "description": "Override 'Add New Listing' string",
+                "name": "lang_listing_create",
+                "tags": ["Language", "Listings"]
+            },
+            {
+                "title": "Send Inquiry",
+                "keywords": "override language string send inquiry",
+                "description": "Override 'Send Inquiry' string",
+                "name": "lang_listing_send_inquiry",
+                "tags": ["Language", "Listings","Inquiry"]
+            },
+            {
+                "title": "Listing Title",
+                "keywords": "override language string listing title",
+                "description": "Override 'Listing Title' string",
+                "name": "lang_listing_form_title",
+                "tags": ["Language", "Listings"]
+            },
+            {
+                "title": "Listing Alias",
+                "keywords": "override language string listing title alias",
+                "description": "Override 'Listing Alias' string",
+                "name": "lang_listing_form_title_alias",
+                "tags": ["Language", "Listings"]
+            },
+            {
+                "title": "Listing Summary",
+                "keywords": "override language string listing summary",
+                "description": "Override 'Listing Summary' string",
+                "name": "lang_listing_form_summary",
+                "tags": ["Language", "Listings"]
+            },
+            {
+                "title": "Listing Description",
+                "keywords": "override language string listing description",
+                "description": "Override 'Listing Description' string",
+                "name": "lang_listing_form_description",
+                "tags": ["Language", "Listings"]
+            },
+            {
+                "title": "Upload media after listing",
+                "keywords": "override language upload media after listing",
+                "description": "Override 'You will be able to upload media right after you submit your listing' string",
+                "name": "lang_listing_form_upload_media_info",
+                "tags": ["Language", "Listings"]
+            },
+            {
+                "title": "Upload listing media header",
+                "keywords": "override language upload listing media header",
+                "description": "Override 'Add Media : %s' string",
+                "name": "lang_listing_media_upload_header",
+                "tags": ["Language", "Media", "Listings"]
+            },
+            {
+                "title": "Upload review media header",
+                "keywords": "override language upload review media header",
+                "description": "Override 'Add Media : %s' string",
+                "name": "lang_review_media_upload_header",
+                "tags": ["Language", "Media", "Reviews"]
+            },
+            {
+                "title": "Gallery",
+                "keywords": "override language media gallery photos",
+                "description": "Override 'Gallery' string",
+                "name": "lang_media_photo_function_gallery",
+                "tags": ["Language", "Media"]
+            },
+            {
+                "title": "Logo",
+                "keywords": "override language media logo",
+                "description": "Override 'Logo' string",
+                "name": "lang_media_photo_function_logo",
+                "tags": ["Language", "Media"]
+            },
+            {
+                "title": "Cover",
+                "keywords": "override language media cover ",
+                "description": "Override 'Cover' string",
+                "name": "lang_media_photo_function_cover",
+                "tags": ["Language", "Media"]
+            }
+        ]
+    }
+]

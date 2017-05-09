@@ -1,0 +1,114 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+$reviewTypeParam = Sanitize::getString($this->params,'reviewtype'); // Used in view all listing reviews for user and editor reviews.
+$reviewType = $reviewTypeParam ? $reviewTypeParam : (isset($reviewType) ? $reviewType : '');
+?>
+
+
+<?php if(!$this->ajaxRequest): // If it's not an ajax request?>
+
+
+	<?php
+	/**********************************************************************************
+	 * 								PAGINATION HELPER
+	 **********************************************************************************/	
+	if(in_array($this->action,array('myreviews','latest','detail')))
+	{
+		$Paginator->paginate(
+			array(
+				'current_page'=>$this->page,
+				'items_per_page'=>$this->limit,
+				'items_total'=>$pagination['total']
+			)
+		);
+		// Add page meta tags - must go after Paginator helper
+		echo $this->element('page_meta');
+	}
+	?>
+
+<?php endif;?>	
+
+<?php 
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+//prx($reviews);
+?>	
+
+<?php if(!$this->ajaxRequest): // If it's not an ajax request?>
+	
+	<?php if(in_array($this->action,array('myreviews','latest','detail'))):?>
+	<!-- BEGIN REVIEWS -->
+	<div id="jr_itemReviews" class="jr_pgContainer jr_itemDetail">
+	
+		<?php if(isset($page['title'])):?>
+		<h1 class="contentheading"><?php echo strip_tags($page['title']);?></h1>
+		<?php endif;?>
+	
+		<!-- PAGINATION BEGINS HERE -->
+		<table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+		 <tr>
+			<td class="jr_pagenav_results"><?php echo sprintf(__t("%1\$s results - showing %2\$s - %3\$s",true), $pagination['total'], ($this->page-1)*$this->limit+1, min($pagination['total'],$this->page*$this->limit));?></td>
+		    <?php if($pagination['total'] > $this->limit):?>
+		    <td class="jr_pagenav_pages"><?php echo $Paginator->display_pages();?></td>
+			<?php else:?>
+			<td class="jr_pagenav_pages"></td>
+			<?php endif;?>
+			<td class="jr_pagenav_limitbox">
+				<?php if($this->action == 'myreviews'):?><?php echo $Paginator->display_items_per_page();?>
+				<?php else:?>	
+					<div class="jr_listOptions">
+					<?php __t("Ordering");?>&nbsp;<?php echo $Jreviews->orderingListReviews(Sanitize::getString($this->params,'order'));?>
+					</div>
+				<?php endif;?>
+			</td>			
+		 </tr>
+		</table>
+		<!-- PAGINATION ENDS HERE --> 
+	<?php endif;?>
+		
+	<div class="clr">&nbsp;</div>
+
+<?php endif;?>
+
+<?php foreach($reviews AS $review):?>
+	
+	<?php if(in_array($this->action,array('myreviews','latest'))): // Add listing info ?>
+	<!-- BEGIN LISTING DETAIL -->
+	<div class="contentTitle"><?php echo $Html->sefLink($review['Listing']['title'],$review['Listing']['url']);?> <?php echo Sanitize::getString($review['Listing'],'tag') ? '(' .Sanitize::getString($review['Listing'],'tag') . ')' : '';?></div>								
+	<div class="jr_pathway"><?php echo $review['Category']['title'];?></div>
+	<div class="clr">&nbsp;</div>
+	<!-- END LISTING DETAIL -->
+	<?php endif;?>
+
+	<!-- REVIEW LAYOUT -->
+	<?php echo $this->renderControllerView('reviews','review_layout',array('listing'=>isset($listing) ? $listing : $review,'review'=>$review,'reviewType'=>$reviewType));?>
+
+<?php endforeach;?>
+
+<?php if(!$this->ajaxRequest):?>
+
+	<?php if(in_array($this->action,array('myreviews','latest','detail'))):?>
+		<!-- PAGINATION BEGINS HERE -->
+		<table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+		 <tr>
+			<td class="jr_pagenav_results"><?php echo sprintf(__t("%1\$s results - showing %2\$s - %3\$s",true), $pagination['total'], ($this->page-1)*$this->limit+1, min($pagination['total'],$this->page*$this->limit));?></td>
+		    <?php if($pagination['total'] > $this->limit):?>
+		    <td class="jr_pagenav_pages"><?php echo $Paginator->display_pages();?></td>
+		    <td class="jr_pagenav_limitbox"><?php echo $Paginator->display_items_per_page();?></td>
+			<?php endif;?>
+		 </tr>
+		</table>
+		<!-- PAGINATION ENDS HERE -->
+	</div> 
+	<!-- END REVIEWS -->
+	<?php endif;?>
+	
+<?php endif;?>

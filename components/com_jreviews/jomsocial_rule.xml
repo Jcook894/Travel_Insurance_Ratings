@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jomsocial>
+     <component>com_jreviews</component>
+     <rules>
+          <rule>
+              <name>Submit JReviews Listing</name>
+              <description>Give points when registered user adds a listing.</description>
+              <action_string>jreviews.listing.add</action_string>
+              <publish>true</publish>
+              <points>5</points>
+              <access_level>1</access_level>
+          </rule>
+          <rule>
+              <name>Delete JReviews Listing</name>
+              <description>Deduct points when a listing is deleted.</description>
+              <action_string>jreviews.listing.delete</action_string>
+              <publish>true</publish>
+              <points>-5</points>
+              <access_level>1</access_level>
+          </rule>
+          <rule>
+              <name>Submit JReviews Review</name>
+              <description>Give points when registered user adds a review.</description>
+              <action_string>jreviews.review.add</action_string>
+              <publish>true</publish>
+              <points>5</points>
+              <access_level>1</access_level>
+          </rule>
+          <rule>
+              <name>Delete JReviews Review</name>
+              <description>Deduct points when a review is deleted.</description>
+              <action_string>jreviews.review.delete</action_string>
+              <publish>true</publish>
+              <points>-5</points>
+              <access_level>1</access_level>
+          </rule>
+          <rule>
+              <name>Submit JReviews Review Comment</name>
+              <description>Give points when registered user adds a comment.</description>
+              <action_string>jreviews.discussion.add</action_string>
+              <publish>true</publish>
+              <points>1</points>
+              <access_level>1</access_level>
+          </rule>
+          <rule>
+              <name>Delete JReviews Review Comment</name>
+              <description>Deduct points when a comment is deleted.</description>
+              <action_string>jreviews.discussion.delete</action_string>
+              <publish>true</publish>
+              <points>-1</points>
+              <access_level>1</access_level>
+          </rule>
+          <rule>
+              <name>Upload JReviews media</name>
+              <description>Give points when registered user uploads media.</description>
+              <action_string>jreviews.media.add</action_string>
+              <publish>true</publish>
+              <points>1</points>
+              <access_level>1</access_level>
+          </rule>
+          <rule>
+              <name>Upload JReviews photo</name>
+              <description>Give points when registered user uploads a photo.</description>
+              <action_string>jreviews.media.photo.add</action_string>
+              <publish>false</publish>
+              <points>1</points>
+              <access_level>1</access_level>
+          </rule>
+          <rule>
+              <name>Upload JReviews video</name>
+              <description>Give points when registered user uploads a video.</description>
+              <action_string>jreviews.media.video.add</action_string>
+              <publish>false</publish>
+              <points>1</points>
+              <access_level>1</access_level>
+          </rule>
+          <rule>
+              <name>Upload JReviews attachment</name>
+              <description>Give points when registered user uploads an attachment.</description>
+              <action_string>jreviews.media.attachment.add</action_string>
+              <publish>false</publish>
+              <points>1</points>
+              <access_level>1</access_level>
+          </rule>
+          <rule>
+              <name>Upload JReviews audio</name>
+              <description>Give points when registered user uploads an audio file.</description>
+              <action_string>jreviews.media.audio.add</action_string>
+              <publish>false</publish>
+              <points>1</points>
+              <access_level>1</access_level>
+          </rule>
+          <rule>
+              <name>Delete JReviews media</name>
+              <description>Deduct points when registered user deletes media.</description>
+              <action_string>jreviews.media.delete</action_string>
+              <publish>true</publish>
+              <points>-1</points>
+              <access_level>1</access_level>
+          </rule>
+          <rule>
+              <name>Delete JReviews photo</name>
+              <description>Deduct points when registered user deletes a photo.</description>
+              <action_string>jreviews.media.photo.delete</action_string>
+              <publish>false</publish>
+              <points>-1</points>
+              <access_level>1</access_level>
+          </rule>
+          <rule>
+              <name>Delete JReviews video</name>
+              <description>Deduct points when registered user deletes a video.</description>
+              <action_string>jreviews.media.video.delete</action_string>
+              <publish>false</publish>
+              <points>-1</points>
+              <access_level>1</access_level>
+          </rule>
+          <rule>
+              <name>Delete JReviews attachment</name>
+              <description>Deduct points when registered user deletes an attachment.</description>
+              <action_string>jreviews.media.attachment.delete</action_string>
+              <publish>false</publish>
+              <points>-1</points>
+              <access_level>1</access_level>
+          </rule>
+          <rule>
+              <name>Delete JReviews audio</name>
+              <description>Deduct points when registered user deletes an audio file.</description>
+              <action_string>jreviews.media.audio.delete</action_string>
+              <publish>false</publish>
+              <points>-1</points>
+              <access_level>1</access_level>
+          </rule>
+     </rules>
+</jomsocial>

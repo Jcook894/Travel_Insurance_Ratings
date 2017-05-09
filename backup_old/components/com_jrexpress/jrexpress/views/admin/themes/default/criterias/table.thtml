@@ -1,0 +1,39 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<table class="admin_list">
+	<tr>
+		<th width="20"></th>
+		<th style="width:15px;text-align:center;">#</th>
+		<th align="center" width="100">Criteria Set Name</th>
+		<th width="180">Criteria</th>
+		<th align="center" width="80">Criteria ID</th>
+		<th align="center" width="10">Delete</th>
+	</tr>
+	<?php foreach($rows AS $key=>$row):?>
+	<tr id="criteria<?php echo $row->id?>">
+		<td style="width:20px;"><input type="radio" name="criteriaid" id="criteriaid<?php echo $row->id?>" value="<?php echo $row->id?>" /></td>
+		<td style="width:15px;text-align:center;"><?php echo $key+1?></td>
+        <td align="left">
+            <a href="javascript:void(0);" onclick="xajax.request({xjxfun:'xajaxDispatch'},{URI:'<?php displayXajaxUri('jrexpress');?>',parameters:['admin/criterias','edit','jrexpress',{data:{criteria_id:<?php echo $row->id?>}}]});">
+                <div id="title_<?php echo $row->id?>"><?php echo $row->title?></div>
+            </a>
+        </td>
+        <td align="left" style="padding-left:10px;vertical-align:top;"><?php echo $AdminCriterias->createListFromString($row->criteria)?></td>
+		<td align="center"><?php echo $row->id?></td>
+		<td align="center">
+			<a href="javascript:void(0);" onclick="deleteCriteria(<?php echo $row->id?>,'<?php displayXajaxUri('jrexpress');?>');"><img src="<?php echo WWW_ROOT?>includes/js/ThemeOffice/trash.png" alt="del" border="0"></a>
+		</td>
+	</tr>
+	<?php endforeach;?>
+</table>
+

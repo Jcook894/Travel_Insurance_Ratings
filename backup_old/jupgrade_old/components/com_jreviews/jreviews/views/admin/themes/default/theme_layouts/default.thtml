@@ -1,0 +1,204 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2009 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$Html->js(array(
+    'jquery/jquery-1.7.1.min',
+    'jquery/jquery-ui-1.8.17.custom.min',
+//    'jquery/jquery.ui.sortable',
+    'jquery/jquery.multiselect.min',
+    'jreviews',
+    'jreviews.jquery.plugins',
+    'jreviews.fields',
+    'paidlistings',
+    'jquery/jquery.tooltip.min',
+    'jquery/ui.stars',
+    'admin/admin'
+    )
+);
+
+$Html->css(array(
+    'admin/default',
+    'admin/jr_theme',
+    'admin/custom-theme/jquery-ui-1.8.13.custom',    
+    'admin/form',
+    'admin/paginator', 
+    'admin/multiselect/jquery.multiselect'
+    )
+);    
+?>
+<script type="text/javascript">
+var tb_pathToImage = "<?php echo $this->viewImages;?>loadingAnimation.gif";
+var datePickerImage = "<?php echo $this->viewImages;?>calendar.gif";
+jQuery.get(s2AjaxUri,{'url':'common/getVersion'},function(res){
+    jQuery('#version').html(res.page).show('slow',function(){
+        jQuery('#updater_notification').click(function() { jreviews_admin.menu.load('admin_updater','index')});
+    });
+},'json')
+
+
+</script>
+
+<?php 
+/**
+ * Initialize editor and load client side js
+ */                                                        
+if($this->Access->loadWysiwygEditor() && isset($Editor)) {
+    # Transforms class="wysiwyg_editor" textareas
+    $Editor->Html->app = $this->app;
+    $Editor->load();      
+}
+?>
+
+<div>
+    <table id="jr_adminPage" width="100%" border="0" cellspacing="10" cellpadding="0">
+        <tr>            
+            <td style="vertical-align:top;width:185px;">
+                
+                <table class="sidemenu-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <td>
+                            <div style="text-align:center;">
+                                <div style="margin-bottom:3px;">
+                                    <a href="index.php?option=com_jreviews&url=about"><img alt="logo" border="0" src="<?php echo $this->viewImages;?>jr_logo.gif"></a>
+                                </div>
+                                <strong><?php __a("Version");?>: <span style="font-size:14px;"><?php echo $this->Config->version?></span></strong>
+                                <center><span id="version"></span></center>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+               
+                <?php if(!isset($addon)):?>
+                <div id="main_modules">
+                    <table class="sidemenu-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+                        <tr>
+                            <td>
+                                <?php if($stats['entries_unpublished']
+                                        +$stats['reviews']
+                                        +$stats['owner_replies']
+                                        +$stats['reports']
+                                        +$stats['discussion_posts'] 
+                                        +$stats['claims']                                
+                                        > 0
+                                        )
+                                        :?>  
+                                <div class="title-menu"><?php __a("Moderation");?></div>
+                                    <div id="moderate" style="width: 140px; display:block; ">
+                                        <ul class="title-submenu">
+                                            <?php if($stats['entries_unpublished']>0):?>
+                                            <li><a href="#listing-moderation" id="listing_moderation"><?php __a("Listings");?>&nbsp;(<span id="listing_count"><?php echo $stats['entries_unpublished'];?></span>)</a></li>                                    
+                                            <?php endif;?>
+                                            <?php if($stats['reviews']>0):?>                                
+                                            <li><a href="#review-moderation" id="review_moderation"><?php __a("Reviews");?>&nbsp;(<span id="review_count"><?php echo $stats['reviews'];?></span>)</a></li>
+                                            <?php endif;?>
+                                            <?php if($stats['claims']>0):?>                                                                                                        
+                                            <li><a href="#claims-moderation" id="claims"><?php __a("Claims");?>&nbsp;(<span id="claim_count"><?php echo $stats['claims'];?></span>)</a></li>
+                                            <?php endif;?>                                    
+                                            <?php if($stats['owner_replies']>0):?>                                                                
+                                            <li><a href="#owner-reply-moderation" id="owner_reply_moderation"><?php __a("Owner Replies");?>&nbsp;(<span id="owner_count"><?php echo $stats['owner_replies'];?></span>)</a></li>
+                                            <?php endif;?>
+                                            <?php if($stats['reports']>0):?>                                
+                                            <li><a href="#reports-moderation" id="reports"><?php __a("Reports");?>&nbsp;(<span id="report_count"><?php echo $stats['reports'];?></span>)</a></li>
+                                            <?php endif;?>
+                                            <?php if($stats['discussion_posts']>0):?>                                                                
+                                            <li><a href="#discussion-moderation" id="discussion_moderation"><?php __a("Discussion Posts");?>&nbsp;(<span id="discussion_count"><?php echo $stats['discussion_posts'];?></span>)</a></li>
+                                            <?php endif;?>
+                                        </ul>
+                                    </div>
+                                <?php endif;?>
+
+                                <div class="title-menu"><?php __a("Browse");?></div>
+                                <div id="browse" style="width: 140px; display:block;">
+                                    <ul class="title-submenu">
+                                        <li><a href="index.php?option=com_jreviews&url=admin_listings/browse"><?php __a("Listings");?></a></li>
+                                        <li><a href="index.php?option=com_jreviews&url=reviews/browse"><?php __a("Reviews");?></a></li>
+                                    </ul>
+                                </div>
+                                                                
+                                <div class="title-menu"><?php __a("Setup jReviews");?></div>
+                                <div id="setup" style="display:block; margin:0px; padding:0px;">
+                                    <ul class="title-submenu">
+                                        <li><a href="#groups-manager" id="groups"><?php __a("Field Groups Manager");?></a></li>
+                                        <li><a href="#fields-manager" id="fields"><?php __a("Fields Manager");?></a></li>
+                                        <li><a href="#listing-type-manager" id="listing-types"><?php __a("Listing Types Manager");?></a></li>
+                                        <li><a href="#directories-manager" id="directories"><?php __a("Directories Manager");?></a></li>
+                                        <li><a href="#categories-manager" id="categories"><?php __a("Categories Manager");?></a></li>
+                                        <li><a href="#predefined-replies" id="predefined_replies"><?php __a("Predefined Replies");?></a></li>                                                        
+                                    </ul>
+                                </div>
+                                <div class="title-menu"><?php __a("Configuration");?></div>
+                                <div id="config" style="display:block; margin:0px; padding:0px;">
+                                    <ul class="title-submenu">
+                                        <li><a href="#configuration" id="configuration" onclick="return false;"><?php __a("Configuration Settings");?></a></li>
+                                        <li><a href="#access" id="access"  onclick="return false;"><?php __a("Access settings");?></a></li>
+                                        <li><a href="#themes-manager" id="themes"><?php __a("Theme Manager");?></a></li>
+                                        <li><a href="#seo-manager" id="seo"><?php __a("SEO Manager");?></a></li>                                
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>            
+                    
+                    <?php echo $this->element('addons');?>
+                </div>            
+
+                <div id="addon_module" style="display:none;"></div>
+                <?php else:?>
+                    <?php echo Sanitize::stripWhitespace($this->renderControllerView($addon,'menu'));?>
+                <?php endif;?>
+                
+                <table class="sidemenu-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <td>
+                            <div class="title-menu"><?php __a("Maintenance");?></div>
+                            <div style="display:block; margin:0px; padding:0px;">
+                                <ul class="title-submenu">
+                                    <li><a href="#updater-manager" id="updater"><?php __a("Installer/Updater");?></a></li>									  
+				                    <li><a href="#reviewer-ranks" id="rebuild-reviewer-ranks"><?php __a("Rebuild Reviewer Ranks"); ?></a></li>
+                                    <li><a href="#clear-cache" id="clear_cache"><?php __a("Clear Cache");?></a></li>
+                                    <li><a href="#clear-registry" id="clear_registry"><?php __a("Clear File Registry");?></a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </table>                
+
+                <table class="sidemenu-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <td>
+                            <div class="title-menu">Support</div>
+                            <div style="display:block; margin:0px; padding:0px;">
+                                <ul class="title-submenu">
+                                    <li><a target="_blank" href="http://docs.reviewsforjoomla.com/"><?php __a("Documentation");?></a></li>
+                                    <li><a target="_blank" href="http://support.reviewsforjoomla.com/index.php?_m=tickets&_a=submit"><?php __a("Submit Ticket");?></a></li>
+                                    <li><a target="_blank" href="http://www.reviewsforjoomla.com/forum/"><?php __a("Support Forum");?></a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </table>                
+                <table class="sidemenu-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+                    <tr><td style="text-align:center;">Copyright &copy; 2010-<?php echo date('Y');?><br />ClickFWD LLC<br /></td></tr>
+				</table>                  
+            </td>    
+            <td valign="top">
+                <div id="page" class="jr_adminMain">
+                    <?php echo $content_for_layout; ?>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="spinner" style="display:none;background-color:#FEFFBF;text-align:center;margin:0;padding:5px 0;width:100%;position:fixed;z-index:2000;left:0;bottom:0;-moz-box-shadow:0 -1px 6px #EEF076;-webkit-box-shadow:0 -1px 6px #EEF076;">
+	<div align="center" style="margin:0 auto;width: 160px;">
+		<img alt="loading" src="<?php echo $this->viewImages;?>loading.gif"/> <?php __a("processing...");?>
+	</div>
+</div>

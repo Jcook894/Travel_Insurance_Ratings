@@ -1,0 +1,49 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php __t("You will find this report in the review moderation list.");?>
+
+<br /><br />
+
+<strong><?php __t("Reporter");?>:</strong>  <?php echo $User->name != '' ? $User->name : 'Guest';?> ( <?php echo $User->id;?> )
+
+<br />
+
+<strong>E-mail:</strong> <?php echo $User->email;?>
+
+<br />
+
+<strong><?php __t("IP Address");?>:</strong> <?php echo (string)strip_tags($_SERVER['REMOTE_ADDR']);?>	
+
+<br />
+
+<strong><?php __t("Report text");?>:</strong>
+
+<br />
+
+<?php echo $report['ReviewReport']['message'];?>
+
+<br />
+
+<strong><?php __t("Listing title");?>:</strong>  <?php echo $listing_title;?>	
+
+<br />
+
+<strong><?php __t("Review title");?>:</strong> <?php echo $review['Review']['title'];?>		
+
+<br />
+
+<strong><?php __t("Review Comments");?>:</strong>
+
+<br /> 
+
+<?php echo $review['Review']['comments'];?>

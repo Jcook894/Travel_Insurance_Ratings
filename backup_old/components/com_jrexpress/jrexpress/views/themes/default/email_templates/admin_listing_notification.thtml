@@ -1,0 +1,56 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$entry_url = cmsFramework::route($Routes->content('',$listing,'','',false));
+
+if(!strstr($entry_url,'http')) {
+	$parsedUrl = parse_url(WWW_ROOT);
+	$entry_url = $parsedUrl['scheme'] . '://' . $parsedUrl['host'] . $entry_url;
+}
+?>
+
+<?php __t("You will find this entry in the content moderation list.");?>
+
+<br /><br />
+
+<strong><?php __t("Author");?>:</strong> <?php echo $listing['User']['name'];?> ( <?php echo $listing['User']['user_id'];?> ) 
+
+<br />
+
+<strong>E-mail:</strong> <?php echo Sanitize::getString($listing['User'],'email');?>
+
+<br />
+
+<strong><?php __t("IP address");?>:</strong> <?php echo (string)strip_tags($_SERVER['REMOTE_ADDR']);?>	 
+
+<br />
+
+<strong><?php __t("Listing");?>:</strong> <?php echo $Html->link(Sanitize::getString($listing['Listing'],'title'),$entry_url,array('sef'=>false));?>
+
+<br />
+
+<strong><?php __t("Section");?>:</strong> <?php echo Sanitize::getString($listing['Section'],'title');?>
+
+<br />
+
+<strong><?php __t("Category");?>:</strong> <?php echo Sanitize::getString($listing['Category'],'title');?>
+
+<br />
+
+<strong><?php __t("Summary");?>:</strong>
+
+<br /><?php echo Sanitize::getString($listing['Listing'],'summary');?>
+
+<br />
+
+<strong><?php __t("Description");?>:</strong>
+
+<br /><?php echo Sanitize::getString($listing['Listing'],'description');?>

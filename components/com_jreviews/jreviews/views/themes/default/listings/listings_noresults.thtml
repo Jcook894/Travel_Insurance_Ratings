@@ -1,0 +1,29 @@
+<?php
+// Mar 13, 2017 - The filters button was not displaying in empty category pages
+if(in_array($this->action,array('search','category'))):?>
+
+		<div class="jrListFiltersButtonContainer">
+			<a href="#" onclick="javascript:;" class="jr-list-show-filters jrButton jrListFiltersButton"><?php echo sprintf(__t("%s Filters",true), '<span class="jrIconFilters"></span>');?></a>
+		</div>
+
+<?php endif;?>
+
+<?php if($this->action == 'search'):?>
+
+		<?php __t("Your search did not return any results. Try adjusting your search values.<br /><br /><a href=\"javascript:window.history.go(-1)\">Click here to go back.</a>");?>
+
+<?php elseif($this->action == 'favorites'):?>
+
+		<?php __t("Your favorites list is empty.");?>
+
+<?php elseif($this->action == 'category'):?>
+
+		<?php if($this->Config->list_show_child_listings):?>
+			<?php __t("No entries were found");?>
+		<?php endif;?>
+
+<?php else:?>
+
+		<?php __t("No entries were found");?>
+
+<?php endif;?>

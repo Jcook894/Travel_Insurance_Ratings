@@ -1,0 +1,207 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**********************************************************************************
+ * 								CONFIGURATION AND SETUP
+ **********************************************************************************/
+
+// Media Setup
+$mainMedia = Sanitize::getVar($listing,'MainMedia');
+
+$main_media_tn_size = Sanitize::getString($this->Config,'media_detail_main_thumbnail_size');
+
+$main_media_tn_mode = Sanitize::getString($this->Config,'media_detail_main_thumbnail_mode');
+
+$main_media_alignment = Sanitize::getString($this->Config,'media_detail_main_thumbnail_alignment');
+
+$snippetsImage = $Media->thumb($mainMedia,array('size'=>$main_media_tn_size,'mode'=>$main_media_tn_mode, 'return_src'=>true),array('class'=>'photo')); /* Structured Data */
+
+// Map
+$show_map = Sanitize::getBool($this->Config,'geomaps.enable_map_detail',true);
+
+// Schema.org
+$schema_itemtype = Sanitize::getString($this->Config,'schema_org_type','Article');
+
+$featured = Sanitize::getInt($listing['Listing'],'featured') ? ' jrFeatured' : '';
+$media_alignment = ($main_media_alignment == 'left') ? ' jrMediaLeft' : '';
+
+// Summary/Description characters limit
+$char_limit = Sanitize::getInt($this->Config,'summary_desc_char_limit');
+
+/**********************************************************************************
+ * 								META DATA
+ **********************************************************************************/
+if($this->action == 'detail') $this->element('page_meta');
+
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/?>
+
+<div class="jr-page jr-layout-outer jr-listing-detail jrPage jrListingDetail jrCompact<?php echo $featured.$media_alignment; ?>" itemscope itemtype="http://schema.org/<?php echo $schema_itemtype; ?>">
+
+	<?php if($extension != 'com_content'): // For Everywhere Extensions ?>
+
+		<h1 class="contentheading"><?php echo $listing['Listing']['title']?></h1>
+
+		<?php /* BREADCRUMB */ ?>
+
+		<div class="jrPathway"><?php echo $listing['Category']['title'];?></div>
+
+		<div class="jrClear"></div>
+
+	<?php else: // For COM_CONTENT ?>
+
+		<?php /* RSS FEED */ ?>
+
+		<?php $Jreviews->listingDetailFeed($listing);?>
+
+		<?php /* BREADCRUMB */ ?>
+
+		<?php isset($crumbs) and $Jreviews->listingDetailBreadcrumb($crumbs);?>
+
+		<?php if($this->name != 'listings'): ?>
+
+			<?php /* MEDIA TOP - MAIN MEDIA AND COMPACT LAYOUT */ ?>
+
+			<?php echo $this->element('listing_detail_media',array('position'=>'top','mainMedia'=>$mainMedia));?>
+
+			<?php /* CUSTOM FIELDS */ ?>
+
+			<?php echo $CustomFields->displayAll($listing,'content');?>
+
+			<?php /* CUSTOM MODULE POSITION - jr-detail-below-fields */ ?>
+
+			<?php $Jreviews->loadModulePosition('jr-detail-below-fields'); ?>
+
+			<?php $Jreviews->loadPosition('below-fields', $addonPosition); ?>
+
+		<?php endif;?>
+
+		<?php /* LISTING TITLE */ ?>
+
+		<h1 class="contentheading">
+
+			<span itemprop="name"><?php echo $this->action == 'detail' ? $Routes->content($listing['Listing']['title'],$listing) : $listing['Listing']['title'];?></span>
+
+		</h1>
+
+		<span class="jrIconInfo jr-more-info"></span>
+
+		<div class="jrPopup jrPopupMedium">
+
+			<?php /* LISTING OWNER INFO */ ?>
+
+			<div class="jrAuthorInfo">
+
+				<?php if($this->Config->list_show_author):?>
+
+					<span <?php $Community->addPreviewAttributes($listing);?>>
+
+						<?php echo $Community->avatar($listing) . $Community->screenName($listing);?>&nbsp;&nbsp;
+
+					</span>
+
+				<?php endif;?>
+
+				<?php if($this->Config->list_show_date):?>
+
+					<?php echo $Time->nice($listing['Listing']['created']);?>&nbsp;&nbsp;
+
+				<?php endif;?>
+
+			</div>
+
+			<?php /* LISTING INFO ICONS */ ?>
+
+			<?php $Jreviews->listingInfoIcons($listing);?>
+
+		</div>
+
+		<?php /* LISTING STATUS LABELS */ ?>
+
+		<?php $Jreviews->listingStatusLabels($listing);?>
+
+		<?php if($snippetsImage):?><meta itemprop="image" content="<?php echo $snippetsImage;?>"><?php endif;?>
+
+		<?php echo $Rating->overallRatings($listing, 'content'); ?>
+
+	<?php endif;?>
+
+	<?php if($this->name != 'listings'): // Only show when in com_content page?>
+
+		<?php /* LISTING ACTIONS BUTTONS */ ?>
+
+		<?php $Widgets->listingDetailButtons($listing);?>
+
+		<?php /* SUMMARY - DESCRIPTION */ ?>
+
+		<div class="jrListingFulltext <?php echo $char_limit > 0 ? 'jr-show-more' : ''; ?>" <?php echo $char_limit > 0 ? 'data-characters="'. $char_limit .'"' : ''; ?> itemprop="description">
+
+			<?php echo $listing['Listing']['text'] !== strip_tags($listing['Listing']['text']) ? $listing['Listing']['text'] : nl2br($listing['Listing']['text']);?>
+
+		</div>
+
+		<?php $Jreviews->loadPosition('below-description', $addonPosition); ?>
+
+		<?php /* SOCIAL BOOKMARKS */ ?>
+
+		<?php $Community->socialBookmarks($listing);?>
+
+		<?php /* CUSTOM MODULE POSITION - jr-detail-below-socialbookmarks */ ?>
+
+		<?php $Jreviews->loadModulePosition('jr-detail-below-socialbookmarks'); ?>
+
+		<?php $Jreviews->loadPosition('below-socialbookmarks', $addonPosition); ?>
+
+		<?php /* MEDIA BOTTOM - INPAGE PHOTO GALLERIES AND STANDARD LAYOUTS */ ?>
+
+		<?php echo $this->element('listing_detail_media',array('position'=>'bottom','mainMedia'=>$mainMedia));?>
+
+		<?php $Jreviews->loadPosition('below-bottommedia', $addonPosition); ?>
+
+		<?php /* MAP */ ?>
+
+		<?php if($show_map && isset($listing['Geomaps']) && abs($listing['Geomaps']['lat']) > 0 && abs($listing['Geomaps']['lon']) > 0):?>
+
+			<h3 class="jrHeading"><span class="jrIconMap"></span><span class="jrHeadingText"><?php __t("Map");?></span></h3>
+
+			<?php echo $this->renderControllerView('geomaps','map_detail');?>
+
+		<?php endif;?>
+
+		<div class="jrClear"></div>
+
+	<?php endif;?>
+
+	<?php /* EDITOR REVIEWS */ ?>
+
+	<?php echo $this->renderControllerView('reviews','editor_reviews',array('reviews'=>$editor_review,'listing'=>$listing))?>
+
+	<?php /* CUSTOM MODULE POSITION - jr-detail-below-editorreviews */ ?>
+
+	<?php $Jreviews->loadModulePosition('jr-detail-below-editorreviews'); ?>
+
+	<?php $Jreviews->loadPosition('below-editorreviews', $addonPosition); ?>
+
+	<?php /* RELATED LISTINGS WIDGETS */ ?>
+
+	<div id="jrRelatedListings"></div>
+
+	<?php /* USER REVIEWS */ ?>
+
+	<?php echo $this->renderControllerView('reviews','user_reviews',array('reviews'=>$reviews,'listing'=>$listing))?>
+
+	<?php $Jreviews->loadPosition('below-userreviews', $addonPosition); ?>
+
+</div>
+
+<?php if($this->name != 'listings'):?>
+	<?php $Widgets->relatedListingsJS($listing); /* Creates an javascript object with data for widget calls */ ?>
+<?php endif;?>

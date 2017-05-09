@@ -1,0 +1,110 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**********************************************************************************
+ * 								PAGINATION HELPER
+ **********************************************************************************/
+$Paginator->paginate(array(
+		'current_page'=>$this->page,
+		'items_per_page'=>$this->limit,
+		'items_total'=>$pagination['total'],
+));
+
+/**********************************************************************************
+ * 								META DATA
+ **********************************************************************************/
+echo $this->element('page_meta');
+
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/?>
+
+<div class="jr-page jrPage jrReviewerRank">
+
+	<?php if(isset($page['title']) && $page['show_title']):?>
+
+	<div class="jrPageHeader">
+
+		<?php if (isset($page['title']) && $page['show_title']):?>
+
+			<h1 class="contentheading"><?php echo $page['title'];?></h1>
+
+		<?php endif;?>
+
+		<div class="jrClear">&nbsp;</div>
+
+	</div>
+
+	<?php endif;?>
+
+ 	<?php /* PAGINATION */ ?>
+
+	<?php echo $this->element('pagination',array('position'=>'top'));?>
+
+	<div class="jrTableGrid jrDataList">
+
+		<div class="jrRow jrDataListHeader">
+
+			<div class="jrCol jrCenterAlign"><?php __t("Rank");?></div>
+
+			<div class="jrCol"><?php __t("Reviewer");?></div>
+
+		</div>
+
+		<?php $i = $this->page*$this->limit - ($this->limit - 1);?>
+
+		<?php foreach($rankings AS $rank):?>
+
+		<div class="jrRow">
+
+			<div id="user-<?php echo $rank['User']['user_id'];?>" class="jrCol jrCenterAlign"><?php echo $i++;?></div>
+
+			<div class="jrCol">
+
+				<?php if(isset($rank['Community']['avatar_path'])):?>
+
+					<?php echo $Community->avatar($rank);?>
+
+				<?php endif;?>
+
+				<div class="jrReviewerInfo">
+
+					<span <?php $Community->addPreviewAttributes($rank);?>><?php echo $Community->screenName($rank);?></span><br />
+
+					<?php __t("Number of reviews written:");?> <?php echo $rank['Review']['count'];?>
+
+					<!-- BEGIN VIEW MY REVIEWS -->
+
+					- <?php echo $Routes->myReviews(__t("View all my reviews",true), $rank['User']);?>
+
+					<!-- END VIEW MY REVIEWS -->
+
+					<br />
+
+					<?php __t("Percentage helpful votes");?>: <?php echo $rank['Vote']['helpful']*100;?>% (<?php echo (int)$rank['Vote']['count'];?> <?php __t("votes");?>)
+
+				</div>
+
+
+
+			</div>
+
+		</div>
+
+		<?php endforeach;?>
+
+	</div>
+
+ 	<?php /* PAGINATION */ ?>
+
+	<?php echo $this->element('pagination',array('position'=>'bottom'));?>
+
+</div>

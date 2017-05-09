@@ -1,0 +1,39 @@
+.jr-moduleHeader {
+    width:350px;
+    background:#555;
+    background: -moz-linear-gradient(top,#919191,#555);
+    background:-webkit-gradient(linear, center top,center bottom,color-stop(0,#919191),color-stop(1, #555));
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius: 3px;
+    padding:5px 5px 5px 10px;
+    color:white;
+    display:inline-block;
+    font-weight:bold;
+}
+.jr-moduleHeader label {
+    max-width: 350px !important;
+}
+.jr-doc {
+    border: 1px solid #ddd;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius: 3px;
+    background:#eee;
+    background: -moz-linear-gradient(top,#fff,#eee);
+    background:-webkit-gradient(linear, center top,center bottom,color-stop(0,#fff),color-stop(1, #eee));
+    display:inline-block;
+    padding: 10px;
+    font-weight: normal;
+    width: 400px;
+}
+.jr-doc img {
+    float: left;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;    
+}
+.jr-doc p {
+    margin: 0 0 0 10px;
+    float: left;
+}

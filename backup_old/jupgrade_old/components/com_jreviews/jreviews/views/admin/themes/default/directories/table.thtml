@@ -1,0 +1,40 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2009 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<table class="admin_list">
+	<tr>
+	<th width="10">#</th>
+	<th align="center" width="50">Dir ID</th>
+	<th align="left" width="200">Name</th>
+	<th class="title">Title</th>
+	<th align="center" width="10">Delete</th>
+	</tr>
+		<?php foreach($rows AS $key=>$row):?>
+		<tr id="directory<?php echo $row->id?>">
+			<td align="center"><?php echo $key+1?></td>
+			<td align="center"><?php echo $row->id?></td>
+				<td align="left">
+
+                    <a href="#" onclick="jreviews_admin.directory.edit('dirid=<?php echo $row->id?>',{title:'<?php __a("Edit directory");?>'});return false;">
+                        <div id="title_<?php echo $row->id?>"><?php echo $row->title?></div>
+                    </a>
+
+				</td>
+			<td align="left"><?php echo $row->desc?></td>
+			<td style="text-align:center;">
+                <button type="button" class="ui-button-small ui-state-default ui-corner-all" onclick="jreviews_admin.directory.remove(<?php echo $row->id?>);">
+                <span class="ui-icon ui-icon-trash"></span>
+                </button>              
+			</td>
+		</tr>
+		<?php endforeach;?>		
+</table>

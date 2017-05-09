@@ -1,0 +1,113 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+ 
+<?php
+/**********************************************************************************
+ *                                 EDIT HTML BELOW THIS LINE
+ **********************************************************************************/?>
+ 
+<br /><br />
+	
+<?php // View all reviews for a listing shown on details page
+if($review_count > $this->Config->user_limit):?>
+	<span style="display:block;float:right;text-align:right;margin-top:-25px;"><?php echo $Routes->listing(__t("View all user reviews",true),$listing,'user',array('class'=>'jrButton'));?></span>
+<?php endif;?>
+		
+<div class="jr_pgContainer jr_itemDetail">
+
+	<?php /* BEGIN RICH SNIPPETS */ ?>
+	
+	<div class="hReview-aggregate jr_hidden">
+		
+		<h3 class="item jr_hidden"><span class="fn"><?php echo $listing['Listing']['title'];?></span></h3>
+		
+		<?php /* <span class="summary jr_hidden"></span> */?>
+
+		<span class="jr_hidden">
+			
+			<span class="rating"><?php echo $Rating->round($listing['Review']['user_rating'],$this->Config->rating_scale);?></span>
+			
+			<span class="count"><?php echo $listing['Review']['user_rating_count'];?></span>
+		
+		</span>
+		
+	</div>	
+
+	<?php /* END RICH SNIPPETS */ ?>
+
+	<!-- BEGIN USER REVIEW SUMMARY -->
+	<div class="roundedPanel jr_review" id="jr_reviewUserSummary">
+		<?php if($review_count>0):?>
+			<?php if ($listing['Criteria']['state'] && $this->Config->rss_enable):?>
+			<!-- BEGIN RSS FEED -->
+			<div class="jr_rss">
+				<ul id="jr_feeds"> 
+					<li><?php echo $Routes->rssListing($listing);?></li>
+				</ul>
+			</div>    
+			<!-- END RSS FEED -->
+			<?php endif;?>
+			<?php if ( $user_rating_count > 0 ): ?>
+				<h4 class="jr_reviewTitle"><?php echo sprintf(__t("Average user rating from: %s user(s)",true), $user_rating_count); ?></h4>
+			<?php endif; ?>
+		<?php endif;?>
+	
+		<div class="jr_reviewContainer">
+			<?php if(isset($listing['Review']) && $review_count==0):?>
+			<p><?php __t("There are no user reviews for this listing.");?></p>
+			<?php endif;?>                        
+			
+			<?php if($Access->canAddReview($listing['User']['user_id'])):?>
+			
+				<button type="button" id="review_button" class="jr_addReview jrButton" 
+					<?php echo $User->duplicate_review ? 'disabled="disabled" ' : '';?> 
+					onclick="jreviews.review.showForm(this);">   
+					<span class="jrIcon jrIconAddReview"></span>						
+					<?php echo !$User->duplicate_review ? __t("Add new review",true) : __t("You already submitted a review.",true);?>
+				</button>			
+
+			<?php elseif(!$Access->canAddReview() && empty($User->id)):?>
+
+				<div class="jrLoginBox"><?php echo $this->element('login');?></div>
+
+			<?php endif;?>
+					 
+			<!-- DETAILED USER RATINGS -->
+            <div class="jr_reviewContainerSidebar">
+				<?php echo $Rating->detailedRatings($ratings_summary,'user');?>
+			</div>            
+
+			<div class="clear"></div>                    
+		</div>                                        
+	</div>
+	<!-- END USER REVIEW SUMMARY -->
+	<!-- BEGIN REVIEW FORM -->		
+	<?php if($Access->canAddReview()):?>
+		<?php echo $this->renderControllerView('reviews','create',array('criteria'=>$listing['Criteria']))?>
+	<?php endif;?>
+	<!-- END REVIEW FORM -->
+			
+	<div id="jr_user_reviews"><?php /* this div is required to display post save messages */ ?>
+		<?php if($review_count>0):?>	
+		<!-- BEGIN USER REVIEWS -->		
+			<?php echo $this->renderControllerView('reviews','reviews',array('listing'=>$listing,'reviews'=>$reviews))?>
+		<!-- END USER REVIEWS -->		
+		<?php endif;?>
+	</div>		
+		
+	<div class="clr">&nbsp;</div>
+	<!-- END USER REVIEWS-->
+
+	<?php // View all reviews for a listing shown on details page
+	if($review_count > $this->limit):?>
+		<?php echo $Routes->listing(__t("View all user reviews",true),$listing,'user',array('class'=>'jrButton'));?>
+	<?php endif;?>	
+</div>

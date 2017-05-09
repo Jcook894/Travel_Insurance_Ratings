@@ -1,0 +1,120 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+// Output the theme descriptions to be shown when a theme is selected
+
+foreach($themes_description AS $theme_name=>$desc):?>
+
+	<div id="theme-<?php echo $theme_name;?>" style="display:none;" ><?php echo $desc;?></div>
+
+<?php endforeach;?>
+
+<?php $themeTab = array(
+	/*** NEW HEADER ***/
+	__a("Theme Settings",true) => array(
+		 array(
+			 'type'=>'placeholder',
+			 'text'=>'<div class="jrInfo" style="margin:0!important;"><span class="jrIconInfo"></span>&nbsp;'.
+			 		__a("Create a custom theme using overrides.",true).' <a class="jrButton" target="_blank" href="https://docs.jreviews.com/?title=JReviews_Code_Overrides"><span class="jrIconPreview"></span> '.__a("Read More",true).'</a></div>'
+		 ),
+		array(
+			'label'=>__a("Hide 'Powered by JReviews' link",true),
+			'type'=>'radioYesNo',
+			'name'=>'hide_poweredby_link'
+		),
+		array(
+			'label'=>__a("Site theme",true),
+			'type'=>'select',
+			'options'=>$themes_config,
+			'name'=>'template',
+			'attributes'=>array('id'=>'jr-site-theme'),
+			'help'=>__a("Choose the Theme to use for the JReviews frontend.",true) . '<div id="jr-site-theme-desc" style="padding:3px;" class="jrInfo">'.Sanitize::getString($themes_description,$this->Config->template).'</div>'
+		),
+		array(
+			'label'=>__a("Mobile theme",true),
+			'type'=>'select',
+			'options'=>$themes_mobile,
+			'name'=>'mobile_theme',
+			'attributes'=>array('id'=>'jr-mobile-theme'),
+			'help'=>__a("If a mobile device is detected the selected theme will be used instead of the Site Theme.",true) . '<div id="jr-mobile-theme-desc" style="padding:3px;" class="jrInfo">'.$themes_description[$this->Config->mobile_theme].'</div>'
+		),
+		array(
+			'label'=>__a("Fallback theme",true),
+			'type'=>'select',
+			'options'=>$themes_fallback,
+			'name'=>'fallback_theme',
+			'attributes'=>array('id'=>'jr-mobile-theme'),
+			'help'=>__a("Choose a theme with a complete set of files to use as fallback if the selected theme doesn't include all theme files.",true)
+		),
+		array(
+			'label'=>__a("Version override for custom_styles.css",true),
+			'type'=>'text',
+			'name'=>'custom_styles_version',
+			'help'=>__a("If you use a custom_styles.css file in your theme you can force a change in the version parameter through this setting to force browsers to load the new file on their next visit to the site.",true),
+			'attributes'=>array('style'=>'width:4em;')
+		)
+	),
+	__a("Pagination",true) => array(
+		array(
+			'label'=>__a("Enable Ajax pagination",true),
+			'type'=>'radioYesNo',
+			'name'=>'paginator_ajax',
+			'help'=>__a("Improves the user experience by loading pages in paginated lists without page reloads.",true)
+		),
+		array(
+			'label'=>__a("Number of items per page",true),
+			'type'=>'numbers',
+			'range'=>array(5,50,5),
+			'name'=>'list_limit',
+			'help'=>__a("Used for pagination",true)
+		),
+		array(
+			'label'=>__a("Number of pages shown in pagination in lists",true),
+			'type'=>'text',
+			'name'=>'paginator_mid_range',
+			'help'=>__a("Number of pages between the first and last page.",true),
+			'attributes'=>array('style'=>'width:4em;')
+		),
+		array(
+			'label'=>__a("Display 'Results per page'",true),
+			'type'=>'radioYesNo',
+			'name'=>'display_list_limit',
+			'help'=>__a("Disabled by default to avoid duplicate pages for SEO",true)
+		)
+	),
+	__a("Breadcrumb Settings",true) => array(
+		array(
+			'label'=>__a("Show Breadcrumb",true),
+			'type'=>'radioYesNo',
+			'name'=>'dir_show_breadcrumb',
+			'help'=>__a("Adds a pathway on top of JReviews' category and detail pages.",true)
+		),
+		array(
+			'label'=>__a("Override CMS breadcrumb in detail page",true),
+			'type'=>'radioYesNo',
+			'name'=>'breadcrumb_detail_override',
+			'help'=>__a("Takes over the article page breadcrumb showing JReviews links.",true)
+		),
+		array(
+			'label'=>__a("Show directory in breadcrumb",true),
+			'type'=>'radioYesNo',
+			'name'=>'breadcrumb_detail_directory'
+		),
+		array(
+			'label'=>__a("Show parent categories in breadcrumb",true),
+			'type'=>'radioYesNo',
+			'name'=>'breadcrumb_detail_category'
+		)
+	)
+);
+?>
+
+<?php $AdminSettings->columns = array(5,8,11); $AdminSettings->displayTab('theme',$themeTab);?>

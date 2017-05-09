@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.6.0">
+	<name>com_s2framework</name>
+	<author>ClickFWD LLC</author>
+	<creationDate>March 2012</creationDate>
+	<authorEmail>sales@reviewsforjoomla.com</authorEmail>
+	<authorUrl>www.reviewsforjoomla.com</authorUrl>
+    <version>1.4.14.72</version>
+	<description>S2 Framework</description>	
+	<installfile>install.s2framework.php</installfile>
+	<files>
+		<filename>index.html</filename>
+	</files>	
+	<administration>
+      <files>
+		<filename>index.html</filename>
+        <filename>admin.s2framework.php</filename>
+		<filename>s2framework.s2</filename>
+      </files>	
+	</administration>
+</extension>

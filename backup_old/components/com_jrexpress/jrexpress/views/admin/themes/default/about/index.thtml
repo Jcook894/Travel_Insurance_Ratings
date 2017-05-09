@@ -1,0 +1,108 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$pass = "tick.png";
+$fail = "publish_x.png";
+?>
+<style>
+div.about {
+	width:70%;float:left;}
+div.news {
+	width:29%;float:right;
+	}
+</style>
+<div class="about">
+	<table class="mainbody-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+		<tr><th colspan="3">General Statistics</th></tr>
+		<tr><td width="33%">
+			<table class="stats-box" width="100%" cellpadding="1" cellspacing="1">
+				<tr><td class="stats-box-label"><?php __a("Listing categories");?></td><td class="stats-box-value"><?php echo $stats['categories_content']?></td></tr>
+				<tr><td class="stats-box-label"><?php __a("Published listings");?></td><td class="stats-box-value"><?php echo $stats['entries_published']?></td></tr>
+				<tr><td class="stats-box-label"><?php __a("Unpublished listings");?></td><td class="stats-box-value"><?php echo $stats['entries_unpublished']?></td></tr>
+			</table>
+		</td>
+		<td width="33%">
+			<table class="stats-box" width="100%" cellpadding="1" cellspacing="1">
+				<tr><td class="stats-box-label"><?php __a("Published user reviews");?></td><td class="stats-box-value"><?php echo $stats['reviews_user_published']?></td></tr>
+				<tr><td class="stats-box-label"><?php __a("Unpublished user reviews");?></td><td class="stats-box-value"><?php echo $stats['reviews_user_unpublished']?></td></tr>
+			</table>
+		</td>
+		<td width="33%">
+			<table class="stats-box" width="100%" cellpadding="1" cellspacing="1">
+                <tr><td class="stats-box-label"><?php __a("Review reports");?></td>
+                <td class="stats-box-value"><?php echo $stats['reviews_reports']?></td></tr>
+			</table>
+		</td></tr>
+	</table>
+	
+	<br />
+	
+	<form name="installCheck" id="installCheck" method="post" action="index2.php?option=<?php echo S2Paths::get('jrexpress','S2_CMSCOMP');?>">
+		
+        <table class="admin_list mainbody-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+			
+            <tr class="header-admin">
+                <th style="width:200px;"><?php __a("Installation Check");?></th>
+                <th style="width: 25px;"><?php __a("Status");?></th>
+                <th><?php __a("Addtional information");?></th>
+                <th width="85"></th>
+	        </tr>    
+			<!-- BEGIN GD LIBRARY CHECK -->		
+			<tr style="height:25px;vertical-align:top;">
+				<td class="install-box-label <?php echo !$installCheck['gd.extension']['status'] ? 'install-err' : '';?>">PHP GD Library</td>
+				<td class="install-box-status "><?php echo $Html->image($this->viewImages . ($installCheck['gd.extension']['status'] ? $pass : $fail), array('alt'=>'status'));?></td>
+				<td class="install-box-info <?php echo !$installCheck['gd.extension']['status'] ? 'install-err' : '';?>">
+					<?php echo !$installCheck['gd.extension']['status'] ? __a("The GD php extension was not found and it's required for thumbnails. Uncomment <u>extension=php_gd2.dll</u> in php.ini or ask your host to enable it.
+						GD library 2.x required for thumbnails. Uncomment <u>extension=php_gd2.dll</u> in php.ini or ask your host to enable it.",true) : 
+						__a("The GD extension is installed.",true);?>
+				</td>
+				<td class="install-box-info <?php echo !$installCheck['gd.extension']['status'] ? 'install-err' : '';?>"></td></tr>
+				
+			<!-- BEGIN JREVIEWS MAMBOT/PLUGIN CHECK -->
+			<tr style="height:25px;vertical-align:top;">
+				<td class="install-box-label  <?php echo !$installCheck['jreviews.plugin']['status'] ? 'install-err' : '';?>"><a href="index2.php?option=com_<?php echo _PLUGIN_DIR_NAME;?>&filter_type=content&search=jrexpress"><?php __a("JReviews Express Plugin");?></a></td>
+				<td class="install-box-status"><?php echo $Html->image($this->viewImages . ($installCheck['jreviews.plugin']['status'] ? $pass : $fail), array('alt'=>'status'));?></td>
+				<td class="install-box-info <?php echo !$installCheck['jreviews.plugin']['status'] ? 'install-err' : '';?>">
+					<?php echo !$installCheck['jreviews.plugin']['published'] ? __a("Unpublished.",true).' ' : '';?>
+					<?php echo !$installCheck['jreviews.plugin']['db'] ? __a("Not plugins list",true).' ' : '';?>
+					<?php echo !$installCheck['jreviews.plugin']['files'] ? __a("Files not found.",true).' ' : '';?>
+					<?php echo $installCheck['jreviews.plugin']['status'] ? __a("Plugin is installed and published.",true).' ' : '';?>
+				</td>
+				<td class="install-box-info <?php echo !$installCheck['jreviews.plugin']['status'] ? 'install-err' : '';?>">
+					<?php if(!$installCheck['jreviews.plugin']['status']):?>
+					<input class="fix-it" type="button" value="Fix it!" onclick="xajax.$('task').value='fix_install_jreviews';document.installCheck.submit();"  onmouseover="this.className='fix-it-hover'" onmouseout="this.className='fix-it'" />
+					<?php endif;?>
+				</td></tr>
+		</table>
+	
+        <br />    
+        
+		<table class="admin_list mainbody-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+			<tr class="header-admin">
+                <th style="width:200px;"><?php __a("Setup Check");?></th>
+                <th style="width: 25px;"><?php __a("Status");?></th>
+                <th><?php __a("Addtional information");?></th>
+            </tr>
+			<tr style="height:25px;vertical-align:top;"><td class="install-box-label"><?php __a("Rating criteria (required)");?></td>
+				<td class="install-box-status"><img src="images/<?php echo $msg['criteria']?>" border="0" alt="image"><strong></strong></td>
+				<td class="install-box-info"><?php __a("Create at least one set of rating criteria using the criteria manager.");?></td></tr>
+			<tr style="height:25px;vertical-align:top;"><td class="install-box-label"><?php __a("Categories (required)");?></td>
+				<td class="install-box-status"><img src="images/<?php echo $msg['cat']?>" border="0" alt="image"></td>
+				<td class="install-box-info"><?php __a("Setup at least one category in the Category Manager. First create sections, then create categories and after that you configure them using the JReviews Express category manager by associating them with a criteria set..");?></td></tr>
+		</table>
+		<input id="controller" name="data[controller]" type="hidden" value="admin/install" />
+		<input id="action" name="data[action]" type="hidden" value="_installfix" />
+		<input id="task" name="data[task]" type="hidden" value="" />
+	</form>
+</div>
+<div class="news">
+	<?php echo $this->element('feed');?>
+</div>

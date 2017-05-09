@@ -1,0 +1,1428 @@
+[
+    {
+        "menu": "Configuration Settings",
+        "url": "configuration/index",
+        "settings": [
+            {
+                "title": "Debug PHP",
+                "keywords": "debug",
+                "description": "Shows PHP and Database debug information at the bottom of the page.",
+                "name": "debug_enable",
+                "tags": ["Troubleshooting"]
+            },
+            {
+                "title": "Debug Themes",
+                "keywords": "debug, theme, customization",
+                "description": "Shows the theme output of each theme labeled with the theme filepath as well as the controller filename and function is used to process the output.",
+                "name": "debug_theme_enable",
+                "tags": ["Troubleshooting", "Customization"]
+            },
+            {
+                "title": "Debug IP",
+                "keywords": "debug, theme, ip address",
+                "description": "Limits debug output to this IP address only.",
+                "name": "debug_ipaddress",
+                "tags": ["Troubleshooting", "Customization"]
+            },
+            {
+                "title": "Disable Overrides",
+                "keywords": "debug, overrides, troubleshooting",
+                "description": "Ignore all files in the overrides folder. The Debug IP setting above has no effect over this setting which runs for all site visitors.",
+                "name": "debug_overrides_disable",
+                "tags": ["Troubleshooting", "Customization"]
+            },
+            {
+                "title": "Disable DB Query Index Hints",
+                "keywords": "performance, database",
+                "description": "By specifying index hints in certain DB queries it is possible to improve their performance. In some setups the index hints have a counter effect and disabling the feature allows MySQL to find a better index.",
+                "name": "db_index_hints_disable",
+                "tags": ["Database", "Performance"]
+            },
+            {
+                "title": "Include language segment in Ajax URI",
+                "keywords": "language, multilingual",
+                "description": "Setting only relevant for multilingual sites. Disable if ajax requests fail on non-default languages.",
+                "name": "ajaxuri_lang_segment",
+                "cms": ["joomla"],
+                "tags": ["Troubleshooting", "Language"]
+            },
+            {
+                "title": "Load Combined/Minified CSS",
+                "keywords": "css, minified, minify, performance",
+                "description": "Speed up loading times by loading a single minified CSS file. 3rd party and add-on stylesheets load separately.",
+                "name": "libraries_css_minified",
+                "tags": ["Performance"]
+            },
+            {
+                "title": "Load Combined/Minified Scripts",
+                "keywords": "javascript, scripts, minified, minify, performance",
+                "description": "Speed up loading times by loading a single minified script file. 3rd party and add-on scripts load separately.",
+                "name": "libraries_scripts_minified",
+                "tags": ["Performance"]
+            },
+            {
+                "title": "Enable Javascript Loader",
+                "keywords": "javascript, scripts, performance",
+                "description": "Loads scripts in parallel and non-blocking to speed up the page rendering process.",
+                "name": "libraries_scripts_loader",
+                "tags": ["Performance"]
+            },
+            {
+                "title": "Disable jQuery",
+                "keywords": "javascript, jquery",
+                "description": "NOT optional. If you disable it, make sure it is loaded by your template or a plugin.",
+                "name": "libraries_jquery",
+                "tags": ["Troubleshooting", "Performance"]
+            },
+            {
+                "title": "Disable jQuery UI",
+                "keywords": "javascript, jquery",
+                "description": "NOT optional. If you disable it, make sure it is loaded by your template or a plugin.",
+                "name": "libraries_jqueryui",
+                "tags": ["Troubleshooting", "Performance"]
+            },
+            {
+                "title": "Page title separator",
+                "keywords": "page title, seo",
+                "description": "Modify the page title separator used between the site name and the current page title",
+                "name": "page_title_separator",
+                                "cms": ["wordpress"],
+                "tags": ["SEO"]
+            },
+            {
+                "title": "Site name position",
+                "keywords": "site name, seo",
+                "description": "Change the position of the site name, relative to the page title",
+                "name": "site_name_position",
+                                "cms": ["wordpress"],
+                "tags": ["SEO"]
+            },
+            {
+                "title": "Disable Secure URLs when site accessed via SSL",
+                "keywords": "ssl, secure, url",
+                "description": "Useful for add-ons that render site links on remote sites with secure URLs. This only works for URLs rendered by JReviews.",
+                "name": "url_no_ssl",
+                "tags": ["SSL"]
+            },
+            {
+                "title": "Create accounts for guests",
+                "keywords": "account, user, guest, login",
+                "description": "Guests will be given the option to enter a username when making a submission to automatically create an account for them. This feature requires that email activation in Joomla is enabled so users can receive an email with a temporary password.",
+                "name": "user_registration_guest",
+                "tags": ["Users"]
+            },
+            {
+                "title": "Use username or realname",
+                "keywords": "user, name, real, display",
+                "description": "Guests will be given the option to enter a username when making a submission to automatically create an account for them. This feature requires that email activation in Joomla is enabled so users can receive an email with a temporary password.",
+                "name": "name_choice",
+                "tags": ["Users"]
+            },
+            {
+                "title": "Enable reCAPTCHA for spam reduction",
+                "keywords": "spam, recaptcha, security",
+                "description": "Used in listing, review, discussion and inquiry forms.",
+                "name": "security_image",
+                "tags": ["SPAM"]
+            },
+            {
+                "title": "Hide 'Powered by JReviews' link",
+                "keywords": "brand, powered",
+                "description": "",
+                "name": "hide_poweredby_link",
+                "tags": ["Credit", "Branding"]
+            },
+            {
+                "title": "Site theme",
+                "keywords": "theme",
+                "description": "Choose the Theme to use for the JReviews frontend.",
+                "name": "template",
+                "tags": ["Theme"]
+            },
+            {
+                "title": "Mobile theme",
+                "keywords": "theme, mobile",
+                "description": "If a mobile device is detected the selected theme will be used instead of the Site Theme.",
+                "name": "mobile_theme",
+                "tags": ["Theme"]
+            },
+            {
+                "title": "Fallback theme",
+                "keywords": "theme, fallback",
+                "description": "Choose a theme with a complete set of files to use as fallback if the selected theme doesn't include all theme files.",
+                "name": "fallback_theme",
+                "tags": ["Theme"]
+            },
+            {
+                "title": "Version override for custom_styles.css",
+                "keywords": "css, override",
+                "description": "If you use a custom_styles.css file in your theme you can force a change in the version parameter through this setting to force browsers to load the new file on their next visit to the site.",
+                "name": "custom_styles_version",
+                "tags": ["Theme"]
+            },
+            {
+                "title": "Enable Ajax pagination'",
+                "keywords": "performance, ajax",
+                "description": "Improves the user experience by loading pages in paginated lists without page reloads.",
+                "name": "paginator_ajax",
+                "tags": ["List Pages", "Navigation"]
+            },
+            {
+                "title": "Number of items per page",
+                "keywords": "page, limit, pagination",
+                "description": "Used for pagination.",
+                "name": "list_limit",
+                "tags": ["List Pages", "Navigation"]
+            },
+            {
+                "title": "Number of pages shown in pagination in lists",
+                "keywords": "page, pagination",
+                "description": "Number of pages between the first and last page.",
+                "name": "paginator_mid_range",
+                "tags": ["List Pages", "Navigation"]
+            },
+            {
+                "title": "Display 'Results per page'",
+                "keywords": "seo, page limit",
+                "description": "Dropdown list shown in list pages in the front-end. Disabled by default to avoid duplicate pages for SEO.",
+                "name": "display_list_limit",
+                "tags": ["List Pages","Navigation"]
+            },
+            {
+                "title": "Show Breadcrumb",
+                "keywords": "breadcrumb, pathway",
+                "description": "Adds a pathway on top of JReviews' category and detail pages.",
+                "name": "dir_show_breadcrumb",
+                "tags": ["List Pages", "Detail Pages", "Navigation"]
+            },
+            {
+                "title": "Override breadcrumb in detail page",
+                "keywords": "breadcrumb, pathway",
+                "description": "Takes over the article page breadcrumb showing JReviews links.",
+                "name": "breadcrumb_detail_override",
+                "tags": ["Detail Pages", "Navigation"]
+            },
+            {
+                "title": "Show directory in breadcrumb",
+                "keywords": "breadcrumb, pathway, directory",
+                "description": "",
+                "name": "breadcrumb_detail_directory",
+                "tags": ["List Pages", "Detail Pages", "Navigation"]
+            },
+            {
+                "title": "Show parent categories in breadcrumb",
+                "keywords": "breadcrumb, pathway, category",
+                "description": "",
+                "name": "breadcrumb_detail_category",
+                "tags": ["List Pages", "Detail Pages", "Navigation"]
+            },
+            {
+                "title": "Cron Secret",
+                "keywords": "cron",
+                "description": "This will be the secret key used to call the cron url to prevent abuse.",
+                "name": "cron_secret",
+                "tags": ["Cron"]
+            },
+            {
+                "title": "Run Cron on site visits",
+                "keywords": "cron, performance",
+                "description": "If you disable this setting you should setup a cron job on your server to be run at specified intervals. It is recommended you do this for large sites where cron jobs may take longer to complete.",
+                "name": "cron_site_visits",
+                "tags": ["Cron"]
+            },
+            {
+                "title": "Recalculate ratings",
+                "keywords": "cron, rating, bayesian",
+                "description": "Cron interval to re-calculate the bayesian ratings average.",
+                "name": "ratings_rebuild_interval",
+                "tags": ["Cron"]
+            },
+            {
+                "title": "Rebuild reviewer rank",
+                "keywords": "cron, reviewer, rank",
+                "description": "Cron interval to re-calculate the reviewer ranks.",
+                "name": "ranks_rebuild_interval",
+                "tags": ["Cron"]
+            },
+            {
+                "title": "Rebuild media likes rank",
+                "keywords": "cron, media, likes",
+                "description": "Cron interval to re-calculate the media likes rank.",
+                "name": "media_likes_rebuild_interval",
+                "tags": ["Cron"]
+            },
+            {
+                "title": "Purge cache interval",
+                "keywords": "cron, cache",
+                "description": "Cron interval to purge the entire cache contents.",
+                "name": "cache_cleanup",
+                "tags": ["Cron"]
+            },
+            {
+                "title": "Community Integration",
+                "keywords": "community, jomsocial, easysocial, builder, buddypress, profiles",
+                "description": "JReviews will automatically show user avatars and create links to user profiles from listings and reviews.",
+                "name": "community",
+                "tags": ["Community", "Social"]
+            },
+            {
+                "title": "Social Sharing",
+                "keywords": "social, sharing, twitter, facbeook, google, linkedin, pinterest, reddit",
+                "description": "Select the social sharing buttons you want to display in detail pages.",
+                "name": "social_sharing_detail",
+                "tags": ["Community", "Social"],
+                "override": true
+            },
+            {
+                "title": "Activty Stream Integration",
+                "keywords": "community, jomsocial, easysocial, buddypress",
+                "description": "Configure which activities should be displayed in the stream.",
+                "name": "jomsocial_tnmode",
+                "tags": ["Community", "Social"]
+            },
+            {
+                "title": "Twitter Integration",
+                "keywords": "community, twitter, tweet, application, app, bit.ly, bitly, api, hashtag",
+                "description": "Setup Twitter integration and select which activities to auto Tweet to the site account.",
+                "name": "twitter_enable",
+                "tags": ["Community", "Social"]
+            },
+            {
+                "title": "Facebook Integration",
+                "keywords": "community, facebook, fb, application, app, post, page, open graph protocol",
+                "description": "Setup Facebook integration and select which activities to post to the submitters stream.",
+                "name": "facebook_appid",
+                "tags": ["Community", "Social"]
+            },
+            {
+                "title": "Show alphabetical index bar",
+                "keywords": "directories, directory, index",
+                "description": "Display A-Z letters in directory page for quick index searches",
+                "name": "dir_show_alphaindex",
+                "tags": ["Directory"]
+            },
+            {
+                "title": "Display category images",
+                "keywords": "directories, directory, category, image",
+                "description": "Display the top level category images in the directory page",
+                "name": "dir_cat_images",
+                                "cms": ["joomla"],
+                "tags": ["Directory"]
+            },
+            {
+                "title": "Number of columns",
+                "keywords": "directories, directory, category, columnns",
+                "description": "Number of columnns to use for top level categories in directory page.",
+                "name": "dir_columns",
+                "tags": ["Directory"]
+            },
+            {
+                "title": "Show number of entries per category",
+                "keywords": "directories, directory, category, listing, count",
+                "description": "Show listing count for categories in directory and category pages.",
+                "name": "dir_cat_num_entries",
+                "tags": ["Directory"]
+            },
+            {
+                "title": "Hide empty categories",
+                "keywords": "directories, directory, category, listing, count",
+                "description": "Hide category links without listings in directory and category pages.",
+                "name": "dir_category_hide_empty",
+                "tags": ["Directory"]
+            },
+            {
+                "title": "Category levels to show",
+                "keywords": "directories, directory, category",
+                "description": "Set the number of sub-category levels to show in the directory  page.",
+                "name": "dir_category_levels",
+                "tags": ["Directory"]
+            },
+            {
+                "title": "Categories format",
+                "keywords": "directories, directory, category",
+                "description": "Set the layout for sub-categories to bullets or comma list in the directory page.",
+                "name": "dir_cat_format",
+                "tags": ["Directory"]
+            },
+            {
+                "title": "Pre-defined layout",
+                "keywords": "theme, list, layout, blogview, thumbview, tableview, masonry",
+                "description": "Choose between tableview, blogview, thumbview and masonry.",
+                "name": "list_predefined_layout",
+                "tags": ["Directory"]
+            },
+            {
+                "title": "Show category header image",
+                "keywords": "category, image",
+                "description": "Show the category image in the header of the category page.",
+                "name": "list_show_page_catimage",
+                                "cms": ["joomla"],
+                "tags": ["Category Pages"],
+                "override": true
+            },
+            {
+                "title": "Show 'Add new listing' button in category pages",
+                "keywords": "category, listing, submit",
+                "description": "",
+                "name": "list_show_addnew",
+                "tags": ["Category Pages"]
+            },
+            {
+                "title": "Use current page Itemid in the 'Add new listing' url",
+                "keywords": "category, listing, submit",
+                "description": "",
+                "name": "list_addnew_menuid",
+                "tags": ["Category Pages"]
+            },
+            {
+                "title": "Show listings of child categories",
+                "keywords": "category, listing, subcategory",
+                "description": "Display listings of subcategories in parent category page.",
+                "name": "list_show_child_listings",
+                "tags": ["Category Pages"]
+            },
+            {
+                "title": "Enable listing comparison",
+                "keywords": "comparison",
+                "description": "",
+                "name": "list_compare",
+                "tags": ["Listings", "Comparison"],
+                "override": true
+            },
+            {
+                "title": "Slider listing columns",
+                "keywords": "comparison",
+                "description": "Defines the number of listings that the user can see at once in the comparison page.",
+                "name": "list_compare_columns",
+                "tags": ["Listings", "Comparison"]
+            },
+            {
+                "title": "Show detailed user ratings",
+                "keywords": "comparison, rating",
+                "description": "If enabled the individual criteria ratings will be shown in the comparison page.",
+                "name": "list_compare_user_ratings",
+                "tags": ["Listings", "Comparison"]
+            },
+            {
+                "title": "Show detailed editor ratings",
+                "keywords": "comparison, rating",
+                "description": "If enabled the individual criteria ratings will be shown in the comparison page.",
+                "name": "list_compare_editor_ratings",
+                "tags": ["Listings", "Comparison"]
+            },
+            {
+                "title": "Show sub-category links in category page",
+                "keywords": "categories, category",
+                "description": "",
+                "name": "list_show_categories",
+                "tags": ["Category Pages"]
+            },
+            {
+                "title": "Number of columns for categories",
+                "keywords": "categories, category",
+                "description": "Sets the number of columns for the sub-category links in the category page.",
+                "name": "cat_columns",
+                "tags": ["Category Pages"]
+            },
+            {
+                "title": "Show category images",
+                "keywords": "categories, category",
+                "description": "Display sub-category images in the category page",
+                "name": "list_show_catimages",
+                "cms": ["joomla"],
+                "tags": ["Category Pages"],
+                "override": true
+            },
+            {
+                "title": "Show ordering dropdown list",
+                "keywords": "categories, category, sort, order",
+                "description": "Display sorting list in category page.",
+                "name": "list_show_orderselect",
+                "tags": ["Category Pages", "Search Results"],
+                "override": true
+            },
+            {
+                "title": "Default Ordering",
+                "keywords": "categories, category, sort, order",
+                "description": "Set the default ordering for category and search result pages.",
+                "name": "list_order_default",
+                "tags": ["Category Pages", "Search Results"],
+                "override": true
+            },
+            {
+                "title": "Ordering options",
+                "keywords": "categories, category, sort, order",
+                "description": "Choose the ordering options to include in the sorting list in category and search result pages.",
+                "name": "list_order_options",
+                "tags": ["Category Pages", "Search Results"],
+                "override": true
+            },
+            {
+                "title": "Include rating criteria",
+                "keywords": "categories, category, sort, order",
+                "description": "Set whether to include rating criteria options in the sorting list in category and search result pages.",
+                "name": "list_order_criteria",
+                "tags": ["Category Pages", "Search Results"],
+                "override": true
+            },
+            {
+                "title": "Order by field",
+                "keywords": "categories, category, sort, order, field",
+                "description": "Use a custom field as the default ordering.",
+                "name": "list_order_field",
+                "tags": ["Category Pages", "Search Results"],
+                "override": true
+            },
+            {
+                "title": "Listing Date",
+                "keywords": "listing, created, date",
+                "description": "Show the listing created date",
+                "name": "list_show_date",
+                "tags": ["Listings"],
+                "override": true
+            },
+            {
+                "title": "Listing Author",
+                "keywords": "listing, author, owner",
+                "description": "Show the listing author",
+                "name": "list_show_author",
+                "tags": ["Listings"],
+                "override": true
+            },
+            {
+                "title": "Listing Average User Rating",
+                "keywords": "listing, rating",
+                "description": "Show the listing average user rating in listing list pages.",
+                "name": "list_show_user_rating",
+                "tags": ["Listings"],
+                "override": true
+            },
+            {
+                "title": "Listing Average Editor Rating",
+                "keywords": "listing, rating",
+                "description": "Show the listing average editor rating in listing list pages.",
+                "name": "list_show_editor_rating",
+                "tags": ["Listings"],
+                "override": true
+            },
+            {
+                "title": "Listing Views",
+                "keywords": "listing, views, hits, popular",
+                "description": "Show the listing views.",
+                "name": "list_show_hits",
+                "tags": ["Listings"],
+                "override": true
+            },
+            {
+                "title": "Show summary",
+                "keywords": "listing, summary",
+                "description": "Show the summary in listing list pages.",
+                "name": "list_show_abstract",
+                "tags": ["List Pages", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Trim summary (words)",
+                "keywords": "listing, summary",
+                "description": "Limit the number of words shown in the summary in listing list pages.",
+                "name": "list_abstract_trim",
+                "tags": ["List Pages", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Show 'New' Label",
+                "keywords": "new, label",
+                "description": "Show the label for recently submitted listings",
+                "name": "list_abstract_trim",
+                "tags": ["List Pages", "Listings"],
+                "override": true
+            },
+            {
+                "title": "'New' label days",
+                "keywords": "new, label",
+                "description": "Set the threshold used to display the label listings.",
+                "name": "list_new_days",
+                "tags": ["List Pages", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Show 'Hot' Label",
+                "keywords": "new, label",
+                "description": "Show the label for most viewed listings",
+                "name": "list_hot",
+                "tags": ["List Pages", "Listings"],
+                "override": true
+            },
+            {
+                "title": "'Hot' number of views",
+                "keywords": "hot, popular, hits, label",
+                "description": "Set the threshold used to display the label listings.",
+                "name": "list_hot_hits",
+                "tags": ["List Pages", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Show 'Featured' Label",
+                "keywords": "new, label",
+                "description": "Show the label for featured listings",
+                "name": "list_featured",
+                "tags": ["List Pages", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Show 'read more' link",
+                "keywords": "readmore",
+                "description": "Show the read more link in list pages",
+                "name": "list_show_readmore",
+                "tags": ["List Pages", "Listings"]
+            },
+            {
+                "title": "Show 'read reviews' link",
+                "keywords": "read, review",
+                "description": "Show the read reviews link in list pages",
+                "name": "list_show_readreviews",
+                "tags": ["List Pages", "Listings"]
+            },
+            {
+                "title": "Show 'write review' link",
+                "keywords": "write, review",
+                "description": "Show the write review link in list pages",
+                "name": "list_show_newreview",
+                "tags": ["List Pages", "Listings"]
+            },
+            {
+                "title": "Enable 'cover' selection",
+                "keywords": "photo, cover, header",
+                "description": "Allows users to select a photo as the cover for the listing detail header.",
+                "name": "media_photo_function_cover",
+                "tags": ["Detail Pages", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Enable 'logo' selection",
+                "keywords": "photo, logo, header",
+                "description": "Allows users to select a photo as the logo for the listing detail header.",
+                "name": "media_photo_function_logo",
+                "tags": ["Detail Pages", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Show empty 'cover'",
+                "keywords": "photo, cover, header",
+                "description": "Displays the cover area in the listing detail header even when a cover has not been set.",
+                "name": "listing_detail_header_empty_cover",
+                "tags": ["Detail Pages", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Empty cover background color",
+                "keywords": "photo, cover, header",
+                "description": "Set the default background color for the empty cover in the listing detail header.",
+                "name": "listing_detail_header_empty_cover_color",
+                "tags": ["Detail Pages", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Show empty 'logo'",
+                "keywords": "photo, logo, header",
+                "description": "Displays the logo area in the listing detail header even when a logo has not been set.",
+                "name": "listing_detail_header_empty_logo",
+                "tags": ["Detail Pages", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Empty logo background color",
+                "keywords": "photo, logo, header",
+                "description": "Set the default background color for the empty logo in the listing detail header.",
+                "name": "listing_detail_header_empty_logo_color",
+                "tags": ["Detail Pages", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Display avatar in header",
+                "keywords": "community, avatar, header",
+                "description": "If available, show the listing owner avatar in the logo position in the listing detail header when a log has not been set.",
+                "name": "listing_detail_header_avatar",
+                "tags": ["Detail Pages", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Enable favorites",
+                "keywords": "favorites",
+                "description": "",
+                "name": "favorites_enable",
+                "tags": ["Listings"],
+                "override": true
+            },
+            {
+                "title": "Enable Listing Claims",
+                "keywords": "claims",
+                "description": "",
+                "name": "claims_enable",
+                "tags": ["Listings"],
+                "override": true
+            },
+            {
+                "title": "Enable claims only for listings owned by",
+                "keywords": "claims",
+                "description": "",
+                "name": "claims_enable_userids",
+                "tags": ["Listings"]
+            },
+            {
+                "title": "Limit the number of characters shown",
+                "keywords": "summary, description, readmore",
+                "description": "Add a read more link in the listing detail page that expands to display the complete summary and description.",
+                "name": "summary_desc_char_limit",
+                "tags": ["Detail Pages", "Listings"],
+                "override": true
+            },
+            {
+                "title": "Enable Listing Inquiries",
+                "keywords": "enquiry, inquiry, inquiries, contact, email, e-mail",
+                "description": "Site visitors can fill a contact form in the listing detail page to request information.",
+                "name": "inquiry_enable",
+                "tags": ["Listings"],
+                "override": true
+            },
+            {
+                "title": "Inquiry is sent to",
+                "keywords": "enquiry, inquiry, inquiries, contact, email, e-mail",
+                "description": "Set the recipient for inquiries: listing owner, site e-mail or custom field email.",
+                "name": "inquiry_recipient",
+                "tags": ["Listings"]
+            },
+            {
+                "title": "Custom field name",
+                "keywords": "enquiry, inquiry, inquiriescontact, email, e-mail",
+                "description": "Set the custom field name to be used as the recipient for listing inquiries.",
+                "name": "inquiry_field",
+                "tags": ["Listings"]
+            },
+            {
+                "title": "BCC Admin email (one per line)",
+                "keywords": "enquiry, inquiry, inquiries, contact, email, e-mail, bcc",
+                "description": "Set a BCC e-mail that will be sent a copy of listing inquiries.",
+                "name": "inquiry_bcc",
+                "tags": ["Listings"]
+            },
+            {
+                "title": "Enable User Reviews",
+                "keywords": "reviews, user",
+                "description": "",
+                "name": "user_reviews",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Enable Editor Reviews",
+                "keywords": "reviews, editor",
+                "description": "",
+                "name": "author_review",
+                "tags": ["Reviews"],
+                "override": true
+            },
+            {
+                "title": "JReviews Editors user IDs",
+                "keywords": "reviews, editor",
+                "description": "Set the IDs for users that will be able to write site editor reviews.",
+                "name": "authorids",
+                "tags": ["Reviews"],
+                "override": true
+            },
+            {
+                "title": "Multiple user reviews per listing",
+                "keywords": "reviews, user, duplicate, multiple",
+                "description": "",
+                "name": "user_multiple_reviews",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Disable IP address check for multiple reviews",
+                "keywords": "reviews, multiple, duplicate, ip address",
+                "description": "",
+                "name": "review_ipcheck_disable",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Stop users from reviewing their own listings",
+                "keywords": "reviews, owner",
+                "description": "",
+                "name": "user_owner_disable",
+                "tags": ["Reviews"],
+                "override": true
+            },
+            {
+                "title": "View All Reviews Canonical (SEO)",
+                "keywords": "seo, canonical, reviews, all",
+                "description": "Add a canonical tag to the listing detail page in the view all reviews page for a listing.",
+                "name": "viewallreviews_canonical",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Default Ordering",
+                "keywords": "reviews, sort, order",
+                "description": "Set the default ordering for reviews.",
+                "name": "user_review_order",
+                "tags": ["Reviews"],
+                "override": true
+            },
+            {
+                "title": "Ordering options",
+                "keywords": "reviews, sort, order",
+                "description": "Choose the ordering options to include in the sorting list for reviews.",
+                "name": "review_order_options",
+                "tags": ["Reviews"],
+                "override": true
+            },
+            {
+                "title": "Rating scale",
+                "keywords": "reviews, ratings, scale",
+                "description": "",
+                "name": "rating_scale",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Rating increment",
+                "keywords": "reviews, ratings, scale, increment",
+                "description": "Add a half point option to ratings.",
+                "name": "rating_increment",
+                "tags": ["Reviews"],
+                "override": true
+            },
+            {
+                "title": "Rating selector",
+                "keywords": "reviews, ratings",
+                "description": "Choose between a select list or start icons.",
+                "name": "rating_selector",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "User rating style",
+                "keywords": "user, rating, star, style",
+                "description": "User rating style used in listings and review form",
+                "name": "user_rating_style",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Editor rating style",
+                "keywords": "editor, rating, star, style",
+                "description": "Editor rating style used in listings and review form",
+                "name": "editor_rating_style",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "User rating color",
+                "keywords": "user, rating, star color",
+                "description": "User rating color",
+                "name": "user_rating_color",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Editor rating style",
+                "keywords": "editor, rating, star, color",
+                "description": "Editor rating color",
+                "name": "editor_rating_color",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Rating selector",
+                "keywords": "reviews, ratings",
+                "description": "Choose between a select list or start icons.",
+                "name": "rating_selector",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Rating selector (mobile)",
+                "keywords": "reviews, ratings, mobile",
+                "description": "Choose between a select list or start icons.",
+                "name": "rating_selector_mobile",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Pre-select N/A for optional rating criteria",
+                "keywords": "reviews, ratings, criteria, optional",
+                "description": "If enabled, users don't need to click on the N/A option to ignore a criterion.",
+                "name": "rating_default_na",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Hide non-rated criteria from detailed ratings",
+                "keywords": "reviews, ratings, criteria",
+                "description": "Useful if there are many optional criteria.",
+                "name": "rating_hide_na",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Show rating count in detailed ratings",
+                "keywords": "reviews, ratings, criteria, optional",
+                "description": "This can be informational when users gave N/A ratings to certain criteria.",
+                "name": "show_criteria_rating_count",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Display rating histogram",
+                "keywords": "reviews, ratings, histogram",
+                "description": "Set the threshold of reviews for a listing to display the histogram.",
+                "name": "rating_histogram",
+                "tags": ["Reviews"],
+                "override": true
+            },
+            {
+                "title": "Exclude unrated listings from Bayesian Average",
+                "keywords": "reviews, ratings, bayesian",
+                "description": "Enabling this setting leaves listings without reviews at the bottom of the list when ordering by rating, instead of in the middle.",
+                "name": "bayesian_exclude_unrated",
+                "tags": ["Reviews", "Ratings"]
+            },
+            {
+                "title": "Enable Bayesian average for user reviews",
+                "keywords": "reviews, user, ratings, bayesian",
+                "description": "",
+                "name": "user_review_bayesian",
+                "tags": ["Reviews", "Ratings"]
+            },
+            {
+                "title": "User reviews tuning parameter",
+                "keywords": "reviews, user, ratings, bayesian",
+                "description": "Between 0 and 1, where 0 is the equivalent of disabling the Bayesian Average.",
+                "name": "user_review_bayesian_tuning",
+                "tags": ["Reviews", "Ratings"]
+            },
+            {
+                "title": "Enable Bayesian average for editor reviews",
+                "keywords": "reviews, editor, ratings, bayesian",
+                "description": "",
+                "name": "editor_review_bayesian",
+                "tags": ["Reviews", "Ratings"]
+            },
+            {
+                "title": "Editor reviews tuning parameter",
+                "keywords": "reviews, editor, ratings, bayesian",
+                "description": "Between 0 and 1, where 0 is the equivalent of disabling the Bayesian Average.",
+                "name": "editor_review_bayesian_tuning",
+                "tags": ["Reviews", "Ratings"]
+            },
+            {
+                "title": "Enable listing owner replies to user reviews",
+                "keywords": "reviews, user, owner, reply, replies",
+                "description": "",
+                "name": "owner_replies",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Enable review discussions",
+                "keywords": "reviews, discussion, comment",
+                "description": "",
+                "name": "review_discussions",
+                "tags": ["Reviews", "Discussions"],
+                "override": true
+            },
+            {
+                "title": "Enable reporting of user reviews",
+                "keywords": "reviews, user, report, abuse",
+                "description": "",
+                "name": "user_report",
+                "tags": ["Reviews", "Reports"]
+            },
+            {
+                "title": "Enable reporting of editor reviews",
+                "keywords": "reviews, editor, report, abuse",
+                "description": "",
+                "name": "author_report",
+                "tags": ["Reviews", "Reports"]
+            },
+            {
+                "title": "Enable user review voting",
+                "keywords": "reviews, user, vote, voting, helpful, like",
+                "description": "",
+                "name": "user_vote",
+                "tags": ["Reviews", "Voting"]
+            },
+            {
+                "title": "Enable editor review voting",
+                "keywords": "reviews, editor, vote, voting, helpful, like",
+                "description": "",
+                "name": "author_vote",
+                "tags": ["Reviews", "Voting"]
+            },
+            {
+                "title": "Disable ip address check for votes",
+                "keywords": "reviews, vote, voting, helpful, like, duplicate, ip address",
+                "description": "",
+                "name": "vote_ipcheck_disable",
+                "tags": ["Reviews", "Voting"]
+            },
+            {
+                "title": "Number of editor reviews per page",
+                "keywords": "reviews, editor, limit",
+                "description": "",
+                "name": "editor_limit",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Exclude Editor Reviews from Reviewer Ranking",
+                "keywords": "reviews, editor, reviewer, rank",
+                "description": "",
+                "name": "editor_rank_exclude",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Show detailed ratings in reviews",
+                "keywords": "reviews, editor, ratings",
+                "description": "",
+                "name": "author_ratings",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Show reviewer rank",
+                "keywords": "reviews, editor, reviewer",
+                "description": "",
+                "name": "author_rank_link",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Show 'See all reviews' link for reviewer",
+                "keywords": "reviews, editor, reviewer",
+                "description": "",
+                "name": "author_myreviews_link",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Limit the number of characters shown in the review comments",
+                "keywords": "reviews, editor, comments, limit",
+                "description": "A show more link will display after the limit to expand the comments.",
+                "name": "editor_review_char_limit",
+                "tags": ["Reviews"],
+                "override": true
+            },
+            {
+                "title": "Number of user reviews per page",
+                "keywords": "reviews, user, limit",
+                "description": "",
+                "name": "user_limit",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Show detailed ratings in reviews",
+                "keywords": "reviews, user, ratings",
+                "description": "",
+                "name": "user_ratings",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Show reviewer rank",
+                "keywords": "reviews, user, reviewer",
+                "description": "",
+                "name": "user_rank_link",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Show 'See all reviews' link for reviewer",
+                "keywords": "reviews, user, reviewer",
+                "description": "",
+                "name": "user_myreviews_link",
+                "tags": ["Reviews"]
+            },
+            {
+                "title": "Limit the number of characters shown in the review comments",
+                "keywords": "reviews, user, comments, limit",
+                "description": "A show more link will display after the limit to expand the comments.",
+                "name": "user_review_char_limit",
+                "tags": ["Reviews"],
+                "override": true
+            },
+            {
+                "title": "Allow duplicate listing titles",
+                "keywords": "listing, form, new, submit, duplicate, title",
+                "description": "",
+                "name": "content_title_duplicates",
+                "tags": ["Listings", "Form"]
+            },
+            {
+                "title": "Name Field",
+                "keywords": "listing, form, new, submit, user, name, guest, field, input, optional, required, hidden",
+                "description": "For guest submissions make the submitter's name required, optional or hidden.",
+                "name": "content_name",
+                "tags": ["Listings", "Form"]
+            },
+            {
+                "title": "E-mail Field",
+                "keywords": "listing, form, new, submit, user, email, e-mail, guest, field, input, optional, required, hidden",
+                "description": "For guest submissions make the submitter's e-mail required, optional or hidden.",
+                "name": "content_email",
+                "tags": ["Listings", "Form"]
+            },
+            {
+                "title": "Summary Field",
+                "keywords": "listing, form, new, submit, summary, field, input, optional, required, hidden",
+                "description": "Make the listing summary required, optional or hidden.",
+                "name": "content_summary",
+                "tags": ["Listings", "Form"],
+                "override": true
+            },
+            {
+                "title": "Description Field",
+                "keywords": "listing, form, new, submit, description, field, input, optional, required, hidden",
+                "description": "Make the listing description required, optional or hidden.",
+                "name": "content_description",
+                "tags": ["Listings", "Form"],
+                "override": true
+            },
+            {
+                "title": "Enable WYSIWYG editor for summary/description",
+                "keywords": "listing, form, new, submit, editor, wysiwyg, summary, description",
+                "description": "Enable the simple editor for the listing summary and description.",
+                "name": "listing_wysiwyg",
+                "tags": ["Listings", "Form"]
+            },
+            {
+                "title": "Review form shown to",
+                "keywords": "listing, form, new, submit, review",
+                "description": "Set if the review form will be shown while submitting a new listing.",
+                "name": "content_show_reviewform",
+                "tags": ["Listings", "Form"],
+                "override": true
+            },
+            {
+                "title": "Make review optional",
+                "keywords": "listing, form, new, submit, review, optional",
+                "description": "Shows a checkbox allowing users to hide the review form.",
+                "name": "reviewform_optional",
+                "tags": ["Listings", "Form"],
+                "override": true
+            },
+            {
+                "title": "Review Title",
+                "keywords": "review, form, new, submit, title, field, input, optional, required, hidden",
+                "description": "Make the review title required, optional or hidden.",
+                "name": "reviewform_title",
+                "tags": ["Reviews", "Form"],
+                "override": true
+            },
+            {
+                "title": "Reviewer Name",
+                "keywords": "review, form, new, submit, name, field, input, optional, required, hidden",
+                "description": "For guest submissions make the reviewer's name required, optional or hidden.",
+                "name": "reviewform_name",
+                "tags": ["Reviews", "Form"]
+            },
+            {
+                "title": "Reviewer E-mail",
+                "keywords": "review, form, new, submit, email, e-mail, field, input, optional, required, hidden",
+                "description": "For guest submissions make the reviewer's e-mail required, optional or hidden.",
+                "name": "reviewform_email",
+                "tags": ["Reviews", "Form"]
+            },
+            {
+                "title": "Review Comment",
+                "keywords": "review, form, new, submit, comments, field, input, optional, required, hidden",
+                "description": "Make the review comment required, optional or hidden.",
+                "name": "reviewform_comment",
+                "tags": ["Reviews", "Form"],
+                "override": true
+            },
+            {
+                "title": "Enable WYSIWYG editor for review comments",
+                "keywords": "review, form, new, submit, comments, editor, wysiwyg",
+                "description": "",
+                "name": "review_comment_wysiwyg",
+                "tags": ["Reviews", "Form"]
+            },
+            {
+                "title": "Commenter's Name",
+                "keywords": "discussion, form, new, submit, comments, name, field, input, optional, required, hidden",
+                "description": "For guest submissions make the commenter's name required, optional or hidden.",
+                "name": "discussform_name",
+                "tags": ["Discussions", "Form"]
+            },
+            {
+                "title": "Commenter's E-mail",
+                "keywords": "discussion, form, new, submit, comments, email, e-mail, field, input, optional, required, hidden",
+                "description": "For guest submissions make the commenter's e-mail required, optional or hidden.",
+                "name": "discussform_email",
+                "tags": ["Discussions", "Form"]
+            },
+            {
+                "title": "Enable WYSIWYG editor for discussion comments",
+                "keywords": "discussion, form, new, submit, comments, editor, wysiwyg",
+                "description": "",
+                "name": "discussion_wysiwyg",
+                "tags": ["Discussions", "Form"]
+            },
+            {
+                "title": "Media Uploader's Name",
+                "keywords": "media, photo, video, attachment, audio, form, new, submit, name, field, input, optional, required, hidden",
+                "description": "For guest submissions make the uploader's name required, optional or hidden.",
+                "name": "mediaform_name",
+                "tags": ["Reviews", "Form"]
+            },
+            {
+                "title": "Media Uploader's E-mail",
+                "keywords": "media, photo, video, attachment, audio, form, new, submit, email, e-mail, field, input, optional, required, hidden",
+                "description": "For guest submissions make the uploader's e-mail required, optional or hidden.",
+                "name": "mediaform_email",
+                "tags": ["Reviews", "Form"]
+            },
+            {
+                "title": "Use current page ID for search results",
+                "keywords": "search, results",
+                "description": "",
+                "name": "search_itemid",
+                "tags": ["Search"]
+            },
+            {
+                "title": "Specify a menu ID for search results",
+                "keywords": "search, results",
+                "description": "",
+                "name": "search_itemid_hc",
+                "tags": ["Search"]
+            },
+            {
+                "title": "If one result found, redirect to detail page",
+                "keywords": "search, results, redirect",
+                "description": "",
+                "name": "search_one_result",
+                "tags": ["Search"]
+            },
+            {
+                "title": "Allow all listings to be returned with empty search queries",
+                "keywords": "search, results, empty",
+                "description": "",
+                "name": "search_return_all",
+                "tags": ["Search"]
+            },
+            {
+                "title": "Theme Layout for search results",
+                "keywords": "search, results, theme, tableview, blogview, thumbview and masonry",
+                "description": "Choose beween tableview, blogview, thumbview and masonry",
+                "name": "search_display_type",
+                "tags": ["Search", "Theme"]
+            },
+            {
+                "title": "Theme Suffix for search results",
+                "keywords": "search, results, theme, suffix",
+                "description": "",
+                "name": "search_tmpl_suffix",
+                "tags": ["Search", "Theme"]
+            },
+            {
+                "title": "Default query type",
+                "keywords": "search, simple, query",
+                "description": "'Any' will look for listings which contain any of the words. 'All' will look for listings that contain all the words.",
+                "name": "search_simple_query_type",
+                "tags": ["Simple Search"]
+            },
+            {
+                "title": "Show search box in list and directory pages",
+                "keywords": "search, simple, directory, list",
+                "description": "",
+                "name": "list_show_searchbox",
+                "tags": ["Simple Search"],
+                "override": true
+            },
+            {
+                "title": "Use current page category id as filters for simple search",
+                "keywords": "search, simple, category",
+                "description": "",
+                "name": "search_cat_filter",
+                "tags": ["Simple Search"]
+            },
+            {
+                "title": "Allow searching by listing owner",
+                "keywords": "search, advanced, owner, author",
+                "description": "",
+                "name": "search_item_author",
+                "tags": ["Advanced Search"]
+            },
+            {
+                "title": "Allow searches on more than one option for single select and radiobutton fields",
+                "keywords": "search, advanced, options, fields, radio, select, conversion, convert",
+                "description": "",
+                "name": "search_field_conversion",
+                "tags": ["Advanced Search"]
+            },
+            {
+                "title": "Enable User Review Search",
+                "keywords": "search, advanced, options, fields, radio, select, conversion, convert",
+                "description": "Set a threshold of number of reviews after which the search will be enabled for each listing.",
+                "name": "search_field_conversion",
+                "tags": ["Review Search"]
+            },
+            {
+                "title": "Listing Title Live Search",
+                "keywords": "search, listing, title, live, submit, duplicate",
+                "description": "",
+                "name": "submit_listing_livesearch",
+                "tags": ["Listing", "Form"]
+            },
+            {
+                "title": "New/edited listing",
+                "keywords": "notifications, email, e-mail, admin, listings",
+                "description": "",
+                "name": "notify_content",
+                "tags": ["Admin Notifications"]
+            },
+            {
+                "title": "New/edited review",
+                "keywords": "notifications, email, e-mail, admin, reviews",
+                "description": "",
+                "name": "notify_review",
+                "tags": ["Admin Notifications"]
+            },
+            {
+                "title": "New review comment/discussion",
+                "keywords": "notifications, email, e-mail, admin, discussion, comment, review",
+                "description": "",
+                "name": "notify_review_post",
+                "tags": ["Admin Notifications"]
+            },
+            {
+                "title": "New owner reply",
+                "keywords": "notifications, email, e-mail, admin, review, owner, reply",
+                "description": "",
+                "name": "notify_owner_reply",
+                "tags": ["Admin Notifications"]
+            },
+            {
+                "title": "New abuse report",
+                "keywords": "notifications, email, e-mail, admin, abuse, report",
+                "description": "",
+                "name": "notify_report",
+                "tags": ["Admin Notifications"]
+            },
+            {
+                "title": "New claimed listing",
+                "keywords": "notifications, email, e-mail, admin, claimed, listing",
+                "description": "",
+                "name": "notify_claim",
+                "tags": ["Admin Notifications"]
+            },
+            {
+                "title": "New/edited listing to submitter",
+                "keywords": "notifications, email, e-mail, user, listing",
+                "description": "",
+                "name": "notify_user_listing",
+                "tags": ["User Notifications"]
+            },
+            {
+                "title": "New/edited review to listing owner",
+                "keywords": "notifications, email, e-mail, user, review, listing, owner",
+                "description": "",
+                "name": "notify_owner_review",
+                "tags": ["User Notifications"]
+            },
+            {
+                "title": "New/edited review to submitter",
+                "keywords": "notifications, email, e-mail, user, review, reviewer",
+                "description": "",
+                "name": "notify_user_review",
+                "tags": ["User Notifications"]
+            },
+            {
+                "title": "New/edited review comment to submitter",
+                "keywords": "notifications, email, e-mail, user, review, discussion, comment",
+                "description": "",
+                "name": "notify_user_comment",
+                "tags": ["User Notifications"]
+            },
+            {
+                "title": "New owner reply to reviewer",
+                "keywords": "notifications, email, e-mail, user, review, owner, reply",
+                "description": "",
+                "name": "notify_reviewer_owner_reply",
+                "tags": ["User Notifications"]
+            },
+            {
+                "title": "New/edited review comment to reviewer",
+                "keywords": "notifications, email, e-mail, user, review, comment, discussion",
+                "description": "",
+                "name": "notify_reviewer_comment",
+                "tags": ["User Notifications"]
+            },
+            {
+                "title": "New/edited review comment to listing owner",
+                "keywords": "notifications, email, e-mail, user, review, comment, discussion, owner",
+                "description": "",
+                "name": "notify_owner_comment",
+                "tags": ["User Notifications"]
+            },
+            {
+                "title": "Video encoding finished to submitter",
+                "keywords": "notifications, email, e-mail, user, media, video, audio, encoding",
+                "description": "",
+                "name": "notify_user_media_encoding",
+                "tags": ["User Notifications"]
+            },
+            {
+                "title": "Display feed icons",
+                "keywords": "feeds, rss",
+                "description": "",
+                "name": "rss_enable",
+                "tags": ["RSS Feeds"]
+            },
+            {
+                "title": "Listings in feed",
+                "keywords": "feeds, rss, listings, limit",
+                "description": "",
+                "name": "rss_limit",
+                "tags": ["RSS Feeds"]
+            },
+            {
+                "title": "Feed title",
+                "keywords": "feeds, rss, title",
+                "description": "",
+                "name": "rss_limit",
+                "tags": ["RSS Feeds"]
+            },
+            {
+                "title": "Feed description",
+                "keywords": "feeds, rss, description",
+                "description": "",
+                "name": "rss_description",
+                "tags": ["RSS Feeds"]
+            },
+            {
+                "title": "Feed image",
+                "keywords": "feeds, rss, image",
+                "description": "",
+                "name": "rss_image",
+                "tags": ["RSS Feeds"]
+            },
+            {
+                "title": "Show listing thumbnail",
+                "keywords": "feeds, rss, image, thumbnail",
+                "description": "",
+                "name": "rss_image",
+                "tags": ["RSS Feeds"]
+            },
+            {
+                "title": "Thumbnail alignment",
+                "keywords": "feeds, rss, image, thumbnail, alignment",
+                "description": "",
+                "name": "rss_item_image_align",
+                "tags": ["RSS Feeds"]
+            },
+            {
+                "title": "Cache Expiration",
+                "keywords": "cache, expiration",
+                "description": "Cached files will be re-created if they have expired.",
+                "name": "cache_expires",
+                "tags": ["Cache"]
+            },
+            {
+                "title": "Enable query cache",
+                "keywords": "cache, query, performance",
+                "description": "Reduces the number of queries per page. The cache is cleared after the cache duration has passed or everytime the JReviews setup, configuration, a listing or review is submitted or updated.",
+                "name": "cache_query",
+                "tags": ["Cache"]
+            },
+            {
+                "title": "Enable session cache",
+                "keywords": "cache, view, performance, session, count",
+                "description": "Caches data to the user's session to reduce the number of queries. For example the total count of results for different paginated pages is cached and then read from the user's session data.",
+                "name": "cache_session",
+                "tags": ["Cache"]
+            }
+        ]
+    }
+]

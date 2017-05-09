@@ -1,0 +1,99 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+ 
+<?php if($row['Group']['group_id'] == 0):?>
+<script type="text/javascript">
+jQuery('#group_title','#adminForm').blur(function(){
+    var text = jQuery('#group_title','#adminForm').val();
+    var $value = jQuery('#group_name','#adminForm');
+    if (text != '' && $value.val() == '') {
+        $value.val(jreviews_admin.tools.slug(text,{'numbers':true,'spaceReplaceChar':'-'}));
+    }
+});
+</script>
+<?php endif;?>
+ 
+<style type="text/css">
+#groupsForm label {
+    float:left; padding:0; margin: 0 10px 0 0; text-align:right; width:100px;    
+}
+#groupsForm fieldset input, #groupsForm fieldset select { float:none; margin: 0 0 0 5px; padding:2px;}
+#groupsForm .jr_fieldDiv { margin: 10px; padding-bottom: 0px; white-space: nowrap;}
+#groupsForm .width50percent {width: 45%; margin-right: 10px; float: left;}
+#groupsForm .control_value_search {float:left; margin-right: 5px;}
+#groupsForm .control-value-cb-div {float: left; padding: 2px;}
+</style>
+  
+<form name="groupsForm" id="groupsForm" class="adminForm">
+    
+    <div class="jr_form">
+    
+        <fieldset class="width50percent">
+            <legend>Basic Setup</legend>
+                <div class="jr_fieldDiv">
+                    <label>Location<span class="required">*</span></label>
+                    <div>
+                        <input class="field_location" disabled="disabled" value="<?php echo inflector::camelize($type) == 'Content' ? 'Listing' : inflector::camelize($type);?>" />
+                    </div>
+                </div>              
+                <div class="jr_fieldDiv">
+                    <label for="group_title">Title<span class="required">*</span></label>
+                    <div>
+                        <?php echo $Form->text('data[Group][title]',array('id'=>'group_title','value'=>$row['Group']['title'],'max_size'=>'50','class'=>'mediumField'));?>
+                    </div>
+                </div>
+                <div class="jr_fieldDiv">
+                    <label for="group_name">Name<span class="required">*</span></label>
+                    <div>
+                        <?php echo $Form->text('data[Group][name]',array('id'=>'group_name','value'=>$row['Group']['name'],'max_size'=>'50','class'=>'mediumField'));?>
+                    </div>
+                </div>
+        </fieldset>
+        <fieldset class="width50percent">
+            <legend>Controlled By</legend>
+                <div class="jr_fieldDiv">
+                    <label for="control_field">Control Field<span class="required">&nbsp;</span></label>
+                    <div>
+                        <?php echo $Form->text('data[Group][control_field]',array('class'=>'control_field','value'=>$row['Group']['control_field'],'max_size'=>'200'));?>
+                    </div>
+                </div>                    
+                <div class="jr_fieldDiv">
+                    <label for="control_value">Control Value<span class="required">&nbsp;</span></label>
+                    <div style="float:left;">
+                        <?php 
+                        $attributes = array('data-defaultValue'=>__a("Select a field",true),'class'=>'control_value_search','max_size'=>'200');
+                        $row['Group']['control_value'] == '' and $attributes['disabled']= 'disabled';
+                        ?>                     
+                        <?php echo $Form->text('control_value_search',$attributes);?>
+                        <div class="control-value-cb-div">
+                            <?php if(!empty($row['ControlValues'])):?>
+                                <?php $checked = array(); foreach($row['ControlValues'] AS $key=>$option): $checked[] = $option['value']; endforeach;?>
+                                <?php echo $Form->checkbox('data[Group][control_value]',$row['ControlValues'],array('value'=>$checked,'label'=>array('style'=>'text-align:left;')));?>
+                            <?php endif;?>                        
+                        </div>
+                        
+                    </div>
+                </div>                    
+        </fieldset>
+
+    </div>          
+                  
+    <input type="hidden" name="data[controller]" value="admin/groups" />
+    <input type="hidden" name="data[action]" value="_save" />    
+	<input type="hidden" id="groupid" name="data[Group][groupid]" value="<?php echo $row['Group']['group_id'];?>" />
+	<input type="hidden" id="type" name="data[Group][type]" value="<?php echo $type;?>" />
+	<input type="hidden" id="limitstart" name="data[offset]" value="<?php echo $this->offset;?>" />
+	<input type="hidden" id="limit" name="data[limit]" value="<?php echo $this->limit;?>" />
+	<input type="hidden" id="page" name="data[page]" value="<?php echo $this->page;?>" />
+</form>
+
+<script type="text/javascript">jreviews_admin.field.control_setup('groupsForm',{model:'Group',ctrlFieldId:'<?php echo $row['ControlValues'][0]['fieldid'];?>'});</script>

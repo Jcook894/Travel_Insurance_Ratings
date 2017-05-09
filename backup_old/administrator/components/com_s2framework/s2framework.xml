@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="component" version="1.5.0">
+	<name>S2Framework</name>
+	<author>Alejandro Schmeichler</author>
+	<creationDate>July 2009</creationDate>
+	<authorEmail>sales@reviewsforjoomla.com</authorEmail>
+	<authorUrl>www.reviewsforjoomla.com</authorUrl>
+	<version>1.0.1.2 for JReviews Express</version>
+	<description>S2 Framework</description>	
+	<installfile>install.s2framework.php</installfile>
+	<files>
+		<filename>index.html</filename>
+	</files>	
+	<administration>
+      <files>
+		<filename>index.html</filename>
+		<filename>s2framework.xml</filename>
+		<filename>s2framework.s2</filename>
+      </files>	
+	</administration>
+</install>

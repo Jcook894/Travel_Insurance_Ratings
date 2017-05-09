@@ -1,0 +1,120 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<div class="admin_header"><?php __a("Access settings");?></div>
+
+<form id="adminForm" name="adminForm">
+
+	<div class="admin_toolbar">
+		<input type="button" class="button" value="Save" onclick="xajax.request({xjxfun:'xajaxDispatch'},{URI:'<?php displayXajaxUri('jrexpress');?>',parameters:['admin/configuration','_save','jrexpress',xajax.getFormValues('adminForm')]});" />
+	</div>	
+	
+	<div id="status">&nbsp;</div>
+		
+	<div style="color:red; font-weight:bold;margin-bottom:15px;"><?php __a("These settings are very important, please read through them carefully to make sure that only the desired user groups have access to specific actions.");?></div>
+
+	<div id="jtabs"><!-- BEGIN TABS SECTION -->
+	    <ul>
+	        <li><a href="#reviews"><span><?php __a("Reviews");?></span></a></li>
+	    </ul>	
+
+	    <!-- BEGIN REVIEWS TAB -->
+		<div id="reviews">
+			<table class="admin_list">
+                <tr valign="top">
+                    <td width="200"><strong><?php __a("Security image verification:");?>.</strong><br />(<?php __a("Use CTRL key to select multiple options");?>)</td>
+                    <td><a href="javascript:void(0);" onclick="clearSelect('security_image');"><?php __a("Clear all");?></a><br />
+                        <?php echo $Form->select(
+                                'security_image',
+                                array(0=>'Guest',18=>'Registered'),
+                                ($this->Config->moderation_item!='none' ? explode(',',$this->Config->security_image) : 'none'),
+                                array('id'=>'security_image','multiple'=>'multiple','size'=>2, 'style'=>'width:150px;')                            
+                            );
+                        ?>
+                    </td>
+                    <td><br /><?php __a("Reviews");?></td>
+                </tr>
+				<tr>
+					<td><strong><?php __a("Allow multiple reviews");?>:</strong></td>
+					<td><?php echo $Form->radioYesNo( "user_multiple_reviews", "", $this->Config->user_multiple_reviews );?></td>
+					<td><?php __a("Allow registered users to post more than one review for the same item. Checking is done against IP address and userid.");?></td>
+				</tr>
+				<tr>
+					<td><strong><?php __a("Prevent listing owner from reviewing his own listing");?>:</strong></td>
+					<td><?php echo $Form->radioYesNo( "user_owner_disable", "", $this->Config->user_owner_disable);?></td>
+					<td><?php __a("This needs to be used in conjunction with the setting in configuration, forms tab so the review form is not shown to everyone when submitting a new listing.");?></td>
+				</tr>
+				<tr valign="top">
+					<td width="200"><strong><?php __a("Review moderation");?>:</strong><br />(<?php __a("Use CTRL key to select multiple options");?>)</td>
+					<td><a href="javascript:void(0);" onclick="clearSelect('moderation_reviews');"><?php __a("Clear all");?></a><br />
+						<?php 
+							echo $Form->select(
+								'moderation_reviews',
+								array_merge(array(array('value'=>0,'text'=>'Guest')),$accessGroups),
+								($this->Config->moderation_reviews!='none' ? explode(',',$this->Config->moderation_reviews) : 'none'),
+								array('id'=>'moderation_reviews','multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')							
+							);
+						?>					
+					</td>
+					<td><?php __a("Each group has to be selected separately.");?><br /><?php __a("Admin must approve and publish new reviews for the selected groups.");?></td>
+				</tr>
+				<tr valign="top">
+					<td width="200"><strong><?php __a("Review submission");?>:</strong><br />(<?php __a("Use CTRL key to select multiple options");?>)</td>
+					<td>
+						<?php 
+							echo $Form->select(
+								'addnewaccess_reviews',
+								array_merge(array(array('value'=>0,'text'=>'Guest')),$accessGroups),
+								($this->Config->addnewaccess_reviews!='none' ? explode(',',$this->Config->addnewaccess_reviews) : 'none'),
+								array('id'=>'addnewaccess_reviews','multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')							
+							);
+						?>					
+					</td>
+						<td><?php __a("Each group has to be selected separately.");?></td>
+				</tr>
+				<tr valign="top">
+					<td width="200"><strong><?php __a("Frontend review editing");?>:</strong><br />(<?php __a("Use CTRL key to select multiple options");?>)</td>
+					<td>
+						<?php 
+							echo $Form->select(
+								'editaccess_reviews',
+								$accessGroups,
+								($this->Config->editaccess_reviews!='none' ? explode(',',$this->Config->editaccess_reviews) : 'none'),
+								array('id'=>'editaccess_reviews','multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')							
+							);
+						?>						
+					</td>
+					<td><?php __a("Displays an [EDIT] link in the review in the frontend.<br />Each group has to be selected separately.<br /><strong>Registered and Author</strong>: can only edit their own reviews.<br /><strong>Editor and above</strong>: can edit all reviews.");?></td>
+				</tr>
+				<tr valign="top">
+					<td><strong><?php __a("Review voting");?>:</strong><br />(<?php __a("Use CTRL key to select multiple options");?>)</td>
+					<td>
+						<?php 
+							echo $Form->select(
+								'user_vote_public',
+								array_merge(array(array('value'=>0,'text'=>'Guest')),$accessGroups),
+								($this->Config->user_vote_public!='none' ? explode(',',$this->Config->user_vote_public) : 'none'),
+								array('id'=>'user_vote_public','multiple'=>'multiple','size'=>8, 'style'=>'width:150px;')							
+							);
+						?>					
+					</td>
+					<td><?php __a("Each group has to be selected separately.");?></td>
+				</tr>
+			</table>
+		</div>
+	    <!-- END REVIEWS TAB -->
+	</div>
+	
+	<input type="hidden" name="act" value="config" />
+	<input type="hidden" name="option" value="<?php echo S2Paths::get('jrexpress','S2_CMSCOMP');?>" />
+	<input type="hidden" name="task" value="access" />
+</form>	

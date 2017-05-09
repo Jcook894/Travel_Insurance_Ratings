@@ -1,0 +1,31 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php 
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+?>
+
+<form id="reportForm" name="reportForm">
+	
+	<textarea id="report_message" name="data[ReviewReport][message]" style="width:250px; height:80px;"></textarea>
+	
+	<input id="jr_ReviewReportSubmit" type="button" value="<?php __t("Submit")?>" onclick="xajax.call('xajaxDispatch',{URI:'<?php displayXajaxUri('jrexpress');?>',parameters:['review_reports','_save','jrexpress',xajax.getFormValues('reportForm')]});" />
+	
+	<input type="button" value="<?php __t("Cancel")?>" onclick="tb_remove();return false;" />
+
+	<?php echo $Form->token('jr_ReviewReportToken');?>
+	
+	<input type="hidden" id="review_id" name="data[ReviewReport][reviewid]" value="<?php echo $review_id?>" />
+
+</form>

@@ -1,0 +1,216 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php
+if(_CMS_NAME == 'wordpress')
+{
+	$duplicateTitleOptions = array(
+		'no'=>__a("No",true),
+		'yes'=>__a("Yes - make listing aliases unique",true)
+	);
+}
+else {
+	$duplicateTitleOptions = array(
+		'no'=>__a("No",true),
+		'yes'=>__a("Yes - make listing aliases unique",true),
+		'yes_alias_duplication'=>__a("Yes - allow duplicate aliases",true),
+		'category'=>__a("Yes - only in different categories",true)
+	);
+}
+
+$standardFieldsTab = array(
+	/*** NEW HEADER ***/
+	__a("Listing Form",true) => array(
+		 array(
+			'label'=>__a("The Listing Title field can be disabled at the Listing Type level where you can also define the default format you want to use for the titles.",true),
+			'type'=>'placeholder'
+		),
+		 array(
+			'label'=>__a("Allow duplicate listing titles",true),
+			'type'=>'select',
+			'name'=>'content_title_duplicates',
+			'options'=>$duplicateTitleOptions,
+			'help'=>_CMS_NAME == 'joomla' ? __a("'Yes - allow duplicate aliases' requires that the listing URLs include the listing ID to differentiate them. If you use the JReviews SEF plugin you need to disable the removal of IDs from the URL.",true) : ''
+		),
+		 array(
+			'label'=>__a("Name",true),
+			'type'=>'select',
+			'name'=>'content_name',
+			'options'=>array(
+							'required'=>__a("Required",true),
+							'optional'=>__a("Optional",true),
+							'hidden'=>__a("Hidden",true)
+							),
+			'help'=>__a("By default not shown to registered users",true)
+		),
+		 array(
+			'label'=>__a("E-mail",true),
+			'type'=>'select',
+			'name'=>'content_email',
+			'options'=>array(
+							'required'=>__a("Required",true),
+							'optional'=>__a("Optional",true),
+							'hidden'=>__a("Hidden",true)
+							),
+			'help'=>__a("By default not shown to registered users",true)
+		),
+		 array(
+			'label'=>__a("Summary",true),
+			'type'=>'select',
+			'name'=>'content_summary',
+			'options'=>array(
+							'required'=>__a("Required",true),
+							'optional'=>__a("Optional",true),
+							'hidden'=>__a("Hidden",true)
+							)
+		),
+		 array(
+			'label'=>__a("Description",true),
+			'type'=>'select',
+			'name'=>'content_description',
+			'options'=>array(
+							'required'=>__a("Required",true),
+							'optional'=>__a("Optional",true),
+							'hidden'=>__a("Hidden",true)
+							),
+		),
+		array(
+			'label'=>__a("Enable WYSIWYG editor for summary/description",true),
+			'type'=>'radioYesNo',
+			'name'=>'listing_wysiwyg',
+			'help'=>__a("This is the simple text editor. If disabled, the core editor will be used as long as the current user's group has been granted access via Access Settings.", true)
+		),
+	),
+	__a("Review Form when submitting a new Listing",true) => array(
+		 array(
+			'label'=>__a("Review form shown to",true),
+			'type'=>'select',
+			'name'=>'content_show_reviewform',
+			'options'=>array(
+							'authors'=>__a("JReviews Editors",true),
+							'noteditors'=>__a("Everyone except JReviews Editors",true),
+							'all'=>__a("Everyone",true),
+							'none'=>__a("Disabled",true)
+							)
+		),
+		 array(
+			'label'=>__a("Make review optional",true),
+			'type'=>'radioYesNo',
+			'name'=>'reviewform_optional',
+			'help'=>__a("Shows a checkbox allowing users to hide the review form",true)
+		)
+	),
+	__a("Review Form ",true) => array(
+		 array(
+			'label'=>__a("Title",true),
+			'type'=>'select',
+			'name'=>'reviewform_title',
+			'options'=>array(
+							'required'=>__a("Required",true),
+							'optional'=>__a("Optional",true),
+							'hidden'=>__a("Hidden",true)
+							)
+		),
+		 array(
+			'label'=>__a("Name",true),
+			'type'=>'select',
+			'name'=>'reviewform_name',
+			'options'=>array(
+							'required'=>__a("Required",true),
+							'optional'=>__a("Optional",true),
+							'hidden'=>__a("Hidden",true)
+							),
+			'help'=>__a("By default not shown to registered users.",true)
+		),
+		 array(
+			'label'=>__a("E-mail",true),
+			'type'=>'select',
+			'name'=>'reviewform_email',
+			'options'=>array(
+							'required'=>__a("Required",true),
+							'optional'=>__a("Optional",true),
+							'hidden'=>__a("Hidden",true)
+							),
+			'help'=>__a("By default not shown to registered users.",true)
+		),
+		 array(
+			'label'=>__a("Comment",true),
+			'type'=>'select',
+			'name'=>'reviewform_comment',
+			'options'=>array(
+							'required'=>__a("Required",true),
+							'optional'=>__a("Optional",true),
+							'hidden'=>__a("Hidden",true)
+							)
+		),
+		array(
+			'label'=>__a("Enable WYSIWYG editor for comments",true),
+			'type'=>'radioYesNo',
+			'name'=>'review_comment_wysiwyg',
+		),
+	),
+	__a("Discussion Form ",true) => array(
+		 array(
+			'label'=>__a("Name",true),
+			'type'=>'select',
+			'name'=>'discussform_name',
+			'options'=>array(
+							'required'=>__a("Required",true),
+							'optional'=>__a("Optional",true),
+							'hidden'=>__a("Hidden",true)
+							),
+			'help'=>__a("By default not shown to registered users.",true)
+		),
+		 array(
+			'label'=>__a("E-mail",true),
+			'type'=>'select',
+			'name'=>'discussform_email',
+			'options'=>array(
+							'required'=>__a("Required",true),
+							'optional'=>__a("Optional",true),
+							'hidden'=>__a("Hidden",true)
+							),
+			'help'=>__a("By default not shown to registered users.",true)
+		),
+		array(
+			'label'=>__a("Enable WYSIWYG editor for discussions",true),
+			'type'=>'radioYesNo',
+			'name'=>'discussion_wysiwyg',
+		),
+	),
+	__a("Media Form ",true) => array(
+		 array(
+			'label'=>__a("Name",true),
+			'type'=>'select',
+			'name'=>'mediaform_name',
+			'options'=>array(
+							'required'=>__a("Required",true),
+							'optional'=>__a("Optional",true),
+							'hidden'=>__a("Hidden",true)
+							),
+			'help'=>__a("By default not shown to registered users.",true)
+		),
+		 array(
+			'label'=>__a("E-mail",true),
+			'type'=>'select',
+			'name'=>'mediaform_email',
+			'options'=>array(
+							'required'=>__a("Required",true),
+							'optional'=>__a("Optional",true),
+							'hidden'=>__a("Hidden",true)
+							),
+			'help'=>__a("By default not shown to registered users.",true)
+		)
+	)
+);?>
+
+<?php $AdminSettings->columns = array(5,8,11); $AdminSettings->displayTab('forms',$standardFieldsTab);?>

@@ -1,0 +1,22 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**
+ * You must not claim credit for this software.
+ * You may remove the powered by link below.
+ */
+?>
+
+<?php if(Sanitize::getInt($this->Config,'hide_poweredby_link',0) == 0):?>
+<div style="margin:20px 0 20px 0;text-align:right;font-size:85%;">
+	Powered by <a rel="nofollow" href="https://www.jreviews.com/">JReviews</a>
+</div>
+<?php endif;?>

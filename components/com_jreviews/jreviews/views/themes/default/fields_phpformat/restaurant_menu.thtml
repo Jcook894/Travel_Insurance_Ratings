@@ -1,0 +1,28 @@
+<?php
+$menu = json_decode($text, true);
+
+foreach ($menu AS $section):?>
+
+   <h3><?php echo $section['heading']['title'];?></h3>
+   <p><?php echo $section['heading']['description'];?></p>
+
+   <?php foreach ($section['dishes'] AS $dish):?>
+
+      <div class="jrGrid">
+
+         <div class="jrCol10">
+
+            <p class="jrDishName"><?php echo $dish['name'];?></p>
+            <p class="jrDishDescription"><?php echo $dish['description'];?></p>
+
+         </div>
+
+         <div class="jrCol2">
+            <span class="jrRight">$<?php echo number_format($dish['price'], 2);?></span>
+         </div>
+
+      </div>
+
+   <?php endforeach;?>
+
+<?php endforeach;?>

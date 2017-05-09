@@ -1,0 +1,504 @@
+<?php
+
+$configTab = array(
+	/*** NEW HEADER ***/
+	__a("Community Integration",true) => array(
+		array(
+			'label'=>__a("Social Sharing Buttons",true),
+			'type'=>'checkbox',
+			'name'=>'social_sharing_detail',
+			'options'=>array(
+					'fbsend'=>'FB Share',
+					'fblike'=>'FB Like',
+					'twitter'=>'Twitter',
+					'gplusone'=>'Google+1',
+					'linkedin'=>'LinkedIn',
+					'pinit'=>'Pinterest'
+				),
+			'attributes'=>array('div'=>false),
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Tweet hashtag",true),
+			'type'=>'text',
+			'name'=>'twitter_hashtag',
+			'help'=>__a("Appended to Tweets.",true),
+			'global'=>true
+		)
+	)
+);
+
+if(in_array('geomaps',$JreviewsAddons))
+{
+	$configTab[__a("GeoMaps Integration",true)] = array(
+			array(
+				'label'=>__a("Show map in detail pages",true),
+				'type'=>'radioYesNo',
+				'name'=>'geomaps.enable_map_detail',
+				'default'=>1,
+				'attributes'=>array('div'=>false),
+				'help'=>'',
+				'global'=>false
+			),
+			array(
+				'label'=>__a("Show map in list pages",true),
+				'type'=>'radioYesNo',
+				'name'=>'geomaps.enable_map_list',
+				'default'=>1,
+				'attributes'=>array('div'=>false),
+				'help'=>'',
+				'global'=>false
+			),
+             array(
+                'label'=>__a("Show Static Map as Header Cover",true),
+                'type'=>'radioYesNo',
+                'name'=>'geomaps.detail_header_cover',
+                'default'=>Sanitize::getVar($this->Config,'geomaps.detail_header_cover',1),
+                'help'=>'',
+                'global'=>true
+            )
+		);
+}
+
+$configTab[__a("Category Pages",true)] = array(
+		array(
+			'label'=>__a("Show category header image",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_page_catimage',
+			'default'=>Sanitize::getVar($this->Config,'list_show_page_catimage',1),
+			'attributes'=>array('div'=>false),
+			'help'=>'',
+			'disable'=>_CMS_NAME == 'wordpress',
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Show category images",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_catimages',
+			'default'=>Sanitize::getVar($this->Config,'list_show_catimages',1),
+			'attributes'=>array('div'=>false),
+			'help'=>'',
+			'disable'=>_CMS_NAME == 'wordpress',
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Listing Comparison",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_compare',
+			'default'=>Sanitize::getVar($this->Config,'list_compare',0),
+			'attributes'=>array('div'=>false),
+			'help'=>'',
+			'global'=>true
+		)
+	);
+
+$configTab[__a("Ordering Options",true)] = array(
+		 array(
+			'label'=>__a("Show ordering dropdown list",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_orderselect',
+			'default'=>Sanitize::getVar($this->Config,'list_show_orderselect'),
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Default list Ordering",true),
+			'type'=>'select',
+			'name'=>'list_order_default',
+			'options'=>$Jreviews->orderingList(null,array('return'=>true)),
+			'default'=>Sanitize::getVar($this->Config,'list_order_default'),
+			'help'=>'',
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Ordering options",true),
+			'type'=>'checkbox',
+			'name'=>'list_order_options',
+			'options'=>$Jreviews->orderingList(null,array('return'=>true)),
+			'default'=>Sanitize::getVar($this->Config,'list_order_options'),
+			'help'=>'',
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Include rating criteria",true),
+			'type'=>'select',
+			'name'=>'list_order_criteria',
+			'options'=>array(
+						0=> __a("No",true),
+						'all'=> __a("All",true),
+						'user' => __a("User rated",true),
+						'editor' => __a("Editor rated",true)
+						),
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Order by field",true),
+			'type'=>'text',
+			'name'=>'list_order_field',
+			'default'=>'',
+			'help'=>__a("Overrides default ordering",true),
+			'attributes'=>array('style'=>'width:150px'),
+			'global'=>false
+		)
+	);
+
+$configTab[__a("Detail Page Header",true)] = array(
+	array(
+		'label'=>__a("Enable 'cover' selection",true),
+		'type'=>'radioYesNo',
+		'name'=>'media_photo_function_cover',
+		'help'=>__a("Valid for photos only. Appears for listing owners right after upload and in the listing media manager",true),
+		'default'=>0,
+		'global'=>true
+	),
+	array(
+		'label'=>__a("Enable 'logo' selection",true),
+		'type'=>'radioYesNo',
+		'name'=>'media_photo_function_logo',
+		'after'=>'&nbsp;' . __a("The logo will only appear if the cover is shown, even if empty",true),
+		'help'=>__a("Valid for photos only. Appears for listing owners right after upload and in the listing media manager",true),
+		'default'=>0,
+		'global'=>true
+	),
+	array(
+		'label'=>__a("Show empty 'cover'",true),
+		'type'=>'radioYesNo',
+		'name'=>'listing_detail_header_empty_cover',
+		'help'=>__a("If cover selection enabled and cover not set, the cover area will be shown",true),
+		'default'=>0,
+		'global'=>true
+	),
+	array(
+		'label'=>__a("Empty cover background color",true),
+		'type'=>'text',
+		'name'=>'listing_detail_header_empty_cover_color',
+		'help'=>'',
+		'default'=>'#5191E8',
+		'global'=>true
+	),
+	array(
+		'label'=>__a("Show empty 'logo'",true),
+		'type'=>'radioYesNo',
+		'name'=>'listing_detail_header_empty_logo',
+		'help'=>__a("If logo selection enabled and logo not set, the logo area will be shown",true),
+		'default'=>0,
+		'global'=>true
+	),
+	array(
+		'label'=>__a("Empty logo background color",true),
+		'type'=>'text',
+		'name'=>'listing_detail_header_empty_logo_color',
+		'help'=>'',
+		'default'=>'#CCC',
+		'global'=>true
+	),
+	array(
+		'label'=>__a("Display avatar in header",true),
+		'type'=>'radioYesNo',
+		'name'=>'listing_detail_header_avatar',
+		'help'=>__a("If a logo is not set and the avatar is present it will be shown in the logo position",true),
+		'default'=>0,
+		'global'=>true
+	)
+);
+
+$configTab[__a("Detail Pages",true)] = array(
+		array(
+			'label'=>__a("Favorites",true),
+			'type'=>'radioYesNo',
+			'name'=>'favorites_enable',
+			'default'=>Sanitize::getVar($this->Config,'favorites_enable'),
+			'attributes'=>array('div'=>false),
+			'help'=>'',
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Listing Claims",true),
+			'type'=>'radioYesNo',
+			'name'=>'claims_enable',
+			'default'=>Sanitize::getVar($this->Config,'claims_enable'),
+			'attributes'=>array('div'=>false),
+			'help'=>'',
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Listing Inquiries",true),
+			'type'=>'radioYesNo',
+			'name'=>'inquiry_enable',
+			'default'=>Sanitize::getVar($this->Config,'inquiry_enable'),
+			'attributes'=>array('div'=>false),
+			'help'=>'',
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Limit the number of characters shown in the Summary/Description text",true),
+			'type'=>'text',
+			'name'=>'summary_desc_char_limit',
+			'default'=>Sanitize::getVar($this->Config,'summary_desc_char_limit'),
+			'attributes'=>array('style'=>'width:3em;'),
+			'help'=>"If you enter the number of characters higher than 0, visitors will need to click the 'show more' link to expand the full text. Limiting the number of characters will strip all html formatting.",
+			'global'=>true
+		)
+	);
+
+$configTab[__a("Listing Information",true)] = array(
+		 array(
+			'label'=>__a("Date",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_date',
+			'default'=>Sanitize::getVar($this->Config,'list_show_date'),
+			'attributes'=>array('div'=>false),
+			'help'=>'',
+			'global'=>true
+		),
+		 array(
+			'label'=>__a("Listing Author",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_author',
+			'default'=>Sanitize::getVar($this->Config,'list_show_author'),
+			'attributes'=>array('div'=>false),
+			'help'=>'',
+			'global'=>true
+		),
+		 array(
+			'label'=>__a("Average User Rating",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_user_rating',
+			'default'=>Sanitize::getVar($this->Config,'list_show_user_rating'),
+			'attributes'=>array('div'=>false),
+			'help'=>__a("List pages only",true),
+			'global'=>true
+		),
+		 array(
+			'label'=>__a("Average Editor Rating",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_editor_rating',
+			'default'=>Sanitize::getVar($this->Config,'list_show_editor_rating'),
+			'attributes'=>array('div'=>false),
+			'help'=>__a("List pages only",true),
+			'global'=>true
+		),
+		 array(
+			'label'=>__a("Views",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_hits',
+			'default'=>Sanitize::getVar($this->Config,'list_show_hits'),
+			'attributes'=>array('div'=>false),
+			'help'=>'',
+			'global'=>true
+		)
+	);
+
+$configTab[__a("Listing Summary & Status Labels",true)] = array(
+	 array(
+		'label'=>__a("Show summary",true),
+		'type'=>'radioYesNo',
+		'name'=>'list_show_abstract',
+		'default'=>Sanitize::getVar($this->Config,'list_show_abstract'),
+		'attributes'=>array('div'=>false),
+		'help'=>__a("List pages only",true),
+		'global'=>true
+	),
+	 array(
+		'label'=>__a("Trim summary (words)",true),
+		'type'=>'text',
+		'name'=>'list_abstract_trim',
+		'attributes'=>array('style'=>'width:3em;'),
+		'help'=>__a("If zero or blank it will display all the text. Limiting the number of words will strip all html formatting.",true),
+		'default'=>Sanitize::getVar($this->Config,'list_abstract_trim'),
+		'help'=>'',
+		'global'=>true
+	),
+	 array(
+		'label'=>__a("Show 'New' Label",true),
+		'type'=>'radioYesNo',
+		'name'=>'list_new',
+		'default'=>Sanitize::getVar($this->Config,'list_new'),
+		'attributes'=>array('div'=>false),
+		'help'=>'',
+		'global'=>true
+	),
+	 array(
+		'label'=>__a("'New' label days",true),
+		'type'=>'text',
+		'name'=>'list_new_days',
+		'attributes'=>array('style'=>'width:3em;'),
+		'default'=>Sanitize::getVar($this->Config,'list_new_days'),
+		'help'=>'',
+		'global'=>true
+	),
+	 array(
+		'label'=>__a("Show 'Hot' Label",true),
+		'type'=>'radioYesNo',
+		'name'=>'list_hot',
+		'default'=>Sanitize::getVar($this->Config,'list_hot'),
+		'attributes'=>array('div'=>false),
+		'help'=>'',
+		'global'=>true
+	),
+	 array(
+		'label'=>__a("'Hot' button views",true),
+		'type'=>'text',
+		'name'=>'list_hot_hits',
+		'attributes'=>array('style'=>'width:3em;'),
+		'default'=>Sanitize::getVar($this->Config,'list_hot_hits'),
+		'help'=>'',
+		'global'=>true
+	),
+	 array(
+		'label'=>__a("Show 'Featured' Label",true),
+		'type'=>'radioYesNo',
+		'name'=>'list_featured',
+		'default'=>Sanitize::getVar($this->Config,'list_featured'),
+		'attributes'=>array('div'=>false),
+		'help'=>'',
+		'global'=>true
+	)
+);
+
+$configTab[__a("Reviews",true)] = array(
+		array(
+			'label'=>__a("Rating increment",true),
+			'type'=>'select',
+			'name'=>'rating_increment',
+			'default'=>Sanitize::getVar($this->Config,'rating_increment'),
+			'options'=>array('1'=>1,'0.5'=>0.5),
+			'help'=>'',
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Editor rating style",true),
+			'type'=>'select',
+			'name'=>'editor_rating_style',
+			'default'=>$this->Config->editor_rating_style,
+			'options'=>array(
+				1=>__a("Star with square",true),
+				2=>__a("Star",true),
+				3=>__a("Bar",true)
+			),
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Editor rating color",true),
+			'type'=>'select',
+			'name'=>'editor_rating_color',
+			'default'=>$this->Config->editor_rating_color,
+			'options'=>array(
+				'green'=>__a("Green",true),
+				'orange'=>__a("Orange",true),
+				'red'=>__a("Red",true),
+				'blue'=>__a("Blue",true)
+			),
+			'global'=>true
+		),
+		array(
+			'label'=>__a("User rating style",true),
+			'type'=>'select',
+			'name'=>'user_rating_style',
+			'default'=>$this->Config->user_rating_style,
+			'options'=>array(
+				1=>__a("Star with square",true),
+				2=>__a("Star",true),
+				3=>__a("Bar",true)
+			),
+			'global'=>true
+		),
+		array(
+			'label'=>__a("User rating color",true),
+			'type'=>'select',
+			'name'=>'user_rating_color',
+			'default'=>$this->Config->user_rating_color,
+			'options'=>array(
+					'green'=>__a("Green",true),
+					'orange'=>__a("Orange",true),
+					'red'=>__a("Red",true),
+					'blue'=>__a("Blue",true)
+			),
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Display rating histogram",true),
+			'type'=>'text',
+			'name'=>'rating_histogram',
+			'before'=>__a("When listing has more than",true),
+			'after'=>__a("reviews",true),
+			'default'=>Sanitize::getVar($this->Config,'rating_histogram'),
+			'attributes'=>array('style'=>'width: 3em;'),
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Enable Editor Reviews",true),
+			'type'=>'select',
+			'name'=>'author_review',
+			'default'=>Sanitize::getVar($this->Config,'author_review'),
+			'options'=>array(
+						'0' => 'No editor reviews',
+						'1' => 'One editor review per listing',
+						'2' => 'Multiple editor reviews per listing'
+						),
+
+			'help'=>'',
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Comma list of JReviews Editors user IDs",true),
+			'type'=>'text',
+			'name'=>'authorids',
+			'attributes'=>array('class'=>'jrText'),
+			'help'=>'<a href="index.php?option=com_users&view=users&tmpl=component" class="jr-popup-window" target="_blank">'.__a("View list of users",true).'</a>',
+			'global'=>true
+		),
+		array(
+			'label'=>__a("User Review Order",true),
+			'type'=>'select',
+			'name'=>'user_review_order',
+			'default'=>Sanitize::getVar($this->Config,'user_review_order'),
+			'options'=>$Jreviews->orderingListReviews(null,array('return'=>true)),
+			'help'=>'',
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Ordering options",true),
+			'type'=>'checkbox',
+			'name'=>'review_order_options',
+			'default'=>Sanitize::getVar($this->Config,'review_order_options'),
+			'options'=>$Jreviews->orderingListReviews(null,array('return'=>true)),
+			'help'=>'',
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Stop users from reviewing their own listings",true),
+			'type'=>'radioYesNo',
+			'name'=>'user_owner_disable',
+			'default'=>Sanitize::getVar($this->Config,'user_owner_disable'),
+			'attributes'=>array('div'=>false),
+			'help'=>'',
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Limit the number of characters shown in the editor review comments",true),
+			'type'=>'text',
+			'name'=>'editor_review_char_limit',
+			'default'=>Sanitize::getVar($this->Config,'editor_review_char_limit'),
+			'attributes'=>array('style'=>'width:3em;'),
+			'help'=>__a("If you enter the number of characters higher than 0, visitors will need to click the 'show more' link to expand the full text. Limiting the number of characters will strip all html formatting.",true),
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Limit the number of characters shown in the user review comments",true),
+			'type'=>'text',
+			'name'=>'user_review_char_limit',
+			'default'=>Sanitize::getVar($this->Config,'user_review_char_limit'),
+			'attributes'=>array('style'=>'width:3em;'),
+			'help'=>__a("If you enter the number of characters higher than 0, visitors will need to click the 'show more' link to expand the full text. Limiting the number of characters will strip all html formatting.",true),
+			'global'=>true
+		),
+		 array(
+			'label'=>__a("Enable review discussions",true),
+			'type'=>'radioYesNo',
+			'name'=>'review_discussions',
+			'default'=>Sanitize::getInt($this->Config,'review_discussions'),
+			'global'=>true
+		)
+);
+
+$AdminSettings->displayTab('listing-type-config',$configTab,'[Criteria][config]',$listingType['ListingType']['config']);

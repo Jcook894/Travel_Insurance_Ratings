@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" version="2.5" method="upgrade">
+	<name>JReviews Reviewer Rank Module</name>
+	<author>ClickFWD LLC</author>
+	<creationDate>September 2016</creationDate>
+	<copyright>Copyright (C) 2010-2016 ClickFWD LLC. All rights reserved.</copyright>
+	<license>Commercial</license>
+	<authorEmail>sales@jreviews.com</authorEmail>
+	<authorUrl>www.jreviews.com</authorUrl>
+	<version>1.0</version>
+	<description>MODULE_HEADER</description>
+	<files>
+		<filename module="mod_jreviews_reviewer_rank">mod_jreviews_reviewer_rank.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_jreviews_reviewer_rank.ini</language>
+		<language tag="en-GB">en-GB.mod_jreviews_reviewer_rank.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<!-- main setup -->
+				<field type="spacer" class="dataListHeader" label="MAIN SETUP" />
+				<field name="tmpl_suffix" type="text" default="" label="JReviews Theme Suffix" description="This suffix will be applied to the module view file and is useful to create multiple instances of the module that have different outputs." />
+				<!-- avatars -->
+				<field type="spacer" class="dataListHeader" label="AVATAR SETTINGS" />
+				<field name="tn_show" type="radio" default="1" label="Show Avatar" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="tn_position" type="list" default="left" label="Avatar Position" description="Choose the position of the user avatar.">
+					<option value="left">Left</option>
+					<option value="right">Right</option>
+					<option value="top">Top</option>
+					<option value="bottom">Bottom</option>
+				</field>
+				<!-- pagination and slideshow -->
+				<field type="spacer" class="dataListHeader" label="PAGINATION &amp; SLIDESHOW" />
+				<field name="nav_position" type="radio" default="bottom" label="Positioning of Pagination" description="">
+					<option value="bottom">Bottom</option>
+					<option value="side">Sides</option>
+				</field>
+				<field name="orientation" type="list" default="horizontal" label="Page Transition" description="">
+					<option value="horizontal">Horizonal sliding</option>
+					<option value="vertical">Vertical sliding</option>
+					<option value="fade">Fade effect</option>
+				</field>
+				<field name="slideshow" type="radio" default="0" label="Enable Slideshow" description="The module will automatically advance pages">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="slideshow_interval" type="text" default="6" label="Slideshow Interval (sec.)" description="Time between pages in seconds" />
+				<field name="module_total" type="text" default="10" label="Max. number of results" description="" />
+				<field name="module_limit" type="text" default="10" label="Results per page" description="Sets the number of results shown in the module" />
+				<field name="columns" type="text" default="1" label="Columns" description="Number of columns or items per row to show." />
+			</fieldset>
+			<fieldset name="custom_links">
+				<field name="custom_link_position" type="list" default="top-right" label="Links position">
+					<option value="top-right">Top right</option>
+					<option value="top-left">Top left</option>
+					<option value="bottom-right">Bottom right</option>
+					<option value="bottom-left">Bottom left</option>
+				</field>
+				<field type="text" name="custom_link_1_text" label="Custom Link 1 Text" />
+				<field type="text" name="custom_link_1_url" label="Custom Link 1 URL" />
+				<field type="text" name="custom_link_2_text" label="Custom Link 2 Text" />
+				<field type="text" name="custom_link_2_url" label="Custom Link 2 URL" />
+				<field type="text" name="custom_link_3_text" label="Custom Link 3 Text" />
+				<field type="text" name="custom_link_3_url" label="Custom Link 3 URL" />
+			</fieldset>
+			<fieldset name="advanced">
+				<field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field name="owncache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

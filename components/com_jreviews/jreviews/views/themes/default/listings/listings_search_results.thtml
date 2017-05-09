@@ -1,0 +1,160 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**********************************************************************************
+ * 								CONFIGURATION AND SETUP
+ **********************************************************************************/
+
+extract($this->params['module']);
+
+$fields = explode(",", Sanitize::getString($this->params['module'], 'fields'));
+
+$summary_words = Sanitize::getInt($this->params['module'],'summary_words', 10);
+
+$columns = Sanitize::getInt($this->params['module'],'results_columns',1);
+
+$beforeText = Sanitize::getString($this->params['module'], 'before_text');
+
+// calculations for item width
+$item_padding = number_format(1.428571429, 9, '.', '');
+$item_width = (100-(($columns-1) * $item_padding))/$columns;
+$item_width = number_format($item_width, 9, '.', '');
+
+if(empty($listings)) { echo '<div class="jrSearchResults">' .  __t("No entries were found", true) . '</div>'; return; }
+
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/?>
+
+<?php if($beforeText):?><div class="jrBeforeMessage"><?php echo $beforeText;?></div><?php endif;?>
+
+<div class="jrSearchResults jrClearfix">
+
+	<?php $i=0; foreach($listings AS $listing): $i++; ?>
+
+	<?php
+	$featured = Sanitize::getInt($listing['Listing'],'featured') ? ' jrFeatured' : '';
+	$lastItem = ($i % $columns == 0) ? ' jrLastItem' : '';
+	$tn_size = $this->Config->getOverride('media_list_thumbnail_size',$listing['ListingType']['config']);
+	$tn_mode = $this->Config->getOverride('media_list_thumbnail_mode',$listing['ListingType']['config']);
+	?>
+
+	<div class="jrModuleItem<?php echo $featured.$lastItem; ?>" style="width: <?php echo $item_width; ?>%; padding-right: <?php echo $item_padding; ?>%;">
+
+		<?php if($tn_show && $mainMediaThumb = $Media->thumb(Sanitize::getVar($listing,'MainMedia'),array('listing'=>$listing,'size'=>$tn_size,'mode'=>$tn_mode))):?>
+
+			<?php /* THUMBNAIL */ ?>
+
+			<div class="jrModuleItemThumbnail">
+				<?php echo $Html->sefLink($mainMediaThumb,$listing['Listing']['url']);?>
+			</div>
+
+		<?php endif;?>
+
+		<div class="jrModuleItemContent">
+
+			<?php /* LISTING TITLE */ ?>
+
+			<div class="jrModuleItemTitle">
+				<?php echo $Html->sefLink($listing['Listing']['title'],$listing['Listing']['url']);?>
+			</div>
+
+			<?php if($show_category && Sanitize::getString($listing['Listing'],'extension')=='com_content'): // Only for core articles?>
+
+				<?php /* CATEGORY */ ?>
+
+				<div class="jrModuleItemCategory"> <?php __t("Category");?>: <?php echo $Routes->category($listing,$listing['Category']);?> </div>
+
+			<?php endif;?>
+
+			<?php
+				$distance_value = $CustomFields->field('jr_gm_distance', $listing);
+
+				if($fields || ($distance_value && Sanitize::getString($this->params,'order') == 'distance')):
+			?>
+
+			<?php /* CUSTOM FIELDS */ ?>
+
+			<div class="jrModuleFields">
+
+				<?php if($distance_value && Sanitize::getString($this->params,'order') == 'distance'): ?>
+
+				<div class="jrModuleFieldDiv jrDistance">
+
+					<span class="jrModuleFieldTitle"><?php echo $CustomFields->label('jr_gm_distance', $listing); ?>: </span>
+
+					<span class="jrModuleFieldValue"><?php echo $distance_value; ?></span>
+
+				</div>
+
+				<?php endif;?>
+
+				<?php
+
+				if($fields):
+
+					foreach ($fields as $field):
+
+						$field = trim($field);
+
+						$field_value = $CustomFields->field($field,$listing);
+
+						if($field_value != ''):?>
+
+							<div class="jrModuleFieldDiv <?php echo lcfirst(Inflector::camelize($field)); ?>">
+
+								<span class="jrModuleFieldTitle"><?php echo $CustomFields->label($field, $listing); ?>: </span>
+
+								<span class="jrModuleFieldValue"><?php echo $field_value; ?></span>
+
+							</div>
+
+						<?php endif;?>
+
+					<?php endforeach;
+
+				endif;?>
+
+			</div>
+
+			<?php endif;?>
+
+			<?php if($summary && $summary_words > 0 && $listing['Listing']['summary'] != ''):?>
+
+				<?php /* SUMMARY */ ?>
+
+				<div class="jrModuleItemInfo">
+					<?php echo $Text->truncateWords(Sanitize::getString($listing['Listing'],'summary'), $summary_words);?>
+				</div>
+
+			<?php endif;?>
+
+			<?php /* RATINGS */ ?>
+
+			<?php echo $Rating->overallRatings($listing, 'module'); ?>
+
+		</div>
+
+	</div>
+
+	<?php if($lastItem): ?><div class="jrDivider"></div><?php endif;?>
+
+	<?php endforeach; ?>
+
+</div>
+
+<div class="jrViewAllResults">
+
+	<?php echo $Html->link(sprintf(__t("View all results (%s)",true), $count), $search_url,array('sef'=>false));?>
+
+	<div class="jr-close-live-results jrCloseLiveResults"><span class="jrIconClose"></span></div>
+
+</div>
+

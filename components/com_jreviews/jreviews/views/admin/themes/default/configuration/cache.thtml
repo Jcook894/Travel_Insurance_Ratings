@@ -1,0 +1,40 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php $cacheTab = array(
+	/*** NEW HEADER ***/
+	__a("Cache Settings",true) => array(
+		 array(
+			'label'=>__a("Cache Expiration",true),
+			'type'=>'text',
+			'name'=>'cache_expires',
+			'after'=>__a("hours",true),
+			'attributes'=>array('style'=>'width:3em;'),
+			'help'=>__a("Cached files will be re-created if they have expired.",true)
+		),
+		 array(
+			'label'=>__a("Enable query cache",true),
+			'type'=>'radioYesNo',
+			'name'=>'cache_query',
+			'help'=>__a("Reduces the number of queries per page. The cache is cleared after the cache duration has passed or everytime the jReviews setup, configuration, a listing or review is submitted or updated..",true)
+		),
+		 array(
+			'label'=>__a("Enable session cache",true),
+			'type'=>'radioYesNo',
+			'name'=>'cache_session',
+			'help'=>__a("Caches data to the user's session to reduce the number of queries. For example the total count of results for different paginated pages is cached and then read from the user's session data.",true)
+		),
+	)
+
+);?>
+
+<?php $AdminSettings->columns = array(5,8,11); $AdminSettings->displayTab('cache',$cacheTab);?>

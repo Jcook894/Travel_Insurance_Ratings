@@ -1,0 +1,82 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php
+$cron_secret = Sanitize::getString($this->Config,'cron_secret');
+
+$cron_secret == '' and $this->Config->cron_secret = md5(PATH_ROOT . cmsFramework::getConfig('secret'));
+
+$cron_url = _CMS_NAME == 'joomla'
+				?
+				'http://yourdomain.com/index.php?option=com_jreviews&amp;format=raw&amp;url=cron&secret=CRON_SECRET'
+				:
+				'http://yourdomain.com/wp-admin/admin-ajax.php?action=jreviews_ajax&amp;url=cron&amp;secret=CRON_SECRET';
+
+$cronTab = array(
+	/*** NEW HEADER ***/
+	__a("Cron",true) => array(
+		 array(
+			'label'=>__a("Cron Secret",true),
+			'type'=>'text',
+			'name'=>'cron_secret',
+			'attributes'=>array('style'=>'width:22em'),
+			'help'=>__a("This will be the secret key used to call the cron url to prevent abuse.",true)
+		),
+		 array(
+			'label'=>__a("Cron url",true),
+			'type'=>'placeholder',
+			'text'=>$cron_url,
+			'help'=>__a("Set up a cron in your server crontab using the specified URL. Replace {SECRET} with the value you entered above. You can schedule to run every 15 minutes and each task below will run only at the specified intervals. This allows you to split the jobs so they are no always run together.",true)
+		),
+		 array(
+			'label'=>__a("Run Cron on site visits",true),
+			'type'=>'radioYesNo',
+			'name'=>'cron_site_visits',
+			'attributes'=>array(),
+			'help'=>__a("If you disable this setting you should setup a cron job on your server to be run at specified intervals. It is recommended you do this for large sites where cron jobs may take longer to complete.",true)
+		),
+		 array(
+			'label'=>__a("Recalculate ratings",true),
+			'type'=>'text',
+			'name'=>'ratings_rebuild_interval',
+			 'after'=>__a("hours",true),
+			'attributes'=>array('style'=>'width:3em'),
+			'help'=>__a("Use zero only for testing purposes.",true)
+		),
+		 array(
+			'label'=>__a("Rebuild reviewer rank",true),
+			'type'=>'text',
+			'name'=>'ranks_rebuild_interval',
+			 'after'=>__a("hours",true),
+			'attributes'=>array('style'=>'width:3em'),
+			'help'=>__a("Use zero only for testing purposes.",true)
+		),
+		 array(
+			'label'=>__a("Rebuild media likes rank",true),
+			'type'=>'text',
+			'name'=>'media_likes_rebuild_interval',
+			'after'=>__a("hours",true),
+			'attributes'=>array('style'=>'width:3em'),
+			'help'=>__a("Use zero only for testing purposes.",true)
+		),
+		 array(
+			'label'=>__a("Purge cache interval",true),
+			'type'=>'text',
+			'name'=>'cache_cleanup',
+			 'after'=>__a("hours",true),
+			'attributes'=>array('value'=>12,'style'=>'width:3em'),
+			'help'=>__a("Removes all cached content.",true)
+		)
+	)
+);?>
+
+<?php $AdminSettings->columns = array(5,8,11); $AdminSettings->displayTab('cron',$cronTab);?>

@@ -1,0 +1,293 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+$pass = "status_on.png";
+$fail = "status_off.png";
+?>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+    jQuery.get(s2AjaxUri,{'url':'common/feed'},function(news)
+    {
+        jQuery('#news-spinner').fadeOut(500,function()
+        {
+            jQuery('#news-content').html(news).slideDown('slow');
+        })
+    },'html');
+});
+</script>
+
+<div class="about">
+
+    <table class="mainbody-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+        
+        <tr>
+            <th colspan="4"><?php __a("License Information");?></th>
+        </tr>
+        
+        <tr>
+            <td width="33%" class="install-box-label">
+                <?php __a("License Expires");?>:<br />
+                <font color="green"><?php echo $stats['license_expiration']?></font>
+            </td>
+            <td width="33%" class="install-box-label">
+                <?php __a("Local Key Status");?>:<br />
+                <?php switch($stats['local_key_expiration']):
+                    case 'no_key':?>
+                    <font color="red"><?php __a("key.php file not found.");?><br /></font>
+                    <?php break;?>
+                    <?php case 'never':?>
+                    <font color="green"><?php __a("Valid | Never Expires");?></font>
+                    <?php break;?>
+                    <?php case 'expired':?>
+                    <font color="red"><?php __a("Invalid | Expired.");?><br /></font>
+                    <?php break;?>
+                    <?php default:?>
+                    <font color="green"><?php __a("Valid | Expires");?> <?php echo $stats['local_key_expiration']?></font>
+                    <?php break;?>
+                <?php endswitch;?>
+            </td>
+            
+            <td width="33%" class="install-box-label">
+                <?php __a("Active Addons");?>:<br /><font color="green"><?php echo $stats['license_addons']?></font>
+            </td>
+        </tr>
+        
+    </table>
+    
+    <br />
+    
+    <table class="mainbody-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+        
+        <tr><th colspan="3">General Statistics</th></tr>
+        
+        <tr>
+            <td width="33%">
+                <table class="stats-box" width="100%" cellpadding="1" cellspacing="1">
+                    <tr>
+                        <td class="stats-box-label"><?php __a("Listing categories");?></td>
+                        <td class="stats-box-value"><?php echo $stats['categories_content']?></td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="stats-box-label"><?php __a("Published listings");?></td>
+                        <td class="stats-box-value"><?php echo $stats['entries_published']?></td>
+                    </tr>
+                </table>
+            </td>
+
+            <td width="33%">
+                <table class="stats-box" width="100%" cellpadding="1" cellspacing="1">
+                    <tr>
+                        <td class="stats-box-label"><?php __a("Published user reviews");?></td>
+                        <td class="stats-box-value"><?php echo $stats['reviews_user_published']?></td>
+                    </tr>
+                    <tr>
+                        <td class="stats-box-label"><?php __a("Published editor reviews");?></td>
+                        <td class="stats-box-value"><?php echo $stats['reviews_editor_published']?></td>
+                    </tr>
+                </table>
+            </td>
+
+            <td width="33%">
+                <table class="stats-box" width="100%" cellpadding="1" cellspacing="1">
+                    <tr>
+                        <td class="stats-box-label"><?php __a("Custom field groups");?></td>
+                        <td class="stats-box-value"><?php echo $stats['group_count']?></td>
+                    </tr>
+                    <tr>
+                        <td class="stats-box-label"><?php __a("Custom fields");?></td>
+                        <td class="stats-box-value"><?php echo $stats['field_count']?></td>
+                    </tr>
+                </table>
+            </td>
+
+        </tr>
+
+    </table>
+    
+    <br />
+                   
+    <form name="installCheck" id="installCheck" method="post" action="index.php?option=<?php echo S2Paths::get('jreviews','S2_CMSCOMP');?>">
+
+        <table class="mainbody-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+
+            <tr class="header-admin">
+                
+                <td style="width:200px;"><?php __a("Installation Check");?></td>
+                
+                <td style="width: 25px;"><?php __a("Status");?></td>
+                
+                <td><?php __a("Addtional information");?></td><td width="85"></td>
+    
+            </tr>
+            
+            <!-- BEGIN JREVIEWS MAMBOT/PLUGIN CHECK -->
+            <tr style="height:25px;vertical-align:top;">
+            
+                <td class="install-box-label <?php echo !$installCheck['jreviews.plugin']['status'] ? 'install-err' : '';?>"><a href="index.php?option=com_<?php echo _PLUGIN_DIR_NAME;?>&filter_type=content&search=jreviews"><?php __a("JReviews Plugin");?></a></td>
+            
+                <td class="install-box-status"><?php echo $Html->image($this->viewImages . ($installCheck['jreviews.plugin']['status'] ? $pass : $fail), array('alt'=>'status'));?></td>
+            
+                <td class="install-box-info <?php echo !$installCheck['jreviews.plugin']['status'] ? 'install-err' : '';?>">
+                    <?php echo !$installCheck['jreviews.plugin']['published'] ? __a("Unpublished.",true).' ' : '';?>
+                    <?php echo !$installCheck['jreviews.plugin']['db'] ? __a("Not in plugins list",true).' ' : '';?>
+                    <?php echo !$installCheck['jreviews.plugin']['files'] ? __a("Files not found.",true).' ' : '';?>
+                    <?php echo $installCheck['jreviews.plugin']['status'] ? __a("Plugin is installed and published.",true).' ' : '';?>
+                </td>
+            
+                <td class="install-box-info <?php echo !$installCheck['jreviews.plugin']['status'] ? 'install-err' : '';?>">
+                    <?php if(!$installCheck['jreviews.plugin']['status']):?>
+                    <input class="fix-it" type="button" value="Fix it!" onclick="jQuery('#task').val('fix_install_jreviews');document.installCheck.submit();"  onmouseover="this.className='fix-it-hover'" onmouseout="this.className='fix-it'" />
+                    <?php endif;?>
+                </td>
+            
+            </tr>
+        
+        </table>
+        
+        <table class="mainbody-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+        
+            <tr class="header-admin">
+                
+                <td style="width:200px;"><?php __a("Database Check");?></td>
+                
+                <td style="width: 25px;"><?php __a("Status");?></td>
+            
+                <td><?php __a("Addtional information");?></td><td width="85"></td>
+
+            </tr>
+                
+            <!-- BEGIN CONTENT FIELDS CHECK -->
+            <tr style="height:25px;vertical-align:top;">
+            
+                <td class="install-box-label <?php echo !$installCheck['listing.fields']['status'] ? 'install-err' : '';?>"><?php __a("Listing Custom Fields");?></td>
+            
+                <td class="install-box-status"><?php echo $Html->image($this->viewImages . ($installCheck['listing.fields']['status'] ? $pass : $fail), array('alt'=>'status'));?></td>
+            
+                <td class="install-box-info <?php echo !$installCheck['listing.fields']['status'] ? 'install-err' : '';?>">
+                    <?php echo !$installCheck['listing.fields']['status'] ? __a("One or more field columns are missing from the listings fields table.",true).' ' : '';?>            
+                    <?php echo $installCheck['listing.fields']['status'] ? __a("The listings fields table is OK.",true).' ' : '';?>
+                </td>
+            
+                <td class="install-box-info <?php echo !$installCheck['listing.fields']['status'] ? 'install-err' : '';?>">
+                    <?php if(!$installCheck['listing.fields']['status']):?>
+                    <input class="fix-it" type="button" value="Fix it!" onclick="jQuery('#task').val('fix_content_fields');document.installCheck.submit();"  onmouseover="this.className='fix-it-hover'" onmouseout="this.className='fix-it'" />
+                    <?php endif;?>
+                </td>
+        
+            </tr>
+                
+            <!-- BEGIN REVIEW FIELDS CHECK -->
+            <tr style="height:25px;vertical-align:top;">
+            
+                <td class="install-box-label <?php echo !$installCheck['review.fields']['status'] ? 'install-err' : '';?>"><?php __a("Review Custom Fields");?></td>
+            
+                <td class="install-box-status"><?php echo $Html->image($this->viewImages . ($installCheck['review.fields']['status'] ? $pass : $fail), array('alt'=>'status'));?></td>
+            
+                <td class="install-box-info <?php echo !$installCheck['review.fields']['status'] ? 'install-err' : '';?>">
+                    <?php echo !$installCheck['review.fields']['status'] ? 'One or more field columns are missing from the reviews fields table. ' : '';?>            
+                    <?php echo $installCheck['review.fields']['status'] ? 'The reviews fields table is OK.' : '';?>
+                </td>
+            
+                <td class="install-box-info <?php echo !$installCheck['review.fields']['status'] ? 'install-err' : '';?>">
+                    <?php if(!$installCheck['review.fields']['status']):?>
+                    <input class="fix-it" type="button" value="Fix it!" onclick="jQuery('#task').val('fix_review_fields');document.installCheck.submit();"  onmouseover="this.className='fix-it-hover'" onmouseout="this.className='fix-it'" />
+                    <?php endif;?>
+                </td>
+            
+            </tr>
+        
+        </table>
+    
+        <table class="mainbody-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+            
+            <tr class="header-admin">
+                
+                <td style="width:200px;"><?php __a("Setup Check");?></td><td style="width: 25px;"><?php __a("Status");?></td>
+                
+                <td><?php __a("Addtional information");?></td>
+            
+            </tr>
+            
+            <tr style="height:25px;vertical-align:top;">
+            
+                <td class="install-box-label"><?php __a("Custom fields (optional)");?></td>
+                
+                <td class="install-box-status"><?php echo $Html->image($this->viewImages . $msg['fields'], array('alt'=>'status'));?></td>
+                
+                <td class="install-box-info"><?php __a("To setup fields, first create a field group and then create the fields for that group using the fields manager.");?></td>
+                
+            </tr>
+            
+            <tr style="height:25px;vertical-align:top;">
+            
+                <td class="install-box-label"><?php __a("Listing Types (required)");?></td>
+                
+                <td class="install-box-status"><?php echo $Html->image($this->viewImages . $msg['criteria'], array('alt'=>'status'));?></td>
+                
+                <td class="install-box-info"><?php __a("Create at least one listing type using Listing Types Manager.");?></td>
+            
+            </tr>
+            
+            <tr style="height:25px;vertical-align:top;">
+            
+                <td class="install-box-label"><?php __a("Directories (required)");?></td>
+                
+                <td class="install-box-status"><?php echo $Html->image($this->viewImages . $msg['dir'], array('alt'=>'status'));?>
+                
+                <td class="install-box-info"><?php __a("Create at least one directory using the directories manager.");?></td>
+            
+            </tr>
+            
+            <tr style="height:25px;vertical-align:top;">
+            
+                <td class="install-box-label"><?php __a("Categories (required)");?></td>
+                
+                <td class="install-box-status"><?php echo $Html->image($this->viewImages . $msg['cat'], array('alt'=>'status'));?>
+                
+                <td class="install-box-info"><?php __a("Setup at least one category in the Category Manager. These must first be created in the Joomla Category Manager.");?></td>
+                
+            </tr>
+        
+        </table>
+        
+        <input id="controller" name="data[controller]" type="hidden" value="admin/install" />
+        <input id="action" name="data[action]" type="hidden" value="_installfix" />
+        <input id="task" name="data[task]" type="hidden" value="" />
+    </form>
+
+</div>
+
+<style type="text/css">
+div.feed_item {
+    padding:3px 0;
+    border-bottom:1px solid #999;
+}    
+div.feed_item h3 {
+    font-size: 12px;
+    margin:0px;
+}
+div.feed_item div.date {
+    font-size: 8px;
+    color: #000;
+}
+
+div.feed_item, div.feed_item div.description a {
+    font-size:12px;}
+    
+</style>
+
+<div class="news">
+<table class="mainbody-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+    <tr><th><?php __a("News &amp; Announcements");?></th></tr>
+    <tr><td id="news-spinner" style="text-align:center;vertical-align:middle;"><img alt="loading" src="<?php echo $this->viewImages;?>loading.gif" /></td></tr>
+    <tr><td id="news-content"></td></tr>
+</table>
+</div>

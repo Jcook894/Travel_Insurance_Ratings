@@ -1,0 +1,95 @@
+<?php
+// Feed title processing
+switch($feedPage)
+{
+	case 'directory':
+
+		$firstRow = current($reviews);
+
+		$title = $firstRow['Directory']['title'];
+
+		$rss_link = $rss['link'];
+
+		break;
+
+	case 'category':
+
+		$firstRow = current($reviews);
+
+		$title = $firstRow['Category']['title'];
+
+		$rss_link = $rss['link'];
+
+		break;
+
+	case 'listing':
+
+		$firstRow = current($reviews);
+
+		$title = $firstRow['Listing']['title'];
+
+		$rss_link = $rss['link'];
+
+		break;
+
+	default:
+
+		$title = '';
+
+		break;
+}
+
+$title = $page_title ?: $title;
+
+$title = $title != '' ? $title . ' - ' . $rss['title'] : $rss['title'];
+
+$encoding = strtoupper($encoding);
+
+$tn_size = Sanitize::getString($this->Config,'media_list_thumbnail_size','120x120');
+
+$tn_mode = Sanitize::getString($this->Config,'media_list_thumbnail_mode','crop');
+
+$tn_align = Sanitize::getString($this->Config,'rss_item_image_align','right');
+?>
+<?php header("Content-Type: text/xml; charset={$encoding}");?>
+<?php echo '<?xml version="1.0" encoding="'.$encoding.'"?>'?>
+<rss version="2.0">
+	<channel>
+		<title><![CDATA[<?php echo $title;?>]]></title>
+		<description><![CDATA[<?php echo $rss['description'];?>]]></description>
+		<link><?php echo $rss_link?></link>
+		<?php if (isset($this->Config->rss_image) && $this->Config->rss_image != ''):?>
+		<image>
+			<title><![CDATA[<?php echo $title;?>]]></title>
+			<url><?php echo cmsFramework::makeAbsUrl($rss['image_url']);?></url>
+			<link><?php echo $rss_link;?></link>
+		</image>
+		<?php endif;?>
+		<?php if(!empty($reviews)):?>
+			<?php foreach($reviews AS $review):?>
+			<item>
+				<?php
+				$link = $Routes->reviewDiscuss('', $review, array('listing'=>$review,'return_url'=>true,'sef'=>true,'ampreplace'=>false));
+				$link = cmsFramework::makeAbsUrl($link);
+				$thumbnail = '';
+
+				if($this->Config->rss_item_images
+					&& $mainMediaThumb = $Media->thumb(Sanitize::getVar($review,'MainMedia'),array('listing'=>$review,'size'=>$tn_size,'mode'=>$tn_mode,'skipthumb'=>true),array('align'=>$tn_align)))
+				{
+					$thumbnail = $mainMediaThumb;
+				}
+				?>
+				<title><![CDATA[<?php echo $review['Listing']['title'];?>: <?php echo $review['Review']['title'];?>]]></title>
+				<link><?php echo $link;?></link>
+				<category><![CDATA[<?php echo $review['Category']['title'];?>]]></category>
+				<guid isPermaLink="false"><?php echo $link;?></guid>
+				<description><![CDATA[
+				<?php echo $thumbnail;?>
+				<?php echo $review['Review']['comments'];?>
+				]]></description>
+				<pubDate><?php echo date("r", strtotime($review['Review']['created']));?></pubDate>
+			</item>
+			<?php endforeach;?>
+		<?php endif;?>
+	</channel>
+</rss>

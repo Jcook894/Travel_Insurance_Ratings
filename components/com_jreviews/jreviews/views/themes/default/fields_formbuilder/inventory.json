@@ -1,0 +1,32 @@
+{
+	"name": "Inventory",
+	"theme": "inventory",
+	"schema":
+	{
+	    "title": "Inventory",
+	    "type": "table",
+	    "items": {
+	        "title": "Item",
+	        "type": "object",
+	        "properties": {
+	            "sku": {
+	                "title": "SKU",
+	                "type": "string"
+	            },
+	            "name": {
+	                "title": "Name",
+	                "type": "string"
+	            },
+	            "price": {
+	                "title": "Price",
+	                "type": "number"
+	            },
+	            "in-stock": {
+	                "title": "In Stock",
+	                "type": "boolean",
+	                "format": "checkbox"
+	            }
+	        }
+	    }
+	}
+}

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" version="2.5" method="upgrade">
+	<name>JReviews Calendar Module</name>
+	<author>ClickFWD LLC</author>
+	<creationDate>August 2015</creationDate>
+	<copyright>Copyright (C) 2010-2015 ClickFWD LLC. All rights reserved.</copyright>
+	<license>Commercial</license>
+	<authorEmail>sales@jreviews.com</authorEmail>
+	<authorUrl>www.jreviews.com</authorUrl>
+	<version>2.6</version>
+	<description>MODULE_HEADER</description>
+	<files>
+		<filename module="mod_jreviews_calendar">mod_jreviews_calendar.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_jreviews_calendar.ini</language>
+		<language tag="en-GB">en-GB.mod_jreviews_calendar.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<!-- main setup -->
+				<field type="spacer" class="dataListHeader" label="MAIN SETUP" />
+				<field name="start_field" type="text" default="" label="Event start date field name (i.e. jr_fieldname)" description="The name of the event start date custom field." />
+				<field name="end_field" type="text" default="" label="Event end date field name (optional)" description="The name of the event end date custom field for multiple day events." />
+				<field name="start_date" type="text" default="" label="Start date (YYYY-MM-DD format, optional)" description="Date from which you want to start displaying events (i.e. 2015-05-22)" />
+				<field name="end_date" type="text" default="" label="End date (YYYY-MM-DD format, optional)" description="Date to which you want to end displaying events (i.e. 2015-05-22)" />
+				<field name="hide_past" type="radio" default="0" label="Automatically hide past events" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="spacer" class="dataListHeader" label="CALENDAR" />
+				<field name="description" type="textarea" rows="5" cols="28" default="" label="Description displayed above calendar" description="" />
+				<field name="autoload" type="radio" default="0" label="Automatically load today's events" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="display_week_letters" type="radio" default="0" label="Display week letters" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="tmpl_suffix" type="text" default="" label="Calendar Theme Suffix" description="This suffix will be applied to the module view file and is useful to create multiple instances of the module that have different outputs." />
+				<field type="spacer" class="dataListHeader" label="LISTINGS" />
+				<field name="listing_order" type="list" default="latest" label="Listings Ordering" description="As shown for each mode, some of them only work for com_content, while others work for all the Everywhere extensions including com_content.">
+					<option value="rdate">Latest Listings</option>
+					<option value="rating">Top User Rated</option>
+					<option value="rrating">Worst User Rated</option>
+					<option value="topratededitor">Top Editor Rated</option>
+					<option value="reviews">Most Reviewed</option>
+					<option value="random">Random</option>
+					<option value="rhits">Popular</option>
+				</field>
+				<field name="summary" type="radio" default="0" label="Show Summary" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="summary_words" type="text" default="10" label="Summary Words" description="" />
+				<field name="show_category" type="radio" default="1" label="Show Listing Category" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="fields" type="textarea" default="" rows="3" cols="28" label="Comma separated list of custom fields to show (i.e. jr_state,jr_city)" description="" />
+				<field name="editor_rating" type="radio" default="1" label="Show Editor Rating" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="user_rating" type="radio" default="1" label="Show User Rating" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="columns" type="text" default="1" label="Columns" description="Number of columns or items per row to show." />
+				<field name="show_numbers" type="radio" default="0" label="Show numbers" description="Adds numbers before each review.">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="listings_tmpl_suffix" type="text" default="" label="Listings Theme Suffix" description="This suffix will be applied to the module view file and is useful to create multiple instances of the module that have different outputs." />
+				<!-- thumbnails -->
+				<field type="spacer" class="dataListHeader" label="THUMBNAIL SETTINGS" />
+				<field name="tn_show" type="radio" default="1" label="Show Thumbnail" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="tn_position" type="list" default="left" label="Thumbnail Position" description="Choose the position of the thumbnail.">
+					<option value="left">Left</option>
+					<option value="right">Right</option>
+					<option value="top">Top</option>
+					<option value="bottom">Bottom</option>
+				</field>
+				<field name="tn_mode" type="radio" default="crop" label="Thumbnail Type" description="Scale creates thumbnail with specified width and height is scaled proportionately. Crop takes a square from the center of the image and scales to the specified width.">
+					<option value="crop">Crop</option>
+					<option value="scale">Scale</option>
+				</field>
+				<field name="tn_size" type="text" default="100x100" label="Size (WIDTHxHEIGHT)" description="In pixels" />
+			</fieldset>
+			<fieldset name="advanced">
+				<field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field name="owncache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

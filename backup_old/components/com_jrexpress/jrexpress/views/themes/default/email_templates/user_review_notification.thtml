@@ -1,0 +1,52 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+/**********************************************************************************
+ *                                 CONFIGURATION AND SETUP
+ **********************************************************************************/
+
+$entry_url = cmsFramework::route($Routes->content('',$listing,'','',false));
+
+if(!strstr($entry_url,'http')) {
+    $parsedUrl = parse_url(WWW_ROOT);
+    $entry_url = $parsedUrl['scheme'] . '://' . $parsedUrl['host'] . $entry_url;
+}
+$entry_title = $listing['Listing']['title'];
+$published = $listing['Listing']['state'];
+?>
+
+<?php
+/**********************************************************************************
+ *                                 EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+?>
+ 
+<?php if($isNew): // New review ?>
+    <p>
+    Thank you for submitting your new review for '<?php echo $entry_title;?>'. You will find your review at:
+    <br /><br />
+     <?php echo $Html->link($entry_title,$entry_url,array('sef'=>false));?>
+    </p>
+
+    <?php if(!$published):?>
+    <p>We typically moderate new reviews and publish them only after they've been verified by our staff. Please be patient while we get to your review.</p>
+    <?php endif;?>
+<?php endif;?>
+
+<?php if(!$isNew): // Edited review ?>
+    <p>
+    You're receiving this e-mail to confirm that your review for '<?php echo $entry_title;?>' has been edited. You will find your review at:
+    <br /><br />
+     <?php echo $Html->link($entry_title,$entry_url,array('sef'=>false));?>
+    </p>
+
+    <?php if(!$published):?>
+    <p>We typically moderate new reviews and publish them only after they've been verified by our staff. Please be patient while we get to your review.</p>
+    <?php endif;?>
+<?php endif;?>

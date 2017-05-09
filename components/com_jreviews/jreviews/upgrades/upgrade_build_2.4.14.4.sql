@@ -1,0 +1,1 @@
+ALTER TABLE `#__jreviews_captcha` CHANGE `ip_address` `ip_address` VARCHAR(50);

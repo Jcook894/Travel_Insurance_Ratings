@@ -1,0 +1,20 @@
+<?php
+$specs = json_decode($text, true);
+if (S2Array::pluckIsEmpty($specs, 'specValue')) return;
+
+?>
+
+<div class="jrTableGrid jrDataList">
+
+   <?php foreach ($specs AS $item): ?>
+
+      <div class="jrRow">
+
+         <div class="jrCol3"><?php echo $item['specTitle'];?></div>
+         <div class="jrCol9"><?php echo $item['specValue'];?></div>
+
+      </div>
+
+   <?php endforeach;?>
+
+</div>

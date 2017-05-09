@@ -1,0 +1,58 @@
+<?php
+App::import('Vendor','simplepie/simplepie.inc','jrexpress');
+App::import('Helper','text','jrexpress');
+$Text = new TextHelper();
+
+$feedUrl = "http://www.reviewsforjoomla.com/smf/index.php?board=7.0&type=rss2&action=.xml";	
+
+$feed = new SimplePie($feedUrl);
+$feed->enable_cache(true);
+$feed->set_cache_location(PATH_ROOT.'cache');
+$feed->set_cache_duration(3600);
+$feed->init();
+$feed->handle_content_type();
+$items = $feed->get_items();
+?>
+<style type="text/css">
+div.feed_item {
+	padding:3px 0;
+	border-bottom:1px solid #999;
+}	
+div.feed_item h3 {
+	font-size: 9.5px;
+	margin:0px;
+}
+div.feed_item div.date {
+	font-size: 8px;
+	color: #000;
+}
+
+div.feed_item, div.feed_item div.description a {
+	font-size:12px;}
+	
+</style>
+
+<table class="mainbody-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+	<tr><th colspan="4"><?php __a("News & Announcements");?></th></tr>	
+	<tr><td>
+		<?php if(!empty($items)):?>
+			<?php
+			/*
+			Here, we'll loop through all of the items in the feed, and $item represents the current item in the loop.
+			*/
+			foreach ($items as $item):
+			?>
+				<div class="feed_item">
+					<h3><a href="<?php echo $item->get_permalink(); ?>"><?php echo $item->get_title(); ?></a></h3>
+					<div class="date"><?php echo $item->get_date('F j, Y | g:i a'); ?></div>
+					<div class="description">
+						<?php echo $Text->truncate(Sanitize::stripImages($item->get_description()),200); ?>
+					</div>
+					<div class="clr"></div>
+				</div>	
+			<?php endforeach; ?>
+		<?php else:?>
+		<p>Feed unavailable.</p>
+		<?php endif;?>	
+	</td></tr>
+</table>	

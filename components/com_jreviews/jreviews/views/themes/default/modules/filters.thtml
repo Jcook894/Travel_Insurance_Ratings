@@ -1,0 +1,154 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2016 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+// IDs set in the module settings
+
+$catIdSetting = Sanitize::getString($this->params['module'],'cat_id','',true);
+
+$dirIdSetting = Sanitize::getString($this->params['module'],'dir_id','',true);
+
+$listingTypeIdSetting = Sanitize::getString($this->params['module'],'criteria_id','',true);
+
+// IDs detected on the page
+
+$dirIdPage = Sanitize::getString($autodetectIds, 'dir_id');
+
+$listingTypeIdPage= Sanitize::getString($autodetectIds, 'criteria_id');
+
+$catIdPage = Sanitize::getString($autodetectIds, 'cat_id');
+
+$catId = $catIdPage ?: $catIdSetting;
+
+$dirId = $dirIdPage ?: $dirIdSetting;
+
+$listingTypeId = $listingTypeIdPage ?: $listingTypeIdSetting;
+
+// Other variables
+
+$module_id = Sanitize::getString($this->params,'module_id','',true);
+
+$tmpl_suffix = Sanitize::getString($this->params['module'],'results_suffix','',true);
+
+$reset_link = Sanitize::getBool($this->params['module'],'reset_link', 0);
+
+$category_field = Sanitize::getBool($this->params['module'],'category_field', 1);
+
+$listing_type_field = Sanitize::getBool($this->params['module'],'listing_type_field', 0);
+
+$keywords_field = Sanitize::getBool($this->params['module'],'keywords_field', 1);
+
+$rating_field = Sanitize::getBool($this->params['module'],'rating_field', 1);
+
+$editor_rating_field = Sanitize::getBool($this->params['module'],'editor_rating_field', 0);
+
+$query_type = 'all'; // all|exact|any
+
+$search_review_comments = false;
+
+$sort = Sanitize::getString($this->params, 'order');
+
+$radius = Sanitize::getInt($this->params,'jr_radius',5);
+
+$options = json_encode(array(
+	'desktop_width' => Sanitize::getInt($this->params['module'], 'desktop_width'),
+	'container_class' => Sanitize::getString($this->params['module'], 'container_class'),
+	'title_class' => Sanitize::getString($this->params['module'], 'title_class')
+));
+
+/**********************************************************************************
+* 						EDIT HTML BELOW THIS LINE
+**********************************************************************************/?>
+
+<div class="jr-page jrPage jr-filters-module jrFiltersModule jrForm">
+
+	<form class="jr-form-adv-search-module" action="<?php echo cmsFramework::getCurrentUrl();?>" method="post"
+		data-live-search="<?php echo Sanitize::getInt($this->params['module'], 'live_search', 1);?>"
+		data-filters="1"
+		data-update-scroll="0"
+		data-module-id="<?php echo $module_id;?>"
+		data-options='<?php echo $options;?>'
+		>
+
+		<?php if ($reset_link):?>
+			[reset]
+		<?php endif;?>
+
+		<?php if($category_field): ?>
+			[filter name="categories" label="<?php echo __t("Categories");?>" display_as="link" split_list="0"]
+		<?php endif;?>
+
+		<?php if($listing_type_field): ?>
+			[filter name="listing_types" label="<?php echo __t("Listing Types");?>" display_as="link" split_list="1"]
+		<?php endif;?>
+
+		<?php if($keywords_field): ?>
+			[filter name="keywords" label="<?php __t("Keywords");?>"]
+		<?php endif;?>
+
+		<?php if($rating_field): ?>
+			[filter name="rating" type="user" label="<?php __t("User Rating");?>"]
+		<?php endif;?>
+
+		<?php if($editor_rating_field): ?>
+			[filter name="rating" type="editor" label="<?php __t("Editor Rating");?>"]
+		<?php endif;?>
+
+		<?php // Add filter shortcode tags inside the moduletheme tags below ?>
+
+		<moduletheme>
+
+		</moduletheme>
+
+		<?php
+		/**********************************************************************************
+		 * 						EDIT HTML ABOVE THIS LINE
+		 **********************************************************************************/?>
+
+		<input name="data[search_query_type]" type="hidden" value="<?php echo $query_type;?>" />
+
+		<?php if(isset($this->params['lang'])):?>
+
+			<input type="hidden" name="lang" value="<?php echo $this->params['lang'];?>" />
+
+		<?php endif;?>
+
+		<input type="hidden" name="data[controller]" value="search" />
+
+		<input type="hidden" name="data[action]" value="_process" />
+
+		<input type="hidden" name="data[menu_id]" value="<?php echo $search_itemid;?>" />
+
+		<input type="hidden" name="data[form_id]" value="JreviewsAdvSearch_<?php echo $module_id;?>" />
+
+		<input type="hidden" name="data[module_id]" value="<?php echo $module_id;?>" />
+
+		<input type="hidden" name="data[filter_id]" value="<?php echo $module_id;?>" />
+
+		<input type="hidden" name="data[order]" value="<?php echo $sort;?>" />
+
+		<input type="hidden" name="data[usematch]" value="1" />
+
+		<?php if($tmpl_suffix != ''):?>
+
+			<input type="hidden" name="data[tmpl_suffix]" value="<?php echo $tmpl_suffix;?>" />
+
+		<?php endif;?>
+
+		[hiddeninputs]
+
+	</form>
+
+	<script>
+	(function($) {
+		$('.jr-form-adv-search-module').find('.jr-filter-wrap').children(':not(.jr-filter-label,.jr-field-query-switch-container)').hide();
+	})(jQuery);
+	</script>
+
+</div>

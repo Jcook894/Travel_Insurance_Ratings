@@ -1,0 +1,231 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**
+ * Listing detail page
+ */
+?>
+
+<?php
+/**********************************************************************************
+ * 					EXAMPLES OF CUSTOM FIELDS OUTPUT CUSTOMIZATION
+ *
+ * Outputs the field label 
+ * echo $CustomFields->label('jr_brand',$listing);
+ *
+ * Outputs the field value(s)
+ * echo $CustomFields->field('jr_brand',$listing);
+ *
+ * Outputs the field value(s) - text only. Same as above, but if a field option has an image assigned it only shows the text
+ * echo $CustomFields->fieldText('jr_brand',$listing);
+ *
+ * Outputs the specified Group with the default layout. You can use this line many times only changing the group_name param
+ * @group_name: enter the name of the group you want to show. 
+ * @page: value can be "content" or "list"
+ *
+ * echo $this->element('custom_fields',array('entry'=>$listing,'group_name'=>'Group Name','page'=>'content','divWidth'=>'style="width:55%;"'));
+ **********************************************************************************/
+?>
+
+<?php
+/**********************************************************************************
+ * 								CONFIGURATION AND SETUP
+ **********************************************************************************/
+?>
+
+<?php
+/**********************************************************************************
+ * 								JAVASCRIPT & CSS
+ **********************************************************************************/?>
+<s2:nocache>
+<?php
+if(!$this->xajaxRequest)
+{				
+	$headScripts = array('js'=>array('jrexpress','jquery','jq.jrexpress.plugins','jq.thickbox'),
+						'css'=>array('theme','theme.detail','theme.form','jq.thickbox'));
+
+	if($this->name == 'listings') {$headScripts['css'][] = 'paginator';}
+
+	if($this->name == 'com_content') {
+		// If cache enabled, then load js libraries because it's not possible to do variable checks
+		if(Configure::read('Cache.enable') && Configure::read('Cache.view')) {
+			$addReviewCheck = true;	
+		} else {
+			$addReviewCheck = $Access->canAddReview;
+		}
+		
+		if($addReviewCheck) {			
+			if($this->Config->rating_selector== 'stars'){
+				$headScripts['js'][] = 'ui.core';				
+				$headScripts['js'][] = 'ui.rating';				
+				$headScripts['css'][] = 'ui.rating';
+			}			
+			
+			$headScripts['js'][] = 'jq.tooltip';
+			$headScripts['js'][] = 'jq.onload';
+			$headScripts['css'][] = 'jq.tooltip';
+		}
+	}
+	
+	# Load javascript libraries
+	$Html->js(arrayFilter($headScripts['js'], $Libraries->js()));
+	
+	# Set noConflict mode for jQuery
+	if(in_array('jquery',$headScripts['js'])) {
+		cmsFramework::addScript(sprintf($Html->tags['javascriptcode'],'jQuery.noConflict();'));
+	}
+
+	# Load CSS stylesheets
+	$Html->css(arrayFilter($headScripts['css'], $Libraries->css()));	
+}
+?>
+</s2:nocache>
+
+<s2:nocache>
+<?php
+/**********************************************************************************
+ * 								META DATA
+ **********************************************************************************/
+if($this->action == 'detail' || $this->action == 'view') {
+	if(Configure::read('Cache.enable') && Configure::read('Cache.view')){
+		if($cachedMeta = S2Cache::read('meta_'.md5($this->here))) {
+			$listing = $cachedMeta;
+		} else {
+			S2Cache::write('meta_'.md5($this->here),array('Listing'=>array('title'=>$listing['Listing']['title'],'metakey'=>$listing['Listing']['metakey'],'metadesc'=>$listing['Listing']['metadesc'])),Configure::read('Cache.expires'));
+		}
+	}	
+	cmsFramework::meta('title', $listing['Listing']['title']);
+	cmsFramework::meta('keywords',$listing['Listing']['metakey']);
+	cmsFramework::meta('description',$listing['Listing']['metadesc']);
+}
+?>
+</s2:nocache>
+
+<?php
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+//prx($listing); // Listing array
+//prx($editor_review); // Editor review array
+//prx($reviews); // User reviews array
+?>
+<div class="jr_pgContainer jr_itemDetail">
+
+	<div class="contentInfoContainer">
+	   	<?php if($listing['Criteria']['state'] && $this->Config->user_reviews):?>
+		<!-- BEGIN RATING -->
+		<table border="0" cellpadding="0" cellspacing="0" class="rating_table">
+	         <tr>
+	            <td class="rating_label"><?php echo $Html->image($this->viewImages.'review_user.png',array('title'=>__t("User rating",true),'alt'=>__t("User rating",true)));?></td>
+	            <td class="rating_stars"><?php echo $Rating->drawStars($listing['Review']['user_rating'], $this->Config->rating_scale, $this->Config->rating_graph, 'user');?></td>
+	            <td class="rating_value"><?php echo $Rating->round($listing['Review']['user_rating'],$this->Config->rating_scale);?> (<?php echo (int) $listing['Review']['review_count'];?>)</td>
+	         </tr>
+		</table>
+		<!-- END RATINGS  -->
+	    <?php endif;?>	
+
+		<div class="contentInfo">
+			<?php if($this->Config->list_show_author):?>			
+				<!-- BEGIN AUTHOR AVATAR -->
+				<?php echo $Community->avatar($listing);?>
+				<!-- END AUTHOR AVATAR -->
+				<?php __t("Written by");?> <?php echo $Community->screenName($listing,$this->Config);?>&nbsp;&nbsp;&nbsp;&nbsp;
+			<?php endif;?>
+            <?php if($this->Config->list_show_date):?><?php echo $Time->nice($listing['Listing']['created']);?>&nbsp;&nbsp;&nbsp;&nbsp;<?php endif;?>
+            <?php if($this->Config->list_show_hits):?><?php __t("Hits");?>:&nbsp;<?php echo $listing['Listing']['hits']?>&nbsp;&nbsp;&nbsp;&nbsp;<?php endif;?>
+		</div>
+		<div class="clr">&nbsp;</div>
+	</div>
+	
+	<?php if($this->name != 'listings'): // Only show when in core content page?>
+	<!-- BEGIN LISTING DETAILS -->
+
+		<!-- BEGIN SUMMARY/DESCRIPTION -->
+		<div class="contentFulltext">
+			<?php echo nl2br($listing['Listing']['text']);?>
+		</div>
+		<!-- END SUMMARY/DESCRIPTION -->
+		
+		<div class="clr"></div>
+	<!-- END LISTING DETAILS -->
+	<?php endif;?>
+				
+	<?php if($listing['Criteria']['state'] && $this->Config->user_reviews):?><!-- BEGIN USER REVIEWS -->
+		<!-- BEGIN USER REVIEW SUMMARY -->
+		<h3 id="jr_reviewUserSummaryMainTitle"><?php __t("User reviews");?></h3>
+		<?php // Show when in "view all reviews" page
+		if($this->name == 'listings'):?>
+			<span style="display:block;float:right;text-align:right;margin-top:-25px;"><?php echo $Routes->content(__t("Back to Listing",true),$listing,array('class'=>'jr_buttonLink'));?></span>
+		<?php // View all reviews for a listing shown on details page
+		elseif(in_array($this->action,array('com_content_view')) && $listing['Review']['review_count'] > $this->Config->user_limit):?>
+			<span style="display:block;float:right;text-align:right;margin-top:-25px;"><?php echo $Routes->listing(__t("View all user reviews",true),$listing,array('class'=>'jr_buttonLink'));?></span>
+		<?php endif;?>
+				
+		<?php if($this->name != 'listings'): // Dont show unless in content page ?>
+			<div class="roundedPanel jr_review jr_review" id="jr_reviewUserSummary">
+				<div class="box_upperOuter">
+					<div class="box_upperInner">
+						<?php if($listing['Review']['review_count']>0):?>
+						<h4 class="jr_reviewTitle"><?php echo sprintf(__t("Average user rating from: %s user(s)",true), $listing['Review']['review_count']);?></h4>
+						<?php endif;?>														
+						<table border="0" cellpadding="0" cellspacing="0" class="jr_reviewContainer">
+							<tr>
+								<td class="jr_reviewColumn1">								
+									<?php if($listing['Review']['review_count']==0):?>
+									<p><?php __t("There are no user reviews for this listing.");?></p>
+									<?php endif;?>
+									
+									<?php if($Access->canAddReview):?>
+									<p>&nbsp;</p>
+									<p><input type="button" value="<?php echo __t("Add new review",true);?>" onclick="jQuery('#jr_reviewform').slideToggle();return false;" /></p>
+									<?php else:?>
+									<p><?php __t("To write a review please register or login.");?></p>
+									<?php endif;?>
+								</td>
+								<td class="jr_reviewColumn2">
+									<!-- BEGIN DETAILED USER RATINGS SUMMARY -->
+									<?php echo $this->element('detailed_ratings',array('review'=>$ratings_summary,'reviewType'=>'user'));?>
+									<!-- END DETAILED USER RATINGS SUMMARY -->
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="box_lowerOuter">
+					<div class="box_lowerInner">&nbsp;</div>
+				</div>
+			</div>
+		<?php endif;?>	
+		<!-- END USER REVIEW SUMMARY -->
+				
+		<!-- BEGIN REVIEW FORM -->		
+		<?php if($Access->canAddReview):?>
+			<?php echo $this->renderControllerView('reviews','create',array('criteria'=>$listing['Criteria']))?>
+		<?php endif;?>
+		<!-- END REVIEW FORM -->
+				
+		<div id="jr_user_reviews"><!-- this div is required to display post save messages -->
+			<?php if($listing['Review']['review_count']>0):?>	
+			<!-- BEGIN USER REVIEWS -->		
+				<?php echo $this->renderControllerView('reviews','reviews',array('reviews'=>$reviews))?>
+			<!-- END USER REVIEWS -->		
+			<?php endif;?>
+		</div>		
+			
+		<div class="clr">&nbsp;</div>
+		<!-- END USER REVIEWS-->
+	
+		<?php // View all reviews for a listing shown on details page
+		if(in_array($this->action,array('com_content_view')) && $listing['Review']['review_count'] > $this->Config->user_limit):?>
+			<?php echo $Routes->listing(__t("View all user reviews",true),$listing,array('class'=>'jr_buttonLink'));?>
+		<?php endif;?>	
+	<?php endif;?>
+</div>

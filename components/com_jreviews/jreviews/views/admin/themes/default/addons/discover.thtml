@@ -1,0 +1,71 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die;
+?>
+
+<div class="jr-discover-addons">
+
+    <form id="jr-page-form" class="jrForm" action="index.php" method="post" data-object-type="addon">
+
+		<div class="jrPageToolbar jrRoundedPanel">
+
+			<span id="jr-status" class="jrLeft jrStatus"></span>
+
+			<button class="jr-install jrButton">
+
+				<span class="jrIconArrowUp"></span><span><?php __a("Install");?></span>
+
+			</button>
+
+		</div>
+
+		<div class="jrDataList">
+
+			<div class="jrGrid jrDataListHeader">
+
+		        <div class="jrCol1"><input class="jr-cb-all" value="" type="checkbox"></div>
+
+				<div class="jrCol3" style="text-align:left;"><?php __a("Title");?></div>
+
+				<div class="jrCol2" style="text-align:left;"><?php __a("Name");?></div>
+
+				<div class="jrCol2" style="text-align:left;"><?php __a("Version");?></div>
+
+				<div class="jrCol2" style="text-align:left;"><?php __a("Created");?></div>
+
+				<div class="jrCol2" style="text-align:left;"><?php __a("Author");?></div>
+
+			</div>
+
+			<?php foreach($addons AS $addon):?>
+
+		    <div class="jr-layout-outer jrGrid" data-id="<?php echo $addon['name'];?>">
+
+	        	<div class="jrCol1"><input type="checkbox" class="jr-row-cb" name="cid[]" value="<?php echo $addon['name'];?>" /></div>
+
+				<div class="jrCol3"><?php echo $addon['title'];?></div>
+
+				<div class="jrCol2" style="text-align:left;"><?php echo $addon['name'];?></div>
+
+				<div class="jrCol2" style="text-align:left;"><?php echo $addon['version'];?></div>
+
+				<div class="jrCol2" style="text-align:left;"><?php echo $addon['created'];?></div>
+
+				<div class="jrCol2" style="text-align:left;"><?php echo $addon['author'];?></div>
+
+			</div>
+
+			<?php endforeach;?>
+
+		</div>
+
+	</form>
+
+</div>

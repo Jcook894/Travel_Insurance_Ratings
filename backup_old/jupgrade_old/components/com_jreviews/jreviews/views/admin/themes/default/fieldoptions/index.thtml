@@ -1,0 +1,148 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+<style>
+#adminForm label {
+    float:left; padding:0; margin: 0 10px 0 0; text-align:right; width:90px;    
+}
+#adminForm fieldset input, #adminForm fieldset select { float:none; margin: 0 0 0 5px; padding:2px;}
+#adminForm .jr_fieldDiv { margin: 10px; padding-bottom: 0px; white-space: nowrap;}
+#adminForm .width50percent {width: 45%; margin-right: 10px; float: left;}
+#adminForm .control_value_search {float:left; margin-right: 5px;}
+#adminForm .control-value-cb-div {float: left; padding: 2px; border: 1px solid #ccc;}
+</style>
+
+<script type="text/javascript">
+jQuery('#jr-addNew','#adminForm').click(function(){
+    jreviews_admin.fieldoption.submit('adminForm'); 
+    return false;
+});
+jQuery('#jr-clearAll','#adminForm').click(function(){
+    jQuery('#adminForm #option_text,#option_value').val(''); 
+    jQuery('#adminForm span.jr-validation').remove();
+    return false;
+});
+jQuery('#option_text','#adminForm').blur(function(){
+    var text = jQuery('#option_text','#adminForm').val();
+    var $value = jQuery('#option_value','#adminForm');
+    if (text != '' && $value.val() == '') {
+        $value.val(jreviews_admin.tools.slug(text,{spaceReplaceChar:'-',numbers:true}));
+    } 
+});
+</script>
+
+<div class="admin_header">Field Options Manager:  <?php echo $field['title']?></div>
+								
+<form name="adminForm" id="adminForm" class="adminform">
+
+     <div class="admin_toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
+        <span id="status" class="jr_floatLeft">&nbsp;</span>        
+        <button id="jr-addNew" class="ui-button ui-corner-all"><?php __a("Add New");?></button>
+        <button id="jr-clearAll" class="ui-button ui-corner-all">Clear Values</button>
+        <button class="ui-button ui-corner-all" onclick="jreviews_admin.dispatch({'controller':'fields','action':'_edit','form_id':'adminForm','type':'json','onComplete':function(res){jreviews_admin.field.edit(res);}});return false;">Back to Field</button>            
+        <button class="ui-button ui-corner-all" onclick="jQuery('#controller').val('admin/fields'); jQuery('#action').val('index');jQuery.post(s2AjaxUri,jQuery('#adminForm').serialize(),function(s2Out){jQuery('#page').fadeOut('fast',function(){jQuery(this).html(s2Out).fadeIn('slow');});},'html');return false;">Back to Field List</button>            
+    </div>
+
+    <div class="jr_form">
+    
+        <div class="ui-state-highlight ui-corner-all" style="padding:10px;margin-bottom:10px;">
+            <strong>Default image path</strong>: /components/com_jreviews/jreviews/views/themes/{selected theme}/theme_images.<br />
+            Write "image_name.jpg" and upload the image to ../{selected theme}/theme_images/image_name.jpg.<br />
+            If you have a multilingual site, you can enter "image_name.jpg" and if you place images in the folder like "english.image_name.jpg" and "spanish.image_name.jpg" they will be used automatically.<br /><br />
+
+		When adding new field option images, you must clear the File Registry in order to let JReviews find the new images.
+
+        </div>
+			
+		<fieldset class="width50percent">
+            <legend>Basic Setup</legend>              
+                <div class="jr_fieldDiv">
+                    <label for="option_text">Text<span class="required">*</span></label>
+                    <div>
+                        Visible on the site<br />
+                        <?php echo $Form->text('data[FieldOption][text]',array('id'=>'option_text','max_size'=>'50','class'=>'mediumField','data-validation'=>__a("This is a required input.",true)));?>
+                    </div>
+                </div>                    
+                <div class="jr_fieldDiv">
+                    <label for="option_value">Value<span class="required">*</span></label>
+                    <div>
+                        Reference value, used in urls<br />
+                        <?php echo $Form->text('data[FieldOption][value]',array('id'=>'option_value','max_size'=>'50','class'=>'mediumField','data-validation'=>__a("This is a required input.",true)));?>
+                    </div>
+                </div>                    
+                <div class="jr_fieldDiv">
+                    <label for="option_image">Image<span class="required">&nbsp;</span></label>
+                    <div>
+                        Replacement for text, not used in forms<br />
+                        <?php echo $Form->text('data[FieldOption][image]',array('id'=>'option_image','max_size'=>'50','class'=>'mediumField'));?>
+                    </div>
+                </div>                    
+        </fieldset>
+        <?php if(!in_array($field['type'],array('radiobuttons','checkboxes'))):?>
+        <fieldset class="width50percent">
+            <legend>Controlled By</legend> 
+            
+                <div id="control-field-check" style="color: #000; display:none; padding: 5px; margin-bottom: 5px;" class="ui-state-error ui-corner-all"> 
+                    This field is already Controlled By a Field Option. You should not use the Controlled By setup for Field Options in this page until you remove the relationship in the <a href="javascript:void(0)" onclick="jreviews_admin.dispatch({'controller':'fields','action':'_edit','form_id':'adminForm','type':'json','onComplete':function(res){jreviews_admin.field.edit(res);}});return false;">Field Edit</a> page. It is only possible to use one of the two setups, FieldOption to FieldOption or FieldOption to Field, at a time.
+                </div>            
+                
+                <div>Start typing for a list of options. Only select, multiselect, radio and checkboxes can be control fields.</div>  
+                <div class="jr_fieldDiv">
+                    <label for="control_field">Control Field<span class="required">&nbsp;</span></label>
+                    <div>
+                        Which field controls this field option?<br />
+                        <?php echo $Form->text('data[FieldOption][control_field]',array('id'=>'control_field_new','class'=>'control_field','max_size'=>'200'));?>
+                    </div>
+                </div>                    
+                <div class="jr_fieldDiv">
+                    <label for="control_value">Control Value<span class="required">&nbsp;</span></label>
+                    <div style="float: left;">
+                        Which field value controls this field option?<br />
+                        <?php echo $Form->text('control_value_search',array('data-defaultValue'=>__a("Select a field",true),'disabled'=>'disabled','class'=>'control_value_search','max_size'=>'200'));?>
+                        <div class="control-value-cb-div"></div>                        
+                    </div>
+                </div>                    
+        </fieldset>
+        <?php endif;?>
+    </div>       
+
+    <script type="text/javascript">
+    jreviews_admin.dispatch({
+        'controller':'fields',
+        'action':'_controlledByCheck',
+        'type':'json',
+        'data':{'data[fieldid]':<?php echo $field['fieldid'];?>},
+        'onComplete':function(res){ 
+            if(parseInt(res.result) > 0) {
+                jQuery('#control-field-check').fadeIn('slow');
+                jQuery('#control_field_new').one('keydown',function(){
+                   s2Alert("You need to remove the Field relation first");
+                }); 
+            }
+            else {
+                jQuery('#control-field-check').fadeOut();
+                jreviews_admin.field.control_setup('adminForm');
+            }
+        }
+    });
+    </script>
+
+	<br /><div class="clr"></div>
+	
+	<div id="optionlist"><?php echo $table?></div>
+	
+    <input type="hidden" id="fieldid" name="data[Field][fieldid]" value="<?php echo $field['fieldid'];?>" />
+	<input type="hidden" id="fieldid" name="data[FieldOption][fieldid]" value="<?php echo $field['fieldid'];?>" />
+	<input type="hidden" name="data[FieldOption][ordering]" value="" />
+	<input type="hidden" name="data[Field][location]" class="field_location" value="<?php echo $field['location'];?>" />	
+	<input type="hidden" name="data[Field][groupid]" value="<?php echo $field['groupid'];?>" />
+</form>
+

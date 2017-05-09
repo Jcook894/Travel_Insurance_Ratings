@@ -1,0 +1,182 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+error_reporting(E_ALL);
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php	
+# Initialize paginator helper
+$Paginator->paginate(
+	array(
+		'current_page'=>$this->page,
+		'items_per_page'=>$this->limit,
+		'items_total'=>$pagination['total']
+	)
+);
+?>
+
+<div id="jr_editContainer" style="display:none;"></div>
+
+<div id="jr_ownerReplyEdit" title="<?php __a("Owner Reply");?>" class="dialog jr_form" style="display:none;"></div>
+                      
+<div id="jr_pgContainer">           
+
+    <div class="admin_header"><?php __a("Browse Reviews");?></div>
+
+    <form id="adminForm" name="adminForm" action="index.php?option=com_jreviews&url=reviews" method="post">
+
+	    <div class="admin_filter">
+		    <?php echo $Form->select(
+			 	    'data[extension]',
+			 	    array_merge(array(array('value'=>'','text'=>'- Select Component -'),array('value'=>'com_content','text'=>'JReviews Listings')),$extensions),
+			 	    $extension,
+			 	    array('onchange'=>"jQuery('#page_number').val(1);document.adminForm.submit();")
+			     );
+		    ?>
+		    &nbsp;&nbsp;
+		    <?php
+			    echo $Form->select(
+				    'data[filter_order]',
+				    array('0'=>'Most recent','1'=>'Unpublished','2'=>'User reviews','3'=>'Editor reviews'),
+				    $filter_order,
+				    array(
+					    'size'=>1,
+					    'class'=>'inputbox',
+					    'onchange'=>'jQuery("#page_number").val(1);document.adminForm.submit();'
+				    )			
+			    );
+		    ?>
+		    &nbsp;&nbsp;
+		    Listing title:
+		    <input <?php echo (!$extension ? 'DISABLED' : '');?> type="text" name="data[entry_title]" value="<?php echo ($extension ? $entry_title : '');?>" class="text_area" onchange="jQuery('#page_number').val(1);document.adminForm.submit();" />
+	    </div>
+	    
+	    <br />
+	    
+	    <!-- PAGINATION BEGINS HERE -->
+	    <table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+	     <tr>
+		    <td class="jr_pagenav_results"><?php echo sprintf(__t("%1\$s results - showing %2\$s - %3\$s",true), $pagination['total'], ($this->page-1)*$this->limit+1, min($pagination['total'],$this->page*$this->limit));?></td>
+	        <?php if($pagination['total'] > $this->limit):?>
+	        <td class="jr_pagenav_pages"><?php echo $Paginator->display_pages();?></td>
+	        <td class="jr_pagenav_limitbox"><?php echo $Paginator->display_items_per_page();?>
+		    <?php endif;?>
+		    </td>
+	     </tr>
+	    </table>
+	    
+	    <table class="admin_list">
+		    <tr>
+			    <th width="5">#</th>
+			    <th align="center">Review</th>
+			    <th align="center">Category</th>
+			    <th width="5%" align="center">Published</th>
+			    <th align="center" width="75">Type</th>
+			    <th width="65" align="center">Date</th>
+			    <th align="center">Reviewer</th>
+			    <th align="center">ID</th>
+			    <th align="center">Delete</th>
+		    </tr>
+		    <?php
+		    $j = $this->page*$this->limit - ($this->limit - 1);
+		    foreach($reviews AS $review): extract($review['Review']);?>
+		    <tr id="reviews<?php echo $review['Review']['review_id'];?>" >
+			    <td><?php echo $j++;?></td>
+			    <td align="left">
+                    <button type="button" title="<?php __a("Owner's reply");?>" class="ui-button-small ui-state-<?php echo $owner_reply_approved == 1 ? 'default' : 'active';?> ui-corner-all" style="float:right;margin:4px;" 
+                        onclick="jQuery('#jr_ownerReplyEdit').load('index.php?option=com_jreviews&amp;tmpl=component&amp;format=raw&amp;url=admin_owner_replies/_editOnBrowse',{'data[review_id]':<?php echo $review_id;?>}
+                        ,function(){
+                            jQuery(this).dialog(
+                                'option',{
+                                    buttons: {
+                                        <?php __t("Submit");?>: function() { 
+                                            jQuery.ajax({
+                                                type: 'POST',
+                                                url: 'index.php?option=com_jreviews&amp;tmpl=component&amp;no_html=1&amp;format=raw&amp;url=admin_owner_replies/_save',
+                                                data: jQuery('#jr_ownerReply').serialize(),
+                                                dataType: 'json',
+                                                success: function(msg,status){
+                                                    jQuery('#jr_ownerReplyEdit').dialog('close');
+                                                    jQuery('#reviews<?php echo $review_id;?>').effect('highlight',{},4000);            
+                                                }
+                                            });                                                                                           
+                                        },
+                                        <?php __t("Cancel");?>: function() { 
+                                          jQuery(this).dialog('close'); 
+                                        }
+                                    }                            
+                                }
+                            ).dialog('open');
+                    });">
+                    <span class="ui-icon ui-icon-person"></span>
+                    </button>                                    
+                
+                    <?php echo Sanitize::getString($review['Listing'],'tag',__a("Listing",true));?>: <?php echo $review['Listing']['title']; ?>				    
+                    <!-- REVIEW TITLE --> 
+                    <br />                   
+                    <a href="#" onclick="jreviews_admin.dispatch({'controller':'reviews','action':'edit','data':{'data[review_id]':<?php echo $review['Review']['review_id'];?>,'data[cat_id]':<?php echo $review['Category']['cat_id'];?>},'type':'json','onComplete':function(res){jQuery('#jr_editContainer').html(res.page);jQuery('#s2AjaxResponse').html(res.response);}});return false;">
+                        <span id="title_<?php echo $review['Review']['review_id'];?>"><?php echo $review['Review']['title'] != '' ? $review['Review']['title'] : "[".__a("No title, click to edit",true)."]"; ?></span>
+                    </a>
+			    </td>
+			    <td align="left"><?php echo isset($review['Category']) ? $review['Category']['title'] . '<br />' : '';?><span style="color:blue;">[<?php echo $review['Review']['extension'];?>]</span></td>
+			    <td style="text-align:center;" onclick="jQuery.get(s2AjaxUri+'&url=reviews/_publish/id:<?php echo $review['Review']['review_id'];?>',function(res){if(res.success){jreviews_admin.tools.toggleIcon('pubImg_<?php echo $review['Review']['review_id'];?>',res.state,'status_on','status_off');}},'json');return false;">
+				    <a href="#" id="pubImg_<?php echo $review['Review']['review_id'];?>">
+					    <img src="<?php echo $this->viewImages;?><?php echo ($review['Review']['published'] ? 'status_on.png' : 'status_off.png');?>" border="0" />
+				    </a>
+			    </td>
+			    <td style="text-align:center;">
+				    <a href="#" onclick="jreviews_admin.tools.flashRow('reviews<?php echo $review['Review']['review_id'];?>');jreviews_admin.dispatch({'controller':'reviews','action':'changeTypeReview','data':{'data[review_id]':<?php echo $review['Review']['review_id'];?>},'type':'json','onComplete':function(res){jQuery('#revType_<?php echo $review['Review']['review_id'];?>').html(res.type_text);if(res.msg!='') s2Alert(res.msg);}});return false;">
+					    <span id="revType_<?php echo $review['Review']['review_id'];?>"><?php echo (!$review['Review']['editor'] ? __a("User review",true) : __a("Editor Review",true));?></span>
+				    </a>
+			    </td>
+			    <td><?php echo $Time->niceShort($review['Review']['created']); ?></td>
+			    <td align="left">
+                    <a href="mailto:<?php echo $review['User']['email'];?>"><?php echo $review['User']['name']; ?></a>
+                    (<?php echo $Routes->whois($review['User']['ipaddress']);?>)
+                    <?php if($review['User']['user_id']>0):?>
+                        - [<a href="index.php?option=com_jreviews&amp;url=reviews&amp;user=<?php echo $review['User']['user_id'];?>"><?php __a("Filter by user");?></a>]
+                    <?php endif;?>
+                </td>
+			    <td style="text-align:center;"><?php echo $review['Review']['review_id']; ?></td>
+			    <td style="text-align:center;">
+                    <button type="button" class="ui-button-small ui-state-default ui-corner-all" onclick="jreviews_admin.review.del(<?php echo $review['Review']['review_id'];?>);">
+                        <span class="ui-icon ui-icon-trash"></span>
+                    </button>                				    
+			    </td>
+		    </tr>
+		    <?php endforeach;?>
+	    </table>
+
+	    <!-- PAGINATION BEGINS HERE -->
+	    <table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+	     <tr>
+		    <td class="jr_pagenav_results"><?php echo sprintf(__t("%1\$s results - showing %2\$s - %3\$s",true), $pagination['total'], ($this->page-1)*$this->limit+1, min($pagination['total'],$this->page*$this->limit));?></td>
+	        <?php if($pagination['total'] > $this->limit):?>
+	        <td class="jr_pagenav_pages"><?php echo $Paginator->display_pages();?></td>
+	        <td class="jr_pagenav_limitbox"><?php echo $Paginator->display_items_per_page();?>
+		    <?php endif;?>
+		    </td>
+	     </tr>
+	    </table>
+	    <input type="hidden" id="page_number" name="data[page]" value="<?php echo $this->page;?>" />
+	    <input type="hidden" id="limit" name="data[limit]" value="<?php echo $this->limit;?>" />
+	    <input type="hidden" id="controller" name="controller" value="admin/reviews" />
+	    <input type="hidden" id="action" name="action" value="listReviews" />
+	    <!-- PAGINATION ENDS HERE -->
+	    
+	    <!-- REORDER INPUTS -->
+	    <input type="hidden" id="row_id" name="data[row_id]" value="" />		
+	    <input type="hidden" id="direction" name="data[direction]" value="" />
+	    <!-- REORDER INPUTS -->		
+
+	    <input type="hidden" name="option" value="com_jreviews" />
+	    <input type="hidden" name="act" value="reviews" />
+    </form>
+
+</div>

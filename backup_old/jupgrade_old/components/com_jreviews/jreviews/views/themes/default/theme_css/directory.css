@@ -1,0 +1,160 @@
+/*************************************
+JReviews directory page
+*************************************/
+#jr_dirview {
+	border-top: solid 1px #ccc;
+	padding-top: 10px;
+}
+ 
+#jr_dirview h3,
+#jr_dirview h3.contentheading { 
+	margin: 0 0 1em 0;
+	padding: 0; 
+}
+
+#jr_dirview .jr_rss {
+    position: static;
+	float: right;
+}
+	
+#jr_dirview .jr_column {
+	margin: 0 3% 0 0;
+	float: left;
+}
+	
+#jr_dirview .dirSection {
+	padding: 0; 
+	margin: 0;
+	line-height: 1.5em;
+	overflow: hidden;
+}
+	
+#jr_dirview .dirSection .contentTitle {
+	font-size: 18px; 
+	font-weight: normal; 
+	margin-bottom: .3em;
+}
+	
+#jr_dirview .dirSection .contentTitle a {
+	font-size: 18px; 
+	font-weight: normal;
+}
+
+#jr_dirview .dirSection .contentThumbnail {
+	float: left;
+	margin: 0 10px 10px 0;
+	border: solid 1px #ccc;
+	width: auto;
+	overflow: hidden;
+}	
+
+#jr_dirview .dirSection div.contentDiv {
+	float: left;
+}
+
+#jr_dirview .dirSection ul {
+	margin: 0 0 0 5px;
+	padding: 0 0 0 15px;
+}
+	
+#jr_dirview .dirSection ul li {
+	margin: 0;
+	padding: .1em 0 .1em 0;
+	list-style: circle;
+	font-size: .9em;
+}
+	
+#jr_dirview .dirSection ul.comma {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+	
+#jr_dirview .dirSection ul.comma li {
+	list-style: none;
+	float: left;
+	background: url(images/dot.gif) right center no-repeat;
+	line-height: 1.3em;
+	padding-right: 14px;
+	margin-right: 6px;
+	font-size: .9em;
+}
+
+#jr_dirview  .clr {
+	height: 30px;
+}
+	
+/* no image */
+#jr_dirview.jr_dirview_thumbNone div.contentThumbnail {display:none;}	
+
+/* image above category */
+#jr_dirview.jr_dirview_thumbAbove div.contentDiv {clear: left;}
+
+
+/*************************************
+Joomla 1.6 Directory Styles
+*************************************/
+
+#jr_dirview div.contentDiv ul {
+	margin: 5px;
+	padding-left: 15px;
+	overflow: hidden;
+}
+
+#jr_dirview li {
+	margin: 0;
+}
+
+#jr_dirview ul li.cat_level1 {
+	float: left;
+	margin-bottom: 30px;
+	list-style: none;
+	background: none;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+#jr_dirview ul li ul {
+	font-weight: normal;
+	font-size: 1em;
+}
+
+#jr_dirview ul li div.contentThumbnail {
+	float: left;
+	margin: 0 10px 10px 0;
+	border: solid 1px #ccc;
+	width: auto;
+	overflow: hidden;
+}
+
+#jr_dirview ul li div.contentDiv {
+	float: left;
+}
+
+#jr_dirview ul li.cat_level2 div.contentDiv {
+	float: none;
+}
+
+/* comma separated values */
+#jr_dirview.formatComma ul li ul{
+	padding: 0;
+	margin: 0;
+}
+
+#jr_dirview.formatComma li.cat_level2{
+	float: left;
+	list-style: none;
+	margin-right: 5px;
+}
+
+#jr_dirview.formatComma li.cat_level2 .contentDiv:after{
+	content: ",";
+}
+
+#jr_dirview.formatComma li.cat_level2:last-child .contentDiv:after{
+	content: "";
+}
+
+#jr_dirview.formatComma li.cat_level2 ul{
+	display: none;
+}

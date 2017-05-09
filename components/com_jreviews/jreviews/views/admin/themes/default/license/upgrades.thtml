@@ -1,0 +1,29 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<center>
+
+	<div class="jrRoundedPanel" style="margin-top: 40px; max-width: 800px;">
+
+		<p style="font-size: 16px;"><?php echo $license;?></p>
+
+		<h4><?php echo sprintf('To use JReviews v%s with this license you need to renew your upgrades.', $version);?></h4>
+
+		<p>This version of JReviews was released after your upgrades expired.</p>
+
+		<p>Use the button below to refresh the license information after renewing the upgrades.</p>
+
+        <a href="<?php echo $AdminRoutes->refreshLocalKey();?>" class="jrButton jrIconOnly"><span class="jrIconRefresh"></span> Refresh License Info</a>
+
+	</div>
+
+</center>

@@ -1,0 +1,20 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<div class="admin_description">
+This method of integration uses the User Access Groups as the jReviews categories and allows you to:
+<ul>
+<li>Enable the review system only for the selected groups.</li>
+<li>Assign different criteria to different groups.</li>
+</ul>
+<strong>Remember to install the ReviewMe plugin for JomSocial included in the jReviews package.</strong>
+</div>

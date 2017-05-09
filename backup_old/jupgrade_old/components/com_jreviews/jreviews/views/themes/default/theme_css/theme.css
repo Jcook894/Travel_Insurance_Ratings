@@ -1,0 +1,1559 @@
+/*************************************
+Icons
+*************************************/
+.jrIcon {
+	display: inline-block;
+	overflow: hidden;
+	text-indent: -9999px;
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+	vertical-align: middle;
+	background-image: url(images/icons.png);
+	background-repeat: no-repeat;
+	*display: none; /* ie7 */	
+}
+
+.jrIconArrow {
+	background-position: 0 0;
+}
+
+.jrIconBullet {
+	background-position: -16px 0;
+}
+
+.jrIconRemove {
+	background-position: -32px 0;
+}
+
+.jrIconDisable {
+	background-position: -48px 0;
+}
+
+.jrIconFavorites {
+	background-position: -72px 0;
+	margin: 0 3px 0 0;
+	width: 8px;
+	height: 14px;
+}
+
+.jrIconRSSReview {
+	background-position: 0 -16px;
+}
+
+.jrIconRSSListing {
+	background-position: -16px -16px;
+}
+
+.jrIconInfo {
+	background-position: -32px -16px;
+}
+
+.jrIconWarning{
+	background-position: -48px -16px;
+}
+
+.jrIconGraph{
+	background-position: -64px -18px;
+	margin: 0;
+	width: 12px;
+	height: 12px;
+}
+
+.jrIconPlus{
+	background-position: 0 -32px;
+}
+
+.jrIconMinus{
+	background-position: -16px -32px;
+}
+
+.jrIconYes{
+	background-position: -32px -32px;
+}
+
+.jrIconDisabled{
+	background-position: -48px -32px;
+}
+
+.jrIconNo{
+	background-position: -64px -32px;
+}
+
+.jrIconListing{
+	background-position: 0 -48px;
+}
+
+.jrIconAddListing{
+	background-position: -16px -48px;
+}
+
+.jrIconEdit {
+	background-position: -32px -48px;
+}
+
+.jrIconDelete {
+	background-position: -48px -48px;
+}
+
+.jrIconSearchListing{
+	background-position: -64px -48px;
+}
+
+.jrIconEditorReview {
+	background-position: 0 -64px;
+}
+
+.jrIconUserReviews {
+	background-position: -16px -64px;
+}
+
+.jrIconGallery {
+	background-position: -32px -64px;
+}
+
+.jrIconMap {
+	background-position: -48px -64px;
+}
+
+.jrIconReview {
+	background-position: 0 -80px;
+}
+
+.jrIconAddReview {
+	background-position: -16px -80px;
+}
+
+.jrIconRemoveReview {
+	background-position: -32px -80px;
+}
+
+.jrIconThumbUp {
+	background-position: -48px -80px;
+	margin: 0 0 0 5px;
+}
+
+.jrIconThumbDown {
+	background-position: -64px -80px;
+	margin: 0 0 0 5px;
+}
+
+.jrIconComment {
+	background-position: 0 -96px;
+}
+
+.jrIconAddComment {
+	background-position: -16px -96px;
+}
+
+.jrIconRemoveComment {
+	background-position: -32px -96px;
+}
+
+.jrIconAddImage {
+	background-position: 0 -112px;
+}
+
+.jrIconRemoveImage {
+	background-position: -16px -112px;
+	margin: 2px 0;
+}
+
+.jrIconCart {
+	background-position: -32px -112px;
+}
+
+.jrIconSearch {
+	background-position: -48px -112px;
+}
+
+
+/*************************************
+RSS Link
+*************************************/
+.jr_rss {
+    position: absolute;
+	top: 0;
+	right: 0;
+    margin: 0;
+}
+    
+div.jr_pgContainer #jr_feeds {
+    overflow: hidden;
+    margin: 0;
+	padding: 0;
+}
+
+ul#jr_feeds li {
+	display: inline;
+	margin: 0;
+}
+
+ul#jr_feeds li a {
+    display: block;
+	float: left;
+    width: 16px; 
+    height: 16px; 
+    text-indent: -9999px;
+    background: url(images/icons.png) no-repeat;   
+    border: none; 
+    padding: 0;
+    margin: 5px 0 0 10px;
+}
+ 
+#jr_feeds li a.jr_feedListings {
+    background-position: -16px -16px; 
+}
+    
+#jr_feeds li a.jr_feedReviews {
+    background-position: 0 -16px;
+}                 
+
+.jr_rss img {
+	border: 0; 
+}
+
+/* Everywhere review rss */
+#jr_reviewUserSummary .jr_rss {
+	position: static;
+    float: right;
+    margin: 0;
+}
+
+
+/*************************************
+Content Indicators (new, hot, featured)
+*************************************/	
+span.contentIndicators {
+	margin-left: 10px;
+	padding: 0;
+}
+
+span.contentIndicators span {
+	padding: 0.3em 0.4em;
+	font-size: 9px;
+	line-height: 9px;
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #fff;
+	white-space: nowrap;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+	
+span.contentIndicators span.featuredListing {
+	background-color: #3684c0;
+	background-image: -moz-linear-gradient(top, #8cb9da, #3684c0);
+	background-image: -o-linear-gradient(top, #8cb9da, #3684c0);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #8cb9da), color-stop(1, #3684c0));
+	background-image: -webkit-linear-gradient(#8cb9da, #3684c0);
+	background-image: linear-gradient(top, #8cb9da, #3684c0);
+}
+
+span.contentIndicators span.newListing {
+	background-color: #7faa00;
+	background-image: -moz-linear-gradient(center top, #b6e100, #7faa00);
+	background-image: -o-linear-gradient(top, #b6e100, #7faa00);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #b6e100), color-stop(1, #7faa00));
+	background-image: -webkit-linear-gradient(#b6e100, #7faa00);
+	background-image: linear-gradient(top, #b6e100, #7faa00);
+}
+
+span.contentIndicators span.hotListing {
+	background-color: #d0990f;
+	background-image: -moz-linear-gradient(center top, #f0b521, #d0990f);
+	background-image: -o-linear-gradient(top, #f0b521, #d0990f);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #f0b521), color-stop(1, #d0990f));
+	background-image: -webkit-linear-gradient(#f0b521, #d0990f);
+	background-image: linear-gradient(top, #f0b521, #d0990f);
+}
+
+
+/*************************************
+Headings
+*************************************/
+/* page title */
+h1.contentheading,
+.contentheading	{
+	margin-bottom: .5em;
+	border: 0;
+}
+
+div.jr_pgContainer .jrHeading {
+	font-size: 14px;
+	font-weight: 600;
+	font-family: sans-serif;
+	text-transform: uppercase;
+	padding: 6px 10px;
+	margin: 30px 0 15px 0;
+	color: #333;
+	border: 1px solid #ccc;
+	background-color: #ddd;
+	background-image: -moz-linear-gradient(center top, #eee, #ccc);
+	background-image: -o-linear-gradient(top, #eee, #ccc);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #eee), color-stop(1, #ccc));
+	background-image: -webkit-linear-gradient(#eee, #ccc);
+	background-image: linear-gradient(top, #eee, #ccc);
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-moz-box-shadow: 1px 1px 2px #bbb;
+	-webkit-box-shadow: 1px 1px 2px #bbb;
+	box-shadow: 1px 1px 2px #bbb;
+}
+
+div.jr_pgContainer .jrHeadingText {
+	vertical-align: middle;
+	color: #333;
+}
+
+
+/*************************************
+Buttons & Links
+*************************************/
+.jrButton,
+.jr_form input.jrButton {
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+    padding: 3px 6px;
+	margin: 5px 5px 0 0;
+    border: 1px solid #ccc;
+	font-size: 13px;
+	line-height: 1em;
+	text-shadow: 0 0 1px #fff;
+    vertical-align: middle;
+    white-space: nowrap;	
+	background-color: #ddd;
+	background-image: -moz-linear-gradient(center top, #f5f5f5, #ddd);
+	background-image: -o-linear-gradient(top, #f5f5f5, #ddd);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #f5f5f5), color-stop(1, #ddd));
+	background-image: -webkit-linear-gradient(#f5f5f5, #ddd);
+	background-image: linear-gradient(top, #f5f5f5, #ddd);
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-moz-transition: all 0.3s linear;
+	-o-transition: all 0.3s linear;
+	-webkit-transition: all 0.3s linear;
+	transition: all 0.3s linear;	
+}
+
+.jrButton:hover,
+.jr_form input.jrButton:hover {    
+	background-color: #ccc;
+	background-image: -moz-linear-gradient(center top , #ddd, #f5f5f5);
+	background-image: -o-linear-gradient(top, #ddd, #f5f5f5);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #ddd), color-stop(1, #f5f5f5));
+	background-image: -webkit-linear-gradient(#ddd, #f5f5f5);
+	background-image: linear-gradient(top, #ddd, #f5f5f5);	
+	-moz-box-shadow: 0 0 2px #999;
+	-webkit-box-shadow: 0 0 2px #999;
+	box-shadow: 0 0 2px #999;
+}
+
+a.jrButton,
+.jrButton a:link,
+.jrButton a:visited{
+	text-decoration: none !important;
+	color: #333 !important;
+}
+
+.jrButtonText {
+	vertical-align: middle;
+}
+
+/*************************************
+Arrows
+*************************************/
+.jrArrowBottom {
+	position: absolute;
+	top: 0.6em;
+	right: 5px;
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 7px solid #555;	
+}
+
+
+/*************************************
+Rounded Corners
+*************************************/
+.roundedPanel {
+	padding: 10px !important;
+	border: 1px solid #ccc;
+	background-color: #eee;
+	background-image: -moz-linear-gradient(top, #fafafa, #efefef);
+	background-image: -o-linear-gradient(top, #fafafa, #efefef);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #fafafa), color-stop(1, #efefef));
+	background-image: -webkit-linear-gradient(#fafafa, #efefef);
+	background-image: linear-gradient(top, #fafafa, #efefef);
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px; 
+} 
+
+.roundedPanelLt	{
+	padding: 10px !important;
+	margin-bottom: 10px !important;
+	border: 1px solid #ddd;
+	background-color: #fefefe;
+	background-image: -moz-linear-gradient(top, #fff, #fbfbfb);
+	background-image: -o-linear-gradient(top, #fff, #fbfbfb);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #fff), color-stop(1, #fbfbfb));
+	background-image: -webkit-linear-gradient(#fff, #fbfbfb);
+	background-image: linear-gradient(top, #fff, #fbfbfb);
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;	
+	border-radius: 10px; 
+} 
+
+
+/*************************************
+Breadcrumbs
+*************************************/
+.jr_pathway {
+	float: left; 
+	width: 80%; 
+	margin-bottom: .5em; 
+	padding-right: 15px; 
+	font-size: 0.9em; 
+}
+	
+.jr_pathway a {
+	background: url(images/breadcrumb.png) no-repeat center right; 
+	text-decoration: none; 
+	padding-right: 18px; 
+}
+
+
+/*************************************
+TOOLTIP ICON
+*************************************/
+.jr_infoTip {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-image: url(images/icons.png);
+	background-repeat: no-repeat;
+	background-position: -32px -16px;
+    margin: 0 5px; 
+}
+
+
+/*************************************
+Tooltip Container
+*************************************/
+.jr_tooltipBox {
+	display: none;
+	position: relative;
+	z-index: 2500;	
+	width: 200px;	
+	padding: 10px 15px;	
+	color: #fff;
+	text-align: left;
+	font-size: 12px;
+	font-weight: normal;
+	white-space: normal;
+	background: #222;
+	background-image: -moz-linear-gradient(top, #656565, #222);
+	background-image: -o-linear-gradient(top, #656565, #222);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #656565), color-stop(1, #222));
+	background-image: -webkit-linear-gradient(#656565, #222);
+	background-image: linear-gradient(top, #656565, #222);		
+	border: 1px solid #fff;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-moz-box-shadow: 0 0 10px #000;
+	-webkit-box-shadow :0 0 10px #000;
+	box-shadow: 0 0 10px #000;
+}
+
+.jr_tooltipBoxLight {
+	display: none;
+	position: relative;
+	z-index: 2500;	
+	width: 200px;
+	padding: 10px 15px;	
+	color: #333;
+	text-align: left;
+	font-size: 12px;
+	font-weight: normal;
+	white-space: normal;
+	background: #f7f7f7;
+	background-image: -moz-linear-gradient(top, #fff, #ddd);
+	background-image: -o-linear-gradient(top, #fff, #ddd);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #fff), color-stop(1, #ddd));
+	background-image: -webkit-linear-gradient(#fff, #ddd);
+	background-image: linear-gradient(top, #fff, #ddd);	
+	border: 1px solid #fff;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-moz-box-shadow: 0 0 10px #000;
+	-webkit-box-shadow :0 0 10px #000;
+	box-shadow: 0 0 10px #000;
+}
+
+.jr_tooltipBox h3, .jr_tooltipBoxLight h3 {
+	margin: 0;
+	font-size: 1.25em;
+	white-space: normal;
+}
+
+	
+/*************************************
+Loading image
+*************************************/
+.jr_loadingMedium {
+    background: url(images/loading_m.gif) center left no-repeat;
+    padding: 35px;
+    display: block;
+    margin: 0 auto;
+}
+
+.jr_loadingSmall{
+    background: url(images/loading_s.gif) center left no-repeat; 
+    padding: 0 0 3px 15px;
+    margin-left: 5px; 
+}
+
+
+/*************************************
+JReviews helper classes
+*************************************/
+.jr_pointer {cursor:pointer;}
+.jr_hidden {display:none;}        
+.jr_floatLeft{float:left;}
+.jr_floatRight{float:right;}
+.jrRounded {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+.jrShadow{
+	-webkit-box-shadow: 0 0 2px #ccc;
+	-moz-box-shadow: 0 0 2px #ccc;
+	box-shadow: 0 0 2px #ccc;
+}
+
+
+/*************************************
+Page Container and shared elementss
+*************************************/
+div.jr_pgContainer {
+	text-align: left;
+	position: relative;
+}
+
+div.jr_pgContainer li {
+	margin-left: 15px;
+}
+
+div.jr_pgHeader	{}
+
+div.jr_pgHeader .contentheading {
+	clear: left; 
+	margin-bottom: 10px; 
+}
+	
+div.jr_pgHeader .contentheading a {
+	font-family: sans-serif; 
+	font-size: 14px; 
+	font-weight: bold; 
+}
+
+div.contentInfoContainer  {
+    clear: left;
+    margin: 5px 0 7px 0; 
+    padding: .5em 5px;
+    border-color: #ddd;  
+    border-style: solid; 
+    border-width: 1px 0;
+	background-color: #f2f2f2; 
+	background-image:-moz-radial-gradient(center, #fff, #eee);
+}
+
+.jr_postUpdate  {
+    background-color: #feff9f;
+    margin: 10px;
+    padding: 4px;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-weight: bold;    
+}
+   
+
+/*************************************
+Page Description: uses description defined for the section or category
+*************************************/	
+.jr_pgDescription {
+	width: 100%; 
+	line-height: 1.4em; 
+}
+	
+.jr_pgDescription img {
+	float: left; 
+	margin: 0 10px 10px 0; 
+	border: 0; 
+}   
+   
+   
+/*************************************
+"List Scope": Container for categories or alphabet controls - filters/scopes list
+*************************************/
+.jr_listScope {
+	margin: 0 0 15px 0; 
+}
+	
+.jr_listScope h2 { /*used for "categories in section" title */
+	margin: 0 0 10px 0; 
+	font-weight: bold; 
+} 
+	
+.jr_listScope table td	{
+	padding: 0 2em .5em 0; 
+}
+
+
+/*************************************
+Search controls
+*************************************/
+div.jr_listSearch {
+	text-align: center !important; 
+	font-size: 13px; 
+	margin: 0; 
+}
+
+div.jr_listSearch .jrButton {
+    padding: 2px 4px;
+	margin: 0;
+}
+	
+.jr_listSearch input,
+.jr_listSearch select	{ 
+	font-size: 13px; 
+	font-weight: normal;
+	padding: 0.1em 0.3em;
+	background: #fff;
+	color: #444;
+	vertical-align: middle;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #aaa #ccc #ccc #aaa;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;		
+}
+
+.jr_listSearch input:focus,
+.jr_listSearch select:focus {
+	outline: none;
+	background: #fff;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #777 #aaa #aaa #777;
+}
+
+
+/*************************************
+List Sorting controls
+*************************************/
+.jr_listOptions	{
+	text-align: right; 
+	font-size: .9m; 
+}
+
+.jr_listOptions input,
+.jr_listOptions select { 
+	font-size: 11px;
+}
+	
+.jr_listOptions select option { 
+	padding-right: 10px;
+}
+
+
+/*************************************
+Alphabet Index
+*************************************/
+#jr_alphaindex { 
+	text-align: center; 
+}
+	
+#jr_alphaindex table { 
+	text-align: center; 
+	vertical-align: middle; 
+	margin: 5px auto; 
+}
+	
+#jr_alphaindex a:link, #jr_alphaindex a:visited, #jr_alphaindex a:hover {
+	font-size: 11px; 
+	text-transform: uppercase; 
+	font-weight: bold; 
+	color: #333 !important; 
+	border: solid 1px #999; 
+	margin: 0 1px; 
+	line-height: 1.4em !important; 
+	height: 1.4em; 
+	padding: 0 3px; 
+	text-align: center; 
+	text-decoration: none;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+	
+#jr_alphaindex a:hover {
+	background-color: #ddd; 
+	color: #fff; 
+}
+
+	
+/*************************************
+GENERIC TABLE STYLE
+- used on User Rankings page
+TIP: for visual consistency throughout your site, try to align these styles with the Joomla default table styles, as defined in template.css:
+td.sectiontableheader, tr.sectiontableentry0 td, tr.sectiontableentry1 td, tr.sectiontableentry2 td
+*************************************/
+.jr_dataTable 	{ /* similar to td.sectiontableheader; */
+	border-bottom: 0; 
+	margin-bottom: 15px
+}
+
+.jr_dataTable th { /* similar to td.sectiontableheader */
+	padding: .2em 2em .2em 5px; 
+	border-top: 1px solid #ccc; 
+	background-color: #efefef; 
+	color: #333; 
+	font-weight: bold; 
+	text-align:left; 
+}
+
+.jr_dataTable td	{
+	padding: .3em 2em .3em 5px; 
+	border-top: 1px solid #ccc; 
+	text-align:left; 
+	vertical-align:top; 
+}
+
+	
+/*************************************
+COMMON CONTENT ITEM ELEMENTS - used throughout jReviews
+*************************************/
+div.jr_pgContainer .contentThumbnail {
+    clear: both;
+	text-align: center; 
+}
+	
+div.jr_pgContainer .contentThumbnail img {
+	width: auto; 
+}
+
+div.jr_pgContainer .contentTitle   {
+	font-family: sans-serif; 
+	font-size: 14px; 
+	font-weight: bold; 
+	margin-bottom: .2em; 
+}
+	
+div.jr_pgContainer .contentTitle a {
+	font-family: sans-serif; 
+	font-size: 14px; 
+	font-weight: bold; 
+}
+
+div.jr_pgContainer .contentSubtitle {
+	font-size: 12px; 
+	font-weight: normal; 
+	line-height: 1.4em; 
+	margin-bottom: .7em; 
+} 
+
+div.jr_pgContainer .contentInfo { /* contains author, date, date modifies */
+	font-size: .9em; 
+	color: #777;
+	padding: 0;
+	margin-bottom: 5px;
+}
+
+div.jr_pgContainer .contentInfoButtons { /* contains social bookmarks, compare button, listing management */
+	font-size: .9em; 
+	color: #777;
+	padding: 0;
+	margin: 0;
+}
+
+div.jr_pgContainer .contentInfo img {
+	vertical-align: middle; 
+}
+	
+div.jr_pgContainer span.contentAuthor {}
+div.jr_pgContainer span.contentCreated {}
+div.jr_pgContainer span.contentModified {}
+
+
+/*************************************
+Content text elements and containers
+*************************************/
+div.jr_pgContainer .contentDiv {} /* container for all content parts */
+
+div.jr_pgContainer .contentIntrotext {
+	margin-bottom: 1em; 
+}
+	
+div.jr_pgContainer .contentFulltext {
+	margin-bottom: 1em; 
+}
+
+
+/*************************************
+Content actions box: div that contains the readon, rate it, and write review links
+*************************************/
+div.jr_pgContainer .contentActionsBox {
+	display: none;
+	clear: both;
+	background: #eee;
+	background: rgba(255,255,255,0.7);
+	border: 1px solid #ddd;
+	position: absolute;
+	bottom: 1px;
+	left: 0;
+	padding: 5px;
+}
+
+div.jr_pgContainer .listItem:hover .contentActionsBox {
+	display: block;
+}
+
+div.jr_pgContainer table.jr_tableview .contentActions {
+	position: static;
+	margin-top: 10px;
+}
+
+table.jr_tableview tr:hover .contentActionsBox {
+	display: inline-block;
+}
+
+div.jr_pgContainer .contentActions {
+	position: absolute;
+	bottom: 2px;
+	left: 0;
+}
+
+div.jr_pgContainer a.jr_readon, div.jr_pgContainer a.jr_rateit  {
+	font-size: 0.9em; 
+	padding: 0.1em 0.3em;
+	line-height: 14px;
+	display: inline-block; 
+	float: none;
+	margin: 0;
+}
+
+
+/*************************************
+Compare Checkbox Button
+*************************************/
+span.compareListing.jrButton {
+	font-size: 11px;
+	padding: 1.5px 6px 2px 6px;
+}
+
+span.compareListing input.checkListing{
+	font-size: 11px;
+	vertical-align: middle;
+	margin: 0;
+	padding: 0;
+}
+
+span.compareListing label.lbCompare {
+	display: inline;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+div.jr_thumbview span.compareListing {
+	margin-bottom: 5px;
+}
+
+div.contentInfoButtons span.compareListing.jrButton {
+	margin: 1px 5px 0 0;
+	vertical-align: top;
+}
+
+  /*************************************  
+Management options
+*************************************/
+div.jr_pgContainer span.jrManagement {
+    position: relative;
+    padding: 3px 20px 2px 6px;
+    font-size: 11px;
+}
+
+div.contentInfoButtons span.jrManagement.jrButton {
+    margin: 1px 5px 0 0;
+    vertical-align: top;
+}
+
+div.jr_pgContainer span.jrManagement:hover .jrManager {
+    display: block;
+}
+
+div.jr_pgContainer .jrManager {
+    padding: 5px;
+    min-width: 90%;
+    background: #f9f9f9;
+    position: absolute;
+	display: none;
+    left: 0;
+    top: 100%;
+    border: 1px solid #ccc;    
+    z-index: 10;    
+}
+
+div.jr_pgContainer ul.jrManagementLinks {
+    list-style: none !important;
+    background: none;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+div.jr_pgContainer ul.jrManagementLinks li{
+    list-style: none !important;    
+    padding: 2px 0 !important;
+    margin: 0 !important;
+	position: relative;
+}
+
+div.jr_pgContainer ul.jrManagementLinks li:hover{
+    background: #eee;
+}
+
+div.jr_pgContainer .jrManager {
+    margin: 0 0 4px 0;  
+}
+
+div.jr_pgContainer .jrManager .jrIcon {
+    position: absolute;
+	top: 0;
+	left: 0;
+}
+    
+div.jr_pgContainer .jrManager a {
+    margin: 0 2px 0 22px;
+	display: block;
+	line-height: 16px;
+}
+
+a.jr_edit, a.jr_published, a.jr_unpublished, a.jr_delete  {
+    font-size: 0.9em; 
+}
+    
+a.jr_published  {
+    color: green !important;
+}
+	
+a.jr_unpublished  {
+    color: red !important;
+}
+
+/*************************************
+Widgets
+*************************************/
+.jrListingWidgets {
+	float: left;
+	width: 50%;
+	margin: 0 0 15px 0;
+}
+
+.jrHitsWidget  {
+	cursor: default;
+	display: inline-block;
+	font-size: 11px;
+	line-height: 1em;
+	padding: 1px 4px;
+	border: 1px solid #ccc;
+	vertical-align: middle;
+	white-space: nowrap;
+	background-color: #F6F6F6;
+	background-image: -moz-linear-gradient(center top, #fff, #efefef);
+	background-image: -o-linear-gradient(top, #fff, #efefef);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #fff), color-stop(1, #efefef));
+	background-image: -webkit-linear-gradient(#fff, #efefef);
+	background-image: linear-gradient(top, #fff, #efefef);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;	
+}
+
+.jrFavoriteWidget {
+	cursor: default;
+	font-size: 11px;
+	line-height: 1em;
+	padding: 1px 4px;	
+	margin: 0 1px;
+	border: 1px solid #ccc;
+	vertical-align: middle;
+	white-space: nowrap;
+	background-color: #F6F6F6;
+	background-image: -moz-linear-gradient(center top, #fff, #efefef);
+	background-image: -o-linear-gradient(top, #fff, #efefef);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #fff), color-stop(1, #efefef));
+	background-image: -webkit-linear-gradient(#fff, #efefef);
+	background-image: linear-gradient(top, #fff, #efefef);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;	
+}
+
+.jr_blogview .jrFavoriteWidget, .jr_tableview .jrFavoriteWidget  {
+	padding: 0 0.3em;
+	margin: 2px 1px 0 0;
+}
+
+.jrFavoriteButton.jrButton {
+	font-size: 11px;
+	padding: 2px 6px;
+	margin: 0;
+}
+    
+
+/*************************************
+.clr: overrides "clr" class in Joomla template.css to reduce whitespace
+*************************************/
+div.jr_pgContainer div.clr { 
+    clear: both;
+	font-size: 1px; 
+	line-height: 1px !important; 
+}
+
+div.jr_pgContainer div.clear { 
+    clear: both;
+    font-size: 1px; 
+    line-height: 1px !important; 
+}
+
+
+/*************************************
+JReviews login box
+*************************************/
+.jrLoginBox {
+	float: left;
+}
+
+input#jr_username, input#jr_password {
+	border: 1px solid #ccc;
+	padding: 0.3em 0.5em;
+	vertical-align: middle;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-border-radius: 4px;
+}
+
+.jrButton.jrLogin {
+	margin: 0;
+	vertical-align: middle;
+}
+
+
+/*************************************
+Detailed Ratings
+*************************************/
+div.jr_pgContainer div.ratingInfo {
+	float: right;
+	border: 1px solid #ddd;
+	padding: 8px;
+	margin: 0 0 5px 5px;
+	background: #f5f5f5;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+}
+
+div.jr_pgContainer div.roundedPanel div.ratingInfo {
+	border: 1px solid #ccc;
+	background: #ddd;
+}
+
+div.jr_pgContainer .jr_itemDetail table.rating_table {
+    margin-bottom: 0;
+	border: 0;
+}
+
+div.jr_pgContainer table.rating_table td {
+    font-size: 0.9em;
+	vertical-align: top;
+}
+
+div.jr_pgContainer td.rating_label {
+    font-weight: bold;
+    padding: 2px 5px 2px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+
+div.jr_pgContainer td.rating_value {
+    font-weight: normal;
+    padding: 2px 15px 2px 5px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+
+/*************************************
+RATING STARS
+*************************************/
+/****** rating STARS  ******/
+.rating_star_user, 
+.rating_star_editor , 
+.rating_star_user div, 
+.rating_star_editor div { 
+	background: url(images/rating_stars.png) 0 0 repeat-x; 
+	height: 16px; 
+	font-size: 1px; 
+}
+
+.rating_star_user, 
+.rating_star_editor {
+	width: 80px; 
+	margin-top: 3px; 
+    text-align: left;
+	cursor: help;
+}
+
+.rating_star_user div {
+	background-position: 0 -16px; 
+}
+	
+.rating_star_editor div { 
+	background-position: 0 -32px;  
+}
+
+/*************************************
+RATING STARS CONTAINER
+*************************************/
+div.overall_ratings {
+	float: right;
+}
+
+div.overall_ratings div.overall_editor,
+div.overall_ratings div.overall_user{
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+	
+div.overall_ratings span.rating_label {
+	display: inline;
+	float: left;
+	width: 16px;
+	margin: 2px 5px 0 0;
+	text-indent: -9999px;
+}	
+	
+div.overall_ratings div.rating_stars {
+	display: inline;
+	float: left;
+}
+
+div.overall_ratings span.rating_value {
+	display: inline;
+	float: left;
+	margin-top: 2px;
+	font-weight: normal; 
+	white-space: nowrap; 
+	text-align: left; 
+	padding: 2px; 
+}
+
+/* cb status ratings */
+.cbStatusList div.overall_ratings {
+	float: none;
+}
+
+/*************************************
+Custom Fields Presentation
+*************************************/
+div.jr_customFields {} /*container for all custom field groups that appear with use of the {CUSTOMFIELDS} tag */
+
+div.fieldGroup { /* container div for individual field group */
+	padding-bottom: 1em; 
+}
+	
+.fieldGroupTitle, h3.fieldGroupTitle {
+	text-transform: uppercase;
+	font-size: 11px; 
+	padding: 0 0 2px 0; 
+	margin-top: 0 !important;
+	margin-bottom: .3em; 
+}
+
+div.fieldGroup div.fieldRow {
+	margin-bottom: 5px;
+	overflow: hidden;
+}
+
+div.fieldGroup div.fieldLabel {
+	float: left;
+	width: 110px;
+	font-size: 11px; 
+	font-weight: bold; 
+	text-align: left;
+	white-space: normal;
+}
+
+div.fieldGroup div.fieldLabelDisabled {
+	display: none;
+}
+	
+div.fieldGroup div.fieldValue {
+	margin-left: 120px;
+}
+
+div.fieldGroup div.fieldValue.labelDisabled {
+	margin-left: 0;
+}
+
+div.fieldGroup div.fieldValue img {
+	border: 0;
+}
+
+ul.fieldValueList, ul.fieldValueList li {
+	overflow: hidden;
+    list-style-type: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+	background: none !important;
+}
+
+ul.fieldValueList li {
+    margin-right: 5px !important;
+    float: left;
+    *float: none;
+    display: block;
+}
+
+ul.fieldValueList li:after{
+    content:'\2022';
+    padding-left:5px;
+}
+
+ul.fieldValueList li:last-child:after{
+    content:'';
+}
+
+
+/**************************
+Comparison Dashboard
+***************************/
+#jr_compareDashboard {
+	display: none;
+	position: fixed;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	z-index: 2000;
+	background: #f5f5f5;
+	font-size: 13px;
+	text-align: left;
+	border: 0;
+	margin: 0;
+	padding: 3px 0 0 0;
+	-webkit-box-shadow: 0px 0px 9px #999;
+	-moz-box-shadow: 0px 0px 9px #999;
+	box-shadow: 0px 0px 9px #999;
+}
+
+#jr_compareHeader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 35px;
+	overflow: hidden;
+	background: #ddd;
+	border-bottom: 1px solid #999;
+	z-index: 1;
+}
+
+#jr_compareArrow {
+	position: absolute;
+	top: 12px;
+	right: 100px;
+	z-index: 2;
+	width: 0;
+	height: 0;
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	border-bottom: 12px solid #555;
+}
+
+#jr_compareArrow.down {
+	border-bottom: 0;
+	border-top: 12px solid #555;
+}
+	
+#jr_compareTabs {
+	float: none;
+	position: relative;
+	width: 900px;
+	margin: 0 auto;
+	padding: 0;
+	z-index: 2;
+	background: none;
+	border: 0;
+}	
+
+#jr_compareTabs ul.ui-tabs-nav {
+	margin: 0; 
+	padding: 0 0 0 30px;
+	background: none;
+	float: none;
+	border: 0;
+}
+
+#jr_compareTabs ul.ui-tabs-nav li {
+	font-size: 13px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #ccc;
+	background-image: -moz-linear-gradient(top, #eee, #ccc);
+	background-image: -o-linear-gradient(top, #eee, #ccc);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #eee), color-stop(1, #ccc));
+	background-image: -webkit-linear-gradient(#eee, #ccc);
+	background-image: linear-gradient(top, #eee, #ccc);
+	margin: 0 5px 0 0;
+	padding: 0;
+	border: 1px solid #999 !important;
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-topright: 6px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+
+#jr_compareTabs ul.ui-tabs-nav li a {
+	outline: none;
+	color: #333;
+	background: transparent;
+	padding: 0 1em;
+}
+
+#jr_compareTabs ul.ui-tabs-nav li.ui-tabs-selected {
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(center top, #eee, #f5f5f5);
+	background-image: -o-linear-gradient(top, #eee, #f5f5f5);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #eee), color-stop(1, #f5f5f5));
+	background-image: -webkit-linear-gradient(#eee, #f5f5f5);
+	background-image: linear-gradient(top, #eee, #f5f5f5);		
+	margin: 0 5px 1px 0;
+	border-bottom: 1px solid #f5f5f5 !important;
+}
+
+#jr_compareTitle {
+	position: absolute;
+	top: 0;
+	left: -170px;
+	width: 190px;
+	height: 32px;
+	color: #333;
+	font-size: 13px;
+	font-weight: bold;
+	text-align: right;
+	line-height: 32px;	
+}
+
+#jr_compareTabs #jr_tabsContainer {
+	display: none;
+	height: 90px;
+}
+
+#jr_compareTabs div.ui-tabs-panel {
+	padding: 15px 0 5px 0;
+	position: relative;
+}
+
+#jr_compareTabs div.ui-tabs-panel .jr_compareScroll {
+	position: relative;
+	float:left;	
+	width: 700px;
+	height: 70px;
+	overflow: hidden;
+}
+
+#jr_compareTabs a.compareBrowse {
+	background:url(images/arrows.png) no-repeat;
+	display:block;
+	width:22px;
+	height:22px;
+	float:left;
+	margin:22px 8px;
+	cursor:pointer;
+	font-size:1px;
+	visibility: hidden;
+}
+
+#jr_compareTabs a.compareRight  { background-position: -22px 0; clear:right; margin-right: 0px;}
+#jr_compareTabs a.compareLeft { background-position: 0 0; margin-left: 0px;} 
+
+#jr_compareTabs div.ui-tabs-panel ul {
+	padding: 0;
+	margin: 0;
+	width: 20000em;
+	position: absolute;
+}
+
+#jr_compareTabs div.ui-tabs-panel ul li.ltItem{
+	position: relative;
+	float: left;
+	height: 50px;
+	width: 155px;
+	margin: 0 10px 10px 0;
+	padding: 5px;
+	list-style: none;
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #eee;
+	background-image: -moz-linear-gradient(center top, #fafafa, #e8e8e8);
+	background-image: -o-linear-gradient(top, #fafafa, #e8e8e8);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #fafafa), color-stop(1, #e8e8e8));
+	background-image: -webkit-linear-gradient(#fafafa, #e8e8e8);
+	background-image: linear-gradient(top, #fafafa, #e8e8e8);
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;	
+}
+
+#jr_compareTabs span.removeItem {
+	position: absolute;
+	bottom: 2px;
+	right: 2px;
+	cursor: pointer;
+	width: 16px;
+	height: 16px;	
+	background-image: url(images/icons.png);
+	background-position: -32px 0;
+	background-repeat: no-repeat;
+	text-indent: -9999px;
+}
+	
+#jr_compareTabs .compareThumb {
+	float: left;
+	width: 50px;
+	max-height: 50px;
+	border: 1px solid #ccc;
+	margin-right: 5px;
+	overflow: hidden;
+}
+
+#jr_compareTabs .compareThumb a:hover{
+	background: none;
+}
+
+#jr_compareTabs .compareThumb img {
+	width: 50px;
+	border: 0;
+}
+
+#jr_compareTabs span.compareItemTitle {
+	display: block;
+	font-size: 10px;
+	line-height: 1.2em;
+	text-align: left;
+	height: 45px;
+}
+
+.jr_compareButtons {
+	position: absolute;
+	top: 5px;
+	right: 0px;
+	width: 100px;
+}
+
+p.comparisonMessage {
+	position: absolute;
+	top: -65px;
+	right: 115px;
+}
+
+p.comparisonMessageMax {
+	position: absolute;
+	top: -20px;
+	left: 100px;
+	white-space: normal;
+}
+
+
+/**************************
+Float clearing
+***************************/
+* html .clearfix {height: 1%; overflow: visible;} /* IE6 */
+*+html .clearfix {min-height: 1%;} /* IE7 */
+.clearfix:after{
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  font-size: 0;
+}
+
+
+/************************
+jQuery UI additions    
+*************************/
+.ui-autocomplete-loading {
+    background: #fff url(images/loading_s.gif) right center no-repeat !important;
+}
+
+/* fixes issues with the streetview inside a hidden tab */
+object#panoflash1 {
+	width: 100%;
+}
+
+.jr_tabs.ui-tabs {
+	padding: 0;
+	border: 1px solid #ddd;
+	font-size: 1em;
+}
+
+/* prevent margins on tab navigation */
+.jr_tabs.ui-tabs .ui-tabs-nav {
+    margin: 0 !important;
+    padding: 0.2em 0.2em 0 !important;
+	border: 0;
+}
+
+/* fix margins for tab navigation elements */
+.jr_tabs.ui-tabs .ui-tabs-nav li {
+	margin: 0 0.2em 1px 0 !important;
+	list-style: none !important;
+}
+
+
+/*************************************
+Joomla Styles
+*************************************/
+table.contentpaneopen, table.contentpane {
+	margin:0;
+	padding: 0;
+	width:100% !important;
+}
+
+
+/*************************************
+Joomla Template Overrides  
+*************************************/
+div.jr_pgContainer table, div.jr_pgContainer table tr, div.jr_pgContainer table td {
+	border: 0;
+}
+
+/*************************************
+Google Maps Places Overrides
+*************************************/
+.pac-container {width:auto!important}

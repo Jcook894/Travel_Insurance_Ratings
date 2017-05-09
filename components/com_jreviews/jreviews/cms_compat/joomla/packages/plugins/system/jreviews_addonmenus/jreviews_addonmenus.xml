@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="system" method="upgrade">
+	<name>System - JReviews Add-on Menus</name>
+	<author>ClickFWD LLC</author>
+	<creationDate>December 2013</creationDate>
+	<copyright>(C) 2010 - 2013 ClickFWD LLC. All rights reserved.</copyright>
+	<license>Proprietary</license>
+	<authorEmail>support@jreviews.com</authorEmail>
+	<authorUrl>https://www.jreviews.com</authorUrl>
+	<version>1.0.0</version>
+	<description>Adds the add-on menu types when creating a new Joomla menu</description>
+	<files>
+		<filename plugin="jreviews_addonmenus">jreviews_addonmenus.php</filename>
+		<filename>index.html</filename>
+		<folder>models</folder>
+	</files>
+</extension>

@@ -1,0 +1,601 @@
+/*************************************
+FORM CHOOSER CONTAINER - for selecting section and categories
+*************************************/
+.jr_formChooser {
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	background-color: #f9f9f9;
+	font-weight: bold;
+	clear: right;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+
+.jr_formChooser .jrSelect {
+	margin-right: 5px;
+	color: #444;
+	background: #fff;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #aaa #ccc #ccc #aaa;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.jr_formChooser .jrSelect:focus {
+	background: #fff;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #777 #aaa #aaa #777;
+}
+
+
+/*************************************
+FORM CONTAINER - outer box for form
+*************************************/
+.jr_form {
+	padding: 10px;
+	margin-bottom: 10px;
+    text-align: left;
+}
+
+.jr_formContainer {
+    border: 1px solid #ccc;
+    background-color:#fbfbfb;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}    
+	
+/**** .clr: overrides "clr" class in Joomla template.css to reduce whitespace *****/
+.jr_form div.clr	{ 
+	font-size: 1px;
+	line-height: 1px !important;
+	clear: both;
+}
+
+
+/******************************
+FIELD GROUP CONTAINER
+*******************************/
+.jr_form fieldset {
+	margin: 0 0 15px 0;
+	padding: 10px 10px 3px 12px;
+	border: 1px solid #ccc !important;
+	background-color: #fff;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+  
+.jr_form fieldset fieldset {
+/*	margin:  0;*/
+/*	padding:  0;*/
+/*	border: 0 !important;*/
+  	}
+
+.jr_form legend {
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 0 5px;
+	margin-left: -5px;
+}
+	
+	
+/******************************
+VARIATION OF FIELD GROUP FOR REVIEW FORM
+*******************************/	
+.jr_form fieldset.reviewForm {
+	background-color: #f3f3f3;
+	border: 1px solid #ccc;
+}
+
+.jr_form fieldset.reviewForm fieldset	{
+	background-color: #fff;
+    border: 1px solid #ccc !important;
+    padding: 10px 10px 3px 12px !important;
+    margin: 0 0 15px 0 !important;
+}
+
+
+/******************************
+FIELDS
+*******************************/
+.jr_form input,
+.jr_form textarea,
+.jr_form select {
+	background: #fff;
+	color: #222;
+	vertical-align: middle;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #aaa #ccc #ccc #aaa;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;	
+}
+
+.jr_form input:focus,
+.jr_form textarea:focus,
+.jr_form select:focus {
+	outline: none;
+	background: #fff;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #777 #aaa #aaa #777;
+}
+
+.jr_form fieldset input, 
+.jr_form fieldset textarea, 
+.jr_form fieldset select {
+	background: #f8f8f8;
+	color: #222;
+}
+
+.jr_form fieldset input:focus, 
+.jr_form fieldset textarea:focus, 
+.jr_form fieldset select:focus {
+	outline: none;
+	background: #fff;
+	color: #222;
+}
+
+.jr_form input[type=radio],
+.jr_form input[type=checkbox] {
+	border: 0;
+	background: none;
+	margin: 0 5px 0 0;
+}
+
+.jr_form input,
+.jr_form select option {
+    padding: 2px 10px 2px 2px;
+	margin-right: 5px;
+}
+
+.jr_form .jrSelect option{
+    padding: 0 10px 0 2px;
+	margin-right: 5px;
+}
+
+.jr_form .jrButton, .jr_form .jrButton:focus {
+	border: 1px solid #ccc;
+}
+
+.jr_form .jrTitle,
+.jr_form .jrWebsite {
+	width: 34em;
+}
+
+.jr_form .jrEmail {
+	width: 20em;
+}
+
+.jr_form .jrText,
+.jr_form .jrName,
+.jr_form .jrAutoSuggest {
+	width: 14em;
+}
+
+.jr_form .jrDecimal,
+.jr_form .jrInteger {
+	width: 8em;
+}
+
+.jr_form .jrSelect,
+.jr_form .jrSelectMultiple {
+	margin-right: 5px;
+}
+	
+.jr_form .jr_fieldDiv {
+	clear: left;
+	margin: 0 0 10px 0;
+}
+	
+.jr_form span.required {
+	color: red;
+	font-size: 1.25em;
+}	
+	
+.jr_form #jr_listingTitle {
+	margin: 0 0 15px 0;
+}
+
+.jr_form .jr_fieldDiv label {
+	font-size: 100%;
+	font-weight: bold;
+	display: block;
+	margin: 0 0 1px 0;
+	float: none;
+}
+
+.jr_form .jr_fieldDiv label.error {
+	color: #ff0000;
+}
+	
+.jr_form .jrSearchOptions {
+	margin-right: 4px;
+	width: auto !important;
+	float: left;
+}
+
+.jr_form span.error {color:#ff0000;}
+.jr_form input.error,
+.jr_form select.error,
+.jr_form textarea.error {
+	background-color: #ff0000; 
+	color: #fff;}	
+	
+	
+/* APPLY TO INPUT/SELECT/TEXTAREA FIELDS */
+/*.jr_form input[type=text] {
+    height: 1.5em;
+}*/
+.jr_form input[type=checkbox] {
+    margin: 0 5px 0 0;
+}
+
+.jr_form input,
+.jr_form select option {
+    padding: 2px 10px 2px 2px;   
+    }
+
+.jr_form .longField {
+    width: 34em;
+    }
+
+.jr_form .mediumField {
+    width: 20em;
+    }
+    
+.jr_form .shortField {
+    width: 4em;
+    }
+
+.jr_form .smallArea{
+	height: 10em;
+}
+
+.jr_form .largeArea{
+	height: 20em;
+	}	
+
+.jr_form .extraLargeArea {
+	height: 25em;
+}
+
+.wysiwyg_editor {
+	width: 34em;
+}
+
+.jr_form .fullWidthSmallArea{
+	height: 5em;
+	width: 100%;	
+	}	
+
+.jr_form .fullWidthLargeArea {
+	height: 15em;
+	width: 100%;
+	}
+
+.jr_form .timeField 	{
+	width: 3em;
+	}
+
+.jr_form .jrDate		{
+	width: 6em;
+	}
+
+.jr_form textarea {
+	width: 99%;
+	height: 5em;
+	overflow: auto;	
+}
+
+.jr_form .jr_imageUpload {
+	width: 18em;
+	margin: 3px 3px 3px 0;
+}
+	
+.jr_form input.button, .jr_form input.jrButton {
+	width: auto !important;
+	padding: 2px 6px;
+	margin: 5px 5px 0 0;	
+}
+.jr_form input[type=button].ui-button, .jr_form div.jr_fieldDiv .jButton {
+	padding: 0 .4em;
+}
+	
+/* Edit image container for listing edit form */	
+.jr_form .jr_imageEdit {
+	margin: 5px 5px 0 0;
+	padding: 3px 0 0 3px;
+	border: 1px solid #ccc;
+	float: left;
+}
+	
+.jr_form .jr_imageEdit input {
+	width: auto !important;
+}
+
+/******************************
+CHECKBOX/RADIO BUTTON
+*******************************/	
+.jr_form .jr_fieldDiv .jr_fieldOption {
+	float: left;
+	margin: 0 20px 0 0;
+	line-height: 1.3em;
+	white-space: nowrap;	
+	/* width:20%; // Uncomment and adjust width for regular spacing of checkbox and radio options */	
+}
+	
+.jr_form .jr_fieldDiv .jr_fieldOption input { /*set checkboxes and radiobutton widths back to natural width */
+	width: auto !important;
+}
+	
+.jr_form .jr_fieldDiv .jr_newFieldOption {	
+	display: none;
+    float: left;
+    margin-left: 10px;
+}
+
+
+/******************************
+DIALOG
+*******************************/
+/* prevents large font sizes on dialog forms */
+div.jrDialog {
+	font-size: 13px !important;
+	padding: 0 !important;
+	border: 1px solid #ccc;
+}
+
+.jrDialog .ui-widget-header {
+	border: 0 !important;
+}
+
+.jrDialog legend {
+	font-size: 14px !important;
+}
+
+.jrDialog .ui-dialog-buttonpane {
+	border: 1px solid #ddd;
+}
+
+.jrDialog .ui-dialog-buttonset button, .jrButton {
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+    padding: 2px 6px;
+	margin: 5px 5px 0 0;
+    border: 1px solid #ccc;
+	font-size: 13px;
+	line-height: 1em;
+	text-shadow: 0 0 1px #fff;
+    vertical-align: middle;
+    white-space: nowrap;	
+	background-color: #ddd;
+	background-image: -moz-linear-gradient(center top, #f5f5f5, #ddd);
+	background-image: -o-linear-gradient(top, #f5f5f5, #ddd);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #f5f5f5), color-stop(1, #ddd));
+	background-image: -webkit-linear-gradient(#f5f5f5, #ddd);
+	background-image: linear-gradient(top, #f5f5f5, #ddd);
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-moz-transition: all 0.3s linear;
+	-o-transition: all 0.3s linear;
+	-webkit-transition: all 0.3s linear;
+	transition: all 0.3s linear;
+}
+
+.jrDialog .ui-dialog-buttonset button:hover {
+	background-color: #ccc;
+	background-image: -moz-linear-gradient(center top , #ddd, #f5f5f5);
+	background-image: -o-linear-gradient(top, #ddd, #f5f5f5);
+	background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #ddd), color-stop(1, #f5f5f5));
+	background-image: -webkit-linear-gradient(#ddd, #f5f5f5);
+	background-image: linear-gradient(top, #ddd, #f5f5f5);	
+	-moz-box-shadow: 0 0 2px #999;
+	-webkit-box-shadow: 0 0 2px #999;
+	box-shadow: 0 0 2px #999;
+}
+
+/******************************
+MISC
+*******************************/	
+div.field div.blocktext {
+	margin-left: 131px; /* 'div.field label' width + padding */
+}
+
+fieldset.jr_form div.buttons  {
+	margin-left: 131px; /* 'div.field label' width + padding */
+}
+
+fieldset.jr_form div.buttons input.button,
+fieldset.jr_form div.buttons button {
+	text-align: center; /* without this, button text is left-aligned in IE */
+}	
+
+#jr_listingForm .jrFieldDescription {
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/******************************
+AUTOCOMPLETE UI
+*******************************/    
+.jr_form .acInstructions {
+    font-style:italic;
+    color: #696969;    
+}
+
+.jr_form .ui-cb {
+    border: 1px solid #CCCCCC;
+    margin: 10px 0;
+    padding: 10px 10px 0;
+}
+
+
+.jr_form .ui-cb label {
+    float:left;
+    clear: none;
+    margin: 0 10px 10px 0;
+    font-weight: normal;
+}
+
+
+.jr_form .ui-optionsDiv {
+    margin: 2px 0;
+    padding: 4px 0 0;
+}
+
+.jr_form .ui-optionsDiv a {
+	display: inline-block;
+    margin: 5px 5px 0 0;
+	color: #fff;
+	outline: none;
+	background: #777;
+	border: 1px solid #555;
+    font-weight: normal;
+	text-decoration: none;
+	padding: 0.2em 0.3em;
+	white-space: nowrap;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.jr_form .ui-optionsDiv a.ui-disabled:hover, .jr_form .ui-optionsDiv a.ui-disabled:active{
+    background: #ddd !important;
+	color: #333 !important;
+}
+
+.jr_form .ui-optionsDiv label {
+    float: left;
+    clear: none;
+    margin: 0 5px 2px 0;
+    font-weight: bold;
+}
+
+.jr_form .ui-optionsDiv .ui-disabled {
+    color: #333;
+    font-weight: normal;
+	background: none;
+	border: 1px solid #aaa;
+}
+	
+/******************************
+VALIDATION
+*******************************/	
+.jr_form #msg span, .jr_form #msg p {
+	color: red;
+}
+
+.jr_form #msg li {
+	margin-left: 15px;
+}	
+
+.jr_form .jr_validation {
+    margin-top: 5px;
+    color: red;  
+    font-weight: normal;  
+}
+
+
+/******************************
+Ratings
+*******************************/
+/* ratings table */
+table.jr_ratingsTable {
+	margin-bottom: 5px;
+	border: 0 !important;
+}
+
+table.jr_ratingsTable tr {
+	border: 0 !important;
+}
+
+table.jr_ratingsTable td {
+	font-size: 13px;
+	line-height: 1.5em; 
+	text-align: left; 
+	padding-right: 4px;
+	vertical-align: middle;
+	border: 0 !important;
+}
+
+table.jr_ratingsTable td select {
+	width: auto !important; 
+}
+
+/* rating stars */
+.ui-stars-star,
+.ui-stars-cancel {
+  float: left;
+  display: block;
+  overflow: hidden;
+  text-indent: -999em;
+  cursor: pointer;
+}
+
+.ui-stars-cancel {
+	margin-right: 1px;
+}
+
+.ui-stars-cancel a,
+.ui-stars-star a{
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.ui-stars-cancel a {
+	background: url(images/rating_stars_disabled.png) no-repeat 0 0;
+}
+
+.ui-stars-star a {
+	background: url(images/rating_stars.png) no-repeat 0 0;
+}
+
+.ui-stars-cancel.ui-stars-star-on a,
+.ui-stars-cancel.ui-stars-star-hover a,
+.ui-stars-cancel-hover a,
+table.jr_ratingsTable.jrEditorRatings  .ui-stars-cancel.ui-stars-star-on a,
+table.jr_ratingsTable.jrEditorRatings  .ui-stars-cancel.ui-stars-star-hover a,
+table.jr_ratingsTable.jrEditorRatings  .ui-stars-cancel-hover a   {
+  background-position: 0 -16px;
+}
+
+.ui-stars-star a {
+  background-position: 0 0;
+}
+
+.ui-stars-star-on a ,
+.ui-stars-star-hover a {
+  background-position: 0 -16px;
+}
+
+table.jr_ratingsTable.jrEditorRatings .ui-stars-star a {
+	background-position: 0 0;
+}
+
+table.jr_ratingsTable.jrEditorRatings .ui-stars-star-on a,
+table.jr_ratingsTable.jrEditorRatings .ui-stars-star-hover a {
+	background-position: 0 -32px;
+}
+
+.ui-stars-star-disabled,
+.ui-stars-star-disabled a,
+.ui-stars-cancel-disabled a {
+  cursor: default !important;
+}
+
+/* datepicker override */
+#ui-datepicker-div {
+	font-size: 13px;
+}

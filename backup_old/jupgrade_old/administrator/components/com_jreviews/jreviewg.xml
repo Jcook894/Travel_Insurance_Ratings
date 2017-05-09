@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.6.0">
+    <name>com_jreviews</name>
+    <author>ClickFWD LLC</author>
+    <creationDate>March 2012</creationDate>
+    <copyright>Copyright (C) 2010-2011. ClickFWD LLC. All rights reserved.</copyright>
+    <license>Commercial</license>
+    <authorEmail>sales@reviewsforjoomla.com</authorEmail>
+    <authorUrl>www.reviewsforjoomla.com</authorUrl>
+	<version>2.3.19.213</version>
+    <description>JReviews - Joomla CCK and Reviews</description>
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>jreviews.php</filename>
+        <filename>router.php</filename>
+        <filename>sef_ext.php</filename>
+        <folder>views</folder>
+    </files>    
+    <installfile>install.jreviews.php</installfile>
+    <uninstallfile>uninstall.jreviews.php</uninstallfile>
+    <administration>
+        <menu>JReviews</menu>
+        <submenu>
+            <menu view="license" act="license" img="class:plugin">License</menu>
+        </submenu>
+        <files folder="admin">
+            <filename>index.html</filename>
+            <filename>admin.jreviews.php</filename>
+            <filename>install.jreviews.php</filename>
+            <filename>uninstall.jreviews.php</filename>
+            <filename>jreviews.s2</filename>            
+            <filename>jreviews.plugin.s2</filename>
+            <folder>language</folder>
+        </files>
+    </administration>
+</extension>

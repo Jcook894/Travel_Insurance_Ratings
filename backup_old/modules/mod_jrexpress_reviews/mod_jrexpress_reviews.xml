@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+	<name>JReviews Express Reviews Module</name>
+	<author>Alejandro schmeichler</author>
+	<creationDate>June 2009</creationDate>
+	<copyright>Copyright (C) 2006-2009 Alejandro Schmeichler.</copyright>
+	<authorEmail>sales@reviewsforjoomla.com</authorEmail>
+	<authorUrl>www.reviewsforjoomla.org</authorUrl>
+	<version>1.0</version>
+	<description>JReviews Express Reviews Module: provides multiple functionality for display of reviews.</description>
+	<files>
+		<filename module="mod_jrexpress_reviews">mod_jrexpress_reviews.php</filename>
+		<filename>index.html</filename>
+		<filename>info.html</filename>			
+		<filename>en-GB.mod_jrexpress_reviews.ini</filename>		
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_jrexpress_reviews.ini</language>
+	</languages>		
+	<params>
+		<param name="reviews_order" type="list" default="latest" label="Reviews Ordering" description="">
+			<option value="latest">Latest Reviews</option>
+			<option value="helpful">Most Helpful</option>
+			<option value="random">Random</option>
+		</param>
+		<param name="spacer" type="spacer" default="" label="" description="" />		
+		<param name="tmpl_suffix" type="text" default="" label="JRExpress Template Suffix" description="This suffix will be applied to the module view file and is useful to create multiple instances of the module that have different outputs." />
+		<param name="spacer" type="spacer" default="" label="" description="" />
+		<param name="ajax_nav" type="radio" default="1" label="Enable Ajax Pagination" description="Allows users to navigate to other pages inside the module without page reloads.">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="module_limit" type="text" default="5" label="Limit results" description="Sets the number of results shown in the module" />
+		<param name="columns" type="text" default="1" label="Columns" description="Number of columns or items per row to show." />
+		<param name="spacer" type="spacer" default="" label="" description="" />		
+		<param name="cat_auto" type="radio" default="0" label="Category Autodetect" description="Filters results for current category.">
+			<option value="0">No</option>
+			<option value="1">Yes</option>			
+		</param>	
+		<param name="section" type="text" default="" label="Section IDs" description="Comma separated list, no spaces." />
+		<param name="category" type="text" default="" label="Category IDs" description="Comma separated list, no spaces." />
+		<param name="listing" type="text" default="" label="Listing IDs" description="Comma separated list, no spaces." />
+		<param name="spacer" type="spacer" default="" label="" description="" />
+		<param name="tn_show" type="radio" default="1" label="Show Thumbnail" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>		
+		<param name="tn_mode" type="radio" default="crop" label="Thumbnail Type" description="Scale creates thumbnail with specified width and height is scaled proportionately. Crop takes a square from the center of the image and scales to the specified width.">
+			<option value="crop">Crop</option>
+			<option value="scale">Scale</option>
+		</param>		
+		<param name="tn_width" type="text" default="100" label="Thumbnail Width (px)" description="Thumbnail width in pixels" />
+		<param name="spacer" type="spacer" default="" label="" description="" />
+		<param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+	</params>
+	<params group="advanced">
+		<param name="cache" type="list" default="0" label="Caching" description="Select whether to cache the content of this module">
+			<option value="1">Use global</option>
+			<option value="0">No caching</option>
+		</param>
+		<param name="cache_time" type="text" default="900" label="Cache Time" description="The time before the module is recached" />
+	</params>
+</install>

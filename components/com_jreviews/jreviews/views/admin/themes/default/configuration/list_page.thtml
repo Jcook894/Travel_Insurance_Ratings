@@ -1,0 +1,261 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php $listPageTab = array(
+	/*** NEW HEADER ***/
+	__a("Pre-defined layouts",true) => array(
+		 array(
+			'label'=>__a("Pre-defined layout 1 (default)",true),
+			'type'=>'select',
+			'name'=>'list_predefined_layout[1][layout]',
+			'options'=>array(
+				'tableview'=>__a("Tableview",true),
+				'blogview'=>__a("Blogview",true),
+				'thumbview'=>__a("Thumbview",true),
+				'masonry'=>__a("Masonry",true)
+				),
+			'default'=>$this->Config->list_predefined_layout[1]['layout'],
+			'after'=>$Form->text('list_predefined_layout[1][suffix]',array('placeholder'=>__a("Theme suffix",true),'class'=>'jrInteger','value'=>$this->Config->list_predefined_layout[1]['suffix']))
+				. $Form->text('list_predefined_layout[1][icon]',array('placeholder'=>__a("Icon CSS class",true),'class'=>'jrInteger','value'=>$this->Config->list_predefined_layout[1]['icon'])),
+			'help'=>__a("This will be the default layout used in all views, unless overriden in category or menus.",true)
+		),
+		 array(
+			'label'=>__a("Pre-defined layout 2",true),
+			'type'=>'select',
+			'name'=>'list_predefined_layout[2][layout]',
+			'options'=>array(
+				''=>__a("None",true),
+				'tableview'=>__a("Tableview",true),
+				'blogview'=>__a("Blogview",true),
+				'thumbview'=>__a("Thumbview",true),
+				'masonry'=>__a("Masonry",true)
+				),
+			'default'=>$this->Config->list_predefined_layout[2]['layout'],
+			'after'=>$Form->text('list_predefined_layout[2][suffix]',array('placeholder'=>__a("Theme suffix",true),'class'=>'jrInteger','value'=>$this->Config->list_predefined_layout[2]['suffix']))
+				. $Form->text('list_predefined_layout[2][icon]',array('placeholder'=>__a("Icon CSS class",true),'class'=>'jrInteger','value'=>$this->Config->list_predefined_layout[2]['icon'])),
+			'help'=>__a("Set to 'none' to hide. If only one layout is chosen then the options will be hidden by default.",true)
+		),
+		 array(
+			'label'=>__a("Pre-defined layout 3",true),
+			'type'=>'select',
+			'name'=>'list_predefined_layout[3][layout]',
+			'options'=>array(
+				''=>__a("None",true),
+				'tableview'=>__a("Tableview",true),
+				'blogview'=>__a("Blogview",true),
+				'thumbview'=>__a("Thumbview",true),
+				'masonry'=>__a("Masonry",true)
+				),
+			'default'=>$this->Config->list_predefined_layout[3]['layout'],
+			'after'=>$Form->text('list_predefined_layout[3][suffix]',array('placeholder'=>__a("Theme suffix",true),'class'=>'jrInteger','value'=>$this->Config->list_predefined_layout[3]['suffix']))
+				. $Form->text('list_predefined_layout[3][icon]',array('placeholder'=>__a("Icon CSS class",true),'class'=>'jrInteger','value'=>$this->Config->list_predefined_layout[3]['icon'])),
+			'help'=>__a("Set to 'none' to hide. If only one layout is chosen then the options will be hidden by default.",true)
+		)
+	),
+	__a("Category page settings",true) => array(
+		 array(
+			'label'=>__a("Show category header image",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_page_catimage',
+			'disable'=>_CMS_NAME == 'wordpress'
+		),
+		 array(
+			'label'=>__a("Show 'Add new listing' button in category pages",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_addnew'
+		),
+		 array(
+			'label'=>__a("Use current page Itemid in the 'Add new listing' url",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_addnew_menuid'
+		),
+		 array(
+			'label'=>__a("Show listings of child categories",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_child_listings',
+			'help'=>__a("In category pages current category and child category listings are displayed.",true)
+		)
+	),
+	__a("Listing Comparison",true) => array(
+		 array(
+			'label'=>__a("Enable listing comparison",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_compare'
+		),
+		 array(
+			'label'=>__a("Slider listing columns",true),
+			'type'=>'text',
+			'name'=>'list_compare_columns',
+			'attributes'=>array('style'=>'width:3em;'),
+			'help'=>__a("Defines the number of listings that the user can see at once.",true)
+		),
+		 array(
+			'label'=>__a("Show detailed user ratings",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_compare_user_ratings',
+			'help'=>__a("If enabled the individual criteria ratings will be shown.",true)
+		),
+		 array(
+			'label'=>__a("Show detailed editor ratings",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_compare_editor_ratings',
+			'help'=>__a("If enabled the individual criteria ratings will be shown.",true)
+		)
+	),
+	__a("Category Box",true) => array(
+		 array(
+			'label'=>__a("Show sub-category links in category page",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_categories',
+			'help'=>__a("List of sub-category links shown at the top of the page.",true)
+		),
+		 array(
+			'label'=>__a("Number of columns for categories",true),
+			'type'=>'text',
+			'name'=>'cat_columns',
+			'attributes'=>array('style'=>'width:3em;')
+		),
+		 array(
+			'label'=>__a("Show category images",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_catimages',
+			'disable'=>_CMS_NAME == 'wordpress'
+		)
+	),
+	__a("Ordering options",true) => array(
+		 array(
+			'label'=>__a("Show ordering dropdown list",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_orderselect'
+		),
+		 array(
+			'label'=>__a("Default Ordering",true),
+			'type'=>'select',
+			'options'=>$Jreviews->orderingList(null,array('return'=>true)),
+			'name'=>'list_order_default'
+		),
+		array(
+			'label'=>__a("Ordering options",true),
+			'type'=>'checkbox',
+			'name'=>'list_order_options',
+			'options'=>$Jreviews->orderingList(null,array('return'=>true)),
+			'help'=>''
+		),
+		array(
+			'label'=>__a("Include rating criteria",true),
+			'type'=>'select',
+			'name'=>'list_order_criteria',
+			'options'=>array(
+						0=> __a("No",true),
+						'all'=> __a("All",true),
+						'user' => __a("User rated",true),
+						'editor' => __a("Editor rated",true)
+						)
+		),
+		array(
+			'label'=>__a("Order by field",true),
+			'type'=>'text',
+			'name'=>'list_order_field',
+			'attributes'=>array('style'=>'width:15em;'),
+			'help'=>__a("This setting overrides the default ordering. Use jr_field or rjr_field for descending order. You should use this setting only if the field you are using is common across all listing. Otherwise you should use the equivalent setting in the listing types.",true)
+		),
+	),
+	__a("Listing Information",true) => array(
+		 array(
+			'label'=>__a("Date",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_date'
+		),
+		 array(
+			'label'=>__a("Listing Author",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_author'
+		),
+		 array(
+			'label'=>__a("Average User Rating",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_user_rating',
+			'help'=>__a("List pages only",true),
+		),
+		 array(
+			'label'=>__a("Average Editor Rating",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_editor_rating',
+			'help'=>__a("List pages only",true),
+		),
+		 array(
+			'label'=>__a("Views",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_hits'
+		)
+	),
+	__a("Listing Summary & Status Labels",true) => array(
+		 array(
+			'label'=>__a("Show summary",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_abstract'
+		),
+		 array(
+			'label'=>__a("Trim summary (words)",true),
+			'type'=>'text',
+			'name'=>'list_abstract_trim',
+			'attributes'=>array('style'=>'width:3em;'),
+			'help'=>__a("If zero or blank it will display all the text. Limiting the number of words will strip all html formatting.",true)
+		),
+		 array(
+			'label'=>__a("Show 'New' Label",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_new'
+		),
+		 array(
+			'label'=>__a("'New' label days",true),
+			'type'=>'text',
+			'name'=>'list_new_days',
+			'attributes'=>array('style'=>'width:3em;')
+		),
+		 array(
+			'label'=>__a("Show 'Hot' Label",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_hot'
+		),
+		 array(
+			'label'=>__a("'Hot' number of views",true),
+			'type'=>'text',
+			'name'=>'list_hot_hits',
+			'attributes'=>array('style'=>'width:3em;')
+		),
+		 array(
+			'label'=>__a("Show 'Featured' Label",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_featured'
+		)
+	),
+	__a("Action Box",true) => array(
+		 array(
+			'label'=>__a("Show 'read more' link",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_readmore'
+		),
+		 array(
+			'label'=>__a("Show 'read reviews' link",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_readreviews'
+		),
+		 array(
+			'label'=>__a("Show 'write review' link",true),
+			'type'=>'radioYesNo',
+			'name'=>'list_show_newreview'
+		)
+	)
+);?>
+
+<?php $AdminSettings->columns = array(5,8,11); $AdminSettings->displayTab('items-list',$listPageTab);?>

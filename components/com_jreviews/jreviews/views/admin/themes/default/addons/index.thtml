@@ -1,0 +1,48 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die;
+
+if(_JR_DEMO) die('Disabled for demo');
+
+?>
+
+<div class="jr-manage-addons">
+
+	<div class="jrPageToolbar jrRoundedPanel">
+
+		<a href="javascript:void(0)" class="jr-menu jrButton" data-controller="admin_updater" data-action="index">
+
+			<span class="jrIconArrowRight"></span><?php __a("Remote Install & Update");?>
+
+		</a>
+
+	</div>
+
+	<div class="jrInfo">
+
+		<span class="jrIconInfo"></span><?php __a("To install add-ons purchased on our website use the 'Remote Install & Update' page ");?>
+
+	</div>
+
+	<div class="jr-tabs">
+
+		<ul>
+
+			<li><a href="<?php cmsFramework::displayAjaxUri('jreviews');?>&amp;url=admin_addons/manage"><?php __a("Manage");?></a></li>
+
+			<li><a href="<?php cmsFramework::displayAjaxUri('jreviews');?>&amp;url=admin_addons/install"><?php __a("Install");?></a></li>
+
+			<li><a href="<?php cmsFramework::displayAjaxUri('jreviews');?>&amp;url=admin_addons/discover"><?php __a("Discover");?></a></li>
+
+		</ul>
+
+	</div>
+
+</div>

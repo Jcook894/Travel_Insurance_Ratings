@@ -1,0 +1,154 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );?>
+
+<?php
+/**********************************************************************************
+ * 								CONFIGURATION AND SETUP
+ **********************************************************************************/
+if (!isset($reviewType) || $reviewType == '') {
+	$reviewType = ($review['Review']['editor'] > 0) ? 'editor' : 'user';
+}
+
+// roundPanel class depending on the page and type of review
+$roundPanelClass = isset($review_class) && $review_class == 'single' ? 'roundedPanel' : 'roundedPanelLt';
+?>
+
+<?php 
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/?>
+
+<?php if($this->action!='_edit'): // Don't add the outer div if updating review on screen after edit?>
+
+<div class="hreview <?php echo $roundPanelClass;?> jr_review">
+	
+	<!-- BEGIN REVIEW INNER -->			
+	<div id="jr_review_<?php echo $review['Review']['review_id']?>">
+<?php endif;?>
+
+	<?php if(in_array($this->name,array('com_content','discussions','everywhere'))):?>
+	<span class="item jr_hidden">
+		<span class="fn"><?php echo $listing['Listing']['title'];?></span>
+	</span>
+
+	<span class="dtreviewed jr_hidden"><?php echo $review['Review']['created'];?></span>
+	
+	<span class="reviewer jr_hidden"><?php echo $Community->screenName($review,false);?></span>
+
+	<span class="rating jr_hidden">
+		<span class="value-title" title="<?php echo $review['Rating']['average_rating']?>"></span>
+	</span>
+	<?php endif;?>
+	
+	<?php if($review['Criteria']['state'] == 1): ?>
+	<!-- DETAILED USER RATINGS -->
+	<div class="ratingInfo">
+		<?php echo $Rating->detailedRatings($review,$reviewType);?>
+	</div>
+	<?php endif;?>
+
+	<div class="reviewInfo">
+		<?php echo $Community->avatar($review);?>
+		
+		<?php (Sanitize::getInt($review['Criteria'],'state')!=2) ? __t("Reviewed by") : __t("Commented by");?> <?php echo $Community->screenName($review);?> &nbsp;&nbsp; <?php echo $Time->nice($review['Review']['created']);?>			
+		<?php if($review['Review']['modified'] != '' && NULL_DATE != $review['Review']['modified']):?><br />
+			<?php __t("Last updated");?>: <?php echo $Time->nice($review['Review']['modified']);?>
+		<?php endif;?>
+
+		<?php if($Access->canEditReview($review['User']['user_id']) && $this->action != 'review'): // Edit icon?>
+			<?php echo $Routes->reviewEdit('<span class="jrButton">' . __t("Edit", true) . '</span>',$review,array('class'=>'jrReviewEdit'));?>
+			<span class="jr_loadingSmall jr_hidden"></span>
+		<?php endif;?> 			
+		
+		<?php if($this->Config->user_rank_link && $review['User']['user_id']>0):?><br /> 
+			<?php echo $Routes->reviewers($review['User']['review_rank'],$review['User']['user_id'])?>&nbsp; - &nbsp;
+		<?php endif;?>
+
+		<?php if($this->Config->user_myreviews_link && $this->action!='myreviews' && $review['User']['user_id'] > 0):?>
+			<!-- BEGIN VIEW MY REVIEWS -->    
+			<?php echo $Routes->myReviews(__t("View all my reviews",true), $review['User']);?><br />
+		<?php endif;?>		
+
+		<?php if($Access->isAdmin()):?>
+			<!-- BEGIN EXTRA INFO FOR ADMINS -->
+			<?php echo $review['User']['ipaddress'];?>&nbsp; - &nbsp;
+			<?php echo $review['User']['email'];?><br />
+			<!-- END EXTRA INFO FOR ADMINS -->
+		<?php endif;?> 			
+		
+	</div>
+
+	<div class="review-content jr_reviewContainer">
+		
+		<?php if($review['Review']['title']!=''):?>				
+			<h4 class="jr_reviewTitle"><?php echo $review['Review']['title'];?></h4>
+		<?php endif;?> 			
+
+		<?php if($review['Review']['comments']!=''):?>
+			<div class="description jr_reviewComment"><p><?php echo nl2br($review['Review']['comments']);?></p></div>
+		<?php endif;?>
+
+		<!-- CUSTOM FIELDS -->
+		<?php echo $CustomFields->displayAll($review,'content');?>
+							
+		<?php if($this->Config->owner_replies && $review['Review']['owner_reply_approved']==1 && $review['Review']['owner_reply_text']!=''):?>
+			<!-- BEGIN OWNER REPLY -->
+			<div class="jr_reviewOwnerReply">
+			<span class="ownerTitle"><?php __t("Owner's reply");?></span><br />
+			</p><?php echo nl2br($review['Review']['owner_reply_text']);?></p>
+			</div>
+			<!-- END OWNER REPLY -->
+		<?php endif;?>
+		
+	</div>
+	<div class="reviewActions">
+	
+		<div class="reviewComments">
+		<?php if($this->Config->review_discussions == 1 && $this->action != 'review' && Sanitize::getInt($review['Criteria'],'state')!=2):?>
+		<!-- REVIEW DISCUSSION  -->
+		<?php echo $Routes->reviewDiscuss('<span class="jrIcon jrIconComment"></span><span class="jrButtonText">' . sprintf(__t("Comments (%s)",true),$review['Review']['posts']) . '</span>', $review['Review'], array('listing'=>$listing,'class'=>'jrButton'));?>
+		<?php endif;?>
+		
+		<?php if(!$this->ajaxRequest && $Access->canAddOwnerReply($listing,$review)):?>
+			<!-- OWNER REPLY -->  
+			<?php 
+				if (Sanitize::getInt($review['Criteria'],'state')!=2) {
+					echo $Routes->ownerReply(__t("Reply to this review",true),$review,array('class'=>'jrButton','id'=>'jr_ownerReplyLink'.$review['Review']['review_id']));
+				} else {
+					echo $Routes->ownerReply(__t("Reply to this comment",true),$review,array('class'=>'jrButton','id'=>'jr_ownerReplyLink'.$review['Review']['review_id']));
+				}
+			?>
+		<?php endif;?>
+		</div>
+		
+		<div class="reviewVoting">					
+			<?php if($this->Config->user_vote && Sanitize::getInt($review['Criteria'],'state')!=2):?>
+			<!-- VOTING WIDGET -->
+				<?php echo $Widgets->reviewVoting($review); ?>
+			<?php endif;?>		
+		
+			<?php if($this->Config->user_report && !$this->ajaxRequest):?>
+			<!-- REPORT REVIEW -->
+				<?php 
+					if (Sanitize::getInt($review['Criteria'],'state')!=2) {
+						echo $Routes->reportThis(__t("Report this review",true),array('listing_id'=>$review['Review']['listing_id'],'review_id'=>$review['Review']['review_id'],'extension'=>$review['Review']['extension']),array('class'=>'jrIcon jrIconWarning jrReportReview','id'=>'jr_reportLink'.$review['Review']['review_id'], 'title'=>__t("Report this review",true)));
+					} else {
+						echo $Routes->reportThis(__t("Report this comment",true),array('listing_id'=>$review['Review']['listing_id'],'review_id'=>$review['Review']['review_id'],'extension'=>$review['Review']['extension']),array('class'=>'jrIcon jrIconWarning jrReportReview','id'=>'jr_reportLink'.$review['Review']['review_id'], 'title'=>__t("Report this comment",true)));
+					}
+				?>
+			<?php endif;?> 				
+		</div>
+		<div class="clr"></div>
+	</div>
+<?php if($this->action!='_edit'):?>
+	</div>
+	<!-- END REVIEW INNER -->
+</div>
+<?php endif;?>

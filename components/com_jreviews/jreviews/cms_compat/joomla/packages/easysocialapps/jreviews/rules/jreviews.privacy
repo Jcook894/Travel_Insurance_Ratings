@@ -1,0 +1,30 @@
+{
+	"type": "jreviews",
+	"rules":
+		[
+			{
+            	"core": false,
+				"command" 		: "view",
+				"description"	: "Who can view my Listings, Reviews and Discussion activity",
+				"default"		: "public",
+				"options"		:
+				[
+	                {
+	                    "name": "public"
+	                },
+	                {
+	                    "name": "member"
+	                },
+	                {
+	                    "name": "friend"
+	                },
+	                {
+	                    "name": "only_me"
+	                },
+	                {
+	                    "name": "custom"
+	                }
+               ]
+			}
+		]
+}

@@ -1,0 +1,82 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**********************************************************************************
+ * 								CONFIGURATION AND SETUP
+ **********************************************************************************/
+$showCategoryLinks = Sanitize::getBool($this->params['module'],'cat_links',true);
+$showDirectoryLinks = Sanitize::getBool($this->params['module'],'dir_links',true);
+$module_id = Sanitize::getInt($this->params,'module_id',rand());
+
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+?>
+
+<?php if(!empty($directories)):?>
+	<!-- BEGIN DIRECTORY -->
+	
+    <ul id="jr_treeView<?php echo $module_id;?>" class="tree">
+    <?php foreach ($directories AS $categories):?>
+
+		<?php 
+        $directory = current($categories); 
+        $current_dir = !empty($cat_id) && isset($categories[$cat_id]);
+        ?>
+		
+        <?php if($showDirectoryLinks):?>
+        <li id="dir<?php echo $directory['Directory']['dir_id'];?>-<?php echo $module_id;?>" class="closed">
+            <?php echo $Routes->directory($directory);?>    
+        <?php endif;?>            
+            <?php
+            $attributes = array(
+                'module_id'=>$module_id,
+                'current_dir'=>$current_dir,
+                'cat_id'=>$cat_id
+            );
+            ?>
+            <?php echo $Tree->renderTree($categories, $attributes);?>
+        <?php if($showDirectoryLinks):?>
+        </li>
+        <?php endif;?>            
+        				
+	<?php endforeach;?>
+	</ul>
+    
+ 	<!-- END DIRECTORY -->	
+<?php endif;?>
+
+<!-- Expand tree and highlight the current page category -->
+<?php if($cat_id):?>
+<script type="text/javascript">
+jQuery(document).ready(function() 
+{
+    var current = jQuery('#cat<?php echo $cat_id;?>-<?php echo $module_id;?>');
+    current.swapClass("closed","active").swapClass("expandable-hitarea","collapsable-hitarea").swapClass("expandable","collapsable").swapClass("lastExpandable","lastCollapsable").parents("ul, li").show().removeClass("closed").swapClass("expandable","collapsable");
+    current.children("ul, li").show().removeClass("closed");
+    current.children("div").swapClass("expandable","collapsable").swapClass("expandable-hitarea","collapsable-hitarea");
+    current.parents("ul, li").children("div").swapClass("expandable-hitarea","collapsable-hitarea").swapClass("lastExpandable-hitarea","lastCollapsable-hitarea");
+    current.parents("li").swapClass("lastExpandable","lastCollapsable");
+});        
+</script>
+<?php elseif($dir_id && $showDirectoryLinks):?>
+<script type="text/javascript">
+jQuery(document).ready(function() 
+{
+    var current = jQuery('#dir<?php echo $dir_id;?>-<?php echo $module_id;?>');
+    current.swapClass("closed","active").swapClass("expandable-hitarea","collapsable-hitarea").swapClass("expandable","collapsable").swapClass("lastExpandable","lastCollapsable").parents("ul, li").show().removeClass("closed").swapClass("expandable","collapsable");
+    current.children("ul, li").show().removeClass("closed");
+    current.children("div").swapClass("expandable","collapsable").swapClass("expandable-hitarea","collapsable-hitarea");
+    current.parents("ul, li").children("div").swapClass("expandable-hitarea","collapsable-hitarea").swapClass("lastExpandable-hitarea","lastCollapsable-hitarea");
+    current.parents("li").swapClass("lastExpandable","lastCollapsable");
+}); 
+</script>       
+<?php endif;?>

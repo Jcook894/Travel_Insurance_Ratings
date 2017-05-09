@@ -1,0 +1,112 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php	
+# Initialize paginator helper
+$Paginator->paginate(
+	array(
+		'current_page'=>$this->page,
+		'items_per_page'=>$this->limit,
+		'items_total'=>$pagination['total']
+	)
+);
+?>
+
+<form id="adminForm" name="adminForm">
+
+	<div class="admin_header"><?php __a("Categories Manager");?></div>
+		
+	<div class="admin_toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
+	
+        <button type="button" class="ui-button ui-corner-all" 
+            onclick="jreviews_admin.category.add('sectionid=<?php echo (int)$sectionid;?>',{title:'<?php __a("Setup New");?>'});return false;">
+            <?php __a("Setup New");?>
+        </button>                
+    
+        &nbsp;
+
+        <button class="ui-button ui-corner-all" href="#" onclick="jQuery('#cat_id').val('');jreviews_admin.category.remove();return false;"><?php __a("Remove");?></button>
+	
+	</div>
+					
+	<div class="admin_filter">
+		<strong><?php __a("Section filter");?>:</strong>
+		<?php 
+			echo $Form->select(
+				'data[sectionid]',
+				array_merge(array(array('value'=>null,'text'=>'All')),$sections),
+				$sectionid,
+				array(
+                    'onchange'=>"jQuery('#page_number').val(1);jQuery.post(s2AjaxUri,jQuery('#adminForm').serialize(),function(page){jQuery('#page').html(page);},'html');"
+				)
+			);
+		?>
+	</div>
+	
+	<div id="categorytable">
+		  
+		<table class="admin_list">
+			<tr>
+				<th width="5"><input name="toggle" value="" onclick="jreviews_admin.tools.checkAll(this);;" type="checkbox"></th>
+				<th width="5">#</th>
+				<th class="title"><?php __a("Category");?></th>
+				<th align="left" width="150"><?php __a("Section");?></th>
+				<th class="title"><?php __a("Directory");?></th>
+				<th class="title"><?php __a("Listing Type");?></th>
+				<th align="center" width="15">ID</th>
+				<th align="center" width="15"><?php __a("Remove");?></th>
+			</tr>
+			<?php 
+			$i = $this->page*$this->limit - ($this->limit - 1); 
+			foreach($rows AS $key=>$row):
+			?>		
+			<tr id="category<?php echo $row->id;?>">
+				<td><input id="cb<?php echo $key?>" name="cid[]" value="<?php echo $row->id?>" onclick="isChecked(this.checked);" type="checkbox" /></td>
+				<td><?php echo $i++;?></td>
+				<td align="left">
+                  <a href="#" onclick="jreviews_admin.category.edit('catid=<?php echo $row->id?>&sectionid=<?php echo (int)$sectionid?>&limit=<?php echo $this->limit;?>&limitstart=<?php echo $this->offset;?>',{title:'<?php __a("Edit category");?>'});return false;"><?php echo $row->cat?></a>                
+				</td>
+				<td align="left"><?php echo $row->section?></td>
+				<td align="left"><span id="jr_directory<?php echo $row->id;?>"><?php echo ($row->dir != '' ? $row->dir : 'none')?></span></td>
+				<td align="left"><?php echo ($row->criteria != '' ? $row->criteria : 'none')?></td>
+				<td><?php echo $row->id?></td>
+				<td style="text-align:center;"> 
+                    <button type="button" class="ui-button-small ui-state-default ui-corner-all" onclick="jQuery('#cat_id').val(<?php echo $row->id;?>); jreviews_admin.category.remove();return false;;">
+					<span class="ui-icon ui-icon-trash"></span>
+					</button>
+				</td>
+			</tr>
+			<?php endforeach;?>
+		</table>
+
+		<input type="hidden" id="boxchecked" name="boxchecked" value="0" />
+		<input type="hidden" id="cat_id" name="cat_id" value="" />
+
+		<!-- PAGINATION BEGINS HERE -->
+		<table class="jr_pagination" width="100%" cellpadding="0" cellspacing="0">
+		 <tr>
+		 	<td class="jr_pagenav_results"><?php echo sprintf(__t("%1\$s results - showing %2\$s - %3\$s",true), $pagination['total'], ($this->page-1)*$this->limit+1, min($pagination['total'],$this->page*$this->limit));?></td>
+		    <td class="jr_pagenav_pages"><?php echo ($pagination['total'] > $this->limit) ? $Paginator->display_pages() : '';?></td>
+		    <td class="jr_pagenav_limitbox"><?php echo $Paginator->display_items_per_page();?></td>
+		 </tr>
+		</table>
+		<input type="hidden" id="page_number" name="data[page]" value="<?php echo $this->page;?>" />
+		<input type="hidden" id="limit" name="data[limit]" value="<?php echo $this->limit;?>" />
+		<input type="hidden" id="limitstart" name="data[offset]" value="<?php echo $this->offset;?>" />
+		<!-- PAGINATION ENDS HERE -->
+
+        <input type="hidden" id="controller" name="data[controller]" value="admin/categories" />
+        <input type="hidden" id="action" name="data[action]" value="index" />
+				
+	</div>
+
+</form>

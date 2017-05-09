@@ -1,0 +1,246 @@
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This stylesheet file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+/*************************************
+FORM CHOOSER CONTAINER - for selecting section and category
+*************************************/
+.jr_formChooser {
+	padding: 5px;
+	margin-bottom: 10px;
+	border: 1px solid #CCCCCC;
+	background-color: #f9f9f9;
+	font-weight: bold;
+	clear: right;
+	height: 2em; }
+
+/*************************************
+FORM CONTAINER- outer box for form
+*************************************/
+.jr_form	{
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #555555;
+	background-color:#222222;
+	}
+	
+/**** .clr: overrides "clr" class in Joomla template.css to reduce whitespace *****/
+.jr_form div.clr	{ 
+	font-size: 1px;
+	line-height:1px !important;
+	clear:both;}
+		
+/******************************
+FIELD GROUP CONTAINER
+*******************************/
+.jr_form fieldset {
+	margin: 0 0 15px 0;
+	padding: 10px 10px 3px 12px;
+	border: 1px solid #555555 !important;
+	background-color: #222222;
+  	}
+  
+.jr_form fieldset fieldset {
+	margin:  0 !important;
+	padding:  0 !important;
+	border: 0 !important;
+  	}
+
+.jr_form legend {
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 0 5px;
+	margin-left: -5px;
+	color: #fff;
+	}
+	
+.jr_form table.jr_ratingsTable td {
+	color:#fff;
+}
+	
+	
+/******************************
+VARIATION OF FIELD GROUP FOR REVIEW FORM
+*******************************/	
+.jr_form fieldset.reviewForm	{
+	background-color: #f3f3f3;
+	border: 1px solid #ccc;
+	}
+
+.jr_form fieldset.reviewForm fieldset	{
+	background-color: #f3f3f3;
+    border: 1px solid #ccc !important;
+    padding: 10px 10px 3px 12px !important;
+    margin: 0 0 15px 0 !important;
+	}
+
+/******************************
+FIELDS
+*******************************/	
+.jr_form .jr_fieldDiv {
+	clear: left;
+	margin: 0 0 10px 0;}
+	
+.jr_form span.required {
+	color: red;
+	font-size: 1.25em;
+}	
+	
+.jr_form #jr_listingTitle	{
+	margin: 0 0 15px 0;}
+
+.jr_form .jr_fieldDiv label {
+	font-size:100%;
+	font-weight:bold;
+	display:block;
+	margin: 0 0 1px 0;
+	color: #999999;}
+	
+.jr_form .jr_fieldDiv label.error {
+	color:#ff0000;}
+	
+.jr_form .jr_dateOperator {
+	margin-right: 4px;
+	width: auto !important;
+	float:left;
+	}
+
+.jr_form span.error {color:#ff0000;}
+.jr_form input.error,
+.jr_form select.error,
+.jr_form textarea.error {
+	background-color: #ff0000; 
+	color: #fff;}	
+	
+	
+/* APPLY TO INPUT/SELECT/TEXTAREA FIELDS */
+.jr_form input {width: 90%;}
+.jr_form input,
+.jr_form select option {
+	padding-right:10px;
+	}
+
+.jr_form .longField {
+	width: 34em;
+	}
+
+.jr_form .mediumField {
+	width: 20em;
+	}
+	
+.jr_form .shortField {
+	width: 4em;
+	}
+
+.jr_form .smallArea{
+	height: 10em;
+	}	
+
+.jr_form .largeArea{
+	height: 10em;
+	}	
+
+.wysiwyg_editor {
+	width: 34em;
+}
+
+.jr_form .extraLargeArea {
+	height: 15em;
+	width: 100%;	
+	}
+
+.jr_form .fullWidthSmallArea{
+	height: 5em;
+	width: 100%;	
+	}	
+
+.jr_form .fullWidthLargeArea {
+	height: 15em;
+	width: 100%;
+	}
+
+.jr_form .timeField 	{
+	width: 3em;
+	}
+
+.jr_form .dateField		{
+	width: 5.5em;
+	}
+
+.jr_form textarea {
+	width: 99%;
+	height: 5em;
+	overflow: auto;	
+	}
+	
+.jr_form .jr_imageUpload {
+	width: 18em;
+	margin: 3px 3px 3px 0;
+	}
+	
+/* APPLY TO SUBMIT BUTTON/SELECT/TEXTAREA FIELDS */
+.jr_form input.button {
+	width: auto !important;}
+	
+/* Edit image container for listing edit form */	
+.jr_form .jr_imageEdit {
+	background-color: #ccc;
+	margin:5px 5px 0 0;
+	padding: 3px 0 0 3px;
+	border:1px solid #ccc;
+	float:left;
+	}
+	
+.jr_form .jr_imageEdit input {
+	width: auto !important;
+	}
+		
+/******************************
+CHECKBOX/RADIO BUTTON
+*******************************/	
+.jr_form .jr_fieldDiv .jr_fieldOption	{
+	float: left;
+	margin: 0 20px 0 0;
+	line-height:30px;
+	white-space:nowrap;	
+	}
+	
+.jr_form .jr_fieldDiv .jr_fieldOption input	{ /*set checkboxes and radiobutton widths back to natural width */
+	width: auto !important;
+	}
+	
+.jr_form .jr_fieldDiv .jr_newFieldOption {	
+	display:none;
+	margin:10px;
+	}
+
+
+/******************************
+MISC
+*******************************/	
+div.field div.blocktext		{
+	margin-left: 131px; /* 'div.field label' width + padding */
+	}
+
+fieldset.jr_form div.buttons  {
+	margin-left: 131px; /* 'div.field label' width + padding */
+	}
+
+fieldset.jr_form div.buttons input.button,
+fieldset.jr_form div.buttons button	{
+	text-align: center; /* without this, button text is left-aligned in IE */
+	}
+	
+/******************************
+VALIDATION
+*******************************/	
+.jr_form #msg span, .jr_form #msg p {
+	color:red;
+}
+.jr_form #msg li {
+	margin-left:15px;
+}	

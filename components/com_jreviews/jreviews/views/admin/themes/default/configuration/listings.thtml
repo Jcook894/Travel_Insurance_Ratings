@@ -1,0 +1,140 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php
+$listingsTab[__a("Detail Page Header",true)] = array(
+	array(
+		'label'=>__a("Enable 'cover' selection",true),
+		'type'=>'radioYesNo',
+		'name'=>'media_photo_function_cover',
+		'help'=>__a("Valid for photos only. Appears for listing owners right after upload and in the listing media manager",true),
+		'default'=>0,
+	),
+	array(
+		'label'=>__a("Enable 'logo' selection",true),
+		'type'=>'radioYesNo',
+		'name'=>'media_photo_function_logo',
+		'after'=>'&nbsp;' . __a("The logo will only appear if the cover is shown, even if empty",true),
+		'help'=>__a("Valid for photos only. Appears for listing owners right after upload and in the listing media manager",true),
+		'default'=>0,
+	),
+	array(
+		'label'=>__a("Show empty 'cover'",true),
+		'type'=>'radioYesNo',
+		'name'=>'listing_detail_header_empty_cover',
+		'help'=>__a("If cover selection enabled and cover not set, the cover area will be shown",true),
+		'default'=>0,
+	),
+	array(
+		'label'=>__a("Empty cover background color",true),
+		'type'=>'text',
+		'name'=>'listing_detail_header_empty_cover_color',
+		'help'=>'',
+		'default'=>'#5191E8',
+	),
+	array(
+		'label'=>__a("Show empty 'logo'",true),
+		'type'=>'radioYesNo',
+		'name'=>'listing_detail_header_empty_logo',
+		'help'=>__a("If logo selection enabled and logo not set, the logo area will be shown",true),
+		'default'=>0,
+	),
+	array(
+		'label'=>__a("Empty logo background color",true),
+		'type'=>'text',
+		'name'=>'listing_detail_header_empty_logo_color',
+		'help'=>'',
+		'default'=>'#CCC',
+	),
+	array(
+		'label'=>__a("Display avatar in header",true),
+		'type'=>'radioYesNo',
+		'name'=>'listing_detail_header_avatar',
+		'help'=>__a("If a logo is not set and the avatar is present it will be shown in the logo position",true),
+		'default'=>0,
+	)
+);
+
+$listingsTab[__a("Favorites",true)] = array(
+	 array(
+		'label'=>__a("Enable favorites",true),
+		'type'=>'radioYesNo',
+		'name'=>'favorites_enable'
+	)
+);
+
+$listingsTab[__a("Claims",true)] = array(
+		 array(
+			'label'=>__a("Enable Listing Claims",true),
+			'type'=>'radioYesNo',
+			'name'=>'claims_enable'
+		),
+		 array(
+			'label'=>__a("Enable claims only for listings owned by (optional)",true),
+			'type'=>'text',
+			'name'=>'claims_enable_userids',
+			'attributes'=>array('style'=>'width:98%;'),
+			'help'=>__a("Add user ids separated by comma without any spaces. If you are adding most listings yourself you can enable the claims functionality only for your userid or setup a special user to submit listings and make them claimable.",true)
+		)
+	);
+
+$listingsTab[__a("Summary/Description Text",true)] = array(
+		array(
+			'label'=>__a("Limit the number of characters shown",true),
+			'type'=>'text',
+			'name'=>'summary_desc_char_limit',
+			'attributes'=>array('style'=>'width:3em;'),
+			'help'=>__a("If you enter the number of characters higher than 0, visitors will need to click the 'show more' link to expand the full text. Limiting the number of characters will strip all html formatting.",true)
+		),
+	);
+
+$listingsTab[__a("Inquiries",true)] = array(
+		array(
+			'type'=>'placeholder',
+			'label'=>"<div class='jrInfo'><p>".__a('To embed the form directly on the page you can leave inquiries disabled below and manually call the inquiry form in /listings/detail.thtml by using this code:
+				&lt;?php echo $this-&gt;element("inquiry_widget");?&gt;.',true)."</p></div>"
+		),
+		 array(
+			'label'=>__a("Enable Listing Inquiries",true),
+			'type'=>'radioYesNo',
+			'name'=>'inquiry_enable',
+			'help'=>__a("Site visitors can fill a contact form to request information.",true)
+		),
+		 array(
+			'label'=>__a("Inquiry is sent to",true),
+			'type'=>'select',
+			'name'=>'inquiry_recipient',
+			'options'=>array(
+						'owner' => __a("Listing owner",true),
+						'admin' => __a("Site e-mail",true),
+						'field' => __a("Custom field e-mail",true)
+						)
+		),
+		 array(
+			'label'=>__a("Custom field name",true),
+			'type'=>'text',
+			'name'=>'inquiry_field',
+			'attributes'=>array('style'=>'width:15em;'),
+			'help'=>__a("If custom field selected above, enter the field's name here (i.e. jr_email).",true)
+		),
+		 array(
+			'label'=>__a("BCC Admin email (one per line)",true),
+			'type'=>'textarea',
+			'name'=>'inquiry_bcc',
+			'attributes'=>array('style'=>'height: 6em; width:98%;'),
+			'help'=>__a("You can send a bcc to this email address.",true)
+		)
+	);
+
+$AdminSettings->columns = array(5,8,11);
+$AdminSettings->displayTab('listings',$listingsTab);
+?>

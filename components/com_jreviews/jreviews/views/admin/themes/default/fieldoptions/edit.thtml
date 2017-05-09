@@ -1,0 +1,192 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$control_field_id = 0;
+
+if(!$isNew && isset($option['ControlValues'][0])) {
+    $control_field_id = $option['ControlValues'][0]['fieldid'];
+}
+?>
+
+<div class="jr-fieldoptions-edit">
+
+    <form action="index.php" method="post" class="jrForm"
+            data-object-type="fieldoption" data-model="FieldOption"
+            data-fieldid="<?php echo $field['fieldid'];?>"
+            data-location="<?php echo Sanitize::getString($field,'location','content');?>">
+
+        <fieldset>
+
+            <?php if($isNew):?>
+             <div class="jrRight">
+
+                <button class="jr-edit jrButton jrGreen"><span class="jrIconNew"></span><?php __a("Add");?></button>
+
+                <button class="jr-clear jrButton"><span class="jrIconCancel"></span><?php __a("Clear");?></button>
+
+            </div>
+            <?php endif;?>&nbsp;
+
+            <div class="jrGrid">
+
+                <div class="jrCol4">
+
+                    <div class="jrFieldDiv">
+
+                        <label><?php __a("Text");?><span class="jrIconRequired"></span></label>
+
+                        <div>
+                            <?php echo $Form->text('data[FieldOption][text]',array('value'=>Sanitize::getString($option['FieldOption'],'text'),'class'=>'jr-title jrText','max_size'=>'50','data-slug'=>'jr-name','data-slug-numbers'=>1,'data-slug-alpha'=>0,'placeholder'=>__a("Visible on the site",true)));?>
+                        </div>
+                    </div>
+
+                    <div class="jrFieldDiv">
+
+                        <label>
+                            <?php __a("Value");?><span class="jrIconRequired"></span>
+
+                            <br />
+
+                            <span style="font-style: italic;font-size:12px;"><?php __a("All lowercase, no special characters, use dashes as spaces.");?></span>
+                        </label>
+
+                        <div>
+                            <?php echo $Form->text('data[FieldOption][value]',array('value'=>Sanitize::getString($option['FieldOption'],'value'),'class'=>'jr-name jrText','max_size'=>'50','placeholder'=>__a("Reference value, used in urls",true)));?>
+                        </div>
+
+                    </div>
+
+                    <div class="jrFieldDiv">
+
+                        <label><?php __a("Image");?></label>
+
+                        <div>
+                            <?php echo $Form->text('data[FieldOption][image]',array('value'=>Sanitize::getString($option['FieldOption'],'image'),'class'=>'jr-more-info jrText','max_size'=>'50','placeholder'=>__a("option-image.jpg",true)));?>
+
+                                <div class="jrHidden jrPopup">
+                                    <?php __a("Option images are displayed in list and detail pages based on the field settings.  You can adjust the field settings to display only the image or both text and image. Upload option image to the JReviews 'theme_images' folder inside your selected theme.");?>
+                                </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="jrCol4">
+
+                    <div class="jrFieldDiv">
+
+                        <label><?php __a("Default");?></label>
+
+                        <div class="jrFieldOption"><?php echo $Form->radioYesNo( "data[FieldOption][default]", "", Sanitize::getInt($option['FieldOption'],'default'));?></div>
+
+                    </div>
+
+                    <div class="jrFieldDiv">
+
+                        <label><?php __a("Description");?></label>
+
+                        <div>
+                            <?php echo $Form->textarea('data[FieldOption][description]',array('value'=>Sanitize::getString($option['FieldOption'],'description'),'class'=>'jrTextArea','placeholder'=>__a("For page description and meta description in click2search pages. Use the Field SEO Manager for additional controls.",true)));?>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="jrCol4">
+
+                    <?php if(!in_array($field['type'],array('radiobuttons','checkboxes'))):?>
+
+                        <div id="control-field-check" class="jrWarning jrHidden">
+                            <?php __a("This field is already Controlled By a Field Option. You should not use the Controlled By setup for Field Options in this page until you remove the relationship in the Field Edit page. It is only possible to use one of the two setups, FieldOption to FieldOption or FieldOption to Field, at a time.");?>
+                        </div>
+
+                        <div class="jrFieldDiv">
+
+                            <label><?php __a("Control Field");?></label>
+
+                            <div>
+
+                                <?php echo $Form->text('data[FieldOption][control_field]',array('value'=>Sanitize::getString($option['FieldOption'],'control_field'),'data-fieldid'=>$control_field_id,'class'=>'jr-control-field-search jrText','placeholder'=>__a("Type for suggestions",true)));?>
+
+                            </div>
+
+                        </div>
+
+                        <div class="jrFieldDiv">
+
+                            <label><?php __a("Control Value");?></label>
+
+                            <div class="jrLeft">
+
+                                <?php echo $Form->text('control_value',array('class'=>'jr-control-value-search jrText','placeholder'=>__a("Add a field, then type for suggestions",true)));?>
+
+                            </div>
+
+                        </div>
+
+                        <div class="jr-control-value-div">
+
+                            <?php if(!empty($option['ControlValues'])):?>
+
+                                <?php
+
+                                $checked = array();
+
+                                foreach($option['ControlValues'] AS $key=>$o):
+
+                                    $checked[] = $o['value'];
+
+                                endforeach;?>
+
+                                <?php echo $Form->checkbox('data[FieldOption][control_value]',$option['ControlValues'],array('value'=>$checked,'label'=>array('style'=>'text-align:left;')));?>
+
+                            <?php endif;?>
+
+                        </div>
+
+                    <?php endif;?>
+
+                </div>
+
+            </div>
+
+        </fieldset>
+
+        <?php if($isNew):?>
+
+            <div class="jrInfo"><span class="jrIconInfo"></span><?php echo sprintf(__a("%sDefault image path%s: %s. Write \"image_name.jpg\" and upload the image to ../{selected theme}/theme_images/image_name.jpg.",true),'<strong>','</strong>', PATH_APP_REL . '/views/themes/{selected theme}/theme_images');?></div>
+
+            <div class="jrInfo"><span class="jrIconInfo"></span><strong><?php __a("Description: ");?></strong><?php echo sprintf(__a("You can use the %s tags. The category tags will work only if you modify the click2search urls for each field to use the 'cat' parameter instead of 'criteria'. The listing type tag will only work if either 'cat' or 'criteria' parameters are used in the URL.",true),'{fieldvalue}, {category}, {parent_category}, {listing_type}');?></div>
+
+        <?php endif;?>
+
+        <?php if(!$isNew):?>
+        <div class="jrWarning">
+
+            <span class="jrIconWarning"></span><?php __a("Modifying the option value will result on all listings with this option selected to lose the selection.");?>
+
+        </div>
+        <?php endif;?>
+
+        <div class="jr-validation jrError jrHidden"></div>
+
+        <input type="hidden" id="fieldid" name="data[FieldOption][fieldid]" value="<?php echo $field_id;?>" />
+
+        <input type="hidden" name="data[FieldOption][optionid]" value="<?php echo Sanitize::getInt($option['FieldOption'],'optionid');?>" />
+
+        <input type="hidden" name="data[controller]" value="admin/fieldoptions" />
+
+        <input type="hidden" name="data[action]" value="_save" />
+
+    </form>
+
+</div>

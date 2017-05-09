@@ -1,0 +1,55 @@
+<div style="margin: 10px 0 20px 0; text-align: center; padding: 3px;">
+
+    Enable Debug: <?php echo $Form->radioYesNo( "debug_info", array('id'=>"debug_info"), 1); ?>
+
+	&nbsp;&nbsp;
+
+	Processing increment:<?php echo $Form->text( "increment", array('id'=>"limit",'value'=>3,'style'=>'text-align:center; width:2em;')); ?>
+
+  &nbsp;&nbsp;
+
+  Increment delay (secs):<?php echo $Form->text( "delay", array('id'=>"delay",'value'=>0.5,'style'=>'text-align:center; width:2em;')); ?>
+
+</div>
+
+<div class="jrGrid">
+
+  <div class="jrCol4 jrCenter">
+
+    <div class="jrRoundedPanelLt">
+
+  		Remaining Listings<br /><span id="jr-images-remaining" style="font-size: 40px;"><?php echo $total;?></span>
+
+    </div>
+
+  </div>
+
+  <div class="jrCol4 jrCenter ">
+
+    <div class="jrRoundedPanelLt">
+
+  		Processed Successfully<br /><span id="jr-images-success" style="font-size: 40px;">0</span>
+
+    </div>
+
+  </div>
+
+  <div class="jrCol4 jrCenter ">
+
+    <div class="jrRoundedPanelLt">
+
+  		Skipped or Errors (*)<br /><span id="jr-images-error" style="font-size: 40px;">0</span>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div style="margin:10px;">(*) Image not found...</div>
+
+<span id="jr-images-statusUpdate" style="color:green;font-style:italic;"></span><br /><br />
+
+<span id="jr-images-abortUpdate" class="jrHidden jrWarning">
+	Execution stopped. Click start to continue or close the dialog.
+</span>

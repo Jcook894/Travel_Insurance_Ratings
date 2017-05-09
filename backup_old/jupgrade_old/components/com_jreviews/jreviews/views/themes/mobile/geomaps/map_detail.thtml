@@ -1,0 +1,130 @@
+<?php 
+/**********************************************************************************
+ *                                 CONFIGURATION AND SETUP
+ **********************************************************************************/
+if(!$json_data) return;
+$width = isset($width) ? (strstr($width,'%') ? $width : $width.'px') : '600px';
+$height = isset($height) ? (strstr($height,'%') ? $height : $height.'px') : '600px';
+$infowindow_suffix = '_'.Sanitize::getString($this->Config,'geomaps.infowindow','google');
+$directions = 0;
+$streetview = 0;
+$streetview_overlay = Sanitize::getBool($this->Config,'geomaps.streetoverlay_detail',false);
+?>
+
+<?php 
+/**********************************************************************************
+ *                                 JAVASCRIPT & CSS
+ **********************************************************************************/
+?>               
+<script type="text/javascript">    
+/* <![CDATA[ */
+GeomapsOnload.push(function () {
+
+	GeomapsDetail = new GeomapsDisplayMap('gm_map_detail',{
+		'directions':<?php if($directions):?>true<?php else:?>false<?php endif;?>,
+		'streetview':<?php if($streetview):?>true<?php else:?>false<?php endif;?>
+	});
+	
+	GeomapsDetail.setData(<?php echo $json_data;?>);
+
+    GeomapsDetail.init();
+    // Add marker infowindow theme
+    if(jQuery('#gm_infowindowContainer').length == 0)
+    {
+        jQuery('body').append('<?php echo Sanitize::stripWhitespace($this->renderControllerView('Geomaps','map_infowindow'.$infowindow_suffix));?>');  
+    } 
+    <?php if($directions):?>
+    jQuery(function(){
+        //all hover and click logic for buttons
+        jQuery(".jr-button:not(.ui-state-disabled)")
+        .hover(
+            function(){ 
+                jQuery(this).addClass("ui-state-hover"); 
+            },
+            function(){ 
+                jQuery(this).removeClass("ui-state-hover"); 
+            }
+        )
+        .mousedown(function(){
+            jQuery(this).addClass("ui-state-active");
+        })
+        .mouseup(function(){
+            jQuery(this).removeClass("ui-state-active");
+        });
+    });
+    <?php endif;?>
+
+});	
+/* ]]> */
+</script>   
+
+<?php 
+/**********************************************************************************
+ *                                 EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+?> 
+<?php if($directions):?>
+<div id="gm_directions">
+    <div class="gm_direction_point">
+		<div class="gm_direction_input">
+			<a href="#" class="floatRight" id="switch_points" onclick="GeomapsDetail.swapInputs();return false;"><?php __t("Swap Start/End");?></a>
+			<label for="from_point"><?php __t("Start Address");?></label>
+			<input type="text" value="" name="from_point" id="from_point"/>
+		</div>
+        <div class="gm_direction_side">
+			<?php echo $Form->select('gm_direction_travelmode',array(0=>__t("Driving",true),2=>__t("Walking",true)),0,array('id'=>'gm_direction_travelmode','style'=>'float:left;'));?>
+		</div>
+    </div>
+    <div class="gm_direction_point"> 
+		<div class="gm_direction_input">
+			<label for="to_point"><?php __t("End");?></label>
+			<input type="text" value="<?php echo Sanitize::getString($listing['Geomaps'],'address');?>" id="to_point" name="to_point"/>
+		</div>
+        <div class="gm_direction_side">
+			<button id="get_directions_button" class="jrButton floatLeft" onclick="GeomapsDetail.getDirections(jQuery('#from_point').val(), jQuery('#to_point').val(), jQuery('#locale').val()); return false;"><?php __t("Get Directions");?></button>
+		</div>
+    </div>
+
+    <input type="hidden" id="locale" value="<?php echo substr(cmsFramework::locale(),0,2);?>" />
+    <div class="clear"></div>    
+</div>
+<?php endif;?>
+
+<?php
+/**********************************************
+* Different layouts for different configurations
+**********************************************/
+?>
+
+<?php if(!$directions && !$streetview):?>
+
+<div id="gm_map_outer">
+    <div id="gm_map_detail" class="jrMapLoading" style="float:right;border:1px solid #ccc; width:<?php echo $width;?>;height:<?php echo $height;?>;position: relative; background-color: #E5E3DF;"></div>    
+</div>
+
+<?php elseif(!$directions && $streetview):?>
+
+<div id="gm_map_outer" style="width:<?php echo $width;?>">
+    <div id="gm_map_detail_streetview" style="float:left;width:49%;height:<?php echo $height;?>"></div>
+    <div id="gm_map_detail" class="jrMapLoading" style="float:right;border:1px solid #ccc; width:49%;height:<?php echo $height;?>;position: relative; background-color: #E5E3DF;"></div>    
+</div>
+
+<?php elseif($directions && !$streetview):?>
+
+<div id="gm_map_outer">
+    <div id="gm_map_detail" class="jrMapLoading"  style="border:1px solid #ccc; width:<?php echo $width;?>;height:<?php echo $height;?>;position: relative; background-color: #E5E3DF;"></div>    
+    <div class="clear"></div>
+    <div id="gm_map_detail_results" style="width:<?php echo $width;?>;display:none;"></div>
+</div>
+
+<?php elseif ($directions && $streetview):?>
+
+<div id="gm_map_outer" style="width:<?php echo $width;?>">
+    <div id="gm_map_detail_streetview" style="float:left;width:49%;height:<?php echo $height;?>"></div>
+    <div id="gm_map_detail" class="jrMapLoading" style="float:right;border:1px solid #ccc; width:49%;height:<?php echo $height;?>;position: relative; background-color: #E5E3DF;"></div>    
+    <div class="clear"></div>
+    <div id="gm_map_detail_results" style="margin-top:10px;width:<?php echo $width;?>px;display:none;"></div>
+</div>
+
+<?php endif;?>
+

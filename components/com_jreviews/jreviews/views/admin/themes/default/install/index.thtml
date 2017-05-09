@@ -1,0 +1,88 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die;
+?>
+
+<div class="jrGrid jrAdmin">
+
+	<div class="jrCol2">
+
+		<img src="<?php echo S2Paths::get('jreviews', 'S2_VIEWS_URL');?>admin/themes/default/theme_images/jr_logo.png" alt="jReviews" />
+
+	</div>
+
+	<div class="jrCol10">
+
+		Copyright &copy; 2010-<?php echo date('Y');?> ClickFWD LLC. All rights reserved.<br />
+		This is commercial software, do not distribute it.
+
+		<br /><br />
+
+		<a class="jrButton jrBlue" href="<?php echo $license_exists ? $AdminRoutes->route('about') : $AdminRoutes->route('license');?>">Continue to JReviews</a>
+
+	</div>
+
+</div>
+
+<br /><br />
+
+<div class="jrDataList">
+
+	<div class="jrGrid jrDataListHeader">Installation Results</div>
+
+	<div class="jrGrid">
+
+		<div class="jrCol2" style="text-align:left;">
+
+			<span class="jrStatusLabel jrGreen">
+
+				<?php echo _CMS_NAME == 'joomla' ? 'Component' : 'Plugin';?>
+
+			</span>
+
+		</div>
+
+		<div class="jrCol2" style="text-align:left;">JReviews</div>
+
+		<div class="jrCol8"><span class="jrIconYes"></span></div>
+
+	</div>
+
+	<?php foreach($packages AS $package):?>
+
+	<div class="jrGrid">
+
+		<div class="jrCol2" style="text-align:left;">
+
+			<?php if($package['type'] == 'module'):?>
+
+				<span class="jrStatusLabel jrRed">Module</span>
+
+			<?php elseif($package['type'] == 'easysocial'):?>
+
+				<span class="jrStatusLabel jrOrange">EasySocial App</span>
+
+			<?php else:?>
+
+				<span class="jrStatusLabel jrPurple">Plugin</span>
+
+			<?php endif;?>
+
+		</div>
+
+		<div class="jrCol2" style="text-align:left;"><?php echo $package['name'];?></div>
+
+		<div class="jrCol8"><span class="<?php echo $package['status'] ? 'jrIconYes' : 'jrIconNo';?>"></span></div>
+
+	</div>
+
+	<?php endforeach;?>
+
+</div>

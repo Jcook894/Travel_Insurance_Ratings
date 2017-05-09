@@ -1,0 +1,52 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die;
+?>
+
+<div class="jr-upload-addons">
+
+	<div id="jr-addon-uploader"></div>
+
+</div>
+
+<script id="jr-uploader-template" type="text/x-file-uploader">
+<div class="jr-uploader">
+	<div class="jrGrid">
+		<div class="jrCol12 jrClearfix" style="margin-top: 10px;">
+			<div class="jr-upload-button jrBlue jrButton jrLeft" style="margin-right:10px;">
+				<span class="jrIconArrowUp"></span><?php __a("Select Package");?>
+			</div>
+			<div class="jrLeft"><?php __a("Select or Drag & Drop the package to automatically start the upload process");?></div>
+		</div>
+	</div>
+	<div class="jrGrid">
+		<div class="jrCol12">
+			<div class="jr-upload-drop-area jrDropArea jrShadowBox"><span><?php __t("Drop files here");?></span></div>
+		</div>
+	</div>
+	<div class="jr-file-list"></div>
+</div>
+</script>
+
+<script id="jr-progress-template" type="text/x-file-uploader">
+<div style="margin-top:25px;">
+	<div class="jrGrid">
+		<div class="jrCol3"><span class="jr-upload-file">&nbsp;</span></div>
+		<div class="jrCol5"><div style="height:15px;" class="jr-upload-progress"></div></div>
+		<div class="jrCol2"><span class="jr-upload-size"></span>&nbsp;</div>
+		<div class="jrCol2">
+			<span class="jr-upload-cancel jrButton jrHidden" style="padding:0 4px;"><span class="jrIconCancel"></span><?php __t("Cancel");?></span>
+			<span class="jrHidden jr-upload-failed-text"><?php __t("Failed");?></span>
+			<span class="jrHidden"><span class="jr-upload-spinner"></span></span>
+			&nbsp;
+		</div>
+	</div>
+</div>
+</script>

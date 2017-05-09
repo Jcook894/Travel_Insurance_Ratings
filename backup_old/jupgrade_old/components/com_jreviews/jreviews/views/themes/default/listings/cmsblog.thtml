@@ -1,0 +1,64 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+/**
+ * Core blog pages, includes frontpage, blogsection and blogcategory pages
+ */
+ ?>
+
+<?php
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/?>
+<!--  CMSBLOG  -->
+<div class="jr_pgContainer jr_cmsblog">
+	<div class="listItem">
+
+		<div class="contentInfo">
+			<?php if($this->Config->list_show_author):?><?php __t("Written by");?> <?php echo $Community->screenName($listing);?>&nbsp;&nbsp;&nbsp;&nbsp;<?php endif;?> 
+			<?php if($this->Config->list_show_date):?><?php echo $Time->nice($listing['Listing']['created']);?>&nbsp;&nbsp;&nbsp;&nbsp;<?php endif;?>
+            <?php if($this->Config->list_show_hits):?>
+            <span class="jrHitsWidget" title="<?php __t("Views");?>">
+                <span class="jrIcon jrIconGraph"></span>
+                <span class="jrButtonText"><?php echo $listing['Listing']['hits']?></span> 
+            </span>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <?php endif;?>
+			<?php if($this->Config->favorites_enable):?>
+				<span class="jrFavoriteWidget" title="<?php __t("Favorites") ?>">
+					<span class="jrIcon jrIconFavorites"></span>
+					<span id="jr_favoriteCount<?php echo $listing['Listing']['listing_id'];?>"><?php echo $listing['Favorite']['favored'];?></span> 
+				</span>
+			<?php endif;?>				
+		</div>
+		  
+		<!-- OVERALL RATINGS -->
+		<?php echo $Rating->overallRatings($listing, 'list'); ?>
+
+		<div class="clr"></div>		    
+
+		<!-- BEGIN INTROTEXT -->
+		<div class="contentIntrotext">
+            <?php if($this->Config->list_show_image && $introThumb = $Thumbnail->thumb($listing, 0, array('tn_mode'=>'scale','location'=>'list','dimensions'=>array($this->Config->list_image_resize)))):?>
+            <div class="contentThumbnail">
+                <?php echo $Routes->content($introThumb,$listing)?>
+            </div>                
+            <?php endif;?>
+    		 <?php echo $listing['Listing']['summary'];?>
+		</div>
+
+        <!-- CUSTOM FIELDS -->
+        <?php echo $CustomFields->displayAll($listing,'list');?>
+	
+   </div>
+</div>
+
+<div style="clear:both;"></div>            

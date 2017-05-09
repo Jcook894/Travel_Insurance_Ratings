@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<menu>
+		<options var="view">
+			<option name="Advanced Search" msg="Advanced Search Page" value="advancedsearch" />
+			<option name="Catch-All options" msg="Used to assign an Itemid to all menus of the same type" value="catchall" />
+			<option name="List Pages" msg="Category pages, top rated, most recent, etc." value="category" />
+			<option name="Comparison Page" msg="Comparison page with pre-defined listings" value="comparison" />
+			<option name="Directory" msg="Directory pages" value="directory" />
+			<option name="Discussions" msg="Latest review comments" value="discussions" />
+			<option name="Media Pages" msg="Media Pages" value="media" />
+			<option name="Submit New Listing" msg="" value="newlisting" />
+			<option name="Reviewer Rank" msg="Reviewer Rank" value="reviewers" />
+			<option name="Reviews Pages" msg="Latest Reviews, User Reviews, Editor Reviews" value="reviews" />
+		</options>
+	</menu>
+</metadata>
+
+

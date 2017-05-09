@@ -1,0 +1,146 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+if(_JR_DEMO) {
+    echo 'Disabled for demo';
+    return;
+}
+
+$errors =array();
+
+$errors['nolicense'] = __a("Please enter your license number.",true);
+
+$errors['invalid'] = "
+    <p>Your license is invalid. This happens if:</p>
+    <ol>
+        <li>There's a typo in the license number or leading or trailing spaces.</li>
+        <li>You moved the installation of JReviews to a different server or a different domain. To complete the move you need to reissue the license in the Client Area.</li>
+        <li>You are trying to use JReviews without a valid license.</li>
+    </ol>
+    ";
+
+$errors['suspended'] = __a("Your license is suspended.",true);
+
+$errors['expired'] = __a("The allotted valid license period has expired.",true);
+
+$errors['pending'] = __a("Your license is pending release. This means your payment is pending verification or if you paid with an eCheck it has not been cleared.",true);
+
+$msg = Sanitize::getString($this->params,'msg');
+
+$msg = isset($errors[$msg]) ? $errors[$msg] : $msg;
+?>
+
+<div class="jrPageHeading"><?php __a("JReviews License");?></div>
+
+<div class="jrForm" style="max-width:800px;padding:15px;margin-top:10px">
+
+    <?php if($msg!=''):?>
+
+    <div class="jrLicenseMessage">
+
+        <p><?php echo $msg;?></p>
+        <p><?php __a("If you feel that this error is invalid please submit a support ticket.");?></p>
+
+    </div>
+
+    <br />
+    <?php endif;?>
+
+    <form id="jr-form-field" method="post" action="<?php echo $AdminRoutes->route('license');?>">
+
+        <?php if($license != ''):?>
+
+        <fieldset>
+
+            <p><strong><?php __a("To check Support & Upgrades expiration you need to do it in the Client Area on the JReviews website. License and local key expiration are not related to support & upgrades. <a target=\"_blank\" href=\"https://docs.jreviews.com/?title=How_does_the_JReviews_license_work\">Read the License FAQ for more information</a>.");?></strong></p>
+
+            <legend><?php __a("License Info");?></legend>
+
+                <div class="jrDataList">
+
+                    <div class="jrGrid">
+
+                        <div class="jrCol4"><?php __a("License Expires");?></div>
+
+                        <div class="jrCol4"><?php __a("Local Key Status");?></div>
+
+                        <div class="jrCol4"><?php __a("Active Addons");?></div>
+
+                    </div>
+
+                    <div class="jrGrid">
+
+                        <div class="jrCol4"><font color="green"><?php echo $stats['license_expiration']?></font></div>
+
+                        <div class="jrCol4">
+
+                            <?php switch($stats['local_key_expiration']):
+                                case 'no_key':?>
+                                <font color="red"><?php __a("Local key not found.");?><br /></font>
+                                <?php break;?>
+                                <?php case 'never':?>
+                                <font color="green"><?php __a("Valid - Never Expires");?></font>
+                                <?php break;?>
+                                <?php case 'expired':?>
+                                <font color="red"><?php __a("Invalid - Expired");?><br /></font>
+                                <?php break;?>
+                                <?php default:?>
+                                <font color="green"><?php __a("Valid - Expires");?>&nbsp;<?php echo $stats['local_key_expiration']?></font>
+                                <?php break;?>
+                            <?php endswitch;?>
+
+                        </div>
+
+                        <div class="jrCol4"><font color="green"><?php echo $stats['license_addons']?></font></div>
+
+                    </div>
+
+                </div>
+
+        </fieldset>
+
+        <?php endif;?>
+
+        <fieldset class="jrFieldsetMargin">
+
+            <legend><?php __a("License number");?></legend>
+
+            <input type="text" style="width:300px;" id="jr-license-number" name="data[license]" value="<?php echo $license;?>" size="50" />
+
+        </fieldset>
+
+        <fieldset class="jrFieldsetMargin">
+
+            <legend><?php __a("Local Key");?></legend>
+
+            <p class="jrInfo"><?php __a("The local key will be automatically generated after you submit your license number.");?></p>
+
+            <textarea name="data[local_key]" id="local_key" rows="10" cols="75" style="width:100%;height:200px;"><?php echo $local_key;?></textarea>
+
+        </fieldset>
+
+        <button id="jr-license-submit" class="jrButton jrGreen" style="margin-top: 10px;">
+
+            <span class="jrIconSave"></span><?php __a("Submit");?>
+
+        </button>
+
+        <input name="format" type="hidden" value="raw" />
+
+        <input name="option" type="hidden" value="com_jreviews" />
+
+        <input name="data[controller]" type="hidden" value="admin/license" />
+
+        <input name="data[action]" type="hidden" value="_save" />
+
+    </form>
+
+</div>

@@ -1,0 +1,86 @@
+[
+	{
+		"title"		: "Label Colors",
+		"fields"	:
+		[
+			{
+				"label"		: "Listing",
+				"name"		: "jreviews-listing",
+				"type"		: "text",
+				"default"	: "#8b94fc"
+			},
+			{
+				"label"		: "Favorite Add",
+				"name"		: "jreviews-favorite-add",
+				"type"		: "text",
+				"default"	: "#ff501f"
+			},
+			{
+				"label"		: "Favorite Remove",
+				"name"		: "jreviews-favorite-remove",
+				"type"		: "text",
+				"default"	: "#b6bcb6"
+			},
+			{
+				"label"		: "Review",
+				"name"		: "jreviews-review",
+				"type"		: "text",
+				"default"	: "#eeb114"
+			},
+			{
+				"label"		: "Review Comment",
+				"name"		: "jreviews-discussion",
+				"type"		: "text",
+				"default"	: "#eeb114"
+			},
+			{
+				"label"		: "Review Vote Up",
+				"name"		: "jreviews-vote-yes",
+				"type"		: "text",
+				"default"	: "#0DB806"
+			},
+			{
+				"label"		: "Review Vote Down",
+				"name"		: "jreviews-vote-no",
+				"type"		: "text",
+				"default"	: "#b6bcb6"
+			},
+			{
+				"label"		: "Media Like Up",
+				"name"		: "jreviews-medialike-yes",
+				"type"		: "text",
+				"default"	: "#0DB806"
+			},
+			{
+				"label"		: "Media Like Down",
+				"name"		: "jreviews-medialike-no",
+				"type"		: "text",
+				"default"	: "#b6bcb6"
+			},
+			{
+				"label"		: "Photo",
+				"name"		: "jreviews-photo",
+				"type"		: "text",
+				"default"	: "#f7728f"
+			},
+			{
+				"label"		: "Video",
+				"name"		: "jreviews-video",
+				"type"		: "text",
+				"default"	: "#f7728f"
+			},
+			{
+				"label"		: "Audio",
+				"name"		: "jreviews-audio",
+				"type"		: "text",
+				"default"	: "#f7728f"
+			},
+			{
+				"label"		: "Attachment",
+				"name"		: "jreviews-attachment",
+				"type"		: "text",
+				"default"	: "#f7728f"
+			}
+		]
+	}
+]

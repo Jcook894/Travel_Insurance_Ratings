@@ -1,0 +1,238 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$logoPhoto = Sanitize::getVar($listing,'Logo');
+
+$coverPhoto = Sanitize::getVar($listing,'Cover');
+
+$logoImg = $logoPhoto ? $Media->thumb($logoPhoto, array('size'=>'200x200','mode'=>'crop', 'return_src'=>false,'thumbnailer'=>'api','suppress_size'=>true), array('class' => false)) : false;
+
+$coverImg = $coverPhoto ? $Media->thumb($coverPhoto, array('size'=>'1500x500','mode'=>'scale', 'return_src'=>false,'thumbnailer'=>'api','suppress_size'=>true), array('class' => false)) : false;
+
+if(!isset($avatarImg)) {
+	$avatarImg = $showAuthor ? $Community->avatarLarge($listing, array('class' => '')) : false;
+}
+
+$showLogo = $logoImg || $showEmptyLogo;
+
+$showAvatar = !$showLogo && $avatarImg && $showAvatarinHeader;
+
+$headerIsFullWidth = !$showAvatar && !$showLogo ? 'jrHeaderFullWidth' : '';
+
+$showCover = $showEmptyCover || $coverImg;
+
+$main_media_tn_size = Sanitize::getString($this->Config,'media_detail_main_thumbnail_size');
+
+$main_media_tn_mode = Sanitize::getString($this->Config,'media_detail_main_thumbnail_mode');
+
+$schema_itemtype = Sanitize::getString($this->Config,'schema_org_type','Article');
+
+$snippetsTitle = $schema_itemtype == 'Article' ? 'headline' : 'name';
+
+$snippetsImage = $Media->thumb($mainMedia,array('size'=>$main_media_tn_size,'mode'=>$main_media_tn_mode, 'return_src'=>true),array('class'=>'photo'));
+?>
+
+<?php if($extension != 'com_content'): // For Everywhere Extensions ?>
+
+	<h1 class="contentheading"><?php echo $listing['Listing']['title']?></h1>
+
+	<?php /* BREADCRUMB */ ?>
+
+	<div class="jrPathway"><?php echo $listing['Category']['title'];?></div>
+
+	<div class="jrClear"></div>
+
+<?php else: // For COM_CONTENT ?>
+
+	<?php /* RSS FEED */ ?>
+
+	<?php $Jreviews->listingDetailFeed($listing);?>
+
+	<?php /* BREADCRUMB */ ?>
+
+	<?php isset($crumbs) and $Jreviews->listingDetailBreadcrumb($crumbs);?>
+
+	<?php if($snippetsImage):?><meta itemprop="image" content="<?php echo $snippetsImage;?>"><?php endif;?>
+
+	<?php if($showCover):?>
+
+		<div class="jrDetailHeader <?php echo $headerIsFullWidth;?>" style="background-color: <?php echo $this->Config->listing_detail_header_empty_cover_color;?>;">
+
+			<figure class="jrHeaderCover">
+
+				<?php echo $coverImg;?>
+
+			</figure>
+
+			<?php if($showAvatar):?>
+
+				<figure class="jrHeaderAvatar">
+
+					<?php echo $avatarImg;?>
+
+				</figure>
+
+			<?php elseif($showLogo):?>
+
+				<figure class="jrHeaderLogo" style="background-color: <?php echo $this->Config->listing_detail_header_empty_logo_color;?>;">
+
+					<?php echo $logoImg;?>
+
+				</figure>
+
+			<?php endif;?>
+
+			<div class="jrHeaderInfo <?php echo $headerIsFullWidth;?>">
+
+				<h1>
+
+					<span itemprop="<?php echo $snippetsTitle; ?>"><?php echo $this->action == 'detail' ? $Routes->content($listing['Listing']['title'],$listing) : $listing['Listing']['title'];?></span>
+
+				</h1>
+
+				<?php /* LISTING STATUS LABELS */ ?>
+
+				<?php $Jreviews->listingStatusLabels($listing);?>
+
+				<div>
+
+					<?php /* OVERALL RATING */ ?>
+
+					<?php echo $Rating->overallRatings($listing, 'content'); ?>
+
+					<?php /* LISTING INFO ICONS */ ?>
+
+					<?php $Jreviews->listingInfoIcons($listing);?>
+
+				</div>
+
+			</div>
+
+			<div class="jrHeaderBelowCover <?php echo $headerIsFullWidth;?>">
+
+				<div class="jrAuthorInfo">
+
+					<?php if($showAuthor):?>
+
+						<span <?php $Community->addPreviewAttributes($listing);?>>
+
+							<?php if(!$showAvatar):?>
+
+								<?php echo $Community->avatar($listing);?>
+
+							<?php endif;?>
+
+	 						<?php echo $Community->screenName($listing);?>&nbsp;&nbsp;
+
+	 					</span>
+
+					<?php endif;?>
+
+					<?php if($this->Config->list_show_date):?>
+
+						<?php if($schema_itemtype == 'Article'): ?>
+
+							<time itemprop="datePublished" datetime="<?php echo date('c', strtotime($listing['Listing']['created']));?>"><?php echo $Time->nice($listing['Listing']['created']);?></time>
+
+						<?php else: ?>
+
+							<?php echo $Time->nice($listing['Listing']['created']);?>&nbsp;&nbsp;
+
+						<?php endif;?>
+
+					<?php endif;?>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	<?php else:?>
+
+		<h1 class="contentheading">
+
+			<span itemprop="<?php echo $snippetsTitle; ?>"><?php echo $this->action == 'detail' ? $Routes->content($listing['Listing']['title'],$listing) : $listing['Listing']['title'];?></span>
+
+		</h1>
+
+		<?php /* LISTING STATUS LABELS */ ?>
+
+		<?php $Jreviews->listingStatusLabels($listing);?>
+
+		<?php /* LISTING OWNER INFO */ ?>
+
+		<div class="jrAuthorInfo">
+
+			<?php if($showAuthor):?>
+
+			<span <?php $Community->addPreviewAttributes($listing);?>>
+
+				<?php echo $Community->avatar($listing) . $Community->screenName($listing);?>&nbsp;&nbsp;
+
+			</span>
+
+			<?php endif;?>
+
+			<?php if($this->Config->list_show_date):?>
+
+				<?php if($schema_itemtype == 'Article'): ?>
+
+					<time itemprop="datePublished" datetime="<?php echo date('c', strtotime($listing['Listing']['created']));?>"><?php echo $Time->nice($listing['Listing']['created']);?></time>
+
+				<?php else: ?>
+
+					<?php echo $Time->nice($listing['Listing']['created']);?>&nbsp;&nbsp;
+
+				<?php endif;?>
+
+			<?php endif;?>
+
+		</div>
+
+	<?php endif;?>
+
+	<?php /* LISTING OWNER INFO */ ?>
+
+	<?php if(!$showCover || $this->name != 'listings'): ?>
+	<div class="jrListingInfoContainer">
+
+		<?php if(!$showCover): ?>
+
+		<div class="jrListingInfo<?php if($this->name == 'listings'):?> jrNoButtons<?php endif;?>">
+
+			<?php /* OVERALL RATING */ ?>
+
+			<?php echo $Rating->overallRatings($listing, 'content'); ?>
+
+			<?php /* LISTING INFO ICONS */ ?>
+
+			<?php $Jreviews->listingInfoIcons($listing);?>
+
+		</div>
+
+		<?php endif;?>
+
+		<?php if($this->name != 'listings'): // Only show when in com_content page ?>
+
+			<?php /* LISTING ACTIONS BUTTONS */ ?>
+
+			<div class="jrListingInfoButtons">
+
+				<?php $Widgets->listingDetailButtons($listing);?>
+
+			</div>
+
+		<?php endif;?>
+
+	</div>
+	<?php endif;?>
+
+<?php endif;?>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<alphauserpoints>
+	<component>com_jreviews</component>
+	<rules>
+		<rule>
+			<name>Submit JReviews Listing</name>
+			<description>Assigns points for listing submission</description>
+			<plugin_function>plgaup_jreviews_listing_add</plugin_function>
+			<fixed_points>true</fixed_points>
+			<category>ot</category>
+		</rule>
+		<rule>
+			<name>Delete JReviews Listing</name>
+			<description>Removes points when a listing is deleted</description>
+			<plugin_function>plgaup_jreviews_listing_delete</plugin_function>
+			<fixed_points>true</fixed_points>
+			<category>ot</category>
+		</rule>
+		<rule>
+			<name>Submit JReviews Review</name>
+			<description>Assigns points for review submission</description>
+			<plugin_function>plgaup_jreviews_review_add</plugin_function>
+			<fixed_points>true</fixed_points>
+			<category>ot</category>
+		</rule>
+		<rule>
+			<name>Delete JReviews Review</name>
+			<description>Removes points when a review is deleted</description>
+			<plugin_function>plgaup_jreviews_review_delete</plugin_function>
+			<fixed_points>true</fixed_points>
+			<category>ot</category>
+		</rule>
+		<rule>
+			<name>Submit JReviews Review Comment</name>
+			<description>Assigns points for review comment submission</description>
+			<plugin_function>plgaup_jreviews_discussion_add</plugin_function>
+			<fixed_points>true</fixed_points>
+			<category>ot</category>
+		</rule>
+		<rule>
+			<name>Delete JReviews Review Comment</name>
+			<description>Removes points when a review comment is deleted</description>
+			<plugin_function>plgaup_jreviews_discussion_delete</plugin_function>
+			<fixed_points>true</fixed_points>
+			<category>ot</category>
+		</rule>
+		<rule>
+			<name>Submit JReviews Media</name>
+			<description>Assigns points for media submission</description>
+			<plugin_function>plgaup_jreviews_media_add</plugin_function>
+			<fixed_points>true</fixed_points>
+			<category>ot</category>
+		</rule>
+		<rule>
+			<name>Delete JReviews Media</name>
+			<description>Removes points when a media item is deleted</description>
+			<plugin_function>plgaup_jreviews_media_delete</plugin_function>
+			<fixed_points>true</fixed_points>
+			<category>ot</category>
+		</rule>
+		<rule>
+			<name>Submit JReviews Photo</name>
+			<description>Assigns points for photo submission</description>
+			<plugin_function>plgaup_jreviews_photo_add</plugin_function>
+			<fixed_points>true</fixed_points>
+			<category>ot</category>
+		</rule>
+		<rule>
+			<name>Delete JReviews Photo</name>
+			<description>Removes points when a photo is deleted</description>
+			<plugin_function>plgaup_jreviews_photo_delete</plugin_function>
+			<fixed_points>true</fixed_points>
+			<category>ot</category>
+		</rule>
+		<rule>
+			<name>Submit JReviews Video</name>
+			<description>Assigns points for video submission</description>
+			<plugin_function>plgaup_jreviews_video_add</plugin_function>
+			<fixed_points>true</fixed_points>
+			<category>ot</category>
+		</rule>
+		<rule>
+			<name>Delete JReviews Video</name>
+			<description>Removes points when a video is deleted</description>
+			<plugin_function>plgaup_jreviews_video_delete</plugin_function>
+			<fixed_points>true</fixed_points>
+			<category>ot</category>
+		</rule>
+		<rule>
+			<name>Submit JReviews Audio</name>
+			<description>Assigns points for audio submission</description>
+			<plugin_function>plgaup_jreviews_audio_add</plugin_function>
+			<fixed_points>true</fixed_points>
+			<category>ot</category>
+		</rule>
+		<rule>
+			<name>Delete JReviews Audio</name>
+			<description>Removes points when an audio item is deleted</description>
+			<plugin_function>plgaup_jreviews_audio_delete</plugin_function>
+			<fixed_points>true</fixed_points>
+			<category>ot</category>
+		</rule>
+		<rule>
+			<name>Submit JReviews Attachment</name>
+			<description>Assigns points for attachment submission</description>
+			<plugin_function>plgaup_jreviews_attachment_add</plugin_function>
+			<fixed_points>true</fixed_points>
+			<category>ot</category>
+		</rule>
+		<rule>
+			<name>Delete JReviews Attachment</name>
+			<description>Removes points when an attachment is deleted</description>
+			<plugin_function>plgaup_jreviews_attachment_delete</plugin_function>
+			<fixed_points>true</fixed_points>
+			<category>ot</category>
+		</rule>
+	</rules>
+</alphauserpoints>

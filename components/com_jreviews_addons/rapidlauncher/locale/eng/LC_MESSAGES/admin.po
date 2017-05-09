@@ -1,0 +1,2 @@
+msgid "HEADING_RAPIDLAUNCHER_ADDON"
+msgstr "RapidLauncher Add-on"

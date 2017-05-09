@@ -1,0 +1,48 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+ 
+<div id="directorylist">
+
+	<div class="admin_header"><?php __a("Directories Manager");?></div>
+
+	<form id="adminForm" name="adminForm">
+	
+        <table class="admin_list" style="width:400px;" border="0" cellpadding="3" cellspacing="0">
+            <tr><th colspan="2"><?php __a("Create a new directory");?></th></tr>
+            <tr>            
+                <td width="200"><b><?php __a("Directory title");?></b></td>
+                <td><input type="text" size="40" maxsize="100" id="desc" name="data[Directory][desc]" value="" /></td>
+            </tr>                   
+            <tr>
+                <td><b><?php __a("Directory name");?></b></td>
+                <td><input type="text" size="40" maxsize="50" id="title" name="data[Directory][title]" value="" /></td>
+            </tr>   
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <button class="ui-button ui-corner-all" onclick="jreviews_admin.directory.submit('adminForm');return false;"><?php __a("Add");?></button> 
+                </td>                                    
+            </tr>
+        </table>  
+        
+
+		<br /><br />
+			
+        <input type="hidden" name="data[controller]" value="admin/directories" />
+        <input type="hidden" name="data[action]" value="_save" />
+		<input type="hidden" name="data[Directory][id]" value="<?php echo $directory['id']; ?>" />
+		
+		<div id="directorytable"><?php echo $table?></div>
+	
+		
+	</form>
+</div>

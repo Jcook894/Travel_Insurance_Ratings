@@ -1,0 +1,32 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$message['plugin'] = "There was a problem installing the JReviews Express Content Plugin. Make sure the /mambots(plugins)/content folder is writable and click on the Fix It! button in the component.";
+$message['images'] = "Could not create folder the image folders. Manually create <strong>/images/stories/jreviews/</strong> and <strong>/images/stories/jreviews/tn/</strong>.";
+$message['db'] = "There was a problem updating the database for this version. Submit a ticket so we can further assist you.";
+?>
+
+<center>
+	<table width="100%" border="0" style="border:1px solid #CCC; padding:10px;font-size:120%;background-color:#EFEFEF;">
+	   <tr>
+			<td width="10%"><img src="<?php echo S2Paths::get('jrexpress', 'S2_VIEWS_URL');?>admin/themes/default/theme_images/jr_logo.gif" alt="JReviews Express" /></td>
+			<td width="90%" valign="top">
+				Copyright &copy; 2009 Alejandro Schmeichler
+			</td>
+	   </tr>
+		<tr><td colspan="3">Component: <font color="green">Succesful</font></td></tr>
+		<tr><td colspan="3">Database:<?php echo @!$action['db_install'] ? "<font color=\"red\">{$message['db']}</font>" : "<font color=\"green\">Succesful</font>"; ?></td></tr>
+		<tr><td colspan="3">JReviews Express Comment Plugin: <?php echo @!$action['plugin_install'] ? "<font color=\"red\">{$message['plugin']}</font>" : "<font color=\"green\">Succesful</font>"; ?></td></tr>
+		<tr><td colspan="3">Image folders: <?php echo @!$action['thumbnail_dir'] ? "<font color=\"red\">{$message['images']}</font>" : "<font color=\"green\">Succesful</font>"; ?></td></tr>
+		<tr><td colspan="3"><div style="font-size: 120%; margin-top:15px; font-weight:bold;"><a href="<?php echo WWW_ROOT;?>administrator/index2.php?option=<?php echo S2Paths::get('jrexpress','S2_CMSCOMP');?>">Click here to go to the component page.</a></div></td></tr>
+	</table>
+	
+</center>

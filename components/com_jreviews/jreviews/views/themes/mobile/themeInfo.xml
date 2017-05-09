@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<theme>
+	<creationDate>October 2015</creationDate>
+	<author>ClickFWD</author>
+	<authorEmail>support@jreviews.com</authorEmail>
+	<authorUrl>https://www.jreviews.com</authorUrl>
+	<copyright>Copyright (C) 2010-2015 ClickFWD LLC. All rights reserved.</copyright>
+	<license>Proprietary</license>
+	<version>2.6</version>
+	<description>The Mobile Theme contains layouts for mobile devices like iPhone, Android, Windows Phone 7, ...</description>
+	<settings>
+		<name>mobile</name>
+		<title>Mobile Theme</title>
+		<addon>0</addon>
+		<configuration>1</configuration>
+		<mobile>1</mobile>
+		<fallback>0</fallback>
+	</settings>
+</theme>

@@ -1,0 +1,55 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2017 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$listingUrl = cmsFramework::route($listing['Listing']['url']);
+
+$isPublished = $listing['Listing']['state'] ? true : false;
+
+$listing_submit_actions = isset($listing_submit_actions) ? $listing_submit_actions :  array();
+?>
+
+<?php foreach(Sanitize::getVar($listing_submit_actions, 'top', array()) AS $topSection):?>
+
+	<div class="jrAddonSection"><?php echo $topSection;?></div>
+
+<?php endforeach;?>
+
+<?php if($isPublished):?>
+
+	<div class="jrSuccess">
+
+		<?php __t("Thank you for your submission.");?>
+
+		<a class="jrButton" href="<?php echo $listingUrl;?>"><?php __t("Go to listing");?></a>
+
+	</div>
+
+<?php else:?>
+
+	<div class="jrSuccess">
+
+		<?php __t("Thank you for your submission. It will be published once it is verified.");?>
+
+    <?php if(!$this->Access->isGuest()): ?>
+
+		<a class="jrButton" href="<?php echo $listingUrl;?>"><?php __t("Go to listing");?></a>
+
+    <?php endif;?>
+
+	</div>
+
+<?php endif;?>
+
+<?php foreach(Sanitize::getVar($listing_submit_actions, 'bottom', array()) AS $bottomSection):?>
+
+	<div class="jrAddonSection"><?php echo $bottomSection;?></div>
+
+<?php endforeach;?>

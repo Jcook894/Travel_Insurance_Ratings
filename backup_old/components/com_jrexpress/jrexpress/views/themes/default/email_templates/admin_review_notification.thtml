@@ -1,0 +1,46 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$entry_url = cmsFramework::route($listing['Listing']['url']);
+
+if(false === strpos($entry_url,'http')) {
+	$parsedUrl = parse_url(WWW_ROOT);
+	$entry_url = $parsedUrl['scheme'] . '://' . $parsedUrl['host'] . $entry_url;
+}
+
+$entry_title = Sanitize::getString($listing['Listing'],'title') . " [$extension]"
+?>
+
+<?php __t("You will find this review in the review moderation list.");?>
+
+<br />
+
+<strong><?php __t("Reviewer");?>:</strong> <?php echo $review['User']['name']?>  <?php echo (!$User->id ? ' (Guest)' : " ({$User->id})");?>
+
+<br />
+
+<strong>E-mail:</strong> <?php echo $review['User']['email'];?>
+
+<br />
+
+<strong><?php __t("IP address");?>:</strong> <?php echo $review['User']['ipaddress'];?>			 
+
+<br />
+
+<strong><?php __t("Entry");?>:</strong> <?php echo $Html->link($entry_title,$entry_url,array('sef'=>false));?>
+
+<br />
+
+<strong><?php __t("Title");?>:</strong> <?php echo $review['Review']['title'];?>
+
+<br />
+
+<strong><?php __t("Comments");?>:</strong><br /> <?php echo $review['Review']['comments'];?>

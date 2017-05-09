@@ -1,0 +1,68 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<div class="ui-widget">
+    <div style="padding: 0pt 0.7em;" class="ui-state-highlight ui-corner-all"> 
+        <p><span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span> 
+        <?php __a("Once you assign a listing type to a category you cannot change it and you cannot change the number of rating criteria. First you have to remove all the reviews for listings in that category.");?></p>
+</div> 
+<br />
+<form name="jr_categoryFormNew" id="jr_categoryFormNew">
+
+	<table cellpadding="4" cellspacing="0" border="0" width="100%" class="adminlist">
+		<tr>
+			<td valign="top"><strong><?php __a("Select listing type");?>*</strong></td>
+			<td><?php
+					echo $Form->select(
+						'data[Category][criteriaid]',
+						array_merge(array(array('value'=>0,'text'=>__a("Select listing type",true))),$criterias),
+						null,
+						array('class'=>"inputbox",'size'=>"1")									
+					);							
+				?></td>
+		</tr>
+		<tr>
+			<td><strong><?php __a("Select directory (required)");?></strong></td>
+			<td><?php
+					echo $Form->select(
+						'data[Category][dirid]',
+						array_merge(array(array('value'=>0,'text'=>__a("Select directory",true))),$directories),
+						null,
+						array('class'=>"inputbox",'size'=>"1")
+					);													
+				?></td>
+		</tr>
+		<tr>
+			<td colspan="2" valign="top"><strong><?php __a("Select one or multiple categories (hold CTRL key)");?></strong><br/><br/>
+				<?php
+					if(count($categories)>0)
+					{
+						echo $Form->select(
+							'data[Category][id]',
+							$categories,
+							null,
+							array('multiple'=>'multiple','size'=>"18",'class'=>"inputbox",'style'=>"min-width:300px;",'id'=>'jr_directorySelect')
+						);
+					} else {
+						?><strong><?php __a("All categories have already been set up");?></strong><?php
+					}
+				?></td>
+		</tr>
+	</table>
+    <input type="hidden" name="data[controller]" value="admin/categories" /> 
+    <input type="hidden" name="data[action]" value="_save" /> 				
+	<input type="hidden" name="data[limitstart]" value="<?php echo $limitstart;?>" />
+	<input type="hidden" name="data[limit]" value="<?php echo $limit;?>" />
+	<input type="hidden" name="data[sectionid]" value="<?php echo $sectionid; ?>" />
+
+</form>
+	

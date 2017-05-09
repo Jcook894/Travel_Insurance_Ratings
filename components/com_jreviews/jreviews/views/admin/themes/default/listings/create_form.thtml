@@ -1,0 +1,235 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+$wysiwyg_editor = $this->Access->loadWysiwygEditor();
+
+// Separate field groups into tabs.
+$groups = array();
+
+if(isset($listing_fields))
+{
+    foreach($listing_fields AS $group=>$fields){
+        $groups[$group] = array($group=>$fields);
+    }
+}
+?>
+
+<fieldset>
+
+    <div class="jrFieldDiv">
+
+        <label class="jrLabel">
+
+            <?php JreviewsLocale::getConstant(Sanitize::getString($this->Config, 'lang_listing_form_title'));?>
+
+            <span class="jrIconRequired"></span>
+
+        </label>
+
+        <input class="jr-title jrTitle" type="text" name="data[Listing][title]" value="<?php echo htmlspecialchars($listing['Listing']['title'],ENT_QUOTES,cmsFramework::getCharset());?>" maxlength="255" />
+
+    </div>
+
+    <div class="jrFieldDiv">
+
+        <label class="jrLabel">
+
+            <?php JreviewsLocale::getConstant(Sanitize::getString($this->Config, 'lang_listing_form_title_alias'));?>
+
+        </label>
+
+        <input class="jrTitle" type="text" name="data[Listing][alias]" class="jrTitle" value="<?php echo $listing['Listing']['slug'];?>" maxlength="255" />
+
+    </div>
+
+    <div class="jrFieldDiv">
+
+        <label class="jrLabel"><?php __t("Created");?></label>
+
+        <input type="text" class="jr-date jrDate" name="data[Listing][created]" value="<?php echo $listing['Listing']['created'];?>" />
+
+    </div>
+
+    <div class="jrFieldDiv jrLeft" style="margin-right:20px;">
+
+        <label class="jrLabel"><?php __t("Publication Date");?></label>
+
+        <input type="text" class="jr-date jrDate" name="data[Listing][publish_up]" value="<?php echo $listing['Listing']['publish_up'];?>" />
+
+    </div>
+
+    <div class="jrFieldDiv jrClearfix">
+
+        <label class="jrLabel"><?php __t("Expiration Date");?></label>
+
+        <input type="text" class="jr-date jrDate" name="data[Listing][publish_down]" value="<?php echo $listing['Listing']['publish_down'];?>" />
+
+    </div>
+
+    <div class="jrFieldDiv">
+
+        <label class="jrLabel"><?php __a("Listing Owner");?></label>
+
+        <div class="jrLeft">
+
+            <?php echo $Form->text('jr-user',array('value'=>$listing['User']['name'],'class'=>'jr-user-autocomplete','style'=>'width:15em;'));?>
+
+            <?php echo $Form->text('data[Listing][created_by]',array('value'=>$listing['Listing']['user_id'],'class'=>'jr-user-id-ac','style'=>'width:5em;'));?>
+
+            <?php echo $Form->hidden('data[Field][Listing][email]',array('value'=>$listing['Listing']['email'],'class'=>'jr-user-email-ac','style'=>'width:5em;'));?>
+
+        </div>
+
+        <div class="jrLeft" style="padding-top:10px;"><?php __a("Start typing for suggestions.");?></div>
+
+        <div class="jrClear"></div>
+
+    </div>
+
+</fieldset>
+
+<div class="jr-tabs jrTabs">
+
+    <ul>
+
+        <li><a href="#listing"><span><?php __a("General");?></span></a></li>
+
+        <?php $i=0;foreach($groups AS $title=>$fields):$i++; $fields = array_shift($fields);?>
+
+            <li id="tab_<?php echo $fields['group_name'];?>" style="display:none;"><a href="#field_group<?php echo $i;?>"><span><?php echo $title;?></span></a></li>
+
+        <?php endforeach;?>
+
+        <?php if($Access->canAddMeta()):?>
+
+            <li><a href="#metadata"><span><?php __a("Metadata");?></span></a></li>
+
+        <?php endif;?>
+
+    </ul>
+
+    <div id="listing">
+
+        <?php if($this->Config->content_summary == 'required' || $this->Config->content_summary == 'optional' || $this->Config->content_description == 'required' || $this->Config->content_description == 'optional'):?>
+
+        <fieldset>
+
+            <?php if($this->Config->content_summary == 'required' || $this->Config->content_summary == 'optional'):?>
+
+            <div class="jrFieldDiv">
+
+                <label><?php JreviewsLocale::getConstant(Sanitize::getString($this->Config, 'lang_listing_form_summary'));?><?php if($this->Config->content_summary == 'required'):?><span class="jrIconRequired"></span><?php endif;?></label>
+
+		<div class="jrClear"></div>
+
+		<?php if(_CMS_NAME == 'wordpress' && $wysiwyg_editor && !$this->Config->listing_wysiwyg):?>
+
+			<div class="jr-editor-add-media jrEditorAddMedia">
+
+	                    <a href="#" class="jrButton insert-media" data-editor="content" title="Add Media">
+	                        <span class="dashicons dashicons-admin-media"></span> <?php __t("Add Media");?>
+	                    </a>
+
+	                </div>
+
+		<?php endif;?>
+
+                <textarea id="introtext" name="data[Listing][introtext]" cols="200" rows="15" style="width:100%;" class="jr-wysiwyg-editor <?php if($wysiwyg_editor && $this->Config->listing_wysiwyg):?>jrHidden<?php endif;?>"><?php echo $listing['Listing']['summary'];?></textarea>
+
+                <?php if($wysiwyg_editor && $this->Config->listing_wysiwyg):?>
+
+                    <trix-editor input="introtext"></trix-editor>
+
+                <?php endif;?>
+
+            </div>
+
+            <?php endif;?>
+
+            <?php if($this->Config->content_description == 'required' || $this->Config->content_description == 'optional'):?>
+
+            <div class="jrFieldDiv">
+
+                <label><?php JreviewsLocale::getConstant(Sanitize::getString($this->Config, 'lang_listing_form_description'));?><?php if($this->Config->content_description == 'required'):?>
+
+                <span class="jrIconRequired"></span><?php endif;?></label>
+
+                <div class="jrClear"></div>
+
+        <?php if(_CMS_NAME == 'wordpress' && $wysiwyg_editor && !$this->Config->listing_wysiwyg):?>
+
+	                <div class="jr-editor-add-media jrEditorAddMedia">
+
+	                    <a href="#" class="jrButton insert-media" data-editor="content" title="Add Media">
+	                        <span class="dashicons dashicons-admin-media"></span> <?php __t("Add Media");?>
+	                    </a>
+
+	                </div>
+
+		<?php endif;?>
+
+                <textarea id="fulltext" name="data[Listing][fulltext]" cols="200" style="width:100%;" rows="25" class="jr-wysiwyg-editor <?php if($wysiwyg_editor && $this->Config->listing_wysiwyg):?>jrHidden<?php endif;?>"><?php echo $listing['Listing']['description'];?></textarea>
+
+                <?php if($wysiwyg_editor && $this->Config->listing_wysiwyg):?>
+
+                    <trix-editor input="fulltext"></trix-editor>
+
+                <?php endif;?>
+
+            </div>
+
+            <?php endif;?>
+
+        </fieldset>
+
+        <?php endif;?>
+
+    </div>
+
+    <div class="jr-form-listing-fields">
+
+        <?php $i=0;foreach($groups AS $title=>$fields):$i++;?>
+
+            <div id="field_group<?php echo $i;?>"><?php echo $CustomFields->makeFormFields($fields,'listing',null,__a("Select",true));?></div>
+
+        <?php endforeach;?>
+
+    </div>
+
+    <?php if($Access->canAddMeta()):?>
+
+    <div id="metadata">
+
+        <fieldset>
+
+        <legend><?php __a("Meta Data");?></legend>
+
+            <div class="jrFieldDiv">
+
+                <label><?php __a("Meta Description");?></label>
+
+                <textarea id="metadesc" name="data[Listing][metadesc]" cols="45" rows="5" class="fullWidthSmallArea"><?php echo htmlspecialchars($listing['Listing']['metadesc'],ENT_QUOTES,cmsFramework::getCharset());?></textarea>
+            </div>
+
+            <div class="jrFieldDiv">
+
+                <label><?php __a("Meta Keywords");?></label>
+
+                <textarea id="metakey" name="data[Listing][metakey]" cols="45" rows="5" class="fullWidthSmallArea"><?php echo htmlspecialchars($listing['Listing']['metakey'],ENT_QUOTES,cmsFramework::getCharset());?></textarea>
+
+            </div>
+
+        </fieldset>
+
+    </div>
+
+    <?php endif;?>
+
+</div>

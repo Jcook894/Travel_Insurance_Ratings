@@ -1,0 +1,103 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php
+/**
+ * Used in listings create/edit actions
+ * This view element is used to refresh the category list via ajax
+ */
+?>
+
+<?php     
+if($this->cmsVersion == CMS_JOOMLA15)
+{
+	$attributes = array('id'=>'cat_id1','class'=>'jrSelect','size'=>'1','onchange'=>'jreviews.listing.submitCategory(this);');
+
+	if(!$listing['Listing']['section_id']) {
+		$attributes = array_merge($attributes,array('disabled'=>'disabled'));
+	}
+
+	echo $Form->select(
+		'data[Listing][catid]',
+		array_merge(array(array('value'=>null,'text'=>__t("Select Category",true))),$categories),
+		$listing['Listing']['cat_id'],
+		$attributes
+	);
+}
+else // J16
+{
+    $i = 2; // Cat level counter
+    $sel_cat_id = Sanitize::getInt($listing['Listing'],'cat_id');
+    
+    if(Sanitize::getInt($listing['Listing'],'listing_id'))
+	{ // Edit
+	    $attributes = array('id'=>'cat_id1','class'=>'jrSelect','size'=>'1','onchange'=>'');
+        echo $Form->select(
+            'data[Listing][catid][]',
+            array_merge(array(array('value'=>null,'text'=>'- '.__t("Select Category",true).' -')),$categories),
+            $listing['Listing']['cat_id'],
+            $attributes
+        );
+    }
+    elseif(!$sel_cat_id)
+    { // New without preselected category
+        if(Sanitize::getInt($listing['Listing'],'listing_id'))
+        {
+            $attributes = array('id'=>'cat_id1','class'=>'jrSelect','size'=>'1','onchange'=>'');
+        }
+        else
+        {
+            $attributes = array('id'=>'cat_id1','class'=>'jrSelect','size'=>'1','onchange'=>'jreviews.listing.submitCategory(this);');
+        }
+
+        echo $Form->select(
+            'data[Listing][catid][]',
+            array_merge(array(array('value'=>null,'text'=>'- '.__t("Select Category",true).' -')),$categories),
+            $listing['Listing']['cat_id'],
+            $attributes
+        );
+    } 
+    else
+    {  // New with preselected category
+        $i = 1; // Cat level counter
+        foreach($categories AS $selected=>$list)
+        {        
+            $attributes = array('id'=>'cat_id'.$i,'value'=>$selected,'onchange'=>'jreviews.listing.submitCategory(this);');
+            echo $Form->hidden(
+                'data[Listing][catid][]',
+                $attributes
+            );  
+
+            $attributes = array('disabled'=>'disabled','class'=>'jrSelect','size'=>'1');
+            echo $Form->select(
+                'disabledCatIds[]',
+                array($list[$selected]),
+                $selected,
+                $attributes
+            ); 
+            $i++;
+        }
+    }                                          
+}
+?>
+                        
+<?php
+/**********************************************************************************
+ *                                 JAVASCRIPT
+ **********************************************************************************/    
+if($this->cmsVersion == CMS_JOOMLA16 && empty($listing_id) && $cat_id):?>
+<script type="text/javascript">
+//<![CDATA[ 
+jQuery(document).ready(function() { jreviews.listing.submitCategory(document.getElementById('cat_id<?php echo $i-1;?>')); });
+//]]>
+</script>
+<?php endif;?>

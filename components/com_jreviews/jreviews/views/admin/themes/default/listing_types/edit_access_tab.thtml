@@ -1,0 +1,173 @@
+<?php $accessTab = array(
+	/*** NEW HEADER ***/
+		__a("Listings",true) => array(
+			array(
+				'label'=>__a("Submit new listing",true),
+				'type'=>'selectmultiple',
+				'name'=>'addnewaccess',
+				'default'=>Sanitize::getVar($this->Config,'addnewaccess'),
+				'options'=>$accessGroupsGuest,
+				'attributes'=>array('class'=>'jr-multiselect'),
+				'help'=>'',
+				'global'=>true
+			),
+			array(
+				'label'=>__a("Moderate new listing",true),
+				'type'=>'selectmultiple',
+				'name'=>'moderation_item',
+				'default'=>Sanitize::getVar($this->Config,'moderation_item'),
+				'options'=>$accessGroupsGuest,
+				'attributes'=>array('class'=>'jr-multiselect'),
+				'global'=>true
+			),
+			array(
+				'label'=>__a("Moderate edited listing",true),
+				'type'=>'radioYesNo',
+				'name'=>'moderation_item_edit',
+				'default'=>Sanitize::getVar($this->Config,'moderation_item_edit'),
+				'attributes'=>array('div'=>false),
+				'global'=>true
+			),
+			array(
+				'label'=>__a("Edit listing",true),
+				'type'=>'selectmultiple',
+				'name'=>'editaccess',
+				'options'=>$accessGroupsNoGuest,
+				'default'=>Sanitize::getVar($this->Config,'editaccess'),
+				'attributes'=>array('class'=>'jr-multiselect'),
+				'global'=>true
+			),
+			array(
+				'label'=>__a("Publish/unpublish listing",true),
+				'type'=>'selectmultiple',
+				'name'=>'listing_publish_access',
+				'default'=>Sanitize::getVar($this->Config,'listing_publish_access'),
+				'options'=>$accessGroupsNoGuest,
+				'attributes'=>array('class'=>'jr-multiselect'),
+				'global'=>true
+			),
+			array(
+				'label'=>__a("Delete listing",true),
+				'type'=>'selectmultiple',
+				'name'=>'listing_delete_access',
+				'default'=>Sanitize::getVar($this->Config,'listing_delete_access'),
+				'options'=>$accessGroupsNoGuest,
+				'attributes'=>array('class'=>'jr-multiselect'),
+				'global'=>true
+			),
+			array(
+				'label'=>__a("WYSIWYG editor",true),
+				'type'=>'selectmultiple',
+				'name'=>'addnewwysiwyg',
+				'default'=>Sanitize::getVar($this->Config,'addnewwysiwyg'),
+				'options'=>$accessGroupsGuest,
+				'attributes'=>array('class'=>'jr-multiselect'),
+				'global'=>true
+				),
+			array(
+				'label'=>__a("Meta data fields",true),
+				'type'=>'selectmultiple',
+				'name'=>'addnewmeta',
+				'default'=>Sanitize::getVar($this->Config,'addnewmeta'),
+				'options'=>$accessGroupsGuest,
+				'attributes'=>array('class'=>'jr-multiselect'),
+				'global'=>true
+			)
+		),
+		__a("Reviews",true) => array(
+			array(
+				'label'=>__a("Submit new review",true),
+				'type'=>'selectmultiple',
+				'name'=>'addnewaccess_reviews',
+				'default'=>Sanitize::getVar($this->Config,'addnewaccess_reviews'),
+				'options'=>$accessGroupsGuest,
+				'attributes'=>array('class'=>'jr-multiselect'),
+				'global'=>true
+			),
+			array(
+				'label'=>__a("Moderate new user reviews",true),
+				'type'=>'selectmultiple',
+				'name'=>'moderation_reviews',
+				'default'=>Sanitize::getVar($this->Config,'moderation_reviews'),
+				'options'=>$accessGroupsGuest,
+				'attributes'=>array('class'=>'jr-multiselect'),
+				'global'=>true
+			),
+			array(
+				'label'=>__a("Moderate new editor reviews",true),
+				'type'=>'radioYesNo',
+				'name'=>'moderation_editor_reviews',
+				'default'=>Sanitize::getVar($this->Config,'moderation_editor_reviews'),
+				'attributes'=>array('div'=>false),
+				'global'=>true
+			),
+			array(
+				'label'=>__a("Moderate edited user reviews",true),
+				'type'=>'radioYesNo',
+				'name'=>'moderation_review_edit',
+				'default'=>Sanitize::getVar($this->Config,'moderation_review_edit'),
+				'attributes'=>array('div'=>false),
+				'global'=>true
+			),
+			array(
+				'label'=>__a("Moderate edited editor reviews",true),
+				'type'=>'radioYesNo',
+				'name'=>'moderation_editor_review_edit',
+				'default'=>Sanitize::getVar($this->Config,'moderation_editor_review_edit'),
+				'attributes'=>array('div'=>false),
+				'global'=>true
+			),
+			array(
+				'label'=>__a("Enable voting",true),
+				'type'=>'selectmultiple',
+				'name'=>'user_vote_public',
+				'default'=>Sanitize::getVar($this->Config,'user_vote_public'),
+				'options'=>$accessGroupsGuest,
+				'attributes'=>array('class'=>'jr-multiselect'),
+				'global'=>true
+			),
+			array(
+				'label'=>__a("Edit review",true),
+				'type'=>'selectmultiple',
+				'name'=>'editaccess_reviews',
+				'options'=>$accessGroupsNoGuest,
+				'default'=>Sanitize::getVar($this->Config,'user_vote_public'),
+				'attributes'=>array('class'=>'jr-multiselect'),
+				'global'=>true
+			)
+		),
+		__a("Discussions",true) => array(
+			 array(
+				'label'=>__a("New Comment",true),
+				'type'=>'selectmultiple',
+				'name'=>'addnewaccess_posts',
+				'options'=>$accessGroupsGuest,
+				'default'=>Sanitize::getVar($this->Config,'addnewaccess_posts'),
+				'attributes'=>array('class'=>'jr-multiselect'),
+				'global'=>true
+			),
+			 array(
+				'label'=>__a("Edit Comment",true),
+				'type'=>'selectmultiple',
+				'name'=>'post_edit_access',
+				'options'=>$accessGroupsNoGuest,
+				'default'=>Sanitize::getVar($this->Config,'post_edit_access'),
+				'attributes'=>array('class'=>'jr-multiselect'),
+				'global'=>true,
+				'help'=>__a("Not available for Everywhere Add-on categories",true)
+			),
+			 array(
+				'label'=>__a("Delete Comment",true),
+				'type'=>'selectmultiple',
+				'name'=>'post_delete_access',
+				'options'=>$accessGroupsNoGuest,
+				'default'=>Sanitize::getVar($this->Config,'post_delete_access'),
+				'attributes'=>array('class'=>'jr-multiselect'),
+				'global'=>true,
+				'help'=>__a("Not available for Everywhere Add-on categories",true)
+			)
+		)
+	);
+
+	$AdminSettings->displayTab('listing-type-access',$accessTab,'[Criteria][config]',$listingType['ListingType']['config']);
+?>

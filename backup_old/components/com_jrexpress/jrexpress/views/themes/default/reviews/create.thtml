@@ -1,0 +1,159 @@
+<?php
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This theme file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php
+/**********************************************************************************
+ * 								JAVASCRIPT & CSS
+ **********************************************************************************/?>
+<?php
+if(!$this->xajaxRequest && $this->name != 'com_content')
+{				
+	$headScripts = array();				
+	if($Access->canAddReview) {					
+		$headScripts['js'][] = 'jq.tooltip';
+		$headScripts['css'][] = 'jq.tooltip';
+		$headScripts['js'][] = 'jq.onload';	
+		if($this->Config->rating_selector== 'stars'){
+			$headScripts['js'][] = 'ui.core';				
+			$headScripts['js'][] = 'ui.rating';				
+			$headScripts['css'][] = 'ui.rating';
+		}			
+	}
+	# Load javascript libraries
+	$Html->js(arrayFilter($headScripts['js'], $Libraries->js()));
+	# Load CSS stylesheets
+	$Html->css(arrayFilter($headScripts['css'], $Libraries->css()));
+}
+?>
+
+<?php 
+/**********************************************************************************
+ * 								EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+?>
+<div id="jr_reviewform" class="jr_pgContainer" style="display:<?php echo $review['Review']['review_id'] ? '' : 'none';?>;">
+	<div class="jr_form">
+		<?php if($review['Review']['review_id'] > 0):?>
+		<form id="reviewFormEdit" name="reviewFormEdit"">
+		<?php else:?>
+		<form id="reviewForm" name="reviewForm">
+		<?php endif;?>
+					
+			<?php if(!$User->id):?>
+				<div class="jr_fieldDiv">
+					<label><?php __t("Name");?><span class="required">*</span></label>
+					<?php echo $Form->text('data[Review][name]',array('id'=>'name','value'=>$User->name,'class'=>'mediumField','size'=>50,'maxlength'=>100)); // {READONLY}?>
+				</div>			
+				
+				<?php if($this->Config->reviewform_email || $isNew):?>
+				<div class="jr_fieldDiv">
+					<label><?php __t("Email");?><span class="required">*</span></label>
+					<?php echo $Form->text('data[Review][email]',array('id'=>'email','value'=>$User->email,'class'=>'mediumField','size'=>50,'maxlength'=>100)); // {READONLY}?>
+				</div>
+				<?php endif;?>
+					
+			<?php endif;?>
+			
+			<?php if($this->Config->reviewform_title):?>
+			<div class="jr_fieldDiv">
+				<label><?php __t("Review title");?></label>
+				<?php echo $Form->text('data[Review][title]',array(
+						'id'=>'title',
+						'value'=>$review['Review']['title'],
+						'class'=>'longField',
+						'size'=>50,
+						'maxlength'=>100
+				));?>
+			</div>
+			<?php endif;?>
+
+			<fieldset>
+			<legend><?php __t("Ratings (the higher the better)");?></legend>
+			<table class="jr_ratingsTable" border="0" cellpadding="0" cellspacing="0">
+				<?php foreach($review['Criteria']['criteria'] AS $key=>$value):?>				
+					<tr>
+						<td><?php echo $value;?></td> 
+						<td>
+							<div id="jr_stars<?php echo ($review['Review']['review_id'] > 0 ? '_edit-' : '_new-'). $key;?>">
+							<?php echo $Form->select(
+								'data[Rating][ratings][]',
+								$Rating->options($this->Config->rating_scale,__t("Rate it",true)),
+                                $review['Review']['review_id'] > 0 ? Sanitize::getVar($review['Rating']['ratings'],$key) : '',
+								array('id'=>'ratings'.$key)
+							);?>
+							</div>
+						</td>
+						<td><?php if(isset($review['Criteria']['tooltips'][$key]) && trim($review['Criteria']['tooltips'][$key]) != ''):?>
+							<?php echo $Html->image($this->viewImages . 'information.png',array('title'=>$value. ": " . htmlspecialchars($review['Criteria']['tooltips'][$key],ENT_QUOTES,cmsFramework::getCharset())));?>					
+						<?php endif;?></td>
+					</tr>
+				<?php endforeach;?>	
+			</table>
+			</fieldset>
+
+			<?php if($this->Config->reviewform_comment):?>
+			<fieldset>
+			<legend><?php __t("Comments");?></legend>
+			<div class="jr_fieldDiv">
+				<?php echo $Form->textarea('data[Review][comments]',array(
+						'id'=>'comments',
+						'value'=>$review['Review']['comments'],
+						'rows'=>5,
+						'cols'=>45,
+						'class'=>'largeArea'
+				));?>	
+			</div>
+			</fieldset>			
+			<?php endif;?>
+	
+			<?php if($review['Review']['review_id'] == 0 && $Access->showCaptcha):?>
+			<div class="jr_fieldDiv">
+				<div id="captcha_div" style="float: left;"><?php echo $captcha?></div><div>&nbsp;&nbsp;<input name="data[Captcha][code]" id="code" type="text" class="shortField" size="5" maxlength="5" />&nbsp;&nbsp;<?php __t("Please enter the security code.");?></div>
+				<div class="clr">&nbsp;</div>
+			</div>	
+			<?php endif;?>
+	
+			<?php if($review['Review']['review_id'] > 0):?>
+				<input type="button" id="submitButtonEdit" value="<?php __t("Submit");?>" onclick="submitReviewEdit()" class="button" />
+				<input type="button" id="cancelEdit" value="<?php __t("Cancel");?>" onclick="cancelReviewEdit()" class="button" />
+			<?php else:?>
+				<input type="button" id="submitButton" value="<?php __t("Submit");?>" onclick="submitReview()" class="button" />
+				<input type="button" id="cancel" value="<?php __t("Cancel");?>" onclick="jQuery('#jr_reviewform').fadeOut().scrollTo(1000,100);return false;" class="button" />
+			<?php endif;?>
+	
+			<span id="spinner" style="display: none;"><img alt="loading" src="<?php echo $this->viewImages?>loading.gif" /></span>
+			<div id="msg"></div>
+
+			<?php echo $Form->token('jr_ReviewToken'.($review['Review']['review_id'] > 0 ? 'Edit' : ''));?>		
+			<input type="hidden" name="data[Review][id]" id="review_id" value="<?php echo $review['Review']['review_id'];?>" />
+			<input type="hidden" name="data[Review][pid]" id="pid" value="<?php echo isset($listing['Listing']['listing_id']) ? $listing['Listing']['listing_id'] : $review['Review']['listing_id'];?>" />
+			<input type="hidden" name="data[Review][mode]" id="mode" value="<?php echo $review['Review']['extension'];?>" />
+			<input type="hidden" name="data[page]" id="page" value="<?php echo $review['Review']['extension'];?>" />
+			<input type="hidden" name="data[Criteria][id]" id="criteriaid" value="<?php echo $review['Criteria']['criteria_id'];?>" />
+			<input type="hidden" name="data[view]" id="view" value="<?php echo $this->view;?>" />			
+		</form>
+	</div>	
+</div>
+
+<?php if($this->Config->rating_selector== 'stars'):?>
+<script type="text/javascript">
+jQuery("div[id^='jr_stars<?php ($review['Review']['review_id'] > 0 ? '_edit-' : '_new-');?>']").each(function(i) {
+	if( this.id != '' ) {
+		jQuery("#"+this.id).stars({
+			inputType: "select",
+			cancelShow: false
+		});
+		
+	}
+});	
+</script>
+<?php endif;?>

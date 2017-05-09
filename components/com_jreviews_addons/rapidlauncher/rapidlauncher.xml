@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon>
+   <title>RapidLauncher Add-on</title>
+   <name>rapidlauncher</name>
+   <description><![CDATA[RapidLauncher Add-on]]></description>
+   <author>ClickFWD LLC</author>
+   <url>https://www.jreviews.com</url>
+   <created>May 2016</created>
+   <version>1.0.2.1</version>
+   <minappversion>2.7.6.2</minappversion>
+   <copyright>Copyright (C) 2010-2016 ClickFWD LLC</copyright>
+   <license>Proprietary</license>
+   <type>Free</type>
+</addon>

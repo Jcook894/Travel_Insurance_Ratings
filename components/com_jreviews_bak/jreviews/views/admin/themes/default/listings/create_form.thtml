@@ -1,0 +1,150 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+
+// Separate field groups into tabs.
+$groups = array();
+if(isset($listing_fields))
+{
+    foreach($listing_fields AS $group=>$fields){
+        $groups[$group] = array($group=>$fields);        
+    }    
+}
+?>
+
+<div class="jr_tabs" style="margin-bottom:10px;">
+
+    <ul><li><a href="#title"><span>Title</span></a></li></ul>
+
+    <div id="title">    
+        <fieldset>
+            <div class="jr_fieldDiv">
+                <label><?php __a("Title");?><span class="required">*</span></label>
+                <input type="text" id="jr_listingTitle" name="data[Listing][title]" class="longField" value="<?php echo htmlspecialchars($listing['Listing']['title'],ENT_QUOTES,cmsFramework::getCharset());?>" maxlength="255" />
+            </div>
+
+            <div class="jr_fieldDiv">
+                <label><?php __t("Title Alias");?></label>
+                <input type="text" id="jr_listingAlias" name="data[Listing][alias]" class="longField" value="<?php echo $listing['Listing']['slug'];?>" maxlength="255" />
+            </div>
+        </fieldset>
+    </div>
+    
+</div>    
+
+<div class="jr_tabs">
+    <ul>
+        <li><a href="#listing"><span>General</span></a></li>
+        <?php $i=0;foreach($groups AS $title=>$fields):$i++; $fields = array_shift($fields);?>
+        <li id="tab_<?php echo $fields['group_name'];?>" style="display:none;"><a href="#field_group<?php echo $i;?>"><span><?php echo $title;?></span></a></li>        
+        <?php endforeach;?>
+        <li><a href="#images"><span>Images</span></a></li>
+        <?php if($Access->canAddMeta()):?>
+        <li><a href="#metadata"><span>Metadata</span></a></li>
+        <?php endif;?>
+    </ul>
+        
+    <div id="listing">    
+        <fieldset>
+        <legend><?php __a("Listing owner");?><span class="required">*</span></legend>
+        
+        <div class="jr_fieldDiv">
+            <?php echo $Form->text('jr_listingUserName',array('value'=>$listing['User']['name'],'id'=>'jrUsername','style'=>'width:15em;'));?>
+            <?php echo $Form->text('data[Listing][created_by]',array('value'=>$listing['Listing']['user_id'],'id'=>'jrUserId','style'=>'width:5em;'));?>
+            &nbsp;<?php __a("Start typing to see a list of options");?>
+            <?php echo $Form->hidden('data[Field][Listing][email]',array('value'=>$listing['Listing']['email'],'id'=>'jrUserEmail','style'=>'width:5em;'));?>
+        </div>
+        </fieldset>
+
+        <?php if($this->Config->content_summary == 'required' || $this->Config->content_summary == 'optional' || $this->Config->content_description == 'required' || $this->Config->content_description == 'optional'):?>
+        <fieldset>
+            <?php if($this->Config->content_summary == 'required' || $this->Config->content_summary == 'optional'):?>
+            <div class="jr_fieldDiv">
+               <label><?php __a("Summary");?><?php if($this->Config->content_summary == 'required'):?><span class="required">*</span><?php endif;?></label>
+               <div style="clear:both;"></div>
+               <textarea id="introtext" name="data[Listing][introtext]" cols="200" rows="15" style="width:100%;" class="wysiwyg_editor"><?php echo $listing['Listing']['summary'];?></textarea>
+            </div>
+            <?php endif;?>
+            
+            <?php if($this->Config->content_description == 'required' || $this->Config->content_description == 'optional'):?>
+            <div class="jr_fieldDiv">
+               <label><?php __a("Description");?><?php if($this->Config->content_description == 'required'):?><span class="required">*</span><?php endif;?></label>
+               <div style="clear:both;"></div>
+                <textarea id="fulltext" name="data[Listing][fulltext]" cols="200" style="width:100%;" rows="25" class="wysiwyg_editor"><?php echo $listing['Listing']['description'];?></textarea>
+            </div>
+            <?php endif;?>
+        </fieldset>
+        <?php endif;?>
+    </div> 
+    
+    <?php $i=0;foreach($groups AS $title=>$fields):$i++;?>
+    <div id="field_group<?php echo $i;?>"><?php echo $CustomFields->makeFormFields($fields,'listing',null,__a("Select",true));?></div>
+    <?php endforeach;?>
+
+     <div id="images">                          
+        <fieldset>
+        <legend>Images</legend>
+	        <?php if($listing['Listing']['listing_id']>0):?>		
+	        <div id="content_images" class="jr_fieldDiv">	
+		        <?php if(count($listing['Listing']['images'])>0):?>
+			        <label><?php __a("Image Manager - Use the radio buttons to set the main image shown in lists.")?></label>
+			        <div style="clear:both;"></div>
+                    <?php for($i=0;$i<count($listing['Listing']['images']);$i++):?>
+				        <div id="image<?php echo $i?>" class="jr_imageEdit">
+					        <?php echo $Html->image(WWW_ROOT . _JR_WWW_IMAGES . $listing['Listing']['images'][$i]['path'],array('style'=>'border:1px solid #BFBFBF; width:60px;height:60px;'));?>
+					        <br />
+					        <?php if(count($listing['Listing']['images'])>1):?>
+                            
+                            <?php $formToken = cmsFramework::getCustomToken($listing['Listing']['listing_id'],$listing['Listing']['images'][$i]['path']);?>
+                            <input class="jr_pointer" id="intro<?php echo $i?>" name="intro[]" type="radio" value="<?php echo $i?>" <?php echo $i == 0 ? 'checked="checked"' : ''?> onclick="jreviews_admin.listing.setMainImage(this,{'token':'<?php echo $formToken;?>','listing_id':<?php echo $listing['Listing']['listing_id'];?>,'image_path':'<?php echo $listing['Listing']['images'][$i]['path']?>'});" / >    
+
+                            &nbsp;&nbsp;
+					        <?php endif; ?>
+
+                            <?php $formToken = cmsFramework::getCustomToken($listing['Listing']['listing_id'],$i,$listing['Listing']['images'][$i]['path']);?>
+                            <img class="jr_pointer" src="<?php echo $this->viewImages;?>jr_delete.gif" onclick="jreviews_admin.listing.deleteImage(this,{'token':'<?php echo $formToken;?>','title':'<?php __t("Delete",false,true);?>','listing_id':<?php echo $listing['Listing']['listing_id'];?>,'delete_key':<?php echo $i?>,'image_path':'<?php echo $listing['Listing']['images'][$i]['path']?>','text':'<?php __t("Are you sure you want to delete this image?",false,true);?>'});" />
+                            
+				        </div>
+			        <?php endfor;?>
+			        <div style="clear:both;"></div>
+		        <?php endif;?>	
+	        </div>
+	        <img id="image_edit" style="display: none;" src="<?php echo $this->viewImages;?>loading.gif" />
+	        <?php endif;?>
+	        
+	        <?php if($this->Config->content_images>0 && $this->Config->content_images_edit):?>
+	        <div id="image_upload_container" class="jr_fieldDiv">
+		        <label><?php __a("Images");?> <?php echo sprintf(__a("Max. size %s Kb",true),$this->Config->content_max_imgsize);?></label>
+		        <div class="clr">&nbsp;</div>	
+		        <?php for($i=0; $i<$this->Config->content_images;$i++):?>
+			        <input size="20" type="file" id="image" class="jr_imageUpload" name="image[]" />
+		        <?php endfor;?>
+	        </div>
+	        <?php endif;?>
+        </fieldset>
+    </div>
+
+    <?php if($Access->canAddMeta()):?>
+    <div id="metadata">   
+        <fieldset>
+        <legend>Meta Data</legend>
+            <div class="jr_fieldDiv">
+               <label><?php __a("Meta Description");?></label>
+                <textarea id="metadesc" name="data[Listing][metadesc]" cols="45" rows="5" class="fullWidthSmallArea"><?php echo htmlspecialchars($listing['Listing']['metadesc'],ENT_QUOTES,cmsFramework::getCharset());?></textarea>
+            </div>
+            <div class="jr_fieldDiv">
+                <label><?php __a("Meta Keywords");?></label>
+                <textarea id="metakey" name="data[Listing][metakey]" cols="45" rows="5" class="fullWidthSmallArea"><?php echo htmlspecialchars($listing['Listing']['metakey'],ENT_QUOTES,cmsFramework::getCharset());?></textarea>
+            </div>
+        </fieldset>    
+    </div>
+    <?php endif;?>
+</div>
+
+<script type="text/javascript">jQuery('.jr_tabs').tabs();</script>

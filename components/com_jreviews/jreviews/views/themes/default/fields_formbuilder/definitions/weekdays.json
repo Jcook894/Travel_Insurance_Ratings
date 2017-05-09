@@ -1,0 +1,46 @@
+{
+	"type": "string",
+	"enumSource": [
+	    {
+	        "source": [
+	            {
+	                "value": "1",
+	                "title": "Monday",
+	                "gt_translate_keys": [{"key": "title", "format": "text"}]
+	            },
+	            {
+	                "value": "2",
+	                "title": "Tuesday",
+	                "gt_translate_keys": [{"key": "title", "format": "text"}]
+	            },
+	            {
+	                "value": "3",
+	                "title": "Wednesday",
+	                "gt_translate_keys": [{"key": "title", "format": "text"}]
+	            },
+	            {
+	                "value": "4",
+	                "title": "Thursday",
+	                "gt_translate_keys": [{"key": "title", "format": "text"}]
+	            },
+	            {
+	                "value": "5",
+	                "title": "Friday",
+	                "gt_translate_keys": [{"key": "title", "format": "text"}]
+	            },
+	            {
+	                "value": "6",
+	                "title": "Saturday",
+	                "gt_translate_keys": [{"key": "title", "format": "text"}]
+	            },
+	            {
+	                "value": "7",
+	                "title": "Sunday",
+	                "gt_translate_keys": [{"key": "title", "format": "text"}]
+	            }
+	        ],
+	        "title": "{{item.title}}",
+	        "value": "{{item.value}}"
+	    }
+	]
+}

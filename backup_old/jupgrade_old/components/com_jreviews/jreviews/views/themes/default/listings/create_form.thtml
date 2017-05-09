@@ -1,0 +1,274 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2012 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+/**
+ * This view is called after section and category have been selected in the create.thtml view
+ */   
+?>
+
+<?php 
+/**********************************************************************************
+ *                                 CONFIGURATION AND SETUP
+ **********************************************************************************/
+$isNew = $listing['Listing']['listing_id'] == 0;
+
+ /* $alias_field controls access to listing's title alias editing
+* admin: only shows up for admin and superadmin, 
+* config: shows up for any groups with listing edit rights as configured in the Access Settings
+*/
+$alias_field = 'admin'; // admin|config 
+!isset($paid_plans) and $paid_plans = array();
+$used_trials = Sanitize::getBool($paid_plans,'used_trials') && count($paid_plans) == 1; // If count is > 1, then there are other plans available
+?>
+
+
+<?php 
+/**********************************************************************************
+ *                                 EDIT HTML BELOW THIS LINE
+ **********************************************************************************/
+?>
+
+<?php /* BEGIN PRICING PLANS FOR SELECTED CATEGORY */ ?>
+<?php if($used_trials > 0):?>
+    <?php __t("You have reached the maximum number of free listings for this category.");?>   
+<?php elseif(!empty($paid_plans)):?>
+    <?php echo $this->element('paidlistings_listing_plans',array('plans'=>$paid_plans));?>
+<?php endif;?>
+
+<?php if(!$used_trials):?>
+<fieldset>
+
+    <?php if( $User->id == 0 ):?>
+
+        <?php if($this->Config->content_name == 'required' || $this->Config->content_name == 'optional'):?>
+        <div class="jr_fieldDiv">
+            <label class="jrLabel"><?php __t("Name");?><?php if($this->Config->content_name == 'required'):?><span class="required"><?php __t("*");?></span><?php endif;?></label>
+            <input type="text" id="name" class="jrName" name="data[name]" value="" size="50" maxlength="255" <?php if($User->id>0):?>readonly="readonly"<?php endif;?> />
+        </div>
+        <?php endif;?>
+
+        <?php if($this->Config->content_email == 'required' || $this->Config->content_email == 'optional'):?>
+        <div class="jr_fieldDiv">
+            <label class="jrLabel"><?php __t("Email");?><?php if($this->Config->content_email == 'required'):?><span class="required"><?php __t("*");?></span><?php endif;?></label>
+            <input type="text" id="email" class="jrEmail" name="data[email]" value="" size="50" maxlength="255" <?php if($User->id>0):?>readonly="readonly"<?php endif;?> />
+        </div>
+        <?php endif;?>
+
+    <?php endif;?>
+
+    <div class="jr_fieldDiv" id="jr_listingTitle">
+        <label class="jrLabel"><?php __t("Title");?><span class="required"><?php __t("*");?></span></label>
+        <input type="text" id="title" class="jrTitle" name="data[Listing][title]" value="<?php echo htmlspecialchars($listing['Listing']['title'],ENT_QUOTES,cmsFramework::getCharset());?>" maxlength="255" />
+    </div>
+
+    <?php if(($alias_field == 'admin' && $this->Access->isAdmin()) || ($alias_field == 'config' && $this->Access->canAddListing($this->User->id))): // Only admins and super admins see the alias field.?>
+        <div class="jr_fieldDiv" id="jr_listingTitleAlias">
+            <label class="jrLabel"><?php __t("Title Alias");?></label>
+            <input type="text" id="slug" class="jrTitle" name="data[Listing][alias]" value="<?php echo Sanitize::getString($listing['Listing'],'slug');?>" maxlength="255" />
+        </div>
+    <?php endif;?>   
+     
+</fieldset>
+
+<?php echo $CustomFields->makeFormFields($listing_fields,'listing',null,__t("Select",true));?>
+
+<?php if($this->Config->content_summary == 'required' || $this->Config->content_summary == 'optional' || $this->Config->content_description == 'required' || $this->Config->content_description == 'optional'):?>
+
+<fieldset>
+
+    <?php if($this->Config->content_summary == 'required' || $this->Config->content_summary == 'optional'):?>
+    <div class="jr_fieldDiv">
+       <label class="jrLabel"><?php __t("Summary");?><?php if($this->Config->content_summary == 'required'):?><span class="required"><?php __t("*");?></span><?php endif;?></label>
+        <textarea id="introtext" name="data[Listing][introtext]" cols="45" rows="5" class="jrTextArea wysiwyg_editor"><?php echo $listing['Listing']['summary'];?></textarea>
+    </div>
+    <?php endif;?>
+    
+    <?php if($this->Config->content_description == 'required' || $this->Config->content_description == 'optional'):?>
+    <div class="jr_fieldDiv">
+       <label class="jrLabel"><?php __t("Description");?><?php if($this->Config->content_description == 'required'):?><span class="required"><?php __t("*");?></span><?php endif;?></label>
+        <textarea id="fulltext" name="data[Listing][fulltext]" cols="45" rows="10" class="jrTextArea wysiwyg_editor"><?php echo $listing['Listing']['description'];?></textarea>
+    </div>
+    <?php endif;?>
+
+</fieldset>
+
+<?php endif;?>
+
+<?php if($this->Config->content_images>0 && ($isNew || (!$isNew && $this->Config->content_images_edit)) 
+        || !empty($listing['Listing']['images'])
+):?>
+
+<fieldset id="images">
+
+<legend><?php echo __t("Images");?></legend>
+    
+    <?php if(!$isNew):?>
+            
+    <div id="content_images" class="jr_fieldDiv">    
+
+        <?php if(count($listing['Listing']['images'])>0):?>
+            <label class="jrLabel"><?php __t("Image Manager - Use the radio buttons to set the main image shown in lists.")?></label>
+
+            <?php for($i=0;$i<count($listing['Listing']['images']);$i++):?>
+                <div id="image<?php echo $i?>" class="jr_imageEdit">
+                    
+                    <?php echo $Html->image(WWW_ROOT . _JR_WWW_IMAGES . $listing['Listing']['images'][$i]['path'],array('style'=>'border:1px solid #BFBFBF; width:60px;height:60px;'));?>
+                    
+                    <br />                                             
+                    
+                    <?php if(count($listing['Listing']['images'])>1):?>    
+                    
+                        <?php $formToken = cmsFramework::getCustomToken($listing['Listing']['listing_id'],$listing['Listing']['images'][$i]['path']);?>
+                        <input class="jr_pointer" id="intro<?php echo $i?>" name="intro[]" type="radio" value="<?php echo $i?>" <?php echo $i == 0 ? 'checked="checked"' : ''?> onclick="jreviews.listing.setMainImage(this,{'token':'<?php echo $formToken;?>','listing_id':<?php echo $listing['Listing']['listing_id'];?>,'image_path':'<?php echo $listing['Listing']['images'][$i]['path']?>'});" / >
+                                    
+                        &nbsp;&nbsp;
+                    <?php endif; ?>
+                    
+                    <?php $formToken = cmsFramework::getCustomToken($listing['Listing']['listing_id'],$i,$listing['Listing']['images'][$i]['path']);?>
+                    <span class="jrIcon jrIconRemoveImage jr_pointer" onclick="jreviews.listing.deleteImage(this,{'token':'<?php echo $formToken;?>','title':'<?php __t("Delete",false,true);?>','listing_id':<?php echo $listing['Listing']['listing_id'];?>,'delete_key':<?php echo $i?>,'image_path':'<?php echo $listing['Listing']['images'][$i]['path']?>','text':'<?php __t("Are you sure you want to delete this image?",false,true);?>'});"></span>
+                    
+                    <span class="jr_loadingSmall jr_hidden"></span>
+                </div>
+            <?php endfor;?>
+            
+            <div style="clear:both;"></div>
+        
+        <?php endif;?>    
+    </div>
+    <?php endif;?>
+
+    <?php if($this->Config->content_images>0 && ($isNew || (!$isNew && $this->Config->content_images_edit))):?>
+    <div id="image_upload_container" class="jr_fieldDiv">
+    <a class="jrButton" style="margin: 0 5px 5px 0; float: right;" onclick="document.getElementById('image_upload_container').innerHTML = document.getElementById('image_upload_container').innerHTML; return false;" href="#"><?php __t("Clear");?></a>
+        <label class="jrLabel"><?php __t("Images");?> ( <?php echo sprintf(__t("Max. size %s Kb",true),$this->Config->content_max_imgsize);?> ):</label>
+        <div class="clr">&nbsp;</div>    
+        <?php for($i=0; $i<$this->Config->content_images;$i++):?>
+            <input size="20" type="file" id="image<?php echo $i+1;?>" class="jr_imageUpload" name="image[]" />
+        <?php endfor;?>
+    
+    </div>
+    <?php endif;?>
+    
+</fieldset>
+
+<?php endif;?>
+
+<?php if($Access->canAddMeta()):?>
+
+<fieldset>
+
+<legend><?php __t("Meta Data");?></legend>
+
+    <div class="jr_fieldDiv">
+       <label class="jrLabel"><?php __t("Meta Description");?></label>
+        <textarea id="metadesc" class="jrTextArea" name="data[Listing][metadesc]" cols="45" rows="5"><?php echo htmlspecialchars($listing['Listing']['metadesc'],ENT_QUOTES,cmsFramework::getCharset());?></textarea>
+    </div>
+    
+    <div class="jr_fieldDiv">
+        <label class="jrLabel"><?php __t("Meta Keywords");?></label>
+        <textarea id="metakey" class="jrTextArea" name="data[Listing][metakey]" cols="45" rows="5"><?php echo htmlspecialchars($listing['Listing']['metakey'],ENT_QUOTES,cmsFramework::getCharset());?></textarea>
+    </div>
+    
+</fieldset>    
+
+<?php endif;?>
+
+<?php // Check if review form should be shown when submitting a new listing 
+if($Access->canAddReview() && $isNew && $criteria['state']
+        && $this->Config->content_show_reviewform != "none" 
+        && ( ($this->Config->content_show_reviewform=="all" && ($this->Config->user_reviews || $this->Config->author_review))  
+            || ($this->Config->content_show_reviewform=="authors" && in_array($User->id,explode(',',$this->Config->authorids)) && $this->Config->author_review)
+            || ($this->Config->content_show_reviewform=="noteditors" && $this->Config->user_reviews && !$this->Access->isJreviewsEditor($User->id))
+            )
+        ):?>
+    
+    <?php if($this->Config->reviewform_optional):?>
+    <fieldset class="reviewForm">
+        <div class="jr_fieldDiv"> 
+            <input type="checkbox" name="data[review_optional]" id="review_optional" value="1" onclick="jQuery('#reviewForm').slideToggle();" />
+            &nbsp;<label for="review_optional" style="display:inline;"><?php __t("I will submit my review later on");?></label>
+        </div>
+    </fieldset>  
+    <?php endif;?> 
+        
+    <fieldset id="reviewForm" class="reviewForm">    
+        <?php if(in_array($this->Config->reviewform_title,array('required','optional'))):?>
+            <div class="jr_fieldDiv">
+               <label class="jrLabel"><?php __t("Review title");?><?php if($this->Config->reviewform_title=='required'):?><span class="required">*</span><?php endif;?></label>
+               <?php echo $Form->text('data[Review][title]',array('id'=>'title','value'=>'','class'=>'jrTitle','maxlength'=>100));?>    
+            </div>
+        <?php endif;?>
+        
+        <?php if ( $criteria['state'] == 1 ): // if ratings enabled ?>
+        
+        <fieldset>
+        
+            <legend><?php __t("Ratings (the higher the better)");?></legend>
+            
+            <table class="jr_ratingsTable<?php echo ($Access->isJreviewsEditor($User->id)) ? ' jrEditorRatings' : ''?>" border="0" cellpadding="0" cellspacing="0">
+                <?php foreach($criteria['criteria'] AS $key=>$value):?>                
+                    <tr>                                                                                                         
+                        <td>                                                                                                     
+                            <?php echo $value;?><?php if($criteria['required'][$key]):?><span class="required">*</span><?php endif;?>
+                            <?php if(isset($criteria['tooltips'][$key]) && trim($criteria['tooltips'][$key]) != ''):?>           
+                                <span class="jr_infoTip">&nbsp;</span><div class="jr_tooltipBox"><?php echo $criteria['tooltips'][$key];?></div>
+                            <?php endif;?>
+                        </td> 
+                        <td>
+                            <?php if($this->Config->rating_selector == 'stars'):?><div id="jr_stars-new<?php echo $key;?>"><?php endif;?>
+                            <?php echo $Form->select(
+                                'data[Rating][ratings][]',
+                                $Rating->options($this->Config->rating_scale,__t("Rate it",true), $criteria['required'][$key]),
+                                ($this->Config->rating_default_na && !$criteria['required'][$key] ? 'na' : ''),
+                                array('id'=>'ratings'.$key.$value)
+                            );?>
+                            <?php if($this->Config->rating_selector== 'stars'):?></div><?php endif;?>
+                        </td>
+                        <td class="ratingCaption"></td>
+                    </tr>
+                <?php endforeach;?>    
+                
+            </table>
+            
+        </fieldset>
+        
+        <?php endif;?>
+                        
+        <?php echo $CustomFields->makeFormFields($review_fields,'review',null,__t("Select",true));?>
+    
+        <?php if(in_array($this->Config->reviewform_comment,array('required','optional'))):?>    
+        
+        <fieldset>
+            
+            <legend><?php __t("Comments");?><?php if($this->Config->reviewform_comment=='required'):?><span class="required">*</span><?php endif;?></legend>
+    
+            <div class="jr_fieldDiv">
+            <?php echo $Form->textarea('data[Review][comments]',array('id'=>'comments','value'=>'','rows'=>5,'cols'=>45,'class'=>'jrTextArea'));?>
+            </div>
+    
+        </fieldset>
+        
+        <?php endif;?>
+    
+    </fieldset> 
+<?php endif;?>    
+
+<div id="jr_listingFormValidation" class="jr_validation"></div>
+
+<br />
+
+<?php if($Access->showCaptcha() && $isNew):?>
+    <div id="captcha_div" style="float: left;"><?php echo $captcha;?></div><div valign="top">&nbsp;&nbsp;<input type="text" size="5" maxlength="5" id="jr_captchaCode" class="jr_captcha_code" name="data[Captcha][code]" />&nbsp;&nbsp;<?php __t("Please enter the security code.");?></div> <br />
+<?php endif;?>
+
+<input id="jr_submitListing" type="button" onclick="jreviews.listing.submit(this);" class="jrButton" value="<?php __t("Submit");?>">
+<input id="jr_canceListing" type="button" onclick="history.back();" class="jrButton" value="<?php __t("Cancel");?>">
+
+<span class="jr_loadingSmall jr_hidden"></span>
+<?php endif;?>

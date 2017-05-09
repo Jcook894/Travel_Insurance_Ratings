@@ -1,0 +1,140 @@
+<?php
+$formsTab = array();
+
+$formsTab[__a("Listing Form",true)] = array(
+		array(
+			'label'=>__a("Listing Title",true),
+			'type'=>'radioYesNo',
+			'name'=>'listing_title',
+			'default'=>Sanitize::getVar($this->Config,'listing_title',0),
+			'attributes'=>array('div'=>false),
+			'help'=>__a("If you disable the listing title field you must use the Listing Title Format setting below to specify how you want the title to be constructed.",true),
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Automated Listing Title Format",true),
+			'type'=>'text',
+			'name'=>'listing_title_format',
+			'help'=>'Automatic listing title generation will be triggered only if the title field is hidden. Valid tags: {listing_id}, {directory}, {category} and any custom field by using the syntax {jr_field}.',
+			'attributes'=>array('style'=>'width:90%;'),
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Automated Listing Alias Format",true),
+			'type'=>'text',
+			'name'=>'listing_alias_format',
+			'help'=>'Automatic listing alias generation will be triggered by default on new listing submissions only. Valid tags: {listing_id}, {title}, {directory}, {category} and any custom field by using the syntax {jr_field}.',
+			'attributes'=>array('style'=>'width:90%;'),
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Replace Listing Alias on Edit",true),
+			'type'=>'radioYesNo',
+			'name'=>'listing_alias_format_edit',
+			'default'=>Sanitize::getVar($this->Config,'listing_alias_format_edit',0),
+			'attributes'=>array('div'=>false),
+			'help'=>__a("The setting will be ignored if the listing {title} tag is included in the alias format. Since the alias is used to generate URLs for listings if you enable this setting and the values of fields used in the alias format change, then the old URL will no longer be reachable.",true),
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Publication Date",true),
+			'type'=>'radioYesNo',
+			'name'=>'listing_publication_date',
+			'default'=>Sanitize::getVar($this->Config,'listing_publication_date',0),
+			'attributes'=>array('div'=>false),
+			'help'=>__a("The listing will remain unpublished until this date",true),
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Expiration Date",true),
+			'type'=>'radioYesNo',
+			'name'=>'listing_expiration_date',
+			'default'=>Sanitize::getVar($this->Config,'listing_expiration_date',0),
+			'attributes'=>array('div'=>false),
+			'help'=>__a("The listing will no longer be published after this date",true),
+			'global'=>false
+		),
+		array(
+			'label'=>__a("Summary",true),
+			'type'=>'select',
+			'name'=>'content_summary',
+			'default'=>Sanitize::getVar($this->Config,'content_summary'),
+			'options'=>array(
+							'required'=>'Required',
+							'optional'=>'Optional',
+							'hidden'=>'Hidden'
+						),
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Description",true),
+			'type'=>'select',
+			'name'=>'content_description',
+			'default'=>Sanitize::getVar($this->Config,'content_description'),
+			'options'=>array(
+							'required'=>'Required',
+							'optional'=>'Optional',
+							'hidden'=>'Hidden'
+						),
+
+			'help'=>'',
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Review form access",true),
+			'type'=>'select',
+			'name'=>'content_show_reviewform',
+			'default'=>Sanitize::getVar($this->Config,'content_show_reviewform'),
+			'options'=>array(
+							'authors'=>'Editors',
+							'noteditors'=>'Everyone except editors',
+							'all'=>'Everyone',
+							'none'=>'Don\'t show'
+							),
+
+			'help'=>'',
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Make review optional",true),
+			'type'=>'radioYesNo',
+			'name'=>'reviewform_optional',
+			'default'=>Sanitize::getVar($this->Config,'reviewform_optional'),
+			'attributes'=>array('div'=>false),
+			'help'=>'',
+			'global'=>true
+		)
+	);
+
+$formsTab[__a("Review Form",true)] = array(
+		array(
+			'label'=>__a("Title",true),
+			'type'=>'select',
+			'name'=>'reviewform_title',
+			'default'=>Sanitize::getVar($this->Config,'reviewform_title'),
+			'options'=>array(
+						'required'=>'Required',
+						'optional'=>'Optional',
+						'hidden'=>'Hidden'
+						),
+
+			'help'=>'',
+			'global'=>true
+		),
+		array(
+			'label'=>__a("Comment",true),
+			'type'=>'select',
+			'name'=>'reviewform_comment',
+			'default'=>Sanitize::getVar($this->Config,'reviewform_comment'),
+			'options'=>array(
+						'required'=>'Required',
+						'optional'=>'Optional',
+						'hidden'=>'Hidden'
+						),
+
+			'help'=>'',
+			'global'=>true
+		)
+	);
+
+$AdminSettings->displayTab('listing-type-forms',$formsTab,'[Criteria][config]',$listingType['ListingType']['config']);

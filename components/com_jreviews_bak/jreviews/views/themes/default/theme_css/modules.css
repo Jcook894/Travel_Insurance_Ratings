@@ -1,0 +1,269 @@
+/*************************************
+JReviews Listings & Reviews Modules
+*************************************/
+div.jr_listings_mod { 
+    border-top: 0;
+    padding-top: 5px; 
+	overflow: hidden;
+}
+    
+div.jr_listings_mod .listItem  {
+    float: left; 
+    padding-right: 10px; 
+    margin: 0;
+	font-size: 11px !important;
+}
+
+div.jr_listings_mod .listItem.lastItem  {
+    padding-right: 0px !important; 
+}
+
+div.jr_listings_mod div.contentNumber {
+	font-weight: bold;
+	margin: 0 5px 5px 0;
+	float: left;
+}
+
+div.jr_listings_mod .contentThumbnail{
+    float: left; 
+    margin: 0 10px 10px 0;
+}
+
+div.jr_listings_mod .contentThumbnail img {
+    border: 1px solid #CCC;    
+}
+
+div.jr_listings_mod .contentColumn {
+	/*float: left;*/
+}
+    
+div.jr_listings_mod .contentTitle {
+    margin-bottom: 5px;
+}
+    
+div.jr_listings_mod .contentTitle a {
+    font-size: 12px !important;
+}
+    
+div.jr_listings_mod .contentInfo  {
+    margin-bottom: 5px;
+}
+
+div.jr_listings_mod div.overall_ratings {
+	float: none;
+	margin-bottom: 5px;
+}
+
+div.jr_listings_mod div.overall_ratings span.rating_label {
+	display: none;
+}
+   
+div.jr_listings_mod div.jr_divider {
+    border: 0;
+    clear: both;
+    line-height: 1px;
+    margin: 0;
+    padding: 2.5px;
+}
+
+
+/* Vertical layout */ 
+div.verticalLayout.listItem {
+	border-bottom: 1px solid #ddd;
+}
+
+div.verticalLayout div.contentNumber {
+	width: 15px;
+}
+
+div.verticalLayout  div.contentThumbnail {
+    margin: 0 5px 5px 0;
+}
+   
+div.verticalLayout .contentThumbnail img {
+    width: 25px !important; 
+	height: 25px !important; 
+}
+
+
+/* Slideshow layout */ 
+div.slideshowLayout.listItem {	
+	margin-bottom: 5px;
+}
+
+div.slideshowLayout  div.contentThumbnail {
+	width: 100%;
+	height: 230px;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	text-align: center;
+}
+
+div.slideshowLayout  div.contentColumn {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	background: #222;
+	background: rgba(0,0,0,0.6);	
+}
+
+div.slideshowLayout  a.slideshowTitle:link, 
+div.slideshowLayout  a.slideshowTitle:visited {
+	display: block;
+	width: 97%;
+	padding: 3%;
+	color: #eee;
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 0;	
+}
+
+div.slideshowLayout div.contentInfo {
+	display: none;
+	width: 97%;
+	padding: 0 3% 3%;
+	color: #eee !important;
+}
+
+div.slideshowLayout  div.contentThumbnail a.slideshowTitle:hover  {
+	color: #eee !important;
+}
+
+div.slideshowLayout  div.contentThumbnail:hover div.contentInfo {
+	display: block;
+}
+
+div.slideshowLayout div.overall_ratings {
+	position: absolute;
+	background: #222;
+	background: rgba(0,0,0,0.6);
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 2px;
+	width: 100%;
+}
+
+div.slideshowLayout div.overall_ratings span.rating_value{
+	color: #eee;
+}
+
+div.slideshowLayout div.overall_ratings  div.overall_editor,
+div.slideshowLayout div.overall_ratings  div.overall_user{
+	float: right;
+	margin-left: 10px;
+}
+
+div.slideshowLayout .rating_star_user, 
+div.slideshowLayout .rating_star_editor , 
+div.slideshowLayout .rating_star_user div, 
+div.slideshowLayout .rating_star_editor div { 
+	background: url(images/rating_stars_dark.png) 0 0 repeat-x; 
+}
+
+div.slideshowLayout  .rating_star_user div {
+	background-position: 0 -16px; 
+}
+	
+div.slideshowLayout  .rating_star_editor div { 
+	background-position: 0 -32px;  
+}
+
+
+/*************************************
+JReviews Fields & Range Modules
+*************************************/
+div.jr_fields_mod { 
+    border-top: solid 0px #ccc;
+    padding-top: 15px; 
+    display: inline;
+}
+    
+div.jr_fields_mod ul {
+	overflow: hidden;
+    margin-left: 0;
+    padding-left: 0;
+}
+    
+div.jr_fields_mod ul li {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+    text-indent: 0;
+}
+
+div.jr_fields_mod_horiz ul {
+    overflow: hidden;
+}
+    
+div.jr_fields_mod_horiz ul li {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+    text-indent: 0;
+    float: left;
+    width: 33%;
+    display: block;
+}
+
+
+/*************************************
+JReviews Favorite Users Module
+*************************************/
+div.jr_favoriteUsers { 
+    border-top: 0;
+	overflow: hidden;
+}
+
+div.favoriteListingTitle {
+    font-weight: normal;
+    line-height: 1.2em;
+    margin-bottom: 10px;
+}
+
+div.jr_favoriteUsers div.listItem {
+    float: left; 
+    padding-right: 10px; 
+    margin: 0 0 10px 0;
+	text-align: center;
+}
+    
+div.jr_favoriteUsers .listItem.lastItem  {
+    padding-right: 0px !important; 
+}
+
+div.jr_favoriteUsers div.listItem  a {
+    display: block;
+    text-align: center;
+    width: 99%;
+    margin: 0 auto;
+}    
+    
+div.jr_favoriteAvatar {
+    margin: 0 auto 5px;
+    border: 1px solid #ccc;
+    padding: 1px;
+    height: 49px;
+    width: 49px;
+    overflow: hidden;
+    display: block;
+}
+    
+div.jr_favoriteUsers img.jr_avatar {
+    width: 49px;
+    text-align: center;
+}
+    
+div.jr_favoriteUsers div.jr_divider {
+    border: 0;
+    clear: both;
+    line-height: 1px;
+    margin: 0;
+    padding: 2.5px;
+}

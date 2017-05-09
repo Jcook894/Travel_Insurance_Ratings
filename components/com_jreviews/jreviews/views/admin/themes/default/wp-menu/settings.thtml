@@ -1,0 +1,33 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2010-2015 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit https://www.jreviews.com
+ * or contact sales@jreviews.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<?php foreach($fields AS $title=>$group):?>
+
+    <fieldset>
+
+        <label class="jrLabel"><?php echo $title;?></label>
+
+        <?php foreach($group AS $field):?>
+
+            <?php $AdminSettings->displayInput($field, 'data[Menu][_jr_menu_%s]', get_post_meta($menu_id, '_jr_menu_' . $field['name'], true));?>
+
+        <?php endforeach;?>
+
+    </fieldset>
+
+<?php endforeach;?>
+
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+  	jQuery('.jrMultipleSelect').not('.jr-ready').addClass('jr-ready').select2({ width: '100%' });
+  });
+</script>

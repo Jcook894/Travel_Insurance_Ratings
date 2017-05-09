@@ -1,0 +1,72 @@
+[
+    {
+        "menu": "ListingTypes",
+        "override": true,
+        "url": "listing_types/index",
+        "settings": [
+            {
+                "title": "Schema.org Object Type",
+                "keywords": "seo, schema.org, structured data, rich snippets, object type",
+                "description": "",
+                "name": "schema_org_type",
+                "tags": ["SEO"]
+            },
+            {
+                "title": "Facebook Open Graph Object Type",
+                "keywords": "seo, social, facebook open graph, structured data, rich snippets, object type",
+                "description": "",
+                "name": "facebook_opengraph_type",
+                "tags": ["SEO"]
+            },
+            {
+                "title": "Twitter Card Type",
+                "keywords": "seo, social, twitter card, structured data, rich snippets",
+                "description": "Set the Twitter Card Type to use for the Twitter share button",
+                "name": "twitter_card",
+                "tags": ["SEO"]
+            },
+            {
+                "title": "Listing Detail Page Title",
+                "keywords": "seo, detail, page title",
+                "description": "Create page titles for listings using different dynamic value tags.",
+                "name": "type_metatitle",
+                "tags": ["SEO", "Listings"]
+            },
+            {
+                "title": "Meta Keywords",
+                "keywords": "seo, detail, keywords, meta",
+                "description": "Create meta keywords for listings using different dynamic value tags.",
+                "name": "type_metakey",
+                "tags": ["SEO", "Listings"]
+            },
+            {
+                "title": "Meta Description",
+                "keywords": "seo, detail, description, meta",
+                "description": "Create meta description for listings using different dynamic value tags.",
+                "name": "type_metakey",
+                "tags": ["SEO", "Listings"]
+            },
+            {
+                "title": "Review Detail Page Title",
+                "keywords": "seo, reviews, page title",
+                "description": "Create page titles for reviews using different dynamic value tags.",
+                "name": "review_pagetitle",
+                "tags": ["SEO", "Reviews"]
+            },
+            {
+                "title": "Meta Keywords",
+                "keywords": "seo, reviews, keywords, meta",
+                "description": "Create meta keywords for reviews using different dynamic value tags.",
+                "name": "review_metakey",
+                "tags": ["SEO", "Reviews"]
+            },
+            {
+                "title": "Meta Description",
+                "keywords": "seo, reviews, description, meta",
+                "description": "Create meta description for reviews using different dynamic value tags.",
+                "name": "review_metadesc",
+                "tags": ["SEO", "Reviews"]
+            }
+		]
+    }
+]

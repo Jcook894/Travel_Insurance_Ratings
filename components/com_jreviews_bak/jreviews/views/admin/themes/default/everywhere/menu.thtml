@@ -1,0 +1,24 @@
+<?php
+/**
+ * JReviews - Reviews Extension
+ * Copyright (C) 2006-2008 ClickFWD LLC
+ * This is not free software, do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+defined( 'MVC_FRAMEWORK') or die( 'Direct Access to this location is not allowed.' );
+?>
+
+<table width="165" class="sidemenu-box" width="100%" border="0" cellpadding="0" cellspacing="1">
+<tr>
+	<td>
+	<div class="title-menu">Everywhere Addon</div>
+	<div id="about" style="display:block; margin:0px; padding:0px;">
+		<ul class="title-submenu">
+            <li><a id="jreviews" href="#" onclick="jreviews_admin.menu.load_main();return false;">Back to JReviews</a></li>
+		</ul>
+	</div>
+	</td>
+</tr>
+</table>

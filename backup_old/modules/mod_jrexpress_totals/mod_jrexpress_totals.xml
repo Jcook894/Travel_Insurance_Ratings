@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+	<name>JReviews Express Totals Module</name>
+	<author>Alejandro schmeichler</author>
+	<creationDate>June 2009</creationDate>
+	<copyright>Copyright (C) 2009 Alejandro Schmeichler.</copyright>
+	<authorEmail>sales@reviewsforjoomla.com</authorEmail>
+	<authorUrl>www.reviewsforjoomla.org</authorUrl>
+	<version>1.0</version>
+	<description>JReviews Express Totals Module: shows the total listing and review count.</description>
+	<files>
+		<filename module="mod_jrexpress_totals">mod_jrexpress_totals.php</filename>
+		<filename>index.html</filename>	
+		<filename>info.html</filename>			
+		<filename>en-GB.mod_jrexpress_totals.ini</filename>		
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_jrexpress_totals.ini</language>
+	</languages>
+	<params>
+		<param name="tmpl_suffix" type="text" default="" label="JRExpress Template Suffix" description="This suffix will be applied to the module view file and is useful to create multiple instances of the module that have different outputs." />
+		<param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+	</params>
+	<params group="advanced">
+		<param name="cache" type="list" default="0" label="Caching" description="Select whether to cache the content of this module">
+			<option value="1">Use global</option>
+			<option value="0">No caching</option>
+		</param>
+		<param name="cache_time" type="text" default="900" label="Cache Time" description="The time before the module is recached" />
+	</params>
+</install>

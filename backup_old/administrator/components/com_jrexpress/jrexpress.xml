@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="component" version="1.5.0">
+	<name>JRExpress</name>
+	<author>Alejandro Schmeichler</author>
+	<creationDate>September 2009</creationDate>
+	<copyright>Copyright (C) 2009. Alejandro Schmeichler</copyright>
+	<authorEmail>sales@reviewsforjoomla.com</authorEmail>
+	<authorUrl>www.reviewsforjoomla.com</authorUrl>
+	<version>2.0.5.6</version>
+	<description>JReviews Express - user reviews for Joomla</description>
+	
+	<files>
+        <filename>index.html</filename>
+        <filename>jrexpress.php</filename>
+        <filename>router.php</filename>
+        <filename>sef_ext.php</filename>
+        <filename>xajax.jrexpress.php</filename>   
+    </files>	
+	
+    <installfile>install.jrexpress.php</installfile>
+	<uninstallfile>uninstall.jrexpress.php</uninstallfile>
+	
+	<administration>
+		<menu>JReviews Express</menu>
+		<files>
+			<filename>index.html</filename>
+			<filename>jrexpress.xml</filename>
+			<filename>admin.jrexpress.php</filename>
+			<filename>install.jrexpress.php</filename>
+			<filename>uninstall.jrexpress.php</filename>
+			<filename>jrexpress.sql</filename>
+			<filename>upgrade_build16.sql</filename>		
+			<filename>jrexpress.s2</filename>			
+			<filename>jrexpress.plugin.s2</filename>		
+		</files>
+
+	</administration>
+	
+	<params>
+		<param name="action" type="list" default="" label="Type of Menu" description="Choose a menu type">
+            <option value="4">Listings - Top user rated (Special)</option>
+            <option value="6">Listings - Most recent (Special)</option>
+            <option value="7">Listings - Most popular (Special)</option>
+            <option value="8">Listings - Most reviews (Special)</option>
+            <option value="10">My reviews</option>
+		</param>
+        <param name="@spacer" type="spacer" default="" label="Fill appropriate IDs below." description="" />
+        <param name="sectionid" type="text" size="25" default="" label="Section ID" description="Use to limit results to the specified section, not used for directory option. Required for section list." />
+        <param name="catid" type="text" size="25" default="" label="Category ID" description="Use to limit results to the specified category, not used for directory option. Required for category list." />
+        <param name="@spacer" type="spacer" default="" label="" description="" />
+        <param name="total_special" type="text" size="3" default="" label="Page total (Special tasks)" description="Total number of entries shown for tasks marked as (special) in the Menu Type list above." />
+        <param name="limit_special" type="text" size="3" default="10" label="Limit per page (Special tasks)" description="Number of entries per page." />
+        <param name="@spacer" type="spacer" default="" label="" description="" />
+        <param name="dirtitle" type="radio" default="1" label="Show Menu name/Title" description="Show/Hide the title at the top of the page.">
+            <option value="0">Hide</option>
+            <option value="1">Show</option>
+        </param>
+        <param name="title" type="text" size="25" default="" label="Page title" description="If you enter something here it will be used as page title instead of the menu name or directory title in the configuration." />
+        <param name="@spacer" type="spacer" default="" label="" description="" />
+        <param name="listview" type="list" default="" label="List view template" description="Overrides the section and category settings of the template manager.">
+            <option value="" selected="1">Use global/template manager setting</option>
+            <option value="0">Table view</option>
+            <option value="1" >Blog view</option>
+            <option value="2">Thumb view</option>
+        </param>
+        <param name="tmpl_suffix" type="text" size="20" default="" label="Template suffix" description="Only necessary if you have want to use a different style for this template." />
+	</params>		
+</install>

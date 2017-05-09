@@ -1,0 +1,257 @@
+/**
+ * JReviews Express - user reviews for Joomla
+ * Copyright (C) 2009 Alejandro Schmeichler
+ * This stylesheet file is proprietary. Do not distribute it.
+ * For licencing information visit http://www.reviewsforjoomla.com
+ * or contact sales@reviewsforjoomla.com
+**/
+
+/*************************************
+MAIN UI ELEMENTS
+*************************************/
+.jr_itemDetail {} /* container for item details view */
+
+.jr_itemDetail div.contentheading	{
+	margin-bottom: .5em;}
+		
+.jr_itemDetail div.contentInfo	{
+	margin: 5px 0 7px 0; 
+	padding: .5em 0 .5em 0;
+	border-color: #ccc; 
+	border-style:solid; 
+	border-width: 1px 0 1px 0;
+	}
+	
+/* author community builder avatar */	
+.jr_itemDetail div.contentInfo img.jr_avatar{
+	float: left;
+	margin: 0 10px 0 0;
+	border:0;
+	width:48px;
+	height:auto;
+	}
+	 
+/*************************************
+OVERALL RATING TABLE
+*************************************/
+.jr_itemDetail table.rating_table {
+	margin-bottom: 15px; 
+	}
+	
+div.jr_itemDetail .contentStats {
+	float: left !important;
+	margin-bottom: 20px; 
+	border-left: solid 1px #ccc; 
+	}
+	 	
+.jr_itemDetail .contentStats .statDiv {
+	float: left; 
+	height: 40px; 
+	width: 58px;
+	padding: 0 10px 0 10px; 
+	border-right: solid 1px #ccc; 
+	}
+.jr_itemDetail img.imgFavoriteAdd	{
+	margin: 0 0 0 5px;
+	}
+
+.jr_itemDetail .rating_bar_user,
+.jr_itemDetail .rating_bar_editor{
+	width: 55px; 
+	}
+	
+.jr_itemDetail .rating_star_user,
+.jr_itemDetail .rating_star_editor {
+	width: 60px; 
+	}
+	
+
+/*************************************
+INTRO AND FULL TEXT
+*************************************/
+div.jr_itemDetail .contentIntrotext {line-height:1.7em;}
+div.jr_itemDetail .contentFulltext {line-height:1.7em;}
+
+
+/*************************************
+IMAGES CONTAINER (main image and thumbnails
+Main image and gallery thumbnail width property is set directly in /listings/detail.thtml
+in order to use the width configuration setting
+*************************************/
+div.itemImages	{
+	float: right; 
+	margin: 0 0 30px 10px; 
+	text-align:right;
+	}
+
+div.itemImages .itemMainImage  {
+/* read note above for width*/
+	overflow:hidden;
+	clear:both;
+	border:solid 1px #ccc;
+	padding:1px;
+	margin:0 0 10px 0;
+	vertical-align:middle;
+	text-align:left;	
+	}
+	
+div.itemImages .itemMainImage img {	
+	display:block;
+	text-align:center;
+	margin-right:auto;
+	margin-left:auto;
+	}	
+
+div.itemImages div.itemThumbnails div  {
+/* read note above for width*/
+	overflow:hidden;
+	float:left;
+	border:solid 1px #ccc;
+	padding:1px;
+	margin:0 5px 7px 0;
+	vertical-align:middle;
+	text-align:center}
+
+div.itemImages div.itemThumbnails a { text-decoration:none; }
+
+
+/*************************************
+CUSTOM FIELDS
+*************************************/
+.jr_itemDetail .jr_customFields 	{
+	clear: left;
+	margin-bottom: 15px;}
+
+
+/*************************************
+COMMON REVIEW ELEMENTS
+*************************************/
+h4.jr_reviewTitle	{
+	font-size: 14px;
+	font-weight:bold;
+	margin: 0 0 .5em 0;
+	}
+	
+div.jr_review	{} /*Container for individual reviews */
+#jr_reviewEditor	{}
+#jr_reviewUserSummary {}
+	
+table.jr_reviewContainer	{
+	width: 100%;}
+
+td.jr_reviewColumn1	{
+	width: 100%; 
+	padding-right: 20px;
+	vertical-align:top;
+	line-height:1.5em;
+	font-size:95%
+	}
+	
+td.jr_reviewColumn2	{
+	white-space: nowrap;
+	vertical-align:top;
+	padding-right: 5px;}
+	
+div.jr_review table.rating_table	{
+	margin-bottom: 10px;
+	}
+
+#rating_table_summary { /* special table for user review summary */
+	margin-bottom: 0;
+	}
+
+/* buttons */	
+div.reviewHelpful	{
+	font-size:90%;
+	font-weight:bold;
+	color: #777;
+	line-height:2em;
+	margin-bottom: 10px;
+	}
+
+/* results */		
+div.jr_helpfulSummary {
+	font-size:90%;
+	font-weight:normal;
+	color: #777;
+	line-height:2em;
+	margin-bottom: 10px;	
+	}
+	
+div.reviewHelpful img	{
+	margin: 0 5px 0 0;
+	}
+	
+div.reviewInfo	 {
+	font-size:90%;
+	color: #777;
+	line-height:1.5em;
+	padding-top: 0px;
+	}
+	
+/* review community avatar */	
+div.reviewInfo img {
+	float: left;
+	margin: 0 10px 10px 0;
+	border:0;
+	width:48px;
+	height:auto;
+	}
+	
+.jr_box .jr_customFields {
+	margin: 15px 0 0 0;}
+	
+	
+/*************************************
+EDITOR REVIEW ELEMENTS
+*************************************/
+#jr_reviewEditorMainTitle {
+	font-size: 17px;
+	margin: 1em 0 .5em 0;
+	background: url(images/review_editor.png) top left no-repeat;
+	padding-left: 18px;
+	}
+	
+#jr_reviewEditor	{
+	margin-bottom: 30px;}
+	
+	
+/*************************************
+USER REVIEW SUMMARY
+*************************************/
+#jr_reviewUserSummaryMainTitle {
+	font-size: 17px;
+	margin: 1em 0 .5em 0;
+	background: url(images/review_user.png) top left no-repeat;
+	padding-left: 18px;
+	}
+	
+#jr_reviewUserSummary	{
+	margin-bottom: 10px;}
+	
+	
+/*************************************
+MISC
+*************************************/
+a.jr_reviewReport  {
+	font-size: 90%;
+	background:url(images/mono_warning_14.gif) center left no-repeat;
+	padding-left:20px;
+	padding-bottom: 1px;
+	line-height:1.85em;
+	}
+	
+a.jr_myReviews  {
+	font-size: 90%;
+	background:url(images/mono_home_14.gif) center left no-repeat;
+	padding-left:20px;
+	padding-bottom: 1px;
+	line-height:1.85em;
+	}	
+	
+/*************************************
+MY REVIEWS / LISTING REVIEWS PAGE 
+*************************************/
+#jr_itemReviews .jr_pathway {
+	margin-bottom: 0;
+	}	
