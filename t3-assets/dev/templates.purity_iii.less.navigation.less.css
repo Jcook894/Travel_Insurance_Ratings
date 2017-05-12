@@ -1,0 +1,140 @@
+.caret {
+  margin-left: 5px;
+  margin-top: -2px;
+}
+.dropdown-menu {
+  padding: 0;
+  min-width: 200px;
+}
+.dropdown-menu .divider {
+  margin: 0;
+  height: 10px;
+  background-color: #373737;
+}
+.dropdown-menu > li {
+  border-top: 1px solid #515151;
+}
+.dropdown-menu > li:first-child {
+  border-top: 0;
+}
+.dropdown-menu > li > a {
+  padding: 10px 20px;
+}
+.dropdown-header {
+  padding: 3px 20px;
+  font-size: 14px;
+}
+.dropdown-header a {
+  color: #999999;
+}
+.dropdown-submenu > a:after {
+  border-left-color: #999999;
+}
+.dropdown-submenu:hover > a:after {
+  border-left-color: #ffffff;
+}
+.nav > li > .separator {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  line-height: 20px;
+}
+@media (min-width: 991px) {
+  .nav > li > .separator {
+    padding-top: 17.5px;
+    padding-bottom: 17.5px;
+  }
+}
+.nav-tabs {
+  border-bottom: 1px solid #eeeeee;
+}
+.nav-tabs > li > a {
+  padding: 10px;
+  line-height: normal;
+  border: 0;
+  text-transform: uppercase;
+}
+.nav-tabs > li > a:hover {
+  border: 0;
+  background: transparent;
+}
+.nav-tabs > li.active > a {
+  background: #444444;
+  border: 0;
+  color: #fff;
+  margin-bottom: 0;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  background: #444444;
+  border: 0;
+  color: #fff;
+}
+.tab-content {
+  padding: 10px 0;
+  border-top: 0;
+}
+.nav .caret {
+  border-top-color: #0077bb;
+  border-bottom-color: #0077bb;
+}
+.nav a:hover .caret {
+  border-top-color: #00466e;
+  border-bottom-color: #00466e;
+}
+.t3-navhelper {
+  background: #eeeeee;
+  color: #999999;
+  padding: 5px 0;
+}
+.breadcrumb {
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 0;
+}
+.breadcrumb > li + li:before {
+  content: "/\00a0";
+}
+.breadcrumb > li:nth-child(2):before {
+  content: "";
+}
+.breadcrumb > .active {
+  color: #999999;
+}
+.breadcrumb .divider {
+  display: none;
+}
+.pagination {
+  display: block;
+}
+.pagination:before,
+.pagination:after {
+  content: " ";
+  display: table;
+}
+.pagination:after {
+  clear: both;
+}
+@media screen and (min-width: 768px) {
+  .pagination {
+    float: left;
+  }
+}
+.pagination .pagination {
+  display: inline-block;
+}
+.counter {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 6px 12px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 0;
+}
+@media screen and (min-width: 768px) {
+  .counter {
+    float: right;
+  }
+}

@@ -1,0 +1,166 @@
+a {
+  color: #f8cf27;
+}
+a:hover {
+  color: #e5b907;
+}
+.sp-megamenu-parent >li.active>a {
+  background: #f8cf27;
+  color: #fff !important;
+}
+.sp-megamenu-parent >li:hover>a {
+  color: #f8cf27;
+}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item >a:hover {
+  background: #f8cf27;
+  color: #fff !important;
+}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item.active>a {
+  color: #fff !important;
+  background: #f8cf27;
+}
+#offcanvas-toggler >i {
+  color: #fff;
+}
+#offcanvas-toggler >i:hover {
+  color: #e6e6e6;
+}
+.btn-primary,
+.sppb-btn-primary {
+  background-color: #f8cf27;
+  color: #fff;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.sppb-btn-primary:hover,
+.sppb-btn-primary:focus,
+.sppb-btn-primary:active {
+  color: #fff;
+  background-color: #e5b907;
+  border-color: #826904;
+}
+.btn-secondary,
+.sppb-btn-secondary {
+  background-color: #0088CC;
+  color: #fff;
+}
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active,
+.sppb-btn-secondary:hover,
+.sppb-btn-secondary:focus,
+.sppb-btn-secondary:active {
+  color: #fff;
+  background-color: #006699;
+  border-color: #002233;
+}
+.btn-danger,
+.sppb-btn-danger {
+  background-color: #E98D2B;
+  color: #fff;
+}
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active,
+.sppb-btn-danger:hover,
+.sppb-btn-danger:focus,
+.sppb-btn-danger:active {
+  color: #fff;
+  background-color: #cc7315;
+  border-color: #6f3f0c;
+}
+.btn-info,
+.sppb-btn-info {
+  background-color: #00a4b0;
+  color: #fff;
+}
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active,
+.sppb-btn-info:hover,
+.sppb-btn-info:focus,
+.sppb-btn-info:active {
+  background-color: #00747d;
+}
+ul.social-icons >li a:hover {
+  color: #f8cf27;
+}
+.sp-page-title {
+  background: #f3f3f3;
+}
+.layout-boxed .body-innerwrapper {
+  background: #ffffff;
+}
+.sp-module ul >li >a {
+  color: #818c98;
+}
+.sp-module ul >li >a:hover {
+  color: #f8cf27;
+}
+.sp-module .latestnews >div >a {
+  color: #818c98;
+}
+.sp-module .latestnews >div >a:hover {
+  color: #f8cf27;
+}
+.sp-module .tagscloud .tag-name:hover {
+  background: #f8cf27;
+}
+.sp-simpleportfolio .sp-simpleportfolio-filter > ul > li.active > a,
+.sp-simpleportfolio .sp-simpleportfolio-filter > ul > li > a:hover {
+  background: #f8cf27;
+  color: #fff;
+}
+.search .btn-toolbar button {
+  background: #f8cf27;
+}
+.post-format {
+  background: #f8cf27;
+}
+.voting-symbol span.star.active:before {
+  color: #f8cf27;
+}
+.sp-rating span.star:hover:before,
+.sp-rating span.star:hover ~ span.star:before {
+  color: #e5b907;
+}
+.entry-link,
+.entry-quote {
+  background: #f8cf27;
+}
+blockquote {
+  border-color: #f8cf27;
+}
+.carousel-left:hover,
+.carousel-right:hover {
+  background: #f8cf27;
+}
+#sp-footer {
+  background: #f8cf27;
+}
+.sp-comingsoon body {
+  background-color: #f8cf27;
+}
+.pagination>li>a,
+.pagination>li>span {
+  color: #818c98;
+}
+.pagination>li>a:hover,
+.pagination>li>a:focus,
+.pagination>li>span:hover,
+.pagination>li>span:focus {
+  color: #818c98;
+}
+.pagination>.active>a,
+.pagination>.active>span {
+  border-color: #f8cf27;
+  background-color: #f8cf27;
+}
+.pagination>.active>a:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:hover,
+.pagination>.active>span:focus {
+  border-color: #f8cf27;
+  background-color: #f8cf27;
+}

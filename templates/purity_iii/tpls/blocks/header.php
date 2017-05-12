@@ -37,7 +37,7 @@ if (!$sitename) {
 			<!-- LOGO -->
 			<div class="logo logo-<?php echo $logotype ?>">
 				<div class="logo-<?php echo $logotype, ($logoimgsm ? ' logo-control' : '') ?>">
-					<a href="<?php echo JURI::base(true) ?>" title="<?php echo strip_tags($sitename) ?>">
+					<a href="<?php echo JURI::base(true) ?>" title="Travel Insurance Ratings">
 						<?php if($logotype == 'image'): ?>
 							<img class="logo-img" src="<?php echo JURI::base(true) . '/' . $logoimage ?>" alt="<?php echo strip_tags($sitename) ?>" />
 						<?php endif ?>

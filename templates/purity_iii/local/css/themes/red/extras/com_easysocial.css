@@ -1,0 +1,32 @@
+.com_easysocial .es-toolbar .es-navbar-search .search-query::-moz-placeholder {
+  color: #ffffff;
+}
+.com_easysocial .stream-meta {
+  margin-left: 0;
+  margin-right: 0;
+}
+.com_easysocial .stream-meta .stream-title .row-fluid {
+  margin-left: 0;
+  margin-right: 0;
+}
+.com_easysocial .stream-meta .stream-content .row-fluid {
+  margin-left: 0;
+  margin-right: 0;
+}
+.com_easysocial .es-stream-meta .es-stream-title .row-fluid {
+  margin-left: 0;
+  margin-right: 0;
+}
+.com_easysocial .dropdown-menu > li {
+  border: 0;
+}
+.com_easysocial #es .app-news .checkbox input[type="checkbox"] {
+  position: relative;
+  margin-left: 0;
+}
+#es .o-nav--block {
+  white-space: normal;
+}
+.es {
+  clear: both;
+}

@@ -1,0 +1,247 @@
+.page-header {
+  padding-bottom: 20px;
+  margin: 0 0 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+.page-title,
+.page-header h1 {
+  line-height: 1;
+  margin: 0;
+}
+.page-subheader {
+  border-bottom: 1px solid #eeeeee;
+  margin: 0 0 20px;
+  padding-bottom: 20px;
+}
+.page-subheader:before,
+.page-subheader:after {
+  content: " ";
+  display: table;
+}
+.page-subheader:after {
+  clear: both;
+}
+.page-subtitle,
+.page-subheader h2 {
+  line-height: 1;
+  margin: 0;
+}
+.page-header + .page-subheader {
+  margin-top: -20px;
+}
+.article-title h1 a:hover,
+.article-header h1 a:hover,
+.article-title h2 a:hover,
+.article-header h2 a:hover,
+.article-title h1 a:active,
+.article-header h1 a:active,
+.article-title h2 a:active,
+.article-header h2 a:active,
+.article-title h1 a:focus,
+.article-header h1 a:focus,
+.article-title h2 a:focus,
+.article-header h2 a:focus {
+  text-decoration: none;
+}
+.article-title,
+.article-header h1 {
+  margin: 0 0 20px 0;
+}
+@media screen and (max-width: 767px) {
+  .article-title,
+  .article-header h1 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 767px) {
+  h2.article-title,
+  .article-header h2 {
+    font-size: 24px;
+  }
+}
+.item-title {
+  font-weight: bold;
+}
+.jumbotron:before,
+.jumbotron:after {
+  content: " ";
+  display: table;
+}
+.jumbotron:after {
+  clear: both;
+}
+.jumbotron h1,
+.jumbotron h2,
+.jumbotron h3 {
+  margin-top: 0;
+}
+.jumbotron p {
+  color: #666666;
+}
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+.container .jumbotron {
+  border-radius: 0;
+}
+.jumbotron .btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.masthead {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+.masthead p:last-child {
+  margin-bottom: 0;
+}
+@media screen and (min-width: 992px) {
+  .masthead {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .masthead h1 {
+    font-size: 84px;
+  }
+  .masthead p {
+    font-size: 28px;
+  }
+  .masthead .btn-lg {
+    padding: 15px 40px;
+    font-size: 24px;
+  }
+}
+.jumbotron-primary {
+  background-color: #0077bb;
+}
+.jumbotron-primary h1,
+.jumbotron-primary h2,
+.jumbotron-primary h3 {
+  color: #ffffff;
+}
+.jumbotron-primary p {
+  color: #bbe6ff;
+}
+.jumbotron-primary .btn-primary {
+  border-color: #fff;
+}
+.page-masthead:before,
+.page-masthead:after {
+  content: " ";
+  display: table;
+}
+.page-masthead:after {
+  clear: both;
+}
+.page-masthead .jumbotron {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 0;
+  padding-right: 0;
+}
+@media screen and (max-width: 992px) {
+  .page-masthead .jumbotron {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .page-masthead .jumbotron .container {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .page-masthead .jumbotron {
+    padding-left: 20px;
+  }
+}
+.label {
+  border-radius: 0;
+}
+.label:empty {
+  display: none;
+}
+.badge:empty {
+  display: none;
+}
+.btn .badge {
+  position: relative;
+  top: -1px;
+}
+.page-header .label,
+.page-header .badge {
+  vertical-align: middle;
+}
+.thumbnail {
+  padding: 0;
+  margin-bottom: 40px;
+}
+.alert h4 {
+  color: inherit;
+}
+.media:first-child {
+  margin-top: 0;
+}
+.media-object {
+  display: block;
+}
+.media-heading {
+  margin: 0 0 5px;
+}
+.media > .pull-left {
+  margin-right: 10px;
+}
+.media > .pull-right {
+  margin-left: 10px;
+}
+.list-group-item > .badge {
+  float: right;
+}
+.list-group-item > .badge + .badge {
+  margin-right: 5px;
+}
+a.list-group-item.active .list-group-item-heading,
+a.list-group-item.active:hover .list-group-item-heading,
+a.list-group-item.active:focus .list-group-item-heading {
+  color: inherit;
+}
+a.list-group-item.active .list-group-item-text,
+a.list-group-item.active:hover .list-group-item-text,
+a.list-group-item.active:focus .list-group-item-text {
+  color: #88d4ff;
+}
+.panel-heading > .dropdown .dropdown-toggle {
+  color: inherit;
+}
+.panel-title > a {
+  color: inherit;
+}
+.modal-backdrop.fade {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.modal-backdrop.in {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.modal-header {
+  border-bottom: 0;
+  padding: 20px 40px 0;
+}
+.modal-title {
+  font-size: 35px;
+}
+.modal-body {
+  padding: 10px 40px 20px;
+}
+@media screen and (min-width: 768px) {
+  .modal-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+}

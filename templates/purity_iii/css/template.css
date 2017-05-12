@@ -716,6 +716,7 @@ input.invalid {
   border-left-color: #ffffff;
 }
 .nav > li > .separator {
+  font-size: 50px;
   position: relative;
   display: block;
   padding: 10px 15px;
