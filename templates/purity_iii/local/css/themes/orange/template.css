@@ -2596,7 +2596,7 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 .logo-text {
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 12px;
 }
 .logo-text a {
   line-height: 55px;
