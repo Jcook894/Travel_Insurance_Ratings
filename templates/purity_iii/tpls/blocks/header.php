@@ -21,7 +21,7 @@ if (!$sitename) {
 ?>
 
 <!-- MAIN NAVIGATION -->
-<header id="t3-mainnav" class="wrap navbar navbar-default navbar-fixed-top t3-mainnav">
+<header id="t3-mainnav" class="wrap navbar navbar-default navbar-fixed-top t3-mainnav" >
 
 	<!-- OFF-CANVAS -->
 	<?php if ($this->getParam('addon_offcanvas_enable')) : ?>
@@ -29,7 +29,7 @@ if (!$sitename) {
 	<?php endif ?>
 	<!-- //OFF-CANVAS -->
 
-	<div class="container">
+	<div class="container" style="color: red;">
 
 		<!-- NAVBAR HEADER -->
 		<div class="navbar-header">

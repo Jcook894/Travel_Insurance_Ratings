@@ -996,6 +996,7 @@ input.invalid {
   color: #ffffff;
 }
 .t3-mainnav {
+  color: red;
   border: 0;
   border-bottom: 1px solid #0067a2;
   margin-bottom: 0;

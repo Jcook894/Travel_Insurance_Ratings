@@ -856,7 +856,7 @@ input.invalid {
   border-color: #0067a2;
 }
 .navbar-default .navbar-text {
-  color: #bbe6ff;
+  color: red;
 }
 @media screen and (min-width: 991px) {
   .navbar-default .navbar-nav > li {
