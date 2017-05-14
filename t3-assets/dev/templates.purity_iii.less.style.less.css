@@ -58,6 +58,7 @@
 .logo-text {
   text-transform: uppercase;
   font-size: 12px;
+  background: #0067a2;
 }
 .logo-text a {
   line-height: 55px;
