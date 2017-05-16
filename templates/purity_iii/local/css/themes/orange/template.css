@@ -2545,7 +2545,6 @@ a.list-group-item.active:focus .list-group-item-text {
   margin: 0;
 }
 .logo a {
-  background: transparent;
   color: #fff;
   text-decoration: none;
   display: inline-block;
@@ -2556,16 +2555,12 @@ a.list-group-item.active:focus .list-group-item-text {
 .logo a:hover,
 .logo a:active,
 .logo a:focus {
-  background: #e67a00;
   color: #ffffff;
   text-decoration: none;
 }
 @media screen and (min-width: 991px) {
   .logo {
     position: static;
-  }
-  .logo a {
-    background: #e67a00;
   }
   .logo:hover a,
   .logo a:hover,
@@ -2597,7 +2592,6 @@ a.list-group-item.active:focus .list-group-item-text {
 .logo-text {
   text-transform: uppercase;
   font-size: 14px;
-  background: #e67a00;
 }
 .logo-text a {
   line-height: 55px;

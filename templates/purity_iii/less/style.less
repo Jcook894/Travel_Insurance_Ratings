@@ -29,7 +29,6 @@
   margin: 0;
 
   a {
-    background: transparent;
     color: #fff;
     text-decoration: none;
     display: inline-block;
@@ -41,7 +40,6 @@
   a:hover,
   a:active,
   a:focus {
-    background: @navbar-default-border;
     color: @navbar-default-link-hover-color;
     text-decoration: none;
   }
@@ -52,10 +50,7 @@
 @media screen and (min-width: @grid-float-breakpoint) {
   .logo {
     position: static;
-    a {
-      background: @navbar-default-border;
-    }
-
+    
     &:hover a,
     a:hover,
     a:active,
@@ -101,7 +96,6 @@
 .logo-text {
   text-transform: uppercase;
   font-size: @font-size-base;
-  background: @navbar-default-border;
 
   
   a {
