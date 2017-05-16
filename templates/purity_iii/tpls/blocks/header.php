@@ -29,7 +29,7 @@ if (!$sitename) {
 	<?php endif ?>
 	<!-- //OFF-CANVAS -->
 
-	<div class="container" style="color: red;">
+	<div class="container nav-container" style="color: red;">
 
 		<!-- NAVBAR HEADER -->
 		<div class="navbar-header">
