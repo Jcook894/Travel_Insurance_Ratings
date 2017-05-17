@@ -51,8 +51,9 @@
   display: none;
 }
 .logo-text {
+  font-family: Impact, Charcoal, sans-serif;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 18px;
 }
 .logo-text a {
   line-height: 55px;

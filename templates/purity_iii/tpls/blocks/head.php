@@ -17,6 +17,7 @@ defined('_JEXEC') or die;
 		@-ms-viewport       { width: device-width; }
 		@-o-viewport        { width: device-width; }
 		@viewport           { width: device-width; }
+
 	</style>
 	<script type="text/javascript">
 		//<![CDATA[
