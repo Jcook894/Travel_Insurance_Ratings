@@ -6,6 +6,7 @@
   margin: 0;
 }
 .logo a {
+  background: transparent;
   color: #fff;
   text-decoration: none;
   display: inline-block;
@@ -16,12 +17,16 @@
 .logo a:hover,
 .logo a:active,
 .logo a:focus {
+  background: #0067a2;
   color: #ffffff;
   text-decoration: none;
 }
 @media screen and (min-width: 991px) {
   .logo {
     position: static;
+  }
+  .logo a {
+    background: #0067a2;
   }
   .logo:hover a,
   .logo a:hover,
@@ -51,7 +56,6 @@
   display: none;
 }
 .logo-text {
-  font-family: Impact, Charcoal, sans-serif;
   text-transform: uppercase;
   font-size: 18px;
 }

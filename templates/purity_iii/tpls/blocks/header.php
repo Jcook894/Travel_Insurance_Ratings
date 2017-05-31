@@ -21,7 +21,7 @@ if (!$sitename) {
 ?>
 
 <!-- MAIN NAVIGATION -->
-<header id="t3-mainnav" class="wrap navbar navbar-default navbar-fixed-top t3-mainnav" >
+<header id="t3-mainnav" class="wrap navbar navbar-default navbar-fixed-top t3-mainnav">
 
 	<!-- OFF-CANVAS -->
 	<?php if ($this->getParam('addon_offcanvas_enable')) : ?>
@@ -29,7 +29,7 @@ if (!$sitename) {
 	<?php endif ?>
 	<!-- //OFF-CANVAS -->
 
-	<div class="container nav-container" style="color: red;">
+	<div class="container">
 
 		<!-- NAVBAR HEADER -->
 		<div class="navbar-header">
@@ -37,7 +37,7 @@ if (!$sitename) {
 			<!-- LOGO -->
 			<div class="logo logo-<?php echo $logotype ?>">
 				<div class="logo-<?php echo $logotype, ($logoimgsm ? ' logo-control' : '') ?>">
-					<a href="<?php echo JURI::base(true) ?>" title="Travel Insurance Ratings">
+					<a href="<?php echo JURI::base(true) ?>" title="<?php echo strip_tags($sitename) ?>">
 						<?php if($logotype == 'image'): ?>
 							<img class="logo-img" src="<?php echo JURI::base(true) . '/' . $logoimage ?>" alt="<?php echo strip_tags($sitename) ?>" />
 						<?php endif ?>

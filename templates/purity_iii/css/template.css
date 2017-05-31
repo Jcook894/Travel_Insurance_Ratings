@@ -716,7 +716,6 @@ input.invalid {
   border-left-color: #ffffff;
 }
 .nav > li > .separator {
-  font-size: 50px;
   position: relative;
   display: block;
   padding: 10px 15px;
@@ -996,7 +995,6 @@ input.invalid {
   color: #ffffff;
 }
 .t3-mainnav {
-  color: red;
   border: 0;
   border-bottom: 1px solid #0067a2;
   margin-bottom: 0;

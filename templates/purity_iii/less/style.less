@@ -29,6 +29,7 @@
   margin: 0;
 
   a {
+    background: transparent;
     color: #fff;
     text-decoration: none;
     display: inline-block;
@@ -40,6 +41,7 @@
   a:hover,
   a:active,
   a:focus {
+    background: @navbar-default-border;
     color: @navbar-default-link-hover-color;
     text-decoration: none;
   }
@@ -50,7 +52,10 @@
 @media screen and (min-width: @grid-float-breakpoint) {
   .logo {
     position: static;
-    
+    a {
+      background: @navbar-default-border;
+    }
+
     &:hover a,
     a:hover,
     a:active,
@@ -93,13 +98,10 @@
 
 // Logo Text
 // ----------
-
 .logo-text {
-  font-family: Impact, Charcoal, sans-serif;
   text-transform: uppercase;
   font-size: @font-size-large;
 
-  
   a {
     line-height: @navbar-height;
     padding: 0 @t3-global-padding;
