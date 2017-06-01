@@ -2556,7 +2556,7 @@ a.list-group-item.active:focus .list-group-item-text {
 .logo a:hover,
 .logo a:active,
 .logo a:focus {
-  background: #b30000;
+  background: #ffcccc;
   color: #ffffff;
   text-decoration: none;
 }
@@ -2571,7 +2571,7 @@ a.list-group-item.active:focus .list-group-item-text {
   .logo a:hover,
   .logo a:active,
   .logo a:focus {
-    color: #ffffff;
+    color: #ffcccc;
   }
 }
 .off-canvas-toggle + .container .navbar-header .logo {

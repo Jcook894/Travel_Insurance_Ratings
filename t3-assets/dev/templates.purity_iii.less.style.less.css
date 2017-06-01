@@ -17,7 +17,7 @@
 .logo a:hover,
 .logo a:active,
 .logo a:focus {
-  background: #0067a2;
+  background: #bbe6ff;
   color: #ffffff;
   text-decoration: none;
 }
@@ -32,7 +32,7 @@
   .logo a:hover,
   .logo a:active,
   .logo a:focus {
-    color: #ffffff;
+    color: #bbe6ff;
   }
 }
 .off-canvas-toggle + .container .navbar-header .logo {
