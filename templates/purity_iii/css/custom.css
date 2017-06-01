@@ -54,6 +54,22 @@ background-color: #474443;
 
 
 }
+table{
+  opacity: 0.95 !important;
+  width: 85% !important;
+}
+
+th, td{
+  text-align: center !important;
+  padding: 20px !important;
+}
+
+.editors-article{
+  padding: 2px !important;
+  overflow: scroll !important;
+  font-size: 1.5em !important;
+}
+
 
 
 

@@ -1,0 +1,14 @@
+table{
+  opacity: 0.95 !important;
+  width: 85% !important;
+}
+
+th, td{
+  text-align: center !important;
+}
+
+.editors-article{
+  padding: 2px !important;
+  overflow: auto;
+  font-size: 1.5em;
+}
