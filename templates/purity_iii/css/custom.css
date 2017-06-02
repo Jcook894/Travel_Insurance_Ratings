@@ -56,18 +56,23 @@ background-color: #474443;
 }
 table{
   opacity: 0.95 !important;
-  width: 85% !important;
+  width: 100% !important;
+  font-size: 1.7em !important;
+}
+
+td{
+ width: 15px !important;
 }
 
 th, td{
   text-align: center !important;
-  padding: 20px !important;
+  padding: 5px !important;
+  width: 10px !important;
 }
 
 .editors-article{
-  padding: 2px !important;
+  width: 100% !important;
   overflow: scroll !important;
-  font-size: 1.5em !important;
 }
 
 
@@ -90,5 +95,6 @@ th, td{
 }
 
 .t3-footer{
+  background: white;
   width: 100% !important;
 }
