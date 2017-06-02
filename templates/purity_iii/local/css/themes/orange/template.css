@@ -905,7 +905,7 @@ input.invalid {
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-  background: #e67a00;
+  background: white;
   color: #ffffff;
 }
 .navbar-default .navbar-toggle .icon-bar,

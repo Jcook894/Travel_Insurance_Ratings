@@ -1,13 +1,32 @@
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background: #474443;
+    color: #ffffff;
+}
+
+.navbar-default .navbar-toggle .icon-bar, .navbar-default .navbar-toggle .fa-bars {
+    background-color: transparent;
+    color: white;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+     border-color: white !important; 
+}
+
+.t3-mainnav .t3-navbar-collapse .navbar-nav > li > a {
+  border-top: 0.5px solid white !important;
+}
+
 navbar-default{
- border-color: #474443;  
+ border-color: white;  
 }
 
 .t3-mainnav{
-  border-bottom: #474443;
+  border-bottom:  #474443;
 }
 
 .navbar-default .navbar-nav > li > a {
   color: white !important;
+  border-bottom: white;
 }
  
 
