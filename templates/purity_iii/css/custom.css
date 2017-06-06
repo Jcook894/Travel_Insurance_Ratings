@@ -24,6 +24,13 @@
     color: #ffffff;
     background-color: #6B6C69;
 }
+  
+  .review-img{
+    text-align: center;
+    width: 200px !important;
+    height: auto;
+    margin: auto;
+  }
 }
 .dropdown{
   background: #474443;
