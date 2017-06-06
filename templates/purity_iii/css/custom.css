@@ -99,13 +99,12 @@ background-color: #474443;
 .img-slider{
   height: 35% !important;
   width: 100% !important;
-  margin-top: -50px;
+  margin-top: -40px;
   margin-right: -100px;
   overflow: hidden;
  
-
-
 }
+
 table{
   opacity: 0.95 !important;
   width: 100% !important;
