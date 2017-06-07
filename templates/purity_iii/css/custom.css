@@ -120,7 +120,8 @@ th, td{
     padding: 5px;
   text-align: center !important;
   padding: 5px !important;
-  width: 30% !important;
+  width: 15% !important;
+  font-size: 15px !important;
 }
 
 .editors-article{
