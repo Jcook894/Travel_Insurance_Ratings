@@ -3,6 +3,16 @@
     color: #ffffff;
 }
 
+.page-title{
+  font-family: "Impact", cursive, sans-serif;
+  font-size: 4em;
+  color: black;
+  text-align: center;
+}
+
+.page-subheader{
+  text-align: center;
+}
 
 
 .table-text{
@@ -10,6 +20,10 @@
 }
 
 @media (max-width: 991px){
+  .page-title{
+  font-size: 3em;  
+  }
+  
   .navbar-default .navbar-nav .open .dropdown-menu > li {
     border-top-color: white;
   }
