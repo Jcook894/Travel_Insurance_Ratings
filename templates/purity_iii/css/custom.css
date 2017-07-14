@@ -1,3 +1,16 @@
+.value-lvl{
+  text-align: center;
+}
+
+th{
+  text-align: center;
+}
+
+.table-padding{
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
     background: #474443;
     color: #ffffff;
@@ -133,28 +146,7 @@ background-color: #474443;
  
 }
 
-table{
-  opacity: 0.95 !important;
-  width: 95% !important;
-  font-size: 1.7em !important;
-}
 
-td{
- width: 15px !important;
-}
-
-th, td{
-  height: auto;
-  text-align: center !important;
-  padding: 2px !important;
-  width: 15% !important;
-  font-size: 15px !important;
-}
-
-.editors-article{
-  width: 100% !important;
-  overflow: scroll !important;
-}
 
 
 
